@@ -11,7 +11,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'admin', pathMatch: 'full'},
-  {path: 'admin', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'client', component: ClientComponent},
   {path: 'clients', component: ClientsComponent},
   {path: 'client-detail', component: ClientDetailComponent},
