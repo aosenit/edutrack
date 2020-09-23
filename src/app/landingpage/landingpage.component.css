@@ -1,0 +1,117 @@
+#landingpage {
+    margin-top: -73px;
+    background: url('../../assets/images/baner.png');
+    height: 99vh;
+    background-size: cover;
+    background-position: top center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+}
+
+.btn-outline-orange {
+    border: 1px solid #FB882C;
+    box-sizing: border-box;
+    border-radius: 1px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FB882C;
+}
+
+.btn-orange-two {
+    background: #FB882C;
+    box-shadow: 0px 10px 20px rgba(255, 55, 51, 0.17);
+    border-radius: 1px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.features {
+    background: #FFF4EB;
+    height: 73px;
+    width: 67px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#products {
+    margin-top: -23px;
+    background: url('../../assets/images/bg-kid.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 20%;
+}
+
+#products .inn {
+    background: url('../../assets/images/svg/bg-green.svg');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 40%;
+}
+#faq {
+    margin-top: -23px;
+    background: url('../../assets/images/bg-faq.png');
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    background-size: 32%;
+}
+
+#faq .inn {
+    background: url('../../assets/images/svg/bg-pink.svg');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 42%;
+}
+
+.card {
+    background: #FFFFFF;
+    box-shadow: 0px 7px 15px rgba(204, 204, 204, 0.17);
+    border: none;
+    margin-bottom: 5px;
+}
+
+.card-header {
+    background: #FFFFFF;
+    border: none;
+}
+
+.card-header:hover {
+    cursor: pointer;
+}
+
+.card-body {
+    border-top: 1px solid #FB882C;
+}
+
+.card-header[data-toggle="collapse"]:before {
+    font-family: FontAwesome;
+    content: '\f107';
+    position: absolute;
+    color: #014D94;
+    transition: .3s ease-in-out;
+}
+
+.card-header[data-toggle="collapse"].collapsed:before {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+@media(max-width: 344px){
+    #products, #faq{
+        background: unset;
+    }
+}

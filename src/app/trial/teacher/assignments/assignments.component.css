@@ -1,0 +1,154 @@
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  a {
+    color: #1b5bac;
+    font-weight: normal;
+    cursor: pointer;
+  }
+  .breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #1b5bac;
+    content: ">";
+    font-size: 10px;
+    display: none;
+  }
+
+  .search {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+  .has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+input[type="text"] {
+  width: 125%;
+}
+
+
+
+/* ================= table ====================== */
+table.client-table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+  }
+
+
+.list .table thead {
+  color: #4c75bd;
+
+}
+.list .table thead tr th {
+  font-weight: 600;
+}
+
+.list .table thead .head {
+  /* display: flex;
+  align-items: center;
+  color: #0a1128;
+  font-weight: 600; */
+  padding-left: 3.5rem;
+}
+.list .table tbody .school-logo {
+  /* display: flex;
+    align-items: center; */
+  color: #0a1128;
+  font-weight: 600;
+  padding-left: 1.5rem;
+  padding-left: 3.5rem;
+  position: relative;
+  opacity: none;
+}
+.list .table tbody .school-logo span {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+}
+
+.list .table th,td {
+  padding:  15px;
+}
+
+.list .table tbody tr {
+  background: #ffffff;
+  box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
+  border-radius: 5px;
+}
+.list .table tbody td:not(:first-child) {
+  color: #0a1128;
+  /* opacity: 0.6; */
+}
+
+.list .table tbody .grade {
+    background: #219653;
+    border-radius: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 16px;
+}
+.list .table tbody .status_graded {
+  background: #e0fff7;
+  border-radius: 10px;
+  color: #09b78a;
+  font-weight: 600;
+  width: 110px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 40px;
+}
+.list .table tbody .status_pending {
+    background: #f8dcc2;
+  border-radius: 10px;
+  color: #fb7b04;
+  font-weight: 600;
+  width: 110px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 40px;
+}
+.list .table tbody .status_submitted {
+    background: #eaf0ff;
+  border-radius: 10px;
+  color: #0052B4;
+  font-weight: 600;
+  width: 110px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 40px;
+}

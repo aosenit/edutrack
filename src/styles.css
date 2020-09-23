@@ -1,0 +1,204 @@
+@font-face {
+    font-family: Avenir;
+    src: url('assets/fonts/avenir/Avenir Roman.otf');
+}
+
+/* fonts */
+.quicklink:hover{
+    cursor: pointer; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fc-dark{
+    color: #0A1128;
+}
+.fc-lblue{
+    color: #014D94;
+}
+.bg-lblue {
+    color: #FFFFFF ;
+    background: #014D94;
+}
+
+.bg-orange {
+    background: #FB7B04;
+    color: #FFFFFF;
+}
+.fc-grey{
+    color: #E8E8E8;
+}
+.fc-grey1{
+    color:  rgba(148, 179, 209, 0.4);
+}
+.fc-grey2{
+    color: #E0E0E0;
+}
+.fc-yellow{
+    color: #FFCA3A;
+}
+.fc-orange{
+    color: #FB882C;
+}
+
+.ff-n{
+    font-family: nunito;
+}
+.ff-a{
+    font-family: avenir;
+}
+.fs-s{
+    font-family: Source sans pro;
+}
+
+.ls-7{
+    letter-spacing: .7px;
+    font-style: normal;
+}
+
+.fw-5{
+    font-weight: 500;
+}
+.fw-6{
+    font-weight: 600;
+}
+.fw-7{
+    font-weight: 700;
+}
+.fw-8{
+    font-weight: 800;
+}
+.fw-9{
+    font-weight: 900;
+}
+
+.fw-bold{
+    font-weight: bold;
+}
+
+.fs-10{
+    font-size: 10px;
+    /* line-height: 16px; */
+}
+.fs-12{
+    font-size: 12px;
+    line-height: 16px;
+}
+.fs-14{
+    font-size: 14px;
+    line-height: 19px;
+}
+.fs-16{
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+.fs-32{
+    font-size: 32px;
+    line-height: 44px;
+}
+.fs-30{
+    font-size: 30px;
+    line-height: 41px;
+}
+.fs-48{
+    font-size: 48px;
+    line-height: 65px;
+}
+
+.br-10 {
+    border-radius: 10px;
+}
+
+/* containers /divs */
+.whitediv{
+    background: #FFFFFF;
+    box-shadow: 0px 20px 50px #0D2944;
+    border-radius: 10px;
+}
+.bg-dark{
+    background: #171F2B;
+}
+
+/* buttons */
+.btn-orange{
+    background: #FB882C;
+    height: 48px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    border-radius: 5px;
+
+}.btn-orange:hover{
+    color: #FFFFFF;
+    background: #FB883C;
+}
+
+
+
+/* forms  */
+.reg-form{
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid #A3BBD1;
+    box-sizing: border-box;
+    backdrop-filter: blur(6px);
+    height: 48px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16.002px;
+    line-height: 22px;
+    color: #0A1128;
+    border-radius: 3px;
+}.form-control.reg-form:focus{
+    background: #EBF0F5;
+    border: 1px solid #0281F8;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 10px rgba(60, 96, 157, 0.2);
+    border-radius: 3px;
+    transition: .3s ease-in-out;
+}
+.demo-form{
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid #D7D7D7;
+    box-sizing: border-box;
+    backdrop-filter: blur(6px);
+    height: 48px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16.002px;
+    line-height: 22px;
+    color: #0A1128;
+    border-radius: 3px;
+}.form-control.demo-form:focus{
+    background: #EBF0F5;
+    border: 1px solid #0281F8;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 10px rgba(60, 96, 157, 0.2);
+    border-radius: 3px;
+    transition: .3s ease-in-out;
+}
+.demo-form::placeholder{
+    color: #C3C2C2;
+}
+@media(max-width: 768px){
+    .fs-30{
+        font-size: 24px;
+        line-height: 30px;
+    }
+}

@@ -1,0 +1,47 @@
+<div class="top">
+    <div class="container">
+        <div class="d-flex justify-content-end">
+            <button class="btn login-button px-3 mr-3" routerLink="/login">
+                School login
+            </button>
+            <button class="btn login-button px-3" routerLink="/forgotpassword">
+                Create Account
+            </button>
+        </div>
+    </div>
+</div>
+<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets/images/svg/logo.svg" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto">
+                <li class="nav-item mx-2 mt-lg-2 active">
+                    <a class="nav-link quicklink" [routerLink]="['/']" routerLinkActive="active" href="#">Home</a>
+                </li>
+                <li class="nav-item mx-2 mt-lg-2">
+                    <a class="nav-link quicklink" [routerLink]="['/aboutus']" routerLinkActive="active" href="#">About Us</a>
+                </li>
+                <li class="nav-item mx-2 mt-lg-2">
+                    <a class="nav-link quicklink" [routerLink]="['/productfeatures']" routerLinkActive="active" href="#">Product features</a>
+                </li>
+                <li class="nav-item mx-2 mt-lg-2">
+                    <a class="nav-link quicklink" [routerLink]="['/FAQs']" routerLinkActive="active" href="#">FAQs</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a routerLink="/demo" href="#">
+                        <button class="btn btn-outline-orange my-2 my-sm-0" type="submit">Request a demo</button>
+                    </a>
+                </li>
+                
+            </ul>
+            
+        </div>
+    </div>
+</nav>

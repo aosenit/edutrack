@@ -1,0 +1,257 @@
+<header class="main-head sticky-top py-lg-2">
+    <div class="container-fluid">
+        <div class="row lang d-flex justify-content-between align-items-center">
+            <div class=" d-flex pl-4">
+                <img src="assets/images/svg/flask.svg" alt="new client" class="">
+                <p class="mb-0 ml-3">AMERICAN <br> INTERNATIONAL</p>
+                
+            </div>
+            <div class="header-items">
+                <a href="#" [routerLink]="['/student', 'dashboard']" [routerLinkActive]="['active']"> Dashboard</a>
+                <a href="#"> Assignment</a>
+                <a href="#"> Class Schedule</a>
+                <a href="#"> Score Sheet</a>
+                <a href="#"> File Manager</a>
+                <a href="#"> Library</a>
+                
+            </div>
+            
+                <div class="d-flex row align-center justify-content-end align-items-center ">
+                        <img src="assets/images/svg/student-img-nav.svg" alt="new client" class="mr-2">
+                        <div class="info">
+                            <p class="mb-0">Adeyemi Samuel</p>
+                            <small>HIS/ST/2020/0001</small>
+                        </div>
+                        <img src="assets/images/svg/caret.svg" alt="country flag" class="ml-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <!-- ================ DROPDOWN ==================== -->
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#"><img src="assets/images/svg/profile-pop.svg" alt="new client" class="pr-2 mb-2"> Profile </a>
+                            <a class="dropdown-item" href="#"><img src="assets/images/svg/logout-pop.svg" alt="new client" class="pr-2 mb-2"> Logout </a>
+                          </div>
+                        
+
+                       
+                </div>
+        </div>
+    </div>
+</header>
+
+<main >
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-md-9 pt-5 pl-5 pr-4 ">
+                <div class="profile mb-5">
+                    <div class="profile__student bg-white p-4">
+                        <div class="d-flex mb-5">
+                            <img src="assets/images/svg/student-img.svg" alt="new client" class="">
+                            <div class="ml-3">
+                                <p class="mb-0 fw-6">Samuel Adeyemi</p>
+                                <p class="mb-0">AMT/2019/001</p>
+                                <p class="mb-0 fc-lblue">Student</p>
+                            </div>
+                        </div>
+                        <button class="bg-lblue btn-block  btn-student p-2">View Profile</button>
+                    </div>
+                    
+                    <div class="profile__hero">
+                        <div class="profile__hero--intro bg-white br-10 pt-4 pb-2 px-3 mb-3">
+                            <h5 class="fs-32 fc-lblue intro-text">Hello Samuel!</h5>
+                            <p>It’s good to see you again. You have <span class="pending fw-bold">2</span> pending assignments, <span class="overdue fw-bold">4</span> overdue <br> assigments and <span class="book fw-bold">1</span> book overdue for return to the library.</p>
+                            <img src="assets/images/svg/student-hero.svg" alt="student hero welcomr image" class="student-hero">
+                        </div>
+                        <div class="profile__cards">
+                            <div class="card1 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card">
+                                <img src="assets/images/svg/class.svg" alt="student card" class="mr-2">
+                                <p class="mb-0 fw-6">Class </p>
+                            </div>
+                            <div class="card2 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card">
+                                <img src="assets/images/svg/assignment.svg" alt="student card" class="mr-2">
+                                <p class="mb-0 fw-6">Assignment</p>
+                            </div>
+                            <div class="card3 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card">
+                                <img src="assets/images/svg/note.svg" alt="student card" class="mr-2">
+                                <p class="mb-0 fw-6">Class Notes</p>
+                            </div>
+                            <div class="card4 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card">
+                                <img src="assets/images/svg/medical.svg" alt="student card" class="mr-2">
+                                <p class="mb-0 fw-6">Medical Record</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="information mb-4">
+                    <div class="information__schedule information-card-style p-4 pt-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="d-flex">
+                                <img src="assets/images/svg/access_time.svg" alt="new client" class="mr-3">
+                                <h6 class="fw-6 mb-0">My Schedule</h6>
+                            </div>
+                            <div>
+                                <form>
+                                    <select class="form-control">
+                                        <option value="today">Today</option>
+                                    </select>
+                                </form>
+                            </div>
+    
+                        </div>
+
+                        <div class="date-picker mb-4 py-2 px-3 d-flex align-items-center justify-content-between">
+
+                            <p class="mb-0">Mon</p>
+                            <p class="mb-0">Tue</p>
+                            <p class="mb-0"><span class="today">Wed</span></p>
+                            <p class="mb-0">Thur</p>
+                            <p class="mb-0">Fri</p>
+                            
+                        </div>
+                        <p class="fw-6 mb-4">3 classes today</p>
+
+                        <div class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center"  >
+                            <div class="">
+                                <p class="fw-6 mb-0">English Language</p>
+                                <div class="d-flex">
+                                    <img src="assets/images/svg/student-time-1.svg" alt="student" class="mr-2">
+
+                                    <p class="mb-0 fs-12 fw-6">08:00 - 09:00 </p>
+                                </div>
+                            </div> 
+                            <div class="d-flex">
+                                <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4">
+
+                            </div>
+                        </div>
+
+                        <div class="px-4 py-2 mb-4 bg-grey class br-10 d-flex justify-content-between align-items-center"  >
+                            <div class="">
+                                <p class="fw-6 mb-0">Mathematics</p>
+                                <div class="d-flex">
+                                    <img src="assets/images/svg/student-time.svg" alt="student" class="mr-2">
+                                    <p class="mb-0  fs-12 fw-6">09:00 - 10:00 </p>
+                                </div>
+                            </div> 
+                            <div class="d-flex">
+                                <img src="assets/images/svg/class-period.svg" alt="student" class="ml-4">
+
+                            </div>
+                        </div>
+
+                        <div class="px-4 py-2 mb-4 bg-grey class br-10 d-flex justify-content-between align-items-center"  >
+                            <div class="">
+                                <p class="fw-6 mb-0">Basic Science</p>
+                                <div class="d-flex">
+                                    <img src="assets/images/svg/student-time.svg" alt="student" class="mr-2">
+                                    <p class="mb-0 fs-12 fw-6">08:00 - 09:00 </p>
+                                </div>
+                            </div> 
+                            <div class="d-flex">
+                                <img src="assets/images/svg/class-period2.svg" alt="student" class="ml-4">
+
+                            </div>
+                        </div>
+    
+                        
+                    </div>
+
+                    <div class="information__notification information-card-style p-4 pt-4">
+                        <div class="d-flex mb-4">
+                            <img src="assets/images/svg/notifications_24px.svg" alt="new client" class="mr-3">
+                            <h6 class="fw-6 mb-0">Notification</h6>
+    
+                        </div>
+
+                        <div class="d-flex justify-content-between pb-2 mb-3 notification-card">
+                            <p class="fs-14 mb-0">Your Maths assignment has <br> been graded</p>
+                            <p class="fs-10">2 mins ago</p>
+                        </div>
+                        <div class="d-flex justify-content-between pb-2 mb-3 notification-card">
+                            <p class="fs-14 mb-0">You have 2 assignments pending</p>
+                            <p class="fs-10">2 mins ago</p>
+                        </div>
+                        <div class="d-flex justify-content-between pb-2 mb-3 notification-card">
+                            <p class="fs-14 mb-0">You have 2 assignments pending</p>
+                            <p class="fs-10">2 mins ago</p>
+                        </div>
+
+
+                        <div class="d-flex justify-content-center align-items-end">
+                            <span>See all</span>
+                        </div>
+                    </div>
+
+                    <div class="information__other ">
+                        <div class="sheet information-card-style p-4 mb-3">
+
+                            <div class="d-flex justify-content-between mb-4">
+                                <div class="d-flex align-items-center">
+                                    <img src="assets/images/svg/sheet.svg" alt="new client" class="mr-3">
+                                    <h6 class="fs-18 b-0 fw-bold mb-0">Score Sheet</h6>
+                                </div>
+                                <span class="px-3 py-2 fs-10">See all</span>
+        
+                            </div>
+
+                            <div class="mb-5 subject1">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <p class="mb-0 fs-12 fw-6">Maths Test</p>
+                                    <p class="mb-0 fs-12 fw-6"> 94% </p>
+                                </div>
+                                <div class="percentage mb-4"></div>
+                            </div>
+                            <div class="mb-5 subject2">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <p class="mb-0 fs-12 fw-6">Business Studies Assignment</p>
+                                    <p class="mb-0 fs-12 fw-6"> 91% </p>
+                                </div>
+                                <div class="percentage"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="library information-card-style p-4">
+
+                            <div class="d-flex justify-content-between mb-4">
+                                <div class="d-flex align-items-center">
+                                    <img src="assets/images/svg/library.svg" alt="new client" class="mr-3">
+                                    <h6 class="fs-18 b-0 fw-bold">Library</h6>
+                                </div>
+                                <span class="px-3 py-2 fs-10">See all</span>
+        
+                            </div>
+
+                            <div class="mb-3  library-notes note1  py-3">
+                                <div class="d-flex justify-content-between align-items-center  pl-3 pr-2">
+                                    <p class="mb-0 fs-14 fw-6">Encyclopedia</p>
+                                    <span class="overdue fs-12 px-2 py-1">Overdue</span>
+                                </div>
+
+                            </div>
+                            <div class="mb-3   library-notes note2  py-3">
+                                <div class="d-flex justify-content-between align-items-center pl-3 pr-2">
+                                    <p class="mb-0 fs-14 fw-6">New English For Junior <br> Secondary School 3</p>
+                                    <span class="overdue fs-12 px-2 py-1">Overdue</span>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 bg-white notice-board">
+                <h5 class="fc-lblue mt-4 ">2nd term 2019/2020 Session</h5>
+                <div class="notice-board-card ml-2 mr-3 mt-5 p-3 br-10">
+                    <div class="d-flex mb-3"> 
+                        <img src="assets/images/svg/notice-board.svg" alt="new client" class="mr-4">
+                        <p class="fw-6 mb-0">Announcement</p>
+                    </div>
+                    <div class="d-flex mb-3"> 
+                        <p class="fw-6"><span class=" fw-6 fs-20">20</span> days to Exam</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
