@@ -1,0 +1,187 @@
+#announcement {
+    position: fixed;
+    height: 100vh;
+    z-index: 9;
+    margin: 0 auto;
+    right: -81px;
+    margin-right: auto;
+}
+
+.profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2rem;
+    font-family: Nunito;
+
+}
+
+
+.profile .profile__teacher {
+    border: 0.5px solid #BED0E4;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 21px rgba(119, 119, 119, 0.21);
+    border-radius: 10px;
+}
+
+.profile .profile__teacher .btn-teacher {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.profile .profile__summary {
+    border: 0.5px solid #BED0E4;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 21px rgba(119, 119, 119, 0.21);
+    border-radius: 10px;
+    background: #FB7B04;
+}
+
+.profile .profile__summary .btn-teacher {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.profile .profile__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+}
+
+.profile .profile__cards .profile__cards--card {
+    border-radius: 10px;
+}
+
+.classes {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    grid-gap: 2rem;
+    font-family: Nunito;
+
+}
+
+.classes .classes__upcoming,
+.classes__notification {
+    background: #FFFFFF;
+    border: 0.5px solid #BED0E4;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 8px rgba(119, 119, 119, 0.21);
+    border-radius: 10px;
+}
+
+.classes__upcoming .class {
+    cursor: pointer;
+}
+
+.classes__upcoming .bg-classes-white {
+    background: #FFFFFF;
+    border: 1px solid #BED0E4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.classes__notification .notification-card {
+    border-bottom: 1px solid #BED0E4;
+}
+
+.classes__notification .assignment-file {
+    background: #FFFFFF;
+    border: 0.5px solid #FB7B04;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.pop-card {
+    position: relative;
+}
+
+
+
+.pop-card-holder {
+    position: absolute;
+    top: -35px;
+    right: -479px;
+    width: 98%;
+    background: #0052B4;
+    color: #FFFFFF;
+    font-family: nunito;
+    border-radius: 10px;
+    z-index: 999;
+    display: none;
+
+}
+
+
+.pop-card-holder::before {
+    content: '';
+    position: absolute;
+    top: 56px;
+    left: -23px;
+    width: 25px;
+    height: 45px;
+    margin: .3rem 0;
+    clip-path: polygon(100% 19%, 1% 45%, 100% 75%);
+    background: #0052B4;
+}
+
+.show-pop {
+    display: block;
+}
+
+.pop-card-holder .images {
+    position: relative;
+    width: 120px;
+}
+
+.pop-card-holder .caption {
+    color: #D1D9DF;
+}
+
+.images .student-img {
+    position: absolute;
+    top: -16px;
+    left: 0;
+    z-index: 999;
+}
+
+.images .student-img2 {
+    position: absolute;
+    top: -16px;
+    left: 28px;
+    z-index: 99;
+}
+
+.images .student-img3 {
+    position: absolute;
+    top: -16px;
+    left: 56px;
+    z-index: 9;
+}
+
+.images .student-img4 {
+    position: absolute;
+    top: -16px;
+    left: 84px;
+}
+
+
+
+.notice-board {
+    position: relative;
+    z-index: 89;
+}
+
+
+
+.notice-board .notice-board-card {
+    background: #FFFFFF;
+    border: 1px solid #BED0E4;
+    box-sizing: border-box;
+    height: 170px;
+    width: 255px;
+    z-index: 9009;
+}
