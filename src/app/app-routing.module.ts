@@ -13,14 +13,15 @@ const routes: Routes = [
   {path: 'aboutus', component: AboutComponent},
   {path: 'productfeatures', component: ProductsComponent},
   {path: 'FAQs', component: FaqsComponent},
-  {path: '', loadChildren: () => import('./auth/auth.module').then(m=>m.AuthModule)},
-  {path: 'main', loadChildren: () => import('./main/main.module').then(m=>m.MainModule)},
-  {path: 'test', loadChildren: () => import('./trial/trial.module').then(m=>m.TrialModule)},
+  {path: '', loadChildren: () => import('./authentication/authentication.module').then(m=>m.AuthenticationModule)},
+  {path: 'admin', loadChildren: () => import('./global-admin/global-admin.module').then(m => m.GlobalAdminModule)},
+  {path: 'school', loadChildren: () => import('./school/school.module').then(m=>m.SchoolModule)},
+  {path: 'teacher', loadChildren: () => import('./teacher/teacher.module').then(m=>m.TeacherModule)},
   {path: 'student', loadChildren: () => import('./student/student.module').then(m=>m.StudentModule)},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

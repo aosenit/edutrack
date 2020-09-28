@@ -1,0 +1,203 @@
+.main .banner {
+    width: 100%;
+    background-image: url("../../../assets/images/svg/user-role.svg");
+    background-color: #1d4e4d;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1.5rem;
+    color: #ffffff;
+
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    backdrop-filter: opacity(.4);
+}
+
+.banner__text-primary {
+    font-size: 36px;
+}
+
+.btn-orange-two {
+    background: #fb882c;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #ffffff;
+}
+
+
+/* ==================== Search ==================== */
+
+.search {
+    display: flex;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #0A1128;
+    font-weight: 600;
+    background: #FBF2EB;
+    border-bottom: 2px solid #EB6B04;
+    ;
+    font-weight: 600;
+    border-radius: 0;
+    padding: 8px 35px;
+}
+
+.nav-pills .nav-link,
+.nav-pills .show>.nav-link {
+    color: #0a1128;
+    /* opacity: 0.6; */
+}
+
+
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+
+
+
+
+/* ================= table ====================== */
+table.client-table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+.list .table thead {
+    color: #4c75bd;
+}
+
+.list .table thead tr th {
+    font-weight: 600;
+}
+
+.list .table thead .head {
+    /* display: flex;
+      align-items: center;
+      color: #0a1128;
+      font-weight: 600; */
+    padding-left: 3.5rem;
+}
+
+.list .table tbody .user {
+    display: flex;
+    align-items: center;
+    color: #0a1128;
+    font-weight: 600;
+    padding-left: 1.5rem;
+    padding-left: 3.5rem;
+    position: relative;
+    opacity: none;
+}
+
+.list .table tbody .user span {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+}
+
+.list .table tbody .user div p,
+h6 {
+    margin-bottom: .1rem;
+}
+
+.list .table tbody .user div h6 {
+    color: #355691;
+    font-size: 14px;
+}
+
+.list .table tbody .user div p {
+    color: #0a1128;
+    opacity: 0.6;
+    font-size: 14px;
+}
+
+.list .table tbody tr {
+    background: #ffffff;
+    box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
+    border-radius: 5px;
+}
+
+.list .table tbody td:not(:first-child) {
+    color: #0a1128;
+    opacity: 0.6;
+}
+
+.list .table tbody .status_active {
+    background: #ebfffa;
+    border-radius: 10px;
+    color: #09b78a;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+.list .table tbody .status_inactive {
+    background: #fae5e7;
+    border-radius: 10px;
+    color: #d72638;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+.btn-link {
+    color: #014d94;
+    opacity: 0.6;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0;
+}
+
+#pills-profile .user,
+#pills-profile .action {
+    color: #355691;
+
+
+}
+
+#pills-profile .action {
+
+    color: #355691;
+    opacity: inherit;
+
+}
+
+#pill-profile table tr,
+td {
+    padding: 20px;
+}

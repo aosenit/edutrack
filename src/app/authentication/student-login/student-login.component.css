@@ -1,0 +1,27 @@
+.login {
+    background-image: url('../../../assets/images/svg/student-login-bg.svg');
+    background-size: cover;
+    min-height: 93vh;
+
+}
+
+.whitediv {
+    margin-top: 6rem !important;
+}
+
+.btn-blue {
+    background: #0052B4;
+    color: #ffffff;
+    height: 48px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.foot {
+    height: 7vh;
+}
