@@ -12,4 +12,9 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  showPop() {
+    const popcard = document.querySelector('.pop-card-holder');
+    popcard.classList.toggle('show-pop');
+  }
+
 }

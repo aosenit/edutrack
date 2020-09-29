@@ -11,5 +11,13 @@ export class NewClientComponent implements OnInit {
 
   ngOnInit() {
   }
+  nextModal() {
+    document.getElementById('exampleModalCenter2').click();
+
+  }
+
+  contactPersonModal() {
+    document.getElementById('exampleModalCenter3').click();
+  }
 
 }

@@ -144,6 +144,10 @@ border: 0.5px solid #ABC3DF;
 border-radius: 10px;
 }
 
+.information .information__schedule {
+    cursor: pointer;
+}
+
 .information .information__schedule select {
     background: #EBEFF5;
 border-radius: 20px;
@@ -172,6 +176,97 @@ border-radius: 5px;
     background: #EBEFF5;
     color: #000000;
 } 
+
+
+.pop-card {
+    position: relative;
+}
+
+
+.pop-card-holder {
+    position: absolute;
+    /* top: -35px; */
+    right: -458px;
+    /* width: 98%; */
+    background: #0052B4;
+    color: #FFFFFF;
+    font-family: nunito;
+    border-radius: 10px;
+    z-index: 999;
+    display: none;
+
+}
+
+
+
+.pop-card-holder::before {
+    content: '';
+    position: absolute;
+    top: 183px;
+    left: -23px;
+        width: 25px;
+        height: 45px;
+    margin: .3rem 0;
+    clip-path: polygon(100% 19%, 1% 45%, 100% 75%);
+    background: #0052B4;
+}
+
+.show-pop {
+    display: block;
+}
+
+.pop-card-holder .images {
+    position: relative;
+    width: 120px;
+}
+
+.pop-card-holder .caption {
+    color: #D1D9DF;
+}
+
+.teacher-card {
+    border-radius: 25px;
+}
+
+.teacher-card p:last-child {
+    color: #A4A5A8;
+}
+
+.images .student-img {
+    position: absolute;
+    top: -16px;
+    left: 0;
+    z-index: 999;
+}
+.images .student-img2 {
+    position: absolute;
+    top: -16px;
+    left: 28px;
+    z-index: 99;
+}
+.images .student-img3 {
+    position: absolute;
+    top: -16px;
+    left: 56px;
+    z-index: 9;
+}
+.images .student-img4 {
+    position: absolute;
+    top: -16px;
+    left: 84px;
+}
+
+.btn-orange-two {
+    background: #fb882c;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #ffffff;
+  }
 
 .information__notification .notification-card {
     border-bottom: 1px solid #BED0E4;

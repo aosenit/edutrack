@@ -12,4 +12,8 @@ export class VirtualClassComponent implements OnInit {
   ngOnInit() {
   }
 
+  back() {
+    window.history.back();
+  }
+
 }
