@@ -264,6 +264,9 @@ form {
     top: 70px;
     right: 200px;
     text-align: center;
+    display: flex;
+    align-items: center;
+    
 }
 
 

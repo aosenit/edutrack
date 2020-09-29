@@ -12,4 +12,8 @@ export class CreateAssignmentComponent implements OnInit {
   ngOnInit() {
   }
 
+  back() {
+    window.history.back();
+  }
+
 }

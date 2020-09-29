@@ -12,4 +12,8 @@ export class ViewFileComponent implements OnInit {
   ngOnInit() {
   }
 
+  back() {
+    window.history.back()
+  }
+
 }

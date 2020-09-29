@@ -81,7 +81,7 @@
                 </div>
 
                 <div class="information mb-4">
-                    <div class="information__schedule information-card-style p-4 pt-4">
+                    <div class="information__schedule information-card-style p-4 pt-4 ">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <div class="d-flex">
                                 <img src="assets/images/svg/access_time.svg" alt="new client" class="mr-3">
@@ -108,7 +108,7 @@
                         </div>
                         <p class="fw-6 mb-4">3 classes today</p>
 
-                        <div class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center"  >
+                        <div class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center pop-card " (click)="showPop()"  >
                             <div class="">
                                 <p class="fw-6 mb-0">English Language</p>
                                 <div class="d-flex">
@@ -121,6 +121,64 @@
                                 <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4">
 
                             </div>
+
+                            <div class="pop-card-holder  p-3">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <img src="assets/images/svg/student-class-status.svg" alt="" class="mr-3">
+                                    <p class="mb-0 fw-6"> English Langauage</p>    
+                                </div>
+                                <div class="br-10 bg-white p-3 mb-2 teacher-card d-flex align-items-center">
+                                        <img src="assets/images/svg/teacher-img.svg" alt="new client" class="">
+                                        <div class="ml-3">
+                                            <p class="mb-0 fw-6 fc-lblue">Samuel Aliu</p>
+                                            <p class="mb-0  ">English Teacher</p>
+                                        </div>
+                                </div>
+                                <div class="d-flex justify-content-center align-items-center my-4">
+                                    <p class="mb-0">Classmates:</p>
+                                    <div class="d-flex ml-3 images mx-3">
+                                        <img src="assets/images/svg/student.svg" alt="" class="student-img">
+                                        <img src="assets/images/svg/student2.svg" alt="" class="student-img2">
+                                        <img src="assets/images/svg/student3.svg" alt="" class="student-img3">
+                                        <img src="assets/images/svg/student4.svg" alt="" class="student-img4">
+                                    </div>
+                                    <p class="mb-0">+20 others</p>
+
+                                </div>
+                                <div class="d-flex align-items-center mt-3 mb-3">
+                                    <div class="d-flex mr-4">
+                                        <img src="assets/images/svg/calendar.svg" alt="" class="mr-3">
+                                        <div class="d-flex flex-column">
+                                            <h6 class="fw-6 mb-0">28th June, 2020</h6>
+                                            <p class="caption mb-0">Date</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mr-5">
+                                        <img src="assets/images/svg/time.svg" alt="" class="mr-3">
+                                        <div class="d-flex flex-column">
+                                            <h6 class="fw-6 mb-0">9 am</h6>
+                                            <p class="caption mb-0">Time</p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <img src="assets/images/svg/duration.svg" alt="new client" class="mr-3">
+                                        <div class="d-flex flex-column">
+                                            <h6 class="fw-6 mb-0">1 hr</h6>
+                                            <p class="caption mb-0">Duration</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/student','start-class']" > Join Class </button>
+
+                                </div>
+
+                               
+                      
+                            </div>
+
+
                         </div>
 
                         <div class="px-4 py-2 mb-4 bg-grey class br-10 d-flex justify-content-between align-items-center"  >

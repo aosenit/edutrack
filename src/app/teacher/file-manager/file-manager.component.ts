@@ -7,9 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileManagerComponent implements OnInit {
 
-  constructor() { }
+  view = false;
+  clipnote = true;
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+
+    checked(event) {
+      if (event === true) {
+        this.view = true;
+        this.clipnote = false;
+      } else {
+        this.view = false;
+        this.clipnote = true;
+      }
+    }
 
 }

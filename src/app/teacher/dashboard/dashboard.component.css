@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@800&display=swap');
+
 #announcement {
     position: fixed;
     height: 100vh;
@@ -9,7 +11,7 @@
 
 .profile {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-gap: 2rem;
     font-family: Nunito;
 
@@ -53,6 +55,49 @@
 
 .profile .profile__cards .profile__cards--card {
     border-radius: 10px;
+}
+
+
+.profile .profile__hero .profile__hero--intro {
+    position: relative;
+}
+
+
+.profile__hero .profile__hero--intro .student-hero {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+}
+
+
+.profile__hero .profile__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.5rem;
+}
+
+
+.profile__cards--card {
+border-radius: 10px;
+color: #FFFFFF;
+
+}
+
+.intro-text {
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+ .card1 {
+    background: #1B998B;
+}
+ .card2 {
+    background: #0089B4;
+}
+ .card3 {
+    background: #DA5D66;
+}
+ .card4 {
+    background: #F78762;
 }
 
 .classes {
@@ -184,4 +229,49 @@
     height: 170px;
     width: 255px;
     z-index: 9009;
+}
+
+
+
+.pop-card2 {
+    position: relative;
+}
+
+.pop-card-holder2 {
+    position: absolute;
+    /* top: -35px; */
+    right: -458px;
+    /* width: 98%; */
+    background: #0052B4;
+    color: #FFFFFF;
+    font-family: nunito;
+    border-radius: 10px;
+    z-index: 999;
+    display: none;
+
+}
+
+.pop-card-holder2::before {
+    content: '';
+    position: absolute;
+    top: 124px;
+    left: -23px;
+        width: 25px;
+        height: 45px;
+    margin: .3rem 0;
+    clip-path: polygon(100% 19%, 1% 45%, 100% 75%);
+    background: #0052B4;
+}
+
+.show-pop {
+    display: block;
+}
+
+.pop-card-holder2 .images {
+    position: relative;
+    width: 120px;
+}
+
+.pop-card-holder2 .caption {
+    color: #D1D9DF;
 }
