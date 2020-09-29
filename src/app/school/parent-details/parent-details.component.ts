@@ -12,4 +12,8 @@ export class ParentDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
+  back() {
+    window.history.back();
+  }
+
 }

@@ -182,7 +182,6 @@ border-radius: 5px;
     position: relative;
 }
 
-
 .pop-card-holder {
     position: absolute;
     /* top: -35px; */
@@ -196,8 +195,6 @@ border-radius: 5px;
     display: none;
 
 }
-
-
 
 .pop-card-holder::before {
     content: '';

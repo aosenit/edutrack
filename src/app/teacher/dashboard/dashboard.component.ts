@@ -18,4 +18,10 @@ export class DashboardComponent implements OnInit {
   }
 
 
+  showPop2() {
+    const popcard = document.querySelector('.pop-card-holder2');
+    popcard.classList.toggle('show-pop');
+  }
+
+
 }

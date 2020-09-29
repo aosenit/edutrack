@@ -12,4 +12,8 @@ export class StudentDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  back() {
+    window.history.back();
+  }
+
 }

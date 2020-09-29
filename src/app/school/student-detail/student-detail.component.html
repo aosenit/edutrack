@@ -1,15 +1,12 @@
 <div class="container-fluid pl-4">
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb" (click)="back()">
             <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
             <li class="breadcrumb-item a1 " aria-current="page">
                 <a>Back</a>
             </li>
     
     
-            <li class="breadcrumb-item a1 active ml-auto" aria-current="page">
-                <a><img src="assets/images/svg/nav.svg" class="mr-1" alt="..." /> Students / John Boyega</a>
-            </li>
         </ol>
     
     
@@ -33,7 +30,7 @@
                         <input type="checkbox" class="custom-control-input" id="customSwitch1">
                         <label class="custom-control-label" for="customSwitch1"></label>
                     </div>
-                    <p class="activated__date-title">Activated</p>
+                    <p class="activated__date-title">Active</p>
                 </div>
             </div>
         </section>
@@ -114,11 +111,77 @@
             </div>
     
             <div class="cards__plan">
-                <div class="cards__profile-info">
+                <div class="cards__profile-info d-flex justify-content-between align-items-center">
                     <div class="line">
                           <h6>  Contact Person Details </h6>
                     </div>
                     <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." />
+                </div>
+
+                <div class="card__profile-link mt-5 mr-5">
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Phone Number</p>
+                            <p class="fw-6">09078945211</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Email</p>
+                            <p class="fw-6">chuksokoli@gmail.com
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Home Address</p>
+                            <p class="fw-6">10 Harvey Rd, Yaba Lagos</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Office Address</p>
+                            <p class="fw-6">255 Herbert Macaulay Rd,
+                                Yaba Lagos
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Sex</p>
+                            <p class="fw-6">Male</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Date of Birth</p>
+                            <p class="fw-6">14/08/2006
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Parent</p>
+                            <p class="fw-6">Bello Ahmed</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Nationality</p>
+                            <p class="fw-6">Nigerian
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Religion</p>
+                            <p class="fw-6">Christinity</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Local Government</p>
+                            <p class="fw-6">Ibadan North
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>State of Origin</p>
+                            <p class="fw-6">Oyo</p>
+                        </div>
+                        
+                    </div>
                 </div>
     
                 

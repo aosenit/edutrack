@@ -10,17 +10,32 @@ import { ParentListComponent } from './parent-list/parent-list.component';
 import { ParentDetailsComponent } from './parent-details/parent-details.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { NewRoleRecordComponent } from './new-role-record/new-role-record.component';
-import { NewRoleScheduleComponent } from './new-role-schedule/new-role-schedule.component';
 import { SchoolSettingsComponent } from './school-settings/school-settings.component';
 import { PersonalSettingsComponent } from './personal-settings/personal-settings.component';
 import { FinanceSettingsComponent } from './finance-settings/finance-settings.component';
 import { FacilitySettingsComponent } from './facility-settings/facility-settings.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 
 @NgModule({
-  declarations: [SchoolComponent, ParentComponent, SchoolAdminComponent, AddStudentsComponent, ParentListComponent, ParentDetailsComponent, AccountSettingsComponent, NewRoleRecordComponent, NewRoleScheduleComponent, SchoolSettingsComponent, PersonalSettingsComponent, FinanceSettingsComponent, FacilitySettingsComponent, StudentListComponent, StudentDetailComponent],
+  declarations: [SchoolComponent,
+                 ParentComponent,
+                 SchoolAdminComponent,
+                 AddStudentsComponent,
+                 ParentListComponent,
+                 ParentDetailsComponent,
+                 AccountSettingsComponent,
+                 NewRoleRecordComponent,
+                 SchoolSettingsComponent,
+                 PersonalSettingsComponent,
+                 FinanceSettingsComponent,
+                 FacilitySettingsComponent,
+                 StudentListComponent,
+                 StudentDetailComponent,
+                 ScheduleComponent
+                ],
   imports: [
     CommonModule,
     SchoolRoutingModule

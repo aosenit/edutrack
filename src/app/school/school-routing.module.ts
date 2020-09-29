@@ -4,6 +4,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { AddStudentsComponent } from './add-students/add-students.component';
 import { FacilitySettingsComponent } from './facility-settings/facility-settings.component';
 import { FinanceSettingsComponent } from './finance-settings/finance-settings.component';
+import { NewRoleRecordComponent } from './new-role-record/new-role-record.component';
 import { ParentDetailsComponent } from './parent-details/parent-details.component';
 import { ParentListComponent } from './parent-list/parent-list.component';
 import { ParentComponent } from './parent/parent.component';
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'personal-settings', component: PersonalSettingsComponent},
       { path: 'finance-settings', component: FinanceSettingsComponent},
       { path: 'facility-settings', component: FacilitySettingsComponent},
+      { path: 'account/records', component: NewRoleRecordComponent},
 
     ]
   },
