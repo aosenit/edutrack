@@ -92,6 +92,7 @@
     font-size: 14px;
     line-height: 19px;
 }
+
 .fs-16{
     font-size: 16px;
     line-height: 22px;
@@ -121,6 +122,10 @@
     border-radius: 10px;
 }
 
+
+.w-40 {
+    width: 40%;
+} 
 /* containers /divs */
 .whitediv{
     background: #FFFFFF;
@@ -160,6 +165,10 @@
     font-size: 15px;
     line-height: 20px;
     color: #ffffff;
+}
+
+.w-60 {
+    width: 60%;
 }
 
 

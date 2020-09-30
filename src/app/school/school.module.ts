@@ -17,6 +17,10 @@ import { FacilitySettingsComponent } from './facility-settings/facility-settings
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { ResultSettingsComponent } from './result-settings/result-settings.component';
+import { StudentSettingsComponent } from './student-settings/student-settings.component';
+import { PayrollSetttingsComponent } from './payroll-setttings/payroll-setttings.component';
+import { TeachersComponent } from './teachers/teachers.component';
 
 
 @NgModule({
@@ -34,7 +38,11 @@ import { ScheduleComponent } from './schedule/schedule.component';
                  FacilitySettingsComponent,
                  StudentListComponent,
                  StudentDetailComponent,
-                 ScheduleComponent
+                 ScheduleComponent,
+                 ResultSettingsComponent,
+                 StudentSettingsComponent,
+                 PayrollSetttingsComponent,
+                 TeachersComponent
                 ],
   imports: [
     CommonModule,
