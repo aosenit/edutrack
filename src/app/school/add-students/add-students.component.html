@@ -6,8 +6,8 @@
                 <a>Back</a>
             </li>
         </ol>
-    
-    
+
+
     </nav>
     <div class="row">
         <div class="col-md-12 mb-3">
@@ -15,60 +15,66 @@
         </div>
 
         <div class="col-md-12">
-            <div class="steps d-flex justify-content-center align-items-center p-3 mb-3">
-                <div class="d-flex align-items-center active ">
-                    <span class="bg-orange mr-3 ">1</span>
-                    <div class="d-flex flex-column">
-                        <p class="mb-0">Basic</p>
-                        <p class="mb-0">Detail</p>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center ">
-                    <span class=" mr-3">2</span>
-                    <div class="d-flex flex-column">
-                        <p class="mb-0">School</p>
-                        <p class="mb-0">Detail</p>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center ">
-                    <span class=" mr-3">3</span>
-                    <div class="d-flex flex-column">
-                        <p class="mb-0">Contact</p>
-                        <p class="mb-0">Detail</p>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center ">
-                    <span class=" mr-3">4</span>
-                    <div class="d-flex flex-column">
-                        <p class="mb-0">Medical</p>
-                        <p class="mb-0">Detail</p>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="steps d-flex justify-content-center align-items-center p-3">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item mr-5">
-                      <a class="nav-link active" id="pills-basic-tab" data-toggle="pill" href="#pills-basic" role="tab"
-                        aria-controls="pills-basic" aria-selected="true">Basic Details</a>
-                        
-                    </li>
-                    <li class="nav-item mr-5">
-                      <a class="nav-link" id="pills-social-tab" data-toggle="pill" href="#pills-social" role="tab"
-                        aria-controls="pills-social" aria-selected="false">Social Details</a>
-                    </li>
-                    <li class="nav-item mr-5">
-                      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-                        aria-controls="pills-contact" aria-selected="false">Contact Details</a>
-                    </li>
-                    <li class="nav-item mr-5">
-                      <a class="nav-link" id="pills-medical-tab" data-toggle="pill" href="#pills-medical" role="tab"
-                        aria-controls="pills-medical" aria-selected="false">Medical Details</a>
-                    </li>
-                    
             
-                  </ul>
+
+            <div class="steps p-3">
+                <ul class="nav nav-pills mb-3 justify-content-center align-items-center" id="pills-tab" role="tablist">
+                    <li class="nav-item mr-5">
+                        <a class="nav-link active" id="pills-basic-tab" data-toggle="pill" href="#pills-basic"
+                            role="tab" aria-controls="pills-basic" aria-selected="true">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="mr-2">
+                                    <span class="bg-orange">1</span>
+                                </div>
+                                <div>
+                                    Basic Details
+                                </div>
+                            </div>
+                        </a>
+
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" id="pills-social-tab" data-toggle="pill" href="#pills-social" role="tab"
+                            aria-controls="pills-social" aria-selected="false">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="mr-2">
+                                    <span class="">2</span>
+                                </div>
+                                <div>
+                                    Social Details
+                                </div>
+                            </div>
+                            </a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                            aria-controls="pills-contact" aria-selected="false">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="mr-2">
+                                    <span class="">3</span>
+                                </div>
+                                <div>
+                                    Contact Details
+                                </div>
+                            </div>
+                            </a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" id="pills-medical-tab" data-toggle="pill" href="#pills-medical" role="tab"
+                            aria-controls="pills-medical" aria-selected="false">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="mr-2">
+                                    <span class="">4</span>
+                                </div>
+                                <div>
+                                    Medical Details
+                                </div>
+                            </div>
+                            </a>
+                    </li>
+
+
+                </ul>
             </div>
 
             <div class="step-content justify-content-center pt-5 pb-3">
@@ -395,123 +401,143 @@
 
                 </form> -->
 
-                <div  class="tab-content" id="pills-tabContent">
-                    <div  class="tab-pane fade show active" id="pills-basic" role="tabpanel" aria-labelledby="pills-basic-tab">
-                        <form >
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-basic" role="tabpanel"
+                        aria-labelledby="pills-basic-tab">
+                        <form>
                             <div class="basic-details">
                                 <div class="row mb-4">
                                     <div class="col-md-6">
-                                        <label for="fname" class="fw-6">First Name <span class="text-danger">*</span></label>
-                                      <input type="text" class="form-control form-control-lg" placeholder="First name" id="fname">
+                                        <label for="fname" class="fw-6">First Name <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control form-control-lg" placeholder="First name"
+                                            id="fname">
                                     </div>
                                     <div class="col-md-6 ">
-                                        <label for="lname" class="fw-6">Others Name <span class="text-danger">*</span></label>
-                                      <input type="text" class="form-control form-control-lg" placeholder="Last name" id="lname">
+                                        <label for="lname" class="fw-6">Others Name <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control form-control-lg" placeholder="Last name"
+                                            id="lname">
                                     </div>
                                 </div>
-            
+
                                 <div class="row mb-4">
                                     <div class="col-md-6">
                                         <label for="othername" class="fw-6">Other Name </label>
-                                      <input type="text" class="form-control form-control-lg" placeholder="Enter other names" id="othername">
+                                        <input type="text" class="form-control form-control-lg"
+                                            placeholder="Enter other names" id="othername">
                                     </div>
                                     <div class="col-md-6 ">
-                                        <label for="maiden" class="fw-6">Mother's Maiden Name <span class="text-danger">*</span></label>
-                                      <input type="text" class="form-control form-control-lg" placeholder="Dojah" id="maiden">
+                                        <label for="maiden" class="fw-6">Mother's Maiden Name <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control form-control-lg" placeholder="Dojah"
+                                            id="maiden">
                                     </div>
                                 </div>
-            
+
                                 <div class="row mb-4">
                                     <div class="col-md-6">
                                         <label for="sex" class="fw-6">Sex <span class="text-danger">*</span> </label>
-                                      <select name=""  class="form-control form-control-lg">
-                                          <option value="sex">Sex</option>
-                                          <option value="male">Male</option>
-                                          <option value="female">Female</option>
-                                      </select>
+                                        <select name="" class="form-control form-control-lg">
+                                            <option value="sex">Sex</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 ">
                                         <label for="date" class="fw-6">Date of Birth</label>
-                                      <input type="date" class="form-control form-control-lg" placeholder="Dojah" id="maiden">
+                                        <input type="date" class="form-control form-control-lg" placeholder="Dojah"
+                                            id="maiden">
                                     </div>
                                 </div>
-            
-            
+
+
                                 <div class="row mb-4">
                                     <div class="col-md-6 ">
-                                        <label for="parent" class="fw-6">Photo <span class="text-danger">*</span></label>
+                                        <label for="parent" class="fw-6">Photo <span
+                                                class="text-danger">*</span></label>
                                         <div class="flex-column">
                                             <img src="assets/images/svg/student-upload.svg" class="ml-3" alt="..." />
                                             <div class="add-image w-50 mt-2">
-                                                <label for="addImage">  <img src="assets/images/svg/student-add-upload.svg" class="ml-3" alt="..." /> Change Image
+                                                <label for="addImage"> <img
+                                                        src="assets/images/svg/student-add-upload.svg" class="ml-3"
+                                                        alt="..." /> Change Image
                                                     <input type="file" id="addImage" class="file-input">
                                                 </label>
                                             </div>
                                             <p class="mb-0 fw-6 fs-14">Max size: 512kb</p>
                                         </div>
                                     </div>
-            
+
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="religion" class="fw-6">Religion <span class="text-danger">*</span> </label>
-                                          <select name="" id="religion" class="form-control form-control-lg">
-                                              <option value="muslim" selected>Muslim</option>
-                                              <option value="hristianity" selected>Christianity</option>
-                                              <option value="budhism" selected>Budhism</option>
-                                          </select>
+                                            <label for="religion" class="fw-6">Religion <span
+                                                    class="text-danger">*</span> </label>
+                                            <select name="" id="religion" class="form-control form-control-lg">
+                                                <option value="muslim" selected>Muslim</option>
+                                                <option value="hristianity" selected>Christianity</option>
+                                                <option value="budhism" selected>Budhism</option>
+                                            </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="nation" class="fw-6">Nationality <span class="text-danger">*</span> </label>
-                                          <select name="" id="nation" class="form-control form-control-lg">
-                                              <option value="nigeria" selected>Nigeria</option>
-                                          </select>
+                                            <label for="nation" class="fw-6">Nationality <span
+                                                    class="text-danger">*</span> </label>
+                                            <select name="" id="nation" class="form-control form-control-lg">
+                                                <option value="nigeria" selected>Nigeria</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
-        
-        
-        
+
+
+
                                 <div class="row mb-4">
                                     <div class="col-md-6 ">
                                         <div class="mb-3">
-                                            <label for="parent" class="fw-6">Parent <span class="text-danger"></span></label>
-                                          <input type="text" class="form-control form-control-lg" placeholder="Enter Parents name" id="parent">
+                                            <label for="parent" class="fw-6">Parent <span
+                                                    class="text-danger"></span></label>
+                                            <input type="text" class="form-control form-control-lg"
+                                                placeholder="Enter Parents name" id="parent">
                                         </div>
                                         <div class="d-flex justify-content-center flex-column align-items-center">
                                             <p class="mb-0">or</p>
-                                            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" > Add Parent </button>
+                                            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Add Parent
+                                            </button>
                                         </div>
                                     </div>
-            
+
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="state" class="fw-6">State of Origin <span class="text-danger">*</span> </label>
-                                          <select name="" id="state" class="form-control form-control-lg">
-                                              <option value="oyo" selected>Oyo</option>
-                                          </select>
+                                            <label for="state" class="fw-6">State of Origin <span
+                                                    class="text-danger">*</span> </label>
+                                            <select name="" id="state" class="form-control form-control-lg">
+                                                <option value="oyo" selected>Oyo</option>
+                                            </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="state" class="fw-6">Local Government <span class="text-danger">*</span> </label>
-                                          <select name="" id="state" class="form-control form-control-lg">
-                                              <option value="island" selected>Island</option>
-                                          </select>
+                                            <label for="state" class="fw-6">Local Government <span
+                                                    class="text-danger">*</span> </label>
+                                            <select name="" id="state" class="form-control form-control-lg">
+                                                <option value="island" selected>Island</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-5">
                                     <div class="col-md-6 ">
                                         <label for="route" class="fw-6">Transport Route </label>
-                                      <input type="text" class="form-control form-control-lg" placeholder="Enter route" id="route">
+                                        <input type="text" class="form-control form-control-lg"
+                                            placeholder="Enter route" id="route">
                                     </div>
-            
-                                    
+
+
                                 </div>
-        
+
                                 <div class=" d-flex justify-content-center mt-5">
                                     <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-                                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" > Next </button>
-                        
+                                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Next </button>
+
                                 </div>
                             </div>
                         </form>
@@ -520,22 +546,25 @@
                     <div class="tab-pane fade " id="pills-social" role="tabpanel" aria-labelledby="pills-social-tab">
                         <form>
                             <div class="school-details">
-                        
-                           
+
+
                                 <div class="row mb-4">
                                     <div class="col-md-6">
-                                        <label for="entry" class="fw-6">Entry Type <span class="text-danger">*</span> </label>
-                                      <select name="" id="entry" class="form-control form-control-lg">
-                                          <option value="entry" selected>Sex</option>
-                                      </select>
+                                        <label for="entry" class="fw-6">Entry Type <span class="text-danger">*</span>
+                                        </label>
+                                        <select name="" id="entry" class="form-control form-control-lg">
+                                            <option value="entry" selected>Sex</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 ">
-                                        <label for="date" class="fw-6">Admission Date <span class="text-danger">*</span></label>
-                                      <input type="date" class="form-control form-control-lg" placeholder="Dojah" id="maiden">
+                                        <label for="date" class="fw-6">Admission Date <span
+                                                class="text-danger">*</span></label>
+                                        <input type="date" class="form-control form-control-lg" placeholder="Dojah"
+                                            id="maiden">
                                     </div>
                                 </div>
-            
-            
+
+
                                 <div class="row mb-4">
                                     <div class="col-md-6 ">
                                         <label for="date" class="fw-6">Level <span class="text-danger">*</span></label>
@@ -543,30 +572,32 @@
                                             <option value="level" selected>Secondary</option>
                                         </select>
                                     </div>
-            
+
                                     <div class="col-md-6">
-                                        <label for="state" class="fw-6">Class <span class="text-danger">*</span> </label>
-                                      <select name="" id="state" class="form-control form-control-lg">
-                                          <option value="oyo" selected>JSS 3</option>
-                                      </select>
+                                        <label for="state" class="fw-6">Class <span class="text-danger">*</span>
+                                        </label>
+                                        <select name="" id="state" class="form-control form-control-lg">
+                                            <option value="oyo" selected>JSS 3</option>
+                                        </select>
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-4">
                                     <div class="col-md-6 ">
-                                        <label for="date" class="fw-6">Student Type <span class="text-danger">*</span></label>
+                                        <label for="date" class="fw-6">Student Type <span
+                                                class="text-danger">*</span></label>
                                         <select name="" id="level" class="form-control form-control-lg">
                                             <option value="level" selected>Day Student</option>
                                         </select>
                                     </div>
-            
-                                   
+
+
                                 </div>
-        
+
                                 <div class=" d-flex justify-content-center">
                                     <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
                                     <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Next </button>
-                        
+
                                 </div>
                             </div>
                         </form>
@@ -574,41 +605,47 @@
                     <div class="tab-pane fade " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         <form>
                             <div class="contact-details">
-                        
-                           
+
+
                                 <div class="row mb-4">
                                     <div class="col-md-6">
                                         <label for="entry" class="fw-6">Phone Number </label>
-                                        <input type="number" placeholder="814 567 6749" class="form-control form-control-lg">
+                                        <input type="number" placeholder="814 567 6749"
+                                            class="form-control form-control-lg">
                                     </div>
                                     <div class="col-md-6 ">
                                         <label for="email" class="fw-6">Email Address</label>
-                                        <input type="email" class="form-control form-control-lg" placeholder="johnboye@gmail.com" id="email">
-        
+                                        <input type="email" class="form-control form-control-lg"
+                                            placeholder="johnboye@gmail.com" id="email">
+
                                     </div>
                                 </div>
-            
-            
+
+
                                 <div class="row mb-4">
                                     <div class="col-md-6 ">
                                         <label for="country" class="fw-6">Country</label>
                                         <select name="" id="country" class="form-control form-control-lg">
                                             <option value="oyo" selected>Nigeria</option>
                                         </select>
-        
+
                                     </div>
-            
+
                                     <div class="col-md-6">
-                                        <label for="state" class="fw-6">Home Address <span class="text-danger">*</span> </label>
-                                        <input type="text" class="form-control form-control-lg" placeholder="10 Harvey Road" id="state">
-        
+                                        <label for="state" class="fw-6">Home Address <span class="text-danger">*</span>
+                                        </label>
+                                        <input type="text" class="form-control form-control-lg"
+                                            placeholder="10 Harvey Road" id="state">
+
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-5">
                                     <div class="col-md-6">
-                                        <label for="town" class="fw-6">Town/City <span class="text-danger">*</span></label>
-                                      <input type="text" class="form-control form-control-lg" placeholder="First name" id="town">
+                                        <label for="town" class="fw-6">Town/City <span
+                                                class="text-danger">*</span></label>
+                                        <input type="text" class="form-control form-control-lg" placeholder="First name"
+                                            id="town">
                                     </div>
                                     <div class="col-md-6 ">
                                         <label for="state" class="fw-6">State <span class="text-danger">*</span></label>
@@ -616,15 +653,14 @@
                                             <option value="oyo" selected>lagos</option>
                                         </select>
                                     </div>
-            
-                                   
+
+
                                 </div>
-        
+
                                 <div class=" d-flex justify-content-center">
                                     <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-                                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
-                                        > Create </button>
-                        
+                                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Create </button>
+
                                 </div>
                             </div>
                         </form>
@@ -632,92 +668,98 @@
                     <div class="tab-pane fade " id="pills-medical" role="tabpanel" aria-labelledby="pills-medical-tab">
                         <form>
                             <div class="medical-details">
-                        
-                           
-    
+
+
+
                                 <div class="row mb-4">
                                     <div class="col-md-6 ">
-                                        <label for="blood" class="fw-6">Blood Group <span class="text-danger">*</span></label>
+                                        <label for="blood" class="fw-6">Blood Group <span
+                                                class="text-danger">*</span></label>
                                         <select name="" id="blood" class="form-control form-control-lg">
                                             <option value="" selected>A+</option>
                                         </select>
-        
+
                                     </div>
-            
+
                                     <div class="col-md-6">
-                                        <label for="genotype" class="fw-6">Genotype  <span class="text-danger">*</span></label>
+                                        <label for="genotype" class="fw-6">Genotype <span
+                                                class="text-danger">*</span></label>
                                         <select name="" id="genotype" class="form-control form-control-lg">
                                             <option value="" selected>A+</option>
                                         </select>
-        
+
                                     </div>
                                 </div>
-        
+
                                 <div class="row mb-4">
                                     <div class="col-md-6 ">
-                                        <label for="disability" class="fw-6">Disability <span class="text-danger">*</span></label>
+                                        <label for="disability" class="fw-6">Disability <span
+                                                class="text-danger">*</span></label>
                                         <select name="" id="disability" class="form-control form-control-lg">
                                             <option value="" selected>No</option>
                                         </select>
-        
+
                                     </div>
-            
+
                                 </div>
-        
+
                                 <div class="form-group mb-4">
                                     <label for="allergies">Allergies</label>
-                                    <textarea name="" id="allergies" class="form-control form-control-lg" placeholder="Allergies"></textarea>
+                                    <textarea name="" id="allergies" class="form-control form-control-lg"
+                                        placeholder="Allergies"></textarea>
                                 </div>
                                 <div class="form-group mb-4">
                                     <label for="confidential">Confidential Notes</label>
-                                    <textarea name="" id="confidential" class="form-control form-control-lg" placeholder="Enter a note"></textarea>
+                                    <textarea name="" id="confidential" class="form-control form-control-lg"
+                                        placeholder="Enter a note"></textarea>
                                 </div>
-        
+
                                 <div class="row mb-5">
                                     <div class="col-md-3">
                                         <label for="">Immunization</label>
-                                      <input type="date" class="form-control form-control-lg"  >
+                                        <input type="date" class="form-control form-control-lg">
                                     </div>
                                     <div class="col-md-3 ">
                                         <label for="">&nbsp;</label>
-        
-                                        <input type="number" class="form-control form-control-lg" placeholder="Age" >
-        
+
+                                        <input type="number" class="form-control form-control-lg" placeholder="Age">
+
                                     </div>
                                     <div class="col-md-5 ">
                                         <label for="">&nbsp;</label>
-        
-                                        <input type="text" class="form-control form-control-lg" placeholder="Vaccine" >
-        
+
+                                        <input type="text" class="form-control form-control-lg" placeholder="Vaccine">
+
                                     </div>
-            
-                                   
+
+
                                 </div>
                                 <div class="row mb-5">
                                     <div class="col-md-3">
                                         <label for="">Immunization 1</label>
-                                      <input type="date" class="form-control form-control-lg"  >
+                                        <input type="date" class="form-control form-control-lg">
                                     </div>
                                     <div class="col-md-3 ">
                                         <label for="">&nbsp;</label>
-        
-                                        <input type="number" class="form-control form-control-lg" placeholder="Age" >
-        
+
+                                        <input type="number" class="form-control form-control-lg" placeholder="Age">
+
                                     </div>
                                     <div class="col-md-5 ">
                                         <label for="">&nbsp;</label>
-        
-                                        <input type="text" class="form-control form-control-lg" placeholder="Vaccine" >
-        
+
+                                        <input type="text" class="form-control form-control-lg" placeholder="Vaccine">
+
                                     </div>
-            
-                                   
+
+
                                 </div>
-        
+
                                 <div class=" d-flex justify-content-center mt-5">
                                     <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-                                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" > Add Student </button>
-                        
+                                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Add Student
+                                    </button>
+
                                 </div>
                             </div>
                         </form>
@@ -727,6 +769,6 @@
         </div>
 
 
-    
+
     </div>
 </div>
