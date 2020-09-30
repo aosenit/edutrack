@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./assignments.component.css']
 })
 export class AssignmentsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  view = false;
+  clipnote = true;
+    constructor() { }
+  
+    ngOnInit() {
+    }
+  
+    checked(event) {
+      if (event === true) {
+        this.view = true;
+        this.clipnote = false;
+      } else {
+        this.view = false;
+        this.clipnote = true;
+      }
+    }
 
 }

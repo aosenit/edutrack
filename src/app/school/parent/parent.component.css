@@ -146,3 +146,29 @@ a {
     
         background: #ffffff;
     }
+
+    
+/* tabs */
+
+
+ .nav-link {
+    padding: .5rem .5rem;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+   color: #000000;
+   font-weight: 600;
+ border-bottom: 3px solid  #EB6B04;;
+   background: transparent;
+   border-radius: 0;
+   padding: 7px 5px;
+   /* font-size: 13px; */
+   font-family: nunito;
+   z-index: 22;
+ }
+ .nav-pills .nav-link, .nav-pills .show>.nav-link {
+   color: #A4A5A8;
+   /* font-size: 13px; */
+   }
+  
+
+/* end of tabs */

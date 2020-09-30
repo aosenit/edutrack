@@ -72,11 +72,11 @@
                 <ul class="collapse list-unstyled" id="record-submenu">
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="" [routerLink]="['/school/add-student']" [routerLinkActive]="['active']" class=""> Students</a>
+                        <a href="" [routerLink]="['/school/add-student']" [routerLinkActive]="['active']" class=""> Student</a>
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/add-parents']"  [routerLinkActive]="['active']" class=""> Parents</a>
+                        <a href="#" [routerLink]="['/school/add-parents']"  [routerLinkActive]="['active']" class=""> Parent</a>
                     </li>
                    
                     
@@ -84,7 +84,7 @@
                 </ul>
             </li>
             <li class="nav-item mb-2">
-                <a href="#" class="nav-link" [routerLink]="['/main/']" [routerLinkActive]="['active']">
+                <a href="#academics-submenu" class="nav-link" [routerLinkActive]="['active']" data-toggle="collapse" aria-expanded="false">
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
@@ -104,7 +104,30 @@
 
                     </span>
                     Academics
+                    <span class="ml-auto mr-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>
+                            </svg>
+                            
+                    </span>
                 </a>
+                <ul class="collapse list-unstyled" id="academics-submenu">
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="" [routerLink]="['/school/teacher']" [routerLinkActive]="['active']" class=""> Teachers</a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="#" [routerLink]="['/school/add-parents']"  [routerLinkActive]="['active']" class=""> Gradebook</a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="#" [routerLink]="['/school/add-parents']"  [routerLinkActive]="['active']" class=""> Class Promotion</a>
+                    </li>
+                   
+                    
+
+                </ul>
             </li>
             <li class="nav-item mb-2">
                 <a href="#" class="nav-link" [routerLink]="['/main/']" [routerLinkActive]="['active']">
@@ -255,15 +278,15 @@
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" class=""> Result Settings</a>
+                        <a href="#" [routerLink]="['/school/result-settings']" [routerLinkActive]="['active']" class=""> Result Settings</a>
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" class=""> Student Settings</a>
+                        <a href="#" [routerLink]="['/school/student-settings']" [routerLinkActive]="['active']" class=""> Student Settings</a>
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" class=""> Payroll Settings</a>
+                        <a href="#" [routerLink]="['/school/payroll-settings']" [routerLinkActive]="['active']" class=""> Payroll Settings</a>
                     </li>
                     
 

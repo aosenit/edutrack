@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+// import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { TeacherRoutingModule } from './teacher-routing.module';
 import { TeacherComponent } from './teacher.component';
@@ -16,9 +18,19 @@ import { VirtualSessionComponent } from './virtual-session/virtual-session.compo
 
 
 @NgModule({
-  declarations: [TeacherComponent, DashboardComponent, AssignmentComponent, AssignmentsComponent, CreateAssignmentComponent, FileManagerComponent, GradingComponent, ScheduleComponent, ViewFileComponent, VirtualClassComponent, VirtualSessionComponent],
+  declarations: [TeacherComponent,
+    DashboardComponent,
+    AssignmentComponent,
+    AssignmentsComponent,
+    CreateAssignmentComponent,
+    FileManagerComponent,
+    GradingComponent,
+    ScheduleComponent,
+    ViewFileComponent,
+    VirtualClassComponent, VirtualSessionComponent],
   imports: [
     CommonModule,
+    CKEditorModule,
     TeacherRoutingModule
   ]
 })
