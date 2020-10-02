@@ -118,11 +118,11 @@
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/add-parents']"  [routerLinkActive]="['active']" class=""> Gradebook</a>
+                        <a href="#" > Gradebook</a>
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/add-parents']"  [routerLinkActive]="['active']" class=""> Class Promotion</a>
+                        <a href="#" > Class Promotion</a>
                     </li>
                    
                     
@@ -130,7 +130,7 @@
                 </ul>
             </li>
             <li class="nav-item mb-2">
-                <a href="#" class="nav-link" [routerLink]="['/main/']" [routerLinkActive]="['active']">
+                <a href="#schedule-submenu" class="nav-link"  [routerLinkActive]="['active']" data-toggle="collapse" aria-expanded="false">
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 8.80078H8V12.8008H12V8.80078Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -141,14 +141,31 @@
 
                     </span>
                     Schedule
+                    <span class="ml-auto mr-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>
+                            </svg>
+                            
+                    </span>
                 </a>
+                <ul class="collapse list-unstyled" id="schedule-submenu">
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="" [routerLink]="['/school/time-table']" [routerLinkActive]="['active']" class=""> Time table</a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="#" [routerLink]="['/school/calendar']" [routerLinkActive]="['active']" > School Calendar</a>
+                    </li>
+                    
+                </ul>
             </li>
         </ul>
 
         <ul class="list-unstyled components">
 
             <li class="nav-item mb-2">
-                <a href="#" class="nav-link" [routerLink]="['/main/']" [routerLinkActive]="['active']">
+                <a  href="#human-submenu" class="nav-link"  [routerLinkActive]="['active']" data-toggle="collapse" aria-expanded="false">
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.667 7.33203C11.7737 7.33203 12.6603 6.4387 12.6603 5.33203C12.6603 4.22536 11.7737 3.33203 10.667 3.33203C9.56032 3.33203 8.66699 4.22536 8.66699 5.33203C8.66699 6.4387 9.56032 7.33203 10.667 7.33203ZM5.33366 7.33203C6.44033 7.33203 7.32699 6.4387 7.32699 5.33203C7.32699 4.22536 6.44033 3.33203 5.33366 3.33203C4.22699 3.33203 3.33366 4.22536 3.33366 5.33203C3.33366 6.4387 4.22699 7.33203 5.33366 7.33203ZM5.33366 8.66536C3.78033 8.66536 0.666992 9.44536 0.666992 10.9987V12.6654H10.0003V10.9987C10.0003 9.44536 6.88699 8.66536 5.33366 8.66536ZM10.667 8.66536C10.4737 8.66536 10.2537 8.6787 10.0203 8.6987C10.7937 9.2587 11.3337 10.012 11.3337 10.9987V12.6654H15.3337V10.9987C15.3337 9.44536 12.2203 8.66536 10.667 8.66536Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -157,7 +174,30 @@
 
                     </span>
                     Human Resources
+                    <span class="ml-auto mr-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>
+                            </svg>
+                            
+                    </span>
                 </a>
+                <ul class="collapse list-unstyled" id="human-submenu">
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="" [routerLink]="['/school/employees']" [routerLinkActive]="['active']" class=""> Employees</a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a  > Loan</a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a > Attendance Sheet</a>
+                    </li>
+                   
+                    
+
+                </ul>
             </li>
             <li class="nav-item mb-2">
                 <a href="#" class="nav-link" [routerLink]="['/main/']" [routerLinkActive]="['active']">

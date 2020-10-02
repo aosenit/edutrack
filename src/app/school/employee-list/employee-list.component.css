@@ -89,12 +89,13 @@ td {
       align-items: center;
       color: #0a1128;
       font-weight: 600; */
-    padding-left: 3.5rem;
+    /* padding-left: 3.5rem; */
+    padding-left: 1rem;
+
 }
 
 .list .table tbody .check {
-    padding-left: 1.5rem;
-    padding-left: 3.5rem;
+    padding-left: 1rem;
 }
 
 .list .table tbody .user span {
@@ -148,61 +149,4 @@ td {
     justify-content: center;
     align-items: center;
     padding: 17px 40px;
-}
-
-
-/* sms modal  */
-.modal-content {
-    border-radius: 0 !important;
-    border: none;
-    position: relative;
-
-}
-
-
-.modal-head {
-    padding: 20px 40px;
-    background: #EBF0F5;
-    /* display: flex;
-    justify-content: space-between; */
-}
-
-
-
-.client-modal {
-    display: flex;
-    flex-direction: column;
-
-    padding: 0px 40px;
-
-}
-
-form {
-    width: 100%;
-}
-
-
-
-textarea {
-    height: 150px;
-}
-
-
-h6 {
-    font-weight: bold;
-    font-weight: 600;
-}
-
-p {
-    color: #000000;
-    font-size: 14px;
-}
-
-.form-count {
-    color: #BEC4D5;
-    font-size: 14px;
-}
-
-.text-black {
-    color: #000000;
 }

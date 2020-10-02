@@ -93,6 +93,7 @@ table.client-table {
 
 .list .table thead tr th {
     font-weight: 600;
+    padding-bottom: 0;
 }
 
 .list .table thead .head {
@@ -180,4 +181,8 @@ td {
 
 .notice-board .info {
     border-bottom: 1px solid #ABC3DF;
+}
+
+.dropdown-item:hover {
+    background: #FFF7F0 !important;
 }

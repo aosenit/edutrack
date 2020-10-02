@@ -1,7 +1,7 @@
 <section class="banner mb-4 pb-3">
     <div class="pt-5 pl-3 content ">
         <h6 class="banner__text-primary fw-6 "> Students </h6>
-        <p class=""> Directory of all registered students </p>
+        <p class="text-white"> Directory of all registered students </p>
     </div>
     <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student"> Add New </button>
 
@@ -83,7 +83,15 @@
                 <td class="">JSS3 A</td>
                 <td><span class="status_active">Active</span></td>
                 <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log"> </td>
+                        alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#" [routerLink]="['/school/student-detail']">View</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenter3">Send SMS</a>
+                            <a class="dropdown-item" href="#" >Send Email</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterPromote">Promote</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterDemote">Deactivate</a>
+                          </div>
+                    </td>
             </tr>
 
             <tr class="pb-1">
@@ -190,3 +198,125 @@
     </table>
 
 </section>
+
+
+
+    <!-- send sms Modal -->
+    <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenter3Title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+            <div class="modal-content">
+
+                <div class="modal-head mb-4">
+                    <div class="d-flex justify-content-start align-items-center ">
+                        <img src="assets/images/svg/sms.svg" alt="schools log" class="mr-3">
+                        <h6 class="modal-title fc-lblue">New SMS</h6>
+                    
+                    </div>
+                    
+                </div>
+                <div class="modal-body client-modal">
+                    <form>
+
+
+                        <div class="form-group mb-4">
+                            <label for="message" class="fw-6">Recipients</label>
+                            <textarea name="" id="message" class="form-control"></textarea>
+                            <p class="mb-0  form-count">Recipients: <span class="text-black">0</span> </p>
+                        </div>
+                        <div class="form-group mb-5">
+                            <label for="message" class="fw-6">Message:</label>
+                            <textarea name="" id="message" class="form-control" placeholder="Type your message"></textarea>
+                            <div class="d-flex">
+                                <p class="mb-0 mr-3 form-count">Message length: <span class="text-black">0/160</span> </p>
+                                <p class="mb-0 form-count">SMS Count: <span class="text-black">0</span> </p>
+                            </div>
+                        </div>
+
+                        
+                    </form>
+                            <div class="d-flex justify-content-end mb-3">
+                                <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 ">Cancel </button>
+                                <button class="btn btn-orange-two px-5 mb-4 mt-3" data-toggle="modal" data-target="#exampleModalCenterSuccess" > Send Message </button>
+                            </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end of send sms modal -->
+
+
+
+    <!-- promote Modal -->
+    <div class="modal fade" id="exampleModalCenterPromote" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterPromoteTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 38%;" role="document">
+            <div class="modal-content">
+
+               
+                <div class="modal-body client-modal bordered br-10">
+                    <div class="d-flex flex-column justify-content-center align-items-center mt-5 ">
+                        <img src="assets/images/svg/promote.svg" alt="schools log" class="mb-5 mt-5">
+                        <h6 class="fs-24 text-center">Are you sure you want to promote  <br> <span class="fw-6">John Boyega?</span></h6>
+                        <div class="d-flex justify-content-center my-5">
+                            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 ">No, cancel </button>
+                            <button class="btn btn-orange-two px-5 mb-4 mt-3" > Yes, promote  </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end of promote modal -->
+
+
+    <!-- demote Modal -->
+    <div class="modal fade" id="exampleModalCenterDemote" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterDemoteTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 38%;" role="document">
+            <div class="modal-content">
+
+               
+                <div class="modal-body client-modal bordered br-10">
+                    <div class="d-flex flex-column justify-content-center align-items-center mt-5 ">
+                        <img src="assets/images/svg/promote.svg" alt="schools log" class="mb-5 mt-5">
+                        <h6 class="fs-24 text-center">Are you sure you want to deactivate  <br> <span class="fw-6">John Boyega?</span></h6>
+                        <div class="d-flex justify-content-center my-5">
+                            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss = "modal">No, cancel </button>
+                            <button class="btn btn-orange-two px-5 mb-4 mt-3" > Yes, deactivate  </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <!-- end of demote modal -->
+
+    
+    <!-- success Modal -->
+    <div class="modal fade" id="exampleModalCenterSuccess" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterSuccessTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 38%;" role="document">
+            <div class="modal-content">
+
+               
+                <div class="modal-body client-modal bordered br-10">
+                    <div class="d-flex flex-column justify-content-center align-items-center mt-5 ">
+                        <img src="assets/images/svg/success.svg" alt="schools log" class="mb-5 mt-5">
+                        <h6 class="fs-24 fw-6 text-center">Your messsage was sent <br>successfully  </h6>
+                        <div class="d-flex justify-content-center my-5">
+                            <button class="btn btn-orange-two px-5 mb-4 mt-3" > Continue  </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end of success modal -->
+
+
