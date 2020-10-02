@@ -12,4 +12,8 @@ export class AddStudentsComponent implements OnInit {
   ngOnInit() {
   }
 
+  back() {
+    window.history.back();
+  }
+
 }

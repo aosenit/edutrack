@@ -31,7 +31,7 @@ a {
 background: rgba(245, 245, 245, 0.66);
 }
 .steps div:not(:last-child) {
-    margin-right: 7rem;
+    /* margin-right: 7rem; */
 }
 
 .steps span {
@@ -148,7 +148,7 @@ form .form-control {
  .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #000000;
     font-weight: 600;
-  border-bottom: 3px solid  #EB6B04;;
+  /* border-bottom: 3px solid  #EB6B04;; */
     background: transparent;
     border-radius: 0;
     padding: 7px 5px;

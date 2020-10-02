@@ -1,3 +1,20 @@
+<section class="add-student" *ngIf= "record">
+    <img src="assets/images/svg/add-student.svg" alt="new student" class="">
+    <p class="text-center fw-6 pt-5">It looks like you are yet to create a student.You can do <br> that by clicking any of the buttons below.
+        below.</p>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-student']">
+        Add New </button>
+    <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
+        data-target="#exampleModalCenterUpload">Bulk
+        Upload</button>
+</section>
+
+
+
+
+
+
+
 <section class="banner mb-4 pb-3">
     <div class="pt-5 pl-3 content ">
         <h6 class="banner__text-primary fw-6 "> Students </h6>
@@ -236,7 +253,7 @@
                         
                     </form>
                             <div class="d-flex justify-content-end mb-3">
-                                <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 ">Cancel </button>
+                                <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel </button>
                                 <button class="btn btn-orange-two px-5 mb-4 mt-3" data-toggle="modal" data-target="#exampleModalCenterSuccess" > Send Message </button>
                             </div>
                 </div>
@@ -260,7 +277,7 @@
                         <img src="assets/images/svg/promote.svg" alt="schools log" class="mb-5 mt-5">
                         <h6 class="fs-24 text-center">Are you sure you want to promote  <br> <span class="fw-6">John Boyega?</span></h6>
                         <div class="d-flex justify-content-center my-5">
-                            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 ">No, cancel </button>
+                            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">No, cancel </button>
                             <button class="btn btn-orange-two px-5 mb-4 mt-3" > Yes, promote  </button>
                         </div>
                     </div>
@@ -318,5 +335,51 @@
         </div>
     </div>
     <!-- end of success modal -->
+
+
+
+
+
+    <!-- Bulk uplaod Modal -->
+<div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+            <div class="modal-content">
+
+                <div class="modal-head ">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h6 class="modal-title">Upload Files</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                </div>
+                <div class="modal-body client-modal">
+                    <form>
+                        <div class="form-group file-upload mt-4 mb-3">
+                            <label for="fileupload">Drag files to upload or click</label>
+                            <input type="file" class="file-input" id="fileupload">
+                            <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                            <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
+                                file. To import
+                                more than 5000 records at a time, use a .csv file.</p>
+                        </div>
+
+                        <p class="mb-5 download">Click <span>here</span> to download sample file</p>
+
+                        <div class="modal-btn d-flex justify-content-end mb-5">
+                            <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
+                            <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add New </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- end of Bulk uplaod modal -->
 
 
