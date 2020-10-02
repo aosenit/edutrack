@@ -6,10 +6,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
+import { SchoolLoginComponent } from './school-login/school-login.component';
 
 
 @NgModule({
-  declarations: [ForgotPasswordComponent, AdminLoginComponent, TeacherLoginComponent, StudentLoginComponent],
+  declarations: [ForgotPasswordComponent, AdminLoginComponent, TeacherLoginComponent, StudentLoginComponent, SchoolLoginComponent],
   imports: [
     CommonModule,
     AuthenticationRoutingModule
