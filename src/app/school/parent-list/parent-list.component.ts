@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent-list.component.css']
 })
 export class ParentListComponent implements OnInit {
-  records = false;
+  record = false;
   constructor() { }
 
   ngOnInit() {
