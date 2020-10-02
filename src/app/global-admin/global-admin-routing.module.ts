@@ -19,7 +19,9 @@ const routes: Routes = [
       { path: 'client', component: ClientDetailComponent },
       { path: 'users', component: UsersComponent },
       { path: 'user', component: EditUserComponent },
-      { path: 'newuser', component: NewUserComponent }
+      { path: 'newuser', component: NewUserComponent },
+      {path: 'edit-user', component: EditUserComponent},
+
     ]
   }
 ];
