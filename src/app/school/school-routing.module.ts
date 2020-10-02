@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { AddStudentsComponent } from './add-students/add-students.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeComponent } from './employee/employee.component';
 import { FacilitySettingsComponent } from './facility-settings/facility-settings.component';
 import { FinanceSettingsComponent } from './finance-settings/finance-settings.component';
 import { NewRoleRecordComponent } from './new-role-record/new-role-record.component';
@@ -17,6 +21,7 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentSettingsComponent } from './student-settings/student-settings.component';
 import { TeachersComponent } from './teachers/teachers.component';
+import { TimeTableComponent } from './time-table/time-table.component';
 
 
 const routes: Routes = [
@@ -39,6 +44,11 @@ const routes: Routes = [
       { path: 'payroll-settings', component: PayrollSetttingsComponent},
       { path: 'records', component: NewRoleRecordComponent},
       { path: 'teacher', component: TeachersComponent},
+      { path: 'employee', component: EmployeeComponent},
+      { path: 'employees', component: EmployeeListComponent},
+      { path: 'employee-detail', component: EmployeeDetailsComponent},
+      { path: 'time-table', component: TimeTableComponent},
+      { path: 'calendar', component: CalendarComponent},
 
     ]
   },

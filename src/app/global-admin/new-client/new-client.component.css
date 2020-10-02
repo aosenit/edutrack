@@ -190,22 +190,30 @@ p {
 
 }
 
+
 .file-upload label {
     position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 70px;
+    right: 200px;
     text-align: center;
-    color: #000000;
-    font-size: 13px;
-    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    
 }
 
-.file-upload button {
+
+.file-input {
     position: absolute;
-    top: 62%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.file-input:focus {
+    outline: none;
 }
 
 .file-upload .caption {
@@ -213,4 +221,28 @@ p {
     top: 82%;
     text-align: center;
     font-size: 12px;
+}
+
+.btn-upload {
+    position: absolute;
+    top: 125px;
+    right: 200px;
+    border: none;
+    outline: none;
+    padding: 11px 50px;
+    border-radius: 2.5px;
+    color: #fff;
+    /* font-weight: 600; */
+    border-radius: 10px;
+}
+
+.file-upload .caption {
+    position: absolute;
+    /* top: 82%; */
+    text-align: center;
+    font-size: 12px;
+}
+
+.download { 
+    cursor: pointer;
 }

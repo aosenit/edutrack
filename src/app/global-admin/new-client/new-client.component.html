@@ -186,58 +186,44 @@
 <!-- end of contact modal -->
 
 
-<!-- Bulk uplaod Modal -->
-<div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" style="max-width: 40%;" role="document">
-        <div class="modal-content1">
+ <!-- Bulk uplaod Modal -->
+ <div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
+ aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+     <div class="modal-content">
 
-            <div class="modal-head mb-3">
-                <h6 class="modal-title">Upload Files</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body client-modal">
-                <form class="">
-                    <div class=" my-3 ">
-                        <div class=" file-upload">
-                            <label for="fileupload">Drag and Drop your document here <br> to upload</label>
-                            <button class="btn btn-orange-two px-5 mb-4 mt-3">Add files</button>
-                            <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
-                                file. To import
-                                more than 5000 records at a time, use a .csv file.</p>
-                        </div>
+         <div class="modal-head ">
+             <div class="d-flex justify-content-between align-items-center mb-3">
+                 <h6 class="modal-title">Upload Files</h6>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             
+         </div>
+         <div class="modal-body client-modal">
+             <form>
+                 <div class="form-group file-upload mt-4 mb-3">
+                     <label for="fileupload">Drag files to upload or click</label>
+                     <input type="file" class="file-input" id="fileupload">
+                     <button type="button " class="btn-orange-two btn-upload  mb-3 ">Add Files </button>
+                     <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
+                         file. To import
+                         more than 5000 records at a time, use a .csv file.</p>
+                 </div>
 
+                 <p class="mb-5 download">Click <span>here</span> to download sample file</p>
 
-                    </div>
+                 <div class="modal-btn d-flex justify-content-end mb-5">
+                     <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
+                     <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add New </button>
+                 </div>
 
-                    <div class="row  my-3 ">
+             </form>
+         </div>
 
-                        <div class="col-6">
-                            <label for="domain">What do you want to do with the records in the file?</label>
-                            <select id="country" class="form-control">
-                                <option value="" selected></option>
-                                <option value="addnew">Add as a new client</option>
-                                <option value="addnew">Update esisting client list</option>
-
-                            </select>
-                        </div>
-
-
-                    </div>
-
-
-
-
-                    <div class="modal-btn d-flex justify-content-end mb-5">
-                        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-                        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Add New </button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
+     </div>
+ </div>
 </div>
+
 <!-- end of Bulk uplaod modal -->

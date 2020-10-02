@@ -16,11 +16,15 @@ import { FinanceSettingsComponent } from './finance-settings/finance-settings.co
 import { FacilitySettingsComponent } from './facility-settings/facility-settings.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
-import { ScheduleComponent } from './schedule/schedule.component';
 import { ResultSettingsComponent } from './result-settings/result-settings.component';
 import { StudentSettingsComponent } from './student-settings/student-settings.component';
 import { PayrollSetttingsComponent } from './payroll-setttings/payroll-setttings.component';
 import { TeachersComponent } from './teachers/teachers.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { TimeTableComponent } from './time-table/time-table.component';
 
 
 @NgModule({
@@ -38,11 +42,15 @@ import { TeachersComponent } from './teachers/teachers.component';
                  FacilitySettingsComponent,
                  StudentListComponent,
                  StudentDetailComponent,
-                 ScheduleComponent,
                  ResultSettingsComponent,
                  StudentSettingsComponent,
                  PayrollSetttingsComponent,
-                 TeachersComponent
+                 TeachersComponent,
+                 EmployeeComponent,
+                 EmployeeListComponent,
+                 EmployeeDetailsComponent,
+                 CalendarComponent,
+                 TimeTableComponent
                 ],
   imports: [
     CommonModule,
