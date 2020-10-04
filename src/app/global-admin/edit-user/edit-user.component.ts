@@ -12,4 +12,8 @@ export class EditUserComponent implements OnInit {
   ngOnInit() {
   }
 
+  back() {
+    window.history.back();
+  }
+
 }
