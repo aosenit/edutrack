@@ -13,7 +13,7 @@ export class EmployeeDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-  back(){
+  back(){ 
     this.location.back()
   }
 }

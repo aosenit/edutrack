@@ -60,7 +60,7 @@
     background-size: 40%;
 }
 #faq {
-    margin-top: -23px;
+    /* margin-top: -23px; */
     background: url('../../assets/images/bg-faq.png');
     background-repeat: no-repeat;
     background-position: bottom left;
@@ -108,6 +108,16 @@
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
+}
+
+#testimonial {
+    background:  #FDD2AF;
+}
+.testimonialtext{
+    margin-bottom: -10px;
+}
+.test-box{
+    background: #014D94;
 }
 
 @media(max-width: 344px){
