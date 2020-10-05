@@ -1,5 +1,23 @@
 .calendar {
     height: 100vh;
     background: #FFFFFF;
-/* opacity: 0.5; */
+}
+
+.fc .fc-toolbar.fc-header-toolbar{
+    padding: 2rem !important;
+}
+
+.fc .fc-toolbar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem !important;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 1.75em;
+    margin: 0;
+    display: flex;
+    /* justify-content: center; */
+    margin-left: 10rem;
 }
