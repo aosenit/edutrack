@@ -27,6 +27,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 
 
+
 @NgModule({
   declarations: [SchoolComponent,
                  ParentComponent,
@@ -54,7 +55,7 @@ import { TimeTableComponent } from './time-table/time-table.component';
                 ],
   imports: [
     CommonModule,
-    SchoolRoutingModule
+    SchoolRoutingModule,
   ]
 })
 export class SchoolModule { }

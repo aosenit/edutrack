@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeDetailsComponent implements OnInit {
 
-  constructor(private location:Location) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  back(){ 
-    this.location.back()
+  back() {
+    window.history.back();
   }
 }

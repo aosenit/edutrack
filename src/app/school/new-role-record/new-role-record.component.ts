@@ -12,4 +12,8 @@ export class NewRoleRecordComponent implements OnInit {
   ngOnInit() {
   }
 
+  back() {
+    window.history.back();
+  }
+
 }

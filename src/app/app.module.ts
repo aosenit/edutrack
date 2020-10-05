@@ -10,6 +10,8 @@ import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products/products.component';
 import { FaqsComponent } from './faqs/faqs.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
