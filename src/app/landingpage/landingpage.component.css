@@ -60,7 +60,7 @@
     background-size: 40%;
 }
 #faq {
-    margin-top: -23px;
+    /* margin-top: -23px; */
     background: url('../../assets/images/bg-faq.png');
     background-repeat: no-repeat;
     background-position: bottom left;
@@ -110,6 +110,49 @@
     transform: rotate(180deg);
 }
 
+#testimonial {
+    background:  #FDD2AF;
+}
+.testimonialtext{
+    margin-bottom: -10px;
+}
+.test-box{
+    background: #014D94;
+}
+.carousel-control-next, .carousel-control-prev {
+    position: unset;
+    width: unset;   
+    border: 2px solid #014D94;
+    color: #014D94;
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+}
+#thewhy{
+    margin-top: -20 px;
+}
+.why{
+    background: #014D94;
+    min-height: 80vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+.why2{
+    background: #FDF4ED;
+    min-height: 80vh;
+}
+.topgirl2{
+    background: url('../../assets/images/girl2.png');
+    width: 50vw;  
+    margin-left: -100px;
+    height: 40vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.bullets{
+    margin-left: -50px;
+}
 @media(max-width: 344px){
     #products, #faq{
         background: unset;

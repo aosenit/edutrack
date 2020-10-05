@@ -60,6 +60,10 @@
     font-style: normal;
 }
 
+
+.fw-4{
+    font-weight: 400;
+}
 .fw-5{
     font-weight: 500;
 }
@@ -88,6 +92,11 @@
     font-size: 12px;
     line-height: 16px;
 }
+.fs-13{
+    font-size: 13px;
+    line-height: 16px;
+}
+
 .fs-14{
     font-size: 14px;
     line-height: 19px;
