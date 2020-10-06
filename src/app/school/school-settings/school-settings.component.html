@@ -59,8 +59,8 @@
     <p class=""> Adjust school settings </p>
   </div>
   <div class="d-flex">
-    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Add New </button>
+    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Add New </button> -->
   </div>
 
 
@@ -70,23 +70,23 @@
 
   <div class="searchpills-bar">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-      <li class="nav-item mr-5" (click)="showLevel()">
+      <li class="nav-item mr-5" (click)="showStatus('level')">
         <a class="nav-link active" id="pills-level-tab" data-toggle="pill" href="#pills-level" role="tab"
           aria-controls="pills-level" aria-selected="true">Level</a>
       </li>
-      <li class="nav-item mr-5" (click)="showClass()">
+      <li class="nav-item mr-5" (click)="showStatus('class')">
         <a class="nav-link" id="pills-class-tab" data-toggle="pill" href="#pills-class" role="tab"
           aria-controls="pills-class" aria-selected="false">Class</a>
       </li>
-      <li class="nav-item mr-5" (click)="showArm()">
+      <li class="nav-item mr-5" (click)="showStatus('arm')">
         <a class="nav-link" id="pills-arm-tab" data-toggle="pill" href="#pills-arm" role="tab" aria-controls="pills-arm"
           aria-selected="false">Class Arm</a>
       </li>
-      <li class="nav-item mr-5" (click)="showSubject()">
+      <li class="nav-item mr-5" (click)="showStatus('subject')">
         <a class="nav-link" id="pills-subject-tab" data-toggle="pill" href="#pills-subject" role="tab"
           aria-controls="pills-subject" aria-selected="false">Subjects</a>
       </li>
-      <li class="nav-item mr-5" (click)="showMail()">
+      <li class="nav-item mr-5" (click)="showStatus('mail')">
         <a class="nav-link" id="pills-mail-tab" data-toggle="pill" href="#pills-mail" role="tab"
           aria-controls="pills-mail" aria-selected="false">Mail Settings</a>
       </li>

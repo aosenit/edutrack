@@ -25,6 +25,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { TimeTableComponent } from './time-table/time-table.component';
+import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 
 
 
@@ -51,7 +52,8 @@ import { TimeTableComponent } from './time-table/time-table.component';
                  EmployeeListComponent,
                  EmployeeDetailsComponent,
                  CalendarComponent,
-                 TimeTableComponent
+                 TimeTableComponent,
+                 AttachTeacherComponent,
                 ],
   imports: [
     CommonModule,

@@ -180,3 +180,68 @@ td {
     align-items: center;
     padding: 17px 40px;
 }
+
+
+
+/* sms modal  */
+.modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+
+}
+
+
+.modal-head {
+    padding: 20px 40px;
+    background: #EBF0F5;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
+
+.client-modal {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 40px;
+
+}
+
+form {
+    width: 100%;
+}
+
+
+
+textarea {
+    height: 150px;
+}
+
+.close {
+    cursor: pointer;
+}
+
+h6 {
+    font-weight: bold;
+    font-weight: 600;
+}
+
+.form-group .custom-control-label::before {
+
+    background: #09B78A;
+    font-size: 16px;
+}
+
+.form-group .custom-control-label::after {
+
+    background: #ffffff;
+}
+
+
+
+
+.class-label {
+    margin-right: 5rem;
+}
