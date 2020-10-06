@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { AddStudentsComponent } from './add-students/add-students.component';
+import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
@@ -49,6 +50,8 @@ const routes: Routes = [
       { path: 'employee-detail', component: EmployeeDetailsComponent},
       { path: 'time-table', component: TimeTableComponent},
       { path: 'calendar', component: CalendarComponent},
+      {path: 'attach-teacher', component: AttachTeacherComponent},
+
 
     ]
   },

@@ -1,723 +1,973 @@
-<section class="banner mb-4 pb-3">
-    <div class="pt-5 pl-3 text-content ">
-      <h6 class="banner__text-primary  "> payroll Settings </h6>
-      <p class=""> Adjust your school's payroll settings </p>
-    </div>
-    <div class="d-flex">
-        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" > Bulk Actions </button>
-        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" > Add New </button>
-    </div>
+<section class="banner mb-4 pb-3" *ngIf="salary">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary  "> Payroll Settings </h6>
+    <p class=""> Adjust your school's payroll settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Add New </button>
+  </div>
 
-  </section>
+</section>
 
-  <div class="d-flex mt-5 mb-3">
+<section class="banner mb-4 pb-3" *ngIf="grade">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary  "> Payroll Settings </h6>
+    <p class=""> Adjust your school's payroll settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterGrade"> Add New </button>
+  </div>
 
-    <div class="searchpills-bar">
-      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item mr-5">
-          <a class="nav-link active" id="pills-department-tab" data-toggle="pill" href="#pills-department" role="tab"
-            aria-controls="pills-department" aria-selected="true">Salary Components</a>
-        </li>
-        <li class="nav-item mr-5">
-          <a class="nav-link" id="pills-title-tab" data-toggle="pill" href="#pills-title" role="tab"
-            aria-controls="pills-title" aria-selected="false">Pay Grades</a>
-        </li>
-        <li class="nav-item mr-5">
-          <a class="nav-link" id="pills-employment-tab" data-toggle="pill" href="#pills-employment" role="tab"
-            aria-controls="pills-employment" aria-selected="false">Tax Table</a>
-        </li>
-        <li class="nav-item mr-5">
-          <a class="nav-link" id="pills-qualification-tab" data-toggle="pill" href="#pills-qualification" role="tab"
-            aria-controls="pills-qualification" aria-selected="false">Bank</a>
-        </li>
-        <li class="nav-item mr-5">
-          <a class="nav-link" id="pills-occupation-tab" data-toggle="pill" href="#pills-occupation" role="tab"
-            aria-controls="pills-occupation" aria-selected="false">Tax Exempt</a>
-        </li>
-        <li class="nav-item mr-5">
-          <a class="nav-link" id="pills-payroll-tab" data-toggle="pill" href="#pills-payroll" role="tab"
-            aria-controls="pills-payroll" aria-selected="false">Payroll</a>
-        </li>
+</section>
+<section class="banner mb-4 pb-3" *ngIf="tax">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary  "> Payroll Settings </h6>
+    <p class=""> Adjust your school's payroll settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterTax"> Add New </button>
+  </div>
 
-      </ul>
+</section>
+<section class="banner mb-4 pb-3" *ngIf="bank">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary  "> Payroll Settings </h6>
+    <p class=""> Adjust your school's payroll settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterBank"> Add New </button>
+  </div>
 
-    </div>
+</section>
+<section class="banner mb-4 pb-3" *ngIf="exempt">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary  "> Payroll Settings </h6>
+    <p class=""> Adjust your school's payroll settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterExempt"> Add New </button>
+  </div>
 
-    <div class="search__input has-search ml-auto">
-      <span class="fa fa-search  form-control-feedback"></span>
-      <input type="text" class="form-control " placeholder="Search">
-    </div>
+</section>
+<section class="banner mb-4 pb-3" *ngIf="payroll">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary  "> Payroll Settings </h6>
+    <p class=""> Adjust your school's payroll settings </p>
   </div>
 
 
-  <div class="tab-content" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-department" role="tabpanel" aria-labelledby="pills-department-tab">
-        <section class="list">
-            <table class="table table-borderless client-table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="head ">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                                <label class="custom-control-label" for="customCheckTh"></label>
-                            </div>
-                        </th>
-                        <th scope="col"  class="w-60" >Salary Components <img src="assets/images/svg/table-sort.svg"></th>
-                       
-                        <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            <!-- ================ DROPDOWN ==================== -->
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                                <a class="dropdown-item fc-orange" href="#">All </a>
-                                <a class="dropdown-item" href="#">Active </a>
-                                <a class="dropdown-item" href="#">Inactive </a>
-                            </div>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Expulsion </p>
-                        </td>
-                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Suspension </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Detention </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Extra Classes </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-                    
-        
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-right">
-                            
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Manual Labour </p>
-                        </td>
-                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-        
-        
-        
-                </tbody>
-            </table>
-        
-        </section>
-    </div>
+</section>
 
-    <div class="tab-pane fade " id="pills-title" role="tabpanel" aria-labelledby="pills-title-tab">
-        <section class="list">
-            <table class="table table-borderless client-table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="head ">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                                <label class="custom-control-label" for="customCheckTh"></label>
-                            </div>
-                        </th>
-                        <th scope="col" >Grade <img src="assets/images/svg/table-sort.svg"></th>
-                        <th scope="col" >Step <img src="assets/images/svg/table-sort.svg"></th>
-                        <th scope="col " class="text-center" >Monthly Gross Pay <img src="assets/images/svg/table-sort.svg"></th>
-                        <th scope="col" class="text-center" >Annual Gross Pay <img src="assets/images/svg/table-sort.svg"></th>
-                       
-                        <th scope="col" class="text-center">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            <!-- ================ DROPDOWN ==================== -->
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                                <a class="dropdown-item fc-orange" href="#">All </a>
-                                <a class="dropdown-item" href="#">Active </a>
-                                <a class="dropdown-item" href="#">Inactive </a>
-                            </div>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Grade 1 </p>
-                        </td>
-                        <td>Step 1</td>
-                        <td class="text-center">100, 000</td>
-                        <td class="text-center">100, 000</td>
-                        <td ><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Grade 2 </p>
-                        </td>
-                        <td>Step 2</td>
-                        <td class="text-center">110, 000</td>
-                        <td class="text-center">110, 000</td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Grade 3 </p>
-                        </td>
-                        <td>Step 3</td>
-                        <td class="text-center">120, 000</td>
-                        <td class="text-center">120, 000</td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Grade 4 </p>
-                        </td>
-                        <td>Step 4</td>
-                        <td class="text-center">130, 000</td>
-                        <td class="text-center">130, 000</td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-right">
-                            
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Grade 5 </p>
-                        </td>
-                        <td>Step 5</td>
-                        <td class="text-center">140, 000</td>
-                        <td class="text-center">140, 000</td>
-                        <td><span class="status_inactive">Inactive</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-        
-        
-        
-                </tbody>
-            </table>
-        
-        </section>
-    </div>
+<div class="d-flex mt-5 mb-3">
 
-    <div class="tab-pane fade " id="pills-employment" role="tabpanel" aria-labelledby="pills-employment-tab">
-        <section class="list">
-            <table class="table table-borderless client-table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="head ">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                                <label class="custom-control-label" for="customCheckTh"></label>
-                            </div>
-                        </th>
-                        <th scope="col" class="w-60"  >Health Item <img src="assets/images/svg/table-sort.svg"></th>
-                       
-                        <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            <!-- ================ DROPDOWN ==================== -->
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                                <a class="dropdown-item fc-orange" href="#">All </a>
-                                <a class="dropdown-item" href="#">Active </a>
-                                <a class="dropdown-item" href="#">Inactive </a>
-                            </div>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Fighting </p>
-                        </td>
-                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Indecent Dressing </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Late Coming </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Trauncy </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-right">
-                            
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Examination Malpractice </p>
-                        </td>
-                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-        
-        
-        
-                </tbody>
-            </table>
-        
-        </section>
-    </div>
+  <div class="searchpills-bar">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item mr-5" (click)="showStatus('salary')">
+        <a class="nav-link active" id="pills-department-tab" data-toggle="pill" href="#pills-department" role="tab"
+          aria-controls="pills-department" aria-selected="true">Salary Components</a>
+      </li>
+      <li class="nav-item mr-5" (click)="showStatus('grade')">
+        <a class="nav-link" id="pills-title-tab" data-toggle="pill" href="#pills-title" role="tab"
+          aria-controls="pills-title" aria-selected="false">Pay Grades</a>
+      </li>
+      <li class="nav-item mr-5" (click)="showStatus('tax')">
+        <a class="nav-link" id="pills-employment-tab" data-toggle="pill" href="#pills-employment" role="tab"
+          aria-controls="pills-employment" aria-selected="false">Tax Table</a>
+      </li>
+      <li class="nav-item mr-5" (click)="showStatus('bank')">
+        <a class="nav-link" id="pills-qualification-tab" data-toggle="pill" href="#pills-qualification" role="tab"
+          aria-controls="pills-qualification" aria-selected="false">Bank</a>
+      </li>
+      <li class="nav-item mr-5" (click)="showStatus('exempt')">
+        <a class="nav-link" id="pills-occupation-tab" data-toggle="pill" href="#pills-occupation" role="tab"
+          aria-controls="pills-occupation" aria-selected="false">Tax Exempt</a>
+      </li>
+      <li class="nav-item mr-5" (click)="showStatus('payroll')">
+        <a class="nav-link" id="pills-payroll-tab" data-toggle="pill" href="#pills-payroll" role="tab"
+          aria-controls="pills-payroll" aria-selected="false">Payroll</a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div class="search__input has-search ml-auto">
+    <span class="fa fa-search  form-control-feedback"></span>
+    <input type="text" class="form-control " placeholder="Search">
+  </div>
+</div>
 
 
-    <div class="tab-pane fade " id="pills-qualification" role="tabpanel" aria-labelledby="pills-qualification-tab">
-        <section class="list">
-            <table class="table table-borderless client-table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="head ">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                                <label class="custom-control-label" for="customCheckTh"></label>
-                            </div>
-                        </th>
-                        <th scope="col"  class="w-60" >Bank <img src="assets/images/svg/table-sort.svg"></th>
-                       
-                        <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            <!-- ================ DROPDOWN ==================== -->
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                                <a class="dropdown-item fc-orange" href="#">All </a>
-                                <a class="dropdown-item" href="#">Active </a>
-                                <a class="dropdown-item" href="#">Inactive </a>
-                            </div>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Fidelity Bank </p>
-                        </td>
-                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >FCMB </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >UBA </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >GT Bank </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-                    
-        
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-right">
-                            
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Keystone Bank </p>
-                        </td>
-                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-        
-        
-        
-                </tbody>
-            </table>
-        
-        </section>
-    </div>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-department" role="tabpanel" aria-labelledby="pills-department-tab">
+    <section class="list">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th>
+            <th scope="col" class="w-60">Salary Components <img src="assets/images/svg/table-sort.svg"></th>
 
-    <div class="tab-pane fade " id="pills-occupation" role="tabpanel" aria-labelledby="pills-occupation-tab">
-        <section class="list">
-            <table class="table table-borderless client-table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="head ">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                                <label class="custom-control-label" for="customCheckTh"></label>
-                            </div>
-                        </th>
-                        <th scope="col" class="w-60" >Reason <img src="assets/images/svg/table-sort.svg"></th>
-                       
-                        <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                            <!-- ================ DROPDOWN ==================== -->
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                                <a class="dropdown-item fc-orange" href="#">All </a>
-                                <a class="dropdown-item" href="#">Active </a>
-                                <a class="dropdown-item" href="#">Inactive </a>
-                            </div>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Fell sick </p>
-                        </td>
-                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Had an accident </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Travelled </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
+            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item fc-orange" href="#">All </a>
+                <a class="dropdown-item" href="#">Active </a>
+                <a class="dropdown-item" href="#">Inactive </a>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Expulsion </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
 
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Cleaner </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Security Guard </p>
-                        </td>
-                           <td> <span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Suspension </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
 
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Legal Officer </p>
-                        </td>
-                           <td> <span class="status_inactive">Inactive</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-                    
-        
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-right">
-                            
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <p class=" mb-0" >Consultant </p>
-                        </td>
-                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-        
-        
-        
-                </tbody>
-            </table>
-        
-        </section>
-    </div>
-    <div class="tab-pane fade " id="pills-payroll" role="tabpanel" aria-labelledby="pills-payroll-tab">
-        <div class="mail pt-5  justify-content-center">
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Detention </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Extra Classes </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
 
-            <form class="">
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <label for="annual" class="fw-6">Annual Consolidate relief($) <span class="text-danger">*</span></label>
-                          <input type="number" class="form-control  form-control-lg-lg" placeholder="Enter Amount" id="annual">
-                        </div>
-                        <div class="col-md-6 ">
-                            <label for="gross" class="fw-6">Gross Income Relief(%) <span class="text-danger">*</span></label>
-                          <input type="number" class="form-control form-control-lg" placeholder="Enter percentage" id="gross">
-                        </div>
-                    </div>
-    
-                    <div class="row mb-4">
-                        <div class="col-md-6">
-                            <label for="minimumRate" class="fw-6">Minimum Rate(%) <span class="text-danger">*</span> </label>
-                          <input type="number" class="form-control form-control-lg" placeholder="Enter minimum rate" id="minimumRate">
-                        </div>
-                        <div class="col-md-6">
-                            <label for="allowance" class="fw-6">Leave Allowance(%) <span class="text-danger">*</span> </label>
-                          <input type="number" class="form-control form-control-lg" placeholder="Enter leave allowance" id="allowance">
-                        </div>
-                        
-                    </div>
-    
-                    <div class="row mb-4 d-flex align-items-end">
-                        <div class="col-md-6">
-                            <label for="leave" class="fw-6">Leave Per Month <span class="text-danger">*</span> </label>
-                          <select name="" id="leave" class="form-control form-control-lg">
-                              <option value="" selected>Select</option>
-                          </select>
-                        </div>
-                        <div class="col-md-6 ">
-                           <div class="form-group align-items-end">
-                            <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                                <label class="custom-control-label" for="customSwitch1">Inactive</label>
-                              </div>
-                           </div>
-                        </div>
-                    </div>
-    
-    
-                    <div class="form-check mb-2 mr-sm-2 ">
-                        <input class="form-check-input" type="checkbox" id="inlineFormCheck">
-                        <label class="form-check-label" for="inlineFormCheck">
-                          Do you want to edit?
-                        </label>
-                      </div>
-    
-                    
-    
-                    <div class=" d-flex justify-content-center mt-5">
-                        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" > Save </button>
-            
-                    </div>
-    
-            </form>
-           </div>
+
+
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-right">
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Manual Labour </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+
+  <div class="tab-pane fade " id="pills-title" role="tabpanel" aria-labelledby="pills-title-tab">
+    <section class="list">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th>
+            <th scope="col">Grade <img src="assets/images/svg/table-sort.svg"></th>
+            <th scope="col">Step <img src="assets/images/svg/table-sort.svg"></th>
+            <th scope="col " class="text-center">Monthly Gross Pay <img src="assets/images/svg/table-sort.svg"></th>
+            <th scope="col" class="text-center">Annual Gross Pay <img src="assets/images/svg/table-sort.svg"></th>
+
+            <th scope="col" class="text-center">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item fc-orange" href="#">All </a>
+                <a class="dropdown-item" href="#">Active </a>
+                <a class="dropdown-item" href="#">Inactive </a>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Grade 1 </p>
+            </td>
+            <td>Step 1</td>
+            <td class="text-center">100, 000</td>
+            <td class="text-center">100, 000</td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Grade 2 </p>
+            </td>
+            <td>Step 2</td>
+            <td class="text-center">110, 000</td>
+            <td class="text-center">110, 000</td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Grade 3 </p>
+            </td>
+            <td>Step 3</td>
+            <td class="text-center">120, 000</td>
+            <td class="text-center">120, 000</td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Grade 4 </p>
+            </td>
+            <td>Step 4</td>
+            <td class="text-center">130, 000</td>
+            <td class="text-center">130, 000</td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-right">
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Grade 5 </p>
+            </td>
+            <td>Step 5</td>
+            <td class="text-center">140, 000</td>
+            <td class="text-center">140, 000</td>
+            <td><span class="status_inactive">Inactive</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+
+  <div class="tab-pane fade " id="pills-employment" role="tabpanel" aria-labelledby="pills-employment-tab">
+    <section class="list">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th>
+            <th scope="col" class="w-60">Health Item <img src="assets/images/svg/table-sort.svg"></th>
+
+            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item fc-orange" href="#">All </a>
+                <a class="dropdown-item" href="#">Active </a>
+                <a class="dropdown-item" href="#">Inactive </a>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Fighting </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Indecent Dressing </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Late Coming </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Trauncy </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-right">
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Examination Malpractice </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+
+
+  <div class="tab-pane fade " id="pills-qualification" role="tabpanel" aria-labelledby="pills-qualification-tab">
+    <section class="list">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th>
+            <th scope="col" class="w-60">Bank <img src="assets/images/svg/table-sort.svg"></th>
+
+            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item fc-orange" href="#">All </a>
+                <a class="dropdown-item" href="#">Active </a>
+                <a class="dropdown-item" href="#">Inactive </a>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Fidelity Bank </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">FCMB </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">UBA </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">GT Bank </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-right">
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Keystone Bank </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+
+  <div class="tab-pane fade " id="pills-occupation" role="tabpanel" aria-labelledby="pills-occupation-tab">
+    <section class="list">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th>
+            <th scope="col" class="w-60">Reason <img src="assets/images/svg/table-sort.svg"></th>
+
+            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item fc-orange" href="#">All </a>
+                <a class="dropdown-item" href="#">Active </a>
+                <a class="dropdown-item" href="#">Inactive </a>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Fell sick </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Had an accident </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Travelled </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Cleaner </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Security Guard </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Legal Officer </p>
+            </td>
+            <td> <span class="status_inactive">Inactive</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-right">
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Consultant </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+  <div class="tab-pane fade " id="pills-payroll" role="tabpanel" aria-labelledby="pills-payroll-tab">
+    <div class="mail pt-5  justify-content-center">
+
+      <form class="">
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="annual" class="fw-6">Annual Consolidate relief($) <span class="text-danger">*</span></label>
+            <input type="number" class="form-control  form-control-lg-lg" placeholder="Enter Amount" id="annual">
+          </div>
+          <div class="col-md-6 ">
+            <label for="gross" class="fw-6">Gross Income Relief(%) <span class="text-danger">*</span></label>
+            <input type="number" class="form-control form-control-lg" placeholder="Enter percentage" id="gross">
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="minimumRate" class="fw-6">Minimum Rate(%) <span class="text-danger">*</span> </label>
+            <input type="number" class="form-control form-control-lg" placeholder="Enter minimum rate" id="minimumRate">
+          </div>
+          <div class="col-md-6">
+            <label for="allowance" class="fw-6">Leave Allowance(%) <span class="text-danger">*</span> </label>
+            <input type="number" class="form-control form-control-lg" placeholder="Enter leave allowance"
+              id="allowance">
+          </div>
+
+        </div>
+
+        <div class="row mb-4 d-flex align-items-end">
+          <div class="col-md-6">
+            <label for="leave" class="fw-6">Leave Per Month <span class="text-danger">*</span> </label>
+            <select name="" id="leave" class="form-control form-control-lg">
+              <option value="" selected>Select</option>
+            </select>
+          </div>
+          <div class="col-md-6 ">
+            <div class="form-group align-items-end">
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                <label class="custom-control-label" for="customSwitch1">Inactive</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-check mb-2 mr-sm-2 ">
+          <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+          <label class="form-check-label" for="inlineFormCheck">
+            Do you want to edit?
+          </label>
+        </div>
+
+
+
+        <div class=" d-flex justify-content-center mt-5">
+          <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Save </button>
+
+        </div>
+
+      </form>
     </div>
   </div>
+</div>
+
+
+<!-- grade  Modal -->
+<div class="modal fade" id="exampleModalCenterGrade" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterGradeTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Grade Type</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form>
+
+
+          <div class="form-group mb-4">
+            <label for="grade" class="fw-6">Grade <span class="text-danger">*</span></label>
+            <select name="" id="grade" class="form-control">
+              <option value="">Select</option>
+            </select>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="step" class="fw-6">Step <span class="text-danger">*</span></label>
+            <select name="" id="step" class="form-control">
+              <option value="">Select</option>
+            </select>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="action" class="fw-6">Gross Pay <span class="text-danger">*</span></label>
+            <input type="number" id="action" class="form-control" placeholder="Enter gross pay">
+          </div>
+
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1">Active</label>
+            </div>
+          </div>
+
+
+        </form>
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Pay Grade</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of grade modal -->
+
+
+<!-- Tax  Modal -->
+<div class="modal fade" id="exampleModalCenterTax" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTaxTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Tax Table</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form>
+
+
+          <div class="form-group mb-4">
+            <label for="amount" class="fw-6">Monthly Amount <span class="text-danger">*</span></label>
+            <input type="number" id="amount" class="form-control" placeholder="Enter Monthly amount">
+
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="rate" class="fw-6">Rate(%) <span class="text-danger">*</span></label>
+            <input type="number" id="rate" class="form-control" placeholder="Enter rate">
+
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="sequence" class="fw-6">Sequence <span class="text-danger">*</span></label>
+            <input type="number" id="sequence" class="form-control" placeholder="Enter sequence">
+          </div>
+
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1">Active</label>
+            </div>
+          </div>
+
+
+        </form>
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Tax table</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Tax modal -->
+
+
+<!-- Bank  Modal -->
+<div class="modal fade" id="exampleModalCenterBank" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterBankTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Bank</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form>
+
+
+          <div class="form-group mb-5">
+            <label for="amount" class="fw-6">Bank Name <span class="text-danger">*</span></label>
+            <input type="text" id="amount" class="form-control" placeholder="Enter bank name">
+
+          </div>
+
+
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1">Active</label>
+            </div>
+          </div>
+
+
+        </form>
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Bank</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Bank modal -->
+
+
+<!-- Exempt  Modal -->
+<div class="modal fade" id="exampleModalCenterExempt" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterExemptTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Tax Exempt</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form>
+
+
+          <div class="form-group mb-4">
+            <label for="tax" class="fw-6">Tax Exempt Name <span class="text-danger">*</span></label>
+            <input type="text" id="tax" class="form-control" placeholder="Enter tax exempt name">
+
+          </div>
+          <div class="form-group mb-5">
+            <label for="rate" class="fw-6">Rate <span class="text-danger">*</span></label>
+            <input type="text" id="rate" class="form-control" placeholder="Enter rate">
+
+          </div>
+
+
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1">Active</label>
+            </div>
+          </div>
+
+
+        </form>
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add tax exempt</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Exempt modal -->Exempt
