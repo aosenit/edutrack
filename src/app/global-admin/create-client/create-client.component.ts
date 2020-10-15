@@ -29,4 +29,8 @@ export class CreateClientComponent implements OnInit {
     }
   }
 
+  back() {
+    window.history.back();
+  }
+
 }
