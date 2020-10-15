@@ -10,12 +10,25 @@ import { NewUserComponent } from './new-user/new-user.component';
 import { NewClientComponent } from './new-client/new-client.component';
 import { UsersComponent } from './users/users.component';
 import { GlobalAdminComponent } from './global-admin.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewroleComponent } from './newrole/newrole.component';
 
 
 @NgModule({
-  declarations: [ClientDetailComponent, ClientsComponent, DashboardComponent, EditUserComponent, NewUserComponent, NewClientComponent, UsersComponent, GlobalAdminComponent],
+  declarations: [
+    ClientDetailComponent,
+    ClientsComponent,
+    DashboardComponent,
+    EditUserComponent,
+    NewUserComponent,
+    NewClientComponent,
+    UsersComponent,
+    GlobalAdminComponent,
+    NewroleComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     GlobalAdminRoutingModule
   ]
 })

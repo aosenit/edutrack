@@ -1,3 +1,4 @@
+
 .breadcrumb {
     display: -ms-flexbox;
     display: flex;
@@ -26,128 +27,233 @@ a {
     display: none;
 }
 
-
-.user__intro {
-    display: flex;
-    justify-content: space-between;
+.steps {
+    
+background: rgba(245, 245, 245, 0.66);
+}
+.steps div:not(:last-child) {
+    /* margin-right: 7rem; */
 }
 
-
-.user__select {
-    display: flex;
-    justify-content: space-between;
-}
-
-
-input[type="text"] {
-    width: 125%;
-}
-
-.user__permission {}
-
-/* ================= table ====================== */
-table {}
-
-table.client-table {
-    border-collapse: separate;
-    border-spacing: 0 1em;
-}
-
-.user__permission .table thead {
-    color: #4c75bd;
-    background: transparent;
-}
-
-.user__permission .table thead tr th {
-    font-weight: 600;
-}
-
-.user__permission .table thead .head {
-    /* display: flex;
-      align-items: center;
-      color: #0a1128;
-      font-weight: 600; */
-    padding-left: 3.5rem;
-}
-
-.user__permission .table tbody {
-    background: #ffffff;
-
-}
-
-.user__permission .table tbody .user {
+.steps span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    color: #0a1128;
-    font-weight: 600;
-    padding-left: 1.5rem;
-    padding-left: 3.5rem;
-    position: relative;
-    opacity: none;
+    justify-content: center;
+    color: #ffffff;
 }
-
-.user__permission .table tbody .user span {
-    position: absolute;
-    bottom: 20px;
-    left: 15px;
-}
-
-.user__permission .table tbody .user div p,
-h6 {
-    margin-bottom: .1rem;
-}
-
-.user__permission .table tbody .user div h6 {
-    color: #355691;
-    font-size: 14px;
-}
-
-.user__permission .table tbody .user div p {
-    color: #0a1128;
-    font-size: 14px;
-}
-
-.user__permission .table tbody tr {
-    background: #ffffff;
-    box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
-    border-radius: 5px;
-}
-
-
-table tr,
-td {
-    padding: 20px;
-    color: #355691;
+.steps .active span {
+    background: #FB882C;
     font-weight: 600;
 }
 
-.btn-orange-two {
-    background: #fb882c;
-    border-radius: 5px;
-    height: 44px;
-    font-family: Nunito;
-    font-style: normal;
+.steps .active p {
+    color: #000000;
     font-weight: 600;
-    font-size: 15px;
-    line-height: 20px;
+    line-height: 1;
+}
+.steps  p {
+    color: #707070;
+    line-height: 1;
+}
+
+.steps span:not(.active) {
+    background: #B7C0CD;
     color: #ffffff;
 }
 
-.btn-outline-orange {
-    border: 1px solid #FB882C;
-    box-sizing: border-box;
-    border-radius: 5px;
-    height: 44px;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 19px;
-    color: #FB882C;
+
+.step-content {
+    background: rgba(255, 255, 255, 0.5);
+border: transparent solid #D7DFE8;
+    padding: 6rem;
+/* opacity: 0.5; */
 }
 
 
-.user__btn {
+/* tabs */
+
+
+.nav-link {
+    padding: .5rem .5rem;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+   color: #000000;
+   font-weight: 600;
+ /* border-bottom: 3px solid  #EB6B04;; */
+   background: transparent;
+   border-radius: 0;
+   padding: 7px 5px;
+   /* font-size: 13px; */
+   font-family: nunito;
+   z-index: 22;
+ }
+ .nav-pills .nav-link, .nav-pills .show>.nav-link {
+   color: #A4A5A8;
+   /* font-size: 13px; */
+   }
+  
+
+/* end of tabs */
+
+/* input[type="file" i] {
+    background: #E5EBF5;
+border-radius: 3px;
+} */
+#customFile .custom-file-control:lang(en)::after {
+    content: "Select file...";
+}
+
+.custom-file-input:lang(en)~.custom-file-label::after {
+    content: Upload !important;
+}
+.custom-file-label::after {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    padding: 10px 15px;
+    height: 25px 25px;
+    line-height: 1.5;
+    color: #355691;
+    content: "Upload";
+    background: #E5EBF5;
+    border-radius: 3px;
+    border-left: inherit;
+    /* border-radius: 0 .25rem .25rem 0; */
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+}
+
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+}
+
+h6 {
+    font-weight: bold;
+    font-weight: 600;
+}
+
+form .form-control, .custom-file-input {
+    /* padding: 1.37rem .75rem; */
+    color: #000000;
+    font-size: 16px;
+    border: 1px solid #D1D9DF;
+}
+
+p {
+    color: #000000;
+    font-size: 14px;
+}
+
+
+
+.modal-content1 {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+    background: #FFFFFF;
+    width: 100%;
+
+}
+
+
+.modal-content1 .modal-head {
+    background: #EBF0F5;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-head {
+    background: #EBF0F5;
+    padding: 20px 40px;
+    display: flex;
+}
+
+
+
+
+.modal-content1 .client-modal {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+
+}
+
+.file-upload {
+    position: relative;
+    background-image: url('../../../assets/images/svg/drop.svg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #F6F9FE;
+    border: 1px dashed #2A3851;
+    height: 280px;
+
+}
+
+
+.file-upload label {
+    position: absolute;
+    top: 70px;
+    right: 200px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    
+}
+
+
+.file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.file-input:focus {
+    outline: none;
+}
+
+.file-upload .caption {
+    position: absolute;
+    top: 82%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.btn-upload {
+    position: absolute;
+    top: 125px;
+    right: 200px;
+    border: none;
+    outline: none;
+    padding: 11px 50px;
+    border-radius: 2.5px;
+    color: #fff;
+    /* font-weight: 600; */
+    border-radius: 10px;
+}
+
+.file-upload .caption {
+    position: absolute;
+    /* top: 82%; */
+    text-align: center;
+    font-size: 12px;
+}
+
+.download { 
+    cursor: pointer;
 }

@@ -6,10 +6,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentComponent } from './student.component';
 import { VirtualClassroomComponent } from './virtual-classroom/virtual-classroom.component';
 import { SessionComponent } from './session/session.component';
+import { AssignmentComponent } from './assignment/assignment.component';
+import { ClassScheduleComponent } from './class-schedule/class-schedule.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, StudentComponent, VirtualClassroomComponent, SessionComponent],
+  declarations: [DashboardComponent, StudentComponent, VirtualClassroomComponent, SessionComponent, AssignmentComponent, ClassScheduleComponent],
   imports: [
     CommonModule,
     StudentRoutingModule

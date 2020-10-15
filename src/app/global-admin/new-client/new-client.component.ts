@@ -10,14 +10,11 @@ export class NewClientComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('dsdds');
   }
-  nextModal() {
-    document.getElementById('exampleModalCenter2').click();
+ 
 
+  back() {
+    window.history.back();
   }
-
-  contactPersonModal() {
-    document.getElementById('exampleModalCenter3').click();
-  }
-
 }

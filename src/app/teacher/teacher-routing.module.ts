@@ -5,6 +5,7 @@ import { AssignmentsComponent } from './assignments/assignments.component';
 import { CreateAssignmentComponent } from './create-assignment/create-assignment.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FileManagerComponent } from './file-manager/file-manager.component';
+import { GradebookComponent } from './gradebook/gradebook.component';
 import { GradingComponent } from './grading/grading.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { TeacherComponent } from './teacher.component';
@@ -26,7 +27,8 @@ const routes: Routes = [
       { path: 'filemanager', component: FileManagerComponent },
       { path: 'file', component: ViewFileComponent },
       { path: 'class', component: VirtualClassComponent },
-      { path: 'session', component: VirtualSessionComponent }
+      { path: 'session', component: VirtualSessionComponent },
+      { path: 'gradebook', component: GradebookComponent }
     ]
   }
 ];

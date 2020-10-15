@@ -7,6 +7,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { GlobalAdminComponent } from './global-admin.component';
 import { NewClientComponent } from './new-client/new-client.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { NewroleComponent } from './newrole/newrole.component';
 import { UsersComponent } from './users/users.component';
 
 
@@ -20,7 +21,10 @@ const routes: Routes = [
       { path: 'users', component: UsersComponent },
       { path: 'user', component: EditUserComponent },
       { path: 'newuser', component: NewUserComponent },
+      { path: 'new-role', component: NewroleComponent },
       {path: 'edit-user', component: EditUserComponent},
+      {path: 'create-client', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
+
 
     ]
   }
