@@ -123,6 +123,10 @@ outline: none;
     cursor: pointer;
 }
 
+.classes__upcoming .view {
+    cursor: pointer;
+    outline: none;
+}
 .classes__upcoming .bg-classes-white {
     background: #FFFFFF;
     border: 1px solid #BED0E4;

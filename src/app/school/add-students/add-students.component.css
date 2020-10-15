@@ -30,9 +30,9 @@ a {
     
 background: rgba(245, 245, 245, 0.66);
 }
-.steps div:not(:last-child) {
+/* .steps div:not(:last-child) { */
     /* margin-right: 7rem; */
-}
+/* } */
 
 .steps span {
     width: 40px;

@@ -1,15 +1,218 @@
-<section class="client">
-    <img src="assets/images/svg/institution.svg" alt="new client" class="">
-    <h6 class="pt-5">Create your first client</h6>
-    <p class="text-center pt-1">It looks like you haven’t created a client yet. Get started by <br> clicking the button
-        below.</p>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
-        data-target="#exampleModalCenter">
-        Add New </button>
-    <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
-        data-target="#exampleModalCenterUpload">Bulk
-        Upload</button>
-</section>
+<div class="container px-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" (click)="back()">
+            <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+            <li class="breadcrumb-item a1 " aria-current="page">
+                <a>Back</a>
+            </li>
+        </ol>
+
+
+    </nav>
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <p class="fw-6">Add New Client</p>
+        </div>
+
+        <div class="col-md-12">
+            
+
+            <div class="steps p-3">
+                <ul class="nav nav-pills mb-3 justify-content-center align-items-center" id="pills-tab" role="tablist">
+                    <li class="nav-item mr-5">
+                        <a class="nav-link active" id="pills-basic-tab" data-toggle="pill" href="#pills-basic"
+                            role="tab" aria-controls="pills-basic" aria-selected="true">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="mr-2">
+                                    <span class="bg-orange">1</span>
+                                </div>
+                                <div>
+                                    Profile <br> Information
+                                </div>
+                            </div>
+                        </a>
+
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" id="pills-social-tab" data-toggle="pill" href="#pills-social" role="tab"
+                            aria-controls="pills-social" aria-selected="false">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="mr-2">
+                                    <span class="">2</span>
+                                </div>
+                                <div>
+                                    Contact <br> Details
+                                </div>
+                            </div>
+                            </a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                            aria-controls="pills-contact" aria-selected="false">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="mr-2">
+                                    <span class="">3</span>
+                                </div>
+                                <div>
+                                    Contact <br> Person
+                                </div>
+                            </div>
+                            </a>
+                    </li>
+                    
+
+
+                </ul>
+            </div>
+
+            <div class="step-content justify-content-center pt-5 pb-3">
+                
+
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-basic" role="tabpanel"
+                        aria-labelledby="pills-basic-tab">
+                        <form>
+                            <div class="basic-details">
+
+                                <div class="form-row my-5 ">
+                                    <div class=" ">
+                                        <label for="domain" class="fw-6">Domain Name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control form-control-lg" id="domain"
+                                            placeholder="Enter Domain Name">
+                                    </div>
+                                    <div class="  ">
+                                        <label for="website" class="fw-6">Official Website <span class="text-danger">*</span></label>
+            
+                                        <input type="url" class="form-control form-control-lg" id="website" placeholder="Enter school wesbite">
+                                    </div>
+            
+                                </div>
+
+                                <div class="form-row my-5">
+                                    <div class=" ">
+                                        <label for="logo" class="fw-6">Logo</label>
+                                        <div class="custom-file mb-3">
+                                            <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                            <label class="custom-file-label" for="customFile">Upload File</label>
+                                        </div>
+                                    </div>
+                                    <div class="  ">
+                                        <label for="icon" class="fw-6">Icon</label>
+                                        <div class="custom-file mb-3">
+                                            <input type="file" class="custom-file-input" id="customFile" name="filename">
+                                            <label class="custom-file-label" for="customFile">Upload File</label>
+                                        </div>
+                                    </div>
+            
+                                </div>
+
+                                
+
+
+                                <div class=" d-flex justify-content-center mt-5 mb-5">
+                                    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+                                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Next </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade " id="pills-social" role="tabpanel" aria-labelledby="pills-social-tab">
+                        <form>
+                            <div class="school-details">
+
+                                <div class="form-row my-5 ">
+                                    <div class=" ">
+                                        <label for="domain" class="fw-6">Address</label>
+                                        <input type="text" class="form-control form-control-lg" id="domain" placeholder="Enter Domain Name">
+                                    </div>
+                                    <div class=" ">
+                                        <label for="domain" class="fw-6">City</label>
+                                        <select class="form-control form-control-lg">
+                                            <option value=""></option>
+                                            <option value="victoria">Victoria Island</option>
+                                        </select>
+                                    </div>
+            
+                                </div>
+            
+                                <div class="form-row my-5 ">
+            
+                                    <div class=" ">
+                                        <label for="domain" class="fw-6">State</label>
+                                        <select class="form-control form-control-lg">
+                                            <option value=""></option>
+                                            <option value="lagos">Lagos</option>
+                                        </select>
+                                    </div>
+                                    <div class=" ">
+                                        <label for="domain" class="fw-6">Country</label>
+                                        <select class="form-control form-control-lg">
+                                            <option value=""></option>
+                                            <option value="lagos">Nigeria Island</option>
+                                        </select>
+                                    </div>
+            
+                                </div>
+
+                                <div class=" d-flex justify-content-center mb-5">
+                                    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+                                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Next </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        <form>
+                            <div class="contact-details">
+
+                                <div class="form-row my-5 ">
+                                    <div class=" ">
+                                        <label for="fname" class="fw-6">First Name</label>
+                                        <input type="text" class="form-control form-control-lg" id="fname" placeholder="Enter first Name">
+                                    </div>
+                                    <div class=" ">
+                                        <label for="lname" class="fw-6">Last Name</label>
+                                        <input type="text  " class="form-control form-control-lg" id="lname" placeholder="Enter last name">
+                                    </div>
+            
+            
+                                </div>
+            
+                                <div class="form-row my-5 ">
+                                    <div class=" ">
+                                        <label for="tel" class="fw-6">Phone number</label>
+                                        <input type="number" class="form-control form-control-lg" id="tel" placeholder="Enter phone number">
+                                    </div>
+                                    <div class=" ">
+                                        <label for="email" class="fw-6">Email</label>
+                                        <input type="email" class="form-control form-control-lg" id="email" placeholder="Enter email">
+            
+                                    </div>
+            
+            
+                                </div>
+            
+
+                                <div class=" d-flex justify-content-center mb-5">
+                                    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+                                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Create Client </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
 
 
 <!-- profile Modal -->
@@ -185,45 +388,3 @@
 </div>
 <!-- end of contact modal -->
 
-
- <!-- Bulk uplaod Modal -->
- <div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
- aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
-     <div class="modal-content">
-
-         <div class="modal-head ">
-             <div class="d-flex justify-content-between align-items-center mb-3">
-                 <h6 class="modal-title">Upload Files</h6>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                 </button>
-             </div>
-             
-         </div>
-         <div class="modal-body client-modal">
-             <form>
-                 <div class="form-group file-upload mt-4 mb-3">
-                     <label for="fileupload">Drag files to upload or click</label>
-                     <input type="file" class="file-input" id="fileupload">
-                     <button type="button " class="btn-orange-two btn-upload  mb-3 ">Add Files </button>
-                     <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
-                         file. To import
-                         more than 5000 records at a time, use a .csv file.</p>
-                 </div>
-
-                 <p class="mb-5 download">Click <span>here</span> to download sample file</p>
-
-                 <div class="modal-btn d-flex justify-content-end mb-5">
-                     <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
-                     <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add New </button>
-                 </div>
-
-             </form>
-         </div>
-
-     </div>
- </div>
-</div>
-
-<!-- end of Bulk uplaod modal -->

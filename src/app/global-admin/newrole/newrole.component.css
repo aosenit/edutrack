@@ -1,0 +1,153 @@
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+a {
+    color: #1b5bac;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #1b5bac;
+    content: ">";
+    font-size: 10px;
+    display: none;
+}
+
+
+.user__intro {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.user__select {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+input[type="text"] {
+    width: 125%;
+}
+
+.user__permission {}
+
+/* ================= table ====================== */
+table {}
+
+table.client-table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+.user__permission .table thead {
+    color: #4c75bd;
+    background: transparent;
+}
+
+.user__permission .table thead tr th {
+    font-weight: 600;
+}
+
+.user__permission .table thead .head {
+    /* display: flex;
+      align-items: center;
+      color: #0a1128;
+      font-weight: 600; */
+    padding-left: 3.5rem;
+}
+
+.user__permission .table tbody {
+    background: #ffffff;
+
+}
+
+.user__permission .table tbody .user {
+    display: flex;
+    align-items: center;
+    color: #0a1128;
+    font-weight: 600;
+    padding-left: 1.5rem;
+    padding-left: 3.5rem;
+    position: relative;
+    opacity: none;
+}
+
+.user__permission .table tbody .user span {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+}
+
+.user__permission .table tbody .user div p,
+h6 {
+    margin-bottom: .1rem;
+}
+
+.user__permission .table tbody .user div h6 {
+    color: #355691;
+    font-size: 14px;
+}
+
+.user__permission .table tbody .user div p {
+    color: #0a1128;
+    font-size: 14px;
+}
+
+.user__permission .table tbody tr {
+    background: #ffffff;
+    box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
+    border-radius: 5px;
+}
+
+
+table tr,
+td {
+    padding: 20px;
+    color: #355691;
+    font-weight: 600;
+}
+
+.btn-orange-two {
+    background: #fb882c;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #ffffff;
+}
+
+.btn-outline-orange {
+    border: 1px solid #FB882C;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FB882C;
+}
+
+
+.user__btn {
+    display: flex;
+    justify-content: flex-end;
+}

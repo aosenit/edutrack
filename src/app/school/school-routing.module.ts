@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
-import { AddStudentsComponent } from './add-students/add-students.component';
 import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
@@ -12,10 +11,10 @@ import { FinanceSettingsComponent } from './finance-settings/finance-settings.co
 import { NewRoleRecordComponent } from './new-role-record/new-role-record.component';
 import { ParentDetailsComponent } from './parent-details/parent-details.component';
 import { ParentListComponent } from './parent-list/parent-list.component';
-import { ParentComponent } from './parent/parent.component';
 import { PayrollSetttingsComponent } from './payroll-setttings/payroll-setttings.component';
 import { PersonalSettingsComponent } from './personal-settings/personal-settings.component';
 import { ResultSettingsComponent } from './result-settings/result-settings.component';
+import { SchoolManagerComponent } from './school-manager/school-manager.component';
 import { SchoolSettingsComponent } from './school-settings/school-settings.component';
 import { SchoolComponent } from './school.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
@@ -29,8 +28,6 @@ const routes: Routes = [
   {
     path: '', component: SchoolComponent,
     children: [
-      { path: 'add-student', component: AddStudentsComponent},
-      { path: 'add-parents', component: ParentComponent},
       { path: 'students', component: StudentListComponent},
       { path: 'parents', component: ParentListComponent},
       { path: 'parent-detail', component: ParentDetailsComponent},
@@ -50,7 +47,11 @@ const routes: Routes = [
       { path: 'employee-detail', component: EmployeeDetailsComponent},
       { path: 'time-table', component: TimeTableComponent},
       { path: 'calendar', component: CalendarComponent},
-      {path: 'attach-teacher', component: AttachTeacherComponent},
+      { path: 'attach-teacher', component: AttachTeacherComponent},
+      { path: 'school-manager', component: SchoolManagerComponent},
+      {path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule)},
+      {path: 'add-parents', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule)},
+
 
 
     ]
