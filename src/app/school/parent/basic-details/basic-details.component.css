@@ -54,30 +54,9 @@
         font-size: 16px;
     }
     
-    .btn-orange-two {
-        background: #fb882c;
-        border-radius: 5px;
-        height: 44px;
-        font-family: Nunito;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 15px;
-        line-height: 20px;
-        color: #ffffff;
-    }
+  
     
-    .btn-outline-orange {
-        border: 1px solid #FB882C;
-        box-sizing: border-box;
-        border-radius: 5px;
-        height: 44px;
-        font-family: Nunito;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 19px;
-        color: #FB882C;
-    }
+    
 
     .add-image {
         position: relative;
