@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeComponent } from './employee/employee.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   {
     path: '', component: SchoolComponent,
     children: [
+      { path: 'dashboard', component: DashboardComponent},
       { path: 'students', component: StudentListComponent},
       { path: 'parents', component: ParentListComponent},
       { path: 'parent-detail', component: ParentDetailsComponent},
