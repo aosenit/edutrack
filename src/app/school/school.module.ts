@@ -25,6 +25,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 import { SchoolManagerComponent } from './school-manager/school-manager.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -52,6 +53,7 @@ import { SchoolManagerComponent } from './school-manager/school-manager.componen
                  TimeTableComponent,
                  AttachTeacherComponent,
                  SchoolManagerComponent,
+                 DashboardComponent,
                 ],
   imports: [
     CommonModule,
