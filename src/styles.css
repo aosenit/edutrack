@@ -254,3 +254,8 @@
         line-height: 30px;
     }
 }
+
+
+#zmmtg-root {
+    height: 0% !important;
+ }

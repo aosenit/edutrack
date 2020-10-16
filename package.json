@@ -22,6 +22,7 @@
     "@angular/router": "~8.2.13",
     "@ckeditor/ckeditor5-angular": "^1.2.3",
     "@ckeditor/ckeditor5-build-classic": "^22.0.0",
+    "@zoomus/websdk": "^1.8.1",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
