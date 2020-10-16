@@ -16,6 +16,7 @@ import { ViewFileComponent } from './view-file/view-file.component';
 import { VirtualClassComponent } from './virtual-class/virtual-class.component';
 import { VirtualSessionComponent } from './virtual-session/virtual-session.component';
 import { GradebookComponent } from './gradebook/gradebook.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { GradebookComponent } from './gradebook/gradebook.component';
   imports: [
     CommonModule,
     CKEditorModule,
+    HttpClientModule,
     TeacherRoutingModule
   ]
 })

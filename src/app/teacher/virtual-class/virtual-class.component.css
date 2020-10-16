@@ -13,7 +13,7 @@
     left: 25px;
 }
 .virtual-control {
-    background: #000000;
+    background: #ffffff;
 }
 
 .virtual-control .class-btn {
@@ -143,4 +143,6 @@ color: #7A7A7A;
      transform: translate3d(282px, -232px, 0px) !important;
  
  }
+ 
+
  
