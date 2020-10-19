@@ -14,7 +14,7 @@ export class VirtualClassComponent implements OnInit {
 // setup your signature endpoint here: https://github.com/zoom/websdk-sample-signature-node.js
 signatureEndpoint = 'http://localhost:4000';
 apiKey = 'JTFle51tQkqmox4U-Dr7Bw';
-meetingNumber = 94240511692 ;
+meetingNumber =  92337751114 ;
 role = 0;
 leaveUrl = 'http://localhost:4200';
 userName = 'Angular';
@@ -27,8 +27,8 @@ passWord = '';
 
   getSignature() {
     this.httpClient.post(this.signatureEndpoint, {
-	    meetingNumber: this.meetingNumber,
-	    role: this.role
+      meetingNumber: this.meetingNumber,
+      role: this.role
     }).toPromise().then((data: any) => {
       if (data.signature) {
         console.log(data.signature);
