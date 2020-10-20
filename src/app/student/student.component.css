@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@800&display=swap');
+.main-head{
+    background: #FEFEFF;
+    align-items: center ;
+    box-shadow: 0px 1px 21px rgba(119, 119, 119, 0.21);
+
+}
+.hamburger {
+    padding-left: 1.5rem;
+}
+
+.lang {
+    padding-right: 4rem;
+
+}
+
+.header-items a {
+    font-style: normal;
+font-weight: 600;
+font-size: 16px;
+padding: 10px 15px;
+color: #0052B4;
+text-decoration: none;
+position: relative;
+}
+
+
+
+
+.header-items a.active {
+    color: #EB6B04;
+    font-weight: bold;
+}
+.header-items a.active::before {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    content: '';
+background: #EB6B04;
+width: 100%;
+height: 5px;
+}
+
+.info p {
+line-height: none;
+}
+
+main {
+    background: #F0F6FC;
+}
+
+.row-sizing {
+
+}
+
+
+.dropdown-item:hover {
+    background: #0052B4 !important;
+    color: #ffffff;
+}
+svg {
+    margin-right: 1rem;
+}
+.dropdown-item:hover #icon {
+    fill: #ffffff;
+    transition: .3s ease-in-out;
+
+}

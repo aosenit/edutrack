@@ -51,35 +51,35 @@
             </div>
 
 
-            <div class="d-flex justify-content-between align-items-center mt-3 mb-2">
-                <p class="mb-0 fw-6">All Files</p>
-
-                <div>
-                    <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
-                    <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
-                        type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                    <!-- ================ DROPDOWN ==================== -->
-                    <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-black " href="#">Ascending </a>
-                        <a class="dropdown-item text-black " href="#">Descending </a>
-                        <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-black " href="#">Type </a>
-                        <a class="dropdown-item text-black " href="#">Class </a>
-                        <a class="dropdown-item text-black " href="#">Modified </a>
-                        <a class="dropdown-item text-black " href="#">Date Created </a>
-                    </div>
-                </div>
-            </div>
-
-
+            
+            
             <div class="tab-content" id="pills-tabContent">
-
+                
                 <div class="tab-pane fade show active" id="pills-notes" role="tabpanel"
-                    aria-labelledby="pills-notes-tab">
+                aria-labelledby="pills-notes-tab">
+                        <div class="d-flex justify-content-between align-items-center mt-3 ">
+                            <p class="mb-0 fw-6">Class notes</p>
+            
+                            <div>
+                                <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                                <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                                    type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                <!-- ================ DROPDOWN ==================== -->
+                                <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-black " href="#">Ascending </a>
+                                    <a class="dropdown-item text-black " href="#">Descending </a>
+                                    <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-black " href="#">Type </a>
+                                    <a class="dropdown-item text-black " href="#">Class </a>
+                                    <a class="dropdown-item text-black " href="#">Modified </a>
+                                    <a class="dropdown-item text-black " href="#">Date Created </a>
+                                </div>
+                            </div>
+                        </div>
                     <section class="list">
                         <table class="table table-borderless client-table">
                             <thead>
@@ -188,6 +188,159 @@
 
                 <div class="tab-pane fade show " id="pills-assignment" role="tabpanel" aria-labelledby="pills-note-tab">
                     sasasa
+                </div>
+                <div class="tab-pane fade show " id="pills-assignment" role="tabpanel" aria-labelledby="pills-note-tab">
+                    sasasa
+                </div>
+                <div class="tab-pane fade show " id="pills-media" role="tabpanel" aria-labelledby="pills-media-tab">
+
+                    <div class="d-flex justify-content-between mt-2 mb-1">
+
+                        <div class="media-inner">
+                          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item mr-2 ">
+                              <a class="nav-link active" id="pills-upload-tab" data-toggle="pill" href="#pills-upload" role="tab"
+                                aria-controls="pills-upload" aria-selected="true">Class Recording </a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-link " id="pills-record-tab" data-toggle="pill" href="#pills-record" role="tab"
+                                aria-controls="pills-record" aria-selected="true">Uploaded Media </a>
+                            </li>
+                           
+                    
+                          </ul>
+                    
+                        </div>
+                    
+                        <div>
+                            <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                            <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                                type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                            <!-- ================ DROPDOWN ==================== -->
+                            <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-black " href="#">Ascending </a>
+                                <a class="dropdown-item text-black " href="#">Descending </a>
+                                <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-black " href="#">Type </a>
+                                <a class="dropdown-item text-black " href="#">Class </a>
+                                <a class="dropdown-item text-black " href="#">Modified </a>
+                                <a class="dropdown-item text-black " href="#">Date Created </a>
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-notes" role="tabpanel"
+                aria-labelledby="pills-notes-tab">
+                        
+                    <section class="list">
+                        <table class="table table-borderless client-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col " class="head">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                                            <label class="custom-control-label" for="customCheckTh"></label>
+                                        </div>
+                                    </th>
+                                    <th scope="col" class="w-25">Name
+
+                                    </th>
+                                    <th scope="col">Type
+
+                                    </th>
+                                    <th scope="col">Class
+
+                                    </th>
+                                    <th scope="col">Date Created
+
+                                    </th>
+                                    <th scope="col"> Size</th>
+                                    <th scope="col"> </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="pb-2">
+                                    <td scope="row" class="school-logo rounded-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="recording1">
+                                            <label class="custom-control-label" for="recording1"></label>
+                                        </div>
+                                    </td>
+                                    <td class="">
+                                        <div class="d-flex align-items-center justify-content-start">
+                                            <img src="assets/images/svg/recording.svg" alt="schools document" class="mr-3">
+                                            <p class="mb-0">
+                                                Recording
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td>Class recording</td>
+                                    <td>Jss3</td>
+                                    <td class="font-italic">April 4, 2020</td>
+                                    <td class="table-grey">342 KB</td>
+                                    <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+
+                                </tr>
+                                <tr class="pb-2">
+                                    <td scope="row" class="school-logo rounded-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="recording2">
+                                            <label class="custom-control-label" for="recording2"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center justify-content-start">
+                                            <img src="assets/images/svg/recording.svg" alt="schools document" class="mr-3">
+                                            <p class="mb-0">
+                                                Recording
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td>Class recording</td>
+                                    <td>Jss3</td>
+                                    <td class="font-italic">April 4, 2020</td>
+                                    <td>342 KB</td>
+                                    <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+
+
+                                </tr>
+
+                                <tr class="pb-2">
+                                    <td scope="row" class="school-logo rounded-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="recording3">
+                                            <label class="custom-control-label" for="recording3"></label>
+                                        </div>
+                                    </td>
+                                    <td class="">
+                                        <div class="d-flex align-items-center justify-content-start">
+                                            <img src="assets/images/svg/recording.svg" alt="schools document" class="mr-3">
+                                            <p class="mb-0">
+                                                Recording
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td>Class recording</td>
+                                    <td>Jss3</td>
+                                    <td class="font-italic">April 4, 2020</td>
+                                    <td>342 KB</td>
+                                    <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+
+                    </section>
+                </div>
+                    </div>
+        
                 </div>
 
             </div>

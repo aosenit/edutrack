@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SchoolRoutingModule } from './school-routing.module';
 import { SchoolComponent } from './school.component';
-import { ParentComponent } from './parent/parent.component';
 import { SchoolAdminComponent } from './school-admin/school-admin.component';
-import { AddStudentsComponent } from './add-students/add-students.component';
 import { ParentListComponent } from './parent-list/parent-list.component';
 import { ParentDetailsComponent } from './parent-details/parent-details.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
@@ -26,14 +24,14 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
 import { CalendarComponent } from './calendar/calendar.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
+import { SchoolManagerComponent } from './school-manager/school-manager.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
 @NgModule({
   declarations: [SchoolComponent,
-                 ParentComponent,
                  SchoolAdminComponent,
-                 AddStudentsComponent,
                  ParentListComponent,
                  ParentDetailsComponent,
                  AccountSettingsComponent,
@@ -54,6 +52,8 @@ import { AttachTeacherComponent } from './attach-teacher/attach-teacher.componen
                  CalendarComponent,
                  TimeTableComponent,
                  AttachTeacherComponent,
+                 SchoolManagerComponent,
+                 DashboardComponent,
                 ],
   imports: [
     CommonModule,

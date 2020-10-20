@@ -6,31 +6,43 @@
                     <img src="assets/images/svg/logo.svg" alt="">
                 </div>
                 <div class="col-lg-6 m-auto">
-                    <div class="whitediv p-lg-5 p-3 mt-lg-4">
+                    <div class="whitediv p-lg-5 p-3 mt-lg-3">
                         <div class="row">
                             <div class="col-lg-7 mb-3">
                                 <p class="fs-30 ff-n fw-6">Log in to your admin account</p>
                             </div>
-                            <div class="col-lg-12 mb-3">
-                                <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Email address</p>
-                                <small class="fs-12 ff-n fc-dark mb-3">Please enter your email address in the box
-                                    below.</small>
-                                <input type="text" class="form-control reg-form">
-                            </div>
-                            <div class="col-lg-12 mb-3">
-                                <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Password</p>
-                                <small class="fs-12 ff-n fc-dark mb-3">Please enter your password in the box
-                                    below.</small>
-                                <input type="password" class="form-control reg-form mb-2">
-                                <p class="text-right">
-                                    <a routerLink="/forgotpassword" class="fc-lblue fs-14 fw-6 ff-n">Forgot
-                                        Password?</a>
-                                </p>
-                            </div>
-                            <div class="col-lg-12 mb-3">
-                                <button class="btn btn-orange w-100" [routerLink]="['/admin']">
-                                    Login
-                                </button>
+                            <div class="col-lg-12">
+                                <form [formGroup]="LoginForm" (ngSubmit)="login()">
+                                    <div class="col-lg-12 mb-3">
+                                        <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Email address</p>
+                                        <small class="fs-12 ff-n fc-dark mb-3">Please enter your email address in the box
+                                            below.</small>
+                                        <input type="text" class="form-control reg-form" formControlName="email">
+                                        <div *ngIf="submitted && LoginForm.controls.email.errors" class="error">
+                                            <div *ngIf="LoginForm.controls.email.errors.required" class="text-danger">Email is required</div>
+                                            <div *ngIf="LoginForm.controls.email.errors.email" class="text-danger">Invalid email pattern</div>
+                                          </div>
+                                    </div>
+                                    <div class="col-lg-12 mb-3">
+                                        <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Password</p>
+                                        <small class="fs-12 ff-n fc-dark mb-3">Please enter your password in the box
+                                            below.</small>
+                                        <input type="password" class="form-control reg-form mb-2" formControlName="password">
+                                        <div *ngIf="submitted && LoginForm.controls.password.errors" class="error">
+                                            <div *ngIf="LoginForm.controls.password.errors.required" class="text-danger">Password is required</div>
+                                            <div *ngIf="LoginForm.controls.password.errors.minlength" class="text-danger">Password must be at least 5 characters</div>
+                                          </div>
+                                        <p class="text-right">
+                                            <a routerLink="/forgotpassword" class="fc-lblue fs-14 fw-6 ff-n">Forgot
+                                                Password?</a>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 mb-3">
+                                        <button class="btn btn-orange w-100" >
+                                            Login
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
 

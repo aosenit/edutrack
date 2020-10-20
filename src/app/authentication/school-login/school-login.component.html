@@ -9,28 +9,39 @@
                         <div class="row">
                             <div class="col-lg-12 d-flex justify-content-center mb-5">
                                
-                                <h6 class="fs-30 ">Admin Login</h6>
+                                <h6 class="fs-30 ">School Admin</h6>
                             </div>
-                            <div class="col-lg-12 mb-3">
-                                <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Username </p>
-                                <small class="fs-12 ff-n fc-dark mb-3">Please enter your username in the box
-                                    below.</small>
-                                <input type="text" class="form-control reg-form">
-                            </div>
-                            <div class="col-lg-12 mb-3">
-                                <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Password</p>
-                                <small class="fs-12 ff-n fc-dark mb-3">Please enter your password in the box
-                                    below.</small>
-                                <input type="password" class="form-control reg-form mb-2">
-                                <p class="text-right">
-                                    <a routerLink="/forgotpassword" class="fc-lblue fs-14 fw-6 ff-n">Forgot
-                                        Password?</a>
-                                </p>
-                            </div>
-                            <div class="col-lg-12 mb-3">
-                                <button class="btn btn-blue w-100" [routerLink]="['/school']">
-                                    Login
-                                </button>
+                            <div class="col-lg-12">
+                                <form [formGroup]= "schoolLoginForm" (ngSubmit)="submit()">
+                                    <div class="col-lg-12 mb-3">
+                                        <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Username </p>
+                                        <small class="fs-12 ff-n fc-dark mb-3">Please enter your username in the box
+                                            below.</small>
+                                        <input type="text" class="form-control reg-form" formControlName = "username">
+                                        <div *ngIf="submitted && schoolLoginForm.controls.username.errors" class="error">
+                                            <div *ngIf="schoolLoginForm.controls.username.errors.required" class="text-danger">Username is required</div>
+                                          </div>
+                                    </div>
+                                    <div class="col-lg-12 mb-3">
+                                        <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Password</p>
+                                        <small class="fs-12 ff-n fc-dark mb-3">Please enter your password in the box
+                                            below.</small>
+                                        <input type="password" class="form-control reg-form mb-2" formControlName = "password">
+                                        <div *ngIf="submitted && schoolLoginForm.controls.password.errors" class="error">
+                                            <div *ngIf="schoolLoginForm.controls.password.errors.required" class="text-danger">Password is required</div>
+                                            <div *ngIf="schoolLoginForm.controls.password.errors.minlength" class="text-danger">Password must be at least 5 characters</div>
+                                          </div>
+                                        <p class="text-right">
+                                            <a routerLink="/forgotpassword" class="fc-lblue fs-14 fw-6 ff-n">Forgot
+                                                Password?</a>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 mb-3">
+                                        <button class="btn btn-blue w-100" >
+                                            Login
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
 

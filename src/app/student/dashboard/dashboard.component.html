@@ -1,45 +1,7 @@
-<header class="main-head sticky-top py-lg-2">
-    <div class="container-fluid">
-        <div class="row lang d-flex justify-content-between align-items-center">
-            <div class=" d-flex pl-4">
-                <img src="assets/images/svg/flask.svg" alt="new client" class="">
-                <p class="mb-0 ml-3">AMERICAN <br> INTERNATIONAL</p>
-                
-            </div>
-            <div class="header-items">
-                <a href="#" [routerLink]="['/student', 'dashboard']" [routerLinkActive]="['active']"> Dashboard</a>
-                <a href="#"> Assignment</a>
-                <a href="#"> Class Schedule</a>
-                <a href="#"> Score Sheet</a>
-                <a href="#"> File Manager</a>
-                <a href="#"> Library</a>
-                
-            </div>
-            
-                <div class="d-flex row align-center justify-content-end align-items-center ">
-                        <img src="assets/images/svg/student-img-nav.svg" alt="new client" class="mr-2">
-                        <div class="info">
-                            <p class="mb-0">Adeyemi Samuel</p>
-                            <small>HIS/ST/2020/0001</small>
-                        </div>
-                        <img src="assets/images/svg/caret.svg" alt="country flag" class="ml-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <!-- ================ DROPDOWN ==================== -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#"><img src="assets/images/svg/profile-pop.svg" alt="new client" class="pr-2 mb-2"> Profile </a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/svg/logout-pop.svg" alt="new client" class="pr-2 mb-2"> Logout </a>
-                          </div>
-                        
 
-                       
-                </div>
-        </div>
-    </div>
-</header>
-
-<main >
     <div class="container-fluid ">
         <div class="row">
-            <div class="col-md-9 pt-5 pl-5 pr-4 ">
+            <div class="col-md-9 pl-5  pr-4 pt-5">
                 <div class="profile mb-5">
                     <div class="profile__student bg-white p-4">
                         <div class="d-flex mb-5">
@@ -60,9 +22,9 @@
                             <img src="assets/images/svg/student-hero.svg" alt="student hero welcomr image" class="student-hero">
                         </div>
                         <div class="profile__cards">
-                            <div class="card1 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card">
+                            <div class="card1 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card" [routerLink]="['/student/schedule']">
                                 <img src="assets/images/svg/class.svg" alt="student card" class="mr-2">
-                                <p class="mb-0 fw-6">Class </p>
+                                <p class="mb-0 fw-6">Time table </p>
                             </div>
                             <div class="card2 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card">
                                 <img src="assets/images/svg/assignment.svg" alt="student card" class="mr-2">
@@ -312,4 +274,3 @@
             </div>
         </div>
     </div>
-</main>

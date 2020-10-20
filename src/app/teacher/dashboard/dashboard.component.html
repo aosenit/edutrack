@@ -23,7 +23,7 @@
                             <img src="assets/images/svg/attendance.svg" alt="student card" class="mr-2">
                             <p class="mb-0 fw-6">Attendance </p>
                         </div>
-                        <div class="card2 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card">
+                        <div class="card2 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card" [routerLink]="['/teacher/gradebook']">
                             <img src="assets/images/svg/assignment.svg" alt="student card" class="mr-2">
                             <p class="mb-0 fw-6">Grade Book</p>
                         </div>
@@ -40,7 +40,7 @@
                 <div class="classes__upcoming p-4 pt-4 ">
                     <div class="d-flex justify-content-between">
                         <h6 class="fw-6">Upcoming Class</h6>
-                        <p class="fc-lblue">View All</p>
+                        <p class="fc-lblue view" [routerLink]="['/teacher/schedule']">View All</p>
                     </div>
 
                     <div class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center pop-card2" (click)="showPop2()"
