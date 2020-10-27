@@ -28,7 +28,7 @@ const routes: Routes = [
       { path: 'file', component: ViewFileComponent },
       { path: 'class', component: VirtualClassComponent },
       { path: 'session', component: VirtualSessionComponent },
-      { path: 'gradebook', component: GradebookComponent }
+      { path: 'gradebook', component: GradebookComponent },
     ]
   }
 ];

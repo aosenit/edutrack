@@ -13,7 +13,6 @@ export class AddStudentsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('hello');
   }
 
 

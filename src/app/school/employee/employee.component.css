@@ -1,0 +1,72 @@
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+a {
+    color: #1b5bac;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #1b5bac;
+    content: ">";
+    font-size: 10px;
+    display: none;
+}
+
+.steps {
+    background: #FAFDFF;
+border-radius: 10px;
+}
+
+.steps span {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+.steps .active span {
+    background: #FB882C;
+    font-weight: 600;
+}
+
+.steps .active p {
+    color: #000000;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.step-counter {
+    background: #ECF7FF;
+border-radius: 99px;
+}
+
+.step-counter p {
+    color: #0A1128;
+}
+
+.progress-line {
+    background: #0A1128;
+    width: 150px;
+    height: 1.8px;
+}
+
+.step-content {
+    background: #FDFEFF;
+    padding:  2rem 6rem;
+}

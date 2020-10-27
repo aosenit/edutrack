@@ -4,7 +4,7 @@
             <div class="form-row my-5 ">
                 <div class=" ">
                     <label for="domain" class="fw-6">Country <span class="text-danger">*</span> </label>
-                    <select class="form-control form-control-lg" formControlName="country" (change)="getState($event.target.value)"  >
+                    <select class="form-control form-control-lg" formControlName="Country" (change)="getState($event.target.value)"  >
                         <option value="">Select Country</option>
                         <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
                     </select>
@@ -15,7 +15,7 @@
                     class="form-control form-control-lg" 
                     id="domain" 
                     placeholder="Enter school address"
-                    formControlName="address">
+                    formControlName="Address">
                 </div>
                 
         
@@ -25,7 +25,7 @@
         
                 <div class=" ">
                     <label for="domain" class="fw-6">State</label>
-                    <select class="form-control form-control-lg" formControlName="state">
+                    <select class="form-control form-control-lg" formControlName="State">
                         <option value=""select>Select state</option>
                         <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
                     </select>
@@ -36,7 +36,7 @@
                     class="form-control form-control-lg" 
                     id="town" 
                     placeholder="Enter Domain Name"
-                    formControlName="city">
+                    formControlName="City">
                 </div>
         
             </div>

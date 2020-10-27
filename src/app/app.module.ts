@@ -9,6 +9,7 @@ import { DemoComponent } from './demo/demo.component';
 import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products/products.component';
 import { FaqsComponent } from './faqs/faqs.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,6 +24,7 @@ import { FaqsComponent } from './faqs/faqs.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     SharedModule
   ],

@@ -17,10 +17,10 @@ export class ContactDetailComponent implements OnInit {
 
     ngOnInit() {
     this.schooldetailsForm = this.fb.group({
-      country : ['', Validators.required],
-      address: ['', Validators.required],
-      state: [''],
-      city: ['']
+      Country : ['', Validators.required],
+      Address: ['', Validators.required],
+      State: [''],
+      City: ['']
     });
   }
 
