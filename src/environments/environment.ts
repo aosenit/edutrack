@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  productLogoLarge: 'assets/svg/gipp-logo.svg',
-  serverUrl: 'schooltrackkinikanapi/api/'
+  productLogoLarge: 'assets/images/svg/logo.svg',
+  serverUrl: 'http://13.88.13.159:8650/api/v1'
 };
 
 /*

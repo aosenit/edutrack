@@ -18,7 +18,6 @@ import { ResultSettingsComponent } from './result-settings/result-settings.compo
 import { StudentSettingsComponent } from './student-settings/student-settings.component';
 import { PayrollSetttingsComponent } from './payroll-setttings/payroll-setttings.component';
 import { TeachersComponent } from './teachers/teachers.component';
-import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -46,7 +45,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
                  StudentSettingsComponent,
                  PayrollSetttingsComponent,
                  TeachersComponent,
-                 EmployeeComponent,
                  EmployeeListComponent,
                  EmployeeDetailsComponent,
                  CalendarComponent,

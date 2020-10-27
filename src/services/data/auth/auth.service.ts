@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  login: 'Authentication/login',
+  login: 'Authentication/Token',
   resetPassword: 'Authentication/PasswordReset  ',
   logout: 'Authentication/Logout '
 };

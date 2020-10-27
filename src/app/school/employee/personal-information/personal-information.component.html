@@ -1,0 +1,178 @@
+<div class="Personal information">
+
+    <form >
+      <div class="form-row mb-5 ">
+        <div class=" ">
+          <label for="fname" class="fw-6">First Name <span class="text-danger">*</span></label>
+          <input 
+          type="text" 
+          class="form-control form-control-lg" 
+          id="fname" 
+          placeholder="Enter first Name"
+          formControlName="Name" required>
+        </div>
+        <div class=" ">
+          <label for="lname" class="fw-6">Last Name <span class="text-danger">*</span></label>
+          <input 
+          type="text" 
+          class="form-control form-control-lg" 
+          id="lname" 
+          placeholder="Enter Last Name"
+          formControlName="DomainName" required>
+        </div>
+
+      </div>
+
+      <div class="form-row mb-5 ">
+        
+        <div class="  ">
+          <label for="others" class="fw-6">Other Names <span class="text-danger">*</span></label>
+
+          <input type="text" class="form-control form-control-lg" 
+          id="others" 
+          placeholder="Enter other names" formControlName="WebsiteAddress" required>
+        </div>
+
+        <div class=" ">
+            <label for="others" class="fw-6">Sex <span class="text-danger">*</span></label>
+
+           <select name="" id="othes" class="form-control form-control-lg">
+               <option value="" selected> select sex</option>
+           </select>
+        </div>
+      </div>
+
+      <div class="form-row mb-5 ">
+        
+        <div class="  ">
+          <label for="dob" class="fw-6">Date of Birth <span class="text-danger">*</span></label>
+
+          <input type="date" class="form-control form-control-lg" 
+          id="dob" 
+          placeholder="Enter other names" formControlName="WebsiteAddress" required>
+        </div>
+
+        <div class=" ">
+            <label for="others" class="fw-6">Marital Status <span class="text-danger">*</span></label>
+
+           <select name="" id="othes" class="form-control form-control-lg">
+               <option value="" selected> select status</option>
+               <option value="married" > Married</option>
+           </select>
+        </div>
+      </div>
+
+      
+      <div class="form-row mb-5">
+        <div class=" ">
+            <label for="blood" class="fw-6">Blood Group <span class="text-danger">*</span></label>
+
+           <select name="" id="blood" class="form-control form-control-lg">
+               <option value="" selected> select status</option>
+               <option value="" > O+ </option>
+           </select>
+        </div>
+
+        <div class="  ">
+          <label for="icon" class="fw-6">Signature</label>
+          <div class="custom-file  mb-3">
+            <input 
+            type="file" 
+            class="custom-file-input" 
+            accept="image/png, image/jpeg"
+            id="customFile" name="iconname" 
+            (change)="handleIconUpload($event)">
+            <label class="custom-file-label" for="customFile" *ngIf ="iconname === null; else icon"> Upload File </label>
+            <ng-template #icon>
+              <label class="custom-file-label" for="customFile"> {{iconname}} </label>
+            </ng-template>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-row mb-5">
+
+        <div class="  ">
+            <label for="icon" class="fw-6">Photo</label>
+            <div class="custom-file  mb-3">
+              <input 
+              type="file" 
+              class="custom-file-input" 
+              accept="image/png, image/jpeg"
+              id="customFile" name="iconname" 
+              (change)="handleIconUpload($event)">
+              <label class="custom-file-label" for="customFile" *ngIf ="iconname === null; else icon"> Upload File </label>
+              <ng-template #icon>
+                <label class="custom-file-label" for="customFile"> {{iconname}} </label>
+              </ng-template>
+            </div>
+          </div>
+
+        <div class=" ">
+            <label for="religion" class="fw-6">Religion <span class="text-danger">*</span></label>
+
+           <select name="" id="religion" class="form-control form-control-lg">
+               <option value="" selected> select status</option>
+           </select>
+        </div>
+
+       
+
+      </div>
+
+      <div class="form-row mb-5">
+
+        <div class="  ">
+            <label for="nationality" class="fw-6">Nationality <span class="text-danger">*</span></label>
+
+           <select name="" id="nationality" class="form-control form-control-lg">
+               <option value="" selected> select </option>
+           </select>
+          </div>
+
+        <div class=" ">
+            <label for="origin" class="fw-6">State of origin <span class="text-danger">*</span></label>
+
+           <select name="" id="origin" class="form-control form-control-lg">
+               <option value="" selected> select </option>
+           </select>
+        </div>
+
+       
+
+      </div>
+
+      <div class="form-row mb-5">
+
+        <div class="  ">
+            <label for="nationality" class="fw-6">Local Government <span class="text-danger">*</span></label>
+
+           <select name="" id="nationality" class="form-control form-control-lg">
+               <option value="" selected> select </option>
+           </select>
+          </div>
+
+        <div class=" ">
+            <label for="origin" class="fw-6">State of origin <span class="text-danger">*</span></label>
+
+           <select name="" id="origin" class="form-control form-control-lg">
+               <option value="" selected> select </option>
+           </select>
+        </div>
+
+       
+
+      </div>
+      
+
+
+    </form>
+
+
+    <div class=" d-flex justify-content-center mt-5 mb-5">
+      <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' > Next </button>
+
+    </div>
+  </div>

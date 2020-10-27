@@ -7,6 +7,7 @@ import { ProfileInformationComponent } from './profile-information/profile-infor
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ContactPersonComponent } from './contact-person/contact-person.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ReactiveFormsModule, FormsModule,
+    HttpClientModule,
     CreateClientRoutingModule
   ]
 })

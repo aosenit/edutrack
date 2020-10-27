@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateClientComponent } from '../create-client.component';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { countries } from '../../../../services/utils/country.json';
+import { LoaderService } from 'src/services/classes/loader/loader.service';
 
 
 @Component({
@@ -10,39 +10,50 @@ import { countries } from '../../../../services/utils/country.json';
   styleUrls: ['./profile-information.component.css']
 })
 export class ProfileInformationComponent implements OnInit {
-  countries: any[] = countries;
   profileForm: FormGroup;
-  logo: any;
   logoname = null;
   iconname = null;
-  icon: any;
-  constructor( private home: CreateClientComponent, private fb: FormBuilder) { }
+  constructor( private home: CreateClientComponent, private fb: FormBuilder, private loaderService: LoaderService) { }
 
   ngOnInit() {
     this.profileForm = this.fb.group({
-      domain : ['', Validators.required],
-      website: ['', Validators.required],
+
+      Name : ['', Validators.required],
+      DomainName : ['', Validators.required],
+      WebsiteAddress: ['', Validators.required],
       logo: [null],
       icon: [null]
     });
 
-    console.log('countries', this.countries);
   }
 
   nextStep() {
+    this.loaderService.show();
     this.home.stepper(2);
-    const formData = this.assignFormDataValues(this.profileForm);
+    // const formData = this.assignFormDataValues(this.profileForm);
     console.log('form data', this.profileForm.value);
     sessionStorage.setItem('profile-info', JSON.stringify(this.profileForm.value));
+    this.loaderService.hide();
   }
 
 
   handleImgUpload(event: any) {
     if (event.target.files.length > 0) {
-      this.logo = event.target.files[0];
-      this.icon = event.target.files[0];
-      this.logoname = this.logo.name;
-      this.iconname = this.icon.name;
+      const file = event.target.files[0];
+      console.log('file', file);
+      this.logoname = file.name;
+      this.profileForm.get('logo').setValue(file);
+      // this.iconname = this.icon.name;
+    }
+  }
+
+  handleIconUpload(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log('file', file);
+      this.iconname = file.name;
+      this.profileForm.get('icon').setValue(file);
+      // this.iconname = this.icon.name;
     }
   }
 

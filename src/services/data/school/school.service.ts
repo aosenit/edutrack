@@ -18,9 +18,9 @@ export class SchoolService {
 
   constructor(private http: HttpClient) { }
 
-  addSchool(createSchoolForm) {
+  addSchool(schoolFinalStep) {
     const url = `${this.baseUrl + routes.addschool}`;
-    return this.http.post(url, createSchoolForm);
+    return this.http.post(url, schoolFinalStep, {responseType: 'text'});
   }
 
   getAllSchools() {
