@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   productLogoLarge: 'assets/images/svg/logo.svg',
-  serverUrl: 'http://13.88.13.159:8650/api/v1'
+  serverUrl: 'http://13.88.13.159:58100/'
 };
 
 /*
