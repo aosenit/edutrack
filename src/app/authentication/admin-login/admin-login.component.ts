@@ -17,12 +17,13 @@ export class AdminLoginComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router,
               private notifyService: NotificationsService,
-              private authService: AuthService
+              private authService: AuthService,
+              
               ) { }
 
     ngOnInit() {
     this.LoginForm = this.fb.group({
-      email : ['', [Validators.email, Validators.required]],
+      username : ['', [Validators.email, Validators.required]],
       password: ['', [Validators.minLength(5), Validators.required]],
     });
   }
@@ -33,13 +34,16 @@ export class AdminLoginComponent implements OnInit {
       return;
     } else {
       console.log('login successful', this.LoginForm.value);
-      this.authService.loginAdmin(this.LoginForm.value).subscribe( data => {
+      this.authService.loginAdmin(this.LoginForm.value).subscribe( (data: any) => {
         if (data) {
+          console.log(data);
+          localStorage.setItem('access_token', data.access_token);
           this.notifyService.publishMessages('login successful', 'success', 1);
           this.router.navigateByUrl('/admin');
         }
       },
       error => {
+        this.notifyService.publishMessages(error.message, 'danger', 1);
         console.log('err', error);
       });
     }

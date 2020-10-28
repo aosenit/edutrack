@@ -8,6 +8,8 @@ import { TeacherLoginComponent } from './teacher-login/teacher-login.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
 import { SchoolLoginComponent } from './school-login/school-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
+    SharedModule,
     AuthenticationRoutingModule
   ]
 })

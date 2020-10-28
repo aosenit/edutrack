@@ -139,6 +139,10 @@
 .w-40 {
     width: 40%;
 } 
+
+.cursor-pointer {
+    cursor: pointer;
+}
 /* containers /divs */
 .whitediv{
     background: #FFFFFF;

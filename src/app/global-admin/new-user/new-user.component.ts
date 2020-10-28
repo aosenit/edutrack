@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationsService } from './../../../services/classes/notifications/notifications.service';
-
+import {AdminService} from '../../../services/data/admin/admin.service';
 
 
 @Component({
@@ -18,16 +18,17 @@ export class NewUserComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router,
               private notifyService: NotificationsService,
+              private adminService: AdminService
               ) { }
 
   ngOnInit() {
     this.userForm = this.fb.group({
-      fname : ['', Validators.required],
-      lname : ['', Validators.required],
-      username: ['', Validators.required],
+      firstName : ['', Validators.required],
+      lastName : ['', Validators.required],
+      phoneNumber: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
       photo: [null],
-      role: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
@@ -37,10 +38,17 @@ export class NewUserComponent implements OnInit {
 
       return;
     } else {
-      console.log('new user succesfful created', this.userForm.value);
-      this.notifyService.publishMessages('new user succesfful created', 'success', 1);
+      console.log(this.userForm.value);
+      this.adminService.AddNewAdmin(this.userForm.value).subscribe( (data: any) => {
+        if (data) {
+          console.log('dsdsd', data);
+          this.notifyService.publishMessages(data.description, 'success', 1);
+          this.router.navigateByUrl('/admin/users');
+        }
+      }, err => {
+        this.notifyService.publishMessages(err.errors, 'danger', 1);
 
-      this.router.navigateByUrl('/admin/users');
+      });
     }
   }
 

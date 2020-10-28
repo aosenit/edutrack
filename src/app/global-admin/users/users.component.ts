@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/services/data/admin/admin.service';
 
 @Component({
   selector: 'app-users',
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class UsersComponent implements OnInit {
   users = true;
   roles = false;
-  constructor() { }
+  constructor(private adminService: AdminService) { }
 
   ngOnInit() {
+    this.getAllAdmin();
   }
 
  showBanner(status: string) {
@@ -27,5 +29,13 @@ export class UsersComponent implements OnInit {
     default:
       this.users = true;
   }
+ }
+
+ getAllAdmin() {
+   this.adminService.getAllAdmin().subscribe(data => {
+     if (data) {
+       console.log('admis', data);
+     }
+   });
  }
 }
