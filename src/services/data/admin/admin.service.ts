@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 
 const routes = {
   newAdmin: 'schtrack-auth/api/v1/Admin',
-  getAdmin: 'schtrack-auth/api/v1/Admin'
+  getAdminById: 'schtrack-auth/api/v1/Admin'
 };
 
 @Injectable({
@@ -23,9 +23,8 @@ export class AdminService {
     return this.http.post(url, userForm, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } } );
   }
 
-  getAllAdmin() {
-        const headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*'});
-        const url = `${this.baseUrl + routes.getAdmin}`;
-        return this.http.get(url, {headers});
+  getloggedInAdmin(id: any) {
+        const url = `${this.baseUrl + routes.getAdminById}/${id}`;
+        return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }
