@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   login: 'schtrack-auth/api/v1/Authentication/Token',
-  resetPassword: 'Authentication/PasswordReset  ',
+  forgotPassword: 'schtrack-auth/api/v1/Authentication/RequestPasswordReset  ',
   logout: 'Authentication/Logout '
 };
 
@@ -29,16 +29,17 @@ export class AuthService {
     return this.http.post(url, body, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }, );
   }
 
-  resetPassword(resetPasswordForm) {
-    const url = `${this.baseUrl + routes.resetPassword}`;
-    return this.http.post(url, this.resetPassword);
+  resetPassword(resetPasswordForm: any) {
+    const {email} = resetPasswordForm;
+    const url = `${this.baseUrl + routes.forgotPassword}/${email}`;
+    return this.http.get(url, {responseType: 'text'});
 
   }
 
-  logOut(token) {
-    const url = `${this.baseUrl + routes.resetPassword}`;
-    return this.http.post(url, token);
-    // sessionStorage.removeItem('admin');
-    // this.router.navigate(['/']);
-  }
+  // logOut(token) {
+  //   const url = `${this.baseUrl + routes.resetPassword}`;
+  //   return this.http.post(url, token);
+  //   // sessionStorage.removeItem('admin');
+  //   // this.router.navigate(['/']);
+  // }
 }

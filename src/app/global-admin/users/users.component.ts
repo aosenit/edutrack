@@ -12,7 +12,6 @@ export class UsersComponent implements OnInit {
   constructor(private adminService: AdminService) { }
 
   ngOnInit() {
-    this.getAllAdmin();
   }
 
  showBanner(status: string) {
@@ -31,11 +30,4 @@ export class UsersComponent implements OnInit {
   }
  }
 
- getAllAdmin() {
-   this.adminService.getAllAdmin().subscribe(data => {
-     if (data) {
-       console.log('admis', data);
-     }
-   });
- }
 }

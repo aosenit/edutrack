@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   newAdmin: 'schtrack-auth/api/v1/Admin',
-  getAdminById: 'schtrack-auth/api/v1/Admin'
 };
 
 @Injectable({
@@ -23,8 +22,4 @@ export class AdminService {
     return this.http.post(url, userForm, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } } );
   }
 
-  getloggedInAdmin(id: any) {
-        const url = `${this.baseUrl + routes.getAdminById}/${id}`;
-        return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
-  }
 }

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/services/data/auth/auth.service';
 import { NotificationsService } from './../../../services/classes/notifications/notifications.service';
+import { of, Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 
 @Component({
@@ -17,6 +20,7 @@ export class ForgotPasswordComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router,
               private notifyService: NotificationsService,
+              private authService: AuthService
               ) { }
 
     ngOnInit() {
@@ -25,16 +29,11 @@ export class ForgotPasswordComponent implements OnInit {
     });
   }
 
-  resetPassword() {
-    if (this.resetPasswordForm.invalid) {
-      this.submitted = true;
-      return;
-    } else {
-      console.log('password reset successful', this.resetPasswordForm.value);
-      this.notifyService.publishMessages('password reset successful', 'success', 1);
 
-      this.router.navigateByUrl('/login');
-    }
-  }
+  resetPassword() {
+     this.authService.resetPassword(this.resetPasswordForm.value).subscribe( data => {
+       console.log(data);
+     });
+}
 
 }

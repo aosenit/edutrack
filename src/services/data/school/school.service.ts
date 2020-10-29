@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  addschool: '/School/AddSchool ',
-  getallschool: '/School/GetSchools',
+  addschool: 'schtrack-auth/api/v1/School/AddSchool ',
+  getallschool: 'schtrack-auth/api/v1/School/GetSchools',
   getschoolbyid: 'School/GetSchool/',
   updateschoolbyid: 'School/UpdateSchool',
   deleteschool: 'School/DeleteSchool'
@@ -20,7 +20,7 @@ export class SchoolService {
 
   addSchool(schoolFinalStep) {
     const url = `${this.baseUrl + routes.addschool}`;
-    return this.http.post(url, schoolFinalStep, {responseType: 'text'});
+    return this.http.post(url, schoolFinalStep, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } },);
   }
 
   getAllSchools() {

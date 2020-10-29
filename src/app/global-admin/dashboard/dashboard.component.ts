@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from 'src/services/data/admin/admin.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { SchoolService } from 'src/services/data/school/school.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,18 +8,23 @@ import { AdminService } from 'src/services/data/admin/admin.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  adminDetails: any;
+  registeredSchools: any;
 
-  constructor(private adminService: AdminService) { }
+  constructor(private schoolService: SchoolService) { }
 
   ngOnInit() {
-    const id = JSON.stringify(localStorage.getItem('access_token'));
-    console.log('dsd', id);
+    const helper = new JwtHelperService();
+    this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
+    this.getAllSchool();
   }
 
-  getAdmin() {
-
-    this.adminService.getloggedInAdmin(id).subscribe( res => {
-      console.log(res);
+  getAllSchool() {
+    this.schoolService.getAllSchools().subscribe((data: any) => {
+      if (data) {
+        this.registeredSchools = data.payload.length;
+        // console.log('data', this.registeredSchools);
+      }
     });
   }
 

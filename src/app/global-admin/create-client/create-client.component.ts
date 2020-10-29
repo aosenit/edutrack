@@ -12,7 +12,6 @@ export class CreateClientComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('hello');
   }
 
 
