@@ -162,8 +162,8 @@
                     Apis
                 </a>
             </li>
-            <li class="nav-item mb-2">
-                <a href="#" class="nav-link" [routerLink]="['/admin/']" [routerLinkActive]="['active']">
+            <li class="nav-item mb-2" (click)="logOut()">
+                <a href="#" class="nav-link" >
                     <span class="ico">
                         <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="signout">
@@ -197,7 +197,7 @@
                                     <p> TO </p>
                                 </div>
                                 <div class="pl-3">
-                                    <p class="mb-0">Temidayo Osunkoya</p>
+                                    <p class="mb-0">{{adminDetails.given_name}} {{adminDetails.family_name}} </p>
                                     <small>Super Administrator</small>
                                 </div>
                             </div>

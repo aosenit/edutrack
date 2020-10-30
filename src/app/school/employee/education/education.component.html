@@ -20,7 +20,7 @@
         
         <div class="  ">
           <label for="email" class="fw-6">Country <span class="text-danger">*</span></label>
-          <select name="" id="country" class="form-control form-control-lg" (change)="getState($event.target.value)">
+          <select name="" id="country" class="form-control form-control-lg" >
             <option value="" selected> select </option>
             <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
 

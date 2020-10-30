@@ -9,6 +9,8 @@ import { EmployeeComponent } from '../employee.component';
 export class PersonalInformationComponent implements OnInit {
 
   @Output() sendChildName = new EventEmitter<string>();
+  iconname = null;
+
   constructor(private home: EmployeeComponent) { }
 
   ngOnInit() {
@@ -21,6 +23,15 @@ export class PersonalInformationComponent implements OnInit {
     this.home.stepper(2);
   }
 
+  // handleIconUpload(event: any) {
+  //   if (event.target.files.length > 0) {
+  //     const file = event.target.files[0];
+  //     console.log('file', file);
+  //     this.iconname = file.name;
+  //     // this.profileForm.get('icon').setValue(file);
+  //     // this.iconname = this.icon.name;
+  //   }
+  // }
 
 
 

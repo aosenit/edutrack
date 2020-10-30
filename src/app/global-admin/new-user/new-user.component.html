@@ -75,7 +75,7 @@
                   <div class=" ">
                     <label for="domain" class="fw-6">Userame <span class="text-danger">*</span></label>
                     <input type="text" class="form-control form-control-lg" id="domain" placeholder="Enter username"
-                      formControlName="phoneNumber">
+                      formControlName="userName">
                       <div *ngIf="submitted && userForm.controls.phoneNumber.errors" class="error">
                         <div *ngIf="userForm.controls.phoneNumber.errors.required" class="text-danger">Username is required
                         </div>
@@ -98,11 +98,18 @@
                   <div class=" ">
                     <label for="logo" class="fw-6">Photo</label>
                     <div class="custom-file mb-3">
-                      <input type="file" class="custom-file-input" id="customFile" name="filename">
-                      <label class="custom-file-label" for="customFile">Upload File</label>
+                      <input type="file" class="custom-file-input" id="customFile" name="avatarname" (change)="handleImgUpload($event)">
+                      <label class="custom-file-label" for="customFile" *ngIf ="avatarname === null; else filename">Upload File</label>
+                      <ng-template #filename>
+                        <label class="custom-file-label" for="customFile" > {{avatarname}} </label>
+                      </ng-template>
                     </div>
                   </div>
-                  <div class="  ">
+                  <div class=" ">
+                    <label for="logo" class="fw-6">Password</label>
+                    <input type="password" class="form-control form-control-lg" formControlName="password">
+                  </div>
+                   <!-- <div class="  ">
                     <label for="role" class="fw-6">Role <span class="text-danger">*</span></label>
                     <div class=" mb-3">
                       <select name="" id="role" class="form-control" formControlName="password">
@@ -114,7 +121,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 
                 </div>
 

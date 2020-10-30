@@ -81,11 +81,11 @@
             class="custom-file-input" 
             accept="image/png, image/jpeg"
             id="customFile" name="iconname" 
-            (change)="handleIconUpload($event)">
-            <label class="custom-file-label" for="customFile" *ngIf ="iconname === null; else icon"> Upload File </label>
-            <ng-template #icon>
+            >
+            <label class="custom-file-label" for="customFile" > Upload File </label>
+            <!-- <ng-template #icon>
               <label class="custom-file-label" for="customFile"> {{iconname}} </label>
-            </ng-template>
+            </ng-template> -->
           </div>
         </div>
 
@@ -101,11 +101,11 @@
               class="custom-file-input" 
               accept="image/png, image/jpeg"
               id="customFile" name="iconname" 
-              (change)="handleIconUpload($event)">
-              <label class="custom-file-label" for="customFile" *ngIf ="iconname === null; else icon"> Upload File </label>
-              <ng-template #icon>
+              >
+              <label class="custom-file-label" for="customFile" > Upload File </label>
+              <!-- <ng-template #icon>
                 <label class="custom-file-label" for="customFile"> {{iconname}} </label>
-              </ng-template>
+              </ng-template> -->
             </div>
           </div>
 
