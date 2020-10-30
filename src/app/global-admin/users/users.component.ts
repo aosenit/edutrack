@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AdminService } from 'src/services/data/admin/admin.service';
 
 @Component({
@@ -9,9 +10,13 @@ import { AdminService } from 'src/services/data/admin/admin.service';
 export class UsersComponent implements OnInit {
   users = true;
   roles = false;
-  constructor(private adminService: AdminService) { }
+  constructor(
+              private adminService: AdminService ,
+              private notifyService: NotificationsService,
+              ) { }
 
   ngOnInit() {
+    this.showAllAdmin();
   }
 
  showBanner(status: string) {
@@ -28,6 +33,17 @@ export class UsersComponent implements OnInit {
     default:
       this.users = true;
   }
+ }
+
+ showAllAdmin() {
+   this.adminService.getAllAdmin().subscribe( (data: any) => {
+     if (data) {
+       console.log('all admin gotten', data.payload);
+     }
+   }, error => {
+    this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+   });
  }
 
 }

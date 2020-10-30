@@ -40,7 +40,7 @@ export class ContactPersonComponent implements OnInit {
     this.schoolServies.addSchool(result).subscribe( (data: any) => {
       if ( data) {
           console.log('school create successfully', data);
-          this.notifyService.publishMessages('Great! Client added successfully', 'success', 1);
+          this.notifyService.publishMessages('Great! Client added successfully', 'info', 1);
           this.router.navigateByUrl('/admin/clients');
       }
     }, error => {

@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   newAdmin: 'schtrack-auth/api/v1/Admin',
+  getAdmins: 'schtrack-auth/api/v1/Admin',
 };
 
 @Injectable({
@@ -18,8 +19,12 @@ export class AdminService {
 
   AddNewAdmin(userForm) {
     const url = `${this.baseUrl + routes.newAdmin}`;
-    const headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*'});
-    return this.http.post(url, userForm, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } } );
+    return this.http.post(url, userForm );
+  }
+
+  getAllAdmin() {
+    const url = `${this.baseUrl + routes.getAdmins}`;
+    return this.http.get(url );
   }
 
 }

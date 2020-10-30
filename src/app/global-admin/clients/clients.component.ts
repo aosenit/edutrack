@@ -26,7 +26,6 @@ emptyList: any;
         if (this.emptyRecord === 0) {
           this.emptyList = true;
         } else {
-          console.log('sdds', this.emptyRecord);
           this.emptyList = false;
         }
 

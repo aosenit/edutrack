@@ -12,4 +12,8 @@ export class SocialDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
+  close() {
+    window.close();
+  }
+
 }

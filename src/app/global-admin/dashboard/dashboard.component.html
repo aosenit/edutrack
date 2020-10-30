@@ -16,7 +16,7 @@
         <div class="schools">
             <img src="assets/images/svg/schools.svg" alt="card school icon">
             <div class="revenue__text ">
-                <h6 class="pt-3 pr-4">{{registeredSchools}} </h6>
+                <h6 class="pt-3 pr-4">{{schoolCount}} </h6>
             </div>
             <p>Registered Schools</p>
         </div>
@@ -56,56 +56,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr *ngFor = "let school of registeredSchools">
                     <th scope="row" class="logo">
                         <img src="assets/images/svg/school-victory.svg" alt="schools log" class="mr-3">
-                        <p>Victory Heritage <br> International School</p>
+                        <p>{{school.name}}</p>
 
                     </th>
-                    <td>128C7654</td>
-                    <td>2,790</td>
+                    <td>{{school.clientCode}}</td>
+                    <td> {{school.usersCount}}</td>
                     <td></td>
                   </tr>
-                  <tr>
-                    <th scope="row" class="logo">
-                        <img src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3">
-                        <p>Breakthrough Academy</p>
-
-                    </th>
-                    <td>128C7654</td>
-                    <td>2,790</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row" class="logo">
-                        <img src="assets/images/svg/school-hill.svg" alt="schools log" class="mr-3">
-                        <p>Hillsprings International School</p>
-
-                    </th>
-                    <td>128C7654</td>
-                    <td>2,790</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row" class="logo">
-                        <img src="assets/images/svg/school-logo.svg" alt="schools log" class="mr-3">
-                        <p>Caleb International School</p>
-
-                    </th>
-                    <td>128C7654</td>
-                    <td>2,790</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <th scope="row" class="logo">
-                        <img src="assets/images/svg/school-logo.svg" alt="schools log" class="mr-3">
-                        <p>Caleb International School</p>
-
-                    </th>
-                    <td>128C7654</td>
-                    <td>2,790</td>
-                    <td></td>
-                  </tr>
+                  
                   
                 </tbody>
               </table>

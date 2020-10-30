@@ -13,7 +13,8 @@ import { map, catchError } from 'rxjs/operators';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-
+  sent = false;
+  notSent = true;
   submitted = false;
   resetPasswordForm: FormGroup;
   constructor(
@@ -31,9 +32,22 @@ export class ForgotPasswordComponent implements OnInit {
 
 
   resetPassword() {
-     this.authService.resetPassword(this.resetPasswordForm.value).subscribe( data => {
-       console.log(data);
-     });
+    if (this.resetPasswordForm.invalid) {
+      this.submitted = true;
+      return;
+    } else {
+
+      this.authService.resetPassword(this.resetPasswordForm.value).subscribe( (res: any) => {
+        const data = JSON.parse(res);
+        if ( data.hasErrors === true) {
+         this.notifyService.publishMessages(data.errors, 'danger', 1);
+        } else {
+          console.log(data);
+          this.notSent = false;
+          this.sent = true;
+       }
+      });
+    }
 }
 
 }

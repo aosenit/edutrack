@@ -10,6 +10,7 @@ import { SchoolService } from 'src/services/data/school/school.service';
 export class DashboardComponent implements OnInit {
   adminDetails: any;
   registeredSchools: any;
+  schoolCount: any;
 
   constructor(private schoolService: SchoolService) { }
 
@@ -22,8 +23,8 @@ export class DashboardComponent implements OnInit {
   getAllSchool() {
     this.schoolService.getAllSchools().subscribe((data: any) => {
       if (data) {
-        this.registeredSchools = data.payload.length;
-        // console.log('data', this.registeredSchools);
+        this.registeredSchools = data.payload;
+        this.schoolCount = data.totalCount;
       }
     });
   }

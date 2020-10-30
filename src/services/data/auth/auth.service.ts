@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   login: 'schtrack-auth/api/v1/Authentication/Token',
-  forgotPassword: 'schtrack-auth/api/v1/Authentication/RequestPasswordReset  ',
+  forgotPassword: 'schtrack-auth/api/v1/Authentication/RequestPasswordReset',
   logout: 'Authentication/Logout '
 };
 
