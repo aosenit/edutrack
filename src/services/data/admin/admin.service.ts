@@ -18,8 +18,16 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   AddNewAdmin(userForm) {
+    const body = new FormData();
+    body.append('firstName', userForm.firstName);
+    body.append('lastName', userForm.lastName);
+    body.append('userName', userForm.userName);
+    body.append('email', userForm.email);
+    body.append('Document', userForm.Document);
+    body.append('password', userForm.password);
+
     const url = `${this.baseUrl + routes.newAdmin}`;
-    return this.http.post(url, userForm );
+    return this.http.post(url, body );
   }
 
   getAllAdmin() {

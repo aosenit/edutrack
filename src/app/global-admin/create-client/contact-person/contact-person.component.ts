@@ -35,8 +35,7 @@ export class ContactPersonComponent implements OnInit {
     const finalstep = JSON.parse(sessionStorage.getItem('final-info'));
     const result = {...profile, ...details, ...finalstep};
     console.log('result', result);
-    // const formData = this.assignFormDataValues(result);
-    // console.log('ff', formData);
+
     this.schoolServies.addSchool(result).subscribe( (data: any) => {
       if ( data) {
           console.log('school create successfully', data);
@@ -51,12 +50,12 @@ export class ContactPersonComponent implements OnInit {
 
   }
 
-  assignFormDataValues(form: FormGroup) {
-    const formData = new FormData();
-    Object.keys(form.controls).forEach(key => {
-      formData.append(key, form.get(key).value);
-    });
-    return formData;
-  }
+  // assignFormDataValues(form: FormGroup) {
+  //   const formData = new FormData();
+  //   Object.keys(form.controls).forEach(key => {
+  //     formData.append(key, form.get(key).value);
+  //   });
+  //   return formData;
+  // }
 
 }

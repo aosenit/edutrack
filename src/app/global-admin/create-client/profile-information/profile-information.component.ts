@@ -28,12 +28,10 @@ export class ProfileInformationComponent implements OnInit {
   }
 
   nextStep() {
-    this.loaderService.show();
     this.home.stepper(2);
     // const formData = this.assignFormDataValues(this.profileForm);
     console.log('form data', this.profileForm.value);
     sessionStorage.setItem('profile-info', JSON.stringify(this.profileForm.value));
-    this.loaderService.hide();
   }
 
 
@@ -58,11 +56,11 @@ export class ProfileInformationComponent implements OnInit {
   }
 
 
-  assignFormDataValues(form: FormGroup) {
-    const formData = new FormData();
-    Object.keys(form.controls).forEach(key => {
-      formData.append(key, form.get(key).value);
-    });
-    return formData;
-  }
+  // assignFormDataValues(form: FormGroup) {
+  //   const formData = new FormData();
+  //   Object.keys(form.controls).forEach(key => {
+  //     formData.append(key, form.get(key).value);
+  //   });
+  //   return formData;
+  // }
 }
