@@ -19,8 +19,23 @@ export class SchoolService {
   constructor(private http: HttpClient) { }
 
   addSchool(schoolFinalStep) {
+    const formData = new FormData();
+    formData.append('Name', schoolFinalStep.Name);
+    formData.append('Name', schoolFinalStep.DomainName);
+    formData.append('Name', schoolFinalStep.WebsiteAddress);
+    formData.append('Name', schoolFinalStep.icon);
+    formData.append('Name', schoolFinalStep.logo);
+    formData.append('Name', schoolFinalStep.Country);
+    formData.append('Name', schoolFinalStep.Address);
+    formData.append('Name', schoolFinalStep.State);
+    formData.append('Name', schoolFinalStep.City);
+    formData.append('Name', schoolFinalStep.ContactFirstName);
+    formData.append('Name', schoolFinalStep.ContactLastName);
+    formData.append('Name', schoolFinalStep.ContactPhoneNo);
+    formData.append('Name', schoolFinalStep.ContactEmail);
     const url = `${this.baseUrl + routes.addschool}`;
-    return this.http.post(url, schoolFinalStep, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } },);
+    console.log('asasas', schoolFinalStep);
+    return this.http.post(url, formData);
   }
 
   getAllSchools() {

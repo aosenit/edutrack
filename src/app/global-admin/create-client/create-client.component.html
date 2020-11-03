@@ -192,7 +192,7 @@
                    
                 </div> -->
 
-                <app-profile-information *ngIf="stage === 1"></app-profile-information>
+                <app-profile-information *ngIf="stage === 1" (sendChildName)="getChildName($event)"></app-profile-information>
                 <app-contact-detail *ngIf="stage === 2"></app-contact-detail>
                 <app-contact-person *ngIf="stage === 3"></app-contact-person>
             </div>

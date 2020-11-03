@@ -29,7 +29,7 @@ export class NewUserComponent implements OnInit {
       lastName : ['', Validators.required],
       userName: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
-      avatar: [null],
+      Document: [null],
       password: ['', Validators.required],
     });
   }
@@ -59,7 +59,7 @@ export class NewUserComponent implements OnInit {
       const file = event.target.files[0];
       console.log('file', file);
       this.avatarname = file.name;
-      this.userForm.get('avatar').setValue(file);
+      this.userForm.get('Document').setValue(file);
       // this.iconname = this.icon.name;
     }
   }
