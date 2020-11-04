@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: '', component: DashboardComponent, canActivate : [AuthGuardGuard] },
       { path: 'newclient', component: NewClientComponent },
       { path: 'clients', component: ClientsComponent },
-      { path: 'client', component: ClientDetailComponent },
+      { path: 'client/:id', component: ClientDetailComponent },
       { path: 'users', component: UsersComponent },
       { path: 'user', component: EditUserComponent },
       { path: 'newuser', component: NewUserComponent },

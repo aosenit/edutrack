@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
-import { NotificationsService } from '../../../../services/classes/notifications/notifications.service';
-import {SchoolService} from '../../../../services/data/school/school.service';
+import { CreateClientComponent } from '../create-client.component';
 
 @Component({
   selector: 'app-contact-person',
@@ -11,16 +9,14 @@ import {SchoolService} from '../../../../services/data/school/school.service';
 })
 export class ContactPersonComponent implements OnInit {
 
-  schoolFinalStep: FormGroup;
+  contactPersonForm: FormGroup;
   constructor(
               private fb: FormBuilder,
-              private router: Router,
-              private notifyService: NotificationsService,
-              private schoolServies: SchoolService
+              private home: CreateClientComponent
               ) { }
 
   ngOnInit() {
-    this.schoolFinalStep = this.fb.group({
+    this.contactPersonForm = this.fb.group({
       ContactFirstName : ['', Validators.required],
       ContactLastName: ['', Validators.required],
       ContactPhoneNo: ['', [Validators.required]],
@@ -28,34 +24,13 @@ export class ContactPersonComponent implements OnInit {
     });
   }
 
-  createSchool() {
-    sessionStorage.setItem('final-info', JSON.stringify(this.schoolFinalStep.value));
-    const profile = JSON.parse(sessionStorage.getItem('profile-info'));
-    const details = JSON.parse(sessionStorage.getItem('school-details'));
-    const finalstep = JSON.parse(sessionStorage.getItem('final-info'));
-    const result = {...profile, ...details, ...finalstep};
-    console.log('result', result);
 
-    this.schoolServies.addSchool(result).subscribe( (data: any) => {
-      if ( data) {
-          console.log('school create successfully', data);
-          this.notifyService.publishMessages('Great! Client added successfully', 'info', 1);
-          this.router.navigateByUrl('/admin/clients');
-      }
-    }, error => {
-      console.log('Error occured here', error);
-      this.notifyService.publishMessages(error.message, 'danger', 1);
 
-    });
+  nextStep() {
+    this.home.stepper(4);
+    sessionStorage.setItem('contact-person', JSON.stringify(this.contactPersonForm.value));
 
   }
 
-  // assignFormDataValues(form: FormGroup) {
-  //   const formData = new FormData();
-  //   Object.keys(form.controls).forEach(key => {
-  //     formData.append(key, form.get(key).value);
-  //   });
-  //   return formData;
-  // }
 
 }

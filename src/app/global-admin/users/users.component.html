@@ -324,17 +324,24 @@
              
          </div>
          <div class="modal-body client-modal">
-             <form>
+             <form [formGroup]="bulkUpload" (ngSubmit)="UploadBulkFile()">
                  <div class="form-group file-upload mt-4 mb-3">
-                     <label for="fileupload">Drag files to upload or click</label>
-                     <input type="file" class="file-input" id="fileupload">
-                     <button type="button " class="btn-orange-two btn-upload  mb-3 ">Add Files </button>
+                    <label for="fileupload" *ngIf ="filename === null; else bulkFile" >Drag files to upload or click</label>
+                    <ng-template #bulkFile class="mt-5">
+             <label  for="fileupload"> {{filename}} </label>
+           </ng-template>
+                     <input 
+                     type="file" class="file-input" 
+                     id="fileupload"
+                     (change)="handleBulkUpload($event)">
+                     <!-- <button type="button " class="btn-orange-two btn-upload  mb-3 ">Add Files </button> -->
                      <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
                          file. To import
                          more than 5000 records at a time, use a .csv file.</p>
                  </div>
 
-                 <p class="mb-5 download">Click <span class="download fc-lblue">here</span> to download sample file</p>
+                 <a class="mb-5 download" href="assets/SchoolTrackBulkUpload.xlsx" download="SchoolTrack Bulk Upload">Click <span class="download fc-lblue" >here</span> to download sample file</a>
+
 
                  <div class="modal-btn d-flex justify-content-end mb-5">
                      <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>

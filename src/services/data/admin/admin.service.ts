@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  newAdmin: 'schtrack-auth/api/v1/Admin',
+  newAdmin: 'api/v1/Admin',
   getAdmins: 'schtrack-auth/api/v1/Admin',
 };
 
@@ -13,7 +13,9 @@ const routes = {
 })
 export class AdminService {
 
-  baseUrl: string = environment.serverUrl;
+  // baseUrl: string = environment.serverUrl;
+  baseUrl: string = environment.demourl;
+
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +25,7 @@ export class AdminService {
     body.append('lastName', userForm.lastName);
     body.append('userName', userForm.userName);
     body.append('email', userForm.email);
-    body.append('Document', userForm.Document);
+    body.append('Files', userForm.Document);
     body.append('password', userForm.password);
 
     const url = `${this.baseUrl + routes.newAdmin}`;

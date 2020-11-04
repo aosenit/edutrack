@@ -8,10 +8,11 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
 import { ContactPersonComponent } from './contact-person/contact-person.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MediaComponent } from './media/media.component';
 
 
 @NgModule({
-  declarations: [CreateClientComponent, ProfileInformationComponent, ContactDetailComponent, ContactPersonComponent],
+  declarations: [CreateClientComponent, ProfileInformationComponent, ContactDetailComponent, ContactPersonComponent, MediaComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule, FormsModule,
