@@ -37,12 +37,11 @@ export class NewUserComponent implements OnInit {
   createUser() {
     if (this.userForm.invalid) {
       this.submitted = true;
-
       return;
     } else {
       // console.log(this.userForm.value);
       this.adminService.AddNewAdmin(this.userForm.value).subscribe( (data: any) => {
-        if (data) {
+        if (data.hasError === false) {
           console.log('created admin data', data);
           this.notifyService.publishMessages(data.description, 'info', 1);
           this.router.navigateByUrl('/admin/users');

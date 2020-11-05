@@ -1,4 +1,4 @@
-<form [formGroup]="schoolFinalStep" (ngSubmit)="createSchool()" >
+<form [formGroup]="contactPersonForm"  >
     <div class="contact-details">
     
         <div class="form-row my-5 ">
@@ -36,10 +36,10 @@
         </div>
     
     
-        <div class=" d-flex justify-content-center mb-5">
-            <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" > Create Client </button>
-    
-        </div>
     </div>
 </form>
+                <div class=" d-flex justify-content-center mb-5">
+                    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' > Next </button>
+            
+                </div>

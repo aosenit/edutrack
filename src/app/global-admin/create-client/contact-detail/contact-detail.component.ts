@@ -26,7 +26,6 @@ export class ContactDetailComponent implements OnInit {
 
   nextStep() {
     this.home.stepper(3);
-    console.log('form data', this.schooldetailsForm.value);
     sessionStorage.setItem('school-details', JSON.stringify(this.schooldetailsForm.value));
 
   }

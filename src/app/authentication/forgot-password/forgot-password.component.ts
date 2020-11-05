@@ -3,8 +3,6 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/services/data/auth/auth.service';
 import { NotificationsService } from './../../../services/classes/notifications/notifications.service';
-import { of, Observable } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
 
 
 @Component({

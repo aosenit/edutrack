@@ -33,43 +33,10 @@
             placeholder="Enter school wesbite" formControlName="WebsiteAddress" required>
           </div>
 
-          <div class=" ">
-            <label for="logo" class="fw-6">Logo</label>
-            <div class="custom-file mb-3">
-              <input 
-              type="file" 
-              class="custom-file-input" 
-              accept="image/png, image/jpeg"
-              id="customFile" name="logoname" 
-              (change)="handleImgUpload($event)">
-              <label class="custom-file-label" for="customFile" *ngIf ="logoname === null; else filename"> Upload File </label>
-              <ng-template #filename>
-                <label class="custom-file-label" for="customFile"> {{logoname}} </label>
-              </ng-template>
-              
-            </div>
-          </div>
+          
         </div>
 
-        <div class="form-row my-5">
-         
-          <div class="  ">
-            <label for="icon" class="fw-6">Icon</label>
-            <div class="custom-file mb-3">
-              <input 
-              type="file" 
-              class="custom-file-input" 
-              accept="image/png, image/jpeg"
-              id="customFile" name="iconname" 
-              (change)="handleIconUpload($event)">
-              <label class="custom-file-label" for="customFile" *ngIf ="iconname === null; else icon"> Upload File </label>
-              <ng-template #icon>
-                <label class="custom-file-label" for="customFile"> {{iconname}} </label>
-              </ng-template>
-            </div>
-          </div>
-
-        </div>
+        
 
         
 
