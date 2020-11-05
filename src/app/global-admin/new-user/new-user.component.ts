@@ -15,6 +15,8 @@ export class NewUserComponent implements OnInit {
   userForm: FormGroup;
   submitted = false;
   avatarname = null;
+  DocumentTypes: number[] = [];
+
 
   constructor(
               private fb: FormBuilder,
@@ -40,9 +42,12 @@ export class NewUserComponent implements OnInit {
       return;
     } else {
       // console.log(this.userForm.value);
-      this.adminService.AddNewAdmin(this.userForm.value).subscribe( (data: any) => {
+      const finalstep = this.userForm.value;
+      const result = { ...finalstep, DocumentTypes: this.DocumentTypes};
+
+      this.adminService.AddNewAdmin(result).subscribe( (data: any) => {
         if (data.hasError === false) {
-          console.log('created admin data', data);
+          console.log('created admin data', data.payload);
           this.notifyService.publishMessages(data.description, 'info', 1);
           this.router.navigateByUrl('/admin/users');
         }
@@ -59,6 +64,8 @@ export class NewUserComponent implements OnInit {
       console.log('file', file);
       this.avatarname = file.name;
       this.userForm.get('Document').setValue(file);
+      this.DocumentTypes.push(2);
+
       // this.iconname = this.icon.name;
     }
   }

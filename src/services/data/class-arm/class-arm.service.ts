@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  addclassarm: 'ClassArm/AddClassArm',
-  getallclassarm: 'ClassArm/GetAllClassArms',
+  addclassarm: 'api/v1/ClassArm/AddClassArm',
+  getallclassarm: 'api/v1/ClassArm/GetAllClassArms',
   updateclassarm: 'ClassArm/UpdateClassArm',
   deleteclassarm: 'ClassArm/DeleteClassArm'
 };
@@ -15,17 +15,25 @@ const routes = {
 export class ClassArmService {
 
   baseUrl: string = environment.serverUrl;
+  baseUrl2: string = environment.demourl;
 
   constructor(private http: HttpClient) { }
 
-  addClassArm(studentForm) {
-    const url = `${this.baseUrl + routes.addclassarm}`;
-    return this.http.post(url, studentForm);
+  addClassArm( addclassForm) {
+    const tenantId = '1';
+    const body = new FormData();
+    body.append('name', addclassForm.name);
+    body.append('status', addclassForm.status);
+    console.log(body);
+    const url = `${this.baseUrl2 + routes.addclassarm}`;
+    return this.http.post(url, body, { headers: { tenantId } });
   }
 
   getAllClassArm() {
-    const url = `${this.baseUrl + routes.getallclassarm}`;
-    return this.http.get(url);
+    const tenantId = '1';
+
+    const url = `${this.baseUrl2 + routes.getallclassarm}`;
+    return this.http.get(url, { headers: { tenantId } });
   }
 
   updateClassArm(id: any, updateClassArmForm) {

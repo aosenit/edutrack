@@ -22,6 +22,7 @@ export class ContactDetailComponent implements OnInit {
       State: [''],
       City: ['']
     });
+    this.getProfileInformation();
   }
 
   nextStep() {
@@ -38,5 +39,19 @@ export class ContactDetailComponent implements OnInit {
       }
     }
 
+  }
+
+  getProfileInformation() {
+    const payload = JSON.parse(sessionStorage.getItem('client-info'));
+    this.populateProfileForm(payload);
+  }
+
+  populateProfileForm(payload: any) {
+    this.schooldetailsForm = this.fb.group({
+      Country: payload.country,
+      Address: payload.address,
+      State: payload.state,
+      City: payload.city
+    });
   }
 }

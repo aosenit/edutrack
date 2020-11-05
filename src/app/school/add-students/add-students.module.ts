@@ -7,12 +7,15 @@ import { BasicDetailsComponent } from './basic-details/basic-details.component';
 import { SocialDetailsComponent } from './social-details/social-details.component';
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { MedicalDetailsComponent } from './medical-details/medical-details.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [AddStudentsComponent, BasicDetailsComponent, SocialDetailsComponent, ContactDetailsComponent, MedicalDetailsComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     AddStudentsRoutingModule
   ]
 })

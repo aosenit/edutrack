@@ -4,12 +4,12 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   addschool: 'api/v1/School/AddSchool ',
-  getallschool: 'schtrack-auth/api/v1/School/GetSchools',
-  // getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
+  // getallschool: 'schtrack-auth/api/v1/School/GetSchools',
+  getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
   getschoolbyid: 'api/v1/School/GetSchool',
   bulkUplaod: 'api/v1/School/BulkAddSchool',
   updateschoolbyid: 'School/UpdateSchool',
-  deleteschool: 'School/DeleteSchool'
+  deleteschool: 'api/v1/School/DeleteSchool'
 };
 
 @Injectable({
@@ -44,7 +44,7 @@ export class SchoolService {
   }
 
   getAllSchools() {
-    const url = `${this.baseUrl + routes.getallschool}`;
+    const url = `${this.baseUrl2 + routes.getallschool}`;
     return this.http.get(url);
   }
 
@@ -67,7 +67,7 @@ export class SchoolService {
   }
 
   deleteSchoolById(userid) {
-    const url = `${this.baseUrl + routes.deleteschool}/${userid}`;
+    const url = `${this.baseUrl2 + routes.deleteschool}/${userid}`;
     return this.http.delete(url);
 
   }

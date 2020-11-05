@@ -1,26 +1,27 @@
-<div class="main">
+    <div class="main">
     <section class="banner mb-4 pb-3" *ngIf="users">
         <div class="pt-5 pl-3 text-content ">
-            <h6 class="banner__text-primary fw-6 "> Users & Roles </h6>
-            <p class=""> Showing all admin accounts </p>
+        <h6 class="banner__text-primary fw-6 "> Users & Roles </h6>
+        <p class=""> Showing all admin accounts </p>
         </div>
         <div class="d-flex">
-            <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
             data-target="#exampleModalCenterUpload"> Bulk Upload </button>
-            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/admin/newuser']" > New Users </button>
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/admin/newuser']"> New Users
+        </button>
         </div>
 
     </section>
 
     <section class="banner mb-4 pb-3" *ngIf="roles">
         <div class="pt-5 pl-3 text-content ">
-            <h6 class="banner__text-primary fw-6 "> Users & Roles </h6>
-            <p class=""> Showing all admin accounts </p>
+        <h6 class="banner__text-primary fw-6 "> Users & Roles </h6>
+        <p class=""> Showing all admin accounts </p>
         </div>
         <div class="d-flex">
-            <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
             data-target="#exampleModalCenterUpload"> Bulk Upload </button>
-            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/admin/new-role"> New Roles </button>
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/admin/new-role"> New Roles </button>
         </div>
 
     </section>
@@ -28,331 +29,227 @@
     <section class="search mb-3">
 
         <div class="searchpills-bar">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item" (click)="showBanner('users')">
-                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                        aria-controls="pills-home" aria-selected="true">Users</a>
-                </li>
-                <li class="nav-item" (click)="showBanner('roles')">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                        aria-controls="pills-profile" aria-selected="false">Roles</a>
-                </li>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" (click)="showBanner('users')">
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                aria-controls="pills-home" aria-selected="true">Users</a>
+            </li>
+            <li class="nav-item" (click)="showBanner('roles')">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                aria-controls="pills-profile" aria-selected="false">Roles</a>
+            </li>
 
-            </ul>
+        </ul>
 
         </div>
         <div class="search__input has-search ml-auto">
-            <span class="fa fa-search form-control-feedback"></span>
-            <input type="text" class="form-control" placeholder="Search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Search">
         </div>
     </section>
 
     <div>
         <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                <section class="list">
-                    <table class="table table-borderless client-table">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="head ">Full Name <img src="assets/images/svg/table-sort.svg"
-                                        alt="table sort icon" class="">
-                                </th>
-                                <th scope="col">Email </th>
-                                <th scope="col">Roles <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                                        class=""></th>
-                                <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                                        class=""></th>
-                                <th scope="col">Date Added <img src="assets/images/svg/table-sort.svg"
-                                        alt="table sort icon" class=""></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    <span><img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                                    </span>
-                                    <div>
-                                        <h6 class="fw-6">Chukwudi Okoli </h6>
-                                        <p>mrchuks</p>
-                                    </div>
-                                </td>
-                                <td class="">chuks.okoli@schooltrack.com</td>
-                                <td>Admin</td>
-                                <td><span class="status_active">Active</span></td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                        alt="schools log"> </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    <span><img src="assets/images/svg/user-role-2.svg" alt="schools log" class="mr-3">
-                                    </span>
-                                    <div>
-                                        <h6 class="fw-6">Francis Emenike </h6>
-                                        <p>frankie</p>
-                                    </div>
-                                </td>
-                                <td class="">frank.emenike@schooltrack.com</td>
-                                <td>Data input</td>
-                                <td><span class="status_active">Active</span></td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                        alt="schools log"> </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    <span><img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                                    </span>
-                                    <div>
-                                        <h6 class="fw-6">Chukwudi Okoli </h6>
-                                        <p>mrchuks</p>
-                                    </div>
-                                </td>
-                                <td class="">chuks.okoli@schooltrack.com</td>
-                                <td>Admin</td>
-                                <td><span class="status_active">Active</span></td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                        alt="schools log"> </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    <span><img src="assets/images/svg/woman.svg" alt="schools log" class="mr-3"> </span>
-                                    <div>
-                                        <h6 class="fw-6">Cynthia Bassey </h6>
-                                        <p>cynthia</p>
-                                    </div>
-                                </td>
-                                <td class="">cynthia.bassey@schooltrack.com</td>
-                                <td>System Admin</td>
-                                <td><span class="status_active">Active</span></td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                        alt="schools log"> </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    <span><img src="assets/images/svg/user-role-2.svg" alt="schools log" class="mr-3">
-                                    </span>
-                                    <div>
-                                        <h6 class="fw-6">Francis Emenike </h6>
-                                        <p>frankie</p>
-                                    </div>
-                                </td>
-                                <td class="">frank.emenike@schooltrack.com</td>
-                                <td>Data input</td>
-                                <td><span class="status_inactive">Inactive</span></td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                        alt="schools log"> </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    <span><img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                                    </span>
-                                    <div>
-                                        <h6 class="fw-6">Chukwudi Okoli </h6>
-                                        <p>mrchuks</p>
-                                    </div>
-                                </td>
-                                <td class="">chuks.okoli@schooltrack.com</td>
-                                <td>Admin</td>
-                                <td><span class="status_active">Active</span></td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                        alt="schools log"> </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    <span><img src="assets/images/svg/woman.svg" alt="schools log" class="mr-3"> </span>
-                                    <div>
-                                        <h6 class="fw-6">Cynthia Bassey </h6>
-                                        <p>cynthia</p>
-                                    </div>
-                                </td>
-                                <td class="">cynthia.bassey@schooltrack.com</td>
-                                <td>System Admin</td>
-                                <td><span class="status_active">Active</span></td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                        alt="schools log"> </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    <span><img src="assets/images/svg/user-role-2.svg" alt="schools log" class="mr-3">
-                                    </span>
-                                    <div>
-                                        <h6 class="fw-6">Francis Emenike </h6>
-                                        <p>frankie</p>
-                                    </div>
-                                </td>
-                                <td class="">frank.emenike@schooltrack.com</td>
-                                <td>Data input</td>
-                                <td><span class="status_inactive">Inactive</span></td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                        alt="schools log"> </td>
-                            </tr>
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <section class="list">
+            <table class="table table-borderless client-table">
+                <thead>
+                <tr>
+                    <th scope="col" class="head ">Full Name <img src="assets/images/svg/table-sort.svg"
+                        alt="table sort icon" class="">
+                    </th>
+                    <th scope="col">Email </th>
+                    <th scope="col">Roles <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
+                    <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
+                    <th scope="col">Date Added <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="">
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="pb-1" *ngFor="let admin of adminList">
+                    <td scope="row" class="user rounded-left">
+                    <span><img src="data:image/png;base64,{{admin?.image}}" alt="schools log" class="mr-3 image-rounded">
+                    </span>
+                    <div>
+                        <h6 class="fw-6">{{admin?.firstName}} </h6>
+                        <p>{{admin?.lastName}}</p>
+                    </div>
+                    </td>
+                    <td class="">{{admin?.email}}</td>
+                    <td>Admin</td>
+                    <td>
+                    <span *ngIf="admin.status === false; then inactive; else active">{{client?.status}}</span>
+                    <ng-template #inactive>
+                        <span class="status_inactive">
+                        Inactive
+                        </span>
+                    </ng-template>
+                    <ng-template #active>
+                        <span class="status_active">
+                        Active
+                        </span>
+                    </ng-template>
+                    </td>
+                    <td>17/03/2020</td>
+                    <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+                </tr>
 
 
 
+                </tbody>
+            </table>
 
-                        </tbody>
-                    </table>
+            </section>
+        </div>
 
-                </section>
-            </div>
-
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <section class="list">
-                    <table class="table table-borderless client-table">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="head ">Role Title
-                                </th>
-                                <th scope="col">Role ID </th>
-                                <th scope="col">No. of Active Users </th>
-                                <th scope="col">Date Added </th>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    Admin
-                                </td>
-                                <td class="">STA1092076</td>
-                                <td>3</td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right action" [routerLink]="['/admin/edit-user']"><img src="assets/images/svg/edit-role.svg"
-                                        alt="schools log" class="mr-3" > Edit Role </td>
-                                <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg"
-                                        alt="schools log" class="mr-3"> Delete Role </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    Data Input
-                                </td>
-                                <td class="">STA1092076</td>
-                                <td>5</td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right action" [routerLink]="['/admin/edit-user']"><img src="assets/images/svg/edit-role.svg"
-                                        alt="schools log" class="mr-3"> Edit Role </td>
-                                <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg"
-                                        alt="schools log" class="mr-3"> Delete Role </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    Payment Officer
-                                </td>
-                                <td class="">STA1092076</td>
-                                <td>8</td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right action" [routerLink]="['/admin/edit-user']"><img src="assets/images/svg/edit-role.svg"
-                                        alt="schools log" class="mr-3"> Edit Role </td>
-                                <td class="rounded-right action" action><img src="assets/images/svg/delete-role.svg"
-                                        alt="schools log" class="mr-3"> Delete Role </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    System Admin
-                                </td>
-                                <td class="">STA1092076</td>
-                                <td>3</td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg"
-                                        alt="schools log" class="mr-3"> Edit Role </td>
-                                <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg"
-                                        alt="schools log" class="mr-3"> Delete Role </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    Data Analyst
-                                </td>
-                                <td class="">STA1092076</td>
-                                <td>2</td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg"
-                                        alt="schools log" class="mr-3"> Edit Role </td>
-                                <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg"
-                                        alt="schools log" class="mr-3"> Delete Role </td>
-                            </tr>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    Account Manager
-                                </td>
-                                <td class="">STA1092076</td>
-                                <td>5</td>
-                                <td>17/03/2020</td>
-                                <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg"
-                                        alt="schools log" class="mr-3"> Edit Role </td>
-                                <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg"
-                                        alt="schools log" class="mr-3"> Delete Role </td>
-                            </tr>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <section class="list">
+            <table class="table table-borderless client-table">
+                <thead>
+                <tr>
+                    <th scope="col" class="head ">Role Title
+                    </th>
+                    <th scope="col">Role ID </th>
+                    <th scope="col">No. of Active Users </th>
+                    <th scope="col">Date Added </th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="pb-1">
+                    <td scope="row" class="user rounded-left">
+                    Admin
+                    </td>
+                    <td class="">STA1092076</td>
+                    <td>3</td>
+                    <td>17/03/2020</td>
+                    <td class="rounded-right action" [routerLink]="['/admin/edit-user']"><img
+                        src="assets/images/svg/edit-role.svg" alt="schools log" class="mr-3"> Edit Role </td>
+                    <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg" alt="schools log"
+                        class="mr-3"> Delete Role </td>
+                </tr>
+                <tr class="pb-1">
+                    <td scope="row" class="user rounded-left">
+                    Data Input
+                    </td>
+                    <td class="">STA1092076</td>
+                    <td>5</td>
+                    <td>17/03/2020</td>
+                    <td class="rounded-right action" [routerLink]="['/admin/edit-user']"><img
+                        src="assets/images/svg/edit-role.svg" alt="schools log" class="mr-3"> Edit Role </td>
+                    <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg" alt="schools log"
+                        class="mr-3"> Delete Role </td>
+                </tr>
+                <tr class="pb-1">
+                    <td scope="row" class="user rounded-left">
+                    Payment Officer
+                    </td>
+                    <td class="">STA1092076</td>
+                    <td>8</td>
+                    <td>17/03/2020</td>
+                    <td class="rounded-right action" [routerLink]="['/admin/edit-user']"><img
+                        src="assets/images/svg/edit-role.svg" alt="schools log" class="mr-3"> Edit Role </td>
+                    <td class="rounded-right action" action><img src="assets/images/svg/delete-role.svg" alt="schools log"
+                        class="mr-3"> Delete Role </td>
+                </tr>
+                <tr class="pb-1">
+                    <td scope="row" class="user rounded-left">
+                    System Admin
+                    </td>
+                    <td class="">STA1092076</td>
+                    <td>3</td>
+                    <td>17/03/2020</td>
+                    <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg" alt="schools log"
+                        class="mr-3"> Edit Role </td>
+                    <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg" alt="schools log"
+                        class="mr-3"> Delete Role </td>
+                </tr>
+                <tr class="pb-1">
+                    <td scope="row" class="user rounded-left">
+                    Data Analyst
+                    </td>
+                    <td class="">STA1092076</td>
+                    <td>2</td>
+                    <td>17/03/2020</td>
+                    <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg" alt="schools log"
+                        class="mr-3"> Edit Role </td>
+                    <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg" alt="schools log"
+                        class="mr-3"> Delete Role </td>
+                </tr>
+                <tr class="pb-1">
+                    <td scope="row" class="user rounded-left">
+                    Account Manager
+                    </td>
+                    <td class="">STA1092076</td>
+                    <td>5</td>
+                    <td>17/03/2020</td>
+                    <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg" alt="schools log"
+                        class="mr-3"> Edit Role </td>
+                    <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg" alt="schools log"
+                        class="mr-3"> Delete Role </td>
+                </tr>
 
 
 
 
 
-                        </tbody>
-                    </table>
+                </tbody>
+            </table>
 
-                </section>
-            </div>
+            </section>
+        </div>
         </div>
     </div>
 
-</div>
+    </div>
 
 
 
- <!-- Bulk uplaod Modal -->
- <div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
- aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
-     <div class="modal-content">
+    <!-- Bulk uplaod Modal -->
+    <div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+        <div class="modal-content">
 
-         <div class="modal-head ">
-             <div class="d-flex justify-content-between align-items-center mb-3">
-                 <h6 class="modal-title">Upload Files</h6>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                 </button>
-             </div>
-             
-         </div>
-         <div class="modal-body client-modal">
-             <form [formGroup]="bulkUpload" (ngSubmit)="UploadBulkFile()">
-                 <div class="form-group file-upload mt-4 mb-3">
-                    <label for="fileupload" *ngIf ="filename === null; else bulkFile" >Drag files to upload or click</label>
-                    <ng-template #bulkFile class="mt-5">
-             <label  for="fileupload"> {{filename}} </label>
-           </ng-template>
-                     <input 
-                     type="file" class="file-input" 
-                     id="fileupload"
-                     (change)="handleBulkUpload($event)">
-                     <!-- <button type="button " class="btn-orange-two btn-upload  mb-3 ">Add Files </button> -->
-                     <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
-                         file. To import
-                         more than 5000 records at a time, use a .csv file.</p>
-                 </div>
+        <div class="modal-head ">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="modal-title">Upload Files</h6>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
 
-                 <a class="mb-5 download" href="assets/SchoolTrackBulkUpload.xlsx" download="SchoolTrack Bulk Upload">Click <span class="download fc-lblue" >here</span> to download sample file</a>
+        </div>
+        <div class="modal-body client-modal">
+            <form [formGroup]="bulkUpload" (ngSubmit)="UploadBulkFile()">
+            <div class="form-group file-upload mt-4 mb-3">
+                <label for="fileupload" *ngIf="filename === null; else bulkFile">Drag files to upload or click</label>
+                <ng-template #bulkFile class="mt-5">
+                <label for="fileupload"> {{filename}} </label>
+                </ng-template>
+                <input type="file" class="file-input" id="fileupload" (change)="handleBulkUpload($event)">
+                <!-- <button type="button " class="btn-orange-two btn-upload  mb-3 ">Add Files </button> -->
+                <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
+                file. To import
+                more than 5000 records at a time, use a .csv file.</p>
+            </div>
+
+            <a class="mb-5 download" href="assets/SchoolTrackBulkUpload.xlsx" download="SchoolTrack Bulk Upload">Click
+                <span class="download fc-lblue">here</span> to download sample file</a>
 
 
-                 <div class="modal-btn d-flex justify-content-end mb-5">
-                     <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
-                     <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add New </button>
-                 </div>
+            <div class="modal-btn d-flex justify-content-end mb-5">
+                <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
+                <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add New </button>
+            </div>
 
-             </form>
-         </div>
+            </form>
+        </div>
 
-     </div>
- </div>
-</div>
+        </div>
+    </div>
+    </div>
 
-<!-- end of Bulk uplaod modal -->
+    <!-- end of Bulk uplaod modal -->

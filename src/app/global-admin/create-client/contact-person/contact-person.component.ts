@@ -22,6 +22,7 @@ export class ContactPersonComponent implements OnInit {
       ContactPhoneNo: ['', [Validators.required]],
       ContactEmail: ['', [Validators.email, Validators.required]]
     });
+    this.getProfileInformation();
   }
 
 
@@ -30,6 +31,19 @@ export class ContactPersonComponent implements OnInit {
     this.home.stepper(4);
     sessionStorage.setItem('contact-person', JSON.stringify(this.contactPersonForm.value));
 
+  }
+  getProfileInformation() {
+    const payload = JSON.parse(sessionStorage.getItem('client-info'));
+    this.populateProfileForm(payload);
+  }
+
+  populateProfileForm(payload: any) {
+    this.contactPersonForm = this.fb.group({
+      ContactFirstName: payload.contactFirstName,
+      ContactLastName: payload.contactLastName,
+      ContactPhoneNo: payload.contactPhoneNo,
+      ContactEmail: payload.contactEmail
+    });
   }
 
 

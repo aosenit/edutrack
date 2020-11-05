@@ -769,28 +769,28 @@
 
       </div>
       <div class="modal-body client-modal">
-        <form>
+        <form [formGroup]="classArmform" (ngSubmit)="createClassArm()">
 
 
           <div class="form-group mb-5">
             <label for="arm" class="">Class Arm <span class="text-danger">*</span></label>
-            <input type="text" id="arm" class="form-control" placeholder="Enter class arm">
+            <input type="text" id="arm" class="form-control" placeholder="Enter class arm" formControlName="name">
           </div>
 
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch3">
+              <input type="checkbox" class="custom-control-input" id="customSwitch3" (change)="getStatus($event.target.checked)" formControlName="status">
               <label class="custom-control-label" for="customSwitch3">Active</label>
             </div>
           </div>
 
 
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Class Arm</button>
+          </div>
         </form>
-        <div class="d-flex justify-content-center mb-3">
-          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
-          </button>
-          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Class Arm</button>
-        </div>
       </div>
 
     </div>
