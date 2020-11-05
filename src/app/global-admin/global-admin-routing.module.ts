@@ -25,6 +25,7 @@ const routes: Routes = [
       { path: 'new-role', component: NewroleComponent },
       {path: 'edit-user', component: EditUserComponent},
       {path: 'create-client', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
+      {path: 'edit-client/:id', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
 
 
     ]

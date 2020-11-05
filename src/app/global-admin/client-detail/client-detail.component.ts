@@ -30,24 +30,11 @@ iconSrc: any;
     this.schoolServices.getSchoolById(this.id).subscribe( (data: any) => {
       if (data.hasErrors === false) {
         this.schoolDetail = data.payload;
-        this.logoId = data.payload.logoId;
-        this.iconId = data.payload.iconId;
-        this.getImageID(this.logoId);
-        this.getIconID(this.logoId);
+        console.log(this.schoolDetail);
       }
     });
   }
 
-  getImageID(id: any) {
-    this.fileService.getFileUpload(id).subscribe( (data: any) => {
-      this.imageSrc = data.payload;
-    });
-  }
-  getIconID(id: any) {
-    this.fileService.getFileUpload(id).subscribe( (data: any) => {
-      this.iconSrc = data.payload;
-    });
-  }
 
   back() {
     window.history.back();

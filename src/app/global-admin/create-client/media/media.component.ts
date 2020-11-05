@@ -46,6 +46,7 @@ export class MediaComponent implements OnInit {
       if ( data ) {
           console.log('school create successfully', data);
           this.notifyService.publishMessages(data.description, 'info', 1);
+          sessionStorage.clear();
           this.router.navigateByUrl('/admin/clients');
       }
     }, error => {

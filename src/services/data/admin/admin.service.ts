@@ -5,7 +5,8 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   newAdmin: 'api/v1/Admin',
-  getAdmins: 'schtrack-auth/api/v1/Admin',
+  // getAdmins: 'schtrack-auth/api/v1/Admin',
+  getAdmins: 'api/v1/Admin?PageIndex=1&PageSize=10',
 };
 
 @Injectable({
@@ -13,8 +14,8 @@ const routes = {
 })
 export class AdminService {
 
-  // baseUrl: string = environment.serverUrl;
-  baseUrl: string = environment.demourl;
+  baseUrl: string = environment.serverUrl;
+  baseUrl2: string = environment.demourl;
 
 
   constructor(private http: HttpClient) { }
@@ -26,14 +27,15 @@ export class AdminService {
     body.append('userName', userForm.userName);
     body.append('email', userForm.email);
     body.append('Files', userForm.Document);
+    userForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     body.append('password', userForm.password);
 
-    const url = `${this.baseUrl + routes.newAdmin}`;
+    const url = `${this.baseUrl2 + routes.newAdmin}`;
     return this.http.post(url, body );
   }
 
   getAllAdmin() {
-    const url = `${this.baseUrl + routes.getAdmins}`;
+    const url = `${this.baseUrl2 + routes.getAdmins}`;
     return this.http.get(url );
   }
 

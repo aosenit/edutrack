@@ -17,8 +17,8 @@
 <div class="client mt-2">
 
     <section class="activated mb-4">
-        <div class="activated__image " (load)="getImageID(schoolDetail.logoId)" >
-            <img  src="data:image/png;base64,{{imageSrc}}" class="mr-3 image-rounded" alt="..." />
+        <div class="activated__image " >
+            <img  src="data:image/png;base64,{{schoolDetail?.logo}}" class="mr-3 image-rounded" alt="..." />
 
             <div>
                 <p class="activated__title fw-6">{{schoolDetail?.name}} <img
@@ -63,12 +63,12 @@
             <div class="card__profile-link mt-4 mb-5 mr-5">
                 <div class="link">
                     <p>Logo</p>
-                    <img  src="data:image/png;base64,{{imageSrc}}" class="mr-3 thumb-logo" alt="..." />
+                    <img  src="data:image/png;base64,{{schoolDetail?.logo}}" class="mr-3 thumb-logo" alt="..." />
 
                 </div>
                 <div class="link mr-5 ml-4">
                     <p>Icon</p>
-                    <img  src="data:image/png;base64,{{iconSrc}}" class="mr-3 icon-logo" alt="..." />
+                    <img  src="data:image/png;base64,{{schoolDetail?.icon}}" class="mr-3 icon-logo" alt="..." />
 
                 </div>
             </div>

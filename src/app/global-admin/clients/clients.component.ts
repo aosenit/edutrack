@@ -14,11 +14,13 @@ export class ClientsComponent implements OnInit {
 emptyRecord: false;
 emptyList: any;
 clientList: any;
+clientCount: any;
 logoId: any;
 imagesrc: any;
 tableImg: any;
 bulkUpload: FormGroup;
 filename = null;
+profileInfo: any;
 // DocumentTypes: number[] = [];
 
   constructor(
@@ -39,8 +41,9 @@ filename = null;
   getAllSchools() {
     this.schoolServices.getAllSchools().subscribe( (data: any) => {
       if (data) {
-        // console.log('all schools', data);
+        console.log('all schools', data);
         this.clientList = data.payload;
+        this.clientCount = data.totalCount;
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -84,5 +87,29 @@ filename = null;
 
 
   }
+
+  deleteClient(id) {
+    this.schoolServices.deleteSchoolById(id).subscribe((data: any) => {
+      console.log(data);
+      if (data.hasError === false) {
+        this.getAllSchools();
+        this.notifyService.publishMessages(data.description, 'success', 1);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.error, 'danger', 1);
+    });
+  }
+
+  editClient(id) {
+    this.schoolServices.getSchoolById(id).subscribe( (data: any) => {
+      if (data.hasErrors === false) {
+        this.profileInfo = data.payload;
+        console.log('assa', this.profileInfo);
+        sessionStorage.setItem('client-info', JSON.stringify(this.profileInfo));
+        this.router.navigateByUrl('/admin/edit-client/' + id);
+      }
+    });
+  }
+
 
 }

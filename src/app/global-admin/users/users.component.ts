@@ -45,9 +45,9 @@ export class UsersComponent implements OnInit {
 
  showAllAdmin() {
    this.adminService.getAllAdmin().subscribe( (data: any) => {
-     if (data.hasError === false) {
-      //  console.log('all admin gotten', data.payload);
-       this.adminList = data.payload;
+     if (data.hasErrors === false) {
+      this.adminList = data.payload;
+      console.log(this.adminList);
      }
    }, error => {
     this.notifyService.publishMessages(error.errors, 'danger', 1);

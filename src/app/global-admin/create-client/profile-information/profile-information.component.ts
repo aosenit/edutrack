@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateClientComponent } from '../create-client.component';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { SchoolService } from 'src/services/data/school/school.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 
 @Component({
@@ -10,18 +12,25 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 })
 export class ProfileInformationComponent implements OnInit {
   profileForm: FormGroup;
+  profileInfo: any;
 
-  constructor( private home: CreateClientComponent, private fb: FormBuilder) { }
+  constructor(
+     private home: CreateClientComponent,
+     private route: ActivatedRoute,
+     private router: Router,
+     private fb: FormBuilder,
+     private schoolServices: SchoolService,
+    ) { }
 
   ngOnInit() {
-    this.profileForm = this.fb.group({
-
-      Name : ['', Validators.required],
-      DomainName : ['', Validators.required],
-      WebsiteAddress: ['', Validators.required],
-
+    this.createProfileForm();
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.createProfileForm();
+      } else {
+        this.getProfileInformation();
+      }
     });
-
   }
 
   nextStep() {
@@ -30,7 +39,28 @@ export class ProfileInformationComponent implements OnInit {
     sessionStorage.setItem('profile-info', JSON.stringify(this.profileForm.value));
   }
 
+  createProfileForm() {
+    this.profileForm = this.fb.group({
 
+      Name : ['', Validators.required],
+      DomainName : ['', Validators.required],
+      WebsiteAddress: ['', Validators.required],
+
+    });
+  }
+
+  getProfileInformation() {
+    const payload = JSON.parse(sessionStorage.getItem('client-info'));
+    this.populateProfileForm(payload);
+  }
+
+  populateProfileForm(payload: any) {
+    this.profileForm = this.fb.group({
+      Name: payload.name,
+      DomainName: payload.domainName,
+      WebsiteAddress: payload.websiteAddress
+    });
+  }
 
   // assignFormDataValues(form: FormGroup) {
   //   const formData = new FormData();
