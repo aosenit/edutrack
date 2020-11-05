@@ -79,7 +79,7 @@
                     <td class="">{{admin?.email}}</td>
                     <td>Admin</td>
                     <td>
-                    <span *ngIf="admin.status === false; then inactive; else active">{{client?.status}}</span>
+                    <span *ngIf="admin.status === false; then inactive; else active">{{admin?.status}}</span>
                     <ng-template #inactive>
                         <span class="status_inactive">
                         Inactive
