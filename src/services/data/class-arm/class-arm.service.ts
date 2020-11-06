@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  addclassarm: 'api/v1/ClassArm/AddClassArm',
-  getallclassarm: 'api/v1/ClassArm/GetAllClassArms',
+  addclassarm: 'schtrack-auth/api/v1/ClassArm/AddClassArm',
+  getallclassarm: 'schtrack-auth/api/v1/ClassArm/GetAllClassArms',
   updateclassarm: 'ClassArm/UpdateClassArm',
   deleteclassarm: 'ClassArm/DeleteClassArm'
 };
@@ -20,19 +20,19 @@ export class ClassArmService {
   constructor(private http: HttpClient) { }
 
   addClassArm( addclassForm) {
-    const tenantId = '1';
+    const tenantId = '1'; // just a temporary header till email services is ready
     const body = new FormData();
     body.append('name', addclassForm.name);
     body.append('status', addclassForm.status);
     console.log(body);
-    const url = `${this.baseUrl2 + routes.addclassarm}`;
+    const url = `${this.baseUrl + routes.addclassarm}`;
     return this.http.post(url, body, { headers: { tenantId } });
   }
 
   getAllClassArm() {
     const tenantId = '1';
 
-    const url = `${this.baseUrl2 + routes.getallclassarm}`;
+    const url = `${this.baseUrl + routes.getallclassarm}`;
     return this.http.get(url, { headers: { tenantId } });
   }
 

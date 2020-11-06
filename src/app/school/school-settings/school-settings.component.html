@@ -344,7 +344,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="pb-1">
+          <tr class="pb-1" *ngFor = "let arm of classArm">
             <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -352,72 +352,21 @@
               </div>
             </td>
             <td class="user">
-              <h6 class="fw-6 mb-0">A </h6>
+              <h6 class="fw-6 mb-0">{{arm?.name}} </h6>
             </td>
-            <td><span class="status_active">Active</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-left">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
+            <td>
+              <span  *ngIf="arm.status === false; then inactive; else active">{{arm?.status}}</span>
+              <ng-template #inactive>
+                <span class="status_inactive">
+                  Inactive
+                </span>
+              </ng-template>
+              <ng-template #active>
+                <span class="status_active">
+                  Active
+                </span>
+              </ng-template>
             </td>
-            <td class="user">
-              <h6 class="fw-6 mb-0"> B </h6>
-            </td>
-            <td><span class="status_active">Active</span></td>
-
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-left">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td>
-            <td class="user">
-              <h6 class="fw-6 mb-0">C </h6>
-            </td>
-            <td><span class="status_active">Active</span></td>
-
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-left">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td>
-            <td class="user">
-              <h6 class="fw-6 mb-0">Champion </h6>
-            </td>
-            <td><span class="status_inactive">Inactive</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-
-
-
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-right">
-
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td>
-            <td class="user">
-              <h6 class="fw-6 mb-0">Winner </h6>
-            </td>
-            <td><span class="status_active">Active</span></td>
-
             <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
           </tr>
 
@@ -638,23 +587,29 @@
 
       </div>
       <div class="modal-body client-modal">
-        <form>
+        <form [formGroup]="levelForm" (ngSubmit)="submitLevel()">
 
 
           <div class="form-group mb-4">
             <label for="level" class="">Level</label>
-            <input type="text" id="level" class="form-control" placeholder="Enter level">
+            <input type="text" id="level" class="form-control" placeholder="Enter level" formControlName="name">
           </div>
           <div class="form-group mb-5">
             <label for="sequence" class="">Sequence</label>
-            <select name="" id="sequence" class="form-control">
+            <select name="" id="sequence" class="form-control" formControlName="sequence">
               <option value="">Select</option>
             </select>
           </div>
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1">
-              <label class="custom-control-label" for="customSwitch1">Active</label>
+              <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="status" (change)="getStatus($event.target.checked)" >
+              <label class="custom-control-label" for="customSwitch1" *ngIf = "toggleState === false; then inactive; else active;"   > {{toggleState}} </label>
+              <ng-template #active>
+                <label class="custom-control-label" for="customSwitch1" >Active </label>
+              </ng-template>
+              <ng-template #inactive>
+                <label class="custom-control-label" for="customSwitch1" > Inactive </label>
+              </ng-template>
             </div>
           </div>
 
@@ -763,7 +718,7 @@
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Class Arm</h6>
-          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal" aria-label="Close" class="close">
 
         </div>
 
@@ -780,7 +735,13 @@
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="customSwitch3" (change)="getStatus($event.target.checked)" formControlName="status">
-              <label class="custom-control-label" for="customSwitch3">Active</label>
+              <label class="custom-control-label" for="customSwitch3" *ngIf = "toggleState === false; then inactive; else active;"   > {{toggleState}} </label>
+              <ng-template #active>
+                <label class="custom-control-label" for="customSwitch3" >Active </label>
+              </ng-template>
+              <ng-template #inactive>
+                <label class="custom-control-label" for="customSwitch3" > Inactive </label>
+              </ng-template>
             </div>
           </div>
 

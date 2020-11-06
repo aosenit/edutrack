@@ -331,3 +331,7 @@ table.client-table {
     object-fit: cover;
 
 }
+
+.drop-bg {
+    opacity: 1 !important;
+}

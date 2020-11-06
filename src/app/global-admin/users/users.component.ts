@@ -12,6 +12,7 @@ export class UsersComponent implements OnInit {
   users = true;
   roles = false;
   adminList: any;
+  allRoles: any;
   bulkUpload: FormGroup;
   filename = null;
   constructor(
@@ -25,6 +26,7 @@ export class UsersComponent implements OnInit {
       avatar: []
     });
     this.showAllAdmin();
+    this.getRolesPermissions();
   }
 
  showBanner(status: string) {
@@ -47,7 +49,7 @@ export class UsersComponent implements OnInit {
    this.adminService.getAllAdmin().subscribe( (data: any) => {
      if (data.hasErrors === false) {
       this.adminList = data.payload;
-      console.log(this.adminList);
+      // console.log(this.adminList);
      }
    }, error => {
     this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -67,6 +69,18 @@ export class UsersComponent implements OnInit {
 
 UploadBulkFile() {
   console.log(this.bulkUpload.value);
+}
+
+getRolesPermissions() {
+  this.adminService.getAllPermissions().subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      this.allRoles = data.payload;
+      console.log(this.allRoles);
+     }
+   }, error => {
+    this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+   });
 }
 
 }

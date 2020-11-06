@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { SchoolService } from 'src/services/data/school/school.service';
+import { StudentService } from 'src/services/data/student/student.service';
 @Component({
   selector: 'app-medical-details',
   templateUrl: './medical-details.component.html',
@@ -7,7 +9,9 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 })
 export class MedicalDetailsComponent implements OnInit {
   medicalForm: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private studentService: StudentService) { }
 
   ngOnInit() {
     this.medicalForm = this.fb.group({
@@ -31,6 +35,14 @@ export class MedicalDetailsComponent implements OnInit {
 
     const result = { ...basicDetials, ...contactDetails, ...socialDetails, ...medicalDetails};
     console.log('sasasa', result);
+    this.studentService.addStudent(result).subscribe((data: any) => {
+      console.log(result);
+      if ( data.hasErrors === false) {
+        console.log(data);
+      }
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

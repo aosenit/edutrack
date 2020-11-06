@@ -49,12 +49,3 @@ p {
 }
 
 
-.form-group .custom-control-label::before {
-
-    background: #D72638;
-}
-
-.form-group .custom-control-label::after {
-
-    background: #ffffff;
-}

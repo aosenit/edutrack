@@ -1,14 +1,14 @@
 <div class="basic-details mt-2">
 
-    <form >
+    <form [formGroup]="EmployeeEducationForm" >
       <div class="form-row mb-5 ">
         <div class=" ">
           <label for="school" class="fw-6">School Name</label>
-          <input type="text" id="school" class="form-control form-control-lg" placeholder="Enter school name">
+          <input type="text" id="school" class="form-control form-control-lg" placeholder="Enter school name" formControlName="schoolName">
         </div>
         <div class=" "> 
           <label for="type" class="fw-6">Type </label>
-          <select name="" id="type" class="form-control form-control-lg">
+          <select name="" id="type" class="form-control form-control-lg" formControlName="schoolType">
               <option value="" selected> Select </option>
           </select>
 
@@ -20,7 +20,7 @@
         
         <div class="  ">
           <label for="email" class="fw-6">Country <span class="text-danger">*</span></label>
-          <select name="" id="country" class="form-control form-control-lg" >
+          <select name="" id="country" class="form-control form-control-lg" formControlName="schoolCountry" >
             <option value="" selected> select </option>
             <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
 
