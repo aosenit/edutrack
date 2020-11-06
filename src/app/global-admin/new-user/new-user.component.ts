@@ -31,7 +31,7 @@ export class NewUserComponent implements OnInit {
       lastName : ['', Validators.required],
       userName: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
-      Document: [null],
+      image: [null],
       password: ['', Validators.required],
     });
   }
@@ -44,10 +44,9 @@ export class NewUserComponent implements OnInit {
       // console.log(this.userForm.value);
       const finalstep = this.userForm.value;
       const result = { ...finalstep, DocumentTypes: this.DocumentTypes};
-
       this.adminService.AddNewAdmin(result).subscribe( (data: any) => {
-        if (data.hasError === false) {
-          console.log('created admin data', data.payload);
+        if (data.hasErrors === false) {
+          console.log('created admin data', data);
           this.notifyService.publishMessages(data.description, 'info', 1);
           this.router.navigateByUrl('/admin/users');
         }

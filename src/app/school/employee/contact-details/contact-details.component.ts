@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
 import { countries } from '../../../../services/utils/country.json';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 
 @Component({
@@ -13,14 +14,19 @@ export class ContactDetailsComponent implements OnInit {
   states: any[];
   @Output() sendChildName = new EventEmitter<string>();
 
-  constructor(private home: EmployeeComponent) { }
+  contactForm: FormGroup;
+
+  constructor(private home: EmployeeComponent, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.sendChildName.emit('Contact Details');
+    this.populateContactDetailsForm();
+
   }
 
   nextStep() {
     this.home.stepper(4);
+    sessionStorage.setItem('employee-contact-details', JSON.stringify(this.contactForm.value));
   }
 
   getState(event) {
@@ -31,6 +37,19 @@ export class ContactDetailsComponent implements OnInit {
         }
       }
 
-    }
+  }
+
+  populateContactDetailsForm() {
+    this.contactForm = this.fb.group({
+      contactPhone: ['', Validators.required],
+      contactAltPhone: ['', Validators.required],
+      contactEmail: ['', Validators.required],
+      contactAltEmail: ['', Validators.required],
+      country: [''],
+      Address: ['', Validators.required],
+      state: ['', Validators.required],
+      city: ['', Validators.required]
+    });
+  }
 
 }

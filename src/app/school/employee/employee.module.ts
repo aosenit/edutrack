@@ -9,19 +9,25 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
 import { NextOfKinComponent } from './next-of-kin/next-of-kin.component';
 import { EducationComponent } from './education/education.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MediaComponent } from './media/media.component';
 
 
 @NgModule({
   declarations: [
     EmployeeComponent,
     PersonalInformationComponent,
-    EmployeeDetailsComponent, ContactDetailsComponent,
+    EmployeeDetailsComponent,
+    ContactDetailsComponent,
     NextOfKinComponent,
     EducationComponent,
-    WorkExperienceComponent
+    WorkExperienceComponent,
+    MediaComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     EmployeeRoutingModule
   ]
 })

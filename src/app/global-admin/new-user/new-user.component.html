@@ -76,8 +76,8 @@
                     <label for="domain" class="fw-6">Userame <span class="text-danger">*</span></label>
                     <input type="text" class="form-control form-control-lg" id="domain" placeholder="Enter username"
                       formControlName="userName">
-                      <div *ngIf="submitted && userForm.controls.phoneNumber.errors" class="error">
-                        <div *ngIf="userForm.controls.phoneNumber.errors.required" class="text-danger">Username is required
+                      <div *ngIf="submitted && userForm.controls.userName.errors" class="error">
+                        <div *ngIf="userForm.controls.userName.errors.required" class="text-danger">Username is required
                         </div>
                       </div>
                   </div>

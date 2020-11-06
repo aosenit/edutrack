@@ -29,10 +29,11 @@ export class AuthService {
     return this.http.post(url, body, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }, );
   }
 
-  resetPassword(resetPasswordForm: any) {
-    const {email} = resetPasswordForm;
-    const url = `${this.baseUrl + routes.forgotPassword}/${email}`;
-    return this.http.get(url, {responseType: 'text'});
+  resetPassword(resetPasswordForm) {
+    // const {email} = resetPasswordForm;
+    console.log(resetPasswordForm);
+    const url = `${this.baseUrl + routes.forgotPassword}`;
+    return this.http.post(url, resetPasswordForm);
 
   }
 

@@ -149,18 +149,17 @@
               </a></button>
           </td>
           <td class="rounded-right ">
-            <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle" type="button"
-              id="dropdownMenuButtonOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <!-- <div class="dropdown-menu bg-white" aria-labelledby="dropdownMenuButtonOptions">
-              <a class="dropdown-item " (click)="deleteClient(client.id)"> Delete</a>
-              <a class="dropdown-item " (click)="editClient(client.id)"> Edit</a>
-
-            </div> -->
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonOptions">
-              <a class="dropdown-item "  (click)="editClient(client.id)" > Edit</a>
-                <a class="dropdown-item "  (click)="deleteClient(client.id)"> Delete</a>
+            <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle drop-bg" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown-menu">
+              
+              <a class="dropdown-item "  (click)="editClient(client.id)" > <img
+                src="assets/images/svg/edit-role.svg" alt="schools log" class="mr-3">  Edit</a>
+                <a class="dropdown-item "  (click)="deleteClient(client.id)"><img
+                  src="assets/images/svg/delete-role.svg" alt="schools log" class="mr-3"> Delete</a>
+            </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonOptions" >
                 
-              </div>
+            </div>
           </td>
         </tr>
 

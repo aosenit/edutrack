@@ -6,7 +6,7 @@
             <div class="col-md-6">
                 <label for="entry" class="fw-6">Entry Type <span class="text-danger">*</span>
                 </label>
-                <select name="" id="entry" class="form-control form-control-lg">
+                <select name="" id="entry" class="form-control form-control-lg" formControlName="entryType">
                     <option value="entry" selected>Sex</option>
                 </select>
             </div>
@@ -14,7 +14,7 @@
                 <label for="date" class="fw-6">Admission Date <span
                         class="text-danger">*</span></label>
                 <input type="date" class="form-control form-control-lg" placeholder="Dojah"
-                    id="maiden">
+                    id="maiden" formControlName="admissionDate">
             </div>
         </div>
     
@@ -22,7 +22,7 @@
         <div class="row mb-4">
             <div class="col-md-6 ">
                 <label for="date" class="fw-6">Level <span class="text-danger">*</span></label>
-                <select name="" id="level" class="form-control form-control-lg">
+                <select name="" id="level" class="form-control form-control-lg" formControlName="level">
                     <option value="level" selected>Secondary</option>
                 </select>
             </div>
@@ -30,7 +30,7 @@
             <div class="col-md-6">
                 <label for="state" class="fw-6">Class <span class="text-danger">*</span>
                 </label>
-                <select name="" id="state" class="form-control form-control-lg">
+                <select name="" id="state" class="form-control form-control-lg" formControlName="studentClass">
                     <option value="oyo" selected>JSS 3</option>
                 </select>
             </div>
@@ -40,7 +40,7 @@
             <div class="col-md-6 ">
                 <label for="date" class="fw-6">Student Type <span
                         class="text-danger">*</span></label>
-                <select name="" id="level" class="form-control form-control-lg">
+                <select name="" id="level" class="form-control form-control-lg" formControlName="studentType">
                     <option value="level" selected>Day Student</option>
                 </select>
             </div>

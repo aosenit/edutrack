@@ -26,7 +26,7 @@
                 
 
                 <div class="step-counter py-2 px-3">
-                    <p class="mb-0">Step {{stage}} of 6</p>
+                    <p class="mb-0">Step {{stage}} of 7</p>
                 </div>
 
             </div>
@@ -41,6 +41,7 @@
                 <app-next-of-kin *ngIf="stage === 4" (sendChildName)="getChildName($event)"></app-next-of-kin>
                 <app-education *ngIf="stage === 5" (sendChildName)="getChildName($event)"></app-education>
                 <app-work-experience *ngIf="stage === 6" (sendChildName)="getChildName($event)"></app-work-experience>
+                <app-media *ngIf="stage === 7" (sendChildName)="getChildName($event)"></app-media>
 
             </div>
         </div>
