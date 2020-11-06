@@ -51,10 +51,10 @@
                 <div class="form-row my-5 ">
                   <div class=" ">
                     <label for="fname" class="fw-6">First Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control form-control-lg" id="fname" formControlName="fname"
+                    <input type="text" class="form-control form-control-lg" id="fname" formControlName="firstName"
                       placeholder="Enter first Name">
-                    <div *ngIf="submitted && userForm.controls.fname.errors" class="error">
-                      <div *ngIf="userForm.controls.fname.errors.required" class="text-danger">First Name is required
+                    <div *ngIf="submitted && userForm.controls.firstName.errors" class="error">
+                      <div *ngIf="userForm.controls.firstName.errors.required" class="text-danger">First Name is required
                       </div>
                     </div>
                   </div>
@@ -62,9 +62,9 @@
                     <label for="lname" class="fw-6">Last Name <span class="text-danger">*</span></label>
 
                     <input type="text" class="form-control form-control-lg" id="lname" placeholder="Enter last name"
-                      formControlName="lname">
-                      <div *ngIf="submitted && userForm.controls.lname.errors" class="error">
-                        <div *ngIf="userForm.controls.lname.errors.required" class="text-danger">Last Name is required
+                      formControlName="lastName">
+                      <div *ngIf="submitted && userForm.controls.lastName.errors" class="error">
+                        <div *ngIf="userForm.controls.lastName.errors.required" class="text-danger">Last Name is required
                         </div>
                       </div>
                   </div>
@@ -75,9 +75,9 @@
                   <div class=" ">
                     <label for="domain" class="fw-6">Userame <span class="text-danger">*</span></label>
                     <input type="text" class="form-control form-control-lg" id="domain" placeholder="Enter username"
-                      formControlName="username">
-                      <div *ngIf="submitted && userForm.controls.username.errors" class="error">
-                        <div *ngIf="userForm.controls.username.errors.required" class="text-danger">Username is required
+                      formControlName="userName">
+                      <div *ngIf="submitted && userForm.controls.phoneNumber.errors" class="error">
+                        <div *ngIf="userForm.controls.phoneNumber.errors.required" class="text-danger">Username is required
                         </div>
                       </div>
                   </div>
@@ -98,23 +98,30 @@
                   <div class=" ">
                     <label for="logo" class="fw-6">Photo</label>
                     <div class="custom-file mb-3">
-                      <input type="file" class="custom-file-input" id="customFile" name="filename">
-                      <label class="custom-file-label" for="customFile">Upload File</label>
+                      <input type="file" class="custom-file-input" id="customFile" name="avatarname" (change)="handleImgUpload($event)">
+                      <label class="custom-file-label" for="customFile" *ngIf ="avatarname === null; else filename">Upload File</label>
+                      <ng-template #filename>
+                        <label class="custom-file-label" for="customFile" > {{avatarname}} </label>
+                      </ng-template>
                     </div>
                   </div>
-                  <div class="  ">
+                  <div class=" ">
+                    <label for="logo" class="fw-6">Password</label>
+                    <input type="password" class="form-control form-control-lg" formControlName="password">
+                  </div>
+                   <!-- <div class="  ">
                     <label for="role" class="fw-6">Role <span class="text-danger">*</span></label>
                     <div class=" mb-3">
-                      <select name="" id="role" class="form-control" formControlName="role">
+                      <select name="" id="role" class="form-control" formControlName="password">
                         <option value="" selected>Select Role</option>
                         <option value="Admin">Admin</option>
                       </select>
-                      <div *ngIf="submitted && userForm.controls.role.errors" class="error">
-                        <div *ngIf="userForm.controls.role.errors.required" class="text-danger">Role is required
+                      <div *ngIf="submitted && userForm.controls.password.errors" class="error">
+                        <div *ngIf="userForm.controls.password.errors.required" class="text-danger">Role is required
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
 
                 </div>
 

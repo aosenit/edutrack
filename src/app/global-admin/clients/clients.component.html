@@ -1,222 +1,171 @@
-<section class="client" *ngIf="emptyRecord">
-    <img src="assets/images/svg/institution.svg" alt="new client" class="">
-    <h6 class="pt-5">Create your first client</h6>
-    <p class="text-center pt-1">It looks like you haven’t created a client yet. Get started by <br> clicking the button
-        below.</p>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/admin/create-client']" >
-        Add New </button>
-    <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
-        data-target="#exampleModalCenterUpload">Bulk
-        Upload</button>
+<section class="client" *ngIf="clientCount === 0">
+  <img src="assets/images/svg/institution.svg" alt="new client" class="">
+  <h6 class="pt-5">Create your first client</h6>
+  <p class="text-center pt-1">It looks like you haven’t created a client yet. Get started by <br> clicking the button
+    below.</p>
+  <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/admin/create-client']">
+    Add New </button>
+  <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal" data-target="#exampleModalCenterUpload">Bulk
+    Upload</button>
 </section>
 
 
-<div class="main">
-    <section class="banner mb-4 pb-3">
-        <div class="pt-5 pl-3 content ">
-            <h6 class="banner__text-primary fw-6 "> Clients </h6>
-            <p class=""> Directory of all registered clients </p>
-        </div>
-        <div class="d-flex">
-            <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
-            data-target="#exampleModalCenterUpload"> Bulk Upload </button>
+<div class="main" *ngIf="clientCount !== 0">
+  <section class="banner mb-4 pb-3">
+    <div class="pt-5 pl-3 content ">
+      <h6 class="banner__text-primary fw-6 "> Clients </h6>
+      <p class=""> Directory of all registered clients </p>
+    </div>
+    <div class="d-flex">
+      <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+        data-target="#exampleModalCenterUpload"> Bulk Upload </button>
 
-            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/admin/create-client"> Add New </button>
-        </div>
+      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/admin/create-client"> Add New
+      </button>
+    </div>
 
-    </section>
+  </section>
 
-    <section class="search my-5">
-        <div class="search__input has-search">
-            <span class="fa fa-search form-control-feedback"></span>
-            <input type="text" class="form-control" placeholder="Search">
+  <section class="search my-5">
+    <div class="search__input has-search">
+      <span class="fa fa-search form-control-feedback"></span>
+      <input type="text" class="form-control" placeholder="Search">
+    </div>
+    <div class="search__input">
+      <form>
+        <div class="form-row">
+          <div class="col seperator">
+            <label for="from"> From</label>
+            <input type="date" class="form-control">
+          </div>
+          <span class="divider mx-3 mt-4 ">&nbsp;</span>
+          <div class="col ">
+            <label for="to">To</label>
+            <input type="date" class="form-control">
+          </div>
         </div>
-        <div class="search__input">
-            <form>
-                <div class="form-row">
-                    <div class="col seperator">
-                        <label for="from"> From</label>
-                        <input type="date" class="form-control">
-                    </div>
-                    <span class="divider mx-3 mt-4 ">&nbsp;</span>
-                    <div class="col ">
-                        <label for="to">To</label>
-                        <input type="date" class="form-control">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
+      </form>
+    </div>
+  </section>
 
-    <section class="list">
-        <table class="table table-borderless client-table">
-            <thead>
-                <tr>
-                    <th scope="col" class="head ">Clients <img src="assets/images/svg/table-sort.svg"
-                            alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <!-- ================ DROPDOWN ==================== -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item filter-title" href="#">FILTER BY: CLIENT</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item fc-orange" href="#">All </a>
-                            <a class="dropdown-item" href="#">A - Z </a>
-                            <a class="dropdown-item" href="#">Z - A </a>
-                        </div>
-                    </th>
-                    <th scope="col">Client Code </th>
-                    <th scope="col">Users <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                            class="dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        <!-- ================ DROPDOWN ==================== -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                            <a class="dropdown-item filter-title" href="#">FILTER BY: USERS</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item fc-orange" href="#">All </a>
-                            <a class="dropdown-item" href="#">Highest </a>
-                            <a class="dropdown-item" href="#">Lowest </a>
-                        </div>
-                    </th>
-                    <th scope="col">State <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                            class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        <!-- ================ DROPDOWN ==================== -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                            <a class="dropdown-item filter-title" href="#">FILTER BY: LOCATION</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item fc-orange" href="#">All </a>
-                            <a class="dropdown-item" href="#">Abuja </a>
-                            <a class="dropdown-item" href="#">Lagos </a>
-                            <a class="dropdown-item" href="#">Ogun </a>
-                        </div>
-                    </th>
-                    <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                            class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        <!-- ================ DROPDOWN ==================== -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                            <a class="dropdown-item filter-title" href="#">FILTER BY: STATUS</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item fc-orange" href="#">All </a>
-                            <a class="dropdown-item" href="#">Active </a>
-                            <a class="dropdown-item" href="#">Inactive </a>
-                        </div>
-                    </th>
-                    <th scope="col">Date Added <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                            class="dropdown-toggle" type="button" id="dropdownMenuButton5" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        <!-- ================ DROPDOWN ==================== -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                            <a class="dropdown-item filter-title" href="#">FILTER BY: DATE</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item fc-orange" href="#">All </a>
-                            <a class="dropdown-item" href="#">Newest </a>
-                            <a class="dropdown-item" href="#">Oldest </a>
-                        </div>
-                    </th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="pb-2">
-                    <td scope="row" class="school-logo rounded-left fc-lblue"> <span><img
-                                src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3"> </span> America
-                        International<br> School of Lagos <img src="assets/images/svg/verify.svg" alt="schools log">
-                    </td>
-                    <td class="">197E8318</td>
-                    <td>1,950</td>
-                    <td>Lagos</td>
-                    <td><span class="status_active">Active</span></td>
-                    <td>17/03/2020</td>
-                    <td class="rounded-right ">
-                        <button class="btn btn-link link"><a href="#" [routerLink]="['/admin/client']">View Details </a></button>
-                    </td>
-                </tr>
-                <tr class="pb-2">
-                    <td scope="row" class="school-logo rounded-left"> <span><img
-                                src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3"> </span> America
-                        International<br> School of Lagos <img src="assets/images/svg/verify.svg" alt="schools log">
-                    </td>
-                    <td class="">197E8318</td>
-                    <td>1,950</td>
-                    <td>Lagos</td>
-                    <td><span class="status_active">Active</span></td>
-                    <td>17/03/2020</td>
-                    <td class="rounded-right ">
-                        <button class="btn btn-link link"><a href="#" [routerLink]="['/admin/client']">View Details </a></button>
-                    </td>
-                </tr>
-                <tr class="pb-2">
-                    <td scope="row" class="school-logo rounded-left"> <span><img
-                                src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3"> </span> America
-                        International<br> School of Lagos <img src="assets/images/svg/verify.svg" alt="schools log">
-                    </td>
-                    <td class="">197E8318</td>
-                    <td>1,950</td>
-                    <td>Lagos</td>
-                    <td><span class="status_active">Active</span></td>
-                    <td>17/03/2020</td>
-                    <td class="rounded-right ">
-                        <button class="btn btn-link link"><a href="#" [routerLink]="['/admin/client']">View Details </a></button>
-                    </td>
-                </tr>
-                <tr class="pb-2">
-                    <td scope="row" class="school-logo rounded-left"> <span><img
-                                src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3"> </span> America
-                        International<br> School of Lagos <img src="assets/images/svg/verify.svg" alt="schools log">
-                    </td>
-                    <td class="">197E8318</td>
-                    <td>1,950</td>
-                    <td>Lagos</td>
-                    <td><span class="status_active">Active</span></td>
-                    <td>17/03/2020</td>
-                    <td class="rounded-right ">
-                        <button class="btn btn-link link"><a href="#" [routerLink]="['/admin/client']">View Details </a></button>
-                    </td>
-                </tr>
-                <tr class="pb-2">
-                    <td scope="row" class="school-logo rounded-left"> <span><img
-                                src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3"> </span> America
-                        International<br> School of Lagos <img src="assets/images/svg/not-verified.svg"
-                            alt="schools log"></td>
-                    <td class="">197E8318</td>
-                    <td>1,950</td>
-                    <td>Lagos</td>
-                    <td><span class="status_inactive">Inactive</span></td>
-                    <td>17/03/2020</td>
-                    <td class="rounded-right ">
-                        <button class="btn btn-link link"><a href="#" [routerLink]="['/admin/client']">View Details </a></button>
-                    </td>
-                </tr>
-                <tr class="pb-2">
-                    <td scope="row" class="school-logo rounded-left"> <span><img
-                                src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3"> </span> America
-                        International<br> School of Lagos <img src="assets/images/svg/verify.svg" alt="schools log">
-                    </td>
-                    <td class="">197E8318</td>
-                    <td>1,950</td>
-                    <td>Lagos</td>
-                    <td><span class="status_active">Active</span></td>
-                    <td>17/03/2020</td>
-                    <td class="rounded-right ">
-                        <button class="btn btn-link link"><a href="#" [routerLink]="['/admin/client']">View Details </a></button>
-                    </td>
-                </tr>
-                <tr class="pb-2">
-                    <td scope="row" class="school-logo rounded-left"> <span><img
-                                src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3"> </span> America
-                        International<br> School of Lagos <img src="assets/images/svg/verify.svg" alt="schools log">
-                    </td>
-                    <td class="">197E8318</td>
-                    <td>1,950</td>
-                    <td>Lagos</td>
-                    <td><span class="status_active">Active</span></td>
-                    <td>17/03/2020</td>
-                    <td class="rounded-right ">
-                        <button class="btn btn-link link"><a href="#" [routerLink]="['/admin/client']">View Details </a></button>
-                    </td>
-                </tr>
-                <tr class="pb-2">
+  <section class="list" >
+    <table class="table table-borderless client-table">
+      <thead>
+        <tr>
+          <th scope="col" class="head ">Clients <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+              class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+            <!-- ================ DROPDOWN ==================== -->
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item filter-title" href="#">FILTER BY: CLIENT</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item fc-orange" href="#">All </a>
+              <a class="dropdown-item" href="#">A - Z </a>
+              <a class="dropdown-item" href="#">Z - A </a>
+            </div>
+          </th>
+          <th scope="col">Client Code </th>
+          <th scope="col">Users <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+              class="dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+            <!-- ================ DROPDOWN ==================== -->
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+              <a class="dropdown-item filter-title" href="#">FILTER BY: USERS</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item fc-orange" href="#">All </a>
+              <a class="dropdown-item" href="#">Highest </a>
+              <a class="dropdown-item" href="#">Lowest </a>
+            </div>
+          </th>
+          <th scope="col">State <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+              class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+            <!-- ================ DROPDOWN ==================== -->
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+              <a class="dropdown-item filter-title" href="#">FILTER BY: LOCATION</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item fc-orange" href="#">All </a>
+              <a class="dropdown-item" href="#">Abuja </a>
+              <a class="dropdown-item" href="#">Lagos </a>
+              <a class="dropdown-item" href="#">Ogun </a>
+            </div>
+          </th>
+          <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+              class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+            <!-- ================ DROPDOWN ==================== -->
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+              <a class="dropdown-item filter-title" href="#">FILTER BY: STATUS</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item fc-orange" href="#">All </a>
+              <a class="dropdown-item" href="#">Active </a>
+              <a class="dropdown-item" href="#">Inactive </a>
+            </div>
+          </th>
+          <th scope="col">Date Added <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+              class="dropdown-toggle" type="button" id="dropdownMenuButton5" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+            <!-- ================ DROPDOWN ==================== -->
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+              <a class="dropdown-item filter-title" href="#">FILTER BY: DATE</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item fc-orange" href="#">All </a>
+              <a class="dropdown-item" href="#">Newest </a>
+              <a class="dropdown-item" href="#">Oldest </a>
+            </div>
+          </th>
+          <th scope="col"></th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="pb-2" *ngFor="let client of clientList">
+          <td scope="row" class="school-logo rounded-left fc-lblue"> <span>
+              <!-- <img class="" src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3 image-rounded" id=""> -->
+              <img class="" src="data:image/png;base64,{{client.logo}}" alt="schools log" class="mr-3 image-rounded" id="">
+              <!-- <img class="" *ngFor="let image of imagesrc" (load)="getImageID(client.logoId)" src="data:image/png;base64,{{iconSrc}}"alt="schools log" class="mr-3 image-rounded" id= "" > -->
+
+            </span> {{client?.name}} <img src="assets/images/svg/verify.svg" alt="schools log">
+          </td>
+          <td class="" *ngIf="client?.clientCode === null">{{client?.clientCode}}</td>
+          <td>{{client?.usersCount}}</td>
+          <td>{{client?.state}}</td>
+          <td>
+            <span *ngIf="client.status === false; then inactive; else active">{{client?.status}}</span>
+            <ng-template #inactive>
+              <span class="status_inactive">
+                Inactive
+              </span>
+            </ng-template>
+            <ng-template #active>
+              <span class="status_active">
+                Active
+              </span>
+            </ng-template>
+          </td>
+          <td> {{client?.dateCreated | date: 'dd/MM/y'}} </td>
+          <td class=" ">
+            <button class="btn btn-link link"><a  [routerLink]="['/admin','client', client?.id]">View Details
+              </a></button>
+          </td>
+          <td class="rounded-right ">
+            <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle" type="button"
+              id="dropdownMenuButtonOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <!-- <div class="dropdown-menu bg-white" aria-labelledby="dropdownMenuButtonOptions">
+              <a class="dropdown-item " (click)="deleteClient(client.id)"> Delete</a>
+              <a class="dropdown-item " (click)="editClient(client.id)"> Edit</a>
+
+            </div> -->
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonOptions">
+              <a class="dropdown-item "  (click)="editClient(client.id)" > Edit</a>
+                <a class="dropdown-item "  (click)="deleteClient(client.id)"> Delete</a>
+                
+              </div>
+          </td>
+        </tr>
+
+
+        <!-- <tr class="pb-2">
                     <td scope="row" class="school-logo rounded-left"> <span><img
                                 src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3"> </span> America
                         International<br> School of Lagos <img src="assets/images/svg/verify.svg" alt="schools log">
@@ -229,54 +178,67 @@
                     <td class="rounded-right ">
                         <button class="btn btn-link link"><a href="#" [routerLink]="['/admin/client']">View Details </a></button>
                     </td>
-                </tr>
+                </tr>  -->
 
 
-            </tbody>
-        </table>
+      </tbody>
+    </table>
 
-    </section>
+    <!-- <div class="d-flex justify-content-center align-items-center">
+            <div>
+                <p>Sorry, no results found</p>
+                <button class="btn btn-outline-orange  mx-2 mx-lg-3" >Go back </button>
+            </div>
+        </div> -->
+
+  </section>
 </div>
 
 
- <!-- Bulk uplaod Modal -->
- <div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
- aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
-     <div class="modal-content">
+<!-- Bulk uplaod Modal -->
+<div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+    <div class="modal-content">
 
-         <div class="modal-head ">
-             <div class="d-flex justify-content-between align-items-center mb-3">
-                 <h6 class="modal-title">Upload Files</h6>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                 </button>
-             </div>
-             
-         </div>
-         <div class="modal-body client-modal">
-             <form>
-                 <div class="form-group file-upload mt-4 mb-3">
-                     <label for="fileupload">Drag files to upload or click</label>
-                     <input type="file" class="file-input" id="fileupload">
-                     <button type="button " class="btn-orange-two btn-upload  mb-3 ">Add Files </button>
-                     <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
-                         file. To import
-                         more than 5000 records at a time, use a .csv file.</p>
-                 </div>
+      <div class="modal-head ">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h6 class="modal-title">Upload Files</h6>
+          <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
-                 <p class="mb-5 download">Click <span class="download fc-lblue">here</span> to download sample file</p>
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="bulkUpload" (ngSubmit)="UploadBulkFile()">
+          <div class="form-group file-upload mt-4 mb-3">
+            <label for="fileupload" *ngIf="filename === null; else bulkFile">Drag files to upload or click</label>
+            <ng-template #bulkFile class="mt-5">
+              <label for="fileupload"> {{filename}} </label>
+            </ng-template>
+            <input type="file" class="file-input" id="fileupload"
+              accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+              (change)="handleBulkUpload($event)">
+            <!-- <button type="button " class="btn-orange-two btn-upload  mb-3 " *ngIf="filename" >{{filename}} </button> -->
+            <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
+              file. To import
+              more than 5000 records at a time, use a .csv file.</p>
+          </div>
 
-                 <div class="modal-btn d-flex justify-content-end mb-5">
-                     <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
-                     <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add New </button>
-                 </div>
+          <a class="mb-5 download" href="assets/SchoolTrackBulkUpload.xlsx" download="SchoolTrack Bulk Upload">Click
+            <span class="download fc-lblue">here</span> to download sample file</a>
 
-             </form>
-         </div>
+          <div class="modal-btn d-flex justify-content-end mb-5">
+            <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
+            <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add New </button>
+          </div>
 
-     </div>
- </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
 </div>
 
 <!-- end of Bulk uplaod modal -->

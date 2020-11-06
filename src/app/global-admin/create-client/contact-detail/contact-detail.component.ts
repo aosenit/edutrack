@@ -17,16 +17,16 @@ export class ContactDetailComponent implements OnInit {
 
     ngOnInit() {
     this.schooldetailsForm = this.fb.group({
-      country : ['', Validators.required],
-      address: ['', Validators.required],
-      state: [''],
-      city: ['']
+      Country : ['', Validators.required],
+      Address: ['', Validators.required],
+      State: [''],
+      City: ['']
     });
+    this.getProfileInformation();
   }
 
   nextStep() {
     this.home.stepper(3);
-    console.log('form data', this.schooldetailsForm.value);
     sessionStorage.setItem('school-details', JSON.stringify(this.schooldetailsForm.value));
 
   }
@@ -39,5 +39,19 @@ export class ContactDetailComponent implements OnInit {
       }
     }
 
+  }
+
+  getProfileInformation() {
+    const payload = JSON.parse(sessionStorage.getItem('client-info'));
+    this.populateProfileForm(payload);
+  }
+
+  populateProfileForm(payload: any) {
+    this.schooldetailsForm = this.fb.group({
+      Country: payload.country,
+      Address: payload.address,
+      State: payload.state,
+      City: payload.city
+    });
   }
 }

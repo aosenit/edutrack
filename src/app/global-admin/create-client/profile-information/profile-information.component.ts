@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CreateClientComponent } from '../create-client.component';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { countries } from '../../../../services/utils/country.json';
+import { SchoolService } from 'src/services/data/school/school.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 
 @Component({
@@ -10,48 +11,62 @@ import { countries } from '../../../../services/utils/country.json';
   styleUrls: ['./profile-information.component.css']
 })
 export class ProfileInformationComponent implements OnInit {
-  countries: any[] = countries;
   profileForm: FormGroup;
-  logo: any;
-  logoname = null;
-  iconname = null;
-  icon: any;
-  constructor( private home: CreateClientComponent, private fb: FormBuilder) { }
+  profileInfo: any;
+
+  constructor(
+     private home: CreateClientComponent,
+     private route: ActivatedRoute,
+     private router: Router,
+     private fb: FormBuilder,
+     private schoolServices: SchoolService,
+    ) { }
 
   ngOnInit() {
-    this.profileForm = this.fb.group({
-      domain : ['', Validators.required],
-      website: ['', Validators.required],
-      logo: [null],
-      icon: [null]
+    this.createProfileForm();
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.createProfileForm();
+      } else {
+        this.getProfileInformation();
+      }
     });
-
-    console.log('countries', this.countries);
   }
 
   nextStep() {
     this.home.stepper(2);
-    const formData = this.assignFormDataValues(this.profileForm);
-    console.log('form data', this.profileForm.value);
+    // const formData = this.assignFormDataValues(this.profileForm);
     sessionStorage.setItem('profile-info', JSON.stringify(this.profileForm.value));
   }
 
+  createProfileForm() {
+    this.profileForm = this.fb.group({
 
-  handleImgUpload(event: any) {
-    if (event.target.files.length > 0) {
-      this.logo = event.target.files[0];
-      this.icon = event.target.files[0];
-      this.logoname = this.logo.name;
-      this.iconname = this.icon.name;
-    }
-  }
+      Name : ['', Validators.required],
+      DomainName : ['', Validators.required],
+      WebsiteAddress: ['', Validators.required],
 
-
-  assignFormDataValues(form: FormGroup) {
-    const formData = new FormData();
-    Object.keys(form.controls).forEach(key => {
-      formData.append(key, form.get(key).value);
     });
-    return formData;
   }
+
+  getProfileInformation() {
+    const payload = JSON.parse(sessionStorage.getItem('client-info'));
+    this.populateProfileForm(payload);
+  }
+
+  populateProfileForm(payload: any) {
+    this.profileForm = this.fb.group({
+      Name: payload.name,
+      DomainName: payload.domainName,
+      WebsiteAddress: payload.websiteAddress
+    });
+  }
+
+  // assignFormDataValues(form: FormGroup) {
+  //   const formData = new FormData();
+  //   Object.keys(form.controls).forEach(key => {
+  //     formData.append(key, form.get(key).value);
+  //   });
+  //   return formData;
+  // }
 }

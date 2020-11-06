@@ -6,8 +6,6 @@
             <div class="col-md-6">
                 <label for="entry" class="fw-6">Phone Number <span class="text-danger">*</span>
                 </label>
-                <input type="number" placeholder="814 567 6749"
-                    class="form-control form-control-lg">
             </div>
             <div class="col-md-6">
                 <label for="entry" class="fw-6">Phone Number </label>
@@ -55,7 +53,7 @@
     
         <div class=" d-flex justify-content-center">
             <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/parents"> Create </button>
+            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="close()"> Create </button>
     
         </div>
 </form>

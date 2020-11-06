@@ -18,7 +18,7 @@ export class LoaderComponent implements OnInit {
       res => {
         this.status = res['show'];
         if (this.status) {
-          // this.organizationLogo = environment.productLogoLarge;
+          this.organizationLogo = environment.productLogoLarge;
         }
       }
     )

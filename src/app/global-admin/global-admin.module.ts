@@ -12,6 +12,7 @@ import { UsersComponent } from './users/users.component';
 import { GlobalAdminComponent } from './global-admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewroleComponent } from './newrole/newrole.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { NewroleComponent } from './newrole/newrole.component';
   imports: [
     CommonModule,
     FormsModule,
+    SharedModule,
     ReactiveFormsModule,
     GlobalAdminRoutingModule
   ]

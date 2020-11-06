@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
-import { NotificationsService } from '../../../../services/classes/notifications/notifications.service';
-
+import { CreateClientComponent } from '../create-client.component';
 
 @Component({
   selector: 'app-contact-person',
@@ -11,33 +9,42 @@ import { NotificationsService } from '../../../../services/classes/notifications
 })
 export class ContactPersonComponent implements OnInit {
 
-  schoolFinalStep: FormGroup;
+  contactPersonForm: FormGroup;
   constructor(
               private fb: FormBuilder,
-              private router: Router,
-              private notifyService: NotificationsService,
+              private home: CreateClientComponent
               ) { }
 
   ngOnInit() {
-    this.schoolFinalStep = this.fb.group({
+    this.contactPersonForm = this.fb.group({
       ContactFirstName : ['', Validators.required],
       ContactLastName: ['', Validators.required],
       ContactPhoneNo: ['', [Validators.required]],
       ContactEmail: ['', [Validators.email, Validators.required]]
     });
+    this.getProfileInformation();
   }
 
-  createSchool() {
-    console.log('create school', this.schoolFinalStep.value);
-    sessionStorage.setItem('final-info', JSON.stringify(this.schoolFinalStep.value));
-    const profile = JSON.parse(sessionStorage.getItem('profile-info'));
-    const details = JSON.parse(sessionStorage.getItem('school-details'));
-    const finalstep = JSON.parse(sessionStorage.getItem('final-info'));
-    const result = {...profile, ...details, ...finalstep};
-    console.log('result', result);
-    this.notifyService.publishMessages('Great! Client added successfully', 'success', 1);
 
-    this.router.navigateByUrl('/admin/clients');
+
+  nextStep() {
+    this.home.stepper(4);
+    sessionStorage.setItem('contact-person', JSON.stringify(this.contactPersonForm.value));
+
   }
+  getProfileInformation() {
+    const payload = JSON.parse(sessionStorage.getItem('client-info'));
+    this.populateProfileForm(payload);
+  }
+
+  populateProfileForm(payload: any) {
+    this.contactPersonForm = this.fb.group({
+      ContactFirstName: payload.contactFirstName,
+      ContactLastName: payload.contactLastName,
+      ContactPhoneNo: payload.contactPhoneNo,
+      ContactEmail: payload.contactEmail
+    });
+  }
+
 
 }

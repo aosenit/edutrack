@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-create-client',
@@ -9,10 +10,10 @@ export class CreateClientComponent implements OnInit {
   stage = 1;
   currentStep: any;
   active = '1';
+  message: any;
   constructor() { }
 
   ngOnInit() {
-    console.log('hello');
   }
 
 
@@ -27,6 +28,11 @@ export class CreateClientComponent implements OnInit {
         // document.getElementById('button-' + index).innerHTML = '' + index;
       }
     }
+  }
+
+  getChildName(data) {
+    console.log('data from child', data);
+    this.message = data;
   }
 
   back() {

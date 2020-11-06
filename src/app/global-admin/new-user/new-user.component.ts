@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationsService } from './../../../services/classes/notifications/notifications.service';
-
+import {AdminService} from '../../../services/data/admin/admin.service';
 
 
 @Component({
@@ -14,33 +14,59 @@ export class NewUserComponent implements OnInit {
 
   userForm: FormGroup;
   submitted = false;
+  avatarname = null;
+  DocumentTypes: number[] = [];
+
+
   constructor(
               private fb: FormBuilder,
               private router: Router,
               private notifyService: NotificationsService,
+              private adminService: AdminService
               ) { }
 
   ngOnInit() {
     this.userForm = this.fb.group({
-      fname : ['', Validators.required],
-      lname : ['', Validators.required],
-      username: ['', Validators.required],
+      firstName : ['', Validators.required],
+      lastName : ['', Validators.required],
+      userName: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
-      photo: [null],
-      role: ['', Validators.required],
+      Document: [null],
+      password: ['', Validators.required],
     });
   }
 
   createUser() {
     if (this.userForm.invalid) {
       this.submitted = true;
-
       return;
     } else {
-      console.log('new user succesfful created', this.userForm.value);
-      this.notifyService.publishMessages('new user succesfful created', 'success', 1);
+      // console.log(this.userForm.value);
+      const finalstep = this.userForm.value;
+      const result = { ...finalstep, DocumentTypes: this.DocumentTypes};
 
-      this.router.navigateByUrl('/admin/users');
+      this.adminService.AddNewAdmin(result).subscribe( (data: any) => {
+        if (data.hasError === false) {
+          console.log('created admin data', data.payload);
+          this.notifyService.publishMessages(data.description, 'info', 1);
+          this.router.navigateByUrl('/admin/users');
+        }
+      }, err => {
+        this.notifyService.publishMessages(err.errors, 'danger', 1);
+
+      });
+    }
+  }
+
+  handleImgUpload(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log('file', file);
+      this.avatarname = file.name;
+      this.userForm.get('Document').setValue(file);
+      this.DocumentTypes.push(2);
+
+      // this.iconname = this.icon.name;
     }
   }
 

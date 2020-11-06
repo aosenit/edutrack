@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/services/data/auth/auth.service';
 import { NotificationsService } from './../../../services/classes/notifications/notifications.service';
 
 
@@ -10,13 +11,15 @@ import { NotificationsService } from './../../../services/classes/notifications/
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-
+  sent = false;
+  notSent = true;
   submitted = false;
   resetPasswordForm: FormGroup;
   constructor(
               private fb: FormBuilder,
               private router: Router,
               private notifyService: NotificationsService,
+              private authService: AuthService
               ) { }
 
     ngOnInit() {
@@ -25,16 +28,24 @@ export class ForgotPasswordComponent implements OnInit {
     });
   }
 
+
   resetPassword() {
     if (this.resetPasswordForm.invalid) {
       this.submitted = true;
       return;
     } else {
-      console.log('password reset successful', this.resetPasswordForm.value);
-      this.notifyService.publishMessages('password reset successful', 'success', 1);
 
-      this.router.navigateByUrl('/login');
+      this.authService.resetPassword(this.resetPasswordForm.value).subscribe( (res: any) => {
+        const data = JSON.parse(res);
+        if ( data.hasErrors === true) {
+         this.notifyService.publishMessages(data.errors, 'danger', 1);
+        } else {
+          console.log(data);
+          this.notSent = false;
+          this.sent = true;
+       }
+      });
     }
-  }
+}
 
 }

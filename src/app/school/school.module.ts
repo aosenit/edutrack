@@ -18,7 +18,6 @@ import { ResultSettingsComponent } from './result-settings/result-settings.compo
 import { StudentSettingsComponent } from './student-settings/student-settings.component';
 import { PayrollSetttingsComponent } from './payroll-setttings/payroll-setttings.component';
 import { TeachersComponent } from './teachers/teachers.component';
-import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -26,6 +25,7 @@ import { TimeTableComponent } from './time-table/time-table.component';
 import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 import { SchoolManagerComponent } from './school-manager/school-manager.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -46,7 +46,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
                  StudentSettingsComponent,
                  PayrollSetttingsComponent,
                  TeachersComponent,
-                 EmployeeComponent,
                  EmployeeListComponent,
                  EmployeeDetailsComponent,
                  CalendarComponent,
@@ -57,6 +56,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
                 ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
     SchoolRoutingModule,
   ]
 })

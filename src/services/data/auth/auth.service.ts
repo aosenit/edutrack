@@ -1,11 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  login: 'Authentication/login',
-  resetPassword: 'Authentication/PasswordReset  ',
+  login: 'schtrack-auth/api/v1/Authentication/Token',
+  forgotPassword: 'schtrack-auth/api/v1/Authentication/RequestPasswordReset',
   logout: 'Authentication/Logout '
 };
 
@@ -17,23 +16,30 @@ const routes = {
 export class AuthService {
   baseUrl: string = environment.serverUrl;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
   loginAdmin(LoginForm) {
+    // const headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*'});
     const url = `${this.baseUrl + routes.login}`;
-    return this.http.post(url, this.loginAdmin);
+    const {username , password} = LoginForm; // destructure the login object
+    const body = new HttpParams()
+    .set('grant_type', 'password')
+    .set('username', username)
+    .set('password', password);
+    return this.http.post(url, body, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }, );
   }
 
-  resetPassword(resetPasswordForm) {
-    const url = `${this.baseUrl + routes.resetPassword}`;
-    return this.http.post(url, this.resetPassword);
+  resetPassword(resetPasswordForm: any) {
+    const {email} = resetPasswordForm;
+    const url = `${this.baseUrl + routes.forgotPassword}/${email}`;
+    return this.http.get(url, {responseType: 'text'});
 
   }
 
-  logOut(token) {
-    const url = `${this.baseUrl + routes.resetPassword}`;
-    return this.http.post(url, token);
-    // sessionStorage.removeItem('admin');
-    // this.router.navigate(['/']);
-  }
+  // logOut(token) {
+  //   const url = `${this.baseUrl + routes.resetPassword}`;
+  //   return this.http.post(url, token);
+  //   // sessionStorage.removeItem('admin');
+  //   // this.router.navigate(['/']);
+  // }
 }

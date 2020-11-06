@@ -9,6 +9,8 @@ import { DemoComponent } from './demo/demo.component';
 import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products/products.component';
 import { FaqsComponent } from './faqs/faqs.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpErrorInterceptor } from 'src/services/interceptors/interceptor';
 
 
 
@@ -23,10 +25,17 @@ import { FaqsComponent } from './faqs/faqs.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

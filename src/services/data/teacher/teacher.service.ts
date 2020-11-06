@@ -14,7 +14,7 @@ const routes = {
 })
 export class TeacherService {
 
-  baseUrl: string = environment.serverUrl;
+  baseUrl = environment.serverUrl;
 
   constructor(private http: HttpClient) { }
 

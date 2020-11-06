@@ -45,6 +45,14 @@
                                             Contact <br> Person
                                         </div>
                                     </div>
+                                    <div class="d-flex align-items-center justify-content-center mr-5" id="step-4">
+                                        <div class="mr-2">
+                                            <span class="">4</span>
+                                        </div>
+                                        <div>
+                                            Images <br> 
+                                        </div>
+                                    </div>
                     
 
 
@@ -192,9 +200,10 @@
                    
                 </div> -->
 
-                <app-profile-information *ngIf="stage === 1"></app-profile-information>
+                <app-profile-information *ngIf="stage === 1" ></app-profile-information>
                 <app-contact-detail *ngIf="stage === 2"></app-contact-detail>
                 <app-contact-person *ngIf="stage === 3"></app-contact-person>
+                <app-media *ngIf="stage === 4"></app-media>
             </div>
         </div>
 

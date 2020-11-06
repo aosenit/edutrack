@@ -1,0 +1,84 @@
+<div class="basic-details">
+
+    <form >
+      <div class="form-row mb-5 ">
+        <div class=" ">
+          <label for="staff" class="fw-6">Staff Type <span class="text-danger">*</span></label>
+          <select name="" id="staff" class="form-control form-control-lg">
+            <option value="" selected> select</option>
+        </select>
+        </div>
+        <div class=" ">
+          <label for="status" class="fw-6">Employment Status <span class="text-danger">*</span></label>
+          <select name="" id="status" class="form-control form-control-lg">
+            <option value="" selected> select </option>
+        </select>
+        </div>
+
+      </div>
+
+      <div class="form-row mb-5 ">
+        
+        <div class="  ">
+          <label for="qualification" class="fw-6">Highest Qualification <span class="text-danger">*</span></label>
+          <select name="" id="qualification" class="form-control form-control-lg">
+            <option value="" selected> select </option>
+        </select>
+         
+        </div>
+
+        <div class=" ">
+            <label for="job-title" class="fw-6">Job Title <span class="text-danger">*</span></label>
+            <input type="text" class="form-control form-control-lg" 
+            id="job-title" 
+            placeholder="Enter other names" formControlName="WebsiteAddress" required>
+        </div>
+      </div>
+
+      <div class="form-row mb-5 ">
+        
+        <div class="  ">
+          <label for="department" class="fw-6">Department <span class="text-danger">*</span></label>
+
+          <select name="" id="department" class="form-control form-control-lg">
+            <option value="" selected> select </option>
+        </select>
+        </div>
+
+        <div class=" ">
+            <label for="pay" class="fw-6">Pay Grade <span class="text-danger">*</span></label>
+
+           <select name="" id="pay" class="form-control form-control-lg">
+               <option value="" selected> select</option>
+           </select>
+        </div>
+      </div>
+
+      
+      <div class="form-row mb-5">
+        <div class=" ">
+            <label for="empdate" class="fw-6">Employment Date <span class="text-danger">*</span></label>
+
+          <input type="date" id="empdate" class="form-control form-control-lg">
+        </div>
+
+        <div class="  ">
+          <label for="icon" class="fw-6">Resumption Date</label>
+          <input type="date" id="empdate" class="form-control form-control-lg">
+
+          </div>
+
+      </div>
+
+     
+
+
+    </form>
+
+
+    <div class=" d-flex justify-content-center mt-5 mb-5">
+      <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' > Next </button>
+
+    </div>
+  </div>
