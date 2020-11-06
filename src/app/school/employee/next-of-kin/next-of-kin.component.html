@@ -1,0 +1,99 @@
+<div class="basic-details mt-2">
+
+    <form [formGroup]="nextOfKinForm" >
+      <div class="form-row mb-5 ">
+        <div class=" ">
+          <label for="fname" class="fw-6">First Name</label>
+          <input type="text" id="fname" class="form-control form-control-lg" placeholder="Enter first name" formControlName="nextKinFirstName">
+        </div>
+        <div class=" "> 
+          <label for="lname" class="fw-6">Last Name </label>
+          <input type="text"  id="lname" class="form-control form-control-lg" placeholder="Enter last name" formControlName="nextKinLastName">
+
+        </div>
+
+      </div>
+
+      <div class="form-row mb-5 ">
+        
+        <div class="  ">
+          <label for="others" class="fw-6">Other Name </label>
+          <input type="text" id="others" class="form-control form-control-lg" placeholder="Enter other name" formControlName="nextKinOtherName">
+
+         
+        </div>
+
+        <div class=" ">
+            <label for="relationship" class="fw-6">Relationship </label>
+          <input type="text" id="relationship" class="form-control form-control-lg" placeholder="Enter relationship" formControlName="nextKinRelationship">
+          </div>
+
+      </div>
+
+      <div class="form-row mb-5 ">
+        
+        <div class="  ">
+          <label for="occupation" class="fw-6">Occupation </label>
+          <input type="text" id="occupation" class="form-control form-control-lg" placeholder="Enter occupation" formControlName="nextKinOccupation">
+
+         
+        </div>
+
+        <div class=" ">
+            <label for="tel" class="fw-6">Phone Number </label>
+          <input type="tel" id="tel" class="form-control form-control-lg" placeholder="Ener phone number" formControlName="nextKinPhone">
+          </div>
+
+      </div>
+
+      <div class="form-row mb-5 ">
+        
+        <div class="  ">
+          <label for="country" class="fw-6">Country </label>
+
+          <select name="" id="country" class="form-control form-control-lg" (change)="getState($event.target.value)" formControlName="nextKinCountry">
+            <option value="" selected> select </option>
+            <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
+
+        </select>
+        </div>
+
+        <div class=" ">
+            <label for="address" class="fw-6">Address </label>
+            <input type="text" id="address" class="form-control form-control-lg" placeholder="Enter  address" formControlName="nextKinAddress">
+
+        </div>
+      </div>
+
+      
+      <div class="form-row mb-5">
+        <div class=" ">
+            <label for="state" class="fw-6">State</label>
+
+            <select name="" id="state" class="form-control form-control-lg" formControlName="nextKinState">
+                <option value="" selected> select </option>
+                <option [value]="" *ngFor="let state of states" >{{state}}</option>
+
+            </select>        
+        </div>
+
+        <div class="  ">
+          <label for="city" class="fw-6">Town/City</label>
+          <input type="text" id="city" class="form-control form-control-lg" formControlName="nextKinCity">
+
+            </div>
+
+      </div>
+
+     
+
+
+    </form>
+
+
+    <div class=" d-flex justify-content-center mt-5 mb-5">
+      <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' > Next </button>
+
+    </div>
+  </div>

@@ -1,0 +1,26 @@
+#top {
+    margin-top: -73px;
+    background: url('../../assets/images/productfeatures.png');
+    height: 30vh;
+    padding-bottom: 5vh;
+    background-size: cover;
+    background-position: top center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-flow: column;
+}
+
+#parents {
+    background: url('../../assets/images/svg/orangeside.svg') no-repeat;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 22%;
+}
+
+#students {
+    background: url('../../assets/images/svg/bg-blue.svg'), url('../../assets/images/svg/Rectangle.svg');
+    background-repeat: no-repeat;
+    background-position: top right, bottom left;
+    background-size: 70%, 10%;
+}

@@ -1,0 +1,40 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { AssignmentComponent } from './assignment/assignment.component';
+import { AssignmentsComponent } from './assignments/assignments.component';
+import { CreateAssignmentComponent } from './create-assignment/create-assignment.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { FileManagerComponent } from './file-manager/file-manager.component';
+import { GradebookComponent } from './gradebook/gradebook.component';
+import { GradingComponent } from './grading/grading.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { TeacherComponent } from './teacher.component';
+import { ViewFileComponent } from './view-file/view-file.component';
+import { VirtualClassComponent } from './virtual-class/virtual-class.component';
+import { VirtualSessionComponent } from './virtual-session/virtual-session.component';
+
+
+const routes: Routes = [
+  {
+    path: '', component: TeacherComponent, children: [
+      { path: '', component: DashboardComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'schedule', component: ScheduleComponent },
+      { path: 'assignments/grade', component: GradingComponent },
+      { path: 'assignments', component: AssignmentsComponent },
+      { path: 'assignment', component: AssignmentComponent },
+      { path: 'assignment/new', component: CreateAssignmentComponent },
+      { path: 'filemanager', component: FileManagerComponent },
+      { path: 'file', component: ViewFileComponent },
+      { path: 'class', component: VirtualClassComponent },
+      { path: 'session', component: VirtualSessionComponent },
+      { path: 'gradebook', component: GradebookComponent },
+    ]
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class TeacherRoutingModule { }

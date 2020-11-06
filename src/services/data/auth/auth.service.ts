@@ -1,0 +1,46 @@
+import { HttpClient , HttpHeaders, HttpParams} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+
+const routes = {
+  login: 'schtrack-auth/api/v1/Authentication/Token',
+  forgotPassword: 'schtrack-auth/api/v1/Authentication/RequestPasswordReset',
+  logout: 'Authentication/Logout '
+};
+
+@Injectable({
+  providedIn: 'root'
+})
+
+
+export class AuthService {
+  baseUrl: string = environment.serverUrl;
+
+  constructor(private http: HttpClient) { }
+
+  loginAdmin(LoginForm) {
+    // const headers = new HttpHeaders({ 'Access-Control-Allow-Origin': '*'});
+    const url = `${this.baseUrl + routes.login}`;
+    const {username , password} = LoginForm; // destructure the login object
+    const body = new HttpParams()
+    .set('grant_type', 'password')
+    .set('username', username)
+    .set('password', password);
+    return this.http.post(url, body, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }, );
+  }
+
+  resetPassword(resetPasswordForm) {
+    // const {email} = resetPasswordForm;
+    console.log(resetPasswordForm);
+    const url = `${this.baseUrl + routes.forgotPassword}`;
+    return this.http.post(url, resetPasswordForm);
+
+  }
+
+  // logOut(token) {
+  //   const url = `${this.baseUrl + routes.resetPassword}`;
+  //   return this.http.post(url, token);
+  //   // sessionStorage.removeItem('admin');
+  //   // this.router.navigate(['/']);
+  // }
+}

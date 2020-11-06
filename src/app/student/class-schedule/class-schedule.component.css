@@ -1,0 +1,22 @@
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #0052B4;
+    font-weight: 600;
+    background: #C5DEFC;
+border: 1px solid #0052B4;
+border-radius: 10px;
+    padding: 5px 12px;
+}
+
+.nav-pills .nav-link,
+.nav-pills .show>.nav-link {
+    background: #0052B4;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 5px 12px;
+}
+
+.content-holder {
+    height: 100vh;
+}

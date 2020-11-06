@@ -1,0 +1,237 @@
+<div class="container-fluid pl-4">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb" (clikc)="back()">
+      <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+      <li class="breadcrumb-item a1 " aria-current="page">
+        <a>Back</a>
+      </li>
+
+
+    </ol>
+
+
+  </nav>
+
+  <div class="activated mb-4 mt-2 d-flex justify-content-between align-items-center align-items-center">
+    <div class="activated__image ">
+      <img src="assets/images/svg/teacher-attach.svg" class="mr-3 avatar" alt="..." />
+      <div>
+        <p class="activated__title fw-6 fc-lblue">Mrs. Eniola Gbadamosi </p>
+        <p class="activated__code">AMI/SF/2016/012</p>
+      </div>
+    </div>
+    <div class="activated__date mr-5 text-right">
+      <p class="active">Created on 17/03/20 </p>
+      <div class="activated__date-switch">
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="customSwitch1">
+          <label class="custom-control-label" for="customSwitch1"></label>
+        </div>
+        <p class="activated__date-title">Active</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="attachment-card">
+    <div class="bg-white br-10">
+      <div class="d-flex  justify-content-between align-items-center">
+        <div class="line">
+          <h6> Class Attached </h6>
+        </div>
+      </div>
+      <!--  ================== EMPTY STATE HOLDER -->
+
+      <div class="d-flex flex-column justify-content-center align-items-center my-5" *ngIf="emptyRecord">
+        <img src="assets/images/svg/attach-image.svg" alt="..." class="mt-2" />
+        <p class="fw-6 mt-3 text-center">This teacher is not currently attached to a class. Please <br> click the button
+          below to attach teacher to a class.</p>
+        <button class="btn btn-orange-two  px-5 mb-4 mt-3" data-toggle="modal" data-target="#exampleModalCenterClass">
+          Attach </button>
+
+      </div>
+
+      <!--  ================== END OF EMPTY STATE HOLDER -->
+
+      <div class="d-flex justify-content-between mt-5 ">
+        <div class="class-info">
+          <p class="mb-0">Class Assigned</p>
+          <p class="fw-6">JSS 1 A</p>
+        </div>
+        <div class="class-info mr-5 ml-4">
+          <p class="mb-0">Class Level</p>
+          <p class="fw-6">Secondary
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <div class="bg-white br-10">
+      <div class="d-flex  justify-content-between align-items-center">
+        <div class="line">
+          <h6> Subject Attached </h6>
+        </div>
+      </div>
+      <!--  ================== EMPTY STATE HOLDER -->
+      <div class="d-flex flex-column justify-content-center align-items-center my-5" *ngIf="emptyRecord">
+        <img src="assets/images/svg/attach-image.svg" alt="..." class="mt-2" />
+        <p class="fw-6 mt-3 text-center">This teacher is not currently attached to any subject. <br> Please click the
+          button below to attach teacher to a class.</p>
+        <button class="btn btn-orange-two  px-5 mb-4 mt-3" data-toggle="modal" data-target="#exampleModalCenterSubject">
+          Attach </button>
+
+      </div>
+
+      <!--  ================== END OF  EMPTY STATE HOLDER -->
+
+
+      <div class="subjects mt-5">
+
+        <div class=" subject d-flex p-3 mb-3  justify-content-between align-items-center">
+          <div>
+            <p class="mb-0 fs-14 fw-4 ">Introductory technology</p>
+          </div>
+          <div class="d-flex">
+            <p class="fw-6 mr-3 mb-0">JSS3B</p>
+            <img src="assets/images/svg/more-action.svg" alt="schools log">
+          </div>
+        </div>
+
+        <div class=" subject d-flex p-3 mb-3  justify-content-between align-items-center">
+          <div>
+            <p class="mb-0 fs-14 fw-4 ">Introductory technology</p>
+          </div>
+          <div class="d-flex">
+            <p class="fw-6 mr-3 mb-0">JSS3B</p>
+            <img src="assets/images/svg/more-action.svg" alt="schools log">
+          </div>
+        </div>
+
+        <div class=" subject d-flex p-3 mb-3  justify-content-between align-items-center">
+          <div>
+            <p class="mb-0 fs-14 fw-4 ">Introductory technology</p>
+          </div>
+          <div class="d-flex">
+            <p class="fw-6 mr-3 mb-0">JSS3B</p>
+            <img src="assets/images/svg/more-action.svg" alt="schools log">
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center mt-3">
+          <button class="btn btn-orange-two  px-5 mb-4 mt-3" data-toggle="modal"
+            data-target="#exampleModalCenterSubject"> Attach New </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+<!-- Attach Class Modal -->
+<div class="modal fade" id="exampleModalCenterClass" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterClassTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-3 d-flex justify-content-between">
+        <h6 class="modal-title fc-lblue ">Attach Class</h6>
+        <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+          class="close">
+
+      </div>
+      <div class="modal-body client-modal">
+        <form class="">
+          <div class="form-group mb-4 mt-3 ">
+            <label for="level" class="fw-6">Level </label>
+            <select id="level" class="form-control">
+              <option value="secondary"> Secondary</option>
+            </select>
+          </div>
+          <div class="form-group mb-4">
+            <label for="level" class="fw-6">Class Teacher </label>
+            <div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input"
+                  value="yes" (change)="getStaffStatus($event.target.value)">
+                <label class="custom-control-label" for="customRadioInline1">Yes</label>
+              </div>
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="customRadioInline2" name="customRadioInline1" value="no"
+                  class="custom-control-input" (change)="getStaffStatus($event.target.value)">
+                <label class="custom-control-label" for="customRadioInline2">No</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" *ngIf="teacher">
+            <label for="class" class="fw-6">Class </label>
+            <select id="class" class="form-control">
+              <option value="secondary"> JSS3B</option>
+            </select>
+          </div>
+
+
+
+
+
+        </form>
+        <div class="d-flex align-items-center justify-content-center mb-5">
+          <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
+          <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Save </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Attach Class modal -->
+
+<!-- Attach Subject Modal -->
+<div class="modal fade" id="exampleModalCenterSubject" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-3 d-flex justify-content-between">
+        <h6 class="modal-title fc-lblue ">Attach Subject</h6>
+        <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+          class="close">
+
+      </div>
+      <div class="modal-body client-modal">
+        <form class="">
+          <div class="form-group mb-3 mt-3 ">
+            <label for="level" class="fw-6">Level </label>
+            <select id="level" class="form-control">
+              <option value="secondary"> Secondary</option>
+            </select>
+          </div>
+
+          <div class="form-group mb-3">
+            <label for="class" class="fw-6">Class </label>
+            <select id="class" class="form-control">
+              <option value="secondary"> JSS3B</option>
+            </select>
+          </div>
+
+
+
+
+
+        </form>
+        <div class="d-flex align-items-center justify-content-center mb-5">
+          <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
+          <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Save </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Attach Subject modal -->

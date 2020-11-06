@@ -1,0 +1,483 @@
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-9 mt-4 pr-2">
+
+
+            <div class="d-flex justify-content-between align-items-end mt-5 mb-5">
+
+                <div class="search d-flex flex-column  ">
+                    <h6 class=" fs-20 fw-6 pb-2 "> File Manager </h6>
+
+                    <div class="search__input has-search">
+                        <span class="fa fa-search form-control-feedback"></span>
+                        <input type="text" class="form-control" placeholder="Search your files">
+                    </div>
+
+                </div>
+                <button class="btn-upload-top bg-lblue " data-toggle="modal" data-target="#exampleModalCenter3"> <img
+                        src="assets/images/svg/upload.svg" alt="new client" class="mr-2"> Upload </button>
+
+            </div>
+
+            <div>
+                <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+                    <li class="nav-item d-flex align-items-center mr-3">
+                        <a class="nav-link active" id="pills-notes-tab" data-toggle="pill" href="#pills-notes"
+                            role="tab" aria-controls="pills-notes" aria-selected="true">
+                            <img src="assets/images/svg/file-tab-1.svg" alt="new client" class="mr-3">
+                            Class Notes</a>
+                    </li>
+                    <li class="nav-item d-flex mr-3">
+                        <a class="nav-link" id="pills-assignment-tab" data-toggle="pill" href="#pills-assignment"
+                            role="tab" aria-controls="pills-assignment" aria-selected="false">
+                            <img src="assets/images/svg/file-tab-2.svg" alt="new client" class="mr-3">
+                            Assignment</a>
+                    </li>
+                    <li class="nav-item d-flex mr-3">
+                        <a class="nav-link" id="pills-work-tab" data-toggle="pill" href="#pills-work" role="tab"
+                            aria-controls="pills-work" aria-selected="false">
+                            <img src="assets/images/svg/file-tab-4.svg" alt="new client" class="mr-3">
+                            Class work</a>
+                    </li>
+                    <li class="nav-item d-flex">
+                        <a class="nav-link" id="pills-media-tab" data-toggle="pill" href="#pills-media" role="tab"
+                            aria-controls="pills-media" aria-selected="false">
+                            <img src="assets/images/svg/file-tab-3.svg" alt="new client" class="mr-3">
+                            Media</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            
+            
+            <div class="tab-content" id="pills-tabContent">
+                
+                <div class="tab-pane fade show active" id="pills-notes" role="tabpanel"
+                aria-labelledby="pills-notes-tab">
+                        <div class="d-flex justify-content-between align-items-center mt-3 ">
+                            <p class="mb-0 fw-6">Class notes</p>
+            
+                            <div>
+                                <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                                <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                                    type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                <!-- ================ DROPDOWN ==================== -->
+                                <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-black " href="#">Ascending </a>
+                                    <a class="dropdown-item text-black " href="#">Descending </a>
+                                    <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item text-black " href="#">Type </a>
+                                    <a class="dropdown-item text-black " href="#">Class </a>
+                                    <a class="dropdown-item text-black " href="#">Modified </a>
+                                    <a class="dropdown-item text-black " href="#">Date Created </a>
+                                </div>
+                            </div>
+                        </div>
+                    <section class="list">
+                        <table class="table table-borderless client-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col " class="head">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                                            <label class="custom-control-label" for="customCheckTh"></label>
+                                        </div>
+                                    </th>
+                                    <th scope="col">Name
+
+                                    </th>
+                                    <th scope="col">Type
+
+                                    </th>
+                                    <th scope="col">Class
+
+                                    </th>
+                                    <th scope="col">Date Created
+
+                                    </th>
+                                    <th scope="col"> Size</th>
+                                    <th scope="col"> </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="pb-2">
+                                    <td scope="row" class="school-logo rounded-left">
+                                        <div class="custom-control custom-checkbox"
+                                            (change)="checked($event.target.checked)">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                            <label class="custom-control-label" for="customCheck1"></label>
+                                        </div>
+                                    </td>
+                                    <td class="">
+                                        <div class="d-flex align-items-center justify-content-start">
+                                            <img src="assets/images/svg/pdf.svg" alt="schools document" class="mr-3">
+                                            <p class="mb-0">
+                                                English Note.pdf
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td>Class note</td>
+                                    <td>Jss3</td>
+                                    <td>April 4, 2020</td>
+                                    <td>342 KB</td>
+                                    <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+
+                                </tr>
+                                <tr class="pb-2">
+                                    <td scope="row" class="school-logo rounded-left">
+                                        <div class="custom-control custom-checkbox"
+                                            (change)="checked($event.target.checked)">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                            <label class="custom-control-label" for="customCheck2"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center justify-content-start">
+                                            <img src="assets/images/svg/word.svg" alt="schools document" class="mr-3">
+                                            <p class="mb-0">
+                                                English Note.pdf
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td>Class note</td>
+                                    <td>Jss3</td>
+                                    <td>April 4, 2020</td>
+                                    <td>342 KB</td>
+                                    <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+
+
+                                </tr>
+
+                                <tr class="pb-2">
+                                    <td scope="row" class="school-logo rounded-left"
+                                        (change)="checked($event.target.checked)">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                            <label class="custom-control-label" for="customCheck3"></label>
+                                        </div>
+                                    </td>
+                                    <td class="">
+                                        <div class="d-flex align-items-center justify-content-start">
+                                            <img src="assets/images/svg/word.svg" alt="schools document" class="mr-3">
+                                            <p class="mb-0">
+                                                English Note.pdf
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td>Class note</td>
+                                    <td>Jss3</td>
+                                    <td>April 4, 2020</td>
+                                    <td>342 KB</td>
+                                    <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+
+                    </section>
+                </div>
+
+                <div class="tab-pane fade show " id="pills-assignment" role="tabpanel" aria-labelledby="pills-note-tab">
+                    sasasa
+                </div>
+                <div class="tab-pane fade show " id="pills-assignment" role="tabpanel" aria-labelledby="pills-note-tab">
+                    sasasa
+                </div>
+                <div class="tab-pane fade show " id="pills-media" role="tabpanel" aria-labelledby="pills-media-tab">
+
+                    <div class="d-flex justify-content-between mt-2 mb-1">
+
+                        <div class="media-inner">
+                          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item mr-2 ">
+                              <a class="nav-link active" id="pills-upload-tab" data-toggle="pill" href="#pills-upload" role="tab"
+                                aria-controls="pills-upload" aria-selected="true">Class Recording </a>
+                            </li>
+                            <li class="nav-item ">
+                              <a class="nav-link " id="pills-record-tab" data-toggle="pill" href="#pills-record" role="tab"
+                                aria-controls="pills-record" aria-selected="true">Uploaded Media </a>
+                            </li>
+                           
+                    
+                          </ul>
+                    
+                        </div>
+                    
+                        <div>
+                            <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                            <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                                type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                            <!-- ================ DROPDOWN ==================== -->
+                            <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-black " href="#">Ascending </a>
+                                <a class="dropdown-item text-black " href="#">Descending </a>
+                                <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-black " href="#">Type </a>
+                                <a class="dropdown-item text-black " href="#">Class </a>
+                                <a class="dropdown-item text-black " href="#">Modified </a>
+                                <a class="dropdown-item text-black " href="#">Date Created </a>
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-notes" role="tabpanel"
+                aria-labelledby="pills-notes-tab">
+                        
+                    <section class="list">
+                        <table class="table table-borderless client-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col " class="head">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                                            <label class="custom-control-label" for="customCheckTh"></label>
+                                        </div>
+                                    </th>
+                                    <th scope="col" class="w-25">Name
+
+                                    </th>
+                                    <th scope="col">Type
+
+                                    </th>
+                                    <th scope="col">Class
+
+                                    </th>
+                                    <th scope="col">Date Created
+
+                                    </th>
+                                    <th scope="col"> Size</th>
+                                    <th scope="col"> </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="pb-2">
+                                    <td scope="row" class="school-logo rounded-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="recording1">
+                                            <label class="custom-control-label" for="recording1"></label>
+                                        </div>
+                                    </td>
+                                    <td class="">
+                                        <div class="d-flex align-items-center justify-content-start">
+                                            <img src="assets/images/svg/recording.svg" alt="schools document" class="mr-3">
+                                            <p class="mb-0">
+                                                Recording
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td>Class recording</td>
+                                    <td>Jss3</td>
+                                    <td class="font-italic">April 4, 2020</td>
+                                    <td class="table-grey">342 KB</td>
+                                    <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+
+                                </tr>
+                                <tr class="pb-2">
+                                    <td scope="row" class="school-logo rounded-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="recording2">
+                                            <label class="custom-control-label" for="recording2"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center justify-content-start">
+                                            <img src="assets/images/svg/recording.svg" alt="schools document" class="mr-3">
+                                            <p class="mb-0">
+                                                Recording
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td>Class recording</td>
+                                    <td>Jss3</td>
+                                    <td class="font-italic">April 4, 2020</td>
+                                    <td>342 KB</td>
+                                    <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+
+
+                                </tr>
+
+                                <tr class="pb-2">
+                                    <td scope="row" class="school-logo rounded-left">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="recording3">
+                                            <label class="custom-control-label" for="recording3"></label>
+                                        </div>
+                                    </td>
+                                    <td class="">
+                                        <div class="d-flex align-items-center justify-content-start">
+                                            <img src="assets/images/svg/recording.svg" alt="schools document" class="mr-3">
+                                            <p class="mb-0">
+                                                Recording
+                                            </p>
+                                        </div>
+                                    </td>
+                                    <td>Class recording</td>
+                                    <td>Jss3</td>
+                                    <td class="font-italic">April 4, 2020</td>
+                                    <td>342 KB</td>
+                                    <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+
+                    </section>
+                </div>
+                    </div>
+        
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="col-md-3 bg-white  p-3 pt-4  notice-board d-flex flex-column " id="announcement">
+
+            <div class="d-flex flex-column  mt-5 h-100">
+                <div class="d-flex flex-column justify-content-center align-items-center" *ngIf="clipnote">
+                    <img src="assets/images/svg/info-file.svg" alt="table sort icon" class="mr-3">
+                    <p class="text-center pt-2">Select an assignment to display overview</p>
+                </div>
+
+                <div class="information" *ngIf="view">
+                    <div class="d-flex info pb-2">
+                        <img src="assets/images/svg/assignment-n.svg" alt="table sort icon" class="mr-3">
+                        <p class="mb-0 fc-lblue fw-6">Properties</p>
+                    </div>
+                    <div class="d-flex justify-content-between ">
+
+                        <div class="d-flex align-items-center my-4">
+                            <img src="assets/images/svg/word.svg" alt="schools log" class="mr-3">
+                            <p class="mb-0 fw-6 mb-0">English Note</p>
+                        </div>
+                        <img src="assets/images/svg/more-action.svg" alt="schools log">
+                    </div>
+
+                    <div class="d-flex  mb-2  ">
+                        <p class="mb-0 w-40">File name</p>
+                        <p class="mb-0 fw-6">English Note</p>
+                    </div>
+                    <div class="d-flex mb-2 ">
+                        <p class="mb-0 w-40">Subject:</p>
+                        <p class="mb-0 fw-6">English Langauge</p>
+                    </div>
+                    <div class="d-flex mb-2 ">
+                        <p class="mb-0 w-40">Class</p>
+                        <p class="mb-0 fw-6">Jss3</p>
+                    </div>
+                    <div class="d-flex  mb-2">
+                        <p class="mb-0 w-40">Date Created</p>
+                        <p class="mb-0 fw-6">Apr 4, 2020 11:10 am</p>
+                    </div>
+                    <div class="d-flex mb-2 ">
+                        <p class="mb-0 w-40">Last Modified:</p>
+                        <p class="mb-0 fw-6">---</p>
+                    </div>
+                    <div class="d-flex mb-2 ">
+                        <p class="mb-0 w-40">Size</p>
+                        <p class="mb-0 fw-6">342 KB</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- file manager Modal -->
+    <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenter3Title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+            <div class="modal-content">
+
+                <div class="modal-head mb-2">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h6 class="modal-title">Upload Files</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="line">
+                        <p class="pb-3">Uplaod Class Note, Assignment</p>
+                    </div>
+                </div>
+                <div class="modal-body client-modal">
+                    <form>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-12">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <select class="form-control">
+                                            <option selected>Select Type</option>
+                                            <option value="note">Class Note</option>
+                                            <option value="assignment">Assignment</option>
+                                            <option value="media">Media</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <select class="form-control">
+                                            <option selected>Select Class</option>
+                                            <option value="JSS1">JSS 1</option>
+                                            <option value="JSS2">JSS 2</option>
+                                            <option value="JSS3">JSS 3</option>
+                                            <option value="SS1">SS 1</option>
+                                            <option value="SS2">SS 2</option>
+                                            <option value="SS3">SS 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <select class="form-control">
+                                            <option selected>Select Subject</option>
+                                            <option value="JSS1">English Language</option>
+                                            <option value="JSS2">Literature</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group file-upload mb-5">
+                            <label for="fileupload">Drag files to upload or click</label>
+                            <input type="file" class="file-input" id="fileupload">
+                            <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="message">Optional message</label>
+                            <textarea name="" id="message" class="form-control"></textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-end mb-3">
+                            <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- end of file manager modal -->
+
+
+</div>

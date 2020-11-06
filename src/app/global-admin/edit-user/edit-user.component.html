@@ -1,0 +1,833 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb" (click)="back()">
+        <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+        <li class="breadcrumb-item a1 " aria-current="page">
+        <a >Back</a>
+      </li>
+      
+
+        <li class="breadcrumb-item a1 active ml-auto" aria-current="page">
+        <a ><img src="assets/images/svg/new-user.svg" class="mr-1" alt="..." /> Users & Roles / Edit Role</a>
+      </li>
+    </ol>
+
+    
+  </nav>
+
+
+  <div class="user mt-2">
+
+    <div class="user__intro ">
+        <h6 class="fw-6">Edit Role</h6>
+  
+    </div>
+    <div class=" d-flex justify-content-end">
+            <button class="btn btn-orange-two   px-5 "  > Save Settings </button>
+      
+  
+    </div>
+
+    <div class="user__select mb-3">
+        <form>
+            <label for="roleTitle">Role Title</label>
+            <input type="text" class="form-control" placeholder="Admin">
+        </form>
+        <div>
+  
+        </div>
+    </div>
+
+    <div class="searchpills-bar mt-5 mb-3 ml-5">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item mr-5">
+            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Administration</a>
+          </li>
+          <li class="nav-item  mr-5">
+            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Billings</a>
+          </li>
+          <li class="nav-item mr-5">
+            <a class="nav-link" id="pills-location-tab" data-toggle="pill" href="#pills-location" role="tab" aria-controls="pills-location" aria-selected="false">Locations</a>
+          </li>
+          <li class="nav-item mr-5">
+            <a class="nav-link" id="pills-messages-tab" data-toggle="pill" href="#pills-messages" role="tab" aria-controls="pills-messages" aria-selected="false">SMS Messages</a>
+          </li>
+          <li class="nav-item mr-5">
+            <a class="nav-link" id="pills-report-tab" data-toggle="pill" href="#pills-report" role="tab" aria-controls="pills-report" aria-selected="false">Report</a>
+          </li>
+          
+        </ul>
+        
+    </div>
+
+    <div>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <section class="list">
+                
+                <div class="user__permission">
+                    <table class="table table-borderless client-table">
+                        
+                        <tbody>
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              Dashboard
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1" >
+                                    <label class="custom-control-label " for="customCheck1">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck2" >
+                                    <label class="custom-control-label " for="customCheck2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck3" >
+                                    <label class="custom-control-label " for="customCheck3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck4" >
+                                    <label class="custom-control-label " for="customCheck4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+              
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              Client
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckClient" >
+                                    <label class="custom-control-label " for="customCheckClient">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckClient2" >
+                                    <label class="custom-control-label " for="customCheckClient2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckClient3" >
+                                    <label class="custom-control-label " for="customCheckClient3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckClient4" >
+                                    <label class="custom-control-label " for="customCheckClient4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+                          
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              Modules
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckTransact" >
+                                    <label class="custom-control-label " for="customCheckTransact">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckTransact2" >
+                                    <label class="custom-control-label " for="customCheckTransact2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckTransact3" >
+                                    <label class="custom-control-label " for="customCheckTransact3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckTransact4" >
+                                    <label class="custom-control-label " for="customCheckTransact4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+                          
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              Application Features
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckUser" >
+                                    <label class="custom-control-label " for="customCheckUser">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckUser2" >
+                                    <label class="custom-control-label " for="customCheckUser2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckUser3" >
+                                    <label class="custom-control-label " for="customCheckUser3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckUser4" >
+                                    <label class="custom-control-label " for="customCheckUser4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+              
+                          
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              Payment API
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMS" >
+                                    <label class="custom-control-label " for="customCheckSMS">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMS2" >
+                                    <label class="custom-control-label " for="customCheckSMS2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMS3" >
+                                    <label class="custom-control-label " for="customCheckSMS3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMS4" >
+                                    <label class="custom-control-label " for="customCheckSMS4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+              
+                          
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              App URL
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckReport" >
+                                    <label class="custom-control-label " for="customCheckReport">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckReport2" >
+                                    <label class="custom-control-label " for="customCheckReport2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckReport3" >
+                                    <label class="custom-control-label " for="customCheckReport3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckReport4" >
+                                    <label class="custom-control-label " for="customCheckReport4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+              
+                          
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              Mail
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckBank" >
+                                    <label class="custom-control-label " for="customCheckBank">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckBank2" >
+                                    <label class="custom-control-label " for="customCheckBank2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckBank3" >
+                                    <label class="custom-control-label " for="customCheckBank3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckBank4" >
+                                    <label class="custom-control-label " for="customCheckBank4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+              
+                          
+                          
+                          
+                          
+                        
+                  
+                        </tbody>
+                    </table>
+              
+                   
+                </div>
+              </section>
+            </div>
+    
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              <section class="list">
+                
+                <div class="user__permission">
+                    <table class="table table-borderless client-table">
+                        
+                        <tbody>
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              Transactions
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckPay1" >
+                                    <label class="custom-control-label " for="customCheckPay1">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckPay2" >
+                                    <label class="custom-control-label " for="customCheckPay2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckPay3" >
+                                    <label class="custom-control-label " for="customCheckPay3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckPay4" >
+                                    <label class="custom-control-label " for="customCheck4Pay">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+              
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                                SMS Payments
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMSPayment" >
+                                    <label class="custom-control-label " for="customCheckSMSPayment">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMSPayment2" >
+                                    <label class="custom-control-label " for="customCheckSMSPayment2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMSPayment3" >
+                                    <label class="custom-control-label " for="customCheckSMSPayment3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMSPayment4" >
+                                    <label class="custom-control-label " for="customCheckSMSPayment4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+                          
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              Banks
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckbank" >
+                                    <label class="custom-control-label " for="customCheckbank">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckbank2" >
+                                    <label class="custom-control-label " for="customCheckbank2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckbank3" >
+                                    <label class="custom-control-label " for="customCheckbank3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckbank4" >
+                                    <label class="custom-control-label " for="customCheckbank4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+                          
+                          
+              
+                          
+                        
+                          
+                          
+                        
+                  
+                        </tbody>
+                    </table> 
+                </div>
+            
+              </section>
+            </div>
+
+            <div class="tab-pane fade" id="pills-location" role="tabpanel" aria-labelledby="pills-location-tab">
+              <section class="list">
+
+                <div class="user__permission">
+                    <table class="table table-borderless client-table">
+                        
+                        <tbody>
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              Country
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckCountry1" >
+                                    <label class="custom-control-label " for="customCheckCountry1">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckCountry2" >
+                                    <label class="custom-control-label " for="customCheckCountry2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckCountry3" >
+                                    <label class="custom-control-label " for="customCheckCountry3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckCountry4" >
+                                    <label class="custom-control-label " for="customCheck4Country">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+              
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                                State
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckState" >
+                                    <label class="custom-control-label " for="customCheckState">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckState2" >
+                                    <label class="custom-control-label " for="customCheckState2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckState3" >
+                                    <label class="custom-control-label " for="customCheckState3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckState4" >
+                                    <label class="custom-control-label " for="customCheckState4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+                          
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              City
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckCity" >
+                                    <label class="custom-control-label " for="customCheckCity">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckCity2" >
+                                    <label class="custom-control-label " for="customCheckCity2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckCity3" >
+                                    <label class="custom-control-label " for="customCheckCity3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckCity4" >
+                                    <label class="custom-control-label " for="customCheckCity4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+
+
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              LGA
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckLGA" >
+                                    <label class="custom-control-label " for="customCheckLGA">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckLGA2" >
+                                    <label class="custom-control-label " for="customCheckLGA2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckLGA3" >
+                                    <label class="custom-control-label " for="customCheckLGA3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckLGA4" >
+                                    <label class="custom-control-label " for="customCheckLGA4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+                          
+                          
+              
+                          
+                        
+                          
+                          
+                        
+                  
+                        </tbody>
+                    </table>
+              
+                    
+                </div>
+                
+              </section>
+            </div>
+
+            <div class="tab-pane fade" id="pills-messages" role="tabpanel" aria-labelledby="pills-messages-tab">
+              <section class="list">
+                
+                <div class="user__permission">
+                    <table class="table table-borderless client-table">
+                        
+                        <tbody>
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              SMS Configuration
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckConfig1" >
+                                    <label class="custom-control-label " for="customCheckConfig1">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckConfig2" >
+                                    <label class="custom-control-label " for="customCheckConfig2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckConfig3" >
+                                    <label class="custom-control-label " for="customCheckConfig3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckConfig4" >
+                                    <label class="custom-control-label " for="customCheck4Config">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+              
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                                Delivery Reports
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckDelivery" >
+                                    <label class="custom-control-label " for="customCheckDelivery">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckDelivery2" >
+                                    <label class="custom-control-label " for="customCheckDelivery2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckDelivery3" >
+                                    <label class="custom-control-label " for="customCheckDelivery3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckDelivery4" >
+                                    <label class="custom-control-label " for="customCheckDelivery4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+                          
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              Message Logs
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckLogs" >
+                                    <label class="custom-control-label " for="customCheckLogs">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckLogs2" >
+                                    <label class="custom-control-label " for="customCheckLogs2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckLogs3" >
+                                    <label class="custom-control-label " for="customCheckLogs3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckLogs4" >
+                                    <label class="custom-control-label " for="customCheckLogs4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+
+
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              SMS Price
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckPrice" >
+                                    <label class="custom-control-label " for="customCheckPrice">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckPrice2" >
+                                    <label class="custom-control-label " for="customCheckPrice2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckPrice3" >
+                                    <label class="custom-control-label " for="customCheckPrice3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckPrice4" >
+                                    <label class="custom-control-label " for="customCheckPrice4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+                          
+                          
+              
+                          
+                        
+                          
+                          
+                        
+                  
+                        </tbody>
+                    </table>
+              
+                    
+                </div>
+            
+              </section>
+            </div>
+
+            <div class="tab-pane fade" id="pills-report" role="tabpanel" aria-labelledby="pills-report-tab">
+              <section class="list">
+
+                <div class="user__permission">
+                    <table class="table table-borderless client-table">
+                        
+                        <tbody>
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              SMS Reports
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMSReport1" >
+                                    <label class="custom-control-label " for="customCheckSMSReport1">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMSReport2" >
+                                    <label class="custom-control-label " for="customCheckSMSReport2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMSReport3" >
+                                    <label class="custom-control-label " for="customCheckSMSReport3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckSMSReport4" >
+                                    <label class="custom-control-label " for="customCheck4SMSReport">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+              
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                                Transaction Reports
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckTransactionReport" >
+                                    <label class="custom-control-label " for="customCheckTransactionReport">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckTransactionReport2" >
+                                    <label class="custom-control-label " for="customCheckTransactionReport2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckTransactionReport3" >
+                                    <label class="custom-control-label " for="customCheckTransactionReport3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckTransactionReport4" >
+                                    <label class="custom-control-label " for="customCheckTransactionReport4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+                          
+                          <tr class="pb-2">
+                            <td scope="row" class="user rounded-left"> 
+                              User Analytics
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckAnalytics" >
+                                    <label class="custom-control-label " for="customCheckAnalytics">CREATE/ADD</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckAnalytics2" >
+                                    <label class="custom-control-label " for="customCheckAnalytics2">VIEW</label>
+                                  </div>
+                            </td>
+                            <td class="" >
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckAnalytics3" >
+                                    <label class="custom-control-label " for="customCheckAnalytics3">EDIT/UPDATE</label>
+                                  </div>
+                            </td>
+                            
+                            <td class="rounded-right action">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckAnalytics4" >
+                                    <label class="custom-control-label " for="customCheckAnalytics4">DELETE</label>
+                                  </div>
+                            </td>
+                          </tr>
+                          
+                  
+                        </tbody>
+                    </table> 
+                </div>
+                
+              </section>
+            </div>
+
+
+
+
+
+          </div>
+    </div>
+
+  </div>

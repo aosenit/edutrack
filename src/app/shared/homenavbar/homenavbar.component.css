@@ -1,0 +1,39 @@
+.top{
+    background: #FEF9F6;
+    box-shadow: 0px 5px 10px rgba(196, 196, 196, 0.24);
+}
+.login-button{
+    background: rgba(238,121,42, 0.1);
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #0A1128;
+    border-radius: 0;
+}
+
+.btn-outline-orange{
+    border: 1px solid #FB882C;
+    box-sizing: border-box;
+    border-radius: 1px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FB882C;
+}
+nav.navbar{
+    background: rgba(0, 0, 0, .1);
+}
+nav.navbar ul .nav-item a{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 16px;
+    color: #EFF1F3;
+}

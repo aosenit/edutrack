@@ -1,0 +1,1799 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb" (click)="back()">
+    <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+    <li class="breadcrumb-item a1 " aria-current="page">
+      <a>Back</a>
+    </li>
+
+
+  </ol>
+
+
+</nav>
+
+<div class="mb-3">
+  <h6 class="fw-6 fs-18">Create New Role</h6>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 bg-white pt-5 px-3">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active mb-2" id="v-pills-record-tab" data-toggle="pill" href="#v-pills-record" role="tab"
+          aria-controls="v-pills-record" aria-selected="true">Records</a>
+        <a class="nav-link mb-2" id="v-pills-schedule-tab" data-toggle="pill" href="#v-pills-schedule" role="tab"
+          aria-controls="v-pills-schedule" aria-selected="false">Schedule</a>
+        <a class="nav-link mb-2" id="v-pills-resource-tab" data-toggle="pill" href="#v-pills-resource" role="tab"
+          aria-controls="v-pills-resource" aria-selected="false">Human Resources</a>
+        <a class="nav-link mb-2" id="v-pills-finance-tab" data-toggle="pill" href="#v-pills-finance" role="tab"
+          aria-controls="v-pills-finance" aria-selected="false">Finance Settings</a>
+        <a class="nav-link mb-2" id="v-pills-finance2-tab" data-toggle="pill" href="#v-pills-finance2" role="tab"
+          aria-controls="v-pills-finance2" aria-selected="false">Finance </a>
+        <a class="nav-link mb-2" id="v-pills-library-tab" data-toggle="pill" href="#v-pills-library" role="tab"
+          aria-controls="v-pills-library" aria-selected="false">Library</a>
+        <a class="nav-link mb-2" id="v-pills-facility-tab" data-toggle="pill" href="#v-pills-facility" role="tab"
+          aria-controls="v-pills-facility" aria-selected="false">Facility Manager</a>
+        <a class="nav-link mb-2" id="v-pills-report-tab" data-toggle="pill" href="#v-pills-report" role="tab"
+          aria-controls="v-pills-report" aria-selected="false">Report</a>
+        <a class="nav-link mb-2" id="v-pills-enrollment-tab" data-toggle="pill" href="#v-pills-enrollment" role="tab"
+          aria-controls="v-pills-enrollment" aria-selected="false">Enrollment</a>
+        <a class="nav-link mb-2" id="v-pills-general-tab" data-toggle="pill" href="#v-pills-general" role="tab"
+          aria-controls="v-pills-general" aria-selected="false">General Settings</a>
+        <a class="nav-link mb-2" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+          aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+        <a class="nav-link mb-2" id="v-pills-academic-tab" data-toggle="pill" href="#v-pills-academic" role="tab"
+          aria-controls="v-pills-academic" aria-selected="false">Academic</a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="user__select mb-3">
+        <form>
+          <label for="roleTitle" class="fw-6">Role Title</label>
+          <input type="text" class="form-control" placeholder="Admin">
+        </form>
+        <div>
+
+        </div>
+      </div>
+
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-record" role="tabpanel" aria-labelledby="v-pills-record-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Students
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+
+
+
+
+
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Parents
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan">
+                      <label class="custom-control-label " for="customCheckPlan"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan2">
+                      <label class="custom-control-label " for="customCheckPlan2"></label>
+                    </div>
+                  </td>
+
+
+                  <td class="rounded-right action">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan4">
+                      <label class="custom-control-label " for="customCheckPlan4"></label>
+                    </div>
+                  </td>
+                </tr>
+
+
+
+
+
+
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Next </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-schedule" role="tabpanel" aria-labelledby="v-pills-schedule-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Time Table
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+
+
+
+
+
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    School Calander
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan">
+                      <label class="custom-control-label " for="customCheckPlan"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan2">
+                      <label class="custom-control-label " for="customCheckPlan2"></label>
+                    </div>
+                  </td>
+
+
+                  <td class="rounded-right action">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan4">
+                      <label class="custom-control-label " for="customCheckPlan4"></label>
+                    </div>
+                  </td>
+                </tr>
+
+
+
+
+
+
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Next </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-resource" role="tabpanel" aria-labelledby="v-pills-resource-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Employee
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Loan
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Loan
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan">
+                      <label class="custom-control-label " for="customCheckPlan"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan2">
+                      <label class="custom-control-label " for="customCheckPlan2"></label>
+                    </div>
+                  </td>
+
+
+                  <td class="rounded-right action">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan4">
+                      <label class="custom-control-label " for="customCheckPlan4"></label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Next </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-finance" role="tabpanel" aria-labelledby="v-pills-finance-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Fee Component
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Fee
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Payroll Accounts
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Vendor
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Chart of Account
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Discount
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Bank Accounts
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Fee Types
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Account Mapping
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan">
+                      <label class="custom-control-label " for="customCheckPlan"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan2">
+                      <label class="custom-control-label " for="customCheckPlan2"></label>
+                    </div>
+                  </td>
+
+
+                  <td class="rounded-right action">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan4">
+                      <label class="custom-control-label " for="customCheckPlan4"></label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Next </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-finance2" role="tabpanel" aria-labelledby="v-pills-finance2-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Run Payroll
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Payroll
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Journal
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Billing
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Expenses
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Transaction
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+
+
+
+
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Fund Transfer
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan">
+                      <label class="custom-control-label " for="customCheckPlan"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan2">
+                      <label class="custom-control-label " for="customCheckPlan2"></label>
+                    </div>
+                  </td>
+
+
+                  <td class="rounded-right action">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan4">
+                      <label class="custom-control-label " for="customCheckPlan4"></label>
+                    </div>
+                  </td>
+                </tr>
+
+
+
+
+
+
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
+                [routerLink]="['/main', 'admin-dashboard', 'user-role']"> Next </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-library" role="tabpanel" aria-labelledby="v-pills-library-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Settings
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Category
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Book Type
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Author
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Publisher
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Books
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+
+
+
+
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Lending Unit
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan">
+                      <label class="custom-control-label " for="customCheckPlan"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan2">
+                      <label class="custom-control-label " for="customCheckPlan2"></label>
+                    </div>
+                  </td>
+
+
+                  <td class="rounded-right action">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan4">
+                      <label class="custom-control-label " for="customCheckPlan4"></label>
+                    </div>
+                  </td>
+                </tr>
+
+
+
+
+
+
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
+                [routerLink]="['/main', 'admin-dashboard', 'user-role']"> Next </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-facility" role="tabpanel" aria-labelledby="v-pills-facility-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Facility
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Room
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Class to Room
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan">
+                      <label class="custom-control-label " for="customCheckPlan"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan2">
+                      <label class="custom-control-label " for="customCheckPlan2"></label>
+                    </div>
+                  </td>
+
+
+                  <td class="rounded-right action">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan4">
+                      <label class="custom-control-label " for="customCheckPlan4"></label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Create </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-report" role="tabpanel" aria-labelledby="v-pills-report-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Trial Balance
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Profile and Loss Statement
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Balance Sheet
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Outstanding Payment
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Payslip
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Report Card
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Audit Trial
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    SchoolTrack Payment Card
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+
+
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    SMS Payment
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan">
+                      <label class="custom-control-label " for="customCheckPlan"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan2">
+                      <label class="custom-control-label " for="customCheckPlan2"></label>
+                    </div>
+                  </td>
+
+
+                  <td class="rounded-right action">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan4">
+                      <label class="custom-control-label " for="customCheckPlan4"></label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
+                [routerLink]="['/main', 'admin-dashboard', 'user-role']"> Next </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-enrollment" role="tabpanel" aria-labelledby="v-pills-enrollment-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Enrollment List
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment1">
+                      <label class="custom-control-label " for="customCheckEnrollment1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment2">
+                      <label class="custom-control-label " for="customCheckEnrollment2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment3">
+                      <label class="custom-control-label " for="customCheckEnrollment3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" > Next </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-general" role="tabpanel" aria-labelledby="v-pills-general-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Account
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Location Manager
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    School Settings
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Personal Settings
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Finance Settings
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Facility Settings
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    School Manager
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Result Settings
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label " for="customCheck1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label " for="customCheck2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label " for="customCheck3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+
+
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Student Settings
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan">
+                      <label class="custom-control-label " for="customCheckPlan"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan2">
+                      <label class="custom-control-label " for="customCheckPlan2"></label>
+                    </div>
+                  </td>
+
+
+                  <td class="rounded-right action">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckPlan4">
+                      <label class="custom-control-label " for="customCheckPlan4"></label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
+                [routerLink]="['/main', 'admin-dashboard', 'user-role']"> Next </button>
+
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Announcement
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment1">
+                      <label class="custom-control-label " for="customCheckEnrollment1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment2">
+                      <label class="custom-control-label " for="customCheckEnrollment2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment3">
+                      <label class="custom-control-label " for="customCheckEnrollment3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" > Next </button>
+
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-pane fade" id="v-pills-academic" role="tabpanel" aria-labelledby="v-pills-academic-tab">
+          <div class="user__permission">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Gradebook
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckgradebook1">
+                      <label class="custom-control-label " for="customCheckgradebook1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckgradebook2">
+                      <label class="custom-control-label " for="customCheckgradebook2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckgradebook3">
+                      <label class="custom-control-label " for="customCheckgradebook3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-left">
+                    Teachers
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment1">
+                      <label class="custom-control-label " for="customCheckEnrollment1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment2">
+                      <label class="custom-control-label " for="customCheckEnrollment2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment3">
+                      <label class="custom-control-label " for="customCheckEnrollment3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+                <tr class="pb-2">
+                  <td scope="row" class="user rounded-right">
+                    Class Promotion
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment1">
+                      <label class="custom-control-label " for="customCheckEnrollment1"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment2">
+                      <label class="custom-control-label " for="customCheckEnrollment2"></label>
+                    </div>
+                  </td>
+                  <td class="">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckEnrollment3">
+                      <label class="custom-control-label " for="customCheckEnrollment3"></label>
+                    </div>
+                  </td>
+
+
+                </tr>
+
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" > Next </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

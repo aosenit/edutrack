@@ -1,0 +1,149 @@
+<div class="container px-5">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb" (click)="back()">
+      <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+      <li class="breadcrumb-item a1 " aria-current="page">
+        <a>Back</a>
+      </li>
+    </ol>
+
+
+  </nav>
+  <div class="row">
+    <div class="col-md-12 mb-3">
+      <p class="fw-6">Add New User</p>
+    </div>
+
+    <div class="col-md-12">
+
+
+      <div class="steps p-3">
+        <ul class="nav nav-pills mb-3 justify-content-start align-items-center" id="pills-tab" role="tablist">
+          <li class="nav-item ml-5">
+            <a class="nav-link active" id="pills-basic-tab" data-toggle="pill" href="#pills-basic" role="tab"
+              aria-controls="pills-basic" aria-selected="true">
+              <div class="d-flex align-items-center justify-content-center">
+                <div class="mr-2">
+                  <span class="bg-orange">1</span>
+                </div>
+                <div>
+                  Basic Information
+                </div>
+              </div>
+            </a>
+
+          </li>
+
+
+
+
+        </ul>
+      </div>
+
+      <div class="step-content justify-content-center pt-5 pb-3">
+
+
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-basic" role="tabpanel" aria-labelledby="pills-basic-tab">
+            <form [formGroup]="userForm" (ngSubmit)="createUser()">
+              <div class="basic-details">
+
+                <div class="form-row my-5 ">
+                  <div class=" ">
+                    <label for="fname" class="fw-6">First Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control form-control-lg" id="fname" formControlName="firstName"
+                      placeholder="Enter first Name">
+                    <div *ngIf="submitted && userForm.controls.firstName.errors" class="error">
+                      <div *ngIf="userForm.controls.firstName.errors.required" class="text-danger">First Name is required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="  ">
+                    <label for="lname" class="fw-6">Last Name <span class="text-danger">*</span></label>
+
+                    <input type="text" class="form-control form-control-lg" id="lname" placeholder="Enter last name"
+                      formControlName="lastName">
+                      <div *ngIf="submitted && userForm.controls.lastName.errors" class="error">
+                        <div *ngIf="userForm.controls.lastName.errors.required" class="text-danger">Last Name is required
+                        </div>
+                      </div>
+                  </div>
+
+                </div>
+
+                <div class="form-row my-5 ">
+                  <div class=" ">
+                    <label for="domain" class="fw-6">Userame <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control form-control-lg" id="domain" placeholder="Enter username"
+                      formControlName="userName">
+                      <div *ngIf="submitted && userForm.controls.userName.errors" class="error">
+                        <div *ngIf="userForm.controls.userName.errors.required" class="text-danger">Username is required
+                        </div>
+                      </div>
+                  </div>
+                  <div class="  ">
+                    <label for="email" class="fw-6">Email <span class="text-danger">*</span></label>
+
+                    <input type="email" class="form-control form-control-lg" id="email"
+                      placeholder="Enter user email address" formControlName="email">
+                    <div *ngIf="submitted && userForm.controls.email.errors" class="error">
+                      <div *ngIf="userForm.controls.email.errors.required" class="text-danger">Email is required</div>
+                      <div *ngIf="userForm.controls.email.errors.email" class="text-danger">Invalid email pattern</div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="form-row my-5">
+                  <div class=" ">
+                    <label for="logo" class="fw-6">Photo</label>
+                    <div class="custom-file mb-3">
+                      <input type="file" class="custom-file-input" id="customFile" name="avatarname" (change)="handleImgUpload($event)">
+                      <label class="custom-file-label" for="customFile" *ngIf ="avatarname === null; else filename">Upload File</label>
+                      <ng-template #filename>
+                        <label class="custom-file-label" for="customFile" > {{avatarname}} </label>
+                      </ng-template>
+                    </div>
+                  </div>
+                  <div class=" ">
+                    <label for="logo" class="fw-6">Password</label>
+                    <input type="password" class="form-control form-control-lg" formControlName="password">
+                  </div>
+                   <!-- <div class="  ">
+                    <label for="role" class="fw-6">Role <span class="text-danger">*</span></label>
+                    <div class=" mb-3">
+                      <select name="" id="role" class="form-control" formControlName="password">
+                        <option value="" selected>Select Role</option>
+                        <option value="Admin">Admin</option>
+                      </select>
+                      <div *ngIf="submitted && userForm.controls.password.errors" class="error">
+                        <div *ngIf="userForm.controls.password.errors.required" class="text-danger">Role is required
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+
+                </div>
+
+
+
+
+                <div class=" d-flex justify-content-center mt-5 mb-5">
+                  <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+                  <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Add user </button>
+
+                </div>
+              </div>
+            </form>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
