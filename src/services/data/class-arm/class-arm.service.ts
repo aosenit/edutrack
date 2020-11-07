@@ -5,8 +5,9 @@ import { environment } from 'src/environments/environment';
 const routes = {
   addclassarm: 'schtrack-auth/api/v1/ClassArm/AddClassArm',
   getallclassarm: 'schtrack-auth/api/v1/ClassArm/GetAllClassArms',
-  updateclassarm: 'ClassArm/UpdateClassArm',
-  deleteclassarm: 'ClassArm/DeleteClassArm'
+  getclassarmById: 'schtrack-auth/api/v1/ClassArm/GetAllClassArm',
+  updateclassarm: 'schtrack-auth/api/v1/ClassArm/UpdateClassArm',
+  deleteclassarm: 'schtrack-auth/api/v1/ClassArm/DeleteClassArm'
 };
 
 @Injectable({
@@ -36,13 +37,24 @@ export class ClassArmService {
     return this.http.get(url, { headers: { tenantId } });
   }
 
+  getClassArmById(id) {
+    const tenantId = '1';
+
+    const url = `${this.baseUrl + routes.getclassarmById}/${id}`;
+    return this.http.get(url, { headers: { tenantId } });
+  }
+
   updateClassArm(id: any, updateClassArmForm) {
-    const url = `${this.baseUrl + routes.updateclassarm}`;
-    return this.http.put(url, updateClassArmForm );
+    const tenantId = '1';
+
+    const url = `${this.baseUrl + routes.updateclassarm}/${id}`;
+    return this.http.put(url, updateClassArmForm, { headers: { tenantId } } );
   }
 
   deleteClassArm(id: any) {
+    const tenantId = '1';
+
     const url = `${this.baseUrl + routes.deleteclassarm}/${id}`;
-    return this.http.delete(url );
+    return this.http.delete(url , { headers: { tenantId } });
   }
 }

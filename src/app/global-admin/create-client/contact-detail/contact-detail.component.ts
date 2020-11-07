@@ -31,6 +31,10 @@ export class ContactDetailComponent implements OnInit {
 
   }
 
+  // prevStep() {
+  //   this.home.stepper(1);
+  // }
+
   getState(event) {
   for (const unit in countries) {
       if (event === countries[unit].country) {

@@ -35,8 +35,8 @@ export class ForgotPasswordComponent implements OnInit {
       return;
     } else {
 
-      this.authService.resetPassword(this.resetPasswordForm.value).subscribe( (res: any) => {
-        const data = JSON.parse(res);
+      this.authService.resetPassword(this.resetPasswordForm.value).subscribe( (data: any) => {
+        // const data = JSON.parse(res);
         if ( data.hasErrors === true) {
          this.notifyService.publishMessages(data.errors, 'danger', 1);
         } else {

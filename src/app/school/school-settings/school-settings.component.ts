@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { ClassArmService } from 'src/services/data/class-arm/class-arm.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
@@ -17,26 +18,28 @@ export class SchoolSettingsComponent implements OnInit {
   arm = false;
   subject = false;
   mail = false;
-  id = 1;
+  id: any;
   classArmform: FormGroup;
   levelForm: FormGroup;
   newClassForm: FormGroup;
   classArm: any;
-  toggleState: any;
+  toggleState = false;
+  classArmDetial: any;
   constructor(
     private fb: FormBuilder,
     private classArmService: ClassArmService,
     private schoolSectionService: SchoolSectionService,
     private notifyService: NotificationsService,
+    private route: ActivatedRoute
 
     ) { }
   ngOnInit() {
-
+    this.getClassArms();
     this.populateClassArmForm();
     this.populateLevelForm();
     this.populateClassForm();
-
-    this.getClassArms();
+    this.getClassArmbyId();
+    // this.getAllSchoolSections();
   }
 
 
@@ -121,9 +124,9 @@ createClassArm() {
       console.log(data);
       this.notifyService.publishMessages(data.description, 'info', 1);
       document.getElementById('close').click();
+      location.reload();
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
-
     });
   }
 
@@ -149,6 +152,44 @@ createClassArm() {
     });
   }
 
+  getClassArmbyId() {
+    
+  }
+
+  editClassArm(id) {
+    console.log('asasa', id);
+    this.classArmService.getClassArmById(id).subscribe( (data: any) => {
+      if (data.hasErrors === false) {
+        this.classArmDetial = data.payload;
+        this.populateEditClassArm(this.classArmDetial);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+  populateEditClassArm(payload) {
+    this.newClassForm.setValue({
+      name: payload.name,
+      status: payload.status
+    });
+
+  }
+
+  deleteArm(id) {
+    this.classArmService.deleteClassArm(id).subscribe( (data: any) => {
+      if (data.hasErrors === false) {
+        console.log( data);
+        this.getClassArms();
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+
   submitLevel() {
     console.log(this.levelForm.value);
     this.schoolSectionService.addlevel(this.levelForm.value).subscribe( (data: any) => {
@@ -161,4 +202,13 @@ createClassArm() {
 
   }
 
+  getValue(event) {
+    console.log(event);
+  }
+
+  // getAllSchoolSections() {
+  //   this.schoolSectionService.getLevels().subscribe( data => {
+  //     console.log(data);
+  //   });
+  // }
 }

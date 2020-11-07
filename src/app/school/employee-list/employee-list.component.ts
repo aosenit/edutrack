@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { StaffService } from 'src/services/data/staff/staff.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -7,9 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeListComponent implements OnInit {
 record = false;
-  constructor() { }
+employeeList: any;
+employeeDetail: any;
+  constructor(
+              private staffService: StaffService,
+              private notifyService: NotificationsService,
+              ) { }
 
   ngOnInit() {
+    this.getAllEmployees();
+  }
+
+  getAllEmployees() {
+    this.staffService.getAllStaffInSchool().subscribe( (data: any) => {
+      if (data.hasErros === false) {
+        console.log('all schools', data);
+        this.employeeList = data.payload;
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+  getEmployeeById(id) {
+    this.staffService.getStaffById(id).subscribe( (data: any) => {
+      if (data.hasErros === false) {
+        console.log('all schools', data);
+        this.employeeDetail = data.payload;
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
   }
 
 }

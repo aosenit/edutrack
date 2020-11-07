@@ -367,7 +367,17 @@
                 </span>
               </ng-template>
             </td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+            <td class="rounded-right ">
+              <img src="assets/images/svg/more-action.svg" alt="schools log"
+              class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+              <a class="dropdown-item" (click)="editClassArm(arm.id)" data-toggle="modal"
+              data-target="#exampleModalCenterArm" >Edit </a>
+              <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete </a>
+            </div>
+             </td>
           </tr>
 
 
@@ -659,38 +669,30 @@
           <div class="form-group mb-4">
             <label for="arm" class="">Arm <span class="text-danger">*</span></label>
 
-            <div>
-              <label for="class1" class="class-label w-25"> A</label>
-              <input type="checkbox" id="class1" name="class" value="A">
+            <div *ngFor="let arm of classArm">
+              <label for="class1" class="class-label w-25"> {{arm.name}}</label>
+              <input type="checkbox" id="class1" name="class" value="{{arm.name}}" (click)="getValue($event.target.value)" >
             </div>
-            <div>
-              <label for="classb" class="class-label w-25"> B</label>
-              <input type="checkbox" id="classb" name="class" value="B">
-            </div>
-            <div>
-              <label for="classc" class="class-label w-25"> C</label>
-              <input type="checkbox" id="classc" name="class" value="C">
-            </div>
-            <div>
-              <label for="champion" class="class-label w-25"> Champion</label>
-              <input type="checkbox" id="champion" name="class" value="Champion">
-            </div>
-            <div>
-              <label for="winner" class="class-label w-25">Winner </label>
-              <input type="checkbox" id="winner" name="class" value="Winner">
-            </div>
+            
 
           </div>
           <div class="form-group mb-5">
             <label for="sequence" class="">Sequence</label>
             <select name="" id="sequence" class="form-control">
-              <option value="">Select</option>
+              <option value="" selected>Select</option>
+              <option value="1">1</option>
             </select>
           </div>
           <div class="form-group custom mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch2">
-              <label class="custom-control-label" for="customSwitch2">Active</label>
+              <input type="checkbox" class="custom-control-input" id="customSwitch2" (change)="getStatus($event.target.checked)">
+              <label class="custom-control-label" for="customSwitch2" *ngIf = "toggleState === false; then inactive; else active;"   > {{toggleState}} </label>
+              <ng-template #active>
+                <label class="custom-control-label" for="customSwitch2" >Active </label>
+              </ng-template>
+              <ng-template #inactive>
+                <label class="custom-control-label" for="customSwitch2" > Inactive </label>
+              </ng-template>
             </div>
           </div>
 

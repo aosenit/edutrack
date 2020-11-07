@@ -24,7 +24,7 @@ export class CreateClientComponent implements OnInit {
 
     for (let index = 1; index < 3; index++) {
       if (index < step) {
-      }  else if (index > step) {
+      }  else if (index >= step) {
         // document.getElementById('button-' + index).innerHTML = '' + index;
       }
     }
@@ -37,6 +37,7 @@ export class CreateClientComponent implements OnInit {
 
   back() {
     window.history.back();
+    sessionStorage.clear();
   }
 
 }

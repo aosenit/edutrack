@@ -10,6 +10,7 @@ import {FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class BasicDetailsComponent implements OnInit {
 
   basicDetailsForm: FormGroup;
+  toggleState = false;
   constructor(private home: ParentComponent, private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -30,5 +31,16 @@ export class BasicDetailsComponent implements OnInit {
 
   nextStep() {
     this.home.stepper(2);
+    sessionStorage.setItem('parent-basic-details', JSON.stringify(this.basicDetailsForm.value));
+  }
+
+  getStatus(event) {
+    if (event === true) {
+      this.toggleState = true;
+    } else {
+      this.toggleState = false;
+
+    }
+
   }
 }

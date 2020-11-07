@@ -4,6 +4,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { StaffService } from 'src/services/data/staff/staff.service';
+import { TeacherService } from 'src/services/data/teacher/teacher.service';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class MediaComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private staffService: StaffService,
+    private teacherService: TeacherService,
     private notifyService: NotificationsService,
     private router: Router
     ) { }
@@ -55,8 +57,9 @@ export class MediaComponent implements OnInit {
       DocumentTypes: this.DocumentTypes
     };
 
-    console.log('all employee data', result);
-    this.staffService.addStaff(result).subscribe((data: any) => {
+    if (result.staffType === 'academic') {
+      console.log('all employee data', result);
+      this.teacherService.addTeacher(result).subscribe((data: any) => {
       console.log('employee added', data);
       if ( data.hasErrors === false ) {
         this.notifyService.publishMessages(data.description, 'info', 1);
@@ -67,6 +70,21 @@ export class MediaComponent implements OnInit {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
     });
+
+    } else {
+      console.log('all employee data', result);
+      this.staffService.addStaff(result).subscribe((data: any) => {
+        console.log('employee added', data);
+        if ( data.hasErrors === false ) {
+          this.notifyService.publishMessages(data.description, 'info', 1);
+          sessionStorage.clear();
+          this.router.navigateByUrl('/school/employees');
+        }
+      }, error => {
+        this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+      });
+    }
 
   }
 
