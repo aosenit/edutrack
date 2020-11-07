@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 
@@ -14,20 +14,55 @@ export class MediaComponent implements OnInit {
   logoname = null;
   iconname = null;
   mediaForm: FormGroup;
+  id: any;
   DocumentTypes: number[] = [];
-
+  formBtn = {
+    type: 'create',
+    text: 'Create Client'
+  };
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private route: ActivatedRoute,
     private notifyService: NotificationsService,
     private schoolServies: SchoolService) { }
 
   ngOnInit() {
-    // const DocumentTypes = [0, 1];
+    this.id = this.route.snapshot.params.id;
+    console.log('page id', this.id);
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.createMediaForm();
+      } else {
+        this.updateMediaForm();
+      }
+    });
+  }
+
+  // detectFromButtonType() {
+  //   if (this.formBtn.type === 'create' ) {
+  //     this.createSchool();
+  //   } else {
+  //     this.UpdateCLientForm();
+  //   }
+  // }
+
+  createMediaForm() {
     this.mediaForm = this.fb.group({
       logo: [null],
       icon: [null]
     });
+  }
+  updateMediaForm() {
+    this.mediaForm = this.fb.group({
+      logo: [null],
+      icon: [null]
+    });
+
+    this.formBtn = {
+      type: 'Update',
+      text: 'Update Client'
+    };
   }
 
   createSchool() {
@@ -42,19 +77,34 @@ export class MediaComponent implements OnInit {
 
     const result = {...profile, ...details, ...contactperson, ...finalstep, DocumentTypes: this.DocumentTypes};
 
-    this.schoolServies.addSchool(result).subscribe( (data: any) => {
-      if ( data ) {
-          console.log('school create successfully', data);
-          this.notifyService.publishMessages(data.description, 'info', 1);
-          sessionStorage.clear();
-          this.router.navigateByUrl('/admin/clients');
-      }
-    }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
+    if (this.formBtn.type === 'create') {
+      this.schoolServies.addSchool( result).subscribe( (data: any) => {
+        if ( data ) {
+            console.log('school create successfully', data);
+            this.notifyService.publishMessages(data.description, 'info', 1);
+            sessionStorage.clear();
+            this.router.navigateByUrl('/admin/clients');
+        }
+      }, error => {
+        this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-    });
+      });
+    } else {
+      this.schoolServies.updateSchool( this.id, result).subscribe( (data: any) => {
+        if ( data ) {
+            console.log('school edited successfully', data);
+            this.notifyService.publishMessages(data.description, 'info', 1);
+            sessionStorage.clear();
+            this.router.navigateByUrl('/admin/clients');
+        }
+      }, error => {
+        this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+      });
 
   }
+}
+
 
   handleImgUpload(event: any) {
     if (event.target.files.length > 0) {
@@ -78,5 +128,8 @@ export class MediaComponent implements OnInit {
       // this.iconname = this.icon.name;
     }
   }
+
+
+
 
 }

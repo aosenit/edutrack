@@ -30,10 +30,10 @@ export class AuthService {
   }
 
   resetPassword(resetPasswordForm) {
-    // const {email} = resetPasswordForm;
-    console.log(resetPasswordForm);
+    const body = new FormData();
+    body.append('email', resetPasswordForm.email);
     const url = `${this.baseUrl + routes.forgotPassword}`;
-    return this.http.post(url, resetPasswordForm);
+    return this.http.post(url, body);
 
   }
 

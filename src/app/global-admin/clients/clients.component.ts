@@ -33,7 +33,7 @@ profileInfo: any;
 
   ngOnInit() {
     this.bulkUpload = this.fb.group({
-      avatar: []
+      Document: []
     });
     this.getAllSchools();
   }
@@ -65,15 +65,16 @@ profileInfo: any;
  handleBulkUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
+      console.log(file);
       this.filename = file.name;
-      this.bulkUpload.get('avatar').setValue(file);
+      this.bulkUpload.get('Document').setValue(file);
       // this.DocumentTypes.push(0);
     }
   }
 
   UploadBulkFile() {
     this.schoolServices.uploadBulkDocument(this.bulkUpload.value).subscribe((data: any) => {
-      // console.log('bulk file', data);
+      console.log('bulk file', data);
       if (data.hasError === false) {
         console.log('file successfully uplaoded', data.paylaod);
         this.notifyService.publishMessages(data.description, 'info', 1);
@@ -91,9 +92,10 @@ profileInfo: any;
   deleteClient(id) {
     this.schoolServices.deleteSchoolById(id).subscribe((data: any) => {
       console.log(data);
-      if (data.hasError === false) {
+      if (data.hasErrors === false) {
         this.getAllSchools();
         this.notifyService.publishMessages(data.description, 'success', 1);
+        // location.reload();
       }
     }, error => {
       this.notifyService.publishMessages(error.error, 'danger', 1);

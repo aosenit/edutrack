@@ -25,7 +25,9 @@ export class SchoolSectionService {
   }
 
   getLevels() {
+    const tenantId = '1';
     const url = `${this.baseUrl + routes.getallSchoolLevels}`;
-    return this.http.get(url);
+    return this.http.get(url, { headers: { tenantId } });
+
   }
 }

@@ -77,26 +77,36 @@ export class StaffService {
   }
 
   getAllStaffInSchool() {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
     const url = `${this.baseUrl + routes.getallstaff}`;
-    return this.http.get(this.baseUrl);
+    return this.http.get(url, { headers: { tenantId } });
 
   }
 
   getStaffById(id) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
     const url = `${this.baseUrl + routes.getstaffbyid}/${id}`;
-    return this.http.get(id);
+
+    return this.http.get(url, { headers: { tenantId } });
+
 
   }
 
   updateStaff(id, updateForm) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
     const url = `${this.baseUrl +  routes.updatestaffbyid}/${id}`;
-    return this.http.put(url, updateForm);
+    return this.http.put(url, updateForm, { headers: { tenantId } });
 
   }
 
   deleteStaffById(id) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
     const url = `${this.baseUrl + routes.deletestaff}/${id}`;
-    return this.http.delete(url);
+    return this.http.delete(url, { headers: { tenantId } });
 
   }
 
