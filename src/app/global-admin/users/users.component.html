@@ -71,8 +71,9 @@
                     <td scope="row" class="user rounded-left">
                     <span>
                         <!-- <img src="data:image/png;base64,{{admin?.image}}" alt="schools log" class="mr-3 image-rounded"> -->
-                        <img [src]="' data:image/png;base64, ' + admin?.logo | trustedUrl" alt="schools log" class="mr-3 image-rounded">
-                        
+                        <img *ngIf="admin?.logo" [src]="' data:image/png;base64, ' + admin?.logo | trustedUrl" alt="schools log" class="mr-3 image-rounded">
+                        <img class="" *ngIf="admin?.logo == null" src="assets/images/svg/companyalt.svg" alt="schools log"
+                  class="mr-3 image-rounded" id="">
                     </span>
                     <div>
                         <h6 class="fw-6">{{admin?.firstName}} </h6>

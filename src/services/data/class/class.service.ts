@@ -25,10 +25,10 @@ export class ClassService {
 
   addClass(name, section, group) {
     const url = `${this.baseUrl + routes.addclass}`;
-    const body = new FormData()
-    body.append('name', name)
-    body.append('sectionId', section)
-    body.append('ClassArmId', group)
+    const body = new FormData();
+    body.append('name', name);
+    body.append('sectionId', section);
+    body.append('ClassArmId', group);
     
     return this.http.post(url, body);
   }
