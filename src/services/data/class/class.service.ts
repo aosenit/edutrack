@@ -24,6 +24,7 @@ export class ClassService {
   constructor(private http: HttpClient) { }
 
   addClass(name, section, group) {
+    var tenantId = '1'
     const url = `${this.baseUrl + routes.addclass}`;
     const body = new FormData();
     body.append('name', name);
