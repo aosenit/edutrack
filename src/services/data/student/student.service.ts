@@ -47,6 +47,7 @@ export class StudentService {
     body.append('note', studentForm.note);
     body.append('parents', studentForm.parents);
     body.append('profilePhoto', studentForm.profilePhoto);
+    studentForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     body.append('religion', studentForm.religion);
     body.append('sex', studentForm.sex);
     body.append('state', studentForm.state);

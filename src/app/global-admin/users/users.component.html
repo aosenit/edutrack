@@ -69,7 +69,10 @@
                 <tbody>
                 <tr class="pb-1" *ngFor="let admin of adminList">
                     <td scope="row" class="user rounded-left">
-                    <span><img src="data:image/png;base64,{{admin?.image}}" alt="schools log" class="mr-3 image-rounded">
+                    <span>
+                        <!-- <img src="data:image/png;base64,{{admin?.image}}" alt="schools log" class="mr-3 image-rounded"> -->
+                        <img [src]="' data:image/png;base64, ' + admin?.logo | trustedUrl" alt="schools log" class="mr-3 image-rounded">
+                        
                     </span>
                     <div>
                         <h6 class="fw-6">{{admin?.firstName}} </h6>

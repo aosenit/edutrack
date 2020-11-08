@@ -2,6 +2,7 @@ import { Component, OnInit, ɵConsole } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { StudentService } from 'src/services/data/student/student.service';
+import { AddStudentsComponent } from '../add-students.component';
 @Component({
   selector: 'app-medical-details',
   templateUrl: './medical-details.component.html',
@@ -11,6 +12,7 @@ export class MedicalDetailsComponent implements OnInit {
   medicalForm: FormGroup;
   constructor(
     private fb: FormBuilder,
+    private home: AddStudentsComponent,
     private studentService: StudentService) { }
 
   ngOnInit() {
@@ -27,22 +29,11 @@ export class MedicalDetailsComponent implements OnInit {
     });
   }
 
-  createStudent() {
-    const basicDetials = JSON.parse(sessionStorage.getItem('basic-details')) ;
-    const contactDetails = JSON.parse(sessionStorage.getItem('contact-details')) ;
-    const socialDetails = JSON.parse(sessionStorage.getItem('social-details')) ;
-    const medicalDetails = this.medicalForm.value;
 
-    const result = { ...basicDetials, ...contactDetails, ...socialDetails, ...medicalDetails};
-    console.log('sasasa', result);
-    this.studentService.addStudent(result).subscribe((data: any) => {
-      console.log(result);
-      if ( data.hasErrors === false) {
-        console.log(data);
-      }
-    }, error => {
-      console.log(error);
-    });
+
+  nextStep() {
+    this.home.stepper(5);
+    sessionStorage.setItem('medical-details', JSON.stringify(this.medicalForm.value));
   }
 
 }

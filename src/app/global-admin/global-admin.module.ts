@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 import { GlobalAdminRoutingModule } from './global-admin-routing.module';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientsComponent } from './clients/clients.component';
@@ -10,9 +14,7 @@ import { NewUserComponent } from './new-user/new-user.component';
 import { NewClientComponent } from './new-client/new-client.component';
 import { UsersComponent } from './users/users.component';
 import { GlobalAdminComponent } from './global-admin.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewroleComponent } from './newrole/newrole.component';
-import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     SharedModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     GlobalAdminRoutingModule
   ]
 })

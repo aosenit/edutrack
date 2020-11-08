@@ -335,3 +335,9 @@ table.client-table {
 .drop-bg {
     opacity: 1 !important;
 }
+
+.no-result {
+    color: #0A1128;
+
+opacity: 0.6;
+}

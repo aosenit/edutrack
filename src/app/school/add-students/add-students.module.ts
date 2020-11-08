@@ -8,10 +8,11 @@ import { SocialDetailsComponent } from './social-details/social-details.componen
 import { ContactDetailsComponent } from './contact-details/contact-details.component';
 import { MedicalDetailsComponent } from './medical-details/medical-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ImagesComponent } from './images/images.component';
 
 
 @NgModule({
-  declarations: [AddStudentsComponent, BasicDetailsComponent, SocialDetailsComponent, ContactDetailsComponent, MedicalDetailsComponent],
+  declarations: [AddStudentsComponent, BasicDetailsComponent, SocialDetailsComponent, ContactDetailsComponent, MedicalDetailsComponent, ImagesComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

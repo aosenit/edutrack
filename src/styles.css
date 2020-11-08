@@ -259,6 +259,43 @@
     }
 }
 
+/* ngpx-pagination styles */
+.ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem;
+    color: #cacaca;
+    cursor: default;
+    display: none;
+}
+
+.ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-next.disabled::after,
+.ngx-pagination .pagination-next a::after, .ngx-pagination .pagination-previous.disabled::after {
+    content: '»';
+    display: inline-block;
+    margin-left: 0.5rem;
+    display: none !important;
+}
+
+li.pagination-next, li.pagination-previous {
+ 
+    background-color: #FB882C;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+}
+li.pagination-next:hover, li.pagination-previous:hover {
+ 
+    background-color: #FB882C;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+}
+
+.ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: transparent !important;
+    color: #FB882C !important;
+    font-size: 14px;
+    cursor: default;
+}
+/* end of ngx-pagination style */
 
 #zmmtg-root {
     height: 0% !important;

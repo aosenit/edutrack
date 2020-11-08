@@ -37,6 +37,14 @@
                         Social Details
                     </div>
                 </div>
+                <div class="d-flex align-items-center justify-content-center mr-5 " id="step-3">
+                    <div class="mr-2">
+                        <span class="">3</span>
+                    </div>
+                    <div>
+                        Images
+                    </div>
+                </div>
 
 
             </div>
@@ -45,6 +53,7 @@
                    
                 <app-basic-details *ngIf="stage === 1"></app-basic-details>
                 <app-social-details *ngIf="stage === 2"></app-social-details>
+                <app-images *ngIf="stage === 3"></app-images>
 
             </div>
         </div>

@@ -11,6 +11,7 @@ export class DashboardComponent implements OnInit {
   adminDetails: any;
   registeredSchools: any;
   schoolCount: any;
+  p: number;
 
   constructor(private schoolService: SchoolService) { }
 

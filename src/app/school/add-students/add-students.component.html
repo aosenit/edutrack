@@ -53,6 +53,15 @@
                                 </div>
                             </div>
 
+                            <div class="d-flex align-items-center justify-content-center mr-5 " id="step-5">
+                                <div class="mr-2">
+                                    <span class="">5</span>
+                                </div>
+                                <div>
+                                   Images
+                                </div>
+                            </div>
+
 
             </div>
 
@@ -63,6 +72,7 @@
                 <app-social-details *ngIf="stage === 2"></app-social-details>
                 <app-contact-details *ngIf="stage === 3"></app-contact-details>
                 <app-medical-details *ngIf="stage === 4"></app-medical-details>
+                <app-images *ngIf="stage === 5"></app-images>
 
             </div>
         </div>
