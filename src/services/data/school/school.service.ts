@@ -8,11 +8,7 @@ const routes = {
   // getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
   getschoolbyid: 'schtrack-auth/api/v1/School/GetSchool',
   bulkUplaod: 'schtrack-auth/api/v1/School/BulkAddSchool',
-<<<<<<< HEAD
   updateschoolbyid: 'schtrack-auth/api/v1School/UpdateSchool',
-=======
-  updateschoolbyid: 'schtrack-auth/api/v1/School/UpdateSchool',
->>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
   deleteschool: 'schtrack-auth/api/v1/School/DeleteSchool'
 };
 
@@ -25,9 +21,9 @@ export class SchoolService {
 
   constructor(private http: HttpClient) { }
   addSection(name) {
-    var body = {
-      "name": name
-    }
+    const body = new FormData()
+    body.append("name", name)
+    
     return this.http.post(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', body, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem("access_token") } })
   }
   getSection() {
@@ -35,9 +31,8 @@ export class SchoolService {
     return this.http.get(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/GetAllSections', { headers: { tenantId } })
   }
   updateSection(name) {
-    var body = {
-      "name": name
-    }
+    const body = new FormData()
+    body.append("name", name)
     return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', body, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem("access_token") } })
   }
 
@@ -80,46 +75,19 @@ export class SchoolService {
 
   uploadBulkDocument(bulkUpload) {
     const formData = new FormData();
-<<<<<<< HEAD
     formData.append('File', bulkUpload.avatar);
-=======
-    formData.append('file', bulkUpload.Document);
->>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
     const url = `${this.baseUrl + routes.bulkUplaod}`;
     return this.http.post(url, bulkUpload);
   }
 
   updateSchool(id, updateSchoolForm) {
-    const formData = new FormData();
-    formData.append('Name', updateSchoolForm.Name);
-    formData.append('DomainName', updateSchoolForm.DomainName);
-    formData.append('WebsiteAddress', updateSchoolForm.WebsiteAddress);
-    formData.append('Files', updateSchoolForm.logo);
-    formData.append('Files', updateSchoolForm.icon);
-    // formData.append('DocumentTypes', updateSchoolForm.DocumentTypes);
-    updateSchoolForm.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
-    formData.append('Country', updateSchoolForm.Country);
-    formData.append('Address', updateSchoolForm.Address);
-    formData.append('State', updateSchoolForm.State);
-    formData.append('City', updateSchoolForm.City);
-    formData.append('ContactFirstName', updateSchoolForm.ContactFirstName);
-    formData.append('ContactLastName', updateSchoolForm.ContactLastName);
-    formData.append('ContactPhoneNo', updateSchoolForm.ContactPhoneNo);
-    formData.append('ContactEmail', updateSchoolForm.ContactEmail);
     const url = `${this.baseUrl + routes.updateschoolbyid}/${id}`;
-    console.log(url);
     return this.http.put(url, updateSchoolForm);
 
   }
 
-<<<<<<< HEAD
   deleteSchoolById(userid) {
     const url = `${this.baseUrl + routes.deleteschool}/${userid}`;
-=======
-  deleteSchoolById(id) {
-    const url = `${this.baseUrl + routes.deleteschool}/${id}`;
-    console.log(url);
->>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
     return this.http.delete(url);
 
   }

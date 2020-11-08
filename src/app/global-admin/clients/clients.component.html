@@ -119,7 +119,6 @@
         </tr>
       </thead>
       <tbody>
-<<<<<<< HEAD
         <tr class="pb-2" *ngFor="let client of clientList">
           <td scope="row" class="school-logo rounded-left fc-lblue">
             <div class="d-flex align-items-center">
@@ -138,13 +137,6 @@
               <div><img src="assets/images/svg/verify.svg" alt="schools log"></div>
             </div>
 
-=======
-        <tr class="pb-2" *ngFor="let client of clientList | tableSearch : 'name' : searchString | paginate: { itemsPerPage: 5, currentPage: p }">
-          <td scope="row" class="school-logo rounded-left fc-lblue"> <span>
-              <!-- <img class="" src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3 image-rounded" id=""> -->
-              <img class="" [src]="' data:image/png;base64, ' + client?.logo | trustedUrl" alt="schools log" class="mr-3 image-rounded" id="">
-              <!-- <img class="" *ngFor="let image of imagesrc" (load)="getImageID(client.logoId)" src="data:image/png;base64,{{iconSrc}}"alt="schools log" class="mr-3 image-rounded" id= "" > -->
->>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
 
           </td>
           <td class="" *ngIf="client?.clientCode === null">{{client?.clientCode}}</td>
@@ -169,19 +161,6 @@
               </a></button>
           </td>
           <td class="rounded-right ">
-<<<<<<< HEAD
-            <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle" type="button"
-              id="dropdownMenuButtonOptions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <!-- <div class="dropdown-menu bg-white" aria-labelledby="dropdownMenuButtonOptions">
-              <a class="dropdown-item " (click)="deleteClient(client.id)"> Delete</a>
-              <a class="dropdown-item " (click)="editClient(client.id)"> Edit</a>
-
-            </div> -->
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonOptions">
-              <a class="dropdown-item " (click)="editClient(client.id)"> Edit</a>
-              <a class="dropdown-item " (click)="deleteClient(client.id)"> Delete</a>
-
-=======
             <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle drop-bg" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="dropdown-menu">
               
@@ -192,7 +171,6 @@
             </div>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonOptions" >
                 
->>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
             </div>
           </td>
         </tr>

@@ -5,10 +5,7 @@ import { environment } from 'src/environments/environment';
 const routes = {
   addclassarm: 'schtrack-auth/api/v1/ClassArm/AddClassArm',
   getallclassarm: 'schtrack-auth/api/v1/ClassArm/GetAllClassArms',
-<<<<<<< HEAD
-=======
   getclassarmById: 'schtrack-auth/api/v1/ClassArm/GetAllClassArm',
->>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
   updateclassarm: 'schtrack-auth/api/v1/ClassArm/UpdateClassArm',
   deleteclassarm: 'schtrack-auth/api/v1/ClassArm/DeleteClassArm'
 };
@@ -37,8 +34,6 @@ export class ClassArmService {
     const tenantId = '1';
 
     const url = `${this.baseUrl + routes.getallclassarm}`;
-<<<<<<< HEAD
-=======
     return this.http.get(url, { headers: { tenantId } });
   }
 
@@ -46,7 +41,6 @@ export class ClassArmService {
     const tenantId = '1';
 
     const url = `${this.baseUrl + routes.getclassarmById}/${id}`;
->>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
     return this.http.get(url, { headers: { tenantId } });
   }
 
