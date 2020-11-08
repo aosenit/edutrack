@@ -1,6 +1,6 @@
 <div class="Personal information">
 
-    <form >
+    <form [formGroup]="personalDetailsForm" (ngSubmit)="submitPersonalDetails()" >
       <div class="form-row mb-5 ">
         <div class=" ">
           <label for="fname" class="fw-6">First Name <span class="text-danger">*</span></label>
@@ -9,7 +9,7 @@
           class="form-control form-control-lg" 
           id="fname" 
           placeholder="Enter first Name"
-          formControlName="Name" required>
+          formControlName="contactFirstName" required>
         </div>
         <div class=" ">
           <label for="lname" class="fw-6">Last Name <span class="text-danger">*</span></label>
@@ -18,7 +18,7 @@
           class="form-control form-control-lg" 
           id="lname" 
           placeholder="Enter Last Name"
-          formControlName="DomainName" required>
+          formControlName="ContactLastName" required>
         </div>
 
       </div>
@@ -30,14 +30,16 @@
 
           <input type="text" class="form-control form-control-lg" 
           id="others" 
-          placeholder="Enter other names" formControlName="WebsiteAddress" required>
+          placeholder="Enter other names" formControlName="ContactOtherName" required>
         </div>
 
         <div class=" ">
             <label for="others" class="fw-6">Sex <span class="text-danger">*</span></label>
 
-           <select name="" id="othes" class="form-control form-control-lg">
+           <select name="" id="othes" class="form-control form-control-lg" formControlName="sex" >
                <option value="" selected> select sex</option>
+               <option value="male">Male</option>
+               <option value="female">Female</option>
            </select>
         </div>
       </div>
@@ -48,16 +50,19 @@
           <label for="dob" class="fw-6">Date of Birth <span class="text-danger">*</span></label>
 
           <input type="date" class="form-control form-control-lg" 
-          id="dob" 
-          placeholder="Enter other names" formControlName="WebsiteAddress" required>
+          id="dob" formControlName="dob"
+          placeholder="Enter other names"  required>
         </div>
 
         <div class=" ">
             <label for="others" class="fw-6">Marital Status <span class="text-danger">*</span></label>
 
-           <select name="" id="othes" class="form-control form-control-lg">
+           <select name="" id="othes" class="form-control form-control-lg" formControlName="maritalStatus">
                <option value="" selected> select status</option>
                <option value="married" > Married</option>
+               <option value="single" > Single</option>
+               <option value="engaged" > Engaged</option>
+               <option value="divorced" > Divorced </option>
            </select>
         </div>
       </div>
@@ -67,75 +72,43 @@
         <div class=" ">
             <label for="blood" class="fw-6">Blood Group <span class="text-danger">*</span></label>
 
-           <select name="" id="blood" class="form-control form-control-lg">
+           <select name="" id="blood" class="form-control form-control-lg" formControlName="bloodGroup">
                <option value="" selected> select status</option>
                <option value="" > O+ </option>
            </select>
         </div>
 
-        <div class="  ">
-          <label for="icon" class="fw-6">Signature</label>
-          <div class="custom-file  mb-3">
-            <input 
-            type="file" 
-            class="custom-file-input" 
-            accept="image/png, image/jpeg"
-            id="customFile" name="iconname" 
-            >
-            <label class="custom-file-label" for="customFile" > Upload File </label>
-            <!-- <ng-template #icon>
-              <label class="custom-file-label" for="customFile"> {{iconname}} </label>
-            </ng-template> -->
-          </div>
-        </div>
-
-      </div>
-
-      <div class="form-row mb-5">
-
-        <div class="  ">
-            <label for="icon" class="fw-6">Photo</label>
-            <div class="custom-file  mb-3">
-              <input 
-              type="file" 
-              class="custom-file-input" 
-              accept="image/png, image/jpeg"
-              id="customFile" name="iconname" 
-              >
-              <label class="custom-file-label" for="customFile" > Upload File </label>
-              <!-- <ng-template #icon>
-                <label class="custom-file-label" for="customFile"> {{iconname}} </label>
-              </ng-template> -->
-            </div>
-          </div>
-
+      
         <div class=" ">
             <label for="religion" class="fw-6">Religion <span class="text-danger">*</span></label>
 
-           <select name="" id="religion" class="form-control form-control-lg">
+           <select name="" id="religion" class="form-control form-control-lg" formControlName="religion">
                <option value="" selected> select status</option>
            </select>
         </div>
 
-       
-
       </div>
+
 
       <div class="form-row mb-5">
 
         <div class="  ">
             <label for="nationality" class="fw-6">Nationality <span class="text-danger">*</span></label>
 
-           <select name="" id="nationality" class="form-control form-control-lg">
+           <select name="" id="nationality" class="form-control form-control-lg" formControlName="nationality" (change)="getState($event.target.value)">
                <option value="" selected> select </option>
+               <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
+
            </select>
           </div>
 
         <div class=" ">
             <label for="origin" class="fw-6">State of origin <span class="text-danger">*</span></label>
 
-           <select name="" id="origin" class="form-control form-control-lg">
+           <select name="" id="origin" class="form-control form-control-lg" formControlName="state">
                <option value="" selected> select </option>
+               <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
+
            </select>
         </div>
 
@@ -148,17 +121,22 @@
         <div class="  ">
             <label for="nationality" class="fw-6">Local Government <span class="text-danger">*</span></label>
 
-           <select name="" id="nationality" class="form-control form-control-lg">
+           <select name="" id="nationality" class="form-control form-control-lg" formControlName="lga">
                <option value="" selected> select </option>
            </select>
           </div>
 
-        <div class=" ">
-            <label for="origin" class="fw-6">State of origin <span class="text-danger">*</span></label>
-
-           <select name="" id="origin" class="form-control form-control-lg">
-               <option value="" selected> select </option>
-           </select>
+        <div class="d-flex align-items-end ">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="status" (change)="getStatus($event.target.checked)">
+            <label class="custom-control-label" for="customSwitch1" *ngIf = "toggleState === false; then inactive; else active;"   > {{toggleState}} </label>
+              <ng-template #active>
+                <label class="custom-control-label" for="customSwitch1" >Active </label>
+              </ng-template>
+              <ng-template #inactive>
+                <label class="custom-control-label" for="customSwitch1" > Inactive </label>
+              </ng-template>
+        </div>
         </div>
 
        

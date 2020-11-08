@@ -1,7 +1,5 @@
 import { ThrowStmt } from '@angular/compiler';
 import { AfterViewInit, Component, ContentChild, OnInit, ViewChild } from '@angular/core';
-import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-import { PersonalInformationComponent } from './personal-information/personal-information.component';
 
 @Component({
   selector: 'app-employee',
@@ -33,7 +31,7 @@ export class EmployeeComponent implements OnInit {
     const progress = document.getElementById('progress');
     // this.currentStep.classList.add('active');
 
-    for (let index = 1; index < 6; index++) {
+    for (let index = 1; index < 9; index++) {
       if (index < step) {
         progress.style.width = `${this.progress }px`;
       }  else if (index > step) {

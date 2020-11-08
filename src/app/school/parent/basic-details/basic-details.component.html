@@ -1,17 +1,21 @@
 <div class="basic-details">
-    <form >
+    <form [formGroup]="basicDetailsForm" >
         <div class="row mb-4">
             <div class="col-md-6">
                 <label for="title" class="fw-6">Title <span class="text-danger">*</span></label>
-                <select name="" id="title" class="form-control form-control-lg">
-                    <option value="mr">Mr</option>
+                <select name="" id="title" class="form-control form-control-lg" formControlName="title">
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Miss">Miss</option>
+                    <option value="Prof">Prof</option>
+                    <option value="Dr">Dr</option>
                 </select>
             </div>
             <div class="col-md-6 ">
                 <label for="fname" class="fw-6">First Name <span
                         class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-lg" placeholder="Last name"
-                    id="fname">
+                    id="fname" formControlName="contactFirstName">
             </div>
         </div>
     
@@ -20,12 +24,12 @@
                 <label for="lname" class="fw-6">Last Name <span
                         class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-lg" placeholder="Last name"
-                    id="lname">
+                    id="lname" formControlName="contactLastName">
             </div>
             <div class="col-md-6 ">
                 <label for="others" class="fw-6">Other Name </label>
                 <input type="text" class="form-control form-control-lg"
-                    placeholder="Enter other name" id="others">
+                    placeholder="Enter other name" id="others" formControlName="contactOtherName">
             </div>
         </div>
     
@@ -33,55 +37,51 @@
         <div class="row mb-4">
             <div class="col-md-6">
                 <label for="sex" class="fw-6">Sex <span class="text-danger">*</span> </label>
-                <select name="" id="sex" class="form-control form-control-lg">
+                <select name="" id="sex" class="form-control form-control-lg" formControlName="sex">
                     <option value="sex" selected>Sex</option>
+                    <option value="male" selected>Male</option>
+                    <option value="female" selected>Female</option>
                 </select>
             </div>
             <div class="col-md-6 ">
                 <label for="occupation" class="fw-6">Occupation</label>
                 <input type="text" class="form-control form-control-lg"
-                    placeholder="Civil Servant" id="occupation">
+                    placeholder="Civil Servant" id="occupation" formControlName="occupation">
             </div>
         </div>
     
     
         <div class="row mb-4">
-            <div class="col-md-6 ">
-                <label for="parent" class="fw-6">Photo <span
-                        class="text-danger">*</span></label>
-                <div class="flex-column">
-                    <img src="assets/images/svg/student-upload.svg" class="ml-3" alt="..." />
-                    <div class="add-image w-50 mt-2">
-                        <label for="addImage"> <img
-                                src="assets/images/svg/student-add-upload.svg" class="ml-3"
-                                alt="..." /> Change Image
-                            <input type="file" id="addImage" class="file-input">
-                        </label>
-                    </div>
-                    <p class="mb-0 fw-6 fs-14">Max size: 512kb</p>
-                </div>
-            </div>
+          
     
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="religion" class="fw-6">Mode of Identification <span
                             class="text-danger">*</span> </label>
-                    <select name="" id="religion" class="form-control form-control-lg">
+                    <select name="" id="religion" class="form-control form-control-lg" formControlName="identification">
                         <option value="nimc" selected>National ID card</option>
                     </select>
                 </div>
-                <div class="mb-3">
+                
+                <div class="form-group my-3">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="getStatus($event.target.checked)" formControlName="status">
+                        <label class="custom-control-label" for="customSwitch1" *ngIf = "toggleState === false; then inactive; else active;" >{{toggleState}} </label>
+                        <ng-template #active>
+                            <label class="custom-control-label" for="customSwitch1" >Active </label>
+                          </ng-template>
+                          <ng-template #inactive>
+                            <label class="custom-control-label" for="customSwitch1" > Inactive </label>
+                          </ng-template>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
                     <label for="identity" class="fw-6">Identification Number <span
                             class="text-danger">*</span> </label>
                     <input type="text" class="form-control form-control-lg"
-                        placeholder="SE71627383836HGK" id="identity">
-                </div>
-                <div class="form-group my-3">
-                    <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                        <label class="custom-control-label" for="customSwitch1">Inactive</label>
-                    </div>
-                </div>
+                        placeholder="SE71627383836HGK" id="identity" formControlName="identificationNumber">
             </div>
         </div>
     </form>

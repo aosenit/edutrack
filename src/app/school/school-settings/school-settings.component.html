@@ -235,7 +235,11 @@
           </tr>
         </thead>
         <tbody>
+<<<<<<< HEAD
           <tr class="pb-1" *ngFor="let arm of classArms">
+=======
+          <tr class="pb-1" *ngFor = "let arm of classArm">
+>>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
             <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -243,6 +247,7 @@
               </div>
             </td>
             <td class="user">
+<<<<<<< HEAD
               <h6 class="fw-6 mb-0">{{arm.name}}</h6>
             </td>
             <td><span *ngIf="arm.status == true" class="status_active">Active</span>
@@ -251,6 +256,35 @@
           </tr>
 
 
+=======
+              <h6 class="fw-6 mb-0">{{arm?.name}} </h6>
+            </td>
+            <td>
+              <span  *ngIf="arm.status === false; then inactive; else active">{{arm?.status}}</span>
+              <ng-template #inactive>
+                <span class="status_inactive">
+                  Inactive
+                </span>
+              </ng-template>
+              <ng-template #active>
+                <span class="status_active">
+                  Active
+                </span>
+              </ng-template>
+            </td>
+            <td class="rounded-right ">
+              <img src="assets/images/svg/more-action.svg" alt="schools log"
+              class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+              <a class="dropdown-item" (click)="editClassArm(arm.id)" data-toggle="modal"
+              data-target="#exampleModalCenterArm" >Edit </a>
+              <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete </a>
+            </div>
+             </td>
+          </tr>
+>>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
 
 
 
@@ -470,6 +504,7 @@
 
       </div>
       <div class="modal-body client-modal">
+<<<<<<< HEAD
         <div class="form-group mb-4">
           <label for="level" class="">Level</label>
           <input type="text" id="level" class="form-control" placeholder="Enter level" [(ngModel)]="section">
@@ -484,6 +519,32 @@
           <div class="custom-control custom-switch">
             <input type="checkbox" class="custom-control-input" id="customSwitch1">
             <label class="custom-control-label" for="customSwitch1">Active</label>
+=======
+        <form [formGroup]="levelForm" (ngSubmit)="submitLevel()">
+
+
+          <div class="form-group mb-4">
+            <label for="level" class="">Level</label>
+            <input type="text" id="level" class="form-control" placeholder="Enter level" formControlName="name">
+          </div>
+          <div class="form-group mb-5">
+            <label for="sequence" class="">Sequence</label>
+            <select name="" id="sequence" class="form-control" formControlName="sequence">
+              <option value="">Select</option>
+            </select>
+          </div>
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="status" (change)="getStatus($event.target.checked)" >
+              <label class="custom-control-label" for="customSwitch1" *ngIf = "toggleState === false; then inactive; else active;"   > {{toggleState}} </label>
+              <ng-template #active>
+                <label class="custom-control-label" for="customSwitch1" >Active </label>
+              </ng-template>
+              <ng-template #inactive>
+                <label class="custom-control-label" for="customSwitch1" > Inactive </label>
+              </ng-template>
+            </div>
+>>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
           </div>
         </div>
         <div class="d-flex justify-content-center mb-3">
@@ -530,21 +591,37 @@
           </div>
           <div class="form-group mb-4">
             <label for="arm" class="">Arm <span class="text-danger">*</span></label>
+<<<<<<< HEAD
             <select name="" id="level" class="form-control" [(ngModel)]="classArm" required>
               <option *ngFor="let arm of classArms" value="{{arm.id}}">{{arm.name}}</option>
             </select>
+=======
+
+            <div *ngFor="let arm of classArm">
+              <label for="class1" class="class-label w-25"> {{arm.name}}</label>
+              <input type="checkbox" id="class1" name="class" value="{{arm.name}}" (click)="getValue($event.target.value)" >
+            </div>
+            
+>>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
 
           </div>
           <!-- <div class="form-group mb-5">
             <label for="sequence" class="">Sequence</label>
             <select name="" id="sequence" class="form-control">
-              <option value="">Select</option>
+              <option value="" selected>Select</option>
+              <option value="1">1</option>
             </select>
           </div> -->
           <!-- <div class="form-group custom mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch2">
-              <label class="custom-control-label" for="customSwitch2">Active</label>
+              <input type="checkbox" class="custom-control-input" id="customSwitch2" (change)="getStatus($event.target.checked)">
+              <label class="custom-control-label" for="customSwitch2" *ngIf = "toggleState === false; then inactive; else active;"   > {{toggleState}} </label>
+              <ng-template #active>
+                <label class="custom-control-label" for="customSwitch2" >Active </label>
+              </ng-template>
+              <ng-template #inactive>
+                <label class="custom-control-label" for="customSwitch2" > Inactive </label>
+              </ng-template>
             </div>
           </div> -->
 
@@ -574,8 +651,12 @@
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Class Arm</h6>
+<<<<<<< HEAD
           <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
             class="close">
+=======
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal" aria-label="Close" class="close">
+>>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
 
         </div>
 
@@ -591,9 +672,20 @@
 
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
+<<<<<<< HEAD
               <input type="checkbox" class="custom-control-input" id="customSwitch3"
                 (change)="getStatus($event.target.checked)" formControlName="status">
               <label class="custom-control-label" for="customSwitch3">Active</label>
+=======
+              <input type="checkbox" class="custom-control-input" id="customSwitch3" (change)="getStatus($event.target.checked)" formControlName="status">
+              <label class="custom-control-label" for="customSwitch3" *ngIf = "toggleState === false; then inactive; else active;"   > {{toggleState}} </label>
+              <ng-template #active>
+                <label class="custom-control-label" for="customSwitch3" >Active </label>
+              </ng-template>
+              <ng-template #inactive>
+                <label class="custom-control-label" for="customSwitch3" > Inactive </label>
+              </ng-template>
+>>>>>>> be6b64c9f40fbee927e9c39e1eb6942e4e05ab83
             </div>
           </div>
 

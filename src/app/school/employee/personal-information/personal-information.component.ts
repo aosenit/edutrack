@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { countries } from '../../../../services/utils/country.json';
 
 @Component({
   selector: 'app-personal-information',
@@ -9,19 +11,44 @@ import { EmployeeComponent } from '../employee.component';
 export class PersonalInformationComponent implements OnInit {
 
   @Output() sendChildName = new EventEmitter<string>();
-  iconname = null;
+  countries: any = countries;
+  states: any[];
 
-  constructor(private home: EmployeeComponent) { }
+  iconname = null;
+  personalDetailsForm: FormGroup;
+  toggleState: any;
+  constructor(private home: EmployeeComponent, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.sendChildName.emit('Personal Information');
+    this.populatePersonalDataForm();
+  }
+
+
+  populatePersonalDataForm() {
+    this.personalDetailsForm = this.fb.group({
+      contactFirstName: ['', Validators.required],
+      ContactLastName: ['', Validators.required],
+      ContactOtherName: ['', Validators.required],
+      dob: ['', Validators.required],
+      sex: [''],
+      maritalStatus: ['', Validators.required],
+      bloodGroup: ['', Validators.required],
+      religion: ['', Validators.required],
+      nationality: ['', Validators.required],
+      state: ['', Validators.required],
+      lga: ['', Validators.required],
+      status: ['']
+    });
   }
 
 
 
   nextStep() {
     this.home.stepper(2);
+    sessionStorage.setItem('Personal-Data', JSON.stringify(this.personalDetailsForm.value));
   }
+
 
   // handleIconUpload(event: any) {
   //   if (event.target.files.length > 0) {
@@ -34,5 +61,29 @@ export class PersonalInformationComponent implements OnInit {
   // }
 
 
+  submitPersonalDetails() {
+    console.log(this.personalDetailsForm.value);
+    sessionStorage.setItem('personal-data', JSON.stringify(this.personalDetailsForm.value));
+  }
+
+  getState(event) {
+    for (const unit in countries) {
+        if (event === countries[unit].country) {
+          const state = countries[unit].states;
+          this.states = state;
+        }
+      }
+
+    }
+
+  getStatus(event) {
+    if (event === true) {
+      this.toggleState = true;
+    } else {
+      this.toggleState = false;
+
+    }
+
+  }
 
 }

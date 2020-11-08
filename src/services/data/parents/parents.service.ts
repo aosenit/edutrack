@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  addparent: '/Parent/AddNewParent  ',
-  getallparent: '/Parent/GetAllParents',
-  getparentbyid: 'Parent/GetParentById',
-  getstudentparent: 'Parent/GetParentsForStudent',
-  updateparentbyid: 'Parent/UpdateParent ',
-  deleteparent: 'Parent/DeleteParent'
+  addparent: 'schtrack-auth/api/v1/Parent/AddNewParent  ',
+  getallparent: 'schtrack-auth/api/v1/Parent/GetAllParents',
+  getparentbyid: 'schtrack-auth/api/v1/Parent/GetParentById',
+  getstudentparent: 'schtrack-auth/api/v1/Parent/GetParentsForStudent',
+  updateparentbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
+  deleteparent: 'schtrack-auth/api/v1/Parent/DeleteParent'
 };
 
 @Injectable({
@@ -20,8 +20,28 @@ export class ParentsService {
   constructor(private http: HttpClient) { }
 
   addParent(createParentForm) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const formData = new FormData();
+    formData.append('address', createParentForm.address);
+    formData.append('altPhone', createParentForm.altPhone);
+    formData.append('contactAltEmail', createParentForm.contactAltEmail);
+    formData.append('contactEmail', createParentForm.contactEmail);
+    formData.append('contactFirstName', createParentForm.contactFirstName);
+    formData.append('contactLastName', createParentForm.contactLastName);
+    formData.append('contactOtherName', createParentForm.contactOtherName);
+    formData.append('identification', createParentForm.identification);
+    formData.append('identificationNumber', createParentForm.identificationNumber);
+    formData.append('myPhone', createParentForm.myPhone);
+    formData.append('occupation', createParentForm.occupation);
+    formData.append('officeAddress', createParentForm.officeAddress);
+    formData.append('Files', createParentForm.profileImage);
+    createParentForm.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
+    formData.append('sex', createParentForm.sex);
+    formData.append('status', createParentForm.status);
+    formData.append('title', createParentForm.title);
     const url = `${this.baseUrl + routes.addparent}`;
-    return this.http.post(url, createParentForm);
+    return this.http.post(url, formData, { headers: { tenantId } });
   }
 
   getAllParents() {

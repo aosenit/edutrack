@@ -13,7 +13,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 export class ProfileInformationComponent implements OnInit {
   profileForm: FormGroup;
   profileInfo: any;
-
+  id: any;
   constructor(
      private home: CreateClientComponent,
      private route: ActivatedRoute,
@@ -23,6 +23,9 @@ export class ProfileInformationComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.params.id;
+    console.log('page id', this.id);
+
     this.createProfileForm();
     this.route.params.subscribe((param: Params) => {
       if (!param.id) {
@@ -51,10 +54,10 @@ export class ProfileInformationComponent implements OnInit {
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('client-info'));
-    this.populateProfileForm(payload);
+    this.populateEditProfileForm(payload);
   }
 
-  populateProfileForm(payload: any) {
+  populateEditProfileForm(payload: any) {
     this.profileForm = this.fb.group({
       Name: payload.name,
       DomainName: payload.domainName,
@@ -69,4 +72,8 @@ export class ProfileInformationComponent implements OnInit {
   //   });
   //   return formData;
   // }
+
+  back() {
+    window.history.back();
+  }
 }

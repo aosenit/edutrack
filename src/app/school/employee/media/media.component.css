@@ -1,0 +1,51 @@
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 7rem;
+}
+
+h6 {
+    font-weight: bold;
+    font-weight: 600;
+}
+
+form .form-control, .custom-file-input {
+    /* padding: 1.37rem .75rem; */
+    color: #000000;
+    font-size: 16px;
+    border: 1px solid #D1D9DF;
+}
+
+p {
+    color: #000000;
+    font-size: 14px;
+}
+
+#customFile .custom-file-control:lang(en)::after {
+    content: "Select file...";
+}
+
+.custom-file-label::after {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 0;
+    z-index: 3;
+    display: block;
+    padding: 10px 15px;
+    height: 25px 25px;
+    line-height: 1.5;
+    color: #355691;
+    content: "Upload";
+    background: #E5EBF5;
+    border-radius: 3px;
+    border-left: inherit;
+    /* border-radius: 0 .25rem .25rem 0; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+}
+
+

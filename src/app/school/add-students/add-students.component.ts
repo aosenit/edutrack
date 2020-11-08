@@ -21,7 +21,7 @@ export class AddStudentsComponent implements OnInit {
     this.currentStep = document.getElementById('step-' + step);
     this.currentStep.classList.add('active');
 
-    for (let index = 1; index < 4; index++) {
+    for (let index = 1; index < 5; index++) {
       if (index < step) {
       }  else if (index > step) {
         // document.getElementById('button-' + index).innerHTML = '' + index;

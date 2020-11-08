@@ -13,7 +13,6 @@ export class ParentComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('hello');
   }
 
 
@@ -22,7 +21,7 @@ export class ParentComponent implements OnInit {
     this.currentStep = document.getElementById('step-' + step);
     this.currentStep.classList.add('active');
 
-    for (let index = 1; index < 2; index++) {
+    for (let index = 1; index < 3; index++) {
       if (index < step) {
       }  else if (index > step) {
         // document.getElementById('button-' + index).innerHTML = '' + index;

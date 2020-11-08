@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ParentComponent } from '../parent.component';
 
 @Component({
   selector: 'app-social-details',
@@ -7,16 +8,19 @@ import {FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./social-details.component.css']
 })
 export class SocialDetailsComponent implements OnInit {
-  basicDetailsForm: FormGroup;
-
-  constructor(private fb: FormBuilder) { }
+  socialDetailsForm: FormGroup;
+  submitted = false;
+  constructor(
+              private fb: FormBuilder,
+              private home: ParentComponent
+              ) { }
 
   ngOnInit() {
-    this.basicDetailsForm = this.fb.group({
+    this.socialDetailsForm = this.fb.group({
       myPhone: ['', Validators.required],
-      altPhone: ['', Validators.required],
-      contactEmail: ['', Validators.required],
-      contactAltEmail: ['', Validators.required],
+      altPhone: [''],
+      contactEmail: ['', [Validators.required, Validators.email]],
+      contactAltEmail: ['' ],
       address: ['', Validators.required],
       officeAddress: ['', Validators.required],
 
@@ -26,5 +30,11 @@ export class SocialDetailsComponent implements OnInit {
   close() {
     window.close();
   }
+
+  nextStep() {
+    this.home.stepper(3);
+    sessionStorage.setItem('parent-social-details', JSON.stringify(this.socialDetailsForm.value));
+  }
+
 
 }

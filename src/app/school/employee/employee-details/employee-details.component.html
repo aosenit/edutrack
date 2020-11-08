@@ -1,17 +1,21 @@
 <div class="basic-details">
 
-    <form >
+    <form [formGroup]="employeeForm"  >
       <div class="form-row mb-5 ">
         <div class=" ">
           <label for="staff" class="fw-6">Staff Type <span class="text-danger">*</span></label>
-          <select name="" id="staff" class="form-control form-control-lg">
+          <select name="" id="staff" class="form-control form-control-lg" formControlName="staffType">
             <option value="" selected> select</option>
+            <option value="academic" > Academic Staff</option>
+            <option value="non-academic" > Non Academic Staff</option>
         </select>
         </div>
         <div class=" ">
           <label for="status" class="fw-6">Employment Status <span class="text-danger">*</span></label>
-          <select name="" id="status" class="form-control form-control-lg">
+          <select name="" id="status" class="form-control form-control-lg" formControlName="employementStatus">
             <option value="" selected> select </option>
+            <option value="full-time" > Full Time </option>
+            <option value="part-time" > Part Time </option>
         </select>
         </div>
 
@@ -21,7 +25,7 @@
         
         <div class="  ">
           <label for="qualification" class="fw-6">Highest Qualification <span class="text-danger">*</span></label>
-          <select name="" id="qualification" class="form-control form-control-lg">
+          <select name="" id="qualification" class="form-control form-control-lg" formControlName="qualification">
             <option value="" selected> select </option>
         </select>
          
@@ -31,7 +35,7 @@
             <label for="job-title" class="fw-6">Job Title <span class="text-danger">*</span></label>
             <input type="text" class="form-control form-control-lg" 
             id="job-title" 
-            placeholder="Enter other names" formControlName="WebsiteAddress" required>
+            placeholder="Enter other names" formControlName="jobTitle" required>
         </div>
       </div>
 
@@ -40,7 +44,7 @@
         <div class="  ">
           <label for="department" class="fw-6">Department <span class="text-danger">*</span></label>
 
-          <select name="" id="department" class="form-control form-control-lg">
+          <select name="" id="department" class="form-control form-control-lg" formControlName="department">
             <option value="" selected> select </option>
         </select>
         </div>
@@ -48,7 +52,7 @@
         <div class=" ">
             <label for="pay" class="fw-6">Pay Grade <span class="text-danger">*</span></label>
 
-           <select name="" id="pay" class="form-control form-control-lg">
+           <select name="" id="pay" class="form-control form-control-lg" formControlName="payGrade">
                <option value="" selected> select</option>
            </select>
         </div>
@@ -59,12 +63,12 @@
         <div class=" ">
             <label for="empdate" class="fw-6">Employment Date <span class="text-danger">*</span></label>
 
-          <input type="date" id="empdate" class="form-control form-control-lg">
+          <input type="date" id="empdate" class="form-control form-control-lg" formControlName="employementDate">
         </div>
 
         <div class="  ">
           <label for="icon" class="fw-6">Resumption Date</label>
-          <input type="date" id="empdate" class="form-control form-control-lg">
+          <input type="date" id="empdate" class="form-control form-control-lg" formControlName="resumptionDate">
 
           </div>
 

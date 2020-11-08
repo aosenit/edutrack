@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  addstudent: '/Student/AddStudent',
-  getallstudent: '/Student/GetAllStudent',
+  addstudent: 'schtrack-auth/api/v1/Student/AddStudent',
+  getallstudent: 'schtrack-auth/api/v1/Student/GetAllStudent',
   getstudentbyid: 'Student/GetStudentById',
   updatestudentbyid: 'Student/UpdateStudent',
   deletestudent: 'Student/DeleteStudent'
@@ -19,8 +19,44 @@ export class StudentService {
   constructor(private http: HttpClient) { }
 
   addStudent(studentForm) {
+    const tenantId = '1';
+
+    const body = new FormData();
+    body.append('ContactFirstName', studentForm.ContactFirstName);
+    body.append('ContactLastName', studentForm.ContactLastName);
+    body.append('ContactOtherName', studentForm.ContactOtherName);
+    body.append('address', studentForm.address);
+    body.append('admissionDate', studentForm.admissionDate);
+    body.append('age', studentForm.age);
+    body.append('allergies', studentForm.allergies);
+    body.append('bloodGroup', studentForm.bloodGroup);
+    body.append('city', studentForm.city);
+    body.append('contactEmail', studentForm.contactEmail);
+    body.append('contactPhoneNumber', studentForm.contactPhoneNumber);
+    body.append('country', studentForm.country);
+    body.append('date', studentForm.date);
+    body.append('disability', studentForm.disability);
+    body.append('dob', studentForm.dob);
+    body.append('entryType', studentForm.entryType);
+    body.append('genotype', studentForm.genotype);
+    body.append('immunization', studentForm.immunization);
+    body.append('level', studentForm.level);
+    body.append('lga', studentForm.lga);
+    body.append('motherName', studentForm.motherName);
+    body.append('nationality', studentForm.nationality);
+    body.append('note', studentForm.note);
+    body.append('parents', studentForm.parents);
+    body.append('profilePhoto', studentForm.profilePhoto);
+    studentForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
+    body.append('religion', studentForm.religion);
+    body.append('sex', studentForm.sex);
+    body.append('state', studentForm.state);
+    body.append('studentClass', studentForm.studentClass);
+    body.append('studentType', studentForm.studentType);
+    body.append('transportRoute', studentForm.transportRoute);
+    body.append('vaccine', studentForm.vaccine);
     const url = `${this.baseUrl + routes.addstudent}`;
-    return this.http.post(url, studentForm);
+    return this.http.post(url, body, { headers: { tenantId } });
   }
 
   getAllStudents() {

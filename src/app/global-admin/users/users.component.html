@@ -69,7 +69,10 @@
                 <tbody>
                 <tr class="pb-1" *ngFor="let admin of adminList">
                     <td scope="row" class="user rounded-left">
-                    <span><img src="data:image/png;base64,{{admin?.image}}" alt="schools log" class="mr-3 image-rounded">
+                    <span>
+                        <!-- <img src="data:image/png;base64,{{admin?.image}}" alt="schools log" class="mr-3 image-rounded"> -->
+                        <img [src]="' data:image/png;base64, ' + admin?.logo | trustedUrl" alt="schools log" class="mr-3 image-rounded">
+                        
                     </span>
                     <div>
                         <h6 class="fw-6">{{admin?.firstName}} </h6>
@@ -236,7 +239,7 @@
                 more than 5000 records at a time, use a .csv file.</p>
             </div>
 
-            <a class="mb-5 download" href="assets/SchoolTrackBulkUpload.xlsx" download="SchoolTrack Bulk Upload">Click
+            <a class="mb-5 download" href="assets/admin Bulkupload.xlsx" download="SchoolTrack Bulk Upload">Click
                 <span class="download fc-lblue">here</span> to download sample file</a>
 
 
