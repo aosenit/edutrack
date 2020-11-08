@@ -47,7 +47,7 @@
   <div class="d-flex">
     <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
     <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
-    data-target="#exampleModalCenterSubject"> Add New </button>
+      data-target="#exampleModalCenterSubject"> Add New </button>
   </div>
 
 
@@ -143,7 +143,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="pb-1">
+          
+
+          <tr class="pb-1" *ngFor="let level of levels">
             <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -151,62 +153,14 @@
               </div>
             </td>
             <td class="user">
-              <h6 class="fw-6 mb-0">Daycare </h6>
+              <h6 class="fw-6 mb-0">{{level.name}} </h6>
             </td>
             <td class="">1</td>
             <td><span class="status_active">Active</span></td>
             <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
           </tr>
 
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-left">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td>
-            <td class="user">
-              <h6 class="fw-6 mb-0">Kindergaten </h6>
-            </td>
-            <td class="">1</td>
-            <td><span class="status_active">Active</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-left">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td>
-            <td class="user">
-              <h6 class="fw-6 mb-0">Nursery </h6>
-            </td>
-            <td class="">1</td>
-            <td><span class="status_active">Active</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-right">
-
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td>
-            <td class="user">
-              <h6 class="fw-6 mb-0">Primary </h6>
-            </td>
-            <td class="">1</td>
-            <td><span class="status_active">Active</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-
-
+          
 
         </tbody>
       </table>
@@ -227,14 +181,14 @@
             </th>
             <th scope="col">Class <img src="assets/images/svg/table-sort.svg"> </th>
             <th scope="col">Level <img src="assets/images/svg/table-sort.svg"> </th>
-            <th scope="col" class="text-center">Sequence <img src="assets/images/svg/table-sort.svg"> </th>
+            <th scope="col" class="text-center">Arm <img src="assets/images/svg/table-sort.svg"> </th>
 
-            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>
+            <!-- <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th> -->
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr class="pb-1">
+          <tr class="pb-1" *ngFor="let class of classes">
             <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -242,84 +196,21 @@
               </div>
             </td>
             <td class="user">
-              <h6 class="fw-6 mb-0">JSS 1 B </h6>
+              <h6 class="fw-6 mb-0">{{class.name}}</h6>
             </td>
-            <td class="">Secondary</td>
-            <td class="text-center">1</td>
-            <td><span class="status_active">Active</span></td>
+            <td class="">
+              <span *ngIf="class.classSection">{{class.classSection}}</span>
+              <span *ngIf="class.classSection == null">NA</span>
+            </td>
+            <td class="text-center">
+              <span *ngIf="class.classGroup">{{class.classGroup}}</span>
+              <span *ngIf="class.classGroup == null">NA</span>
+            </td>
+            <!-- <td><span class="status_active">Active</span></td> -->
             <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
           </tr>
 
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-left">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td>
-            <td class="user">
-              <h6 class="fw-6 mb-0">Primary 1 B </h6>
-            </td>
-            <td class="">Primary</td>
-            <td class="text-center">2</td>
-            <td><span class="status_active">Active</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-left">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td>
-            <td class="user">
-              <h6 class="fw-6 mb-0">Nursery 1 Champion </h6>
-            </td>
-            <td class="">Nursery</td>
-            <td class="text-center">4</td>
-            <td><span class="status_active">Active</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-left">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td>
-            <td class="user">
-              <h6 class="fw-6 mb-0">Primary 2 </h6>
-            </td>
-            <td class="">Primary</td>
-            <td class="text-center">2</td>
-            <td><span class="status_inactive">Inactive</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-
-
-
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-right">
-
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td>
-            <td class="user">
-              <h6 class="fw-6 mb-0">SS 2 B </h6>
-            </td>
-            <td class="">Secondary</td>
-            <td class="text-center">1</td>
-            <td><span class="status_active">Active</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-
-
+          
 
         </tbody>
       </table>
@@ -344,7 +235,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="pb-1" *ngFor = "let arm of classArm">
+          <tr class="pb-1" *ngFor="let arm of classArms">
             <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -352,33 +243,24 @@
               </div>
             </td>
             <td class="user">
-              <h6 class="fw-6 mb-0">{{arm?.name}} </h6>
+              <h6 class="fw-6 mb-0">{{arm.name}}</h6>
             </td>
-            <td>
-              <span  *ngIf="arm.status === false; then inactive; else active">{{arm?.status}}</span>
-              <ng-template #inactive>
-                <span class="status_inactive">
-                  Inactive
-                </span>
-              </ng-template>
-              <ng-template #active>
-                <span class="status_active">
-                  Active
-                </span>
-              </ng-template>
-            </td>
-            <td class="rounded-right ">
-              <img src="assets/images/svg/more-action.svg" alt="schools log"
-              class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              <!-- ================ DROPDOWN ==================== -->
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-              <a class="dropdown-item" (click)="editClassArm(arm.id)" data-toggle="modal"
-              data-target="#exampleModalCenterArm" >Edit </a>
-              <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete </a>
-            </div>
-             </td>
+            <td><span *ngIf="arm.status == true" class="status_active">Active</span>
+              <span *ngIf="arm.status == false" class="status_inactive">Inactive</span></td>
+              <td class="rounded-right ">
+                <img src="assets/images/svg/more-action.svg" alt="schools log"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                <a class="dropdown-item"  data-toggle="modal"
+                data-target="#exampleModalCenterArm" >Edit </a>
+                <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete </a>
+              </div>
+               </td>
           </tr>
+
+
 
 
 
@@ -591,44 +473,33 @@
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Level</h6>
-          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
 
         </div>
 
       </div>
       <div class="modal-body client-modal">
-        <form [formGroup]="levelForm" (ngSubmit)="submitLevel()">
-
-
-          <div class="form-group mb-4">
-            <label for="level" class="">Level</label>
-            <input type="text" id="level" class="form-control" placeholder="Enter level" formControlName="name">
+        <div class="form-group mb-4">
+          <label for="level" class="">Level</label>
+          <input type="text" id="level" class="form-control" placeholder="Enter level" [(ngModel)]="section">
+        </div>
+        <!-- <div class="form-group mb-5">
+          <label for="sequence" class="">Sequence</label>
+          <select name="" id="sequence" class="form-control">
+            <option value="">Select</option>
+          </select>
+        </div> -->
+        <div class="form-group mb-5">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+            <label class="custom-control-label" for="customSwitch1">Active</label>
           </div>
-          <div class="form-group mb-5">
-            <label for="sequence" class="">Sequence</label>
-            <select name="" id="sequence" class="form-control" formControlName="sequence">
-              <option value="">Select</option>
-            </select>
-          </div>
-          <div class="form-group mb-5">
-            <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="status" (change)="getStatus($event.target.checked)" >
-              <label class="custom-control-label" for="customSwitch1" *ngIf = "toggleState === false; then inactive; else active;"   > {{toggleState}} </label>
-              <ng-template #active>
-                <label class="custom-control-label" for="customSwitch1" >Active </label>
-              </ng-template>
-              <ng-template #inactive>
-                <label class="custom-control-label" for="customSwitch1" > Inactive </label>
-              </ng-template>
-            </div>
-          </div>
-
-
-        </form>
+        </div>
         <div class="d-flex justify-content-center mb-3">
           <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
           </button>
-          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Level</button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="createSection()"> Add Level</button>
         </div>
       </div>
 
@@ -647,62 +518,55 @@
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Class</h6>
-          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
 
         </div>
 
       </div>
       <div class="modal-body client-modal">
-        <form>
+        <div >
 
 
           <div class="form-group mb-4">
             <label for="class" class="">Class <span class="text-danger">*</span> </label>
-            <input type="text" id="class" class="form-control" placeholder="Enter class">
+            <input type="text" id="class" class="form-control" placeholder="Enter class" [(ngModel)]="name" required>
           </div>
           <div class="form-group mb-4">
             <label for="level" class="">Level <span class="text-danger">*</span></label>
-            <select name="" id="level" class="form-control">
-              <option value="">Select</option>
+            <select name="" id="level" class="form-control" [(ngModel)]="classSection" required>
+              <option *ngFor="let level of levels" value="{{level.id}}">{{level.name}}</option>
             </select>
           </div>
           <div class="form-group mb-4">
             <label for="arm" class="">Arm <span class="text-danger">*</span></label>
-
-            <div *ngFor="let arm of classArm">
-              <label for="class1" class="class-label w-25"> {{arm.name}}</label>
-              <input type="checkbox" id="class1" name="class" value="{{arm.name}}" (click)="getValue($event.target.value)" >
-            </div>
-            
+            <select name="" id="level" class="form-control" [(ngModel)]="classArm" required>
+              <option *ngFor="let arm of classArms" value="{{arm.id}}">{{arm.name}}</option>
+            </select>
 
           </div>
-          <div class="form-group mb-5">
+          <!-- <div class="form-group mb-5">
             <label for="sequence" class="">Sequence</label>
             <select name="" id="sequence" class="form-control">
-              <option value="" selected>Select</option>
-              <option value="1">1</option>
+              <option value="">Select</option>
             </select>
-          </div>
-          <div class="form-group custom mb-5">
+          </div> -->
+          <!-- <div class="form-group custom mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch2" (change)="getStatus($event.target.checked)">
-              <label class="custom-control-label" for="customSwitch2" *ngIf = "toggleState === false; then inactive; else active;"   > {{toggleState}} </label>
-              <ng-template #active>
-                <label class="custom-control-label" for="customSwitch2" >Active </label>
-              </ng-template>
-              <ng-template #inactive>
-                <label class="custom-control-label" for="customSwitch2" > Inactive </label>
-              </ng-template>
+              <input type="checkbox" class="custom-control-input" id="customSwitch2">
+              <label class="custom-control-label" for="customSwitch2">Active</label>
             </div>
+          </div> -->
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="createNewClass()"> Add Class</button>
           </div>
-
-
-        </form>
-        <div class="d-flex justify-content-center mb-3">
-          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
-          </button>
-          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Class</button>
         </div>
+
       </div>
 
     </div>
@@ -720,7 +584,8 @@
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Class Arm</h6>
-          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal" aria-label="Close" class="close">
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
 
         </div>
 
@@ -749,7 +614,8 @@
 
 
           <div class="d-flex justify-content-center mb-3">
-            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
             </button>
             <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Class Arm</button>
           </div>
@@ -770,7 +636,8 @@
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Subject</h6>
-          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
 
         </div>
 
@@ -783,7 +650,7 @@
             <label for="class" class="">Subject <span class="text-danger">*</span> </label>
             <input type="text" id="class" class="form-control" placeholder="Enter class">
           </div>
-          
+
           <div class="form-group mb-4">
             <label for="arm" class="">Arm <span class="text-danger">*</span></label>
 
@@ -809,7 +676,7 @@
             </div> -->
 
           </div>
-          
+
           <div class="form-group custom mb-5">
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="customSwitch4">

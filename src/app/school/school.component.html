@@ -50,7 +50,7 @@
                 </a>
             </li>
             <li class="nav-item mb-2">
-                <a  href="#record-submenu" class="nav-link" [routerLinkActive]="['active']" data-toggle="collapse" aria-expanded="false"  >
+                <a  href="#record-submenu" class="nav-link" [ngClass]="{'active': studentActive.isActive || parentActive.isActive}" data-toggle="collapse" aria-expanded="false"  >
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M11.75 0V2.375H14.0938L11.75 0Z" fill="#94B3D1"/>
@@ -72,11 +72,11 @@
                 <ul class="collapse list-unstyled" id="record-submenu">
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="" [routerLink]="['/school/students']" [routerLinkActive]="['active']" class=""> Student</a>
+                        <a href="" [routerLink]="['/school/students']" routerLinkActive #studentActive="routerLinkActive" class=""> Student</a>
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/parents']"  [routerLinkActive]="['active']" class=""> Parent</a>
+                        <a href="#" [routerLink]="['/school/parents']"  routerLinkActive #parentActive="routerLinkActive" class=""> Parent</a>
                     </li>
                    
                     
@@ -84,7 +84,7 @@
                 </ul>
             </li>
             <li class="nav-item mb-2">
-                <a href="#academics-submenu" class="nav-link" [routerLinkActive]="['active']" data-toggle="collapse" aria-expanded="false">
+                <a href="#academics-submenu" class="nav-link" [ngClass]="{'active': teacherActive.isActive}"  data-toggle="collapse" aria-expanded="false">
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
@@ -114,7 +114,7 @@
                 <ul class="collapse list-unstyled" id="academics-submenu">
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="" [routerLink]="['/school/teacher']" [routerLinkActive]="['active']" class=""> Teachers</a>
+                        <a href="" [routerLink]="['/school/teacher']" routerLinkActive #teacherActive="routerLinkActive" class=""> Teachers</a>
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
@@ -130,7 +130,7 @@
                 </ul>
             </li>
             <li class="nav-item mb-2">
-                <a href="#schedule-submenu" class="nav-link"  [routerLinkActive]="['active']" data-toggle="collapse" aria-expanded="false">
+                <a href="#schedule-submenu" class="nav-link"  [ngClass]="{'active': timeActive.isActive || calendarActive.isActive}" data-toggle="collapse" aria-expanded="false">
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 8.80078H8V12.8008H12V8.80078Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -151,11 +151,11 @@
                 <ul class="collapse list-unstyled" id="schedule-submenu">
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="" [routerLink]="['/school/time-table']" [routerLinkActive]="['active']" class=""> Time table</a>
+                        <a href="" [routerLink]="['/school/time-table']" routerLinkActive #timeActive="routerLinkActive" class=""> Time table</a>
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/calendar']" [routerLinkActive]="['active']" > School Calendar</a>
+                        <a href="#" [routerLink]="['/school/calendar']" routerLinkActive #calendarActive="routerLinkActive" > School Calendar</a>
                     </li>
                     
                 </ul>
@@ -165,7 +165,7 @@
         <ul class="list-unstyled components">
 
             <li class="nav-item mb-2">
-                <a  href="#human-submenu" class="nav-link"  [routerLinkActive]="['active']" data-toggle="collapse" aria-expanded="false">
+                <a  href="#human-submenu" class="nav-link" [ngClass]="{'active': employeeActive.isActive}" data-toggle="collapse" aria-expanded="false">
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.667 7.33203C11.7737 7.33203 12.6603 6.4387 12.6603 5.33203C12.6603 4.22536 11.7737 3.33203 10.667 3.33203C9.56032 3.33203 8.66699 4.22536 8.66699 5.33203C8.66699 6.4387 9.56032 7.33203 10.667 7.33203ZM5.33366 7.33203C6.44033 7.33203 7.32699 6.4387 7.32699 5.33203C7.32699 4.22536 6.44033 3.33203 5.33366 3.33203C4.22699 3.33203 3.33366 4.22536 3.33366 5.33203C3.33366 6.4387 4.22699 7.33203 5.33366 7.33203ZM5.33366 8.66536C3.78033 8.66536 0.666992 9.44536 0.666992 10.9987V12.6654H10.0003V10.9987C10.0003 9.44536 6.88699 8.66536 5.33366 8.66536ZM10.667 8.66536C10.4737 8.66536 10.2537 8.6787 10.0203 8.6987C10.7937 9.2587 11.3337 10.012 11.3337 10.9987V12.6654H15.3337V10.9987C15.3337 9.44536 12.2203 8.66536 10.667 8.66536Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -184,7 +184,7 @@
                 <ul class="collapse list-unstyled" id="human-submenu">
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="" [routerLink]="['/school/employees']" [routerLinkActive]="['active']" class=""> Employees</a>
+                        <a href="" [routerLink]="['/school/employees']" routerLinkActive #employeeActive="routerLinkActive" class=""> Employees</a>
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
@@ -275,7 +275,7 @@
                 </a>
             </li>
             <li class="nav-item mb-2 ">
-                <a href="#setting-submenu" class="nav-link" [routerLinkActive]="['active']" data-toggle="collapse" aria-expanded="false" >
+                <a href="#setting-submenu" class="nav-link" [ngClass]="{'active': accountActive.isActive || settingsActive.isActive || personalActive.isActive || financeActive.isActive || facilityActive.isActive || schoolActive.isActive || resultActive.isActive || studentActive.isActive || payrollActive.isActive }" data-toggle="collapse" aria-expanded="false" >
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.7604 8.62556C12.7844 8.42556 12.8004 8.21756 12.8004 8.00156C12.8004 7.78556 12.7844 7.57756 12.7524 7.37756L14.1044 6.32156C14.2244 6.22556 14.2564 6.04956 14.1844 5.91356L12.9044 3.69756C12.8244 3.55356 12.6564 3.50556 12.5124 3.55356L10.9204 4.19356C10.5844 3.93756 10.2324 3.72956 9.8404 3.56956L9.6004 1.87356C9.5764 1.71356 9.4404 1.60156 9.2804 1.60156H6.7204C6.5604 1.60156 6.4324 1.71356 6.4084 1.87356L6.1684 3.56956C5.7764 3.72956 5.4164 3.94556 5.0884 4.19356L3.4964 3.55356C3.3524 3.49756 3.1844 3.55356 3.1044 3.69756L1.8244 5.91356C1.7444 6.05756 1.7764 6.22556 1.9044 6.32156L3.2564 7.37756C3.2244 7.57756 3.2004 7.79356 3.2004 8.00156C3.2004 8.20956 3.2164 8.42556 3.2484 8.62556L1.8964 9.68156C1.7764 9.77756 1.7444 9.95356 1.8164 10.0896L3.0964 12.3056C3.1764 12.4496 3.3444 12.4976 3.4884 12.4496L5.0804 11.8096C5.4164 12.0656 5.7684 12.2736 6.1604 12.4336L6.4004 14.1296C6.4324 14.2896 6.5604 14.4016 6.7204 14.4016H9.2804C9.4404 14.4016 9.5764 14.2896 9.5924 14.1296L9.8324 12.4336C10.2244 12.2736 10.5844 12.0576 10.9124 11.8096L12.5044 12.4496C12.6484 12.5056 12.8164 12.4496 12.8964 12.3056L14.1764 10.0896C14.2564 9.94556 14.2244 9.77756 14.0964 9.68156L12.7604 8.62556ZM8.0004 10.4016C6.6804 10.4016 5.6004 9.32156 5.6004 8.00156C5.6004 6.68156 6.6804 5.60156 8.0004 5.60156C9.3204 5.60156 10.4004 6.68156 10.4004 8.00156C10.4004 9.32156 9.3204 10.4016 8.0004 10.4016Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -293,40 +293,40 @@
                 <ul class="collapse list-unstyled" id="setting-submenu">
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/account-settings']" [routerLinkActive]="['active']"  class=""> Account</a>
+                        <a href="#" [routerLink]="['/school/account-settings']" routerLinkActive #accountActive="routerLinkActive"  class=""> Account</a>
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/school-settings']"  [routerLinkActive]="['active']" class=""> School Settings</a>
+                        <a href="#" [routerLink]="['/school/school-settings']"  routerLinkActive #settingsActive="routerLinkActive" class=""> School Settings</a>
                     </li>
                     
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#"  [routerLink]="['/school/personal-settings']" [routerLinkActive]="['active']"  class=""> Personal Settings</a>
+                        <a href="#"  [routerLink]="['/school/personal-settings']" routerLinkActive #personalActive="routerLinkActive"  class=""> Personal Settings</a>
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/finance-settings']" [routerLinkActive]="['active']"  class=""> Finance Settings</a>
+                        <a href="#" [routerLink]="['/school/finance-settings']" routerLinkActive #financeActive="routerLinkActive"  class=""> Finance Settings</a>
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/facility-settings']" [routerLinkActive]="['active']"  class=""> Facility Settings</a>
+                        <a href="#" [routerLink]="['/school/facility-settings']" routerLinkActive #facilityActive="routerLinkActive"  class=""> Facility Settings</a>
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/school-manager']" [routerLinkActive]="['active']" class=""> School Manager</a>
+                        <a href="#" [routerLink]="['/school/school-manager']" routerLinkActive #schoolActive="routerLinkActive" class=""> School Manager</a>
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/result-settings']" [routerLinkActive]="['active']" class=""> Result Settings</a>
+                        <a href="#" [routerLink]="['/school/result-settings']" routerLinkActive #resultActive="routerLinkActive" class=""> Result Settings</a>
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/student-settings']" [routerLinkActive]="['active']" class=""> Student Settings</a>
+                        <a href="#" [routerLink]="['/school/student-settings']" routerLinkActive #studentActive="routerLinkActive" class=""> Student Settings</a>
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/payroll-settings']" [routerLinkActive]="['active']" class=""> Payroll Settings</a>
+                        <a href="#" [routerLink]="['/school/payroll-settings']" routerLinkActive #payrollActive="routerLinkActive" class=""> Payroll Settings</a>
                     </li>
                     
 

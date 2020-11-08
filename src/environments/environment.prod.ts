@@ -4,4 +4,4 @@ export const environment = {
   serverUrl: 'http://13.88.13.159:58100/',
   demourl: 'http://b9302a0df897.ngrok.io/'
 
-};
+}; 

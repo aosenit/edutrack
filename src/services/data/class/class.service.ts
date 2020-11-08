@@ -23,9 +23,14 @@ export class ClassService {
 
   constructor(private http: HttpClient) { }
 
-  addParent(createNewClassForm) {
+  addClass(name, section, group) {
     const url = `${this.baseUrl + routes.addclass}`;
-    return this.http.post(url, createNewClassForm);
+    const body = new FormData()
+    body.append('name', name)
+    body.append('sectionId', section)
+    body.append('ClassArmId', group)
+    
+    return this.http.post(url, body);
   }
 
   addStudentsToClass(addStudentForm) {
@@ -44,8 +49,9 @@ export class ClassService {
   }
 
   getAllClasses() {
+    var tenantId = '1';
     const url = `${this.baseUrl + routes.getallclass}`;
-    return this.http.get(url);
+    return this.http.get(url, { headers: { tenantId } });
   }
 
   getClassById(id) {
