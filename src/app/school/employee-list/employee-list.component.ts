@@ -11,6 +11,8 @@ export class EmployeeListComponent implements OnInit {
 record = false;
 employeeList: any;
 employeeDetail: any;
+searchString: string;
+
   constructor(
               private staffService: StaffService,
               private notifyService: NotificationsService,

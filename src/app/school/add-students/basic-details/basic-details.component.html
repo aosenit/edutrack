@@ -1,4 +1,4 @@
-<div class="basic-details">
+ <div class="basic-details">
     <form [formGroup]="basicDetailsForm" >
         <div class="row mb-4">
             <div class="col-md-6">
@@ -47,24 +47,9 @@
     
     
         <div class="row mb-4">
-            <div class="col-md-6 ">
-                <label for="parent" class="fw-6">Photo <span
-                        class="text-danger">*</span></label>
-                <div class="flex-column">
-                    <img src="assets/images/svg/student-upload.svg" class="ml-3" alt="..." />
-                    <div class="add-image w-50 mt-2">
-                        <label for="addImage"> <img
-                                src="assets/images/svg/student-add-upload.svg" class="ml-3"
-                                alt="..." /> Change Image
-                            <input type="file" id="addImage" class="file-input">
-                        </label>
-                    </div>
-                    <p class="mb-0 fw-6 fs-14">Max size: 512kb</p>
-                </div>
-            </div>
+            
     
             <div class="col-md-6">
-                <div class="mb-3">
                     <label for="religion" class="fw-6">Religion <span
                             class="text-danger">*</span> </label>
                     <select name="" id="religion" class="form-control form-control-lg" formControlName="religion">
@@ -72,14 +57,17 @@
                         <option value="hristianity" selected>Christianity</option>
                         <option value="budhism" selected>Budhism</option>
                     </select>
-                </div>
+                
+            </div>
+            <div class="col-md-6">
                 <div class="mb-3">
                     <label for="nation" class="fw-6">Nationality <span
                             class="text-danger">*</span> </label>
-                    <select name="" id="nation" class="form-control form-control-lg" formControlName="nationality">
-                        <option value="nigeria" selected>Nigeria</option>
+                    <select name="" id="nation" class="form-control form-control-lg" formControlName="nationality" (change)="getState($event.target.value)">
+                        <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
                     </select>
                 </div>
+                
             </div>
         </div>
     
@@ -105,7 +93,8 @@
                     <label for="state" class="fw-6">State of Origin <span
                             class="text-danger">*</span> </label>
                     <select name="" id="state" class="form-control form-control-lg" formControlName="state">
-                        <option value="oyo" selected>Oyo</option>
+                        <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
+
                     </select>
                 </div>
                 <div class="mb-3">

@@ -43,7 +43,7 @@
                     <h6> Recent School</h6>
                     <p>See most recent subscriptions on the application</p>
                 </div>
-                <button class=" btn-see-all">See all</button>
+                <button class=" btn-see-all" routerLink="/admin/clients">See all</button>
             </div>
 
             <table class="table table-borderless">
@@ -56,7 +56,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor = "let school of registeredSchools">
+                  <tr *ngFor = "let school of registeredSchools | paginate: { itemsPerPage: 5 , currentPage: p }">
                     <th scope="row" class="logo">
                         <img src="assets/images/svg/school-victory.svg" alt="schools log" class="mr-3">
                         <p>{{school.name}}</p>

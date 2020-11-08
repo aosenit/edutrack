@@ -29,7 +29,7 @@
   <section class="search my-5">
     <div class="search__input has-search">
       <span class="fa fa-search form-control-feedback"></span>
-      <input type="text" class="form-control" placeholder="Search">
+      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
     </div>
     <div class="search__input">
       <form>
@@ -119,10 +119,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="pb-2" *ngFor="let client of clientList">
+        <tr class="pb-2" *ngFor="let client of clientList | tableSearch : 'name' : searchString | paginate: { itemsPerPage: 5, currentPage: p }">
           <td scope="row" class="school-logo rounded-left fc-lblue"> <span>
               <!-- <img class="" src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3 image-rounded" id=""> -->
-              <img class="" src="data:image/png;base64,{{client.logo}}" alt="schools log" class="mr-3 image-rounded" id="">
+              <img class="" [src]="' data:image/png;base64, ' + client?.logo | trustedUrl" alt="schools log" class="mr-3 image-rounded" id="">
               <!-- <img class="" *ngFor="let image of imagesrc" (load)="getImageID(client.logoId)" src="data:image/png;base64,{{iconSrc}}"alt="schools log" class="mr-3 image-rounded" id= "" > -->
 
             </span> {{client?.name}} <img src="assets/images/svg/verify.svg" alt="schools log">
@@ -182,13 +182,17 @@
 
       </tbody>
     </table>
+        <div class="d-flex justify-content-end">
+          <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
+        </div>
 
-    <!-- <div class="d-flex justify-content-center align-items-center">
-            <div>
-                <p>Sorry, no results found</p>
+    <div class="d-flex justify-content-center align-items-center" *ngIf="searchString ">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <img src="assets/images/svg/no-result.svg" alt="no search result" class="my-4">
+                <p class="mb-4 no-result">Sorry, no results found</p>
                 <button class="btn btn-outline-orange  mx-2 mx-lg-3" >Go back </button>
             </div>
-        </div> -->
+        </div>
 
   </section>
 </div>

@@ -11,6 +11,7 @@ export class BasicDetailsComponent implements OnInit {
 
   basicDetailsForm: FormGroup;
   toggleState = false;
+
   constructor(private home: ParentComponent, private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -24,7 +25,6 @@ export class BasicDetailsComponent implements OnInit {
       identification: ['', Validators.required],
       status: ['', Validators.required],
       identificationNumber: ['', Validators.required],
-      profileImage: null
 
     });
   }
@@ -43,4 +43,5 @@ export class BasicDetailsComponent implements OnInit {
     }
 
   }
+
 }

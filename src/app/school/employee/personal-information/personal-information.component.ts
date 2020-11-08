@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { countries } from '../../../../services/utils/country.json';
 
 @Component({
   selector: 'app-personal-information',
@@ -10,6 +11,8 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 export class PersonalInformationComponent implements OnInit {
 
   @Output() sendChildName = new EventEmitter<string>();
+  countries: any = countries;
+  states: any[];
 
   iconname = null;
   personalDetailsForm: FormGroup;
@@ -46,6 +49,7 @@ export class PersonalInformationComponent implements OnInit {
     sessionStorage.setItem('Personal-Data', JSON.stringify(this.personalDetailsForm.value));
   }
 
+
   // handleIconUpload(event: any) {
   //   if (event.target.files.length > 0) {
   //     const file = event.target.files[0];
@@ -61,6 +65,16 @@ export class PersonalInformationComponent implements OnInit {
     console.log(this.personalDetailsForm.value);
     sessionStorage.setItem('personal-data', JSON.stringify(this.personalDetailsForm.value));
   }
+
+  getState(event) {
+    for (const unit in countries) {
+        if (event === countries[unit].country) {
+          const state = countries[unit].states;
+          this.states = state;
+        }
+      }
+
+    }
 
   getStatus(event) {
     if (event === true) {

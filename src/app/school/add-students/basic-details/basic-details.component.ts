@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddStudentsComponent } from '../add-students.component';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { countries } from '../../../../services/utils/country.json';
 
 @Component({
   selector: 'app-basic-details',
@@ -8,7 +9,8 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./basic-details.component.css']
 })
 export class BasicDetailsComponent implements OnInit {
-
+  countries: any = countries;
+  states: any[];
   basicDetailsForm: FormGroup;
   constructor(private home: AddStudentsComponent, private fb: FormBuilder) { }
 
@@ -34,5 +36,15 @@ export class BasicDetailsComponent implements OnInit {
     this.home.stepper(2);
     sessionStorage.setItem('basic-details', JSON.stringify(this.basicDetailsForm.value));
   }
+
+  getState(event) {
+    for (const unit in countries) {
+        if (event === countries[unit].country) {
+          const state = countries[unit].states;
+          this.states = state;
+        }
+      }
+
+    }
 
 }

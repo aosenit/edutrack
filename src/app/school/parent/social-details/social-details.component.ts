@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ParentComponent } from '../parent.component';
 
 @Component({
   selector: 'app-social-details',
@@ -8,15 +9,18 @@ import {FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class SocialDetailsComponent implements OnInit {
   socialDetailsForm: FormGroup;
-
-  constructor(private fb: FormBuilder) { }
+  submitted = false;
+  constructor(
+              private fb: FormBuilder,
+              private home: ParentComponent
+              ) { }
 
   ngOnInit() {
     this.socialDetailsForm = this.fb.group({
       myPhone: ['', Validators.required],
-      altPhone: ['', Validators.required],
-      contactEmail: ['', Validators.required],
-      contactAltEmail: ['', Validators.required],
+      altPhone: [''],
+      contactEmail: ['', [Validators.required, Validators.email]],
+      contactAltEmail: ['' ],
       address: ['', Validators.required],
       officeAddress: ['', Validators.required],
 
@@ -27,13 +31,10 @@ export class SocialDetailsComponent implements OnInit {
     window.close();
   }
 
-  createParent() {
-    const basic = JSON.parse(sessionStorage.getItem('parent-basic-details'));
-    const social = this.socialDetailsForm.value;
-
-    const result = {...basic, ...social};
-
-    console.log(result);
+  nextStep() {
+    this.home.stepper(3);
+    sessionStorage.setItem('parent-social-details', JSON.stringify(this.socialDetailsForm.value));
   }
+
 
 }

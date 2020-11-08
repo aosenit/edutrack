@@ -21,6 +21,8 @@ tableImg: any;
 bulkUpload: FormGroup;
 filename = null;
 profileInfo: any;
+searchString: string;
+p: number;
 // DocumentTypes: number[] = [];
 
   constructor(

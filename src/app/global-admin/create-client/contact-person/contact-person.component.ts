@@ -19,7 +19,7 @@ export class ContactPersonComponent implements OnInit {
     this.contactPersonForm = this.fb.group({
       ContactFirstName : ['', Validators.required],
       ContactLastName: ['', Validators.required],
-      ContactPhoneNo: ['', [Validators.required]],
+      ContactPhoneNo: ['', [Validators.required, Validators.pattern('^[0-9]{0,11}$')]],
       ContactEmail: ['', [Validators.email, Validators.required]]
     });
     this.getProfileInformation();
