@@ -19,7 +19,7 @@ export class NotificationsComponent implements OnInit {
       }
     )
   }
-
+ 
   dismiss(){
     this.notify.dismissMessage()
   }

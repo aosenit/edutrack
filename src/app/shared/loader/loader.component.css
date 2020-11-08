@@ -178,6 +178,8 @@
 .avatar-lg {
   height: 30rem;
   width: 30rem;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
 
 
@@ -206,8 +208,15 @@
 }
 
 @keyframes wheelUp {
-    0%   { transform: translateY(0); }
-    30%  { transform: translateY(-100px); }
-    50%  { transform: translateY(0); }
-    100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-50px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }

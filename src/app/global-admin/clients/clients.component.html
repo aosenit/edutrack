@@ -48,7 +48,7 @@
     </div>
   </section>
 
-  <section class="list" >
+  <section class="list">
     <table class="table table-borderless client-table">
       <thead>
         <tr>
@@ -120,12 +120,24 @@
       </thead>
       <tbody>
         <tr class="pb-2" *ngFor="let client of clientList">
-          <td scope="row" class="school-logo rounded-left fc-lblue"> <span>
-              <!-- <img class="" src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3 image-rounded" id=""> -->
-              <img class="" src="data:image/png;base64,{{client.logo}}" alt="schools log" class="mr-3 image-rounded" id="">
-              <!-- <img class="" *ngFor="let image of imagesrc" (load)="getImageID(client.logoId)" src="data:image/png;base64,{{iconSrc}}"alt="schools log" class="mr-3 image-rounded" id= "" > -->
+          <td scope="row" class="school-logo rounded-left fc-lblue">
+            <div class="d-flex align-items-center">
+              <div>
+                <!-- <img class="" src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3 image-rounded" id=""> -->
+                <img class="" *ngIf="client.logo" src="data:image/png;base64,{{client.logo}}" alt="schools log"
+                  class="mr-3 image-rounded" id="">
+                <img class="" *ngIf="client.logo == null" src="assets/images/svg/companyalt.svg" alt="schools log"
+                  class="mr-3 image-rounded" id="">
+                <!-- <img class="" *ngFor="let image of imagesrc" (load)="getImageID(client.logoId)" src="data:image/png;base64,{{iconSrc}}"alt="schools log" class="mr-3 image-rounded" id= "" > -->
 
-            </span> {{client?.name}} <img src="assets/images/svg/verify.svg" alt="schools log">
+              </div>
+              <div>
+                {{client?.name}}
+              </div>
+              <div><img src="assets/images/svg/verify.svg" alt="schools log"></div>
+            </div>
+
+
           </td>
           <td class="" *ngIf="client?.clientCode === null">{{client?.clientCode}}</td>
           <td>{{client?.usersCount}}</td>
@@ -145,7 +157,7 @@
           </td>
           <td> {{client?.dateCreated | date: 'dd/MM/y'}} </td>
           <td class=" ">
-            <button class="btn btn-link link"><a  [routerLink]="['/admin','client', client?.id]">View Details
+            <button class="btn btn-link link"><a [routerLink]="['/admin','client', client?.id]">View Details
               </a></button>
           </td>
           <td class="rounded-right ">
@@ -157,10 +169,10 @@
 
             </div> -->
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonOptions">
-              <a class="dropdown-item "  (click)="editClient(client.id)" > Edit</a>
-                <a class="dropdown-item "  (click)="deleteClient(client.id)"> Delete</a>
-                
-              </div>
+              <a class="dropdown-item " (click)="editClient(client.id)"> Edit</a>
+              <a class="dropdown-item " (click)="deleteClient(client.id)"> Delete</a>
+
+            </div>
           </td>
         </tr>
 

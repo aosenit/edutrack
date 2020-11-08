@@ -198,6 +198,10 @@ form .form-control {
 }
 
 
+form select.form-control {
+    padding: unset;
+    color: #000000;
+}
 /* sms modal  */
 .modal-content {
     border-radius: 0 !important;

@@ -3,15 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  addclass: 'Class/AddClass',
-  addstudenttoclass: 'Class/AddStudentToClass',
-  assignSubjectToClass: 'Class/AssignSubjectToClass',
-  assignTeacherToClass: 'Class/AssignTeacherToClass ',
-  getallclass: 'Class/GetAllClasses ',
-  getclassbyid: 'Class/GetClassById',
-  getstudentclass: 'Class/GetClassByIdWithStudents',
-  updateclassbyid: 'Parent/UpdateParent ',
-  deleteclass: 'Class/UpdateClass'
+  addclass: 'schtrack-auth/api/v1/Class/AddClass',
+  addstudenttoclass: 'schtrack-auth/api/v1/Class/AddStudentToClass',
+  assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
+  assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
+  getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses ',
+  getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
+  getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
+  updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
+  deleteclass: 'schtrack-auth/api/v1/Class/UpdateClass'
 };
 
 
@@ -23,9 +23,14 @@ export class ClassService {
 
   constructor(private http: HttpClient) { }
 
-  addParent(createNewClassForm) {
+  addClass(name, section, group) {
     const url = `${this.baseUrl + routes.addclass}`;
-    return this.http.post(url, createNewClassForm);
+    const body = new FormData()
+    body.append('name', name)
+    body.append('sectionId', section)
+    body.append('ClassArmId', group)
+    
+    return this.http.post(url, body);
   }
 
   addStudentsToClass(addStudentForm) {
@@ -44,8 +49,9 @@ export class ClassService {
   }
 
   getAllClasses() {
+    var tenantId = '1';
     const url = `${this.baseUrl + routes.getallclass}`;
-    return this.http.get(url);
+    return this.http.get(url, { headers: { tenantId } });
   }
 
   getClassById(id) {
