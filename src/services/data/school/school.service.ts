@@ -21,10 +21,11 @@ export class SchoolService {
 
   constructor(private http: HttpClient) { }
   addSection(name) {
+    var tenantId = '1'
     const body = new FormData()
     body.append("name", name)
     
-    return this.http.post(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', body, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem("access_token") } })
+    return this.http.post(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', body, { headers: { tenantId } })
   }
   getSection() {
     var tenantId = '1'

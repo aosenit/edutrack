@@ -24,13 +24,14 @@ export class ClassService {
   constructor(private http: HttpClient) { }
 
   addClass(name, section, group) {
+    var tenantId = '1'
     const url = `${this.baseUrl + routes.addclass}`;
     const body = new FormData()
     body.append('name', name)
     body.append('sectionId', section)
     body.append('ClassArmId', group)
-    
-    return this.http.post(url, body);
+
+    return this.http.post(url, body, { headers: { tenantId } });
   }
 
   addStudentsToClass(addStudentForm) {

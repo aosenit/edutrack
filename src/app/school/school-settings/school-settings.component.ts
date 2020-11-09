@@ -112,7 +112,6 @@ export class SchoolSettingsComponent implements OnInit {
   createNewClass() {
     this.classSection = parseInt(this.classSection)
     this.classArm = parseInt(this.classArm)
-    console.log(this.classSection)
     this.classService.addClass(this.name, this.classSection, this.classArm).subscribe(data => {
       console.log(data);
       this.getClasses()
