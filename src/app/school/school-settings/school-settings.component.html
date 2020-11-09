@@ -247,7 +247,17 @@
             </td>
             <td><span *ngIf="arm.status == true" class="status_active">Active</span>
               <span *ngIf="arm.status == false" class="status_inactive">Inactive</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+              <td class="rounded-right ">
+                <img src="assets/images/svg/more-action.svg" alt="schools log"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                <a class="dropdown-item"  data-toggle="modal"
+                data-target="#exampleModalCenterArm" >Edit </a>
+                <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete </a>
+              </div>
+               </td>
           </tr>
 
 
@@ -591,9 +601,14 @@
 
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch3"
-                (change)="getStatus($event.target.checked)" formControlName="status">
-              <label class="custom-control-label" for="customSwitch3">Active</label>
+              <input type="checkbox" class="custom-control-input" id="customSwitch3" (change)="getStatus($event.target.checked)" formControlName="status">
+              <label class="custom-control-label" for="customSwitch3" *ngIf = "toggleState === false; then inactive; else active;"   > {{toggleState}} </label>
+              <ng-template #active>
+                <label class="custom-control-label" for="customSwitch3" >Active </label>
+              </ng-template>
+              <ng-template #inactive>
+                <label class="custom-control-label" for="customSwitch3" > Inactive </label>
+              </ng-template>
             </div>
           </div>
 

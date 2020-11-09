@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { ClassArmService } from 'src/services/data/class-arm/class-arm.service';
 import { ClassService } from 'src/services/data/class/class.service';
+import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 
 @Component({
@@ -24,17 +25,21 @@ export class SchoolSettingsComponent implements OnInit {
   section: any = '';
   classes: any;
   levels: any;
-  name: any = ''
-  classSection: any = ''
-  classArm: any = ''
+  name: any = '';
+  classSection: any = '';
+  classArm: any = '';
+  notifyService: any;
+  toggleState = false;
 
   constructor(
     private fb: FormBuilder,
     private notification: NotificationsService,
     private classArmService: ClassArmService,
     private schoolService: SchoolService,
+    private schoolSectionService: SchoolSectionService,
     private classService: ClassService
   ) { }
+
   ngOnInit() {
     this.classArmform = this.fb.group({
       name: ['', Validators.required],
@@ -47,8 +52,9 @@ export class SchoolSettingsComponent implements OnInit {
     });
 
     this.getClassArms();
-    this.getClasses()
-    this.getSections()
+    this.getClasses();
+    this.getSections();
+
   }
 
 
@@ -104,24 +110,40 @@ export class SchoolSettingsComponent implements OnInit {
 
   createClassArm() {
     console.log('class arm create', this.classArmform.value);
-    this.classArmService.addClassArm(this.classArmform.value).subscribe(data => {
+    this.classArmService.addClassArm( this.classArmform.value).subscribe((data: any) => {
       console.log(data);
-      this.getClassArms()
-    });
-  }
-  createNewClass() {
-    this.classSection = parseInt(this.classSection)
-    this.classArm = parseInt(this.classArm)
-    this.classService.addClass(this.name, this.classSection, this.classArm).subscribe(data => {
-      console.log(data);
-      this.getClasses()
+      this.notification.publishMessages(data.description, 'info', 1);
+      document.getElementById('close').click();
+      location.reload();
+    }, error => {
+      this.notification.publishMessages(error.errors, 'danger', 1);
     });
   }
 
+  createNewClass() {
+    this.classSection = parseInt(this.classSection);
+    this.classArm = parseInt(this.classArm);
+    console.log(this.classSection);
+    this.classService.addClass(this.name, this.classSection, this.classArm).subscribe(data => {
+      console.log(data);
+      this.getClasses();
+    });
+  }
+
+  // getStatus(event) {
+  //   console.log('status', event);
+  //   if (event === true) {
+  //     event.value = true;
+  //   }
+
+  // }
+
   getStatus(event) {
-    console.log('status', event);
     if (event === true) {
-      event.value = true;
+      this.toggleState = true;
+    } else {
+      this.toggleState = false;
+
     }
 
   }
@@ -129,6 +151,7 @@ export class SchoolSettingsComponent implements OnInit {
   getClassArms() {
     this.classArmService.getAllClassArm().subscribe((data: any) => {
       if (data.hasErrors === false) {
+        // tslint:disable-next-line:no-string-literal
         this.classArms = data['payload'];
       }
     });
@@ -136,29 +159,43 @@ export class SchoolSettingsComponent implements OnInit {
 
 
   createSection() {
-    this.schoolService.addSection(this.section).subscribe(
+    this.schoolSectionService.addSection(this.section).subscribe(
       res => {
-        this.notification.publishMessages('You have successfully added a section', 'info', 0)
-        this.getSections()
+        this.notification.publishMessages('You have successfully added a section', 'info', 0);
+        this.getSections();
       }
-    )
+    );
   }
   getSections() {
-    this.schoolService.getSection().subscribe(
+    this.schoolSectionService.getSection().subscribe(
       res => {
-        this.levels = res['payload']
+        // tslint:disable-next-line:no-string-literal
+        this.levels = res['payload'];
       }
-    )
+    );
   }
 
 
   getClasses() {
     this.classService.getAllClasses().subscribe(
       res => {
-        this.classes = res['payload']
-        // console.log('classes', res)
+        this.classes = res['payload'];
+        console.log('classes', res);
       }
-    )
+    );
   }
+
+  deleteArm(id) {
+    this.classArmService.deleteClassArm(id).subscribe( (data: any) => {
+      if (data.hasErrors === false) {
+        console.log( data);
+        this.getClassArms();
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
 
 }
