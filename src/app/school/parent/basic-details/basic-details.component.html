@@ -3,7 +3,7 @@
         <div class="row mb-4">
             <div class="col-md-6">
                 <label for="title" class="fw-6">Title <span class="text-danger">*</span></label>
-                <select name="" id="title" class="form-control form-control-lg" formControlName="title">
+                <select name="" id="title" class="form-control form-control-lg" formControlName="Title">
                     <option value="Mr">Mr</option>
                     <option value="Mrs">Mrs</option>
                     <option value="Miss">Miss</option>
@@ -15,7 +15,7 @@
                 <label for="fname" class="fw-6">First Name <span
                         class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-lg" placeholder="Last name"
-                    id="fname" formControlName="contactFirstName">
+                    id="fname" formControlName="FirstName">
             </div>
         </div>
     
@@ -24,12 +24,12 @@
                 <label for="lname" class="fw-6">Last Name <span
                         class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-lg" placeholder="Last name"
-                    id="lname" formControlName="contactLastName">
+                    id="lname" formControlName="LastName">
             </div>
             <div class="col-md-6 ">
                 <label for="others" class="fw-6">Other Name </label>
                 <input type="text" class="form-control form-control-lg"
-                    placeholder="Enter other name" id="others" formControlName="contactOtherName">
+                    placeholder="Enter other name" id="others" formControlName="OtherName">
             </div>
         </div>
     
@@ -37,7 +37,7 @@
         <div class="row mb-4">
             <div class="col-md-6">
                 <label for="sex" class="fw-6">Sex <span class="text-danger">*</span> </label>
-                <select name="" id="sex" class="form-control form-control-lg" formControlName="sex">
+                <select name="" id="sex" class="form-control form-control-lg" formControlName="Sex">
                     <option value="sex" selected>Sex</option>
                     <option value="male" selected>Male</option>
                     <option value="female" selected>Female</option>
@@ -46,7 +46,7 @@
             <div class="col-md-6 ">
                 <label for="occupation" class="fw-6">Occupation</label>
                 <input type="text" class="form-control form-control-lg"
-                    placeholder="Civil Servant" id="occupation" formControlName="occupation">
+                    placeholder="Civil Servant" id="occupation" formControlName="Occupation">
             </div>
         </div>
     
@@ -58,14 +58,14 @@
                 <div class="mb-3">
                     <label for="religion" class="fw-6">Mode of Identification <span
                             class="text-danger">*</span> </label>
-                    <select name="" id="religion" class="form-control form-control-lg" formControlName="identification">
+                    <select name="" id="religion" class="form-control form-control-lg" formControlName="ModeOfIdentification">
                         <option value="nimc" selected>National ID card</option>
                     </select>
                 </div>
                 
                 <div class="form-group my-3">
                     <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="getStatus($event.target.checked)" formControlName="status">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="getStatus($event.target.checked)" formControlName="Status">
                         <label class="custom-control-label" for="customSwitch1" *ngIf = "toggleState === false; then inactive; else active;" >{{toggleState}} </label>
                         <ng-template #active>
                             <label class="custom-control-label" for="customSwitch1" >Active </label>
@@ -81,7 +81,7 @@
                     <label for="identity" class="fw-6">Identification Number <span
                             class="text-danger">*</span> </label>
                     <input type="text" class="form-control form-control-lg"
-                        placeholder="SE71627383836HGK" id="identity" formControlName="identificationNumber">
+                        placeholder="SE71627383836HGK" id="identity" formControlName="IdentificationNumber">
             </div>
         </div>
     </form>

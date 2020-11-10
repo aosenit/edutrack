@@ -126,7 +126,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="pb-1">
+          <tr class="pb-1" *ngFor = "let department of departmentList">
             <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -134,41 +134,12 @@
               </div>
             </td>
             <td class="user">
-              <p class=" mb-0">Administration </p>
+              <p class=" mb-0">{{department.name}} </p>
             </td>
-            <td><span class="status_active">Active</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-left">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
+            <td>
+              <span class="status_active" *ngIf ="department.status == true">Active</span>
+              <span class="status_inactive" *ngIf ="department.status == false">Inactive</span>
             </td>
-            <td class="user">
-              <p class=" mb-0">Academic </p>
-            </td>
-            <td> <span class="status_active">Active</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
-          </tr>
-
-
-
-
-          <tr class="pb-1">
-            <td scope="row" class="check rounded-right">
-
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td>
-            <td class="user">
-              <p class=" mb-0">Non- Academic </p>
-            </td>
-            <td><span class="status_active">Active</span></td>
             <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
           </tr>
 
@@ -671,34 +642,34 @@
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Department</h6>
-          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="closeModal" data-dismiss="modal" aria-label="Close" class="close">
 
         </div>
 
       </div>
       <div class="modal-body client-modal">
-        <form>
+        <form [formGroup]="departmentForm" (ngSubmit)="createDepartment()">
 
 
           <div class="form-group mb-5">
             <label for="dept" class="">Department <span class="text-danger">*</span></label>
-            <input type="text" id="dept" class="form-control" placeholder="Enter department">
+            <input type="text" id="dept" class="form-control" placeholder="Enter department" formControlName = "name">
           </div>
           
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName = "isActive">
               <label class="custom-control-label" for="customSwitch1">Active</label>
             </div>
           </div>
 
 
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Department</button>
+          </div>
         </form>
-        <div class="d-flex justify-content-center mb-3">
-          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
-          </button>
-          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Department</button>
-        </div>
       </div>
 
     </div>

@@ -23,7 +23,7 @@ export class ParentListComponent implements OnInit {
     this.parentService.getAllParents().subscribe( (data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
-        this.parentList = data.paylaod;
+        this.parentList = data.payload;
       }
     },
     error => {

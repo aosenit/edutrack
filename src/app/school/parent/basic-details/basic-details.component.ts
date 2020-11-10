@@ -16,15 +16,15 @@ export class BasicDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.basicDetailsForm = this.fb.group({
-      title: ['', Validators.required],
-      contactFirstName: ['', Validators.required],
-      contactLastName: ['', Validators.required],
-      contactOtherName: ['', Validators.required],
-      sex: ['', Validators.required],
-      occupation: ['', Validators.required],
-      identification: ['', Validators.required],
-      status: ['', Validators.required],
-      identificationNumber: ['', Validators.required],
+      Title: ['', Validators.required],
+      FirstName: ['', Validators.required],
+      LastName: ['', Validators.required],
+      OtherName: ['', Validators.required],
+      Sex: ['', Validators.required],
+      Occupation: ['', Validators.required],
+      ModeOfIdentification: ['', Validators.required],
+      Status: ['', Validators.required],
+      IdentificationNumber: ['', Validators.required],
 
     });
   }

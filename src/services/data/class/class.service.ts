@@ -2,12 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
+// const routes = {
+//   addclass: 'schtrack-auth/api/v1/Class/AddClass',
+//   addstudenttoclass: 'schtrack-auth/api/v1/Class/AddStudentToClass',
+//   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
+//   assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
+//   getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses ',
+//   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
+//   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
+//   updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
+//   deleteclass: 'schtrack-auth/api/v1/Class/UpdateClass'
+// };
 const routes = {
-  addclass: 'schtrack-auth/api/v1/Class/AddClass',
-  addstudenttoclass: 'schtrack-auth/api/v1/Class/AddStudentToClass',
+  addclass: 'api/v1/Class/AddClass',
+  addstudenttoclass: 'api/v1/Class/AddStudentToClass',
+  getclassbysection: 'api/v1/Class/GetClassBySection',
   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
   assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
-  getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses ',
+  getallclass: 'api/v1/Class/GetAllClasses?PageIndex=1&PageSize=10 ',
   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
   updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
@@ -20,23 +32,27 @@ const routes = {
 })
 export class ClassService {
   baseUrl: string = environment.serverUrl;
+  baseUrl2: string = environment.demourl;
+
 
   constructor(private http: HttpClient) { }
 
-  addClass(name, section, group) {
-    var tenantId = '1'
-    const url = `${this.baseUrl + routes.addclass}`;
-    const body = new FormData();
-    body.append('name', name);
-    body.append('sectionId', section);
-    body.append('ClassArmId', group);
-    
-    return this.http.post(url, body);
+  addClass(result) {
+    const tenantId = '1';
+    const url = `${this.baseUrl2 + routes.addclass}`;
+    console.log(url);
+    return this.http.post(url, result,  { headers: { tenantId } });
   }
 
   addStudentsToClass(addStudentForm) {
     const url = `${this.baseUrl + routes.addstudenttoclass}`;
     return this.http.post(url, addStudentForm);
+  }
+
+  getClassBySection(id) {
+    const tenantId = '1';
+    const url = `${this.baseUrl2 + routes.getclassbysection}/${id}`;
+    return this.http.get(url, { headers: { tenantId } });
   }
 
   assignSubjectToClass(id: any, form) {
@@ -50,8 +66,8 @@ export class ClassService {
   }
 
   getAllClasses() {
-    var tenantId = '1';
-    const url = `${this.baseUrl + routes.getallclass}`;
+    const tenantId = '1';
+    const url = `${this.baseUrl2 + routes.getallclass}`;
     return this.http.get(url, { headers: { tenantId } });
   }
 

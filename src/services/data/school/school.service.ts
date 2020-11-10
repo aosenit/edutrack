@@ -56,7 +56,7 @@ export class SchoolService {
 
   uploadBulkDocument(bulkUpload) {
     const formData = new FormData();
-    formData.append('File', bulkUpload.avatar);
+    formData.append('File', bulkUpload.Document);
     const url = `${this.baseUrl + routes.bulkUplaod}`;
     return this.http.post(url, bulkUpload);
   }

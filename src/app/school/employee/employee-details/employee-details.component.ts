@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { DepartmentService } from 'src/services/data/department/department.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -12,11 +13,17 @@ export class EmployeeDetailsComponent implements OnInit {
   @Output() sendChildName = new EventEmitter<string>();
 
   employeeForm: FormGroup;
-  constructor(private home: EmployeeComponent, private fb: FormBuilder) { }
+  departmentList: any;
+  constructor(
+              private home: EmployeeComponent,
+              private fb: FormBuilder,
+              private departmentService: DepartmentService
+              ) { }
 
   ngOnInit() {
     this.sendChildName.emit('Employee Details');
     this.populateEmployeeDetailsForm();
+    this.getAllDepartments();
 
   }
 
@@ -38,6 +45,19 @@ export class EmployeeDetailsComponent implements OnInit {
       resumptionDate: ['', Validators.required]
     });
   }
+
+  getAllDepartments() {
+    this.departmentService.getAllDepartment().subscribe( (data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data);
+        this.departmentList = data.paylaod;
+      }
+   }, error => {
+    // this.notification.publishMessages(error.errors, 'info', 1);
+
+   });
+  }
+
 
 
 }
