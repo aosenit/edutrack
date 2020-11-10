@@ -46,6 +46,7 @@ p: number;
         console.log('all schools', data);
         this.clientList = data.payload;
         this.clientCount = data.totalCount;
+        this.clientList.reverse();
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -75,7 +76,7 @@ p: number;
   }
 
   UploadBulkFile() {
-    this.schoolServices.uploadBulkDocument(this.bulkUpload.value).subscribe((data: any) => {
+    this.schoolServices.uploadBulkDocument(this.filename).subscribe((data: any) => {
       console.log('bulk file', data);
       if (data.hasError === false) {
         console.log('file successfully uplaoded', data.paylaod);

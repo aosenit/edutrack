@@ -86,7 +86,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="pb-1">
+            <tr class="pb-1" *ngFor = "let parent of parentList">
                 <td scope="row" class="check rounded-left">
                     <div class="custom-control custom-checkbox" >
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -97,113 +97,25 @@
                     
                     <div class="d-flex align-items-center">
                         <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6 mb-0" >Chukwudi Okoli </h6>
+                        <h6 class="fw-6 mb-0" >{{parent?.fullName}} </h6>
                     </div>
                 </td>
-                <td>PRT/2016/001</td>
-                <td>09034512313</td>
-                <td class="">chuks.okoli@schooltrack.com</td>
-                <td><span class="status_active">Active</span></td>
+                <td>{{parent?.parentCode}}</td>
+                <td>{{parent?.phoneNumber}}</td>
+                <td class="">{{parent?.email}}</td>
+                <td>
+                    <span class="status_active" *ngIf = "parent.status == true">Active</span>
+                    <span class="status_active" *ngIf = "parent.status == false">Inactive</span>
+                </td>
                 <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
                         alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" [routerLink]="['/school/parent-detail']">View</a>
+                            <a class="dropdown-item" href="#" [routerLink]="['/school/parent-detail', parent.id]">View</a>
                           </div>
                         
                         </td>
             </tr>
-
-            <tr class="pb-1">
-                <td scope="row" class="check rounded-left">
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                </td>
-                <td class="user" >
-                    
-                    <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/user-role-2.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6 mb-0">Francis Emeneke </h6>
-                    </div>
-                </td>
-                <td>PRT/2016/001</td>
-                <td>09034512313</td>
-                <td class="">chuks.okoli@schooltrack.com</td>
-                <td><span class="status_active">Active</span></td>
-                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log"> </td>
-            </tr>
-
-            <tr class="pb-1">
-                <td scope="row" class="check rounded-left">
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                </td>
-                <td class="user" >
-                    
-                    <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/woman.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6 mb-0">Cynthia Bassey  </h6>
-                    </div>
-                </td>
-                <td>PRT/2016/001</td>
-                <td>09034512313</td>
-                <td class="">cynthia.bassey@gmail.com</td>
-                <td><span class="status_active">Active</span></td>
-                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log"> </td>
-            </tr>
-
-            <tr class="pb-1">
-                <td scope="row" class="check rounded-left">
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                </td>
-                <td class="user" >
-                    
-                    <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/user-role-2.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6 mb-0">Adedeji Bamiduro  </h6>
-                    </div>
-                </td>
-                <td>PRT/2016/001</td>
-                <td>09034512313</td>
-                <td class="">soji.bamiduro@gmail.com</td>
-                <td><span class="status_inactive">Inactive</span></td>
-                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log"> </td>
-            </tr>
-
-            <tr class="pb-1">
-                <td scope="row" class="check rounded-right">
-                    
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                </td>
-                <td scope="row" class="user " >
-                    
-                    <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6">Adebayo Olusegun  </h6>
-                    </div>
-                </td>
-                <td>PRT/2016/001</td>
-                <td>09034512313</td>
-                <td class="">bayo.olusegun@gmail.com</td>
-                <td><span class="status_active">Active</span></td>
-                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log"> </td>
-            </tr>
-
-
 
 
         </tbody>

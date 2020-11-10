@@ -2,10 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
+// const routes = {
+//   addparent: 'schtrack-auth/api/v1/Parent/AddNewParent  ',
+//   getallparent: 'schtrack-auth/api/v1/Parent/GetAllParents',
+//   getparentbyid: 'schtrack-auth/api/v1/Parent/GetParentById',
+//   getstudentparent: 'schtrack-auth/api/v1/Parent/GetParentsForStudent',
+//   updateparentbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
+//   deleteparent: 'schtrack-auth/api/v1/Parent/DeleteParent'
+// };
 const routes = {
-  addparent: 'schtrack-auth/api/v1/Parent/AddNewParent  ',
-  getallparent: 'schtrack-auth/api/v1/Parent/GetAllParents',
-  getparentbyid: 'schtrack-auth/api/v1/Parent/GetParentById',
+  addparent: 'api/v1/Parent/AddNewParent  ',
+  getallparent: 'api/v1/Parent/GetAllParents',
+  getparentbyid: 'api/v1/Parent/GetParentById',
   getstudentparent: 'schtrack-auth/api/v1/Parent/GetParentsForStudent',
   updateparentbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
   deleteparent: 'schtrack-auth/api/v1/Parent/DeleteParent'
@@ -16,6 +24,8 @@ const routes = {
 })
 export class ParentsService {
   baseUrl: string = environment.serverUrl;
+  baseUrl2: string = environment.demourl;
+
 
   constructor(private http: HttpClient) { }
 
@@ -23,35 +33,39 @@ export class ParentsService {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const formData = new FormData();
-    formData.append('address', createParentForm.address);
-    formData.append('altPhone', createParentForm.altPhone);
-    formData.append('contactAltEmail', createParentForm.contactAltEmail);
-    formData.append('contactEmail', createParentForm.contactEmail);
-    formData.append('contactFirstName', createParentForm.contactFirstName);
-    formData.append('contactLastName', createParentForm.contactLastName);
-    formData.append('contactOtherName', createParentForm.contactOtherName);
-    formData.append('identification', createParentForm.identification);
-    formData.append('identificationNumber', createParentForm.identificationNumber);
-    formData.append('myPhone', createParentForm.myPhone);
-    formData.append('occupation', createParentForm.occupation);
-    formData.append('officeAddress', createParentForm.officeAddress);
-    formData.append('Files', createParentForm.profileImage);
-    createParentForm.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
-    formData.append('sex', createParentForm.sex);
-    formData.append('status', createParentForm.status);
-    formData.append('title', createParentForm.title);
-    const url = `${this.baseUrl + routes.addparent}`;
+    formData.append('HomeAddress', createParentForm.HomeAddress);
+    formData.append('SecondaryPhoneNumber', createParentForm.SecondaryPhoneNumber);
+    formData.append('SecondaryEmailAddress', createParentForm.SecondaryEmailAddress);
+    formData.append('EmailAddress', createParentForm.EmailAddress);
+    formData.append('FirstName', createParentForm.FirstName);
+    formData.append('LastName', createParentForm.LastName);
+    formData.append('OtherName', createParentForm.OtherName);
+    formData.append('ModeOfIdentification', createParentForm.ModeOfIdentification);
+    formData.append('IdentificationNumber', createParentForm.IdentificationNumber);
+    formData.append('PhoneNumber', createParentForm.PhoneNumber);
+    formData.append('Occupation', createParentForm.Occupation);
+    formData.append('OfficeAddress', createParentForm.OfficeAddress);
+    formData.append('File', createParentForm.profileImage);
+    createParentForm.DocumentTypes.forEach((item) => formData.append('DocumentType', item));
+    formData.append('Sex', createParentForm.Sex);
+    formData.append('Status', createParentForm.Status);
+    formData.append('Title', createParentForm.Title);
+    const url = `${this.baseUrl2 + routes.addparent}`;
     return this.http.post(url, formData, { headers: { tenantId } });
   }
 
   getAllParents() {
-    const url = `${this.baseUrl + routes.getallparent}`;
-    return this.http.get(url);
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl2 + routes.getallparent}`;
+    return this.http.get(url, { headers: { tenantId } });
   }
 
   getParentById(id) {
-    const url = `${this.baseUrl + routes.getparentbyid}/${id}`;
-    return this.http.get(url, id);
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl2 + routes.getparentbyid}/${id}`;
+    return this.http.get(url,  { headers: { tenantId } });
   }
 
   getParentForStudent(studid) {

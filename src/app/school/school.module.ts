@@ -26,7 +26,7 @@ import { AttachTeacherComponent } from './attach-teacher/attach-teacher.componen
 import { SchoolManagerComponent } from './school-manager/school-manager.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 @NgModule({
@@ -58,8 +58,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    NgMultiSelectDropDownModule.forRoot(),
     SchoolRoutingModule,
-    
+
   ]
 })
 export class SchoolModule { }

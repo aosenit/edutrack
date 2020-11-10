@@ -17,12 +17,12 @@ export class SocialDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.socialDetailsForm = this.fb.group({
-      myPhone: ['', Validators.required],
-      altPhone: [''],
-      contactEmail: ['', [Validators.required, Validators.email]],
-      contactAltEmail: ['' ],
-      address: ['', Validators.required],
-      officeAddress: ['', Validators.required],
+      PhoneNumber: ['', Validators.required],
+      SecondaryPhoneNumber: [''],
+      EmailAddress: ['', [Validators.required, Validators.email]],
+      SecondaryEmailAddress: ['' ],
+      Address: ['', Validators.required],
+      OfficeAddress: ['', Validators.required],
 
     });
   }

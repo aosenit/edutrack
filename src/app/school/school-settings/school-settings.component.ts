@@ -22,14 +22,20 @@ export class SchoolSettingsComponent implements OnInit {
   classArms: any;
   classArmform: FormGroup;
   createNewClassForm: FormGroup;
+  addNewClassForm: FormGroup;
   section: any = '';
   classes: any;
   levels: any;
   name: any = '';
   classSection: any = '';
-  classArm: any = '';
+  // classArmId: any = '';
+  sectionId: number;
+  sequence: number;
   notifyService: any;
   toggleState = false;
+  dropdownSettings = {};
+  dropdownList = [];
+  classBySectionList: any;
 
   constructor(
     private fb: FormBuilder,
@@ -50,13 +56,31 @@ export class SchoolSettingsComponent implements OnInit {
       sectionId: [''],
       classGroupId: ['']
     });
-
+    this.populateNewClassForm();
     this.getClassArms();
     this.getClasses();
     this.getSections();
 
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'arm',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 5,
+      allowSearchFilter: false
+    };
   }
 
+  populateNewClassForm() {
+    this.addNewClassForm = this.fb.group({
+      name: ['', Validators.required],
+      sectionid: [ Validators.required],
+      classArm: [ '', Validators.required],
+      sequenceid: [ Validators.required],
+      status: []
+    });
+  }
 
   showStatus(status: string) {
     const newStatus = status;
@@ -110,25 +134,47 @@ export class SchoolSettingsComponent implements OnInit {
 
   createClassArm() {
     console.log('class arm create', this.classArmform.value);
-    this.classArmService.addClassArm( this.classArmform.value).subscribe((data: any) => {
+    this.classArmService.addClassArm(this.classArmform.value).subscribe((data: any) => {
       console.log(data);
       this.notification.publishMessages(data.description, 'info', 1);
       document.getElementById('close').click();
-      location.reload();
+      // location.reload();
     }, error => {
       this.notification.publishMessages(error.errors, 'danger', 1);
     });
   }
 
   createNewClass() {
-    this.classSection = parseInt(this.classSection);
-    this.classArm = parseInt(this.classArm);
-    console.log(this.classSection);
-    this.classService.addClass(this.name, this.classSection, this.classArm).subscribe(data => {
-      console.log(data);
-      this.getClasses();
+    // this.classSection = parseInt(this.classSection);
+    // this.classArm = parseInt(this.classArm);
+    const { name, sectionid, classArm, sequenceid, status } = this.addNewClassForm.value;
+    const classArmIds = classArm.map((arms: any) => {
+      return  arms.id;
     });
+    // tslint:disable-next-line:radix
+    const sectionId = parseInt(sectionid);
+    // tslint:disable-next-line:radix
+    const sequence = parseInt(sequenceid);
+    const result = {
+      name,
+      sectionId,
+      classArmIds,
+      sequence,
+      status
+    };
+    this.classService.addClass(result).subscribe((data: any) => {
+      console.log('class create', data);
+      if (data.hasErrors === false) {
+        this.notification.publishMessages('Class Added Successfully', 'info', 1);
+        document.getElementById('close').click();
+      }
+    }, error => {
+      this.notification.publishMessages(error.errors, 'danger', 1);
+    });
+
+
   }
+
 
   // getStatus(event) {
   //   console.log('status', event);
@@ -153,6 +199,14 @@ export class SchoolSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         // tslint:disable-next-line:no-string-literal
         this.classArms = data['payload'];
+        const arr = [];
+        this.classArms.forEach(item => {
+          arr.push({
+            id: item.id,
+            arm: item.name
+          });
+        });
+        this.dropdownList = arr;
       }
     });
   }
@@ -160,35 +214,52 @@ export class SchoolSettingsComponent implements OnInit {
 
   createSection() {
     this.schoolSectionService.addSection(this.section).subscribe(
-      res => {
+      (res: any) => {
+       if (res.hasErrors === false ) {
+        console.log('level created', res);
         this.notification.publishMessages('You have successfully added a section', 'info', 0);
         this.getSections();
+       }
       }
     );
   }
+
   getSections() {
     this.schoolSectionService.getSection().subscribe(
       res => {
         // tslint:disable-next-line:no-string-literal
         this.levels = res['payload'];
+        console.log('levels', this.levels);
+      }
+    );
+  }
+
+  getSectionId(id) {
+    console.log(id);
+    this.classService.getClassBySection(id).subscribe(
+      (res: any) => {
+       if (res.hasErrors === false ) {
+        this.classBySectionList = res.payload;
+       }
       }
     );
   }
 
 
+
   getClasses() {
     this.classService.getAllClasses().subscribe(
-      res => {
-        this.classes = res['payload'];
+      (res: any) => {
+        this.classes = res.payload;
         console.log('classes', res);
       }
     );
   }
 
   deleteArm(id) {
-    this.classArmService.deleteClassArm(id).subscribe( (data: any) => {
+    this.classArmService.deleteClassArm(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log( data);
+        console.log(data);
         this.getClassArms();
       }
     }, error => {

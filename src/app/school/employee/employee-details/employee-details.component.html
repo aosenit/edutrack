@@ -27,6 +27,9 @@
           <label for="qualification" class="fw-6">Highest Qualification <span class="text-danger">*</span></label>
           <select name="" id="qualification" class="form-control form-control-lg" formControlName="qualification">
             <option value="" selected> select </option>
+            <option value="BSC" selected> BSC </option>
+            <option value="HND" selected> HND </option>
+            <option value="NCE" selected> NCE </option>
         </select>
          
         </div>
@@ -46,6 +49,9 @@
 
           <select name="" id="department" class="form-control form-control-lg" formControlName="department">
             <option value="" selected> select </option>
+            <option [value]="department.id" *ngFor = "let department of departmentList"> {{department?.name}} </option>
+            <option value="N/A" > Not Available </option>
+
         </select>
         </div>
 
@@ -54,6 +60,8 @@
 
            <select name="" id="pay" class="form-control form-control-lg" formControlName="payGrade">
                <option value="" selected> select</option>
+               <option value="150,000" > 150,000</option>
+               <option value="250,000" > 250,000</option>
            </select>
         </div>
       </div>
