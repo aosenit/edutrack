@@ -71,7 +71,7 @@ export class SchoolSettingsComponent implements OnInit {
     this.getClasses();
     this.getSections();
     // this.getAllSubjects();
-    
+
 
     this.dropdownSettings = {
       singleSelection: false,
@@ -313,6 +313,7 @@ export class SchoolSettingsComponent implements OnInit {
     this.subjectService.getAllSubjects().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
+        console.log(this.subjectList);
       }
     });
   }
