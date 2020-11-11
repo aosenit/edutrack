@@ -14,6 +14,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
   employeeForm: FormGroup;
   departmentList: any;
+
   constructor(
               private home: EmployeeComponent,
               private fb: FormBuilder,
@@ -35,14 +36,14 @@ export class EmployeeDetailsComponent implements OnInit {
 
   populateEmployeeDetailsForm() {
     this.employeeForm = this.fb.group({
-      staffType: ['', Validators.required],
-      employementStatus: ['', Validators.required],
-      qualification: ['', Validators.required],
-      jobTitle: ['', Validators.required],
-      department: [''],
-      payGrade: ['', Validators.required],
-      employementDate: ['', Validators.required],
-      resumptionDate: ['', Validators.required]
+      StaffType: ['', Validators.required],
+      EmploymentStatus: ['', Validators.required],
+      HighestQualification: ['', Validators.required],
+      JobTitle: ['', Validators.required],
+      DepartmentId: [''],
+      PayGrade: ['', Validators.required],
+      EmploymentDate: ['', Validators.required],
+      ResumptionDate: ['', Validators.required]
     });
   }
 

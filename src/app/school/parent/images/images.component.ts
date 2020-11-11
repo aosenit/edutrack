@@ -41,6 +41,7 @@ DocumentTypes: number[] = [];
         if (data.hasErrors === false) {
           console.log(data);
           this.notifyService.publishMessages( data.description, 'success', 1);
+          sessionStorage.clear();
           this.router.navigateByUrl('/school/parents');
         }
       },
