@@ -71,6 +71,7 @@ export class SchoolSettingsComponent implements OnInit {
     this.getClasses();
     this.getSections();
     // this.getAllSubjects();
+    
 
     this.dropdownSettings = {
       singleSelection: false,
