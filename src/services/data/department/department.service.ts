@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
-// const routes = {
-//   adddepartment: 'schtrack-auth/api/v1/Department/AddDepartment',
-//   getalldepartments: 'schtrack-auth/api/v1/Department/GetAllDepartments',
-// };
 const routes = {
-  adddepartment: 'api/v1/Department/AddDepartment',
-  getalldepartments: 'api/v1/Department/GetAllDepartments',
+  adddepartment: 'schtrack-auth/api/v1/Department/AddDepartment',
+  getalldepartments: 'schtrack-auth/api/v1/Department/GetAllDepartments',
 };
+// const routes = {
+//   adddepartment: 'api/v1/Department/AddDepartment',
+//   getalldepartments: 'api/v1/Department/GetAllDepartments',
+// };
 
 @Injectable({
   providedIn: 'root'
@@ -27,14 +27,14 @@ export class DepartmentService {
     body.append('name', departmentForm.name);
     body.append('isActive', departmentForm.isActive);
     console.log(body);
-    const url = `${this.baseUrl2 + routes.adddepartment}`;
+    const url = `${this.baseUrl + routes.adddepartment}`;
     return this.http.post(url, body, { headers: { tenantId } });
   }
 
   getAllDepartment() {
     const tenantId = '1';
 
-    const url = `${this.baseUrl2 + routes.getalldepartments}`;
+    const url = `${this.baseUrl + routes.getalldepartments}`;
     return this.http.get(url, { headers: { tenantId } });
   }
 }

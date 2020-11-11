@@ -23,16 +23,17 @@ export class SchoolSectionService {
     const tenantId = '1';
     const body = new FormData();
     body.append('name', name);
-    // return this.http.post(this.baseUrl2 + 'api/v1/SchoolSection/AddSection', body, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') } });
-    return this.http.post(this.baseUrl2 + 'api/v1/SchoolSection/AddSection', body, { headers: { tenantId } });
+    return this.http.post(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', body, { headers: { tenantId } });
   }
+
   getSection() {
     const tenantId = '1';
-    return this.http.get(this.baseUrl2 + 'api/v1/SchoolSection/GetAllSections', { headers: { tenantId } });
+    return this.http.get(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/GetAllSections', { headers: { tenantId } });
   }
+
   updateSection(name) {
-    const body = new FormData()
-    body.append("name", name)
+    const body = new FormData();
+    body.append('name', name);
     return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', body, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

@@ -50,7 +50,7 @@ export class EmployeeDetailsComponent implements OnInit {
     this.departmentService.getAllDepartment().subscribe( (data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
-        this.departmentList = data.paylaod;
+        this.departmentList = data.payload;
       }
    }, error => {
     // this.notification.publishMessages(error.errors, 'info', 1);

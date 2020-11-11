@@ -5,6 +5,7 @@ import { ClassArmService } from 'src/services/data/class-arm/class-arm.service';
 import { ClassService } from 'src/services/data/class/class.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import { SchoolService } from 'src/services/data/school/school.service';
+import { SubjectService } from 'src/services/data/subject/subject.service';
 
 @Component({
   selector: 'app-school-settings',
@@ -23,6 +24,7 @@ export class SchoolSettingsComponent implements OnInit {
   classArmform: FormGroup;
   createNewClassForm: FormGroup;
   addNewClassForm: FormGroup;
+  newsubjectForm: FormGroup;
   section: any = '';
   classes: any;
   levels: any;
@@ -36,6 +38,7 @@ export class SchoolSettingsComponent implements OnInit {
   dropdownSettings = {};
   dropdownList = [];
   classBySectionList: any;
+  classBySectionDropdownList = [];
 
   constructor(
     private fb: FormBuilder,
@@ -43,7 +46,8 @@ export class SchoolSettingsComponent implements OnInit {
     private classArmService: ClassArmService,
     private schoolService: SchoolService,
     private schoolSectionService: SchoolSectionService,
-    private classService: ClassService
+    private classService: ClassService,
+    private subjectService: SubjectService
   ) { }
 
   ngOnInit() {
@@ -55,6 +59,11 @@ export class SchoolSettingsComponent implements OnInit {
       name: ['', Validators.required],
       sectionId: [''],
       classGroupId: ['']
+    });
+    this.newsubjectForm = this.fb.group({
+      name: ['', Validators.required],
+      isActive: [],
+      classSectionIds: []
     });
     this.populateNewClassForm();
     this.getClassArms();
@@ -75,12 +84,13 @@ export class SchoolSettingsComponent implements OnInit {
   populateNewClassForm() {
     this.addNewClassForm = this.fb.group({
       name: ['', Validators.required],
-      sectionid: [ Validators.required],
-      classArm: [ '', Validators.required],
-      sequenceid: [ Validators.required],
+      sectionid: [Validators.required],
+      classArm: ['', Validators.required],
+      sequenceid: [Validators.required],
       status: []
     });
   }
+
 
   showStatus(status: string) {
     const newStatus = status;
@@ -149,7 +159,7 @@ export class SchoolSettingsComponent implements OnInit {
     // this.classArm = parseInt(this.classArm);
     const { name, sectionid, classArm, sequenceid, status } = this.addNewClassForm.value;
     const classArmIds = classArm.map((arms: any) => {
-      return  arms.id;
+      return arms.id;
     });
     // tslint:disable-next-line:radix
     const sectionId = parseInt(sectionid);
@@ -176,13 +186,11 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
 
-  // getStatus(event) {
-  //   console.log('status', event);
-  //   if (event === true) {
-  //     event.value = true;
-  //   }
+  getState(event) {
+    console.log('status', event);
 
-  // }
+
+  }
 
   getStatus(event) {
     if (event === true) {
@@ -215,11 +223,11 @@ export class SchoolSettingsComponent implements OnInit {
   createSection() {
     this.schoolSectionService.addSection(this.section).subscribe(
       (res: any) => {
-       if (res.hasErrors === false ) {
-        console.log('level created', res);
-        this.notification.publishMessages('You have successfully added a section', 'info', 0);
-        this.getSections();
-       }
+        if (res.hasErrors === false) {
+          console.log('level created', res);
+          this.notification.publishMessages('You have successfully added a section', 'info', 0);
+          this.getSections();
+        }
       }
     );
   }
@@ -238,9 +246,18 @@ export class SchoolSettingsComponent implements OnInit {
     console.log(id);
     this.classService.getClassBySection(id).subscribe(
       (res: any) => {
-       if (res.hasErrors === false ) {
-        this.classBySectionList = res.payload;
-       }
+        if (res.hasErrors === false) {
+          this.classBySectionList = res.payload;
+          console.log(this.classBySectionList);
+          const arr = [];
+          this.classBySectionList.forEach(item => {
+            arr.push({
+              id: item.id,
+              arm: item.name
+            });
+          });
+          this.classBySectionDropdownList = arr;
+        }
       }
     );
   }
@@ -268,5 +285,25 @@ export class SchoolSettingsComponent implements OnInit {
     });
   }
 
+  createSubject() {
+    console.log('arrays', this.newsubjectForm.value);
+    const { name, isActive, classSectionIds } = this.newsubjectForm.value;
+    const ClassIds = classSectionIds.map((ids: any) => {
+      return ids.id;
+    });
+    const result = {
+      name,
+      ClassIds,
+      isActive
+    };
+    console.log('subjects to be created', result);
+    this.subjectService.addNewSubject(result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data);
+        document.getElementById('close').click();
+      }
+    });
+
+  }
 
 }
