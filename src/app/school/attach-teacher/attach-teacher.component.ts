@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClassService } from 'src/services/data/class/class.service';
+import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 
 @Component({
   selector: 'app-attach-teacher',
@@ -8,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class AttachTeacherComponent implements OnInit {
 teacher = false;
 emptyRecord = false;
-  constructor() { }
+sections: any;
+classes: any;
+  constructor(
+    private schoolSectionService: SchoolSectionService,
+    private classService: ClassService
+  ) { }
 
   ngOnInit() {
+    this.getAllSections();
+    this.getAllClassess();
   }
 
   back() {
@@ -25,5 +34,21 @@ emptyRecord = false;
         this.teacher = false;
       }
     }
+  }
+
+  getAllSections() {
+    this.schoolSectionService.getSection().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.sections = data.payload;
+      }
+    });
+  }
+
+  getAllClassess() {
+    this.classService.getAllClasses().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.classes = data.payload;
+      }
+    });
   }
 }

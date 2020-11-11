@@ -27,18 +27,18 @@ export class PersonalInformationComponent implements OnInit {
 
   populatePersonalDataForm() {
     this.personalDetailsForm = this.fb.group({
-      contactFirstName: ['', Validators.required],
-      ContactLastName: ['', Validators.required],
-      ContactOtherName: ['', Validators.required],
-      dob: ['', Validators.required],
-      sex: [''],
-      maritalStatus: ['', Validators.required],
-      bloodGroup: ['', Validators.required],
-      religion: ['', Validators.required],
-      nationality: ['', Validators.required],
-      state: ['', Validators.required],
-      lga: ['', Validators.required],
-      status: ['']
+      FirstName: ['', Validators.required],
+      LastName: ['', Validators.required],
+      OtherNames: ['', Validators.required],
+      DateOfBirth: ['', Validators.required],
+      Sex: [''],
+      MaritalStatus: ['', Validators.required],
+      BloodGroup: ['', Validators.required],
+      Religion: ['', Validators.required],
+      Nationality: ['', Validators.required],
+      State: ['', Validators.required],
+      LocalGovernment: ['', Validators.required],
+      IsActive: ['']
     });
   }
 

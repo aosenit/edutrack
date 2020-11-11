@@ -4,11 +4,11 @@
       <div class="form-row mb-5 ">
         <div class=" ">
           <label for="phone" class="fw-6">Phone Number<span class="text-danger">*</span></label>
-          <input type="tel" id="phone" class="form-control" placeholder="Enter phone number" formControlName="contactPhone">
+          <input type="tel" id="phone" class="form-control" placeholder="Enter phone number" formControlName="PhoneNumber">
         </div>
         <div class=" "> 
           <label for="phone2" class="fw-6">Alternate Phone Number </label>
-          <input type="tel"  id="phone2" class="form-control" placeholder="Enter phone number" formControlName="contactAltPhone">
+          <input type="tel"  id="phone2" class="form-control" placeholder="Enter phone number" formControlName="AltPhoneNumber">
 
         </div>
 
@@ -18,7 +18,7 @@
         
         <div class="  ">
           <label for="email" class="fw-6">Email Address <span class="text-danger">*</span></label>
-          <input type="email" id="email" class="form-control form-control-lg" placeholder="Enter email address" formControlName="contactEmail">
+          <input type="email" id="email" class="form-control form-control-lg" placeholder="Enter email address" formControlName="EmailAddress">
 
          
         </div>
@@ -35,7 +35,7 @@
         <div class="  ">
           <label for="country" class="fw-6">Country <span class="text-danger">*</span></label>
 
-          <select name="" id="country" class="form-control form-control-lg" (change)="getState($event.target.value)" formControlName="country">
+          <select name="" id="country" class="form-control form-control-lg" (change)="getState($event.target.value)" formControlName="Country">
             <option value="" selected> select </option>
             <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
 
@@ -54,7 +54,7 @@
         <div class=" ">
             <label for="state" class="fw-6">State<span class="text-danger">*</span></label>
 
-            <select name="" id="state" class="form-control form-control-lg" formControlName="state">
+            <select name="" id="state" class="form-control form-control-lg" formControlName="State">
                 <option value="" selected> select </option>
                 <option [value]="" *ngFor="let state of states" >{{state}}</option>
 
@@ -63,7 +63,7 @@
 
         <div class="  ">
           <label for="city" class="fw-6">Town/City</label>
-          <input type="text" id="city" class="form-control form-control-lg" formControlName="city">
+          <input type="text" id="city" class="form-control form-control-lg" formControlName="Town">
 
             </div>
 

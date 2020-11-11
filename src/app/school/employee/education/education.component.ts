@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
 import { countries } from '../../../../services/utils/country.json';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
 
 
 @Component({
@@ -11,6 +11,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 })
 export class EducationComponent implements OnInit {
   countries: any = countries;
+  items: any;
   EmployeeEducationForm: FormGroup;
 
 @Output() sendChildName = new EventEmitter<string>();
@@ -29,9 +30,21 @@ export class EducationComponent implements OnInit {
 
   populateNextofKinForm() {
     this.EmployeeEducationForm = this.fb.group({
-      schoolName: ['', Validators.required],
-      schoolType: ['', Validators.required],
-      schoolCountry: ['', Validators.required],
+      EducationExperienceVMs: this.fb.array([ this.createItem() ])
+    });
+  }
+
+  addEducation() {
+    this.items = this.EmployeeEducationForm.get('EducationExperienceVMs') as FormArray;
+    this.items.push(this.createItem());
+  }
+
+  createItem(): FormGroup {
+    return this.fb.group({
+      educationSchoolName: '',
+      educationSchoolQualification: '',
+      startDate: '',
+      endDate: '',
     });
   }
 

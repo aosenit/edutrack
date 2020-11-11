@@ -39,16 +39,16 @@ export class NextOfKinComponent implements OnInit {
 
     populateNextofKinForm() {
       this.nextOfKinForm = this.fb.group({
-        nextKinFirstName: ['', Validators.required],
-        nextKinLastName: ['', Validators.required],
-        nextKinOtherName: ['', Validators.required],
-        nextKinRelationship: ['', Validators.required],
-        nextKinOccupation: [''],
-        nextKinPhone: ['', Validators.required],
-        nextKinCountry: ['', Validators.required],
-        nextKinAddress: ['', Validators.required],
-        nextKinState: ['', Validators.required],
-        nextKinCity: ['', Validators.required]
+        NextKinFirstName: ['', Validators.required],
+        NextKinLastName: ['', Validators.required],
+        NextKinOtherName: ['', Validators.required],
+        NextKinRelationship: ['', Validators.required],
+        NextKinOccupation: [''],
+        NextKinPhone: ['', Validators.required],
+        NextKinCountry: ['', Validators.required],
+        NextKinAddress: ['', Validators.required],
+        NextKinState: ['', Validators.required],
+        NextKinTown: ['', Validators.required]
       });
     }
 
