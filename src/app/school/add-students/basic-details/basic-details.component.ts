@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AddStudentsComponent } from '../add-students.component';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { countries } from '../../../../services/utils/country.json';
+import { ParentsService } from 'src/services/data/parents/parents.service';
 
 @Component({
   selector: 'app-basic-details',
@@ -12,7 +13,8 @@ export class BasicDetailsComponent implements OnInit {
   countries: any = countries;
   states: any[];
   basicDetailsForm: FormGroup;
-  constructor(private home: AddStudentsComponent, private fb: FormBuilder) { }
+  parents: any;
+  constructor(private home: AddStudentsComponent, private parentService: ParentsService, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.basicDetailsForm = this.fb.group({
@@ -30,6 +32,8 @@ export class BasicDetailsComponent implements OnInit {
       lga: ['', Validators.required],
       transportRoute: ['', Validators.required]
     });
+
+    this.getAllParents()
   }
 
   nextStep() {
@@ -39,12 +43,20 @@ export class BasicDetailsComponent implements OnInit {
 
   getState(event) {
     for (const unit in countries) {
-        if (event === countries[unit].country) {
-          const state = countries[unit].states;
-          this.states = state;
-        }
+      if (event === countries[unit].country) {
+        const state = countries[unit].states;
+        this.states = state;
       }
-
     }
+
+  }
+
+  getAllParents(){
+    this.parentService.getAllParents().subscribe(
+      res => {
+        this.parents = res['payload']
+      }
+    )
+  }
 
 }

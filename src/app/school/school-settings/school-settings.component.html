@@ -72,7 +72,7 @@
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item mr-5" (click)="showStatus('level')">
         <a class="nav-link active" id="pills-level-tab" data-toggle="pill" href="#pills-level" role="tab"
-          aria-controls="pills-level" aria-selected="true">Level</a>
+          aria-controls="pills-level" aria-selected="true">Section</a>
       </li>
       <li class="nav-item mr-5" (click)="showStatus('class')">
         <a class="nav-link" id="pills-class-tab" data-toggle="pill" href="#pills-class" role="tab"
@@ -95,10 +95,10 @@
 
   </div>
 
-  <div class="search__input has-search ml-auto">
+  <!-- <div class="search__input has-search ml-auto">
     <span class="fa fa-search form-control-feedback"></span>
     <input type="text" class="form-control" placeholder="Search">
-  </div>
+  </div> -->
 </div>
 
 <div class="tab-content" id="pills-tabContent">
@@ -107,13 +107,13 @@
       <table class="table table-borderless client-table">
         <thead>
           <tr>
-            <th scope="col" class="head ">
+            <!-- <th scope="col" class="head ">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheckTh">
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
-            </th>
-            <th scope="col">Level <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+            </th> -->
+            <th scope="col">Section <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
                 class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
               <!-- ================ DROPDOWN ==================== -->
@@ -146,18 +146,29 @@
 
 
           <tr class="pb-1" *ngFor="let level of levels">
-            <td scope="row" class="check rounded-left">
+            <!-- <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1"></label>
               </div>
-            </td>
+            </td> -->
             <td class="user">
               <h6 class="fw-6 mb-0">{{level.name}} </h6>
             </td>
             <td class="">1</td>
             <td><span class="status_active">Active</span></td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+            <td class="rounded-right ">
+              <div class="dropdown show">
+                <img src="assets/images/svg/more-action.svg" class="dropdown-toggle" data-toggle="dropdown"
+                  alt="schools log">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterEditLevel"
+                    (click)="getSection(level.id)">Edit Section</a>
+                  <a class="dropdown-item" (click)="deleteSection(level.id)">Delete Section</a>
+
+                </div>
+              </div>
+            </td>
           </tr>
 
 
@@ -170,18 +181,24 @@
 
   <!-- class table -->
   <div class="tab-pane fade " id="pills-class" role="tabpanel" aria-labelledby="pills-class-tab">
-    <section class="list">
+    <div class="empty-state" *ngIf="classes?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any class
+      </p>
+    </div>
+    <section class="list" *ngIf="classes?.length > 0">
       <table class="table table-borderless client-table">
         <thead>
           <tr>
-            <th scope="col" class="head ">
+            <!-- <th scope="col" class="head ">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheckTh">
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
-            </th>
+            </th> -->
             <th scope="col">Class <img src="assets/images/svg/table-sort.svg"> </th>
-            <th scope="col" class="w-25">Level <img src="assets/images/svg/table-sort.svg"> </th>
+            <th scope="col">Class Arm<img src="assets/images/svg/table-sort.svg"> </th>
+            <th scope="col" class="w-25">Section <img src="assets/images/svg/table-sort.svg"> </th>
             <th scope="col">Sequence <img src="assets/images/svg/table-sort.svg"> </th>
             <!-- <th scope="col" class="text-center">Arm <img src="assets/images/svg/table-sort.svg"> </th> -->
 
@@ -191,20 +208,23 @@
         </thead>
         <tbody>
           <tr class="pb-1" *ngFor="let class of classes">
-            <td scope="row" class="check rounded-left">
+            <!-- <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1"></label>
               </div>
-            </td>
+            </td> -->
             <td class="user">
               <h6 class="fw-6 mb-0">{{class?.name}}</h6>
+            </td>
+            <td class="user">
+              <h6 class="fw-6 mb-0">{{class?.classGroup}}</h6>
             </td>
             <td class="">
               <span *ngIf="class.classSection">{{class?.classSection}}</span>
               <span *ngIf="class.classSection == null">NA</span>
             </td>
-            <td class="text-center">
+            <td class="">
               <span *ngIf="class.classGroup">{{class?.sequence}}</span>
               <span *ngIf="class.classGroup == null">NA</span>
             </td>
@@ -212,7 +232,18 @@
               <span class="status_active" *ngIf="class?.status == true">Active</span>
               <span class="status_active" *ngIf="class?.status == false">Inactive</span>
             </td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+            <td class="rounded-right ">
+              <div class="dropdown show">
+                <img src="assets/images/svg/more-action.svg" class="dropdown-toggle" data-toggle="dropdown"
+                  alt="schools log">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterEditClass"
+                    (click)="getClassById(class.id)">Edit Class</a>
+                  <a class="dropdown-item" (click)="deleteClass(class.id)">Delete Class</a>
+
+                </div>
+              </div>
+            </td>
           </tr>
 
 
@@ -228,12 +259,12 @@
       <table class="table table-borderless client-table">
         <thead>
           <tr>
-            <th scope="col" class="head ">
+            <!-- <th scope="col" class="head ">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheckTh">
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
-            </th>
+            </th> -->
             <th scope="col" class="w-60">Class Arm <img src="assets/images/svg/table-sort.svg"> </th>
             <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>
             <th scope="col"></th>
@@ -241,12 +272,12 @@
         </thead>
         <tbody>
           <tr class="pb-1" *ngFor="let arm of classArms">
-            <td scope="row" class="check rounded-left">
+            <!-- <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1"></label>
               </div>
-            </td>
+            </td> -->
             <td class="user">
               <h6 class="fw-6 mb-0">{{arm.name}}</h6>
             </td>
@@ -257,8 +288,8 @@
                 id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <!-- ================ DROPDOWN ==================== -->
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenterArm">Edit </a>
-                <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete </a>
+                <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditArm" (click)="getArmById(arm.id)">Edit Arm </a>
+                <a class="dropdown-item" (click)="deleteArm(arm.id)" >Delete Arm</a>
               </div>
             </td>
           </tr>
@@ -387,7 +418,7 @@
 
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
-          <h6 class="modal-title fc-lblue">Add New Level</h6>
+          <h6 class="modal-title fc-lblue">Add New Section</h6>
           <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
             class="close">
 
@@ -396,7 +427,7 @@
       </div>
       <div class="modal-body client-modal">
         <div class="form-group mb-4">
-          <label for="level" class="">Level</label>
+          <label for="level" class="">Section</label>
           <input type="text" id="level" class="form-control" placeholder="Enter level" [(ngModel)]="section">
         </div>
         <!-- <div class="form-group mb-5">
@@ -414,7 +445,8 @@
         <div class="d-flex justify-content-center mb-3">
           <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
           </button>
-          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="createSection()"> Add Level</button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="createSection()" data-dismiss="modal"> Add
+            Section</button>
         </div>
       </div>
 
@@ -423,6 +455,94 @@
 </div>
 <!-- end of level modal -->
 
+
+<!-- edit level Modal -->
+<div class="modal fade" id="exampleModalCenterEditLevel" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterEditLevelTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content" *ngIf="theLevel">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Edit Section</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <div class="form-group mb-4">
+          <label for="level" class="">Section</label>
+          <input type="text" id="level" class="form-control" [(ngModel)]="theLevel.name">
+        </div>
+        <!-- <div class="form-group mb-5">
+          <label for="sequence" class="">Sequence</label>
+          <select name="" id="sequence" class="form-control">
+            <option value="">Select</option>
+          </select>
+        </div> -->
+        <div class="form-group mb-5">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+            <label class="custom-control-label" for="customSwitch1">Active</label>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editSection(theLevel.id)"> Update Section</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of edit level modal -->
+
+<!-- edit class Modal -->
+<div class="modal fade" id="exampleModalCenterEditClass" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterEditClassTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content" *ngIf="theClass">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Edit Class</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <div class="form-group mb-4">
+          <label for="level" class="">Class Name</label>
+          <input type="text" id="level" class="form-control" [(ngModel)]="theClass.name">
+        </div>
+        <!-- <div class="form-group mb-5">
+          <label for="sequence" class="">Sequence</label>
+          <select name="" id="sequence" class="form-control">
+            <option value="">Select</option>
+          </select>
+        </div> -->
+        <!-- <div class="form-group mb-5">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1">
+            <label class="custom-control-label" for="customSwitch1">Active</label>
+          </div>
+        </div> -->
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editClass()" data-dismiss="modal"> Update Class</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of edit class modal -->
 
 <!-- Class Modal -->
 <div class="modal fade" id="exampleModalCenterClass" tabindex="-1" role="dialog"
@@ -555,6 +675,56 @@
 </div>
 <!-- end of arm modal -->
 
+<!-- Arm Modal -->
+<div class="modal fade" id="exampleModalEditArm" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalEditArmTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content" *ngIf="theArm">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Update Class Arm</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <div class="form-group mb-5">
+          <label for="arm" class="">Class Arm <span class="text-danger">*</span></label>
+          <input type="text" id="arm" class="form-control" placeholder="Enter class arm" [(ngModel)]="theArm.name">
+        </div>
+
+        <div class="form-group mb-5">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch3"
+              (change)="getStatus($event.target.checked)" [(ngModel)]="theArm.status">
+            <label class="custom-control-label" for="customSwitch3"
+              *ngIf="toggleState === false; then inactive; else active;"> {{toggleState}} </label>
+            <ng-template #active>
+              <label class="custom-control-label" for="customSwitch3">Active </label>
+            </ng-template>
+            <ng-template #inactive>
+              <label class="custom-control-label" for="customSwitch3"> Inactive </label>
+            </ng-template>
+          </div>
+        </div>
+
+
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+            data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editArm(theArm.id)" data-dismiss="modal"> Update Class Arm</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of arm modal -->
+
 <!-- Subject Modal -->
 <div class="modal fade" id="exampleModalCenterSubject" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
@@ -585,7 +755,7 @@
                 <p class="mb-0">{{level.name}}</p>
                 <img src="assets/images/svg/subject-drop.svg" alt="" class="ml-auto" data-toggle="collapse"
                   href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"
-                  (click)="getSectionId(level.id)">
+                  (click)="getClassBySectionId(level.id)">
               </div>
               <div class="collapse" id="collapseExample">
                 <!-- <div formArrayName="ClassIds" *ngFor="let class of classBySectionList; let i = index;">

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -18,7 +19,8 @@ DocumentTypes: number[] = [];
               private fb: FormBuilder,
               private parentService: ParentsService,
               private notifyService: NotificationsService,
-              private router: Router
+              private router: Router,
+              private location:Location
   ) { }
 
   ngOnInit() {
@@ -38,15 +40,15 @@ DocumentTypes: number[] = [];
 
 
     this.parentService.addParent(result).subscribe( (data: any) => {
-        if (data.hasErrors === false) {
+        if (data.code == 1) {
           console.log(data);
           this.notifyService.publishMessages( data.description, 'success', 1);
           sessionStorage.clear();
-          this.router.navigateByUrl('/school/parents');
+          this.location.back()
         }
       },
       error => {
-        this.notifyService.publishMessages(error.message, 'danger', 1);
+        this.notifyService.publishMessages(error.errors[0], 'danger', 1);
       });
 
 

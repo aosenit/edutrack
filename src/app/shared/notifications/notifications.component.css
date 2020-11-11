@@ -1,0 +1,8 @@
+.notification {
+    position: fixed;
+    left: 20vw;
+    margin: 0 auto;
+    top: 8vh;
+    width: 60vw;
+    z-index: 34444444444444444444444
+}

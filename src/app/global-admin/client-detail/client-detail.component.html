@@ -6,6 +6,7 @@
         </li>
 
 
+        <!-- <li class="breadcrumb-item ml-auto" ><a href="#">Home</a></li> -->
         <li class="breadcrumb-item a1 active ml-auto" aria-current="page">
             <a><img src="assets/images/svg/nav.svg" class="mr-1" alt="..." /> Clients {{schoolDetail?.name}} </a>
         </li>
@@ -14,22 +15,24 @@
 
 </nav>
 
+
 <div class="client mt-2">
 
     <section class="activated mb-4">
-        <div class="activated__image " >
+        <div class="activated__image ">
             <!-- <img  src="data:image/png;base64,{{schoolDetail?.logo}}" class="mr-3 image-rounded" alt="..." /> -->
-            <img *ngIf="schoolDetail?.logo"  [src]="' data:image/png;base64, ' + schoolDetail?.logo | trustedUrl" class="mr-3 image-rounded" alt="..." />
-            <img class="" *ngIf="schoolDetail?.logo == null" src="assets/images/svg/companyalt.svg" alt="schools log"
-                  class="mr-3 image-rounded" id="">
+            <img *ngIf="schoolDetail?.logo" [src]="' data:image/png;base64, ' + schoolDetail?.logo | trustedUrl"
+                class="mr-3 image-rounded" alt="..." />
+            <!-- <img class="" *ngIf="schoolDetail?.logo == null" src="assets/images/svg/companyalt.svg" alt="schools log"
+                class="mr-3 image-rounded" id=""> -->
             <div>
-                <p class="activated__title fw-6">{{schoolDetail?.name}} <img
-                        src="assets/images/svg/verify.svg" alt="schools log"> </p>
+                <p class="activated__title fw-6">{{schoolDetail?.name}} <img src="assets/images/svg/verify.svg"
+                        alt="schools log"> </p>
                 <p class="activated__code">{{schoolDetail?.clientCode}}</p>
             </div>
         </div>
         <div class="activated__date mr-5 text-right">
-            <p class="active">Created on 17/03/20 </p>
+            <p class="active">Created on {{schoolDetail?.dateCreated | date: 'dd/MM/y'}} </p>
             <div class="activated__date-switch">
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -47,7 +50,7 @@
                     <h6> <img src="assets/images/svg/profile-icon.svg" class="mr-3" alt="..." />
                         Profile Information</h6>
                 </div>
-                <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." />
+                <!-- <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." /> -->
             </div>
             <div class="card__profile-link mt-5 mr-5">
                 <div class="link">
@@ -62,21 +65,23 @@
                 </div>
             </div>
 
-            <div class="card__profile-link mt-4 mb-5 mr-5">
-                <div class="link">
+            <div class="card__profile-link mt-4 mb-5 mr-5" *ngIf="schoolDetail?.icon || schoolDetail?.logo">
+                <div class="link" *ngIf="schoolDetail?.logo">
                     <p>Logo</p>
-                    <img *ngIf="schoolDetail?.logo" [src]="' data:image/png;base64, ' + schoolDetail?.logo | trustedUrl" class="mr-3 thumb-logo" alt="..." />
-                    <img class="" *ngIf="schoolDetail?.logo == null" src="assets/images/svg/companyalt.svg" alt="schools log"
-                  class="mr-3 thumb-logo" id="">
+                    <img  [src]="'data:image/png;base64, ' + schoolDetail?.logo | trustedUrl"
+                        class="mr-3 thumb-logo" alt="..." />
+                    <!-- <img class="" *ngIf="schoolDetail?.logo == null" src="assets/images/svg/companyalt.svg"
+                        alt="schools log" class="mr-3 thumb-logo" id=""> -->
 
                 </div>
-                <div class="link mr-5 ml-4">
+                <div class="link mr-5 ml-4"  *ngIf="schoolDetail?.icon">
                     <p>Icon</p>
-                    <img  *ngIf="schoolDetail?.logo" [src]="' data:image/png;base64, ' + schoolDetail?.icon | trustedUrl" class="mr-3 icon-logo" alt="..." />
-                    <img class="" *ngIf="schoolDetail?.logo == null" src="assets/images/svg/companyalt.svg" alt="schools log"
-                  class="mr-3 icon-logo " id="">
+                    <img [src]="'data:image/png;base64, ' + schoolDetail?.icon | trustedUrl"
+                        class="mr-3 icon-logo" alt="..." />
+                    <!-- <img class="" *ngIf="schoolDetail?.logo == null" src="assets/images/svg/companyalt.svg"
+                        alt="schools log" class="mr-3 icon-logo " id=""> -->
 
-                  
+
                 </div>
             </div>
         </div>
@@ -129,7 +134,7 @@
                     <h6> <img src="assets/images/svg/contact.svg" class="mr-3" alt="..." />
                         Contact Details</h6>
                 </div>
-                <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." />
+                <!-- <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." /> -->
             </div>
             <div class="card__profile-link mt-5 mr-5">
                 <div class="link">
@@ -161,7 +166,7 @@
                     <h6> <img src="assets/images/svg/contact-person.svg" class="mr-3" alt="..." />
                         Contact Person</h6>
                 </div>
-                <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." />
+                <!-- <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." /> -->
             </div>
             <div class="card__profile-link mt-5 mr-5">
                 <div class="link">

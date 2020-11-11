@@ -89,11 +89,13 @@ table.client-table {
 }
 
 .list .table thead {
+    padding: 0;
     color: #4c75bd;
 }
 
 .list .table thead tr th {
     font-weight: 600;
+    font-size: 13px;
 }
 
 .list .table thead .head {
