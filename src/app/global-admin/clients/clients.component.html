@@ -119,7 +119,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="pb-2" *ngFor="let client of clientList">
+        <tr class="pb-2" *ngFor="let client of clientList | tableSearch : 'name' : searchString | paginate: { itemsPerPage: 5, currentPage: p }">
           <td scope="row" class="school-logo rounded-left fc-lblue">
             <div class="d-flex align-items-center">
               <div>
@@ -198,13 +198,13 @@
           <pagination-controls (pageChange)="p = $event" class="text-center"></pagination-controls>
         </div>
 
-    <div class="d-flex justify-content-center align-items-center" *ngIf="searchString ">
+    <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">
             <div class="d-flex flex-column justify-content-center align-items-center">
               <img src="assets/images/svg/no-result.svg" alt="no search result" class="my-4">
                 <p class="mb-4 no-result">Sorry, no results found</p>
                 <button class="btn btn-outline-orange  mx-2 mx-lg-3" >Go back </button>
             </div>
-        </div>
+        </div> -->
 
   </section>
 </div>

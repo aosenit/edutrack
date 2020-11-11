@@ -2,9 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
+// const routes = {
+//   addclassarm: 'schtrack-auth/api/v1/ClassArm/AddClassArm',
+//   getallclassarm: 'schtrack-auth/api/v1/ClassArm/GetAllClassArms',
+//   getclassarmById: 'schtrack-auth/api/v1/ClassArm/GetAllClassArm',
+//   updateclassarm: 'schtrack-auth/api/v1/ClassArm/UpdateClassArm',
+//   deleteclassarm: 'schtrack-auth/api/v1/ClassArm/DeleteClassArm'
+// };
 const routes = {
-  addclassarm: 'schtrack-auth/api/v1/ClassArm/AddClassArm',
-  getallclassarm: 'schtrack-auth/api/v1/ClassArm/GetAllClassArms',
+  addclassarm: 'api/v1/ClassArm/AddClassArm',
+  getallclassarm: 'api/v1/ClassArm/GetAllClassArms',
   getclassarmById: 'schtrack-auth/api/v1/ClassArm/GetAllClassArm',
   updateclassarm: 'schtrack-auth/api/v1/ClassArm/UpdateClassArm',
   deleteclassarm: 'schtrack-auth/api/v1/ClassArm/DeleteClassArm'
@@ -26,14 +33,14 @@ export class ClassArmService {
     body.append('name', addclassForm.name);
     body.append('status', addclassForm.status);
     console.log(body);
-    const url = `${this.baseUrl + routes.addclassarm}`;
+    const url = `${this.baseUrl2 + routes.addclassarm}`;
     return this.http.post(url, body, { headers: { tenantId } });
   }
 
   getAllClassArm() {
     const tenantId = '1';
 
-    const url = `${this.baseUrl + routes.getallclassarm}`;
+    const url = `${this.baseUrl2 + routes.getallclassarm}`;
     return this.http.get(url, { headers: { tenantId } });
   }
 

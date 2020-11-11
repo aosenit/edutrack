@@ -32,7 +32,7 @@ export class NewUserComponent implements OnInit {
       userName: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
       image: [null],
-      password: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
     });
   }
 
@@ -62,7 +62,7 @@ export class NewUserComponent implements OnInit {
       const file = event.target.files[0];
       console.log('file', file);
       this.avatarname = file.name;
-      this.userForm.get('Document').setValue(file);
+      this.userForm.get('image').setValue(file);
       this.DocumentTypes.push(2);
 
       // this.iconname = this.icon.name;

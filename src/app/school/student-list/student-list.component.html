@@ -20,7 +20,12 @@
         <h6 class="banner__text-primary fw-6 "> Students </h6>
         <p class="text-white"> Directory of all registered students </p>
     </div>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student"> Add New </button>
+    <div class="d-flex">
+        <button class="btn btn-outline-orange  mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+            data-target="#exampleModalCenterUpload">Bulk
+            Upload</button>
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student"> Add New </button>
+    </div>
 
 </section>
 
@@ -356,17 +361,20 @@
                     
                 </div>
                 <div class="modal-body client-modal">
-                    <form>
+                    <form [formGroup]=studentBulkUploadForm (ngSubmit)="createStudentBulkUpload()">
                         <div class="form-group file-upload mt-4 mb-3">
                             <label for="fileupload">Drag files to upload or click</label>
-                            <input type="file" class="file-input" id="fileupload">
-                            <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                            <input type="file" class="file-input" id="fileupload"
+                            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                            (change)="handleBulkUpload($event)">
+                            <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
                             <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
                                 file. To import
                                 more than 5000 records at a time, use a .csv file.</p>
                         </div>
 
-                        <p class="mb-5 download">Click <span>here</span> to download sample file</p>
+                        <a class="mb-5 download" href="" download="SchoolTrack Bulk Upload">Click
+                            <span class="download fc-lblue">here</span> to download sample file</a>
 
                         <div class="modal-btn d-flex justify-content-end mb-5">
                             <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>

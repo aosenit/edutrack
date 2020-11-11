@@ -6,12 +6,12 @@
       <div class="col-md-6">
         <label for="entry" class="fw-6">Phone Number </label>
         <input type="tel" placeholder="814 567 6749" maxlength="11" class="form-control form-control-lg"
-          formControlName="myPhone">
+          formControlName="PhoneNumber">
       </div>
       <div class="col-md-6">
         <label for="entry" class="fw-6">Phone Number </label>
         <input type="tel" placeholder="814 567 6749" maxlength="11" class="form-control form-control-lg"
-          formControlName="altPhone">
+          formControlName="SecondaryPhoneNumber">
       </div>
 
     </div>
@@ -20,15 +20,15 @@
       <div class="col-md-6">
         <label for="entry" class="fw-6">Email Address <span class="text-danger">*</span></label>
         <input type="email" placeholder="Enter email address" class="form-control form-control-lg"
-          formControlName="contactEmail">
-        <div *ngIf="socialDetailsForm.controls.contactEmail.errors" class="error">
-            <div *ngIf="socialDetailsForm.controls.contactEmail.errors.email" class="text-danger">Invalid email format</div>
+          formControlName="EmailAddress">
+        <div *ngIf="socialDetailsForm.controls.EmailAddress.errors" class="error">
+            <div *ngIf="socialDetailsForm.controls.EmailAddress.errors.email" class="text-danger">Invalid email format</div>
           </div>
       </div>
       <div class="col-md-6">
         <label for="entry" class="fw-6">Alternative Email Address </label>
         <input type="email" placeholder="Enter email address" class="form-control form-control-lg"
-          formControlName="contactAltEmail">
+          formControlName="SecondaryEmailAddress">
       </div>
 
     </div>
@@ -38,14 +38,14 @@
       <div class="col-md-6 ">
         <label for="entry" class="fw-6">Home Address <span class="text-danger">*</span></label>
         <input type="text" placeholder="Enter Home address" class="form-control form-control-lg"
-          formControlName="address">
+          formControlName="Address">
 
       </div>
 
       <div class="col-md-6 ">
         <label for="entry" class="fw-6">Office Address <span class="text-danger">*</span></label>
         <input type="text" placeholder="Enter office address" class="form-control form-control-lg"
-          formControlName="officeAddress">
+          formControlName="OfficeAddress">
 
       </div>
 

@@ -31,7 +31,7 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent},
       { path: 'students', component: StudentListComponent},
       { path: 'parents', component: ParentListComponent},
-      { path: 'parent-detail', component: ParentDetailsComponent},
+      { path: 'parent-detail/:id', component: ParentDetailsComponent},
       { path: 'student-detail', component: StudentDetailComponent},
       { path: 'account-settings', component: AccountSettingsComponent},
       { path: 'school-settings', component: SchoolSettingsComponent},

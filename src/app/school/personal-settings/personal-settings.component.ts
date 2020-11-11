@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { DepartmentService } from 'src/services/data/department/department.service';
 @Component({
   selector: 'app-personal-settings',
   templateUrl: './personal-settings.component.html',
@@ -12,9 +14,18 @@ export class PersonalSettingsComponent implements OnInit {
   employment = false;
   qualification = false;
   occupation = false;
-  constructor() { }
+  departmentForm: FormGroup;
+  departmentList: any;
+
+  constructor(
+          private fb: FormBuilder,
+          private departmentService: DepartmentService,
+          private notification: NotificationsService
+  ) { }
 
   ngOnInit() {
+    this.populateDepartmentForm();
+    this.getAllDepartments();
   }
 
   showStatus(status: string) {
@@ -66,4 +77,36 @@ export class PersonalSettingsComponent implements OnInit {
         this.dept = true;
     }
   }
-}
+
+  populateDepartmentForm() {
+    this.departmentForm = this.fb.group({
+      name: ['', Validators.required],
+      isActive: ['']
+    });
+  }
+
+  createDepartment() {
+   this.departmentService.addDepartment(this.departmentForm.value).subscribe( (data: any) => {
+      if (data.hasErrors === false) {
+        this.notification.publishMessages('Department added successfully', 'info', 1);
+        document.getElementById('closeModal').click();
+      }
+   }, error => {
+    this.notification.publishMessages(error.errors, 'info', 1);
+
+   });
+  }
+
+  getAllDepartments() {
+    this.departmentService.getAllDepartment().subscribe( (data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data);
+        this.departmentList = data.payload;
+      }
+   }, error => {
+    this.notification.publishMessages(error.errors, 'info', 1);
+
+   });
+  }
+
+ }

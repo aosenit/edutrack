@@ -5,22 +5,23 @@
             <div class="col-md-6 ">
                 <label for="parent" class="fw-6">Photo <span
                         class="text-danger">*</span></label>
-                <div class="flex-column">
-                    <img [src]="imageSrc" class="ml-3" alt="..." />
-                    <div class="add-image w-50 mt-2" *ngIf="profileImageName === null">
-                        <label for="addImage" > <img
-                                src="assets/images/svg/student-add-upload.svg" class="ml-3"
-                                alt="..." /> Change Image
-                            <input type="file" id="addImage" 
-                            class="file-input"
-                            (change)="handleImgUpload($event)">
-                        </label>
-                        <ng-template #filename>
-                            <label class="custom-file-label" for="customFile"> {{profileImageName}} </label>
-                          </ng-template>
-                          <p class="mb-0 pt-4 fw-6 fs-14">Max size: 512kb</p>
-                    </div>
-                </div>
+                        <div class="flex-column">
+                            <img [src]="imageSrc" class=" student-img" alt="..." />
+                            <img src="assets/images/svg/student-upload.svg" *ngIf="imageSrc == null" class="ml-3" alt="..." />
+                            <div class="add-image w-50 mt-2" >
+                                <label for="addImage" > <img
+                                        src="assets/images/svg/student-add-upload.svg" class="ml-3"
+                                        alt="..." /> Change Image
+                                    <input type="file" id="addImage" 
+                                    class="file-input"
+                                    (change)="handleImgUpload($event)">
+                                </label>
+                                <!-- <ng-template #filename>
+                                    <label class="custom-file-label" for="customFile"> {{profileImageName}} </label>
+                                  </ng-template> -->
+                                </div>
+                                <p class="mb-0 pt-4 fw-6 fs-14">Max size: 512kb</p>
+                        </div>
             </div>
     
             

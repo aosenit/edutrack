@@ -20,27 +20,7 @@ export class SchoolService {
   baseUrl2: string = environment.demourl;
 
   constructor(private http: HttpClient) { }
-  addSection(name) {
-    var tenantId = '1'
-    const body = new FormData()
-    body.append("name", name)
-    
-    return this.http.post(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', body, { headers: { tenantId } })
-  }
-  getSection() {
-    var tenantId = '1'
-    return this.http.get(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/GetAllSections', { headers: { tenantId } })
-  }
-  updateSection(name) {
-    const body = new FormData()
-    body.append("name", name)
-    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', body, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem("access_token") } })
-  }
 
-  deleteSection(id) {
-
-    return this.http.delete(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/DeleteSection/' + id, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem("access_token") } })
-  }
 
   addSchool(schoolFinalStep) {
     const formData = new FormData();
@@ -76,7 +56,7 @@ export class SchoolService {
 
   uploadBulkDocument(bulkUpload) {
     const formData = new FormData();
-    formData.append('File', bulkUpload.avatar);
+    formData.append('File', bulkUpload.Document);
     const url = `${this.baseUrl + routes.bulkUplaod}`;
     return this.http.post(url, bulkUpload);
   }
