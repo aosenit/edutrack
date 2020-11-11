@@ -21,7 +21,7 @@ export class SocialDetailsComponent implements OnInit {
       SecondaryPhoneNumber: [''],
       EmailAddress: ['', [Validators.required, Validators.email]],
       SecondaryEmailAddress: ['' ],
-      Address: ['', Validators.required],
+      HomeAddress: ['', Validators.required],
       OfficeAddress: ['', Validators.required],
 
     });

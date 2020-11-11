@@ -2,29 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
-// const routes = {
-//   addclass: 'schtrack-auth/api/v1/Class/AddClass',
-//   addstudenttoclass: 'schtrack-auth/api/v1/Class/AddStudentToClass',
-//   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
-//   assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
-//   getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses ',
-//   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
-//   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
-//   updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
-//   deleteclass: 'schtrack-auth/api/v1/Class/UpdateClass'
-// };
 const routes = {
-  addclass: 'api/v1/Class/AddClass',
-  addstudenttoclass: 'api/v1/Class/AddStudentToClass',
-  getclassbysection: 'api/v1/Class/GetClassBySection',
+  addclass: 'schtrack-auth/api/v1/Class/AddClass',
+  addstudenttoclass: 'schtrack-auth/api/v1/Class/AddStudentToClass',
+  getclassbysection: 'schtrack-auth/api/v1/Class/GetClassBySection',
   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
   assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
-  getallclass: 'api/v1/Class/GetAllClasses?PageIndex=1&PageSize=10 ',
+  getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses ',
   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
   updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
   deleteclass: 'schtrack-auth/api/v1/Class/UpdateClass'
 };
+// const routes = {
+//   addclass: 'api/v1/Class/AddClass',
+//   addstudenttoclass: 'api/v1/Class/AddStudentToClass',
+//   getclassbysection: 'api/v1/Class/GetClassBySection',
+//   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
+//   assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
+//   getallclass: 'api/v1/Class/GetAllClasses?PageIndex=1&PageSize=10 ',
+//   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
+//   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
+//   updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
+//   deleteclass: 'schtrack-auth/api/v1/Class/UpdateClass'
+// };
 
 
 @Injectable({
@@ -39,7 +40,7 @@ export class ClassService {
 
   addClass(result) {
     const tenantId = '1';
-    const url = `${this.baseUrl2 + routes.addclass}`;
+    const url = `${this.baseUrl + routes.addclass}`;
     console.log(url);
     return this.http.post(url, result,  { headers: { tenantId } });
   }
@@ -51,7 +52,7 @@ export class ClassService {
 
   getClassBySection(id) {
     const tenantId = '1';
-    const url = `${this.baseUrl2 + routes.getclassbysection}/${id}`;
+    const url = `${this.baseUrl + routes.getclassbysection}/${id}`;
     return this.http.get(url, { headers: { tenantId } });
   }
 
@@ -67,7 +68,7 @@ export class ClassService {
 
   getAllClasses() {
     const tenantId = '1';
-    const url = `${this.baseUrl2 + routes.getallclass}`;
+    const url = `${this.baseUrl + routes.getallclass}`;
     return this.http.get(url, { headers: { tenantId } });
   }
 

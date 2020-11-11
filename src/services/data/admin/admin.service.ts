@@ -3,18 +3,18 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 
-// const routes = {
-//   newAdmin: 'schtrack-auth/api/v1/Admin',
-//   getAdmins: 'schtrack-auth/api/v1/Admin?PageIndex=1&PageSize=15',
-//   getAllPermissions: 'schtrack-auth/api/Role/GetAllPermissions'
-//   // getAdmins: 'api/v1/Admin?PageIndex=1&PageSize=10',
-// };
 const routes = {
-  newAdmin: 'api/v1/Admin',
+  newAdmin: 'schtrack-auth/api/v1/Admin',
   getAdmins: 'schtrack-auth/api/v1/Admin?PageIndex=1&PageSize=15',
   getAllPermissions: 'schtrack-auth/api/Role/GetAllPermissions'
   // getAdmins: 'api/v1/Admin?PageIndex=1&PageSize=10',
 };
+// const routes = {
+//   newAdmin: 'api/v1/Admin',
+//   getAdmins: 'schtrack-auth/api/v1/Admin?PageIndex=1&PageSize=15',
+//   getAllPermissions: 'schtrack-auth/api/Role/GetAllPermissions'
+//   // getAdmins: 'api/v1/Admin?PageIndex=1&PageSize=10',
+// };
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,7 @@ export class AdminService {
     body.append('Files', userForm.image);
     userForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     body.append('phoneNumber', userForm.phoneNumber);
-    const url = `${this.baseUrl2 + routes.newAdmin}`;
+    const url = `${this.baseUrl + routes.newAdmin}`;
     return this.http.post(url, body );
   }
 

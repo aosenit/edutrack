@@ -2,18 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
-// const routes = {
-//   addparent: 'schtrack-auth/api/v1/Parent/AddNewParent  ',
-//   getallparent: 'schtrack-auth/api/v1/Parent/GetAllParents',
-//   getparentbyid: 'schtrack-auth/api/v1/Parent/GetParentById',
-//   getstudentparent: 'schtrack-auth/api/v1/Parent/GetParentsForStudent',
-//   updateparentbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
-//   deleteparent: 'schtrack-auth/api/v1/Parent/DeleteParent'
-// };
+
 const routes = {
-  addparent: 'api/v1/Parent/AddNewParent  ',
-  getallparent: 'api/v1/Parent/GetAllParents',
-  getparentbyid: 'api/v1/Parent/GetParentById',
+  addparent: 'schtrack-auth/api/v1/Parent/AddNewParent  ',
+  getallparent: 'schtrack-auth/api/v1/Parent/GetAllParents',
+  getparentbyid: 'schtrack-auth/api/v1/Parent/GetParentById',
   getstudentparent: 'schtrack-auth/api/v1/Parent/GetParentsForStudent',
   updateparentbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
   deleteparent: 'schtrack-auth/api/v1/Parent/DeleteParent'
@@ -50,21 +43,21 @@ export class ParentsService {
     formData.append('Sex', createParentForm.Sex);
     formData.append('Status', createParentForm.Status);
     formData.append('Title', createParentForm.Title);
-    const url = `${this.baseUrl2 + routes.addparent}`;
+    const url = `${this.baseUrl + routes.addparent}`;
     return this.http.post(url, formData, { headers: { tenantId } });
   }
 
   getAllParents() {
     const tenantId = '1'; // just a temporary header till email services is ready
 
-    const url = `${this.baseUrl2 + routes.getallparent}`;
+    const url = `${this.baseUrl + routes.getallparent}`;
     return this.http.get(url, { headers: { tenantId } });
   }
 
   getParentById(id) {
     const tenantId = '1'; // just a temporary header till email services is ready
 
-    const url = `${this.baseUrl2 + routes.getparentbyid}/${id}`;
+    const url = `${this.baseUrl + routes.getparentbyid}/${id}`;
     return this.http.get(url,  { headers: { tenantId } });
   }
 

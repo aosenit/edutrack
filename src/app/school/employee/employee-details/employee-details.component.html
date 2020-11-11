@@ -49,8 +49,8 @@
 
           <select name="" id="department" class="form-control form-control-lg" formControlName="department">
             <option value="" selected> select </option>
-            <option [value]="department.id" *ngFor = "let department of departmentList"> {{department?.name}} </option>
-            <option value="N/A" > Not Available </option>
+            <option [value]="department?.id" *ngFor = "let department of departmentList"> {{department?.name}} </option>
+            <!-- <option [value]="N/A" *ngIf = "department?.name === null"> Not Available </option> -->
 
         </select>
         </div>
