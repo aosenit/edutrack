@@ -39,6 +39,7 @@ export class SchoolSettingsComponent implements OnInit {
   dropdownList = [];
   classBySectionList: any;
   classBySectionDropdownList = [];
+  subjectList: any;
 
   constructor(
     private fb: FormBuilder,
@@ -61,14 +62,15 @@ export class SchoolSettingsComponent implements OnInit {
       classGroupId: ['']
     });
     this.newsubjectForm = this.fb.group({
-      name: ['', Validators.required],
-      isActive: [],
+      Name: ['', Validators.required],
+      IsActive: [],
       classSectionIds: []
     });
     this.populateNewClassForm();
     this.getClassArms();
     this.getClasses();
     this.getSections();
+    // this.getAllSubjects();
 
     this.dropdownSettings = {
       singleSelection: false,
@@ -287,14 +289,14 @@ export class SchoolSettingsComponent implements OnInit {
 
   createSubject() {
     console.log('arrays', this.newsubjectForm.value);
-    const { name, isActive, classSectionIds } = this.newsubjectForm.value;
+    const { Name, IsActive, classSectionIds } = this.newsubjectForm.value;
     const ClassIds = classSectionIds.map((ids: any) => {
       return ids.id;
     });
     const result = {
-      name,
+      Name,
       ClassIds,
-      isActive
+      IsActive
     };
     console.log('subjects to be created', result);
     this.subjectService.addNewSubject(result).subscribe((data: any) => {
@@ -304,6 +306,14 @@ export class SchoolSettingsComponent implements OnInit {
       }
     });
 
+  }
+
+  getAllSubjects() {
+    this.subjectService.getAllSubjects().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.subjectList = data.payload;
+      }
+    });
   }
 
 }
