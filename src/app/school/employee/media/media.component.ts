@@ -45,7 +45,6 @@ export class MediaComponent implements OnInit {
     const nextKin =  JSON.parse(sessionStorage.getItem('employee-next-kin'));
     const experience =  JSON.parse(sessionStorage.getItem('employee-experience'));
     const finalstep = this.mediaForm.value;
-
     const result = {
       ...profile,
       ...details,
@@ -56,9 +55,9 @@ export class MediaComponent implements OnInit {
       ...finalstep,
       DocumentTypes: this.DocumentTypes
     };
-
-    if (result.staffType === 'academic') {
-      console.log('all employee data', result);
+    // const {StaffType} = details;
+    if (result.StaffType === '1') {
+      console.log('all employee data', result.staff);
       this.teacherService.addTeacher(result).subscribe((data: any) => {
       console.log('employee added', data);
       if ( data.hasErrors === false ) {

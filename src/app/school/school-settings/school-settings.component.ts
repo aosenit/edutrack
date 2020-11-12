@@ -73,7 +73,7 @@ export class SchoolSettingsComponent implements OnInit {
     this.getClassArms();
     this.getClasses();
     this.getSections();
-    // this.getAllSubjects();
+    this.getAllSubjects();
 
 
     this.dropdownSettings = {
@@ -256,8 +256,9 @@ export class SchoolSettingsComponent implements OnInit {
       res => {
         this.theClass = res['payload']
       }
-    )
+    );
   }
+  
   editClass() {
     this.classService.editClass(this.theClass.id, this.theClass.name).subscribe(
       res => {

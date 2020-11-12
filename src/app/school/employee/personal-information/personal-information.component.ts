@@ -32,12 +32,12 @@ export class PersonalInformationComponent implements OnInit {
       OtherNames: ['', Validators.required],
       DateOfBirth: ['', Validators.required],
       Sex: [''],
+      Nationality: ['', Validators.required],
       MaritalStatus: ['', Validators.required],
       BloodGroup: ['', Validators.required],
       Religion: ['', Validators.required],
-      Nationality: ['', Validators.required],
-      State: ['', Validators.required],
-      LocalGovernment: ['', Validators.required],
+      StateOfOrigin: ['', Validators.required],
+      LocalGovernment: [''],
       IsActive: ['']
     });
   }

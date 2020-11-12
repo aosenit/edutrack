@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 const routes = {
   newAdmin: 'schtrack-auth/api/v1/Admin',
   getAdmins: 'schtrack-auth/api/v1/Admin?PageIndex=1&PageSize=15',
-  getAllPermissions: 'schtrack-auth/api/Role/GetAllPermissions'
+  getAllPermissions: 'schtrack-auth/api/v1/Role/GetAllPermissions',
   // getAdmins: 'api/v1/Admin?PageIndex=1&PageSize=10',
 };
 // const routes = {

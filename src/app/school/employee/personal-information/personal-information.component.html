@@ -109,7 +109,7 @@
         <div class=" ">
             <label for="origin" class="fw-6">State of origin <span class="text-danger">*</span></label>
 
-           <select name="" id="origin" class="form-control form-control-lg" formControlName="State">
+           <select name="" id="origin" class="form-control form-control-lg" formControlName="StateOfOrigin">
                <option value="" selected> select </option>
                <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
 
@@ -154,7 +154,7 @@
 
     <div class=" d-flex justify-content-center mt-5 mb-5">
       <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' > Next </button>
+      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' [disabled]="personalDetailsForm.invalid" > Next </button>
 
     </div>
   </div>

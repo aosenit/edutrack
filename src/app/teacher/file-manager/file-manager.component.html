@@ -14,8 +14,18 @@
                     </div>
 
                 </div>
-                <button class="btn-upload-top bg-lblue " data-toggle="modal" data-target="#exampleModalCenter3"> <img
+                <button class="btn-upload-top bg-lblue " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <img
                         src="assets/images/svg/upload.svg" alt="new client" class="mr-2"> Upload </button>
+                <!-- <button class="btn-upload-top bg-lblue "> <img
+                        src="assets/images/svg/upload.svg" alt="new client" class="mr-2"> Upload </button> -->
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Select type</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item"  data-toggle="modal" data-target="#exampleModalCenter3">Class Note</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter4">Assignment/project</a>
+                            <a class="dropdown-item" href="#">Media</a>
+                            <a class="dropdown-item" >Task</a>
+                          </div>
 
             </div>
 
@@ -400,6 +410,236 @@
             </div>
         </div>
     </div>
+
+
+    <!-- class note Modal -->
+    <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenter3Title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+            <div class="modal-content">
+
+                <div class="modal-head mb-2">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h6 class="modal-title">Upload Files</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="line">
+                        <p class="pb-3">Uplaod Class Note</p>
+                    </div>
+                </div>
+                <div class="modal-body client-modal">
+                    <form [formGroup]="uploadClassNoteForm" (ngSubmit)="submitClassNote()">
+
+                        <div class="row mb-3">
+                            <div class="col-sm-12">
+                                <div class="form-row">
+                                    <!-- <div class="form-group col-md-3">
+                                        <select class="form-control">
+                                            <option selected>Select Type</option>
+                                            <option value="note">Class Note</option>
+                                            <option value="assignment">Assignment</option>
+                                            <option value="media">Media</option>
+                                        </select>
+                                    </div> -->
+                                    <div class="form-group col-md-3">
+                                        <select class="form-control" (change)="getSubjects($event.target.value)" formControlName="classId">
+                                            <option value="" selected>Select Class</option>
+                                            <option [value]="class.id" *ngFor="let class of classList"> {{class.name}} </option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <select class="form-control" formControlName = "subjectId">
+                                            <option value="" selected>Select Subject</option>
+                                            <option value="2">Englis</option>
+                                            <!-- <option [value]="subject.id" *ngFor="let subject of subjectsInClass"> {{subject.name}} </option> -->
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group file-upload mb-5">
+                            <label for="fileupload">Drag files to upload or click</label>
+                            <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)">
+                            <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="message">Optional message</label>
+                            <textarea name="" id="message" class="form-control"></textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-end mb-3">
+                            <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+                        </div>
+
+                    </form>
+                </div>
+ 
+            </div>
+        </div>
+    </div>
+    <!-- end of class note modal -->
+
+
+
+    <!-- Assignment Modal -->
+    <div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenter3Title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+            <div class="modal-content">
+
+                <div class="modal-head mb-2">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h6 class="modal-title">Upload Files</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="line">
+                        <p class="pb-3">Upload Assignment/Projects</p>
+                    </div>
+                </div>
+                <div class="modal-body client-modal">
+                    <form [formGroup]="uploadAssignmentForm" (ngSubmit)="submitAssignment()">
+
+                        <div class="row mb-3">
+                            <div class="col-sm-12">
+                                <div class="form-row">
+            
+                                    <div class="form-group col-md-3">
+                                        <select class="form-control" formControlName="classId">
+                                            <option selected>Select Class</option>
+                                            <option [value]="class.id" *ngFor="let class of classList">{{class?.name}}</option>
+                                            
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <select class="form-control" formControlName="subjectId">
+                                            <option selected>Select Subject</option>
+                                            <option value="JSS1">English Language</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input type="datetime-local" class="form-control" placeholder="Due date" formControlName="DueDate">
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <input type="number" class="form-control" placeholder="Score" formControlName="TotalScore" >
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="text" name="" id="" class="form-control" placeholder="Title" formControlName="Title">
+                        </div>
+                        
+                        <div class="form-group file-upload mb-5">
+                            <label for="fileupload">Drag files to upload or click</label>
+                            <input type="file" class="file-input" id="fileupload" (change)="handleAssignmentUpload($event)">
+                            <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="message">Optional message</label>
+                            <textarea name="" id="message" class="form-control"></textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-end mb-3">
+                            <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+                        </div>
+
+                    </form>
+                </div>
+ 
+            </div>
+        </div>
+    </div>
+    <!-- end of Assignment modal -->
+
+
+
+    <!-- file manager Modal -->
+    <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenter3Title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+            <div class="modal-content">
+
+                <div class="modal-head mb-2">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h6 class="modal-title">Upload Files</h6>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="line">
+                        <p class="pb-3">Uplaod Class Note, Assignment</p>
+                    </div>
+                </div>
+                <div class="modal-body client-modal">
+                    <form>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-12">
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <select class="form-control">
+                                            <option selected>Select Type</option>
+                                            <option value="note">Class Note</option>
+                                            <option value="assignment">Assignment</option>
+                                            <option value="media">Media</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <select class="form-control">
+                                            <option selected>Select Class</option>
+                                            <option value="JSS1">JSS 1</option>
+                                            <option value="JSS2">JSS 2</option>
+                                            <option value="JSS3">JSS 3</option>
+                                            <option value="SS1">SS 1</option>
+                                            <option value="SS2">SS 2</option>
+                                            <option value="SS3">SS 3</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <select class="form-control">
+                                            <option selected>Select Subject</option>
+                                            <option value="JSS1">English Language</option>
+                                            <option value="JSS2">Literature</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group file-upload mb-5">
+                            <label for="fileupload">Drag files to upload or click</label>
+                            <input type="file" class="file-input" id="fileupload">
+                            <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="message">Optional message</label>
+                            <textarea name="" id="message" class="form-control"></textarea>
+                        </div>
+
+                        <div class="d-flex justify-content-end mb-3">
+                            <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+                        </div>
+
+                    </form>
+                </div>
+ 
+            </div>
+        </div>
+    </div>
+    <!-- end of file manager modal -->
+
 
 
     <!-- file manager Modal -->
