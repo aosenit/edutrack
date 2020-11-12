@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
 
 @Component({
   selector: 'app-work-experience',
@@ -10,6 +10,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 export class WorkExperienceComponent implements OnInit {
 @Output() sendChildName = new EventEmitter<string>();
 employeeWorkExperienceForm: FormGroup;
+items: any;
 
   constructor(private home: EmployeeComponent, private fb: FormBuilder) { }
 
@@ -26,11 +27,22 @@ employeeWorkExperienceForm: FormGroup;
 
   populateEmployeeExperienceForm() {
     this.employeeWorkExperienceForm = this.fb.group({
-      workRole: ['', Validators.required],
-      workCompany: ['', Validators.required],
-      experienceFrom: ['', Validators.required],
-      experienceTo: ['', Validators.required],
+      WorkExperienceVMs: this.fb.array([ this.createItem() ])
     });
+  }
+
+  createItem(): FormGroup {
+    return this.fb.group({
+      workRole: ['', Validators.required],
+      workCompanyName: ['', Validators.required],
+      startTime	: ['', Validators.required],
+      endTime: ['', Validators.required],
+    });
+  }
+
+  addExperience() {
+    this.items = this.employeeWorkExperienceForm.get('WorkExperienceVMs') as FormArray;
+    this.items.push(this.createItem());
   }
 
 

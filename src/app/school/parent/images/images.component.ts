@@ -43,7 +43,7 @@ DocumentTypes: number[] = [];
         if (data.code == 1) {
           console.log(data);
           this.notifyService.publishMessages( data.description, 'success', 1);
-          // this.router.navigateByUrl('/school/parents');
+          sessionStorage.clear();
           this.location.back()
         }
       },

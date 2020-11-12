@@ -41,14 +41,14 @@ export class ContactDetailsComponent implements OnInit {
 
   populateContactDetailsForm() {
     this.contactForm = this.fb.group({
-      contactPhone: ['', Validators.required],
-      contactAltPhone: ['', Validators.required],
-      contactEmail: ['', Validators.required],
+      PhoneNumber: ['', Validators.required],
+      AltPhoneNumber: ['', Validators.required],
+      EmailAddress: ['', Validators.required],
       contactAltEmail: ['', Validators.required],
-      country: [''],
+      Country: [''],
       Address: ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required]
+      State: ['', Validators.required],
+      Town: ['', Validators.required]
     });
   }
 

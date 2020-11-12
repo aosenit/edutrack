@@ -1,43 +1,49 @@
 <div class="work-details mt-2">
 
   <form [formGroup]="employeeWorkExperienceForm" >
-    <div class="form-row mb-5 ">
-      <div class=" ">
-        <label for="role" class="fw-6">Role <span class="text-danger">*</span> </label>
-        <input type="text" id="role" class="form-control form-control-lg" placeholder="Enter role" formControlName="workRole">
-      </div>
-      <div class=" "> 
-        <label for="company" class="fw-6">Company Name <span class="text-danger">*</span> </label>
-        <input type="text" id="company" class="form-control form-control-lg" placeholder="Enter company name" formControlName="workCompany">
 
-
-      </div>
-
-    </div>
-
-    <div class="form-row mb-5 ">
-      
-      <div class="  ">
-        <label for="from" class="fw-6">From <span class="text-danger">*</span></label>
-        <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="experienceFrom">
-
-
-       
-      </div>
-
-      <div class="  ">
-        <label for="from" class="fw-6">To <span class="text-danger">*</span></label>
-        <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="experienceTo">
-
-
-       
-      </div>
-
-      
-
-    </div>
-
+    <div formArrayName="WorkExperienceVMs" *ngFor ="let item of employeeWorkExperienceForm.get('WorkExperienceVMs')['controls']; let i = index;">
+      <div [formGroupName]="i">
+        <div class="form-row mb-5 ">
+          <div class=" ">
+            <label for="role" class="fw-6">Role <span class="text-danger">*</span> </label>
+            <input type="text" id="role" class="form-control form-control-lg" placeholder="Enter role" formControlName="workRole">
+          </div>
+          <div class=" "> 
+            <label for="company" class="fw-6">Company Name <span class="text-danger">*</span> </label>
+            <input type="text" id="company" class="form-control form-control-lg" placeholder="Enter company name" formControlName="workCompanyName">
     
+    
+          </div>
+    
+        </div>
+    
+        <div class="form-row mb-5 ">
+          
+          <div class="  ">
+            <label for="from" class="fw-6">From <span class="text-danger">*</span></label>
+            <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="startTime">
+    
+    
+           
+          </div>
+    
+          <div class="  ">
+            <label for="from" class="fw-6">To <span class="text-danger">*</span></label>
+            <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="endTime">
+    
+    
+           
+          </div>
+    
+          
+    
+        </div>
+      </div>
+    </div>
+
+        <button class="btn btn-orange-two mx-2  px-5 mb-4 mt-3" (click)='addExperience() ' > Add More </button>
+
    
 
 

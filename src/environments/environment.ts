@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   productLogoLarge: 'assets/images/svg/loader-image.svg',
   serverUrl: 'http://13.88.13.159:58100/',
-  demourl: 'http://b160ba99fff6.ngrok.io/'
+  demourl: 'http://a71eadf99185.ngrok.io/'
 };
 
 /*

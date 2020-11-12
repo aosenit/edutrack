@@ -9,7 +9,7 @@
           class="form-control form-control-lg" 
           id="fname" 
           placeholder="Enter first Name"
-          formControlName="contactFirstName" required>
+          formControlName="FirstName" required>
         </div>
         <div class=" ">
           <label for="lname" class="fw-6">Last Name <span class="text-danger">*</span></label>
@@ -18,7 +18,7 @@
           class="form-control form-control-lg" 
           id="lname" 
           placeholder="Enter Last Name"
-          formControlName="ContactLastName" required>
+          formControlName="LastName" required>
         </div>
 
       </div>
@@ -30,13 +30,13 @@
 
           <input type="text" class="form-control form-control-lg" 
           id="others" 
-          placeholder="Enter other names" formControlName="ContactOtherName" required>
+          placeholder="Enter other names" formControlName="OtherNames" required>
         </div>
 
         <div class=" ">
             <label for="others" class="fw-6">Sex <span class="text-danger">*</span></label>
 
-           <select name="" id="othes" class="form-control form-control-lg" formControlName="sex" >
+           <select name="" id="othes" class="form-control form-control-lg" formControlName="Sex" >
                <option value="" selected> select sex</option>
                <option value="male">Male</option>
                <option value="female">Female</option>
@@ -50,14 +50,14 @@
           <label for="dob" class="fw-6">Date of Birth <span class="text-danger">*</span></label>
 
           <input type="date" class="form-control form-control-lg" 
-          id="dob" formControlName="dob"
+          id="dob" formControlName="DateOfBirth"
           placeholder="Enter other names"  required>
         </div>
 
         <div class=" ">
             <label for="others" class="fw-6">Marital Status <span class="text-danger">*</span></label>
 
-           <select name="" id="othes" class="form-control form-control-lg" formControlName="maritalStatus">
+           <select name="" id="othes" class="form-control form-control-lg" formControlName="MaritalStatus">
                <option value="" selected> select status</option>
                <option value="married" > Married</option>
                <option value="single" > Single</option>
@@ -72,9 +72,9 @@
         <div class=" ">
             <label for="blood" class="fw-6">Blood Group <span class="text-danger">*</span></label>
 
-           <select name="" id="blood" class="form-control form-control-lg" formControlName="bloodGroup">
+           <select name="" id="blood" class="form-control form-control-lg" formControlName="BloodGroup">
                <option value="" selected> select status</option>
-               <option value="" > O+ </option>
+               <option value="0+" > O+ </option>
            </select>
         </div>
 
@@ -82,7 +82,7 @@
         <div class=" ">
             <label for="religion" class="fw-6">Religion <span class="text-danger">*</span></label>
 
-           <select name="" id="religion" class="form-control form-control-lg" formControlName="religion">
+           <select name="" id="religion" class="form-control form-control-lg" formControlName="Religion">
                <option value="" selected> select status</option>
                <option value="Christianity">Christianity</option>
                <option value="Islam">Islam</option>
@@ -99,7 +99,7 @@
         <div class="  ">
             <label for="nationality" class="fw-6">Nationality <span class="text-danger">*</span></label>
 
-           <select name="" id="nationality" class="form-control form-control-lg" formControlName="nationality" (change)="getState($event.target.value)">
+           <select name="" id="nationality" class="form-control form-control-lg" formControlName="Nationality" (change)="getState($event.target.value)">
                <option value="" selected> select </option>
                <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
 
@@ -109,7 +109,7 @@
         <div class=" ">
             <label for="origin" class="fw-6">State of origin <span class="text-danger">*</span></label>
 
-           <select name="" id="origin" class="form-control form-control-lg" formControlName="state">
+           <select name="" id="origin" class="form-control form-control-lg" formControlName="State">
                <option value="" selected> select </option>
                <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
 
@@ -125,14 +125,14 @@
         <div class="  ">
             <label for="nationality" class="fw-6">Local Government <span class="text-danger">*</span></label>
 
-           <select name="" id="nationality" class="form-control form-control-lg" formControlName="lga">
+           <select name="" id="nationality" class="form-control form-control-lg" formControlName="LocalGovernment">
                <option value="" selected> select </option>
            </select>
           </div>
 
         <div class="d-flex align-items-end ">
           <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="status" (change)="getStatus($event.target.checked)">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="IsActive" (change)="getStatus($event.target.checked)">
             <label class="custom-control-label" for="customSwitch1" *ngIf = "toggleState === false; then inactive; else active;"   > {{toggleState}} </label>
               <ng-template #active>
                 <label class="custom-control-label" for="customSwitch1" >Active </label>
