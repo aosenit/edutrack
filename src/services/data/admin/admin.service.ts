@@ -43,7 +43,7 @@ export class AdminService {
   getAllAdmin() {
     const url = `${this.baseUrl + routes.getAdmins}`;
     return this.http.get(url );
-  }
+  } 
 
   getAllPermissions() {
     const url = `${this.baseUrl + routes.getAllPermissions}`;

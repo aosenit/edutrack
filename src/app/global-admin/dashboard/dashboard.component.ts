@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { SchoolService } from 'src/services/data/school/school.service';
+import { StudentService } from 'src/services/data/student/student.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,12 +14,13 @@ export class DashboardComponent implements OnInit {
   schoolCount: any;
   p: number;
 
-  constructor(private schoolService: SchoolService) { }
+  constructor(private schoolService: SchoolService, private studentservice:StudentService) { }
 
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
     this.getAllSchool();
+    this.getAllStudents();
   }
 
   getAllSchool() {
@@ -28,6 +30,13 @@ export class DashboardComponent implements OnInit {
         this.schoolCount = data.totalCount;
       }
     });
+  } 
+  getAllStudents(){
+    this.studentservice.getAllStudents().subscribe(
+      res => {
+        console.log(res)
+      }
+    )
   }
 
 }

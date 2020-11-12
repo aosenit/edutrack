@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +11,7 @@ export class ParentComponent implements OnInit {
   stage = 1;
   currentStep: any;
   active = '1';
-  constructor() { }
+  constructor(private location:Location) { }
 
   ngOnInit() {
   }
@@ -30,6 +31,7 @@ export class ParentComponent implements OnInit {
   }
 
   back() {
-    window.history.back();
+    this.location.back()
+    // window.history.back();
   }
 }

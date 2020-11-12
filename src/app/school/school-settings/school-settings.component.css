@@ -265,3 +265,9 @@ h6 {
     margin-right: 5rem;
 }
 
+.empty-state{
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

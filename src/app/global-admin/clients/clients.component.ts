@@ -37,7 +37,7 @@ p: number;
     this.bulkUpload = this.fb.group({
       Document: []
     });
-    this.getAllSchools();
+    this.getAllSchools(); 
   }
 
   getAllSchools() {
@@ -82,7 +82,7 @@ p: number;
         console.log('file successfully uplaoded', data.paylaod);
         this.notifyService.publishMessages(data.description, 'info', 1);
         document.getElementById('close').click();
-        this.router.navigateByUrl('/admin/clients');
+        this.getAllSchools()
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -98,6 +98,8 @@ p: number;
       if (data.hasErrors === false) {
         this.getAllSchools();
         this.notifyService.publishMessages(data.description, 'success', 1);
+        this.getAllSchools()
+
         // location.reload();
       }
     }, error => {
@@ -112,6 +114,8 @@ p: number;
         console.log('assa', this.profileInfo);
         sessionStorage.setItem('client-info', JSON.stringify(this.profileInfo));
         this.router.navigateByUrl('/admin/edit-client/' + id);
+        this.getAllSchools()
+
       }
     });
   }

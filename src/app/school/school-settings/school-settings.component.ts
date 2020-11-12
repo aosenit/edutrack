@@ -39,7 +39,9 @@ export class SchoolSettingsComponent implements OnInit {
   dropdownList = [];
   classBySectionList: any;
   classBySectionDropdownList = [];
-
+  theLevel: any;
+  theClass: any;
+  theArm: any;
   constructor(
     private fb: FormBuilder,
     private notification: NotificationsService,
@@ -148,6 +150,7 @@ export class SchoolSettingsComponent implements OnInit {
       console.log(data);
       this.notification.publishMessages(data.description, 'info', 1);
       document.getElementById('close').click();
+      this.getClassArms()
       // location.reload();
     }, error => {
       this.notification.publishMessages(error.errors, 'danger', 1);
@@ -174,9 +177,10 @@ export class SchoolSettingsComponent implements OnInit {
     };
     this.classService.addClass(result).subscribe((data: any) => {
       console.log('class create', data);
-      if (data.hasErrors === false) {
+      if (data.code == 1) {
         this.notification.publishMessages('Class Added Successfully', 'info', 1);
         document.getElementById('close').click();
+        this.getClasses()
       }
     }, error => {
       this.notification.publishMessages(error.errors, 'danger', 1);
@@ -237,12 +241,32 @@ export class SchoolSettingsComponent implements OnInit {
       res => {
         // tslint:disable-next-line:no-string-literal
         this.levels = res['payload'];
-        console.log('levels', this.levels);
+        this.levels = this.levels.reverse()
+        // console.log('levels', this.levels);
       }
     );
   }
 
-  getSectionId(id) {
+  getClassById(id) {
+    this.classService.getClassById(id).subscribe(
+      res => {
+        this.theClass = res['payload']
+      }
+    )
+  }
+  editClass() {
+    this.classService.editClass(this.theClass.id, this.theClass.name).subscribe(
+      res => {
+        if (res['code'] == 1) {
+          this.notification.publishMessages('You have successfully updated this class!', 'info', 0)
+          this.getClasses()
+        }else{
+          this.notification.publishMessages(res['description'], 'warning', 0)
+        }
+      }
+    )
+  }
+  getClassBySectionId(id) {
     console.log(id);
     this.classService.getClassBySection(id).subscribe(
       (res: any) => {
@@ -273,14 +297,74 @@ export class SchoolSettingsComponent implements OnInit {
     );
   }
 
+  getSection(id) {
+    this.schoolSectionService.getSectionById(id).subscribe(
+      res => {
+        this.theLevel = res['payload']
+      }
+    )
+  }
+  editSection() {
+    this.schoolSectionService.updateSection(this.theLevel.name, this.theLevel.id).subscribe(
+      res => {
+        if (res['code'] == 1) {
+          this.notification.publishMessages('You have successfully edited this section', 'info', 0)
+          this.getSections()
+        } else {
+          this.notification.publishMessages(res['description'], 'warning', 0)
+        }
+      }
+    )
+  }
+
+  deleteSection(id) {
+    this.schoolSectionService.deleteSection(id).subscribe(
+      res => {
+        this.notification.publishMessages('You have successfully deleted a section', 'info', 0)
+        this.getSections()
+      }
+    )
+  }
+
+  deleteClass(id) {
+    this.classService.deleteClassById(id).subscribe(
+      res => {
+        this.notification.publishMessages('You have successfully deleted a class', 'info', 0)
+        this.getClasses()
+      }
+    )
+  }
+
+  getArmById(id){
+    this.classArmService.getClassArmById(id).subscribe(
+      res => {
+        this.theArm = res['payload']
+      }
+    )
+  }
+
+  editArm(id){
+    this.classArmService.updateClassArm(id, this.theArm.name, this.theArm.status).subscribe(
+      res => {
+        if(res['code'] == 1){
+          this.notification.publishMessages('You have successfully updated this class arm','info', 0)
+        }else{
+          this.notification.publishMessages(res['errors'][0],'info', 0)
+
+        }
+      }
+    )
+  }
+
   deleteArm(id) {
     this.classArmService.deleteClassArm(id).subscribe((data: any) => {
-      if (data.hasErrors === false) {
+      if (data['code'] == 1) {
         console.log(data);
+        this.notification.publishMessages('You have succesfully deleted a class arm','info', 0)
         this.getClassArms();
       }
     }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
+      this.notification.publishMessages(error.errors, 'danger', 1);
 
     });
   }

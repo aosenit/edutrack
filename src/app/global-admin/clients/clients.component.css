@@ -139,9 +139,14 @@ table.client-table {
     color: #4c75bd;
 
 }
-
-.list .table thead tr th {
+.table thead th{
+    vertical-align: unset;
+    padding: 0;
+}
+.list .table thead th {
     font-weight: 600;
+    line-height: 24px;
+    font-size: 12.5px;
 }
 
 .list .table thead .head {
@@ -149,7 +154,7 @@ table.client-table {
     align-items: center;
     color: #0a1128;
     font-weight: 600; */
-    padding-left: 3.5rem;
+    padding-left: 4.2rem;
 }
 
 .list .table tbody .school-logo {
@@ -277,7 +282,11 @@ table.client-table {
     align-items: center;
     
 }
-
+.file-upload button{
+    position: absolute;
+    top: 150px;
+    right: 220px;
+}
 
 .file-input {
     position: absolute;

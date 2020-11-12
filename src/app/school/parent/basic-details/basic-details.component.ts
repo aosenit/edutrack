@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ParentComponent } from '../parent.component';
 import {FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-basic-details',
@@ -12,7 +13,7 @@ export class BasicDetailsComponent implements OnInit {
   basicDetailsForm: FormGroup;
   toggleState = false;
 
-  constructor(private home: ParentComponent, private fb: FormBuilder) { }
+  constructor(private home: ParentComponent, private fb: FormBuilder, private location:Location) { }
 
   ngOnInit() {
     this.basicDetailsForm = this.fb.group({

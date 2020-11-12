@@ -22,11 +22,11 @@ export class UsersComponent implements OnInit {
               ) { }
 
   ngOnInit() {
-    this.bulkUpload = this.fb.group({
+    this.bulkUpload = this.fb.group({ 
       avatar: []
     });
     this.showAllAdmin();
-    this.getRolesPermissions();
+    // this.getRolesPermissions();
   }
 
  showBanner(status: string) {
@@ -49,6 +49,7 @@ export class UsersComponent implements OnInit {
    this.adminService.getAllAdmin().subscribe( (data: any) => {
      if (data.hasErrors === false) {
       this.adminList = data.payload;
+      this.adminList = this.adminList.reverse();
       // console.log(this.adminList);
      }
    }, error => {

@@ -283,6 +283,7 @@ li.pagination-next, li.pagination-previous {
 }
 li.pagination-next:hover, li.pagination-previous:hover {
  
+    font-size: 14px;
     background-color: #FB882C;
     color: #ffffff !important;
     border-radius: 10px !important;

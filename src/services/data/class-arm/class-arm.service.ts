@@ -47,15 +47,15 @@ export class ClassArmService {
   getClassArmById(id) {
     const tenantId = '1';
 
-    const url = `${this.baseUrl + routes.getclassarmById}/${id}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(this.baseUrl + 'schtrack-auth/api/v1/ClassArm/GetClassArmById?Id=' + id, { headers: { tenantId } });
   }
 
-  updateClassArm(id: any, updateClassArmForm) {
+  updateClassArm(id: any, name, status) {
     const tenantId = '1';
-
-    const url = `${this.baseUrl + routes.updateclassarm}/${id}`;
-    return this.http.put(url, updateClassArmForm, { headers: { tenantId } } );
+    const body = new FormData()
+    body.append('Name', name)
+    body.append('Status', status)
+    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/ClassArm/UpdateClassArm/' + id, body, { headers: { tenantId } } );
   }
 
   deleteClassArm(id: any) {

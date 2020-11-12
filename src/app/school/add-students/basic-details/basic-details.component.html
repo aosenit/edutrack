@@ -8,7 +8,7 @@
                     id="fname" formControlName="ContactFirstName">
             </div>
             <div class="col-md-6 ">
-                <label for="lname" class="fw-6">Others Name <span
+                <label for="lname" class="fw-6">Last Name <span
                         class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-lg" placeholder="Last name"
                     id="lname" formControlName="ContactLastName">
@@ -33,7 +33,7 @@
             <div class="col-md-6">
                 <label for="sex" class="fw-6">Sex <span class="text-danger">*</span> </label>
                 <select name="" class="form-control form-control-lg" formControlName="sex">
-                    <option value="sex">Sex</option>
+                    <!-- <option value="sex">Sex</option> -->
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
@@ -78,12 +78,15 @@
                 <div class="mb-3">
                     <label for="parent" class="fw-6">Parent <span
                             class="text-danger"></span></label>
-                    <input type="text" class="form-control form-control-lg"
-                        placeholder="Enter Parents name" id="parent" formControlName="parents">
+                            <select name="" id="" class="form-control form-control-lg" id="parent" formControlName="parents">
+                                <option value="{{parent.id}}" *ngFor="let parent of parents">{{parent.fullName}}</option>
+                            </select>
+                    <!-- <input type="text" class="form-control form-control-lg"
+                        placeholder="Enter Parents name" > -->
                 </div>
                 <div class="d-flex justify-content-center flex-column align-items-center">
                     <p class="mb-0">or</p>
-                    <a target="_blank" routerLink="/school/add-parents" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Add Parent
+                    <a routerLink="/school/add-parents" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Add Parent
                     </a>
                 </div>
             </div>
