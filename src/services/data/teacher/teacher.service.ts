@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 const routes = {
   addteacher: 'schtrack-auth/api/v1/Teacher/AddTeacher ',
   getallteacher: 'schtrack-auth/api/v1/Teacher/GetTeachers',
-  getteacherbyid: 'schtrack-auth/api/v1/Teacher/GetTeachers/',
+  getteacherbyid: 'schtrack-auth/api/v1/Teacher/GetTeachers',
   updateteacherbyid: 'schtrack-auth/api/v1/Teacher/UpdateTeacher',
   deleteteacher: 'schtrack-auth/api/v1/Teacher/DeleteTeacher'
 };
@@ -92,10 +92,10 @@ export class TeacherService {
     return this.http.get(url, { headers: { tenantId } });
   }
 
-  getTeacherById(userid) {
+  getTeacherById(id: any) {
     const tenantId = '1'; // just a temporary header till email services is ready
 
-    const url = `${this.baseUrl + routes.getteacherbyid}/${userid}`;
+    const url = `${this.baseUrl + routes.getteacherbyid}/${id}`;
     return this.http.get(url, { headers: { tenantId } });
   }
 

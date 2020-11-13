@@ -132,11 +132,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="pb-1">
-                                <td scope="row" class="user rounded-left">
-                                    Admin
+                            <tr class="pb-1" >
+                                <td scope="row" class="user rounded-left" *ngFor="let role of allRoles">
+                                    {{role?.name}}
                                 </td>
-                                <td class="">STA1092076</td>
+                                <td class="">{{roles?.id}}</td>
                                 <td>3</td>
                                 <td>17/03/2020</td>
                                 <td class="rounded-right action" [routerLink]="['/admin/edit-user']"><img

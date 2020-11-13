@@ -70,38 +70,38 @@
                         <tbody>
                           <tr class="pb-2">
                             <td scope="row" class="user rounded-left"> 
-                              Dashboard
+                              User
                             </td>
                             <td class="" >
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1" >
-                                    <label class="custom-control-label " for="customCheck1">CREATE/ADD</label>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1" [value]="permissions?.create_id" (change)="getValue($event.target.value)" >
+                                    <label class="custom-control-label " for="customCheck1">{{permissions?.create}}</label>
                                   </div>
                             </td>
                             <td class="" >
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck2" >
-                                    <label class="custom-control-label " for="customCheck2">VIEW</label>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck2" [value]="permissions?.view_id" (change)="getValue($event.target.value)" >
+                                    <label class="custom-control-label " for="customCheck2">{{permissions?.view}}</label>
                                   </div>
                             </td>
                             <td class="" >
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck3" >
-                                    <label class="custom-control-label " for="customCheck3">EDIT/UPDATE</label>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck3"  [value]="permissions?.update_id" (change)="getValue($event.target.value)">
+                                    <label class="custom-control-label " for="customCheck3">{{permissions?.update}}</label>
                                   </div>
                             </td>
                             
                             <td class="rounded-right action">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck4" >
-                                    <label class="custom-control-label " for="customCheck4">DELETE</label>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck4" [value]="permissions?.delete_id" (change)="getValue($event.target.value)" >
+                                    <label class="custom-control-label " for="customCheck4">{{permissions?.delete}}</label>
                                   </div>
                             </td>
                           </tr>
               
-                          <tr class="pb-2">
+                          <!-- <tr class="pb-2">
                             <td scope="row" class="user rounded-left"> 
-                              Client
+                              Teacher
                             </td>
                             <td class="" >
                                 <div class="custom-control custom-checkbox">
@@ -287,7 +287,7 @@
                                   </div>
                             </td>
                           </tr>
-              
+               -->
                           
                           
                           

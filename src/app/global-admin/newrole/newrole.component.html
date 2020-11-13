@@ -14,24 +14,24 @@
 
 </nav>
 
-<div class="user mt-2">
+<div class="user mt-2" >
 
-    <div class="user__intro mb-4">
-        <h6 class="fw-6">Add Role</h6>
-
-    </div>
-
-    <div class="user__select mb-3">
-        <form>
-            <label for="roleTitle">Role Title</label>
-            <input type="text" class="form-control" placeholder="Admin">
-        </form>
-        <div>
-
-        </div>
-    </div>
-
+    
     <div class="user__permission">
+        <div class="user__intro mb-4">
+            <h6 class="fw-6">Add Role</h6>
+    
+        </div>
+    
+        <div class="user__select mb-3">
+            <form>
+                <label for="roleTitle">Role Title</label>
+                <input type="text" class="form-control" placeholder="Admin" [(ngModel)]="roleData.name" name="name">
+            </form>
+            <div>
+    
+            </div>
+        </div>
         <table class="table table-borderless client-table">
             <thead>
                 <tr>
@@ -44,17 +44,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="pb-2">
+                <tr class="pb-2" *ngFor = "let role of newList; let i = index">
                     <td scope="row" class="user rounded-left">
-                        Admin
+                        {{role[0]}}
                     </td>
-                    <td class="">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label " for="customCheck1">CREATE/ADD</label>
+                    <td class="" *ngFor="let permission of role[1]; let i = index">
+                        <div class="custom-control custom-checkbox" >
+                            <input type="checkbox" class="custom-control-input" id="customCheck{{permission.id}}" [value]="permission.id" (change)="getID($event.target.value)" >
+                            <label class="custom-control-label " for="customCheck{{permission.id}}">{{permission.name}}</label>
                         </div>
                     </td>
-                    <td class="">
+                    <!-- <td class="">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="customCheck2">
                             <label class="custom-control-label " for="customCheck2">VIEW</label>
@@ -72,10 +72,10 @@
                             <input type="checkbox" class="custom-control-input" id="customCheck4">
                             <label class="custom-control-label " for="customCheck4">DELETE</label>
                         </div>
-                    </td>
+                    </td> -->
                 </tr>
 
-                <tr class="pb-2">
+                <!-- <tr class="pb-2">
                     <td scope="row" class="user rounded-left">
                         Client
                     </td>
@@ -265,100 +265,9 @@
                 </tr>
 
 
-                <tr class="pb-2">
-                    <td scope="row" class="user rounded-left">
-                        Location
-                    </td>
-                    <td class="">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckLocation">
-                            <label class="custom-control-label " for="customCheckLocation">CREATE/ADD</label>
-                        </div>
-                    </td>
-                    <td class="">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckLocation2">
-                            <label class="custom-control-label " for="customCheckLocation2">VIEW</label>
-                        </div>
-                    </td>
-                    <td class="">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckLocation3">
-                            <label class="custom-control-label " for="customCheckLocation3">EDIT/UPDATE</label>
-                        </div>
-                    </td>
+                
 
-                    <td class="rounded-right action">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckLocation4">
-                            <label class="custom-control-label " for="customCheckLocation4">DELETE</label>
-                        </div>
-                    </td>
-                </tr>
-
-
-                <tr class="pb-2">
-                    <td scope="row" class="user rounded-left">
-                        APIs
-                    </td>
-                    <td class="">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckAPIs">
-                            <label class="custom-control-label " for="customCheckAPIs">CREATE/ADD</label>
-                        </div>
-                    </td>
-                    <td class="">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckAPIs2">
-                            <label class="custom-control-label " for="customCheckAPIs2">VIEW</label>
-                        </div>
-                    </td>
-                    <td class="">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckAPIs3">
-                            <label class="custom-control-label " for="customCheckAPIs3">EDIT/UPDATE</label>
-                        </div>
-                    </td>
-
-                    <td class="rounded-right action">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckAPIs4">
-                            <label class="custom-control-label " for="customCheckAPIs4">DELETE</label>
-                        </div>
-                    </td>
-                </tr>
-
-
-                <tr class="pb-2">
-                    <td scope="row" class="user rounded-left">
-                        Plans & Pricing
-                    </td>
-                    <td class="">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckPlan">
-                            <label class="custom-control-label " for="customCheckPlan">CREATE/ADD</label>
-                        </div>
-                    </td>
-                    <td class="">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckPlan2">
-                            <label class="custom-control-label " for="customCheckPlan2">VIEW</label>
-                        </div>
-                    </td>
-                    <td class="">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckPlan3">
-                            <label class="custom-control-label " for="customCheckPlan3">EDIT/UPDATE</label>
-                        </div>
-                    </td>
-
-                    <td class="rounded-right action">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckPlan4">
-                            <label class="custom-control-label " for="customCheckPlan4">DELETE</label>
-                        </div>
-                    </td>
-                </tr>
+                 -->
 
 
 
@@ -370,8 +279,8 @@
 
         <div class="user__btn">
             <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
-                [routerLink]="['/main', 'admin-dashboard', 'user-role']"> Create </button>
+            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="createRoles()"
+                > Create </button>
 
         </div>
     </div>
