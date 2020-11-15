@@ -17,7 +17,7 @@
         <div class="activated__image ">
             <img src="assets/images/svg/american-man.svg" class="mr-3 avatar" alt="..." />
             <div>
-                <p class="activated__title fw-6 fc-lblue">Chukwudi Okoli </p>
+                <p class="activated__title fw-6 fc-lblue">{{employeeDetails?.firstName}} {{employeeDetails?.lastName}} </p>
                 <p class="activated__code">PRT/2016/001</p>
             </div>
         </div>
@@ -47,55 +47,56 @@
                     <div class="d-flex justify-content-between mt-5 ">
                         <div class="link">
                             <p class="mb-0">First Name</p>
-                            <p class="fw-6">Chukwudi</p>
+                            <p class="fw-6">{{employeeDetails?.firstName}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Last Name</p>
-                            <p class="fw-6">Okoli
+                            <p class="fw-6">{{employeeDetails?.lastName}}
                             </p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
                             <p class="mb-0">Other Name</p>
-                            <p class="fw-6">Emerson</p>
+                            <p class="fw-6">{{employeeDetails?.otherNames}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Gender</p>
-                            <p class="fw-6">Male
+                            <p class="fw-6">{{employeeDetails?.sex}}
                             </p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
                             <p class="mb-0">Date of Birth</p>
-                            <p class="fw-6">11/9/1987</p>
+                            <p class="fw-6">{{employeeDetails?.dateOfBirth | date: 'shortDate'}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Marital Status</p>
-                            <p class="fw-6">Single
+                            <p class="fw-6">{{employeeDetails?.maritalStatus}}
                             </p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
                             <p class="mb-0">Blood Group</p>
-                            <p class="fw-6">O+</p>
+                            <p class="fw-6">{{employeeDetails?.bloodGroup}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Religion</p>
-                            <p class="fw-6">Christain
+                            <p class="fw-6">{{employeeDetails?.religion}}
                             </p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
                             <p class="mb-0">Nationality</p>
-                            <p class="fw-6">Nigerian</p>
+                            <p class="fw-6">{{employeeDetails?.nationality}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Local Government</p>
-                            <p class="fw-6">Umuhia Local Govern
+                            <p class="fw-6">{{employeeDetails?.localGovernment}}
+                            <p class="fw-6" *ngIf="employeeDetails?.localGovernment == null">N/A
                             </p>
                         </div>
                     </div>
@@ -113,59 +114,49 @@
     
                     <div class="d-flex justify-content-between mt-5 ">
                         <div class="link">
-                            <p class="mb-0">First Name</p>
-                            <p class="fw-6">Chukwudi</p>
+                            <p class="mb-0">Phone Number</p>
+                            <p class="fw-6">{{employeeDetails?.contactDetails.phoneNumber}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
-                            <p class="mb-0">Last Name</p>
-                            <p class="fw-6">Okoli
+                            <p class="mb-0">Email Address</p>
+                            <p class="fw-6">{{employeeDetails?.contactDetails.emailAddress}}
                             </p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
-                            <p class="mb-0">Other Name</p>
-                            <p class="fw-6">Emerson</p>
+                            <p class="mb-0">Alternative Phone Number</p>
+                            <p class="fw-6">{{employeeDetails?.contactDetails.altPhoneNumber}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
-                            <p class="mb-0">Gender</p>
-                            <p class="fw-6">Male
+                            <p class="mb-0">Alternative Email Address</p>
+                            <p class="fw-6">{{employeeDetails?.contactDetails.altEmailAddress}}
                             </p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
-                            <p class="mb-0">Date of Birth</p>
-                            <p class="fw-6">11/9/1987</p>
+                            <p class="mb-0">Country</p>
+                            <p class="fw-6">{{employeeDetails?.contactDetails.country}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
-                            <p class="mb-0">Marital Status</p>
-                            <p class="fw-6">Single
+                            <p class="mb-0">Address</p>
+                            <p class="fw-6">{{employeeDetails?.contactDetails.address}}
                             </p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
-                            <p class="mb-0">Blood Group</p>
-                            <p class="fw-6">O+</p>
+                            <p class="mb-0">State</p>
+                            <p class="fw-6">{{employeeDetails?.contactDetails.state}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
-                            <p class="mb-0">Religion</p>
-                            <p class="fw-6">Christain
+                            <p class="mb-0">Town</p>
+                            <p class="fw-6">{{employeeDetails?.contactDetails.town}}
                             </p>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between mt-3 ">
-                        <div class="link">
-                            <p class="mb-0">Nationality</p>
-                            <p class="fw-6">Nigerian</p>
-                        </div>
-                        <div class="link mr-5 ml-4">
-                            <p class="mb-0">Local Government</p>
-                            <p class="fw-6">Umuhia Local Govern
-                            </p>
-                        </div>
-                    </div>
+                    
                     
                     
                 </div>
@@ -179,15 +170,11 @@
                     </div>
     
                     <div class="d-flex justify-content-between mt-5 ">
-                        <div class="link">
-                            <p class="mb-0">Landmark University(MBA)</p>
-                            <p class="fw-6">2010 / 2013</p>
-                        </div>
                         
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
-                            <p class="mb-0">Landmark University(MBA)</p>
+                            <p class="mb-0">{{employeeDetails?.educationExperienceVMs[0].educationSchoolName}}</p>
                             <p class="fw-6">2010 / 2013</p>
                         </div>
                     </div>
@@ -216,7 +203,8 @@
                     <div class="d-flex justify-content-between mt-5 ">
                         <div class="link">
                             <p class="mb-0">Staff Type</p>
-                            <p class="fw-6">Chukwudi</p>
+                            <p class="fw-6" *ngIf="employeeDetails?.employmentDetails?.staffType === 1">Academic</p>
+                            <p class="fw-6" *ngIf="employeeDetails?.employmentDetails?.staffType === 2">Non-Academic</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Employment Status</p>
@@ -227,11 +215,11 @@
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
                             <p class="mb-0">Highest Qualification</p>
-                            <p class="fw-6">MBA</p>
+                            <p class="fw-6">{{employeeDetails?.employmentDetails.highestQualification}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Job Title</p>
-                            <p class="fw-6">Accountant
+                            <p class="fw-6">{{employeeDetails?.employmentDetails.jobTitle}}
                             </p>
                         </div>
                     </div>
@@ -271,55 +259,55 @@
                     <div class="d-flex justify-content-between mt-5 ">
                         <div class="link">
                             <p class="mb-0">First Name</p>
-                            <p class="fw-6">Obioma</p>
+                            <p class="fw-6">{{employeeDetails?.nextOfKin.nextKinFirstName}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Last Name</p>
-                            <p class="fw-6">Duru
+                            <p class="fw-6">{{employeeDetails?.nextOfKin.nextKinLastName}}
                             </p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
                             <p class="mb-0">Other Name</p>
-                            <p class="fw-6">Paul</p>
+                            <p class="fw-6">{{employeeDetails?.nextOfKin.nextKinOtherName}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Relationship</p>
-                            <p class="fw-6">Cousin
+                            <p class="fw-6">{{employeeDetails?.nextOfKin.nextKinRelationship}}
                             </p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
                             <p class="mb-0">Ocupation</p>
-                            <p class="fw-6">Software Developer</p>
+                            <p class="fw-6">{{employeeDetails?.nextOfKin.nextKinOccupation}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Phone Number</p>
-                            <p class="fw-6">07087766343
+                            <p class="fw-6">{{employeeDetails?.nextOfKin.nextKinPhone}}
                             </p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
                             <p class="mb-0">Country</p>
-                            <p class="fw-6">Nigeria</p>
+                            <p class="fw-6">{{employeeDetails?.nextOfKin.nextKinCountry}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Address</p>
-                            <p class="fw-6">74, Miles Avenue Opebi
+                            <p class="fw-6">{{employeeDetails?.nextOfKin.nextKinAddress}}
                             </p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
                         <div class="link">
                             <p class="mb-0">State</p>
-                            <p class="fw-6">Lagos</p>
+                            <p class="fw-6">{{employeeDetails?.nextOfKin.nextKinState}}</p>
                         </div>
                         <div class="link mr-5 ml-4">
                             <p class="mb-0">Town/City</p>
-                            <p class="fw-6">Ikeja
+                            <p class="fw-6">{{employeeDetails?.nextOfKin.nextKinTown}}
                             </p>
                         </div>
                     </div>
@@ -335,9 +323,9 @@
                     </div>
     
                     <div class="d-flex justify-content-between mt-5 ">
-                        <div class="link">
-                            <p class="mb-0">Paystack Junior Accountant</p>
-                            <p class="fw-6">2014</p>
+                        <div class="link" *ngFor = "let experience of employeeDetails?.workExperienceVMs">
+                            <p class="mb-0">{{experience?.workRole}}</p>
+                            <p class="fw-6">{{experience?.startTime | date: 'shortDate' }}</p>
                         </div>
                        
                     </div>

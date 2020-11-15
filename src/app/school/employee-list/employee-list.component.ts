@@ -25,8 +25,8 @@ searchString: string;
   getAllEmployees() {
     this.staffService.getAllStaffInSchool().subscribe( (data: any) => {
       if (data.hasErrors === false) {
-        console.log('all schools', data);
         this.employeeList = data.payload;
+        console.log('all employees', this.employeeList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

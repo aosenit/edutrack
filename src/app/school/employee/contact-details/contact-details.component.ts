@@ -44,7 +44,7 @@ export class ContactDetailsComponent implements OnInit {
       PhoneNumber: ['', Validators.required],
       AltPhoneNumber: ['', Validators.required],
       EmailAddress: ['', Validators.required],
-      contactAltEmail: ['', Validators.required],
+      AltEmailAddress: ['', Validators.required],
       Country: [''],
       Address: ['', Validators.required],
       State: ['', Validators.required],

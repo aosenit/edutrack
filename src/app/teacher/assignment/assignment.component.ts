@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ClassService } from 'src/services/data/class/class.service';
+import { SubjectService } from 'src/services/data/subject/subject.service';
 
 @Component({
   selector: 'app-assignment',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssignmentComponent implements OnInit {
 
-  constructor() { }
+  createAssignmentmentForm: FormGroup;
+  classList: any;
+  subjectList: any;
+  constructor(
+    private fb: FormBuilder,
+  ) { }
 
   ngOnInit() {
+
   }
+
+
 
 }

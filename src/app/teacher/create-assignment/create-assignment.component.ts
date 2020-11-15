@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ClassService } from 'src/services/data/class/class.service';
+import { SubjectService } from 'src/services/data/subject/subject.service';
+import { AssignmentService } from 'src/services/data/assignment/assignment.service';
+
 @Component({
   selector: 'app-create-assignment',
   templateUrl: './create-assignment.component.html',
@@ -7,13 +12,97 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 })
 export class CreateAssignmentComponent implements OnInit {
   public Editor = ClassicEditor;
-  constructor() { }
+  createAssignmentmentForm: FormGroup;
+  classList: any;
+  subjectList: any;
+  assignmentFile = null;
+  constructor(
+    private fb: FormBuilder,
+    private subjectService: SubjectService,
+    private classService: ClassService,
+    private assignmentService: AssignmentService
+  ) { }
 
   ngOnInit() {
+    this.createAssignmentmentForm = this.fb.group({
+      Title: ['', Validators.required],
+      subjectId: ['', Validators.required],
+      classId: ['', Validators.required],
+      assTime: ['', Validators.required],
+      assDate: ['', Validators.required],
+      teacherId: [''],
+      TotalScore: ['', Validators.required],
+      Document: null,
+    });
+    this.getAllsubjects();
+    this.getAllClasses();
   }
 
-  back() {
-    window.history.back();
+
+  getAllsubjects() {
+    this.subjectService.getAllSubjects().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.subjectList = data.payload;
+        console.log(this.subjectList);
+      }
+    });
+  }
+
+  getAllClasses() {
+    this.classService.getAllClasses().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.classList = data.payload;
+        console.log(this.classList);
+      }
+    }
+    );
+  }
+
+  getSubjects(id) {
+    console.log(id);
+    this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data);
+      }
+    }
+    );
+  }
+
+  handleFileUpload(event: any) {
+    const reader = new FileReader();
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log('file', file);
+      this.assignmentFile = file.name;
+      this.createAssignmentmentForm.get('Document').setValue(file);
+      // this.iconname = this.icon.name;
+    }
+  }
+
+  submitAssignment() {
+    const {Title, teacherId, subjectId, classId, assDate, assTime, TotalScore, Document} = this.createAssignmentmentForm.value;
+    const DueDate = assDate + ' ' + assTime;
+    // tslint:disable-next-line:radix
+    const SubjectId = parseInt(subjectId);
+    // tslint:disable-next-line:radix
+    const ClassId = parseInt(classId);
+    // tslint:disable-next-line:radix
+    const TeacherId = parseInt(teacherId);
+    const result = {
+      Title,
+      TeacherId,
+      SubjectId,
+      ClassId,
+      DueDate,
+      TotalScore,
+      Document
+    };
+    this.assignmentService.addAssignment(result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data);
+      }
+    }
+    );
   }
 
 }

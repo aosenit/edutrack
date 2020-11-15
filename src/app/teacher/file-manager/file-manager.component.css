@@ -49,7 +49,7 @@
     color: #aaa;
 }
 
-input[type="text"] {
+.has-search input[type="text"] {
     width: 125%;
 }
 

@@ -31,7 +31,7 @@ export class EmployeeDetailsComponent implements OnInit {
   nextStep() {
     this.home.stepper(3);
     sessionStorage.setItem('Employee-Data', JSON.stringify(this.employeeForm.value));
-
+    console.log(this.employeeForm.value);
   }
 
   populateEmployeeDetailsForm() {

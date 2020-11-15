@@ -288,8 +288,9 @@
                 id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <!-- ================ DROPDOWN ==================== -->
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditArm" (click)="getArmById(arm.id)">Edit Arm </a>
-                <a class="dropdown-item" (click)="deleteArm(arm.id)" >Delete Arm</a>
+                <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditArm"
+                  (click)="getArmById(arm.id)">Edit Arm </a>
+                <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete Arm</a>
               </div>
             </td>
           </tr>
@@ -334,13 +335,13 @@
               <h6 class="fw-6 mb-0">{{subject.name}} </h6>
             </td>
             <td>
-              <span class="status_active" *ngIf = "subject.IsActive == true">Active</span>
-              <span class="status_active" *ngIf = "subject.IsActive == false">Inactive</span>
+              <span class="status_active" *ngIf="subject.isActive == true">Active</span>
+              <span class="status_active" *ngIf="subject.isActive == false">Inactive</span>
             </td>
             <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
           </tr>
 
-          
+
 
 
 
@@ -535,7 +536,8 @@
         <div class="d-flex justify-content-center mb-3">
           <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
           </button>
-          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editClass()" data-dismiss="modal"> Update Class</button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editClass()" data-dismiss="modal"> Update
+            Class</button>
         </div>
       </div>
 
@@ -676,8 +678,8 @@
 <!-- end of arm modal -->
 
 <!-- Arm Modal -->
-<div class="modal fade" id="exampleModalEditArm" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalEditArmTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalEditArm" tabindex="-1" role="dialog" aria-labelledby="exampleModalEditArmTitle"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-length" role="document">
     <div class="modal-content" *ngIf="theArm">
 
@@ -713,10 +715,10 @@
 
 
         <div class="d-flex justify-content-center mb-3">
-          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
-            data-dismiss="modal">Cancel
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
           </button>
-          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editArm(theArm.id)" data-dismiss="modal"> Update Class Arm</button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editArm(theArm.id)" data-dismiss="modal"> Update
+            Class Arm</button>
         </div>
       </div>
 

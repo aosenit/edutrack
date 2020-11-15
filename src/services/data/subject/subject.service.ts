@@ -33,7 +33,7 @@ export class SubjectService {
   getAllSubjects() {
     const tenantId = '1';
     const url = `${this.baseUrl + routes.getallSubjects}`;
-    return this.http.post(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
 
   }
 }

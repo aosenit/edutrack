@@ -33,7 +33,7 @@ export class BasicDetailsComponent implements OnInit {
       transportRoute: ['', Validators.required]
     });
 
-    this.getAllParents()
+    this.getAllParents();
   }
 
   nextStep() {
