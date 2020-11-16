@@ -37,7 +37,7 @@ export class SchoolSectionService {
     const body = new FormData();
     body.append('Id', id);
     body.append('Name', name);
-    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', body, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/UpdateSection', body, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
   deleteSection(id) {

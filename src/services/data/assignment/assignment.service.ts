@@ -18,7 +18,6 @@ export class AssignmentService {
 
   addAssignment(result) {
     const tenantId = '1';
-
     const body = new FormData();
     body.append('Title', result.Title);
     body.append('SubjectId', result.SubjectId);
@@ -26,6 +25,7 @@ export class AssignmentService {
     body.append('TeacherId', result.TeacherId);
     body.append('DueDate', result.DueDate);
     body.append('TotalScore', result.TotalScore);
+    body.append('Comment', result.Comment);
     body.append('Document', result.Document);
     const url = `${this.baseUrl + routes.addAssignment}`;
     return this.http.post(url, body,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });

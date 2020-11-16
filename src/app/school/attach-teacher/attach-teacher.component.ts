@@ -36,7 +36,7 @@ dropdownSettings = {};
     this.getAllSections();
     this.getAllClassess();
     this.getTeacherByID();
-    this.getAllSubjects();
+    // this.getAllSubjects();
     this.dropdownSettings = {
       singleSelection: false,
       idField: 'id',
@@ -87,19 +87,39 @@ dropdownSettings = {};
     });
   }
 
-  getAllSubjects() {
-    this.subjectService.getAllSubjects().subscribe((data: any) => {
-      if (data.hasErrors === false ) {
+
+  getSubjects(id) {
+    console.log(id);
+    this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
         this.subjectList = data.payload;
         const arr = [];
         this.subjectList.forEach(item => {
           arr.push({
             id: item.id,
-            arm: item.name
+            arm: item.subject
           });
         });
         this.dropdownList = arr;
       }
-    });
+
+    }
+    );
   }
+
+  // getAllSubjects() {
+  //   this.subjectService.getAllSubjects().subscribe((data: any) => {
+  //     if (data.hasErrors === false ) {
+  //       this.subjectList = data.payload;
+  //       const arr = [];
+  //       this.subjectList.forEach(item => {
+  //         arr.push({
+  //           id: item.id,
+  //           arm: item.name
+  //         });
+  //       });
+  //       this.dropdownList = arr;
+  //     }
+  //   });
+  // }
 }

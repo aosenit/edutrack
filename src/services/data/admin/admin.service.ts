@@ -9,7 +9,8 @@ const routes = {
   getAdmins: 'schtrack-auth/api/v1/Admin?PageIndex=1&PageSize=15',
   getAllPermissions: 'schtrack-auth/api/v1/Role/GetAllPermissions',
   createRoles: 'schtrack-auth/api/v1/Role/CreateRole',
-  getRoles: 'schtrack-auth/api/v1/Role/GetRoles'
+  getRoles: 'schtrack-auth/api/v1/Role/GetRoles',
+  assignRoles: 'schtrack-auth/api/v1/Role/AddUserToRole'
 };
 // const routes = {
 //   newAdmin: 'api/v1/Admin',
@@ -65,6 +66,13 @@ export class AdminService {
 
     const url = `${this.baseUrl + routes.getRoles}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+  }
+
+  assignRolesToUsers(form) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl + routes.assignRoles}`;
+    return this.http.post(url, form,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }} );
   }
 
 }

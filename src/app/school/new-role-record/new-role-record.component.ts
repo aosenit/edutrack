@@ -79,7 +79,7 @@ export class NewRoleRecordComponent implements OnInit {
     this.adminService.createRoles(result).subscribe((data: any) => {
       console.log(data);
       this.notifyService.publishMessages('Roles created successfully', 'info', 1);
-      this.router.navigateByUrl('/admin/users');
+      this.router.navigateByUrl('/school/account-settings');
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
     });

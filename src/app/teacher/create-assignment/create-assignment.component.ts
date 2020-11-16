@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ClassService } from 'src/services/data/class/class.service';
 import { SubjectService } from 'src/services/data/subject/subject.service';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 
 @Component({
   selector: 'app-create-assignment',
@@ -20,7 +21,9 @@ export class CreateAssignmentComponent implements OnInit {
     private fb: FormBuilder,
     private subjectService: SubjectService,
     private classService: ClassService,
-    private assignmentService: AssignmentService
+    private assignmentService: AssignmentService,
+    private notifyService: NotificationsService,
+
   ) { }
 
   ngOnInit() {
@@ -34,19 +37,19 @@ export class CreateAssignmentComponent implements OnInit {
       TotalScore: ['', Validators.required],
       Document: null,
     });
-    this.getAllsubjects();
+    // this.getAllsubjects();
     this.getAllClasses();
   }
 
 
-  getAllsubjects() {
-    this.subjectService.getAllSubjects().subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.subjectList = data.payload;
-        console.log(this.subjectList);
-      }
-    });
-  }
+  // getAllsubjects() {
+  //   this.subjectService.getAllSubjects().subscribe((data: any) => {
+  //     if (data.hasErrors === false) {
+  //       this.subjectList = data.payload;
+  //       console.log(this.subjectList);
+  //     }
+  //   });
+  // }
 
   getAllClasses() {
     this.classService.getAllClasses().subscribe((data: any) => {
@@ -62,7 +65,7 @@ export class CreateAssignmentComponent implements OnInit {
     console.log(id);
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        this.subjectList = data.payload;
       }
     }
     );
@@ -100,9 +103,15 @@ export class CreateAssignmentComponent implements OnInit {
     this.assignmentService.addAssignment(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
+        this.notifyService.publishMessages('Assignment created successfully', 'info', 1);
+
       }
     }
     );
+  }
+
+  back() {
+    window.history.back();
   }
 
 }
