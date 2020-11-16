@@ -453,7 +453,7 @@
                                     <div class="form-group col-md-3">
                                         <select class="form-control" formControlName = "subjectId">
                                             <option value="" selected>Select Subject</option>
-                                            <option value="2">Englis</option>
+                                            <option [value]="subject.id" *ngFor = "let subject of subjectsInClass">{{subject?.subject}}</option>
                                             <!-- <option [value]="subject.id" *ngFor="let subject of subjectsInClass"> {{subject.name}} </option> -->
 
                                         </select>
@@ -512,7 +512,7 @@
                                 <div class="form-row">
             
                                     <div class="form-group col-md-3">
-                                        <select class="form-control" formControlName="classId">
+                                        <select class="form-control" formControlName="classId" (change)="getSubjects($event.target.value)" >
                                             <option selected>Select Class</option>
                                             <option [value]="class.id" *ngFor="let class of classList">{{class?.name}}</option>
                                             
@@ -521,7 +521,7 @@
                                     <div class="form-group col-md-3">
                                         <select class="form-control" formControlName="subjectId">
                                             <option selected>Select Subject</option>
-                                            <option value="JSS1">English Language</option>
+                                            <option [value]="subject.id" *ngFor = "let subject of subjectsInClass">{{subject.subject}}</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -546,7 +546,7 @@
 
                         <div class="form-group mb-3">
                             <label for="message">Optional message</label>
-                            <textarea name="" id="message" class="form-control"></textarea>
+                            <textarea name="" id="message" class="form-control" formControlName="Comment"></textarea>
                         </div>
 
                         <div class="d-flex justify-content-end mb-3">

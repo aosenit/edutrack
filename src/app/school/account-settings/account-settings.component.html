@@ -4,7 +4,7 @@
       <h6 class="banner__text-primary fw-6 "> Accounts </h6>
       <p class=""> Showing all users and accounts </p>
     </div>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/records"> New User </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/user"> New User </button>
 
   </section>
 
@@ -81,7 +81,7 @@
         </section>
       </div>
 
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
         <section class="list">
           <table class="table table-borderless client-table">
             <thead>
@@ -107,6 +107,9 @@
                     class="mr-3"> Edit Role </td>
                 <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg" alt="schools log"
                     class="mr-3"> Delete Role </td>
+                <td class="rounded-right action" data-toggle="modal"
+                data-target="#exampleModalCenter"><img src="assets/images/svg/delete-role.svg" alt="schools log"
+                    class="mr-3" > Assign User </td>
               </tr>
             
 
@@ -123,3 +126,54 @@
   </div>
 
 </div>
+
+
+<!-- Subject Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenter" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Assign Role to a user</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="assignRoleForm" (ngSubmit)="submit()" >
+
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Users <span class="text-danger">*</span> </label>
+            <ng-multiselect-dropdown [placeholder]="' '" [data]="dropStaffList" formControlName="userid"
+             [settings]="dropdownSettings" required>
+          </ng-multiselect-dropdown>         
+         </div>
+          <div class="form-group mb-4">
+            <label for="class" class="">Roles <span class="text-danger">*</span> </label>
+            <ng-multiselect-dropdown [placeholder]="' '" [data]="dropRoleList" formControlName="roleid"
+             [settings]="dropdownSettings" required>
+          </ng-multiselect-dropdown>         
+         </div>
+
+         
+
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3"> Assign Role</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Subject modal -->

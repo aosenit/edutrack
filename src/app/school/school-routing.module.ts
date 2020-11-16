@@ -22,6 +22,7 @@ import { StudentListComponent } from './student-list/student-list.component';
 import { StudentSettingsComponent } from './student-settings/student-settings.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { TimeTableComponent } from './time-table/time-table.component';
+import { UsersComponent } from './users/users.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,7 @@ const routes: Routes = [
       { path: 'calendar', component: CalendarComponent},
       { path: 'attach-teacher/:id', component: AttachTeacherComponent},
       { path: 'school-manager', component: SchoolManagerComponent},
+      { path: 'user', component: UsersComponent},
       {path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule)},
       {path: 'add-parents', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule)},
       {path: 'add-employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)},

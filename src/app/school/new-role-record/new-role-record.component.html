@@ -49,7 +49,7 @@
       <div class="user__select mb-3">
         <form>
           <label for="roleTitle" class="fw-6">Role Title</label>
-          <input type="text" class="form-control" placeholder="Admin">
+          <input type="text" class="form-control" placeholder="Admin" [(ngModel)]="roleData.name" name="name">
         </form>
         <div>
 
@@ -71,35 +71,17 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="pb-2">
+                <tr class="pb-2" *ngFor = "let role of newList; let i = index">
                   <td scope="row" class="user rounded-left">
-                    Students
+                    {{role[0]}}
                   </td>
-                  <td class="">
+                  <td class="" *ngFor="let permission of role[1]; let i = index">
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label " for="customCheck1"></label>
-                    </div>
+                      <input type="checkbox" class="custom-control-input" id="customCheck{{permission.id}}" [value]="permission.id" (change)="getID($event.target.value)" >
+                      <label class="custom-control-label " for="customCheck{{permission.id}}"></label>
+              </div>
                   </td>
-                  <td class="">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck1">
-                      <label class="custom-control-label " for="customCheck1"></label>
-                    </div>
-                  </td>
-                  <td class="">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck2">
-                      <label class="custom-control-label " for="customCheck2"></label>
-                    </div>
-                  </td>
-                  <td class="">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck3">
-                      <label class="custom-control-label " for="customCheck3"></label>
-                    </div>
-                  </td>
-
+                  
 
                 </tr>
 
@@ -115,7 +97,7 @@
 
             <div class="d-flex justify-content-center align-items-center">
               <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Next </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="createRoles()"> Create </button>
 
             </div>
           </div>
