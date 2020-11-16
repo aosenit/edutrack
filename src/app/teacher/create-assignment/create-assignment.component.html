@@ -24,14 +24,6 @@
             <label for="title">Title</label>
             <input type="text" id="title" class="form-control" formControlName="Title">
           </div>
-          <div class="form-group col-md-3">
-            <label for="subject">Subject</label>
-            <select id="subject" class="form-control" formControlName="subjectId">
-              <option selected>Select</option>
-              <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.name}}</option>
-  
-            </select>
-          </div>
           <div class="form-group col-md-1">
             <label for="subject">Class</label>
             <select id="subject" class="form-control" formControlName="classId" (change)="getSubjects($event.target.value)">
@@ -40,6 +32,15 @@
   
             </select>
           </div>
+          <div class="form-group col-md-3">
+            <label for="subject">Subject</label>
+            <select id="subject" class="form-control" formControlName="subjectId">
+              <option selected>Select</option>
+              <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.subject}}</option>
+  
+            </select>
+          </div>
+          
           <div class="form-group col-md-2">
             <label for="date">Due Date</label>
             <input type="date" name="" id="date" class="form-control" formControlName="assDate">
@@ -53,7 +54,7 @@
             <input type="number" name="" id="time" class="form-control" formControlName="TotalScore">
           </div>
   
-          <input type="hidden" id="myInput" [value]="1" formControlName="teacherId" >
+          <input type="text" id="myInput" [value]="1" formControlName="teacherId" >
         </div>
       </div>
       <div class="col-12 ">

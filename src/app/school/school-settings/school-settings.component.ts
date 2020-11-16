@@ -309,10 +309,12 @@ export class SchoolSettingsComponent implements OnInit {
       }
     )
   }
+
   editSection() {
     this.schoolSectionService.updateSection(this.theLevel.name, this.theLevel.id).subscribe(
       res => {
         if (res['code'] == 1) {
+          console.log(res);
           this.notification.publishMessages('You have successfully edited this section', 'info', 0)
           this.getSections()
         } else {
@@ -390,6 +392,7 @@ export class SchoolSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data);
         document.getElementById('close').click();
+        this.getAllSubjects();
       }
     });
 

@@ -27,6 +27,7 @@ import { SchoolManagerComponent } from './school-manager/school-manager.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { UsersComponent } from './users/users.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
                  AttachTeacherComponent,
                  SchoolManagerComponent,
                  DashboardComponent,
+                 UsersComponent,
                 ],
   imports: [
     CommonModule,

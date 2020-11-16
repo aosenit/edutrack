@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { parse } from 'querystring';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 import { ClassService } from 'src/services/data/class/class.service';
 import { LessonNoteService } from 'src/services/data/lesson-note/lesson-note.service';
@@ -27,7 +28,9 @@ export class FileManagerComponent implements OnInit {
     private subjectService: SubjectService,
     private classService: ClassService,
     private lessonNoteService: LessonNoteService,
-    private assignmentService: AssignmentService
+    private assignmentService: AssignmentService,
+    private notifyService: NotificationsService,
+
 
   ) { }
 
@@ -53,6 +56,7 @@ export class FileManagerComponent implements OnInit {
       classId: ['', Validators.required],
       DueDate: ['', Validators.required],
       TotalScore: ['', Validators.required],
+      Comment: ['', Validators.required],
       Document: null,
     });
   }
@@ -81,7 +85,7 @@ export class FileManagerComponent implements OnInit {
     console.log(id);
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.subjectsInClass = data;
+        this.subjectsInClass = data.payload;
         console.log(this.subjectsInClass);
       }
     }
@@ -125,31 +129,41 @@ export class FileManagerComponent implements OnInit {
     this.lessonNoteService.addLessonNote(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
+        this.notifyService.publishMessages('Class note uploaded successfully', 'info', 1);
+
       }
     }, error => {
-      console.log(error);
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
     }
     );
   }
 
   submitAssignment() {
-    const { Title, subjectId, classId, DueDate, TotalScore, Document } = this.uploadAssignmentForm.value;
+    const { Title, TeacherId, subjectId, classId, DueDate, TotalScore, Comment, Document } = this.uploadAssignmentForm.value;
     // tslint:disable-next-line:radix
     const SubjectId = parseInt(subjectId);
     // tslint:disable-next-line:radix
     const ClassId = parseInt(classId);
     const result = {
       Title,
+      TeacherId,
       SubjectId,
       ClassId,
       DueDate,
       TotalScore,
+      Comment,
       Document
     };
     this.assignmentService.addAssignment(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
+        this.notifyService.publishMessages('Assignment uploaded successfully', 'info', 1);
+
       }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
     }
     );
   }
