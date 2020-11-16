@@ -4,7 +4,7 @@
       <h6 class="banner__text-primary fw-6 "> Accounts </h6>
       <p class=""> Showing all users and accounts </p>
     </div>
-    <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/records"> New Roles </button> -->
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/records"> New User </button>
 
   </section>
 
@@ -49,11 +49,10 @@
                 <th scope="col" class="head ">Full Name <img src="assets/images/svg/table-sort.svg"
                     alt="table sort icon" class="">
                 </th>
-                <th scope="col">User ID <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
-                <th scope="col">Member Type <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="">
-                </th>
+                <th scope="col">Email <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
+                
                 <th scope="col">Role <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
-                <th scope="col">School <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
+                <th scope="col">Date Added <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
                 <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
               </tr>
             </thead>
@@ -68,109 +67,10 @@
                 <td class="">PRT/2016/001</td>
                 <td>Parent</td>
                 <td>Parent</td>
-                <td>American International School</td>
                 <td><span class="status_active">Active</span></td>
 
               </tr>
-              <tr class="pb-1">
-                <td scope="row" class="user rounded-left">
-                  <div class="d-flex align-items-center">
-                    <img src="assets/images/svg/user-role-2.svg" alt="schools log" class="mr-3">
-                    <h6 class="fw-6">Francis Emenike </h6>
-                  </div>
-                </td>
-                <td class="">PRT/2016/001</td>
-                <td>Staff </td>
-                <td>Teacher</td>
-                <td>American International School</td>
-                <td><span class="status_active">Active</span></td>
-              </tr>
-              <tr class="pb-1">
-                <td scope="row" class="user rounded-left">
-                  <div class="d-flex align-items-center">
-                    <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                    <h6 class="fw-6">Chukwudi Okoli </h6>
-                  </div>
-                </td>
-                <td class="">PRT/2016/001</td>
-                <td>Staff</td>
-                <td>Teacher</td>
-                <td>American International School</td>
-                <td><span class="status_active">Active</span></td>
-              </tr>
-
-              <tr class="pb-1">
-                <td scope="row" class="user rounded-left">
-                  <div class="d-flex align-items-center">
-                    <img src="assets/images/svg/woman.svg" alt="schools log" class="mr-3">
-                    <h6 class="fw-6">Cynthia Bassey </h6>
-                  </div>
-                </td>
-                <td class="">PRT/2016/001</td>
-                <td>Parent</td>
-                <td>Parent</td>
-                <td>American International School</td>
-                <td><span class="status_active">Active</span></td>
-              </tr>
-
-              <tr class="pb-1">
-                <td scope="row" class="user rounded-left">
-                    
-                    <div>
-                        <img src="assets/images/svg/user-role-2.svg" alt="schools log" class="mr-3">
-                    <h6 class="fw-6">Francis Emenike </h6>
-                  </div>
-                </td>
-                <td class="">PRT/2016/001</td>
-                                <td>Parent</td>
-                                <td>Parent</td>
-                                <td>American International School</td>
-
-                <td><span class="status_inactive">Inactive</span></td>
-              </tr>
-
-              <tr class="pb-1">
-                <td scope="row" class="user rounded-left">
-                    
-                    <div>
-                        <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                    <h6 class="fw-6">Chukwudi Okoli </h6>
-                  </div>
-                </td>
-                <td class="">PRT/2016/001</td>
-                                <td>Parent</td>
-                                <td>Parent</td>
-                                <td>American International School</td>
-
-                <td><span class="status_active">Active</span></td>
-              </tr>
-              <tr class="pb-1">
-                <td scope="row" class="user rounded-left">
-                    <div>
-                        <img src="assets/images/svg/woman.svg" alt="schools log" class="mr-3"> 
-                    <h6 class="fw-6">Cynthia Bassey </h6>
-                  </div>
-                </td>
-                <td class="">PRT/2016/001</td>
-                <td>Parent</td>
-                <td>Parent</td>
-                <td>American International School</td>
-                                <td><span class="status_active">Active</span></td>
-              </tr>
-              <tr class="pb-1">
-                <td scope="row" class="user rounded-left">
-                    
-                    <div>
-                        <img src="assets/images/svg/user-role-2.svg" alt="schools log" class="mr-3">
-                    <h6 class="fw-6">Francis Emenike </h6>
-                  </div>
-                </td>
-                <td class="">PRT/2016/001</td>
-                <td>Parent</td>
-                <td>Parent</td>
-                <td>American International School</td>
-                                <td><span class="status_inactive">Inactive</span></td>
-              </tr>
+             
 
 
 
@@ -196,9 +96,9 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="pb-1">
+              <tr class="pb-1" *ngFor="let role of allRoles">
                 <td scope="row" class="user rounded-left">
-                  Admin
+                  {{role?.name}}
                 </td>
                 <td class="">STA1092076</td>
                 <td>3</td>
@@ -208,43 +108,7 @@
                 <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg" alt="schools log"
                     class="mr-3"> Delete Role </td>
               </tr>
-              <tr class="pb-1">
-                <td scope="row" class="user rounded-left">
-                  VP Admin
-                </td>
-                <td class="">STA1092076</td>
-                <td>5</td>
-                <td>17/03/2020</td>
-                <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg" alt="schools log"
-                    class="mr-3"> Edit Role </td>
-                <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg" alt="schools log"
-                    class="mr-3"> Delete Role </td>
-              </tr>
-              <tr class="pb-1">
-                <td scope="row" class="user rounded-left">
-                  VP Academy
-                </td>
-                <td class="">STA1092076</td>
-                <td>8</td>
-                <td>17/03/2020</td>
-                <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg" alt="schools log"
-                    class="mr-3"> Edit Role </td>
-                <td class="rounded-right action" action><img src="assets/images/svg/delete-role.svg" alt="schools log"
-                    class="mr-3"> Delete Role </td>
-              </tr>
-              
-              <tr class="pb-1">
-                <td scope="row" class="user rounded-left">
-                  Bursar
-                </td>
-                <td class="">STA1092076</td>
-                <td>5</td>
-                <td>17/03/2020</td>
-                <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg" alt="schools log"
-                    class="mr-3"> Edit Role </td>
-                <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg" alt="schools log"
-                    class="mr-3"> Delete Role </td>
-              </tr>
+            
 
 
 

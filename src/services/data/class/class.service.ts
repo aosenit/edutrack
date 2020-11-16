@@ -6,6 +6,7 @@ const routes = {
   addclass: 'schtrack-auth/api/v1/Class/AddClass',
   addstudenttoclass: 'schtrack-auth/api/v1/Class/AddStudentToClass',
   getclassbysection: 'schtrack-auth/api/v1/Class/GetClassBySection',
+  getallsubjectsforclass: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClass', // this endpoint get all subjects attached to a class
   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
   assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
   getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses ',
@@ -34,14 +35,14 @@ const routes = {
 export class ClassService {
   baseUrl: string = environment.serverUrl;
   baseUrl2: string = environment.demourl;
- 
+
 
   constructor(private http: HttpClient) { }
 
   addClass(result) {
     const url = `${this.baseUrl + routes.addclass}`;
     console.log(url);
-    return this.http.post(url, result,  { headers: { tenantId } });
+    return this.http.post(url, result, { headers: { tenantId } });
   }
 
   addStudentsToClass(addStudentForm) {
@@ -56,16 +57,16 @@ export class ClassService {
 
   assignSubjectToClass(id: any, form) {
     const url = `${this.baseUrl + routes.assignSubjectToClass}/${id}`;
-    return this.http.post(url, form, { headers: { tenantId } } );
+    return this.http.post(url, form, { headers: { tenantId } });
   }
 
   assignTeachToClass(id: any, form) {
     const url = `${this.baseUrl + routes.assignTeacherToClass}/${id}`;
-    return this.http.post(url, form, { headers: { tenantId } } );  // (form) will be changes to when necessary
+    return this.http.post(url, form, { headers: { tenantId } });  // (form) will be changes to when necessary
   }
 
   getAllClasses() {
-    
+
     const url = `${this.baseUrl + routes.getallclass}`;
     return this.http.get(url, { headers: { tenantId } });
   }
@@ -77,7 +78,7 @@ export class ClassService {
 
   getClassByIdWithStudent(studid) {
     const url = `${this.baseUrl + routes.getstudentclass}/${studid}`;
-    return this.http.get(url, { headers: { tenantId } } );
+    return this.http.get(url, { headers: { tenantId } });
   }
 
   updateParent(id, updateParentForm) {
@@ -86,15 +87,21 @@ export class ClassService {
 
   }
 
-  editClass(id, name){
-    const body = new FormData()
-    body.append('Id', id)
-    body.append('Name', name)
-    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/Class/UpdateClass', body, { headers: { tenantId } } )
+  editClass(id, name) {
+    const body = new FormData();
+    body.append('Id', id);
+    body.append('Name', name);
+    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/Class/UpdateClass', body, { headers: { tenantId } });
   }
   deleteClassById(id) {
     const url = `${this.baseUrl + routes.deleteclass}/${id}`;
     return this.http.delete(url, { headers: { tenantId } });
 
+  }
+
+  getAllSubjectsInAClassByClassID(id: any) {
+    const url = `${this.baseUrl + routes.getallsubjectsforclass}/${id}`;
+    console.log(url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 }

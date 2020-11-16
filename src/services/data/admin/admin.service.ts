@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
+import { FormBuilder } from '@angular/forms';
 
 const routes = {
   newAdmin: 'schtrack-auth/api/v1/Admin',
   getAdmins: 'schtrack-auth/api/v1/Admin?PageIndex=1&PageSize=15',
-  getAllPermissions: 'schtrack-auth/api/Role/GetAllPermissions'
-  // getAdmins: 'api/v1/Admin?PageIndex=1&PageSize=10',
+  getAllPermissions: 'schtrack-auth/api/v1/Role/GetAllPermissions',
+  createRoles: 'schtrack-auth/api/v1/Role/CreateRole',
+  getRoles: 'schtrack-auth/api/v1/Role/GetRoles'
 };
 // const routes = {
 //   newAdmin: 'api/v1/Admin',
@@ -43,11 +45,26 @@ export class AdminService {
   getAllAdmin() {
     const url = `${this.baseUrl + routes.getAdmins}`;
     return this.http.get(url );
-  } 
+  }
 
   getAllPermissions() {
     const url = `${this.baseUrl + routes.getAllPermissions}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  createRoles(roleData) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl + routes.createRoles}`;
+    return this.http.post(url, roleData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+
+  }
+
+  getRoles() {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl + routes.getRoles}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
   }
 
 }

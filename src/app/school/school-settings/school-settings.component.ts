@@ -73,8 +73,8 @@ export class SchoolSettingsComponent implements OnInit {
     this.getClassArms();
     this.getClasses();
     this.getSections();
-    // this.getAllSubjects();
-    
+    this.getAllSubjects();
+
 
     this.dropdownSettings = {
       singleSelection: false,
@@ -256,8 +256,9 @@ export class SchoolSettingsComponent implements OnInit {
       res => {
         this.theClass = res['payload']
       }
-    )
+    );
   }
+  
   editClass() {
     this.classService.editClass(this.theClass.id, this.theClass.name).subscribe(
       res => {
@@ -398,6 +399,7 @@ export class SchoolSettingsComponent implements OnInit {
     this.subjectService.getAllSubjects().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
+        console.log(this.subjectList);
       }
     });
   }

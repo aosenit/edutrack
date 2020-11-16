@@ -93,59 +93,68 @@
 
     <div class="form-row mb-5">
 
-      <div class="  ">
+      <<<<<<< HEAD <div class="  ">
         <label for="nationality" class="fw-6">Nationality <span class="text-danger">*</span></label>
-
-        <select name="" id="nationality" class="form-control form-control-lg" formControlName="Nationality"
-          (change)="getState($event.target.value)">
-          <!-- <option value="" selected> select </option> -->
-          <option [value]="country.country" *ngFor="let country of countries">{{country.country}}</option>
-
-        </select>
-      </div>
-
-      <div class=" ">
-        <label for="origin" class="fw-6">State of origin <span class="text-danger">*</span></label>
-
-        <select name="" id="origin" class="form-control form-control-lg" formControlName="State">
-          <!-- <option value="" selected> select </option> -->
+        =======
+        <select name="" id="origin" class="form-control form-control-lg" formControlName="StateOfOrigin">
+          <option value="" selected> select </option>
           <option [value]="" *ngFor="let unit of states">{{unit}}</option>
+          >>>>>>> ad54eb9866b7e54a44f980a5193eee101267717e
 
-        </select>
-      </div>
+          <select name="" id="nationality" class="form-control form-control-lg" formControlName="Nationality"
+            (change)="getState($event.target.value)">
+            <!-- <option value="" selected> select </option> -->
+            <option [value]="country.country" *ngFor="let country of countries">{{country.country}}</option>
 
-
-
+          </select>
     </div>
 
-    <div class="form-row mb-5">
+    <div class=" ">
+      <label for="origin" class="fw-6">State of origin <span class="text-danger">*</span></label>
 
-      <div class="  ">
-        <label for="nationality" class="fw-6">Local Government <span class="text-danger">*</span></label>
+      <select name="" id="origin" class="form-control form-control-lg" formControlName="State">
+        <!-- <option value="" selected> select </option> -->
+        <option [value]="" *ngFor="let unit of states">{{unit}}</option>
 
-        <select name="" id="nationality" class="form-control form-control-lg" formControlName="LocalGovernment">
-          <option value="LGA" selected> LGA </option>
-        </select>
-      </div>
-
-      <div class="d-flex align-items-end ">
-        <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="IsActive"
-            (change)="getStatus($event.target.checked)">
-          <label class="custom-control-label" for="customSwitch1"
-            *ngIf="toggleState === false; then inactive; else active;"> {{toggleState}} </label>
-          <ng-template #active>
-            <label class="custom-control-label" for="customSwitch1">Active </label>
-          </ng-template>
-          <ng-template #inactive>
-            <label class="custom-control-label" for="customSwitch1"> Inactive </label>
-          </ng-template>
-        </div>
-      </div>
-
-
-
+      </select>
     </div>
+
+
+
+</div>
+
+<div class="form-row mb-5">
+
+  <div class="  ">
+    <label for="nationality" class="fw-6">Local Government <span class="text-danger">*</span></label>
+
+    <select name="" id="nationality" class="form-control form-control-lg" formControlName="LocalGovernment">
+      <option value="LGA" selected> LGA </option>
+    </select>
+  </div>
+
+  <div class="d-flex align-items-end ">
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="IsActive"
+        (change)="getStatus($event.target.checked)">
+      <label class="custom-control-label" for="customSwitch1"
+        *ngIf="toggleState === false; then inactive; else active;"> {{toggleState}} </label>
+      <ng-template #active>
+        <label class="custom-control-label" for="customSwitch1">Active </label>
+      </ng-template>
+      <ng-template #inactive>
+        <label class="custom-control-label" for="customSwitch1"> Inactive </label>
+      </ng-template>
+    </div>
+  </div>
+
+
+  <div class=" d-flex justify-content-center mt-5 mb-5">
+    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() '
+      [disabled]="personalDetailsForm.invalid"> Next </button>
+
+  </div>
 
 
 

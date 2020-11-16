@@ -17,69 +17,67 @@
         <h6 class="mb-0">Create Assignment</h6>
       </div>
     </div>
-    <div class="col-md-12 mb-3">
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <label for="title">Title</label>
-          <input type="text" id="title" class="form-control">
+    <div class="w-100" [formGroup]="createAssignmentmentForm">
+      <div class="col-md-12 mb-3">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="title">Title</label>
+            <input type="text" id="title" class="form-control" formControlName="Title">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="subject">Subject</label>
+            <select id="subject" class="form-control" formControlName="subjectId">
+              <option selected>Select</option>
+              <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.name}}</option>
+  
+            </select>
+          </div>
+          <div class="form-group col-md-1">
+            <label for="subject">Class</label>
+            <select id="subject" class="form-control" formControlName="classId" (change)="getSubjects($event.target.value)">
+              <option selected>Select Class</option>
+              <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
+  
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="date">Due Date</label>
+            <input type="date" name="" id="date" class="form-control" formControlName="assDate">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="time">Time</label>
+            <input type="time" name="" id="time" class="form-control" formControlName="assTime" >
+          </div>
+          <div class="form-group col-md-1">
+            <label for="time">Grade Score</label>
+            <input type="number" name="" id="time" class="form-control" formControlName="TotalScore">
+          </div>
+  
+          <input type="hidden" id="myInput" [value]="1" formControlName="teacherId" >
         </div>
-        <div class="form-group col-md-3">
-          <label for="subject">Subject</label>
-          <select id="subject" class="form-control">
-            <option selected>Englis language</option>
-            <option value="JSS1">French</option>
-
-          </select>
-        </div>
-        <div class="form-group col-md-1">
-          <label for="subject">Class</label>
-          <select id="subject" class="form-control">
-            <option selected>Select Class</option>
-            <option value="JSS1">JSS 1</option>
-            <option value="JSS2">JSS 2</option>
-            <option value="JSS3">JSS 3</option>
-            <option value="SS1">SS 1</option>
-            <option value="SS2">SS 2</option>
-            <option value="SS3">SS 3</option>
-          </select>
-        </div>
-        <div class="form-group col-md-2">
-          <label for="date">Due Date</label>
-          <input type="date" name="" id="date" class="form-control">
-        </div>
-        <div class="form-group col-md-2">
-          <label for="time">Time</label>
-          <input type="time" name="" id="time" class="form-control">
-        </div>
-        <div class="form-group col-md-1">
-          <label for="time">Grade Score</label>
-          <input type="number" name="" id="time" class="form-control">
-        </div>
-
-
       </div>
-    </div>
-    <div class="col-12 ">
-        <div class="row no-gutters bg-white text-editor">
-            <div class="col-md-9">
-
-                <ckeditor  [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
-            </div>
-            <div class="col-md-3 attach-file pl-3 pr-4 pb-4">
-                <p class="pt-3 pb-4  fw-6">Attach File</p>
-
-                <form>
-                    <div class="form-group file-upload mb-5">
-                        <label for="fileupload" class="fs-12">Drag files to upload or click</label>
-                        <input type="file" class="file-input" id="fileupload">
-                        <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-12 pl-3 py-2 text-editor-bottom">
-                <button class="btn-upload-top bg-lblue">Create</button>
-            </div>
-        </div>
+      <div class="col-12 ">
+          <div class="row no-gutters bg-white text-editor">
+              <div class="col-md-9">
+  
+                  <ckeditor  [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+              </div>
+              <div class="col-md-3 attach-file pl-3 pr-4 pb-4">
+                  <p class="pt-3 pb-4  fw-6">Attach File</p>
+  
+                  <form>
+                      <div class="form-group file-upload mb-5">
+                          <label for="fileupload" class="fs-12">Drag files to upload or click</label>
+                          <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)">
+                          <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                      </div>
+                  </form>
+              </div>
+              <div class="col-md-12 pl-3 py-2 text-editor-bottom">
+                  <button class="btn-upload-top bg-lblue" (click)="submitAssignment()">Create</button>
+              </div>
+          </div>
+      </div>
     </div>
     
   </div>
