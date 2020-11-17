@@ -59,6 +59,9 @@ export class EmployeeDetailsComponent implements OnInit {
    });
   }
 
+  back() {
+    window.history.back();
+  }
 
 
 }

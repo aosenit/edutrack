@@ -28,6 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { UsersComponent } from './users/users.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -60,6 +61,7 @@ import { UsersComponent } from './users/users.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule,
     NgMultiSelectDropDownModule.forRoot(),
     SchoolRoutingModule,
 

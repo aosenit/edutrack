@@ -23,8 +23,8 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item"  data-toggle="modal" data-target="#exampleModalCenter3">Class Note</a>
                             <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter4">Assignment/project</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenterWork">Class Work</a>
                             <a class="dropdown-item" href="#">Media</a>
-                            <a class="dropdown-item" >Task</a>
                           </div>
 
             </div>
@@ -118,7 +118,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="pb-2">
+                                <tr class="pb-2" *ngFor = "let lesson of allLessonNote">
                                     <td scope="row" class="school-logo rounded-left">
                                         <div class="custom-control custom-checkbox"
                                             (change)="checked($event.target.checked)">
@@ -130,65 +130,18 @@
                                         <div class="d-flex align-items-center justify-content-start">
                                             <img src="assets/images/svg/pdf.svg" alt="schools document" class="mr-3">
                                             <p class="mb-0">
-                                                English Note.pdf
+                                                {{lesson?.subjectName | titlecase}}
                                             </p>
                                         </div>
                                     </td>
                                     <td>Class note</td>
-                                    <td>Jss3</td>
-                                    <td>April 4, 2020</td>
+                                    <td>{{lesson?.className}}</td>
+                                    <td>{{lesson?.creationDate | date: 'longDate'}}</td>
                                     <td>342 KB</td>
                                     <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
 
                                 </tr>
-                                <tr class="pb-2">
-                                    <td scope="row" class="school-logo rounded-left">
-                                        <div class="custom-control custom-checkbox"
-                                            (change)="checked($event.target.checked)">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                            <label class="custom-control-label" for="customCheck2"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center justify-content-start">
-                                            <img src="assets/images/svg/word.svg" alt="schools document" class="mr-3">
-                                            <p class="mb-0">
-                                                English Note.pdf
-                                            </p>
-                                        </div>
-                                    </td>
-                                    <td>Class note</td>
-                                    <td>Jss3</td>
-                                    <td>April 4, 2020</td>
-                                    <td>342 KB</td>
-                                    <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
-
-
-                                </tr>
-
-                                <tr class="pb-2">
-                                    <td scope="row" class="school-logo rounded-left"
-                                        (change)="checked($event.target.checked)">
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                            <label class="custom-control-label" for="customCheck3"></label>
-                                        </div>
-                                    </td>
-                                    <td class="">
-                                        <div class="d-flex align-items-center justify-content-start">
-                                            <img src="assets/images/svg/word.svg" alt="schools document" class="mr-3">
-                                            <p class="mb-0">
-                                                English Note.pdf
-                                            </p>
-                                        </div>
-                                    </td>
-                                    <td>Class note</td>
-                                    <td>Jss3</td>
-                                    <td>April 4, 2020</td>
-                                    <td>342 KB</td>
-                                    <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
-                                </tr>
-
+                              
 
                             </tbody>
                         </table>
@@ -197,11 +150,172 @@
                 </div>
 
                 <div class="tab-pane fade show " id="pills-assignment" role="tabpanel" aria-labelledby="pills-note-tab">
-                    sasasa
+                    <div class="d-flex justify-content-between align-items-center mt-3 ">
+                        <p class="mb-0 fw-6">Assignment</p>
+        
+                        <div>
+                            <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                            <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                                type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                            <!-- ================ DROPDOWN ==================== -->
+                            <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-black " href="#">Ascending </a>
+                                <a class="dropdown-item text-black " href="#">Descending </a>
+                                <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-black " href="#">Type </a>
+                                <a class="dropdown-item text-black " href="#">Class </a>
+                                <a class="dropdown-item text-black " href="#">Modified </a>
+                                <a class="dropdown-item text-black " href="#">Date Created </a>
+                            </div>
+                        </div>
+                    </div>
+                <section class="list">
+                    <table class="table table-borderless client-table">
+                        <thead>
+                            <tr>
+                                <th scope="col " class="head">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                                        <label class="custom-control-label" for="customCheckTh"></label>
+                                    </div>
+                                </th>
+                                <th scope="col">Name
+
+                                </th>
+                                <th scope="col">Type
+
+                                </th>
+                                <th scope="col">Class
+
+                                </th>
+                                <th scope="col">Date Created
+
+                                </th>
+                                <th scope="col"> Size</th>
+                                <th scope="col"> </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="pb-2" *ngFor = "let assignment of assignmentlist">
+                                <td scope="row" class="school-logo rounded-left">
+                                    <div class="custom-control custom-checkbox"
+                                        (change)="checked($event.target.checked)">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <label class="custom-control-label" for="customCheck1"></label>
+                                    </div>
+                                </td>
+                                <td class="" >
+                                    <div class="d-flex align-items-center justify-content-start">
+                                        <img src="assets/images/svg/pdf.svg" alt="schools document" class="mr-3">
+                                        <p class="mb-0">
+                                            {{assignment?.subjectName | titlecase}}
+                                        </p>
+                                    </div>
+                                </td>
+                                <td>Assignment</td>
+                                <td>{{assignment?.className}}</td>
+                                <td>{{assignment?.creationDate | date : 'longDate'}}</td>
+                                <td>342 KB</td>
+                                <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+
+                            </tr>
+                            
+
+
+                        </tbody>
+                    </table>
+
+                </section>
                 </div>
-                <div class="tab-pane fade show " id="pills-assignment" role="tabpanel" aria-labelledby="pills-note-tab">
-                    sasasa
+
+                <div class="tab-pane fade show " id="pills-work" role="tabpanel" aria-labelledby="pills-note-tab">
+                    <div class="d-flex justify-content-between align-items-center mt-3 ">
+                        <p class="mb-0 fw-6">Class Work</p>
+        
+                        <div>
+                            <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                            <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                                type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                            <!-- ================ DROPDOWN ==================== -->
+                            <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-black " href="#">Ascending </a>
+                                <a class="dropdown-item text-black " href="#">Descending </a>
+                                <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-black " href="#">Type </a>
+                                <a class="dropdown-item text-black " href="#">Class </a>
+                                <a class="dropdown-item text-black " href="#">Modified </a>
+                                <a class="dropdown-item text-black " href="#">Date Created </a>
+                            </div>
+                        </div>
+                    </div>
+                <section class="list">
+                    <table class="table table-borderless client-table">
+                        <thead>
+                            <tr>
+                                <th scope="col " class="head">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                                        <label class="custom-control-label" for="customCheckTh"></label>
+                                    </div>
+                                </th>
+                                <th scope="col">Name
+
+                                </th>
+                                <th scope="col">Type
+
+                                </th>
+                                <th scope="col">Class
+
+                                </th>
+                                <th scope="col">Date Created
+
+                                </th>
+                                <th scope="col"> Size</th>
+                                <th scope="col"> </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="pb-2" *ngFor = "let classWork of classworkList">
+                                <td scope="row" class="school-logo rounded-left">
+                                    <div class="custom-control custom-checkbox"
+                                        (change)="checked($event.target.checked)">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <label class="custom-control-label" for="customCheck1"></label>
+                                    </div>
+                                </td>
+                                <td class="">
+                                    <div class="d-flex align-items-center justify-content-start">
+                                        <img src="assets/images/svg/pdf.svg" alt="schools document" class="mr-3">
+                                        <p class="mb-0">
+                                            {{classWork?.subjectName | titlecase}}
+                                        </p>
+                                    </div>
+                                </td>
+                                <td>Class Work</td>
+                                <td>{{classWork?.className}}</td>
+                                <td>{{classWork?.creationDate | date: 'longDate'}}</td>
+                                <td>342 KB</td>
+                                <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+
+                            </tr>
+                          
+
+                        </tbody>
+                    </table>
+
+                </section>
                 </div>
+
                 <div class="tab-pane fade show " id="pills-media" role="tabpanel" aria-labelledby="pills-media-tab">
 
                     <div class="d-flex justify-content-between mt-2 mb-1">
@@ -421,7 +535,7 @@
                 <div class="modal-head mb-2">
                     <div class="d-flex justify-content-between mb-3">
                         <h6 class="modal-title">Upload Files</h6>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -444,7 +558,7 @@
                                         </select>
                                     </div> -->
                                     <div class="form-group col-md-3">
-                                        <select class="form-control" (change)="getSubjects($event.target.value)" formControlName="classId">
+                                        <select class="form-control" (change)="getSubjects($event.target.value)" >
                                             <option value="" selected>Select Class</option>
                                             <option [value]="class.id" *ngFor="let class of classList"> {{class.name}} </option>
                                             
@@ -470,7 +584,7 @@
 
                         <div class="form-group mb-3">
                             <label for="message">Optional message</label>
-                            <textarea name="" id="message" class="form-control"></textarea>
+                            <textarea name="" id="message" class="form-control" formControlName="Comment"></textarea>
                         </div>
 
                         <div class="d-flex justify-content-end mb-3">
@@ -485,7 +599,71 @@
     </div>
     <!-- end of class note modal -->
 
+ <!-- class work Modal -->
+ <div class="modal fade" id="exampleModalCenterWork" tabindex="-1" role="dialog"
+ aria-labelledby="exampleModalCenterWorkTitle" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+     <div class="modal-content">
 
+         <div class="modal-head mb-2">
+             <div class="d-flex justify-content-between mb-3">
+                 <h6 class="modal-title">Upload Files</h6>
+                 <button type="button" class="close" id="myModal2" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="line">
+                 <p class="pb-3">Upload Class Work</p>
+             </div>
+         </div>
+         <div class="modal-body client-modal">
+             <form [formGroup]="uploadClassWorkForm" (ngSubmit)="submitClassWork()">
+
+                 <div class="row mb-3">
+                     <div class="col-sm-12">
+                         <div class="form-row">
+                             
+                             <div class="form-group col-md-3">
+                                 <select class="form-control" (change)="getSubjects($event.target.value)" >
+                                     <option value="" selected>Select Class</option>
+                                     <option [value]="class.id" *ngFor="let class of classList"> {{class.name}} </option>
+                                     
+                                 </select>
+                             </div>
+                             <div class="form-group col-md-3">
+                                 <select class="form-control" formControlName = "subjectId">
+                                     <option value="" selected>Select Subject</option>
+                                     <option [value]="subject.id" *ngFor = "let subject of subjectsInClass">{{subject?.subject}}</option>
+                                     <!-- <option [value]="subject.id" *ngFor="let subject of subjectsInClass"> {{subject.name}} </option> -->
+
+                                 </select>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                 <div class="form-group file-upload mb-5">
+                     <label for="fileupload">Drag files to upload or click</label>
+                     <input type="file" class="file-input" id="fileupload" (change)="handleClassWorkUpload($event)">
+                     <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                 </div>
+
+                 <div class="form-group mb-3">
+                     <label for="message">Optional message</label>
+                     <textarea name="" id="message" class="form-control" formControlName="Comment"></textarea>
+                 </div>
+
+                 <div class="d-flex justify-content-end mb-3">
+                     <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+                 </div>
+
+             </form>
+         </div>
+
+     </div>
+ </div>
+</div>
+<!-- end of class work modal -->
 
     <!-- Assignment Modal -->
     <div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog"
@@ -496,7 +674,7 @@
                 <div class="modal-head mb-2">
                     <div class="d-flex justify-content-between mb-3">
                         <h6 class="modal-title">Upload Files</h6>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" id="myModal" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>

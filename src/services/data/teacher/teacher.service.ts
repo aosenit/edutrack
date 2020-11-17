@@ -7,7 +7,10 @@ const routes = {
   getallteacher: 'schtrack-auth/api/v1/Teacher/GetTeachers',
   getteacherbyid: 'schtrack-auth/api/v1/Teacher/GetTeachers',
   updateteacherbyid: 'schtrack-auth/api/v1/Teacher/UpdateTeacher',
-  deleteteacher: 'schtrack-auth/api/v1/Teacher/DeleteTeacher'
+  deleteteacher: 'schtrack-auth/api/v1/Teacher/DeleteTeacher',
+
+  attachteachertosubject: 'schtrack-learning/api/v1/TeacherClassSubject/AddClassSubjectsToTeacher',
+  getteacherdesignation: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher'
 };
 @Injectable({
   providedIn: 'root'
@@ -112,6 +115,29 @@ export class TeacherService {
 
     const url = `${this.baseUrl + '/givenApi'}/${userid}`;
     return this.http.delete(url, { headers: { tenantId } });
+
+  }
+
+  // learning service for teacher realted stuff goes down here
+
+  attachTeacherToSubject(result) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const body = new FormData();
+    body.append('TeacherId', result.TeacherId);
+    body.append('ClassSubjectIds', result.ClassSubjectIds);
+    const url = `${this.baseUrl + routes.attachteachertosubject}`;
+
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+
+  }
+
+  getAttachedSubjects(id: any) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl + routes.getteacherdesignation}/${id}`;
+
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
 
   }
 }

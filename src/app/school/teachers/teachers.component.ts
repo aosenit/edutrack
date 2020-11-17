@@ -8,6 +8,8 @@ import { TeacherService } from 'src/services/data/teacher/teacher.service';
 })
 export class TeachersComponent implements OnInit {
 teachersList: any;
+searchString: string;
+
   constructor(
     private teacherService: TeacherService
   ) { }
@@ -25,5 +27,4 @@ teachersList: any;
     });
   }
 
-  
 }

@@ -1,129 +1,100 @@
 <div class="container-fluid mt-4">
-    <div class="row">
-        <div class="col-md-9 mt-5">
+  <div class="row">
+    <div class="col-md-9 mt-5">
 
-            <section class="banner mb-4 pb-3">
-                <div class="pt-5 pl-3 content ">
-                    <h6 class="banner__text-primary fw-6 "> Assignment </h6>
-                    <p class=""> Create assignment and tasks </p>
-                </div>
-                <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
-                    [routerLink]="['/teacher/assignment/new']"> Create </button>
-
-            </section>
-
-            <section class="search mt-5 mb-3">
-                <div class="search__input has-search">
-                    <span class="fa fa-search form-control-feedback"></span>
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-
-            </section>
-
-            <section class="list">
-                <table class="table table-borderless client-table">
-                    <thead>
-                        <tr>
-                            <th scope="col " class="head">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                                    <label class="custom-control-label" for="customCheckTh"></label>
-                                </div>
-                            </th>
-                            <th scope="col">Title <img src="assets/images/svg/table-sort.svg" alt="table sort icon">
-
-                            </th>
-                            <th scope="col">Subject <img src="assets/images/svg/table-sort.svg" alt="table sort icon">
-
-                            </th>
-                            <th scope="col">Class <img src="assets/images/svg/table-sort.svg" alt="table sort icon">
-
-                            </th>
-                            <th scope="col">Date Created <img src="assets/images/svg/table-sort.svg"
-                                    alt="table sort icon">
-
-                            </th>
-                            <th scope="col"> </th>
-                            <th scope="col"> </th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="pb-2">
-                            <td scope="row" class="school-logo rounded-left">
-                                <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label" for="customCheck1"></label>
-                                </div>
-                            </td>
-                            <td class="">Descriptive Essay</td>
-                            <td>English language</td>
-                            <td>Jss3</td>
-                            <td>17/03/2020</td>
-                            <td><span class="status">Active</span></td>
-                            <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
-
-                        </tr>
-                        <tr class="pb-2">
-                            <td scope="row" class="school-logo rounded-left">
-                                <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck2">
-                                    <label class="custom-control-label" for="customCheck2"></label>
-                                </div>
-                            </td>
-                            <td class="">Descriptive Essay</td>
-                            <td>English language</td>
-                            <td>Jss3</td>
-                            <td>17/03/2020</td>
-                            <td><span class="status">Active</span></td>
-                            <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
-
-
-                        </tr>
-
-                        <tr class="pb-2">
-                            <td scope="row" class="school-logo rounded-left">
-                                <!-- <td scope="row" class="school-logo rounded-left" (change)="checked($event.target.checked)"> -->
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck3">
-                                    <label class="custom-control-label" for="customCheck3"></label>
-                                </div>
-                            </td>
-                            <td class="">Descriptive Essay</td>
-                            <td>English language</td>
-                            <td>Jss3</td>
-                            <td>17/03/2020</td>
-                            <td><span class="status">Active</span></td>
-                            <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
-
-                        </tr>
-
-
-                    </tbody>
-                </table>
-
-            </section>
-
+      <section class="banner mb-4 pb-3">
+        <div class="pt-5 pl-3 content ">
+          <h6 class="banner__text-primary fw-6 "> Assignment </h6>
+          <p class=""> Create assignment and tasks </p>
         </div>
-        <div class="col-md-3 bg-white br-10 p-3 pt-4 mt-5 notice-board d-flex flex-column">
-            <div class="d-flex info pb-2">
-                <img src="assets/images/svg/assignment-n.svg" alt="table sort icon" class="mr-3">
-                <p class="mb-0 fc-lblue">Info</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center align-items-center mt-5 h-75">
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                    <img src="assets/images/svg/info-file.svg" alt="table sort icon" class="mr-3">
-                    <p class="text-center pt-2">Select an assignment to display overview</p>
-                </div>
-                <div class="information">
-                    <p class="mb-0">10 students submitted</p>
-                    <p class="mb-0">5 pending submission</p>
-                </div>
-            </div>
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/teacher/assignment/new']">
+          Create </button>
+
+      </section>
+
+      <section class="search mt-5 mb-3">
+        <div class="search__input has-search">
+          <span class="fa fa-search form-control-feedback"></span>
+          <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
         </div>
+
+      </section>
+
+      <section class="list">
+        <table class="table table-borderless client-table">
+          <thead>
+            <tr>
+              <th scope="col " class="head">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                  <label class="custom-control-label" for="customCheckTh"></label>
+                </div>
+              </th>
+              <th scope="col">Title <img src="assets/images/svg/table-sort.svg" alt="table sort icon">
+
+              </th>
+              <th scope="col">Subject <img src="assets/images/svg/table-sort.svg" alt="table sort icon">
+
+              </th>
+              <th scope="col">Class <img src="assets/images/svg/table-sort.svg" alt="table sort icon">
+
+              </th>
+              <th scope="col">Date Created <img src="assets/images/svg/table-sort.svg" alt="table sort icon">
+
+              </th>
+              <th scope="col"> </th>
+              <th scope="col"> </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="pb-2" *ngFor="let assignment of assignmentLists | tableSearch : 'name' : searchString">
+              <td scope="row" class="school-logo rounded-left">
+                <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck{{assignment?.id}}"
+                    [value]="assignment?.id" (change)="getElementId($event.target.value)">
+                  <label class="custom-control-label" for="customCheck{{assignment?.id}}"></label>
+                </div>
+              </td>
+              <td class=""> {{assignment?.name}} </td>
+              <td>{{assignment?.subjectName | titlecase}}</td>
+              <td>{{assignment?.className}}</td>
+              <td>{{assignment?.creationDate | date: 'dd/MM/y'}}</td>
+              <td (mouseenter)="changeText(assignment?.id)" (mouseleave)="reverseText(assignment?.id)">
+                <span class="status" *ngIf="changetext">{{assignment?.status}}</span>
+                <span class="status" [ngStyle]="{cursor: 'pointer'}" *ngIf="!changetext"
+                  routerLink="/teacher/assignment">Open</span>
+              </td>
+              <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+
+            </tr>
+
+
+
+          </tbody>
+        </table>
+
+      </section>
+
     </div>
+    <div class="col-md-3 bg-white br-10 p-3 pt-4 mt-5 notice-board d-flex flex-column">
+      <div class="d-flex info pb-2">
+        <img src="assets/images/svg/assignment-n.svg" alt="table sort icon" class="mr-3">
+        <p class="mb-0 fc-lblue">Info</p>
+      </div>
+      <div class="d-flex flex-column justify-content-center align-items-center mt-5 h-75">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <img src="assets/images/svg/info-file.svg" alt="table sort icon" class="mr-3">
+          <p class="text-center pt-2">Select an assignment to display overview</p>
+        </div>
+        <div class="information">
+          <p class="mb-0">10 students submitted</p>
+          <p class="mb-0">5 pending submission</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </div>

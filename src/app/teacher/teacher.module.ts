@@ -18,6 +18,7 @@ import { VirtualSessionComponent } from './virtual-session/virtual-session.compo
 import { GradebookComponent } from './gradebook/gradebook.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CKEditorModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule,
     HttpClientModule,
     TeacherRoutingModule
   ]

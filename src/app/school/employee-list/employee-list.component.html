@@ -1,8 +1,8 @@
-<section class="add-employee" *ngIf="record" >
+<section class="add-employee" *ngIf="employeeList?.length == 0" >
     <img src="assets/images/svg/add-student.svg" alt="new employee" class="">
     <p class="text-center fw-6 pt-5">It looks like you are yet to create an employee.You can do <br> that by clicking any of the buttons below.
         below.</p>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-student']">
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-employee']">
         Add New </button>
     <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
         data-target="#exampleModalCenterUpload">Bulk
@@ -11,7 +11,7 @@
 
 
 
-<section class="banner mb-4 pb-3">
+<section class="banner mb-4 pb-3" *ngIf="employeeList?.length > 1">
     <div class="pt-5 pl-3 content ">
         <h6 class="banner__text-primary fw-6 "> Employees </h6>
         <p class=""> Directory of all registered employees </p>
@@ -24,10 +24,10 @@
 
 </section>
 
-<section class="d-flex align-items-center justify-content-between mb-4 mt-5">
+<section class="d-flex align-items-center justify-content-between mb-4 mt-5" *ngIf="employeeList?.length > 1">
     <div class="search__input has-search">
         <span class="fa fa-search form-control-feedback"></span>
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
     </div>
     <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
 
@@ -36,7 +36,7 @@
 
 
 
-<section class="list">
+<section class="list" *ngIf="employeeList?.length > 1">
     <table class="table table-borderless client-table">
         <thead>
             <tr>
@@ -74,7 +74,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="pb-1" *ngFor="let staff of employeeList">
+            <tr class="pb-1" *ngFor="let staff of employeeList | tableSearch : 'firstName' : searchString">
                 <td scope="row" class="check rounded-left">
                     <div class="custom-control custom-checkbox" >
                         <input type="checkbox" class="custom-control-input" id="customCheck1">

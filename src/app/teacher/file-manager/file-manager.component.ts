@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { parse } from 'querystring';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
+import { ClassWorkService } from 'src/services/data/class-work/class-work.service';
 import { ClassService } from 'src/services/data/class/class.service';
 import { LessonNoteService } from 'src/services/data/lesson-note/lesson-note.service';
 import { SubjectService } from 'src/services/data/subject/subject.service';
@@ -18,10 +19,14 @@ export class FileManagerComponent implements OnInit {
   view = false;
   clipnote = true;
   uploadClassNoteForm: FormGroup;
+  uploadClassWorkForm: FormGroup;
   uploadAssignmentForm: FormGroup;
   classList: any;
   subjectsInClass: any;
   assignmentFile = null;
+  allLessonNote: any;
+  classworkList: any;
+  assignmentlist: any;
 
   constructor(
     private fb: FormBuilder,
@@ -29,6 +34,7 @@ export class FileManagerComponent implements OnInit {
     private classService: ClassService,
     private lessonNoteService: LessonNoteService,
     private assignmentService: AssignmentService,
+    private classWorkService: ClassWorkService,
     private notifyService: NotificationsService,
 
 
@@ -36,14 +42,29 @@ export class FileManagerComponent implements OnInit {
 
   ngOnInit() {
     this.populateClassNoteForm();
+    this.populateClassWorkForm();
     this.populateAssignmentForm();
+    // all forms goes up there
+
     this.getAllClasses();
+    this.getAllLessonNotesByTeacher();
+    this.getAllClassWorkByTeacher();
+    this.getAllAssignmentsByTeacher();
   }
 
   populateClassNoteForm() {
     this.uploadClassNoteForm = this.fb.group({
-      classId: ['', Validators.required],
       subjectId: ['', Validators.required],
+      Comment: ['', Validators.required],
+      FileObj: [null]
+
+    });
+  }
+
+  populateClassWorkForm() {
+    this.uploadClassWorkForm = this.fb.group({
+      subjectId: ['', Validators.required],
+      Comment: ['', Validators.required],
       FileObj: [null]
 
     });
@@ -102,33 +123,41 @@ export class FileManagerComponent implements OnInit {
       // this.iconname = this.icon.name;
     }
   }
+  handleClassWorkUpload(event: any) {
+    const reader = new FileReader();
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log('file', file);
+      this.assignmentFile = file.name;
+      this.uploadClassWorkForm.get('FileObj').setValue(file);
+      // this.iconname = this.icon.name;
+    }
+  }
   handleAssignmentUpload(event: any) {
     const reader = new FileReader();
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       console.log('file', file);
       this.assignmentFile = file.name;
-      this.uploadClassNoteForm.get('FileObj').setValue(file);
+      this.uploadAssignmentForm.get('Document').setValue(file);
       // this.iconname = this.icon.name;
     }
   }
 
 
   submitClassNote() {
-    console.log(this.uploadClassNoteForm.value);
-    const { subjectId, classId, FileObj } = this.uploadClassNoteForm.value;
+    const { subjectId, Comment, FileObj } = this.uploadClassNoteForm.value;
     // tslint:disable-next-line:radix
-    const SubjectId = parseInt(subjectId);
+    const ClassSubjectId = parseInt(subjectId);
     // tslint:disable-next-line:radix
-    const ClassId = parseInt(classId);
     const result = {
-      SubjectId,
-      ClassId,
+      ClassSubjectId,
+      Comment,
       FileObj
     };
     this.lessonNoteService.addLessonNote(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        document.getElementById('close').click();
         this.notifyService.publishMessages('Class note uploaded successfully', 'info', 1);
 
       }
@@ -139,17 +168,37 @@ export class FileManagerComponent implements OnInit {
     );
   }
 
+  submitClassWork() {
+    const { subjectId, Comment, FileObj } = this.uploadClassWorkForm.value;
+    // tslint:disable-next-line:radix
+    const ClassSubjectId = parseInt(subjectId);
+    // tslint:disable-next-line:radix
+    const result = {
+      ClassSubjectId,
+      Comment,
+      FileObj
+    };
+    this.classWorkService.addClassWork(result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        document.getElementById('myModal2').click();
+        this.notifyService.publishMessages('Class work uploaded successfully', 'info', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    }
+    );
+  }
+
   submitAssignment() {
-    const { Title, TeacherId, subjectId, classId, DueDate, TotalScore, Comment, Document } = this.uploadAssignmentForm.value;
+    const { Title, subjectId, DueDate, TotalScore, Comment, Document } = this.uploadAssignmentForm.value;
     // tslint:disable-next-line:radix
-    const SubjectId = parseInt(subjectId);
+    const ClassSubjectId = parseInt(subjectId);
     // tslint:disable-next-line:radix
-    const ClassId = parseInt(classId);
     const result = {
       Title,
-      TeacherId,
-      SubjectId,
-      ClassId,
+      ClassSubjectId,
       DueDate,
       TotalScore,
       Comment,
@@ -157,9 +206,49 @@ export class FileManagerComponent implements OnInit {
     };
     this.assignmentService.addAssignment(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        document.getElementById('myModal').click();
+        // location.reload();
         this.notifyService.publishMessages('Assignment uploaded successfully', 'info', 1);
 
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    }
+    );
+  }
+
+  getAllLessonNotesByTeacher() {
+    this.lessonNoteService.getLessonNotesByTeacher().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log('lesson Notes', data);
+        this.allLessonNote = data.payload;
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    }
+    );
+  }
+
+  getAllClassWorkByTeacher() {
+    this.classWorkService.getClassWorkByTeacher().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log('class work', data);
+        this.classworkList = data.payload;
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    }
+    );
+  }
+
+  getAllAssignmentsByTeacher() {
+    this.assignmentService.getAssignmentByTeacher().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log('Assignment', data);
+        this.assignmentlist = data.payload;
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
