@@ -5,13 +5,13 @@
                 <label for="fname" class="fw-6">First Name <span
                         class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-lg" placeholder="First name"
-                    id="fname" formControlName="ContactFirstName">
+                    id="fname" formControlName="FirstName">
             </div>
             <div class="col-md-6 ">
                 <label for="lname" class="fw-6">Last Name <span
                         class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-lg" placeholder="Last name"
-                    id="lname" formControlName="ContactLastName">
+                    id="lname" formControlName="LastName">
             </div>
         </div>
     
@@ -19,20 +19,20 @@
             <div class="col-md-6">
                 <label for="othername" class="fw-6">Other Name </label>
                 <input type="text" class="form-control form-control-lg"
-                    placeholder="Enter other names" id="othername" formControlName="ContactOtherName">
+                    placeholder="Enter other names" id="othername" formControlName="OtherNames">
             </div>
             <div class="col-md-6 ">
                 <label for="maiden" class="fw-6">Mother's Maiden Name <span
                         class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-lg" placeholder="Dojah"
-                    id="maiden" formControlName="motherName" >
+                    id="maiden" formControlName="MothersMaidenName" >
             </div>
         </div>
     
         <div class="row mb-4">
             <div class="col-md-6">
                 <label for="sex" class="fw-6">Sex <span class="text-danger">*</span> </label>
-                <select name="" class="form-control form-control-lg" formControlName="sex">
+                <select name="" class="form-control form-control-lg" formControlName="Sex">
                     <!-- <option value="sex">Sex</option> -->
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -41,7 +41,7 @@
             <div class="col-md-6 ">
                 <label for="date" class="fw-6">Date of Birth</label>
                 <input type="date" class="form-control form-control-lg" placeholder="Dojah"
-                    id="maiden" formControlName="dob">
+                    id="maiden" formControlName="DateOfBirth">
             </div>
         </div>
     
@@ -52,7 +52,7 @@
             <div class="col-md-6">
                     <label for="religion" class="fw-6">Religion <span
                             class="text-danger">*</span> </label>
-                    <select name="" id="religion" class="form-control form-control-lg" formControlName="religion">
+                    <select name="" id="religion" class="form-control form-control-lg" formControlName="Religion">
                         <option value="muslim" selected>Muslim</option>
                         <option value="hristianity" selected>Christianity</option>
                         <option value="budhism" selected>Budhism</option>
@@ -63,7 +63,7 @@
                 <div class="mb-3">
                     <label for="nation" class="fw-6">Nationality <span
                             class="text-danger">*</span> </label>
-                    <select name="" id="nation" class="form-control form-control-lg" formControlName="nationality" (change)="getState($event.target.value)">
+                    <select name="" id="nation" class="form-control form-control-lg" formControlName="Nationality" (change)="getState($event.target.value)">
                         <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
                     </select>
                 </div>
@@ -78,7 +78,7 @@
                 <div class="mb-3">
                     <label for="parent" class="fw-6">Parent <span
                             class="text-danger"></span></label>
-                            <select name="" id="" class="form-control form-control-lg" id="parent" formControlName="parents">
+                            <select name="" id="" class="form-control form-control-lg" id="parent" formControlName="ParentId">
                                 <option value="{{parent.id}}" *ngFor="let parent of parents">{{parent.fullName}}</option>
                             </select>
                     <!-- <input type="text" class="form-control form-control-lg"
@@ -95,7 +95,7 @@
                 <div class="mb-3">
                     <label for="state" class="fw-6">State of Origin <span
                             class="text-danger">*</span> </label>
-                    <select name="" id="state" class="form-control form-control-lg" formControlName="state">
+                    <select name="" id="state" class="form-control form-control-lg" formControlName="StateOfOrigin">
                         <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
 
                     </select>
@@ -103,7 +103,7 @@
                 <div class="mb-3">
                     <label for="state" class="fw-6">Local Government <span
                             class="text-danger">*</span> </label>
-                    <select name="" id="state" class="form-control form-control-lg" formControlName="lga">
+                    <select name="" id="state" class="form-control form-control-lg" formControlName="LocalGovt">
                         <option value="island" selected>Island</option>
                     </select>
                 </div>
@@ -114,7 +114,7 @@
             <div class="col-md-6 ">
                 <label for="route" class="fw-6">Transport Route </label>
                 <input type="text" class="form-control form-control-lg"
-                    placeholder="Enter route" id="route" formControlName="transportRoute">
+                    placeholder="Enter route" id="route" formControlName="TransportRoute">
             </div>
     
     

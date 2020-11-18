@@ -25,8 +25,10 @@ export class FileManagerComponent implements OnInit {
   subjectsInClass: any;
   assignmentFile = null;
   allLessonNote: any;
+  lessonDetails: any;
   classworkList: any;
   assignmentlist: any;
+  lessonId: any;
 
   constructor(
     private fb: FormBuilder,
@@ -82,15 +84,6 @@ export class FileManagerComponent implements OnInit {
     });
   }
 
-  checked(event) {
-    if (event === true) {
-      this.view = true;
-      this.clipnote = false;
-    } else {
-      this.view = false;
-      this.clipnote = true;
-    }
-  }
 
   getAllClasses() {
     this.classService.getAllClasses().subscribe((data: any) => {
@@ -223,6 +216,7 @@ export class FileManagerComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log('lesson Notes', data);
         this.allLessonNote = data.payload;
+        sessionStorage.setItem('lesson-notes', JSON.stringify(this.allLessonNote) );
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -255,6 +249,27 @@ export class FileManagerComponent implements OnInit {
 
     }
     );
+  }
+
+  getLessonDetails(event) {
+    if (event.target.checked === true) {
+      console.log('sasasasasasa', event.target.value);
+      this.lessonId = event.target.value;
+      const lessons = JSON.parse(sessionStorage.getItem('lesson-notes'));
+      this.view = true;
+      this.clipnote = false;
+  //     // this.lessonNoteService.getSinglelessonNoteDetail(id).subscribe((data: any) => {
+  //     //   if (data.hasErrors === false) {
+  //     //     console.log('lesson Notes', data);
+  //     //     this.lessonDetails = data.payload;
+  //     //   }
+  //     // }, error => {
+  //     //   this.notifyService.publishMessages(error.errors, 'danger', 1);
+  //     // });
+    } else {
+      this.view = false;
+      this.clipnote = true;
+  }
   }
 
 }

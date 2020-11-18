@@ -121,10 +121,10 @@
                                 <tr class="pb-2" *ngFor = "let lesson of allLessonNote">
                                     <td scope="row" class="school-logo rounded-left">
                                         <div class="custom-control custom-checkbox"
-                                            (change)="checked($event.target.checked)">
-                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                            <label class="custom-control-label" for="customCheck1"></label>
-                                        </div>
+                                        (change)="getLessonDetails($event)">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck{{lesson?.id}}" [value]="lesson?.id">
+                                        <label class="custom-control-label" for="customCheck{{lesson?.id}}"></label>
+                                    </div>
                                     </td>
                                     <td class="">
                                         <div class="d-flex align-items-center justify-content-start">
@@ -204,9 +204,9 @@
                             <tr class="pb-2" *ngFor = "let assignment of assignmentlist">
                                 <td scope="row" class="school-logo rounded-left">
                                     <div class="custom-control custom-checkbox"
-                                        (change)="checked($event.target.checked)">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1"></label>
+                                        (change)="getLessonDetails($event.target.checked)">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck{{assignment?.id}}">
+                                        <label class="custom-control-label" for="customCheck{{assignment?.id}}"></label>
                                     </div>
                                 </td>
                                 <td class="" >
@@ -288,7 +288,7 @@
                             <tr class="pb-2" *ngFor = "let classWork of classworkList">
                                 <td scope="row" class="school-logo rounded-left">
                                     <div class="custom-control custom-checkbox"
-                                        (change)="checked($event.target.checked)">
+                                        (change)="getLessonDetails($event.target.checked)">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1"></label>
                                     </div>
@@ -505,7 +505,7 @@
                     </div>
                     <div class="d-flex mb-2 ">
                         <p class="mb-0 w-40">Class</p>
-                        <p class="mb-0 fw-6">Jss3</p>
+                        <p class="mb-0 fw-6">{{lessonDetails?.className}}</p>
                     </div>
                     <div class="d-flex  mb-2">
                         <p class="mb-0 w-40">Date Created</p>
