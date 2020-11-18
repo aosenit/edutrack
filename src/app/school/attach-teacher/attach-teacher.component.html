@@ -76,7 +76,7 @@
         </div>
       </div>
       <!--  ================== EMPTY STATE HOLDER -->
-      <div class="d-flex flex-column justify-content-center align-items-center my-5" *ngIf="attachedSubjectlist.length === 0">
+      <div class="d-flex flex-column justify-content-center align-items-center my-5" *ngIf="attachedSubjectlist?.length === 0">
         <img src="assets/images/svg/attach-image.svg" alt="..." class="mt-2" />
         <p class="fw-6 mt-3 text-center">This teacher is not currently attached to any subject. <br> Please click the
           button below to attach teacher to a class.</p>
@@ -88,7 +88,7 @@
       <!--  ================== END OF  EMPTY STATE HOLDER -->
 
 
-      <div class="subjects mt-5" *ngIf = "attachedSubjectlist.length > 1">
+      <div class="subjects mt-5" *ngIf = "attachedSubjectlist?.length > 1">
 
         <div class=" subject d-flex p-3 mb-3  justify-content-between align-items-center" *ngFor = "let subject of attachedSubjectlist">
           <div>

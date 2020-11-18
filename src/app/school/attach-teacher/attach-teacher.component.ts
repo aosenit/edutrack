@@ -97,7 +97,7 @@ attachedSubjectlist: any;
     this.teacherService.getTeacherById(this.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.teacherDetails = data.payload;
-        console.log(this.teacherDetails);
+        // console.log(this.teacherDetails);
       }
     });
   }
@@ -154,6 +154,7 @@ attachedSubjectlist: any;
     this.teacherService.getAttachedSubjects(this.id).subscribe((data: any) => {
       console.log(data);
       this.attachedSubjectlist = data.payload;
+      console.log('sasaassasasasasasas', this.attachedSubjectlist);
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
