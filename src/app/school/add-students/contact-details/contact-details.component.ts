@@ -14,12 +14,12 @@ export class ContactDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.contactDetailsForm = this.fb.group({
-      contactPhoneNumber: ['', Validators.required],
-      contactEmail: ['', Validators.required],
-      country: ['', Validators.required],
-      address: ['', Validators.required],
-      city: ['', Validators.required],
-      state: ['', Validators.required],
+      ContactPhone: ['', Validators.required],
+      ContactEmail: ['', Validators.required],
+      ContactCountry: ['', Validators.required],
+      ContactAddress: ['', Validators.required],
+      ContactTown: ['', Validators.required],
+      ContactState: ['', Validators.required],
     });
   }
 

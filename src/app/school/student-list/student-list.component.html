@@ -84,7 +84,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="pb-1">
+            <tr class="pb-1" *ngFor="let student of studentList">
                 <td scope="row" class="check rounded-left">
                     <div class="custom-control custom-checkbox" >
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -95,7 +95,7 @@
                     
                     <div class="d-flex align-items-center">
                         <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6 mb-0" >Master John Gboyega </h6>
+                        <h6 class="fw-6 mb-0" >{{student?.firstName}} {{student?.lastName}} </h6>
                     </div>
                 </td>
                 <td>AMI/ST/2020/001</td>
@@ -116,103 +116,7 @@
                     </td>
             </tr>
 
-            <tr class="pb-1">
-                <td scope="row" class="check rounded-left">
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                </td>
-                <td class="user" >
-                    
-                    <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/user-role-2.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6 mb-0">Francis Emeneke </h6>
-                    </div>
-                </td>
-                <td>AMI/ST/2020/001</td>
-                <td>Female</td>
-                <td class="">Sep 10, 2004</td>
-                <td class="">Secondary</td>
-                <td class="">JSS3 A</td>
-                <td><span class="status_active">Active</span></td>
-                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log"> </td>
-            </tr>
-
-            <tr class="pb-1">
-                <td scope="row" class="check rounded-left">
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                </td>
-                <td class="user" >
-                    
-                    <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/woman.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6 mb-0">Cynthia Bassey  </h6>
-                    </div>
-                </td>
-                <td>AMI/ST/2020/001</td>
-                <td>Male</td>
-                <td class="">Sep 10, 2004</td>
-                <td class="">Secondary</td>
-                <td class="">JSS3 A</td>
-                <td><span class="status_active">Active</span></td>
-                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log"> </td>
-            </tr>
-
-            <tr class="pb-1">
-                <td scope="row" class="check rounded-left">
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                </td>
-                <td class="user" >
-                    
-                    <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/user-role-2.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6 mb-0">Adedeji Bamiduro  </h6>
-                    </div>
-                </td>
-                <td>AMI/ST/2020/001</td>
-                <td>Male</td>
-                <td class="">Sep 10, 2004</td>
-                <td class="">Secondary</td>
-                <td class="">JSS3 A</td>
-                <td><span class="status_inactive">Inactive</span></td>
-                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log"> </td>
-            </tr>
-
-            <tr class="pb-1">
-                <td scope="row" class="check rounded-right">
-                    
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                </td>
-                <td scope="row" class="user " >
-                    
-                    <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6">Adebayo Olusegun  </h6>
-                    </div>
-                </td>
-                <td>AMI/ST/2020/001</td>
-                <td>Male</td>
-                <td class="">Sep 10, 2004</td>
-                <td class="">Secondary</td>
-                <td class="">JSS3 A</td>
-                <td><span class="status_active">Active</span></td>
-                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log"> </td>
-            </tr>
-
+            
 
 
 

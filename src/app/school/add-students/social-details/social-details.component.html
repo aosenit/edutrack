@@ -6,15 +6,16 @@
             <div class="col-md-6">
                 <label for="entry" class="fw-6">Entry Type <span class="text-danger">*</span>
                 </label>
-                <select name="" id="entry" class="form-control form-control-lg" formControlName="entryType">
-                    <option value="entry" selected>Sex</option>
+                <select name="" id="entry" class="form-control form-control-lg" formControlName="EntryType">
+                    <option value="new" selected>New</option>
+                    <option value="old" selected>Old</option>
                 </select>
             </div>
             <div class="col-md-6 ">
                 <label for="date" class="fw-6">Admission Date <span
                         class="text-danger">*</span></label>
                 <input type="date" class="form-control form-control-lg" placeholder="Dojah"
-                    id="maiden" formControlName="admissionDate">
+                    id="maiden" formControlName="AdmissionDate">
             </div>
         </div>
     
@@ -22,16 +23,16 @@
         <div class="row mb-4">
             <div class="col-md-6 ">
                 <label for="date" class="fw-6">Section <span class="text-danger">*</span></label>
-                <select name="" id="level" class="form-control form-control-lg" formControlName="level" (change)="getClassesUnderSection($event.target.value)" >
-                    <option *ngFor="let section of sections" value="{{section.id}}">{{section.name}}</option>
+                <select name="" id="level" class="form-control form-control-lg" formControlName="SectionId" (change)="getClassesUnderSection($event.target.value)" >
+                    <option *ngFor="let section of sections" [value]="section.id">{{section.name}}</option>
                 </select>
             </div>
     
             <div class="col-md-6">
                 <label for="state" class="fw-6">Class <span class="text-danger">*</span>
                 </label>
-                <select name="" id="state" class="form-control form-control-lg" formControlName="studentClass">
-                    <option *ngFor="let class of classes" value="{{class.id}}">{{class.name}}</option>
+                <select name="" id="state" class="form-control form-control-lg" formControlName="ClassId">
+                    <option *ngFor="let class of classes" [value]="class.id">{{class.name}}</option>
                 </select>
             </div>
         </div>
@@ -40,8 +41,9 @@
             <div class="col-md-6 ">
                 <label for="date" class="fw-6">Student Type <span
                         class="text-danger">*</span></label>
-                <select name="" id="level" class="form-control form-control-lg" formControlName="studentType">
-                    <option value="level" selected>Day Student</option>
+                <select name="" id="level" class="form-control form-control-lg" formControlName="StudentType">
+                    <option value="1" selected>Day Student</option>
+                    <option value="2" selected>Boarding Student</option>
                 </select>
             </div>
     

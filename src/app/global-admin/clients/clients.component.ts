@@ -37,7 +37,7 @@ p: number;
     this.bulkUpload = this.fb.group({
       Document: []
     });
-    this.getAllSchools(); 
+    this.getAllSchools();
   }
 
   getAllSchools() {

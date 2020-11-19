@@ -12,6 +12,7 @@ export class StudentListComponent implements OnInit {
   studentBulkUploadForm: FormGroup;
   record = false;
   filename = null;
+  studentList: any;
 
   constructor(
               private notifyService: NotificationsService,
@@ -23,13 +24,15 @@ export class StudentListComponent implements OnInit {
     this.studentBulkUploadForm = this.fb.group({
       Document: []
     });
+
+    this.getAllStudents();
   }
 
   createStudentBulkUpload() {
     // this.studentService.uploadBulkDocument(this.studentBulkUploadForm.value).subscribe((data: any) => {
     //   console.log('bulk file', data);
     //   if (data.hasError === false) {
-    //     console.log('file successfully uplaoded', data.paylaod);
+    //     console.log('file successfully uplaoded', data.payload);
     //     this.notifyService.publishMessages(data.description, 'info', 1);
     //     document.getElementById('close').click();
     //     this.router.navigateByUrl('/admin/students');
@@ -51,4 +54,15 @@ export class StudentListComponent implements OnInit {
       // this.DocumentTypes.push(0);
     }
   }
+
+  getAllStudents() {
+    this.studentService.getAllStudents().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+            this.studentList = data.payload;
+            console.log('asasas', this.studentList);
+          }
+        }, error => {
+          this.notifyService.publishMessages(error.errors, 'danger', 1);
+        });
+      }
 }

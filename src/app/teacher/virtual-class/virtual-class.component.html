@@ -1,7 +1,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-9 screen">
-            <img src="assets/images/svg/virtual-class.svg" alt="new client" class=" main-image">
+            <iframe src="assets/images/svg/virtual-class.svg" frameborder="0" class=" main-image">
+              <!-- <img src="assets/images/svg/virtual-class.svg" alt="new client" class=" main-image"> -->
+            </iframe>
             <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3 back" (click)="back()"  > Back </button>
             <div class="col-md-12 virtual-control py-4 d-flex justify-content-end align-items-center py-4 ">
                 <div class="d-flex">
@@ -50,11 +52,11 @@
                       </div>
                 </div>
                 <div class="virtual-open">
-                    <button class="class-btn" >Start Class</button>
+                    <button class="class-btn" (click)="getSignature()" >Start Class</button>
                 </div>
             </div>
         </div>
-        <div class="col-md-3 pt-3 pl-2 virtual-board">
+        <!-- <div class="col-md-3 pt-3 pl-2 virtual-board">
                 <p class="fc-lblue mb-0 fw-6">Jss 3</p>
                 <h6 class="fw-6">English language</h6>
                 <p class="py-3 fs-14">25 Enrolled Students</p>
@@ -100,7 +102,7 @@
                     <p class="doc-type fs-14"> doc., Jpg, docx, rtf, or pdf (4mb limit) </p>
                 </form>
 
-        </div>
+        </div> -->
     </div>
 </div>
 

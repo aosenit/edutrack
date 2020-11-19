@@ -26,7 +26,7 @@
           </div>
           <div class="form-group col-md-1">
             <label for="subject">Class</label>
-            <select id="subject" class="form-control" formControlName="classId" (change)="getSubjects($event.target.value)">
+            <select id="subject" class="form-control"  (change)="getSubjects($event.target.value)">
               <option selected>Select Class</option>
               <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
   
@@ -54,7 +54,6 @@
             <input type="number" name="" id="time" class="form-control" formControlName="TotalScore">
           </div>
   
-          <input type="text" id="myInput" [value]="1" formControlName="teacherId" >
         </div>
       </div>
       <div class="col-12 ">

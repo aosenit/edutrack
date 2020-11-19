@@ -18,19 +18,18 @@ export class BasicDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.basicDetailsForm = this.fb.group({
-      ContactFirstName: ['', Validators.required],
-      ContactLastName: ['', Validators.required],
-      ContactOtherName: ['', Validators.required],
-      motherName: ['', Validators.required],
-      sex: [''],
-      dob: ['', Validators.required],
-      profilePhoto: null,
-      religion: ['', Validators.required],
-      nationality: ['', Validators.required],
-      parents: ['', Validators.required],
-      state: ['', Validators.required],
-      lga: ['', Validators.required],
-      transportRoute: ['', Validators.required]
+      FirstName: ['', Validators.required],
+      LastName: ['', Validators.required],
+      OtherNames: ['', Validators.required],
+      MothersMaidenName: ['', Validators.required],
+      Sex: [''],
+      DateOfBirth: ['', Validators.required],
+      Religion: ['', Validators.required],
+      Nationality: ['', Validators.required],
+      ParentId : ['', Validators.required],
+      StateOfOrigin: ['', Validators.required],
+      LocalGovt: ['', Validators.required],
+      TransportRoute: ['', Validators.required]
     });
 
     this.getAllParents();
@@ -51,12 +50,13 @@ export class BasicDetailsComponent implements OnInit {
 
   }
 
-  getAllParents(){
+  getAllParents() {
     this.parentService.getAllParents().subscribe(
-      res => {
-        this.parents = res['payload']
+      (res: any) => {
+        this.parents = res.payload;
+        console.log(this.parents);
       }
-    )
+    );
   }
 
 }

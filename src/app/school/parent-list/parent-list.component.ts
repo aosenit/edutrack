@@ -10,6 +10,8 @@ import { ParentsService } from 'src/services/data/parents/parents.service';
 export class ParentListComponent implements OnInit {
   record = false;
   parentList: any;
+  searchString: string;
+
   constructor(
               private parentService: ParentsService,
               private notifyService: NotificationsService,

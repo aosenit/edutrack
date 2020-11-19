@@ -21,10 +21,14 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@zoomus/websdk/dist/lib/",
+                "output": "./node_modules/@zoomus/websdk/dist/lib/"
+              }
             ],
-            "styles": [
-             
+            "styles": [ 
               "src/styles.css"
             ],
             "scripts": []

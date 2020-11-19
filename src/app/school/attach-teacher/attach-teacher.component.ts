@@ -4,6 +4,8 @@ import { ClassService } from 'src/services/data/class/class.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import { SubjectService } from 'src/services/data/subject/subject.service';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 
 @Component({
   selector: 'app-attach-teacher',
@@ -20,22 +22,28 @@ teacherDetails: any;
 subjectList: any;
 dropdownList = [];
 dropdownSettings = {};
+attachSubjectForm: FormGroup;
+attachedSubjectlist: any;
 
 
 
   constructor(
+    private fb: FormBuilder,
     private schoolSectionService: SchoolSectionService,
     private classService: ClassService,
     private route: ActivatedRoute,
     private teacherService: TeacherService,
-    private subjectService: SubjectService
+    private subjectService: SubjectService,
+    private notifyService: NotificationsService
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
+    this.populateAttachSubjectForm();
     this.getAllSections();
     this.getAllClassess();
     this.getTeacherByID();
+    this.getAttachedSubject();
     // this.getAllSubjects();
     this.dropdownSettings = {
       singleSelection: false,
@@ -62,6 +70,13 @@ dropdownSettings = {};
     }
   }
 
+  populateAttachSubjectForm() {
+    this.attachSubjectForm = this.fb.group({
+      subjectIds: ['', Validators.required],
+      // TeacherId: ['', Validators.required]
+    });
+  }
+
   getAllSections() {
     this.schoolSectionService.getSection().subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -81,8 +96,8 @@ dropdownSettings = {};
   getTeacherByID() {
     this.teacherService.getTeacherById(this.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.teacherDetails = data;
-        console.log(this.teacherDetails);
+        this.teacherDetails = data.payload;
+        // console.log(this.teacherDetails);
       }
     });
   }
@@ -107,19 +122,42 @@ dropdownSettings = {};
     );
   }
 
-  // getAllSubjects() {
-  //   this.subjectService.getAllSubjects().subscribe((data: any) => {
-  //     if (data.hasErrors === false ) {
-  //       this.subjectList = data.payload;
-  //       const arr = [];
-  //       this.subjectList.forEach(item => {
-  //         arr.push({
-  //           id: item.id,
-  //           arm: item.name
-  //         });
-  //       });
-  //       this.dropdownList = arr;
-  //     }
-  //   });
-  // }
+  attachSubject() {
+    console.log(this.attachSubjectForm.value);
+    const {subjectIds} = this.attachSubjectForm.value;
+    const newSubjectIds = subjectIds.map((ids: any) => {
+      return ids.id;
+    });
+    // tslint:disable-next-line:radix
+    const TeacherId = parseInt(this.id);
+    // tslint:disable-next-line:radix
+    const ClassSubjectIds = parseInt(newSubjectIds);
+    const result = {
+      TeacherId,
+      ClassSubjectIds
+    };
+    console.log(result);
+    this.teacherService.attachTeacherToSubject(result).subscribe((data: any) => {
+      if (data.hasErrors === false ) {
+        console.log(data);
+        document.getElementById('myModal').click();
+        this.notifyService.publishMessages('Subject successfully attached to teacher ', 'info', 1);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+  getAttachedSubject() {
+    console.log(this.id);
+    this.teacherService.getAttachedSubjects(this.id).subscribe((data: any) => {
+      console.log(data);
+      this.attachedSubjectlist = data.payload;
+      console.log('sasaassasasasasasas', this.attachedSubjectlist);
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
 }

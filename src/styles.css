@@ -3,6 +3,8 @@
     src: url('assets/fonts/avenir/Avenir Roman.otf');
 }
 
+
+
 /* fonts */
 .quicklink:hover{
     cursor: pointer; 
@@ -300,4 +302,32 @@ li.pagination-next:hover, li.pagination-previous:hover {
 
 #zmmtg-root {
     height: 0% !important;
+    overflow: scroll;
+    display: none;
  }
+/* 
+ #zmmtg-root {
+    width: 70% !important;
+    height: 100% !important;
+    position: fixed;
+    top: 0;
+    left: 30% !important;
+    background-color: black;
+}
+
+.meeting-client-inner {
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed;
+    top: 0;
+    left: 30% !important;
+}*/
+/* 
+.join-dialog {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 430px;
+    background: rgba(38, 40, 42, 0.95);
+    width: 70% !important;
+}  */

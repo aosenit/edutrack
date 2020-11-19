@@ -1,6 +1,6 @@
-<section class="add-student" *ngIf="parentList.length == null " >
+<section class="add-student" *ngIf="parentList?.length == 0" >
     <img src="assets/images/svg/add-student.svg" alt="new student" class="">
-    <p class="text-center fw-6 pt-5">It looks like you are yet to create a student.You can do <br> that by clicking any of the buttons below.
+    <p class="text-center fw-6 pt-5">It looks like you are yet to create a parent.You can do <br> that by clicking any of the buttons below.
         below.</p>
     <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-parents']">
         Add New </button>
@@ -19,14 +19,14 @@
 
 </section>
 
-<!-- <section class="d-flex align-items-center justify-content-between mb-4 mt-5">
+<section class="d-flex align-items-center justify-content-between mb-4 mt-5">
     <div class="search__input has-search">
         <span class="fa fa-search form-control-feedback"></span>
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
     </div>
-    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
 
-</section> -->
+</section>
 
 
 
@@ -86,11 +86,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="pb-1" *ngFor = "let parent of parentList">
+            <tr class="pb-1" *ngFor = "let parent of parentList | tableSearch : 'fullName' : searchString">
                 <td scope="row" class="check rounded-left">
                     <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
+                        <input type="checkbox" class="custom-control-input" id="customCheck{{parent?.id}}">
+                        <label class="custom-control-label" for="customCheck{{parent?.id}}"></label>
                     </div>
                 </td>
                 <td class="user" >

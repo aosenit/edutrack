@@ -16,20 +16,20 @@ teacherslist: any;
   ) { }
 
   ngOnInit() {
-    this.getAllteachers();
+    // this.getAllteachers();
   }
 
 
-  getAllteachers() {
-    this.teacherService.getAllTeachers().subscribe( (data: any) => {
-      if (data.hasErrors === false) {
-        console.log('all schools', data);
-        this.teacherslist = data.payload;
-      }
-    }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
+  // getAllteachers() {
+  //   this.teacherService.getAllTeachers().subscribe( (data: any) => {
+  //     if (data.hasErrors === false) {
+  //       console.log('all schools', data);
+  //       this.teacherslist = data.payload;
+  //     }
+  //   }, error => {
+  //     this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-    });
-  }
+  //   });
+  // }
 
 }

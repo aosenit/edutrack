@@ -44,12 +44,15 @@ DocumentTypes: number[] = [];
       ...finals,
       DocumentTypes: this.DocumentTypes
     };
-    console.log('sasasa', result);
+    console.log('VERIFY PARENT ID', result.ParentId);
     this.studentService.addStudent(result).subscribe((data: any) => {
+      console.log('student created', data);
       if ( data.hasErrors === false) {
         console.log(data);
         this.notifyService.publishMessages( data.description, 'success', 1);
+        sessionStorage.clear();
         this.router.navigateByUrl('/school/students');
+
       }
     }, error => {
       this.notifyService.publishMessages( error.errors, 'success', 1);

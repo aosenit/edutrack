@@ -13,20 +13,25 @@ export class SocialDetailsComponent implements OnInit {
   socialDetailsForm: FormGroup;
   sections: any;
   classes: any;
-  constructor(private home: AddStudentsComponent, private sectionServcie: SchoolSectionService, private classService: ClassService, private fb: FormBuilder) { }
+  constructor(
+    private home: AddStudentsComponent,
+    private sectionServcie: SchoolSectionService,
+    private classService: ClassService,
+    private fb: FormBuilder) { }
 
   ngOnInit() {
     this.socialDetailsForm = this.fb.group({
-      entryType: ['', Validators.required],
-      admissionDate: ['', Validators.required],
-      level: ['', Validators.required],
-      studentClass: ['', Validators.required],
-      studentType: ['', Validators.required],
+      EntryType: ['', Validators.required],
+      AdmissionDate: ['', Validators.required],
+      SectionId : ['', Validators.required],
+      ClassId : ['', Validators.required],
+      StudentType: ['', Validators.required],
 
 
     });
 
-    this.getSections()
+    this.getSections();
+    // this.getClassesUnderSection();
   }
 
   nextStep() {
@@ -36,18 +41,19 @@ export class SocialDetailsComponent implements OnInit {
 
   getSections() {
     this.sectionServcie.getSection().subscribe(
-      res => {
-        this.sections = res['payload']
+      (res: any) => {
+        this.sections = res.payload;
       }
-    )
+    );
   }
 
   getClassesUnderSection(id) {
     this.classService.getClassBySection(id).subscribe(
-      res => {
-        this.classes = res['payload']
+      (res: any) => {
+        this.classes = res.payload;
+        console.log(this.classes);
       }
-    )
+    );
   }
 
 

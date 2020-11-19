@@ -30,10 +30,8 @@ export class CreateAssignmentComponent implements OnInit {
     this.createAssignmentmentForm = this.fb.group({
       Title: ['', Validators.required],
       subjectId: ['', Validators.required],
-      classId: ['', Validators.required],
       assTime: ['', Validators.required],
       assDate: ['', Validators.required],
-      teacherId: [''],
       TotalScore: ['', Validators.required],
       Document: null,
     });
@@ -55,7 +53,7 @@ export class CreateAssignmentComponent implements OnInit {
     this.classService.getAllClasses().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classList = data.payload;
-        console.log(this.classList);
+        // console.log(this.classList);
       }
     }
     );
@@ -83,19 +81,16 @@ export class CreateAssignmentComponent implements OnInit {
   }
 
   submitAssignment() {
-    const {Title, teacherId, subjectId, classId, assDate, assTime, TotalScore, Document} = this.createAssignmentmentForm.value;
+    const {Title, subjectId, assDate, assTime, TotalScore, Document} = this.createAssignmentmentForm.value;
     const DueDate = assDate + ' ' + assTime;
     // tslint:disable-next-line:radix
-    const SubjectId = parseInt(subjectId);
+    // const SubjectId = parseInt(subjectId);
     // tslint:disable-next-line:radix
-    const ClassId = parseInt(classId);
+    const ClassSubjectId = parseInt(subjectId);
     // tslint:disable-next-line:radix
-    const TeacherId = parseInt(teacherId);
     const result = {
       Title,
-      TeacherId,
-      SubjectId,
-      ClassId,
+      ClassSubjectId,
       DueDate,
       TotalScore,
       Document

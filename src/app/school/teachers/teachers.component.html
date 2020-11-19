@@ -10,7 +10,7 @@
 <section class="d-flex align-items-center justify-content-between mb-4 mt-5">
     <div class="search__input has-search">
         <span class="fa fa-search form-control-feedback"></span>
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
     </div>
     <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
 
@@ -60,7 +60,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="pb-1" *ngFor = "let teacher of teachersList">
+            <tr class="pb-1" *ngFor = "let teacher of teachersList | tableSearch : 'firstName' : searchString">
                 <td scope="row" class="check rounded-left">
                     <div class="custom-control custom-checkbox" >
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
