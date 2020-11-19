@@ -19,6 +19,7 @@ export class AccountSettingsComponent implements OnInit {
   allStaffs: any;
   newList: any;
   dropdownSettings = {};
+  dropdownSettings2 = {};
   dropRoleList = [];
   dropStaffList = [];
   assignRoleForm: FormGroup;
@@ -39,6 +40,16 @@ export class AccountSettingsComponent implements OnInit {
     this.getStaffs();
 
     this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'userId',
+      textField: 'arm',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 5,
+      allowSearchFilter: true
+    };
+
+    this.dropdownSettings2 = {
       singleSelection: false,
       idField: 'id',
       textField: 'arm',
@@ -115,10 +126,12 @@ export class AccountSettingsComponent implements OnInit {
     this.staffServie.getAllStaffInSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allStaffs = data.payload;
+        console.log(this.allStaffs);
         const arr = [];
         this.allStaffs.forEach(item => {
           arr.push({
-            id: item.id,
+            // id: item.id,
+            userId: item.userId,
             arm: item.firstName
           });
         });
@@ -130,18 +143,19 @@ export class AccountSettingsComponent implements OnInit {
   submit() {
     const {userid, roleid} = this.assignRoleForm.value;
     const newUSerId = userid.map((ids: any) => {
-      return ids.id;
+      return ids.userId;
     });
-    const newRoleId = roleid.map((ids: any) => {
+    console.log(newUSerId);
+    const roleIds = roleid.map((ids: any) => {
       return ids.id;
     });
     // tslint:disable-next-line:radix
     const userId = parseInt(newUSerId);
     // tslint:disable-next-line:radix
-    const roleId = parseInt(newRoleId);
+    // const roleIds = parseInt(newRoleId);
     const result = {
       userId,
-      roleId
+      roleIds
     };
     console.log(result);
     this.adminService.assignRolesToUsers(result).subscribe((data: any) => {

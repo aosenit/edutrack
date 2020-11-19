@@ -19,6 +19,9 @@ import { GradebookComponent } from './gradebook/gradebook.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { BroadSheetComponent } from './broad-sheet/broad-sheet.component';
+import { ScoreSheetComponent } from './score-sheet/score-sheet.component';
+import { ScoreSheetDetailsPageComponent } from './score-sheet-details-page/score-sheet-details-page.component';
 
 
 @NgModule({
@@ -31,7 +34,7 @@ import { SharedModule } from '../shared/shared.module';
     GradingComponent,
     ScheduleComponent,
     ViewFileComponent,
-    VirtualClassComponent, VirtualSessionComponent, GradebookComponent],
+    VirtualClassComponent, VirtualSessionComponent, GradebookComponent, BroadSheetComponent, ScoreSheetComponent, ScoreSheetDetailsPageComponent],
   imports: [
     CommonModule,
     CKEditorModule,

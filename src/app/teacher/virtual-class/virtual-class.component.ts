@@ -77,4 +77,8 @@ passWord = '';
     window.history.back();
   }
 
+  // openSomething() {
+  //   window.open('https://zoom.us/j/121212121', '_blank');
+  // }
+
 }

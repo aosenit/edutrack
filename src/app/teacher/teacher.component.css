@@ -80,6 +80,36 @@
     padding-bottom: 10px;
     transition: .3s ease-in-out;
 }
+#sidebar ul li ul#gradebook-submenu {
+    background: #013F7A;
+    width: 100%;
+    /* padding-left: 47px; */
+    transition: .3s ease-in-out;
+
+}
+
+#sidebar ul li ul#gradebook-submenu a {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    /* display: flex; */
+    align-items: center;
+    color: rgba(148, 179, 209, 0.4);
+    width: 100%;
+    /* padding-left: 47px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: .3s ease-in-out;
+    text-decoration: none;
+}
+
+#sidebar ul li ul#gradebook-submenu a.active  {
+    
+    color: #ffffff;
+    
+}
 
 #sidebar ul li a.nav-link.active svg path#Vector,
 svg g#icon {
@@ -198,4 +228,10 @@ svg g#icon {
 .row-sizing {
 
     padding: 0rem 2rem 1rem 2rem;
+}
+
+.ellipse {
+    width: 11px;
+    height: 9px;
+    border-radius: 50%;
 }

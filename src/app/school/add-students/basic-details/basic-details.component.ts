@@ -50,12 +50,13 @@ export class BasicDetailsComponent implements OnInit {
 
   }
 
-  getAllParents(){
+  getAllParents() {
     this.parentService.getAllParents().subscribe(
-      res => {
-        this.parents = res['payload']
+      (res: any) => {
+        this.parents = res.payload;
+        console.log(this.parents);
       }
-    )
+    );
   }
 
 }

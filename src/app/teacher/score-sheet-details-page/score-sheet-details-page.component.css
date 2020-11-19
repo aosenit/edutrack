@@ -1,0 +1,160 @@
+.banner {
+    width: 100%;
+    background-color: #0052B4;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1.5rem;
+    color: #ffffff;
+    position: relative;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    backdrop-filter: opacity(.4);
+}
+
+
+
+.banner__text-primary {
+    font-size: 36px;
+}
+
+
+.btn-orange-two {
+    background: #fb882c;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #ffffff;
+}
+
+.btn-upload-top {
+
+    border: none;
+    outline: none;
+    padding: 11px 25px;
+    border-radius: 2.5px;
+    color: #fff;
+    /* font-weight: 600; */
+    border-radius: 10px;
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+    background: #FEFEFF;
+border: 1px solid #ABC3DF;
+box-sizing: border-box;
+border-radius: 5px;
+font-size: 12px;
+font-weight: normal;
+
+}
+
+.has-search .form-control::placeholder {
+    color: #ABC3DF;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #ABC3DF;
+
+    
+}
+
+input[type="text"] {
+    width: 125%;
+}
+
+select {
+    background: #FAFAFA;
+border: 1px solid #92B5DD;
+font-size: 12px;
+}
+
+
+.grade-container {
+    height: 100vh;
+}
+
+
+thead th {
+    background: #EBF0F5;
+border: 1px solid #B4CDE9;
+font-size: 16px;
+color: #355691;
+font-weight: normal;
+/* font-weight: 600; */
+}
+
+tbody  td {
+    background-color: #ffffff;
+    border: 1px solid #E0E0E0;
+    text-align: center;
+}
+
+.w-40 {
+    width: 30%;
+}
+
+.student-id p:first-child  {
+    color: #355691;
+    font-size: 18px;
+    
+    
+}   
+.student-info  {
+    color: #355691;
+    
+}   
+
+.interpretation {
+    
+    font-weight: 600;
+    width: 100px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 17px 40px; */
+}
+.excellent {
+    background: #ebfffa;
+    color: #09b78a;
+}
+
+
+.fail {
+    background :#F1DFE2;
+    color: #D80027;
+   
+}
+
+.very-good {
+ background :#E5F4D3;
+    color: #7EC02E;
+}
+.good {
+ background :#F1EFDF;
+    color: #C1AC00;
+}
+.fair {
+ background :#D9CE98;
+    color: #665500;
+}
