@@ -1,0 +1,193 @@
+<section class="banner mb-4 pb-3 ">
+  <div class="pt-5 pl-3 content ">
+    <h6 class="banner__text-primary fw-6 "> Period </h6>
+    <p class=""> Setup period for different class levels </p>
+    <button
+  id="popupBtn"
+  data-target="#advertModal"
+  data-toggle="modal"
+  style="display: none;"
+  
+></button>
+  </div>
+
+</section>
+
+<div class="d-flex justify-content-between align-items-center  mb-3">
+    <div>
+
+        <!-- <form >
+            <div class="row">
+                <div class="col ">
+                    <label for="level" class="fs-12 fw-6">Level</label>
+                    <select name="" id="" class="form-control form-control-lg">
+                        <option value="">Select Level</option>
+
+                        <option [value]="section?.id" *ngFor="let section of sections">{{section?.name}} </option>
+                    </select>
+                </div>
+                <div class="col ">
+                    <label for="class" class="fs-12 fw-6">Class</label>
+                    <select name="" id="" class="form-control form-control-lg">
+                        <option value="">Select Subject</option>
+                        <option [value]="class?.id" *ngFor="let class of classes">{{class?.name}} </option>
+
+                    </select>
+                </div>
+            </div>
+        </form> -->
+      </div>
+    <button class="btn btn-orange-two  px-5 " (click)="publishPeriods()"> Publish </button>
+    
+    
+</div>
+
+<div class="mt-5">
+    <div class="row">
+        <div class="col-md-2 text-center">
+            
+        </div>
+        <div class="col-md-2 text-center">
+            Monday
+        </div>
+        <div class="col-md-2 text-center">
+            Tuesday
+        </div>
+        <div class="col-md-2 text-center">
+            Wednesday
+        </div>
+        <div class="col-md-2 text-center">
+            Thursday
+        </div>
+        <div class="col-md-2 text-center">
+            Friday
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row " *ngFor = "let period of periodName">
+            <div class="col-md-2 ">
+               {{period?.name}}
+            </div>
+            <div class="col-md-2 border d-flex justify-content-center">
+                <img src="assets/images/svg/time-table.svg" alt="time table button" >
+            </div>
+            <div class="col-md-2 border py-3">
+                
+                <img src="assets/images/svg/time-table.svg" alt="time table button">
+            </div>
+            <div class="col-md-2 border d-flex justify-content-center">
+                <img src="assets/images/svg/time-table.svg" alt="time table button">
+            </div>
+            <div class="col-md-2 border d-flex justify-content-center">
+                <img src="assets/images/svg/time-table.svg" alt="time table button">
+            </div>
+            <div class="col-md-2 border d-flex justify-content-center">
+                <img src="assets/images/svg/time-table.svg" alt="time table button">
+            </div>
+        </div>
+        
+        <div class=""  data-toggle="modal"
+        data-target="#exampleModalCenterLevel">
+            <img src="assets/images/svg/add-period.svg" alt="time table button">
+            <p class="fc-orange"(click)="addPeriod()">Add period</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- time table Modal -->
+<div class="modal fade" id="exampleModalCenterLevel" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterLevelTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add Period</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myModal" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="addPeriodForm" (ngSubmit)="createPeriod()">
+
+
+          
+          <div class="form-group mb-4">
+            <label for="name" class="">Period Name <span class="text-danger">*</span> </label>
+           <input type="text" class="form-control" placeholder="Enter period name" formControlName="name">
+          </div>
+          <div class="form-group mb-4">
+            <label for="level" class="">Start Time <span class="text-danger">*</span> </label>
+            <input type="time" class="form-control" placeholder="Enter period name" formControlName="timeFrom">
+
+          </div>
+          <div class="form-group mb-4">
+            <label for="level" class="">End Time <span class="text-danger">*</span> </label>
+            <input type="time" class="form-control" placeholder="Enter period name" formControlName="timeTo">
+          </div>
+          <div class="custom-control custom-checkbox" (change)="allowBreak($event.target.checked)">
+            <input type="checkbox" class="custom-control-input" id="customCheckTh" formControlName="isBreak">
+            <label class="custom-control-label" for="customCheckTh">Allow break</label>
+          </div>
+          
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Period</button>
+          </div>
+        </form>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+<!-- end of time table modal -->
+
+
+
+
+<!-- time table Modal -->
+<div class="modal fade" id="advertModal" tabindex="-1" role="dialog"
+  aria-labelledby="advertModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue"></h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myModal" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body h-50 d-flex justify-content-between align-items-center client-modal">
+        <p   class="text-danger text-center mb-5" *ngIf="periodName.length > 1"> You have created periods before. Please note, publishing another period after creating it initially will clear the previous one</p>
+        <p   class="text-danger text-center mb-5" *ngIf="periodName.length == 0"> You are yet to set a period. Please note, publishing another period after creating it now will clear the previous one</p>
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+<!-- end of time table modal -->
+
+
+ 
+
+
+
+
+

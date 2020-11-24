@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
   adminDetails: any;
   registeredSchools: any;
   schoolCount: any;
+  studentCount: any;
   p: number;
 
   constructor(private schoolService: SchoolService, private studentservice:StudentService) { }
@@ -30,13 +31,15 @@ export class DashboardComponent implements OnInit {
         this.schoolCount = data.totalCount;
       }
     });
-  } 
-  getAllStudents(){
+  }
+
+  getAllStudents() {
     this.studentservice.getAllStudents().subscribe(
-      res => {
-        console.log(res)
+      (res: any) => {
+        this.studentCount = res.totalCount;
+
       }
-    )
+    );
   }
 
 }

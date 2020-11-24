@@ -1,0 +1,73 @@
+.banner {
+    width: 100%;
+    background-image: url("../../../assets/images/svg/user-role.svg");
+    background-color: #1d4e4d;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1.5rem;
+    color: #ffffff;
+
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    backdrop-filter: opacity(.4);
+}
+
+.banner__text-primary {
+    font-size: 36px;
+}
+
+
+select {
+    background: #FAFAFA;
+border: 1px solid #92B5DD;
+font-size: 14px;
+}
+
+.modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+
+}
+
+
+.modal-head {
+    padding: 20px 40px;
+    background: #EBF0F5;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
+
+.client-modal {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 40px;
+
+}
+
+form {
+    width: 100%;
+}
+
+
+
+textarea {
+    height: 150px;
+}
+
+.close {
+    cursor: pointer;
+}
+
+h6 {
+    font-weight: bold;
+    font-weight: 600;
+}

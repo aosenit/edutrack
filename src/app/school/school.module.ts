@@ -29,6 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { UsersComponent } from './users/users.component';
 import { SharedModule } from '../shared/shared.module';
+import { SchoolManagerSettingsComponent } from './school-manager-settings/school-manager-settings.component';
+import { PeriodComponent } from './period/period.component';
 
 
 @NgModule({
@@ -56,6 +58,8 @@ import { SharedModule } from '../shared/shared.module';
                  SchoolManagerComponent,
                  DashboardComponent,
                  UsersComponent,
+                 SchoolManagerSettingsComponent,
+                 PeriodComponent,
                 ],
   imports: [
     CommonModule,

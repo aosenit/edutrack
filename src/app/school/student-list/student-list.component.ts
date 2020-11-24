@@ -13,6 +13,8 @@ export class StudentListComponent implements OnInit {
   record = false;
   filename = null;
   studentList: any;
+  searchString: string;
+
 
   constructor(
               private notifyService: NotificationsService,
@@ -58,8 +60,8 @@ export class StudentListComponent implements OnInit {
   getAllStudents() {
     this.studentService.getAllStudents().subscribe((data: any) => {
       if (data.hasErrors === false) {
-            this.studentList = data.payload;
-            console.log('asasas', this.studentList);
+            this.studentList = data.payload.reverse();
+            console.log(this.studentList);
           }
         }, error => {
           this.notifyService.publishMessages(error.errors, 'danger', 1);

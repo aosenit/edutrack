@@ -52,7 +52,7 @@ export class ClassArmService {
 
   updateClassArm(id: any, name, status) {
     const tenantId = '1';
-    const body = new FormData()
+    const body = new FormData();
     body.append('Name', name)
     body.append('Status', status)
     return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/ClassArm/UpdateClassArm/' + id, body, { headers: { tenantId } } );

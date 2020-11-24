@@ -28,7 +28,7 @@ export class BasicDetailsComponent implements OnInit {
       Nationality: ['', Validators.required],
       ParentId : ['', Validators.required],
       StateOfOrigin: ['', Validators.required],
-      LocalGovt: ['', Validators.required],
+      LocalGovt: [''],
       TransportRoute: ['', Validators.required]
     });
 

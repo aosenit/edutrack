@@ -130,7 +130,7 @@
                 </ul>
             </li>
             <li class="nav-item mb-2">
-                <a href="#schedule-submenu" class="nav-link"  [ngClass]="{'active': timeActive.isActive || calendarActive.isActive}" data-toggle="collapse" aria-expanded="false">
+                <a href="#schedule-submenu" class="nav-link"  [ngClass]="{ 'active': timeActive.isActive || calendarActive.isActive}" data-toggle="collapse" aria-expanded="false">
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 8.80078H8V12.8008H12V8.80078Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -149,6 +149,10 @@
                     </span>
                 </a>
                 <ul class="collapse list-unstyled" id="schedule-submenu">
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="" [routerLink]="['/school/period']" routerLinkActive #periodActive="routerLinkActive" class=""> Period</a>
+                    </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
                         <a href="" [routerLink]="['/school/time-table']" routerLinkActive #timeActive="routerLinkActive" class=""> Time table</a>
@@ -343,7 +347,7 @@
                     Report
                 </a>
             </li>
-            <li class="nav-item mb-2">
+            <li class="nav-item mb-2" (click)="logOut()">
                 <a href="#" class="nav-link" [routerLink]="['/main/']" [routerLinkActive]="['active']">
                     <span class="ico">
                         <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
