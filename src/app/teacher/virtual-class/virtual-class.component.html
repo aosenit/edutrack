@@ -60,9 +60,9 @@
             </div>
         </div>
         <div class="col-md-3 pt-3 pl-2 virtual-board">
-                <p class="fc-lblue mb-0 fw-6">Jss 3</p>
-                <h6 class="fw-6">English language</h6>
-                <p class="py-3 fs-14">25 Enrolled Students</p>
+                <p class="fc-lblue mb-0 fw-6">{{classDetails?.className}}</p>
+                <h6 class="fw-6">{{classDetails?.subjectName | titlecase}}</h6>
+                <p class="py-3 fs-14">{{classDetails?.noOfStudent }} Enrolled Students</p>
                 <div class="d-flex mb-4">
                     <img src="assets/images/svg/people-waiting.svg" alt="new client" class="mr-3" >
                     <p class="mb-0 fs-14">Waiting List</p>
@@ -80,21 +80,22 @@
                 
                 <div class="d-flex align-items-center  mb-4">
                         <img src="assets/images/svg/g-calendar.svg" alt="" class="mr-3">
-                    <h6 class="fw-6 mb-0">28th June, 2020</h6>
+                    <h6 class="fw-6 mb-0">{{myDate | date : 'mediumDate'}}</h6>
                 </div>
                 <div class="d-flex  align-items-center mb-4">
                         <img src="assets/images/svg/g-date.svg" alt="" class="mr-3">
-                    <h6 class="fw-6 mb-0">8 am</h6>
+                    <h6 class="fw-6 mb-0" *ngIf="classDetails?.timeFrom.hours < 12 ">{{classDetails?.timeFrom.hours}}:{{classDetails?.timeFrom.minutes}} am</h6>
+                    <h6 class="fw-6 mb-0" *ngIf="classDetails?.timeFrom.hours >= 12">{{classDetails?.timeFrom.hours}}:{{classDetails?.timeFrom.minutes}} PM</h6>
                 </div>
                 <div class="d-flex align-items-center  mb-5">
                         <img src="assets/images/svg/g-time.svg" alt="" class="mr-3">
                         <div class="d-flex flex-column">
-                            <h6 class="fw-6 mb-0">1 hr</h6>
+                            <h6 class="fw-6 mb-0">{{timeConvert(classDetails?.durationInMinutes)}}</h6>
                             <p class="caption mb-0">Duration</p>
                         </div>
                 </div>
 
-                <form>
+                <!-- <form>
                     <div class="form-group">
                         <label for="upload">Upload Materials</label>
                         <div class="custom-file mb-3">
@@ -103,7 +104,7 @@
                           </div>
                     </div>
                     <p class="doc-type fs-14"> doc., Jpg, docx, rtf, or pdf (4mb limit) </p>
-                </form>
+                </form> -->
 
         </div>
     </div>

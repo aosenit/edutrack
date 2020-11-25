@@ -8,7 +8,9 @@ const routes = {
   getPeriods : 'schtrack-learning/api/v1/TimeTable/GetPeriods',
   addTimeTableCell: 'schtrack-learning/api/v1/TimeTable/AddNewTimetableCell',
   getTableforteacher: 'schtrack-learning/api/v1/TimeTable/GetTimetableForTeacher',
+  getTableforTeacherByDay: 'schtrack-learning/api/v1/TimeTable/GetAllClassesForTeacherByDay',
   getTableforClass: 'schtrack-learning/api/v1/TimeTable/GetTimetableForClass',
+  getNextClassesforTeacherByDay: 'schtrack-learning/api/v1/TimeTable/GetNextClassesForTeacherByDay',
   deleteTableforClass: 'schtrack-learning/api/v1/TimeTable/DeleteTimetableCell',
 };
 
@@ -58,12 +60,29 @@ export class TimeTableService {
     const url = `${this.baseUrl + routes.getTableforteacher}/3`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
+
   getTimeTableForClass(id: any) {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getTableforClass}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
+
+  getAllClassesForTeacherByDay(teacherId, day) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl + routes.getTableforTeacherByDay}?teacherId=${teacherId}&day=${day}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
+  getNextClassessForTeacherByDay(teacherId, day) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl + routes.getNextClassesforTeacherByDay}?teacherId=${teacherId}&day=${day}`;
+    console.log(url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
 
   // deleteTimeTableCell() {
   //   const tenantId = '1'; // just a temporary header till email services is ready
@@ -79,10 +98,6 @@ export class TimeTableService {
   // }
 
 
-  // getAllClassesForTeacherByDay(teacherId) {
-  //   const url = `${this.baseUrl + routes.getclassesforteacherbyday}/${teacherId}`;
-  //   return this.http.get(url);
-  // }
 
 
 }
