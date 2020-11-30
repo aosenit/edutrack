@@ -332,7 +332,7 @@
               </div>
             </td>
             <td class="user">
-              <h6 class="fw-6 mb-0">{{subject.name}} </h6>
+              <h6 class="fw-6 mb-0">{{subject.name | titlecase}} </h6>
             </td>
             <td>
               <span class="status_active" *ngIf="subject.isActive == true">Active</span>
@@ -633,7 +633,7 @@
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Class Arm</h6>
           <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
-            class="close">
+            class="close" id="myClassArmModal">
 
         </div>
 
@@ -644,13 +644,13 @@
 
           <div class="form-group mb-5">
             <label for="arm" class="">Class Arm <span class="text-danger">*</span></label>
-            <input type="text" id="arm" class="form-control" placeholder="Enter class arm" formControlName="name">
+            <input type="text" id="arm" class="form-control" placeholder="Enter class arm" formControlName="Name">
           </div>
 
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="customSwitch3"
-                (change)="getStatus($event.target.checked)" formControlName="status">
+                (change)="getStatus($event.target.checked)" formControlName="Status">
               <label class="custom-control-label" for="customSwitch3"
                 *ngIf="toggleState === false; then inactive; else active;"> {{toggleState}} </label>
               <ng-template #active>
@@ -736,7 +736,7 @@
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Subject</h6>
-          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal"
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="mySubjectModal" data-dismiss="modal"
             aria-label="Close" class="close">
 
         </div>

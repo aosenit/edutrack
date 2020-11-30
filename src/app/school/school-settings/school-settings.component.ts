@@ -56,8 +56,8 @@ export class SchoolSettingsComponent implements OnInit {
 
   ngOnInit() {
     this.classArmform = this.fb.group({
-      name: ['', Validators.required],
-      status: ['']
+      Name: ['', Validators.required],
+      Status: ['']
     });
     this.createNewClassForm = this.fb.group({
       name: ['', Validators.required],
@@ -153,7 +153,7 @@ export class SchoolSettingsComponent implements OnInit {
     this.classArmService.addClassArm(this.classArmform.value).subscribe((data: any) => {
       console.log(data);
       this.notification.publishMessages(data.description, 'info', 1);
-      document.getElementById('close').click();
+      document.getElementById('myClassArmModal').click();
       this.getClassArms()
       // location.reload();
     }, error => {
@@ -311,7 +311,11 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   editSection() {
-    this.schoolSectionService.updateSection(this.theLevel.name, this.theLevel.id).subscribe(
+    const result = {
+      Id: this.theLevel.id,
+      Name: this.theLevel.name,
+    };
+    this.schoolSectionService.updateSection( result).subscribe(
       res => {
         if (res['code'] == 1) {
           console.log(res);
@@ -350,11 +354,18 @@ export class SchoolSettingsComponent implements OnInit {
     )
   }
 
-  editArm(id){
-    this.classArmService.updateClassArm(id, this.theArm.name, this.theArm.status).subscribe(
+  editArm(id) {
+    const result = {
+      Name: this.theArm.name,
+      Status: this.theArm.status
+    };
+    this.classArmService.updateClassArm(id, result).subscribe(
       res => {
+        console.log(res);
         if(res['code'] == 1){
-          this.notification.publishMessages('You have successfully updated this class arm','info', 0)
+          this.notification.publishMessages('You have successfully updated this class arm','info', 0);
+          this.getClassArms();
+          // location.reload();
         }else{
           this.notification.publishMessages(res['errors'][0],'info', 0)
 
@@ -387,11 +398,11 @@ export class SchoolSettingsComponent implements OnInit {
       ClassIds,
       IsActive
     };
-    console.log('subjects to be created', result);
+    // console.log('subjects to be created', result);
     this.subjectService.addNewSubject(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
-        document.getElementById('close').click();
+        document.getElementById('mySubjectModal').click();
         this.getAllSubjects();
       }
     });

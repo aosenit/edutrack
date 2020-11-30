@@ -1,5 +1,8 @@
 import { getLocaleFirstDayOfWeek } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { from, zip, of } from 'rxjs';
+import { groupBy, mergeMap, toArray } from 'rxjs/operators';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { ClassService } from 'src/services/data/class/class.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import { TimeTableService } from 'src/services/data/time-table/time-table.service';
@@ -17,11 +20,14 @@ export class TimeTableComponent implements OnInit {
   subjectList: any;
   teachersList: any;
   days: any;
-  addCell = {periodId: '', day: '', teacherClassSubjectId: '', HasVirtual: false};
+  timeTableCells: any;
+  timeTable: any;
+  addCell = { periodId: '', day: '', teacherClassSubjectId: '', HasVirtual: false };
   constructor(
     private schoolSectionService: SchoolSectionService,
     private classService: ClassService,
-    private timeTableService: TimeTableService
+    private timeTableService: TimeTableService,
+    private notifyService: NotificationsService
   ) { }
 
   ngOnInit() {
@@ -58,7 +64,24 @@ export class TimeTableComponent implements OnInit {
     );
 
     this.timeTableService.getTimeTableForClass(id).subscribe((data: any) => {
-      console.log(data);
+      if (data.hasErrors === false ) {
+        this.timeTableCells = data.payload;
+        const tables = [];
+
+        from(this.timeTableCells)
+         .pipe(
+           groupBy(
+             (result: any) => result.periodName.split('_')[0]
+           ),
+           mergeMap(group => zip(of(group.key), group.pipe(toArray())))
+         )
+         .subscribe(xy => {
+           console.log('Periods', ...xy);
+           tables.push(xy);
+          });
+        this.timeTable = tables;
+        console.log('time table', this.timeTable);
+      }
     });
   }
 
@@ -88,13 +111,12 @@ export class TimeTableComponent implements OnInit {
 
   daysofWeek() {
     this.days = [
-    { id: 0, day: 'Monday' },
-    { id: 1, day: 'Tuesday' },
-    { id: 2, day: 'Wednesday' },
-    { id: 3, day: 'Thursday' },
-    { id: 4, day: 'Friday' },
+      { id: 0, day: 'Monday' },
+      { id: 1, day: 'Tuesday' },
+      { id: 2, day: 'Wednesday' },
+      { id: 3, day: 'Thursday' },
+      { id: 4, day: 'Friday' },
     ];
-    console.log(this.days);
   }
 
   getDay(id, periodid) {
@@ -114,7 +136,7 @@ export class TimeTableComponent implements OnInit {
   }
 
   createTimeTableCell() {
-    const {periodId, day, teacherClassSubjectId, HasVirtual} = this.addCell;
+    const { periodId, day, teacherClassSubjectId, HasVirtual } = this.addCell;
     // tslint:disable-next-line:radix
     const TeacherClassSubjectId = parseInt(teacherClassSubjectId);
     // tslint:disable-next-line:radix
@@ -130,7 +152,14 @@ export class TimeTableComponent implements OnInit {
     };
     console.log(result);
     this.timeTableService.AddTimeTableCell(result).subscribe((data: any) => {
-      console.log(data);
+      if (data.hasErrors === false) {
+        console.log(data);
+        this.notifyService.publishMessages('Upload successfull', 'success', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
     });
   }
 

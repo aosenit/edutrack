@@ -9,7 +9,7 @@ const routes = {
   addTimeTableCell: 'schtrack-learning/api/v1/TimeTable/AddNewTimetableCell',
   getTableforteacher: 'schtrack-learning/api/v1/TimeTable/GetTimetableForTeacher',
   getTableforTeacherByDay: 'schtrack-learning/api/v1/TimeTable/GetAllClassesForTeacherByDay',
-  getTableforClass: 'schtrack-learning/api/v1/TimeTable/GetTimetableForClass',
+  getTableforClassByClassId: 'schtrack-learning/api/v1/TimeTable/GetTimetableForClass',
   getNextClassesforTeacherByDay: 'schtrack-learning/api/v1/TimeTable/GetNextClassesForTeacherByDay',
   deleteTableforClass: 'schtrack-learning/api/v1/TimeTable/DeleteTimetableCell',
 };
@@ -61,17 +61,18 @@ export class TimeTableService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
+
   getTimeTableForClass(id: any) {
     const tenantId = '1'; // just a temporary header till email services is ready
 
-    const url = `${this.baseUrl + routes.getTableforClass}/${id}`;
+    const url = `${this.baseUrl + routes.getTableforClassByClassId}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
-  getAllClassesForTeacherByDay(teacherId, day) {
+  getAllClassesForTeacherByDay( day) {
     const tenantId = '1'; // just a temporary header till email services is ready
 
-    const url = `${this.baseUrl + routes.getTableforTeacherByDay}?teacherId=${teacherId}&day=${day}`;
+    const url = `${this.baseUrl + routes.getTableforTeacherByDay}?day=${day}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
@@ -92,10 +93,6 @@ export class TimeTableService {
   // }
 
   //  all these are not yet consumed
-  // getTimeTableForClass(classId) {
-  //   const url = `${this.baseUrl + routes.getTableforclass}/${classId}`;
-  //   return this.http.get(url);
-  // }
 
 
 

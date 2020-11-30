@@ -141,6 +141,7 @@ attachedSubjectlist: any;
       if (data.hasErrors === false ) {
         console.log(data);
         document.getElementById('myModal').click();
+        this.getAttachedSubject();
         this.notifyService.publishMessages('Subject successfully attached to teacher ', 'info', 1);
       }
     }, error => {

@@ -118,10 +118,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="pb-2" *ngFor = "let lesson of allLessonNote">
+                                <tr class="pb-2 " *ngFor = "let lesson of allLessonNote; let i = index" >
                                     <td scope="row" class="school-logo rounded-left">
                                         <div class="custom-control custom-checkbox"
-                                        (change)="getLessonDetails($event)">
+                                        (change)="getLessonDetails($event, i)">
                                         <input type="checkbox" class="custom-control-input" id="customCheck{{lesson?.id}}" [value]="lesson?.id">
                                         <label class="custom-control-label" for="customCheck{{lesson?.id}}"></label>
                                     </div>
@@ -137,7 +137,11 @@
                                     <td>Class note</td>
                                     <td>{{lesson?.className}}</td>
                                     <td>{{lesson?.creationDate | date: 'longDate'}}</td>
-                                    <td>342 KB</td>
+                                    <td (mouseenter)="changeText(lesson?.id)" (mouseleave)="reverseText(lesson?.id)">
+                                        <span *ngIf="changetext">324Kb</span>
+                                        <span [ngStyle]="{cursor: 'pointer'}" class="status" *ngIf="!changetext"
+                                          routerLink="/teacher/lesson-note/{{lesson?.id}}">Open</span>
+                                      </td>
                                     <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
 
                                 </tr>
@@ -179,8 +183,8 @@
                             <tr>
                                 <th scope="col " class="head">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                                        <label class="custom-control-label" for="customCheckTh"></label>
+                                        <input type="checkbox" class="custom-control-input" id="customCheckTh12">
+                                        <label class="custom-control-label" for="customCheckTh12"></label>
                                     </div>
                                 </th>
                                 <th scope="col">Name
@@ -201,12 +205,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="pb-2" *ngFor = "let assignment of assignmentlist">
+                            <tr class="pb-2" *ngFor = "let assignment of assignmentlist; let i = index">
                                 <td scope="row" class="school-logo rounded-left">
                                     <div class="custom-control custom-checkbox"
-                                        (change)="getLessonDetails($event.target.checked)">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck{{assignment?.id}}">
-                                        <label class="custom-control-label" for="customCheck{{assignment?.id}}"></label>
+                                        (change)="getAssignmentDetails($event, i)">
+                                        <input type="checkbox" class="custom-control-input" id="customChecks{{assignment?.id}}">
+                                        <label class="custom-control-label" for="customChecks{{assignment?.id}}"></label>
                                     </div>
                                 </td>
                                 <td class="" >
@@ -220,7 +224,11 @@
                                 <td>Assignment</td>
                                 <td>{{assignment?.className}}</td>
                                 <td>{{assignment?.creationDate | date : 'longDate'}}</td>
-                                <td>342 KB</td>
+                                <td (mouseenter)="changeText(assignment?.id)" (mouseleave)="reverseText(assignment?.id)">
+                                    <span *ngIf="changetext">324Kb</span>
+                                    <span [ngStyle]="{cursor: 'pointer'}" class="status" *ngIf="!changetext"
+                                      routerLink="/teacher/assignment-note/{{assignment?.id}}">Open</span>
+                                  </td>
                                 <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
 
                             </tr>
@@ -285,12 +293,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="pb-2" *ngFor = "let classWork of classworkList">
+                            <tr class="pb-2" [ngStyle]="{cursor: 'pointer'}" *ngFor = "let classWork of classworkList; let i = index">
                                 <td scope="row" class="school-logo rounded-left">
                                     <div class="custom-control custom-checkbox"
-                                        (change)="getLessonDetails($event.target.checked)">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1"></label>
+                                        (change)="getClassWorkDetails($event, i)">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck12{{classWork?.id}}">
+                                        <label class="custom-control-label" for="customCheck12{{classWork?.id}}"></label>
                                     </div>
                                 </td>
                                 <td class="">
@@ -304,7 +312,11 @@
                                 <td>Class Work</td>
                                 <td>{{classWork?.className}}</td>
                                 <td>{{classWork?.creationDate | date: 'longDate'}}</td>
-                                <td>342 KB</td>
+                                <td (mouseenter)="changeText(classWork?.id)" (mouseleave)="reverseText(classWork?.id)">
+                                    <span *ngIf="changetext">324Kb</span>
+                                    <span [ngStyle]="{cursor: 'pointer'}" class="status" *ngIf="!changetext"
+                                      routerLink="/teacher/class-work/{{classWork?.id}}">Open</span>
+                                  </td>
                                 <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
 
                             </tr>
@@ -490,18 +502,18 @@
 
                         <div class="d-flex align-items-center my-4">
                             <img src="assets/images/svg/word.svg" alt="schools log" class="mr-3">
-                            <p class="mb-0 fw-6 mb-0">English Note</p>
+                            <p class="mb-0 fw-6 mb-0">English Note</p> 
                         </div>
                         <img src="assets/images/svg/more-action.svg" alt="schools log">
                     </div>
 
                     <div class="d-flex  mb-2  ">
-                        <p class="mb-0 w-40">File name</p>
-                        <p class="mb-0 fw-6">English Note</p>
+                        <p class="mb-0 w-40">Filename</p>
+                        <p class="mb-0 fw-6 text-wrap text-truncate">{{lessonDetails?.name}}</p>
                     </div>
                     <div class="d-flex mb-2 ">
                         <p class="mb-0 w-40">Subject:</p>
-                        <p class="mb-0 fw-6">English Langauge</p>
+                        <p class="mb-0 fw-6">{{lessonDetails?.subjectName | titlecase}}</p>
                     </div>
                     <div class="d-flex mb-2 ">
                         <p class="mb-0 w-40">Class</p>
@@ -509,7 +521,7 @@
                     </div>
                     <div class="d-flex  mb-2">
                         <p class="mb-0 w-40">Date Created</p>
-                        <p class="mb-0 fw-6">Apr 4, 2020 11:10 am</p>
+                        <p class="mb-0 fw-6">{{lessonDetails?.creationDate | date: 'longDate'}}</p>
                     </div>
                     <div class="d-flex mb-2 ">
                         <p class="mb-0 w-40">Last Modified:</p>

@@ -51,7 +51,6 @@ export class DashboardComponent implements OnInit {
   // }
 
   getClassesForTeacherByDay() {
-    const teacherId = 3;
     const weekday = [
       { id: 0, day: 'Monday' },
       { id: 1, day: 'Tuesday' },
@@ -62,7 +61,7 @@ export class DashboardComponent implements OnInit {
     const day = weekday.id;
 
 
-    this.timeTableService.getAllClassesForTeacherByDay(teacherId, day).subscribe((data: any) => {
+    this.timeTableService.getAllClassesForTeacherByDay( day).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
         console.log(this.subjectAndTime);

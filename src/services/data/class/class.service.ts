@@ -17,18 +17,6 @@ const routes = {
   updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
   deleteclass: 'schtrack-auth/api/v1/Class/DeleteClass'
 };
-// const routes = {
-//   addclass: 'api/v1/Class/AddClass',
-//   addstudenttoclass: 'api/v1/Class/AddStudentToClass',
-//   getclassbysection: 'api/v1/Class/GetClassBySection',
-//   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
-//   assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
-//   getallclass: 'api/v1/Class/GetAllClasses?PageIndex=1&PageSize=10 ',
-//   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
-//   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
-//   updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
-//   deleteclass: 'schtrack-auth/api/v1/Class/UpdateClass'
-// };
 
 
 @Injectable({
@@ -78,8 +66,8 @@ export class ClassService {
     return this.http.get(url, { headers: { tenantId } });
   }
 
-  getClassByIdWithStudent(studid) {
-    const url = `${this.baseUrl + routes.getstudentclass}/${studid}`;
+  getClassByIdWithStudent(id: any) {
+    const url = `${this.baseUrl + routes.getstudentclass}/${id}`;
     return this.http.get(url, { headers: { tenantId } });
   }
 

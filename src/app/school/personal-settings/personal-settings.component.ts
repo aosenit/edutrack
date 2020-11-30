@@ -90,6 +90,7 @@ export class PersonalSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         this.notification.publishMessages('Department added successfully', 'info', 1);
         document.getElementById('closeModal').click();
+        this.getAllDepartments();
       }
    }, error => {
     this.notification.publishMessages(error.errors, 'info', 1);
@@ -102,6 +103,19 @@ export class PersonalSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data);
         this.departmentList = data.payload;
+      }
+   }, error => {
+    this.notification.publishMessages(error.errors, 'info', 1);
+
+   });
+  }
+
+  deleteDepartment(id) {
+    this.departmentService.deleteDepartment(id).subscribe( (data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data);
+        this.notification.publishMessages('You have successfully deleted a department','info', 0);
+        this.getAllDepartments();
       }
    }, error => {
     this.notification.publishMessages(error.errors, 'info', 1);

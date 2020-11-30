@@ -34,7 +34,12 @@ import { ScoreSheetDetailsPageComponent } from './score-sheet-details-page/score
     GradingComponent,
     ScheduleComponent,
     ViewFileComponent,
-    VirtualClassComponent, VirtualSessionComponent, GradebookComponent, BroadSheetComponent, ScoreSheetComponent, ScoreSheetDetailsPageComponent],
+    VirtualClassComponent,
+    VirtualSessionComponent,
+    GradebookComponent,
+    BroadSheetComponent,
+    ScoreSheetComponent,
+    ScoreSheetDetailsPageComponent],
   imports: [
     CommonModule,
     CKEditorModule,

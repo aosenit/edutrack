@@ -31,14 +31,14 @@ export class LessonNoteService {
   getLessonNotesByTeacher() {
     const tenantId = '1';
     const url = `${this.baseUrl + routes.getlessonNoteByTeacher}`;
-    console.log(url);
+    // console.log(url);
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
   getSinglelessonNoteDetail(id: any) {
     const tenantId = '1';
     const url = `${this.baseUrl + routes.getlessonNoteDetails}/?id=${id}`;
-    console.log(url);
+    // console.log(url);
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 }

@@ -10,12 +10,33 @@ import { AssignmentComponent } from './assignment/assignment.component';
 import { ClassScheduleComponent } from './class-schedule/class-schedule.component';
 import { FileManagerComponent } from './file-manager/file-manager.component';
 import { FilesComponent } from './files/files.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { NotificationPageComponent } from './notification-page/notification-page.component';
+import { TaskPreviewComponent } from './task-preview/task-preview.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  declarations: [DashboardComponent, StudentComponent, VirtualClassroomComponent, SessionComponent, AssignmentComponent, ClassScheduleComponent, FileManagerComponent, FilesComponent],
+  declarations: [
+    DashboardComponent,
+    StudentComponent,
+    VirtualClassroomComponent,
+    SessionComponent,
+    AssignmentComponent,
+    ClassScheduleComponent,
+    FileManagerComponent,
+    FilesComponent,
+    StudentProfileComponent,
+    NotificationPageComponent,
+    TaskPreviewComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    CKEditorModule,
+    SharedModule,
     StudentRoutingModule
   ]
 })

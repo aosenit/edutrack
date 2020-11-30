@@ -18,6 +18,8 @@ export class FileManagerComponent implements OnInit {
 
   view = false;
   clipnote = true;
+  changetext = true;
+
   uploadClassNoteForm: FormGroup;
   uploadClassWorkForm: FormGroup;
   uploadAssignmentForm: FormGroup;
@@ -214,9 +216,8 @@ export class FileManagerComponent implements OnInit {
   getAllLessonNotesByTeacher() {
     this.lessonNoteService.getLessonNotesByTeacher().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('lesson Notes', data);
+        // console.log('lesson Notes', data);
         this.allLessonNote = data.payload;
-        sessionStorage.setItem('lesson-notes', JSON.stringify(this.allLessonNote) );
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -228,7 +229,7 @@ export class FileManagerComponent implements OnInit {
   getAllClassWorkByTeacher() {
     this.classWorkService.getClassWorkByTeacher().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('class work', data);
+        // console.log('class work', data);
         this.classworkList = data.payload;
       }
     }, error => {
@@ -241,7 +242,7 @@ export class FileManagerComponent implements OnInit {
   getAllAssignmentsByTeacher() {
     this.assignmentService.getAssignmentByTeacher().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('Assignment', data);
+        // console.log('Assignment', data);
         this.assignmentlist = data.payload;
       }
     }, error => {
@@ -251,25 +252,53 @@ export class FileManagerComponent implements OnInit {
     );
   }
 
-  getLessonDetails(event) {
+  getLessonDetails(event, i) {
     if (event.target.checked === true) {
-      console.log('sasasasasasa', event.target.value);
+      sessionStorage.setItem('lesson-notes', JSON.stringify(this.allLessonNote[i]));
       this.lessonId = event.target.value;
-      const lessons = JSON.parse(sessionStorage.getItem('lesson-notes'));
+      this.lessonDetails = JSON.parse(sessionStorage.getItem('lesson-notes'));
       this.view = true;
       this.clipnote = false;
-  //     // this.lessonNoteService.getSinglelessonNoteDetail(id).subscribe((data: any) => {
-  //     //   if (data.hasErrors === false) {
-  //     //     console.log('lesson Notes', data);
-  //     //     this.lessonDetails = data.payload;
-  //     //   }
-  //     // }, error => {
-  //     //   this.notifyService.publishMessages(error.errors, 'danger', 1);
-  //     // });
     } else {
       this.view = false;
       this.clipnote = true;
+    }
   }
+
+  getAssignmentDetails(event, i) {
+    if (event.target.checked === true) {
+      sessionStorage.setItem('assignment', JSON.stringify(this.assignmentlist[i]));
+      this.lessonDetails = JSON.parse(sessionStorage.getItem('assignment'));
+      this.view = true;
+      this.clipnote = false;
+    } else {
+      this.view = false;
+      this.clipnote = true;
+    }
+  }
+
+  getClassWorkDetails(event, i) {
+    if (event.target.checked === true) {
+      sessionStorage.setItem('class-work', JSON.stringify(this.assignmentlist[i]));
+      this.lessonDetails = JSON.parse(sessionStorage.getItem('class-work'));
+      this.view = true;
+      this.clipnote = false;
+    } else {
+      this.view = false;
+      this.clipnote = true;
+    }
+  }
+
+  changeText(id) {
+    if (id) {
+      this.changetext = false;
+    }
+  }
+
+  reverseText(id) {
+    if (id) {
+      this.changetext = true;
+    }
   }
 
 }

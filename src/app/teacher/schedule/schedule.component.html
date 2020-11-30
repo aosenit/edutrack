@@ -65,14 +65,14 @@
 
 
             </div>
-            <div class="row " *ngFor = "let role of timeTable; let i = index">
+            <div class="row " *ngFor = "let period of timeTable; let i = index">
               <div class="col-md-2  d-flex justify-content-between align-items-center">
-                <b>{{role[0]}} </b>
+                <b>{{period[0]}} </b>
               </div>
-              <div class="col-md-2 border d-flex justify-content-center" *ngFor="let permission of role[1]; let i = index">
+              <div class="col-md-2 border d-flex justify-content-center" *ngFor="let cell of period[1]; let i = index">
                 <p> 
-                  {{permission.subjectName | titlecase}}
-                  {{permission.day }}
+                  {{cell.subjectName | titlecase}}
+                  {{cell.day }}
                   <!-- <b>{{day?.day}}</b> -->
                 </p>
                

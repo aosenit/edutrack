@@ -5,6 +5,7 @@ const routes = {
   addAssignment: 'schtrack-learning/api/v1/Assignment/UploadAssignment',
   getAssignmentByTeacher: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByTeacher',
   getAssignmentByClass: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByClass',
+  getAssignmentDetails: 'schtrack-learning/api/v1/Assignment/GetAssignmentDetail',
 
 };
 
@@ -37,11 +38,20 @@ export class AssignmentService {
 
   }
 
-  getAssignmentByClass() {
+  getAssignmentByClass(id: any) {
     const tenantId = '1';
 
-    const url = `${this.baseUrl + routes.getAssignmentByClass}`;
+    const url = `${this.baseUrl + routes.getAssignmentByClass}?id=${id}`;
+    console.log(url);
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
 
+  }
+
+  getAssignmentDetails(id: any) {
+    const tenantId = '1';
+
+    const url = `${this.baseUrl + routes.getAssignmentDetails}?id=${id}`;
+    console.log(url);
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
 
   }

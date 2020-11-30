@@ -20,10 +20,8 @@ export class SchoolSectionService {
 
   constructor(private http: HttpClient) { }
 
-  addSection(name) {
-    const body = new FormData();
-    body.append('name', name);
-    return this.http.post(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', body, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  addSection(Name) {
+    return this.http.post(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', Name, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
   getSection() {
@@ -33,11 +31,11 @@ export class SchoolSectionService {
     return this.http.get(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/GetSectionById/' + id, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
-  updateSection(id, name) {
-    const body = new FormData();
-    body.append('Id', id);
-    body.append('Name', name);
-    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/UpdateSection', body, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  updateSection(result) {
+    // const body = new FormData();
+    // body.append('Id', id);
+    // body.append('Name', name);
+    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/UpdateSection', result, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
   deleteSection(id) {

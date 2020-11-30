@@ -27,14 +27,14 @@ export class ClassArmService {
 
   constructor(private http: HttpClient) { }
 
-  addClassArm( addclassForm) {
+  addClassArm( classArmform) {
     const tenantId = '1'; // just a temporary header till email services is ready
-    const body = new FormData();
-    body.append('name', addclassForm.name);
-    body.append('status', addclassForm.status);
-    console.log(body);
+    // const body = new FormData();
+    // body.append('name', addclassForm.name);
+    // body.append('status', addclassForm.status);
+    // console.log(body);
     const url = `${this.baseUrl + routes.addclassarm}`;
-    return this.http.post(url, body, { headers: { tenantId } });
+    return this.http.post(url, classArmform, { headers: { tenantId } });
   }
 
   getAllClassArm() {
@@ -47,15 +47,15 @@ export class ClassArmService {
   getClassArmById(id) {
     const tenantId = '1';
 
-    return this.http.get(this.baseUrl + 'schtrack-auth/api/v1/ClassArm/GetClassArmById?Id=' + id, { headers: { tenantId } });
+    return this.http.get(this.baseUrl + 'schtrack-auth/api/v1/ClassArm/GetClassArmById/' + id, { headers: { tenantId } });
   }
 
-  updateClassArm(id: any, name, status) {
+  updateClassArm(id: any, result) {
     const tenantId = '1';
-    const body = new FormData();
-    body.append('Name', name)
-    body.append('Status', status)
-    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/ClassArm/UpdateClassArm/' + id, body, { headers: { tenantId } } );
+    // const body = new FormData();
+    // body.append('Name', name)
+    // body.append('Status', status)
+    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/ClassArm/UpdateClassArm/' + id, result, { headers: { tenantId } } );
   }
 
   deleteClassArm(id: any) {

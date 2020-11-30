@@ -73,7 +73,7 @@ timeTable: any;
         from(this.subjectAndTime)
          .pipe(
            groupBy(
-             (person: any) => person.periodName.split('_')[0]
+             (result: any) => result.periodName.split('_')[0]
            ),
            mergeMap(group => zip(of(group.key), group.pipe(toArray())))
          )

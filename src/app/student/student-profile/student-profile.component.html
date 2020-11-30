@@ -1,0 +1,229 @@
+<div class="container pt-5">
+    <div class="activated mb-4 mt-2 d-flex justify-content-between align-items-center align-items-center">
+        <div class="activated__image ">
+            <img src="assets/images/svg/american-man.svg" class="mr-3 avatar" alt="..." />
+            <div>
+                <p class="activated__title fw-6 fc-lblue">{{studentDetails?.firstName}} {{studentDetails?.lastName}}  </p>
+                <p class="activated__code">PRT/2016/001</p>
+            </div>
+        </div>
+        <!-- <div class="activated__date mr-5 text-right">
+            <p class="active">Created on 17/03/20 </p>
+            <div class="activated__date-switch">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1"></label>
+                </div>
+                <p class="activated__date-title">Active</p>
+            </div>
+        </div> -->
+    </div>
+
+        <div class=" informations d-flex justify-content-between ">
+
+            <div>
+                <div class="personal item ">
+                    <div class="d-flex  justify-content-between align-items-center">
+                        <div class="line">
+                              <h6>  Basic Details </h6>
+                        </div>
+                        <!-- <img src="assets/images/svg/edit.svg"  alt="..." /> -->
+                    </div>
+                    <div class="d-flex justify-content-between mt-5">
+                        <div class="link">
+                            <p>Title</p>
+                            <p class="fw-6">Mister</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>First Name</p>
+                            <p class="fw-6">{{studentDetails?.firstName}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Last Name</p>
+                            <p class="fw-6">{{studentDetails?.lastName}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Mother's Maiden Name</p>
+                            <p class="fw-6">{{studentDetails?.mothersMaidenName}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Sex</p>
+                            <p class="fw-6">{{studentDetails?.sex}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Date of Birth</p>
+                            <p class="fw-6">{{studentDetails?.dateOfBirth | date : 'mediumDate'}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Parent</p>
+                            <p class="fw-6">{{studentDetails?.parentName}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Nationality</p>
+                            <p class="fw-6">{{studentDetails?.nationality}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Religion</p>
+                            <p class="fw-6">{{studentDetails?.religion}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Local Government</p>
+                            <p class="fw-6">{{studentDetails?.localGovernment}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>State of Origin</p>
+                            <p class="fw-6">{{studentDetails?.stateOfOrigin}}</p>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="contact item ">
+                    <div class="d-flex  justify-content-between align-items-center">
+                        <div class="line">
+                              <h6>  Contact Details </h6>
+                        </div>
+                        <!-- <img src="assets/images/svg/edit.svg"  alt="..." /> -->
+                    </div>
+    
+                    <div class="d-flex justify-content-between mt-5 ">
+                        <div class="link">
+                            <p class="mb-0">Phone Number</p>
+                            <p class="fw-6">{{studentDetails?.phoneNumber}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p class="mb-0">Email Address</p>
+                            <p class="fw-6">{{studentDetails?.emailAddress}}</p>
+                            
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-3 ">
+                        <div class="link">
+                            <p class="mb-0">Country</p>
+                            <p class="fw-6">{{studentDetails?.country}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p class="mb-0">Home Address</p>
+                            <p class="fw-6">{{studentDetails?.homeAddress}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-3 ">
+                        <div class="link">
+                            <p class="mb-0">City / Town</p>
+                            <p class="fw-6">{{studentDetails?.city}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p class="mb-0">State</p>
+                            <p class="fw-6">{{studentDetails?.state}}
+                            </p>
+                        </div>
+                    </div>
+                 
+                    
+                </div>
+
+               
+            </div>
+
+            <div>
+
+                <div class="education item ">
+                    <div class="d-flex  justify-content-between align-items-center">
+                        <div class="line">
+                              <h6>  Education </h6>
+                        </div>
+                        <!-- <img src="assets/images/svg/edit.svg"  alt="..." /> -->
+                    </div>
+    
+                    <div class="d-flex justify-content-between mt-5 ">
+                        <div class="link">
+                            <p class="mb-0">Entry Type</p>
+                            <p class="fw-6">{{studentDetails?.studentType}}</p>
+                        </div>
+                        <div class="link">
+                            <p class="mb-0">Admission Date </p>
+                            <p class="fw-6">{{studentDetails?.admissionDate | date : 'smallDate'}}</p>
+                        </div>
+                        
+                    </div>
+                    <div class="d-flex justify-content-between mt-3 ">
+                        <div class="link">
+                            <p class="mb-0">Level</p>
+                            <p class="fw-6">{{studentDetails?.section}}</p>
+                        </div>
+                        <div class="link">
+                            <p class="mb-0">Class</p>
+                            <p class="fw-6">{{studentDetails?.class}}</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-3 ">
+                        <div class="link">
+                            <p class="mb-0">Stydent Type</p>
+                            <p class="fw-6">{{studentDetails?.studentType}}</p>
+                        </div>
+                    </div>
+                   
+                    
+                    
+                </div>
+                <div class="medical item ">
+                    <div class="d-flex  justify-content-between align-items-center">
+                        <div class="line">
+                              <h6> Medical Details </h6>
+                        </div>
+                        <!-- <img src="assets/images/svg/edit.svg"  alt="..." /> -->
+                    </div>
+    
+                    <div class="d-flex justify-content-between mt-5 ">
+                        <div class="link">
+                            <p class="mb-0">Blood Group</p>
+                            <p class="fw-6">{{studentDetails?.bloodGroup}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p class="mb-0">Genotype </p>
+                            <p class="fw-6">{{studentDetails?.genotype}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-3 ">
+                        <div class="link">
+                            <p class="mb-0">Allergies</p>
+                            <p class="fw-6">{{studentDetails?.allergies}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p class="mb-0">Confidential Note</p>
+                            <p class="fw-6">{{studentDetails?.confidentialNote}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mt-3 ">
+                        <div class="link">
+                            <p class="mb-0">Immunization</p>
+                            <p class="fw-6">{{studentDetails?.immunization}}</p>
+                        </div>
+                        
+                    </div>
+                 
+                </div>
+
+            </div>
+        </div>
+</div>

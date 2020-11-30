@@ -1,0 +1,459 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-9 pl-5  pt-5 pr-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" (click)="back()">
+          <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+          <li class="breadcrumb-item a1 " aria-current="page">
+            <a>Back</a>
+          </li>
+
+
+        </ol>
+
+
+      </nav>
+
+      <div class="d-flex justify-content-between mt-2 mb-1">
+
+        <div class="media-inner">
+          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item mr-2 ">
+              <a class="nav-link active" id="pills-upload-tab" data-toggle="pill" href="#pills-upload" role="tab"
+                aria-controls="pills-upload" aria-selected="true">Pending </a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link " id="pills-record-tab" data-toggle="pill" href="#pills-record" role="tab"
+                aria-controls="pills-record" aria-selected="true">My Submissions </a>
+            </li>
+
+
+          </ul>
+
+        </div>
+
+        <div>
+          <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+          <img src="assets/images/svg/file-manager-filter.svg" alt="new client">
+          <!-- ================ DROPDOWN ==================== -->
+          <!-- <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-black " href="#">Ascending </a>
+                        <a class="dropdown-item text-black " href="#">Descending </a>
+                        <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-black " href="#">Type </a>
+                        <a class="dropdown-item text-black " href="#">Class </a>
+                        <a class="dropdown-item text-black " href="#">Modified </a>
+                        <a class="dropdown-item text-black " href="#">Date Created </a>
+                    </div> -->
+        </div>
+      </div>
+
+      <div class="tab-content bg-white px-4" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-upload" role="tabpanel" aria-labelledby="pills-upload-tab">
+
+          <section class="list">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+
+                  <th scope="col" class="w-30">Title
+
+                  </th>
+                  <th scope="col">Due Date
+
+                  </th>
+                  <th scope="col">Due Time
+
+                  </th>
+                  <th scope="col">Status
+
+                  </th>
+                  <th scope="col"> </th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pb-2 ">
+
+                  <td class="rounded-left border border-right-0">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                      <p class="mb-0 pb-1 topic fw-6 ">
+                        Descriptive Essay Assignment
+                      </p>
+                      <div class="d-flex">
+                        <span class="subject-holder px-2 mr-2">English Language</span>
+                        <p class="mb-0 attachment">
+                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
+                          1 Attachment</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">
+                    <div class="d-flex flex-column justify-content-center">
+                      <p class="mb-0 fs-14">07, June 2020</p>
+                      <p class="mb-0 fs-13">2 days left</p>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">08:00 am</td>
+                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
+                  <td class="table-grey rounded-right border border-left-0">
+                    <div class="d-flex">
+                      <button class="mr-3 actions open" routerLink="/student/preview">Open</button>
+                      <button class="actions upload" data-toggle="modal"
+                        data-target="#exampleModalCenter3">Upload</button>
+                    </div>
+                  </td>
+
+                </tr>
+                <tr class="pb-2 ">
+
+                  <td class="rounded-left border border-right-0">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                      <p class="mb-0 pb-1 topic fw-6 ">
+                        Descriptive Essay Assignment
+                      </p>
+                      <div class="d-flex">
+                        <span class="subject-holder px-2 mr-2">English Language</span>
+                        <p class="mb-0 attachment">
+                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
+                          1 Attachment</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">
+                    <div class="d-flex flex-column justify-content-center">
+                      <p class="mb-0 fs-14">07, June 2020</p>
+                      <p class="mb-0 fs-13">2 days left</p>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">08:00 am</td>
+                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
+                  <td class="table-grey rounded-right border border-left-0">
+                    <div class="d-flex">
+                      <button class="mr-3 actions open">Open</button>
+                      <button class="actions upload">Upload</button>
+                    </div>
+                  </td>
+
+                </tr>
+                <tr class="pb-2 ">
+
+                  <td class="rounded-left border border-right-0">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                      <p class="mb-0 pb-1 topic fw-6 ">
+                        Descriptive Essay Assignment
+                      </p>
+                      <div class="d-flex">
+                        <span class="subject-holder px-2 mr-2">English Language</span>
+                        <p class="mb-0 attachment">
+                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
+                          1 Attachment</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">
+                    <div class="d-flex flex-column justify-content-center">
+                      <p class="mb-0 fs-14">07, June 2020</p>
+                      <p class="mb-0 fs-13">2 days left</p>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">08:00 am</td>
+                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
+                  <td class="table-grey rounded-right border border-left-0">
+                    <div class="d-flex">
+                      <button class="mr-3 actions open">Open</button>
+                      <button class="actions upload">Upload</button>
+                    </div>
+                  </td>
+
+                </tr>
+                <tr class="pb-2 ">
+
+                  <td class="rounded-left border border-right-0">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                      <p class="mb-0 pb-1 topic fw-6 ">
+                        Descriptive Essay Assignment
+                      </p>
+                      <div class="d-flex">
+                        <span class="subject-holder px-2 mr-2">English Language</span>
+                        <p class="mb-0 attachment">
+                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
+                          1 Attachment</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">
+                    <div class="d-flex flex-column justify-content-center">
+                      <p class="mb-0 fs-14">07, June 2020</p>
+                      <p class="mb-0 fs-13">2 days left</p>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">08:00 am</td>
+                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
+                  <td class="table-grey rounded-right border border-left-0">
+                    <div class="d-flex">
+                      <button class="mr-3 actions open">Open</button>
+                      <button class="actions upload">Upload</button>
+                    </div>
+                  </td>
+
+                </tr>
+                <tr class="pb-2 ">
+
+                  <td class="rounded-left border border-right-0">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                      <p class="mb-0 pb-1 topic fw-6 ">
+                        Descriptive Essay Assignment
+                      </p>
+                      <div class="d-flex">
+                        <span class="subject-holder px-2 mr-2">English Language</span>
+                        <p class="mb-0 attachment">
+                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
+                          1 Attachment</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">
+                    <div class="d-flex flex-column justify-content-center">
+                      <p class="mb-0 fs-14">07, June 2020</p>
+                      <p class="mb-0 fs-13">2 days left</p>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">08:00 am</td>
+                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
+                  <td class="table-grey rounded-right border border-left-0">
+                    <div class="d-flex">
+                      <button class="mr-3 actions open">Open</button>
+                      <button class="actions upload">Upload</button>
+                    </div>
+                  </td>
+
+                </tr>
+                <tr class="pb-2 ">
+
+                  <td class="rounded-left border border-right-0">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                      <p class="mb-0 pb-1 topic fw-6 ">
+                        Descriptive Essay Assignment
+                      </p>
+                      <div class="d-flex">
+                        <span class="subject-holder px-2 mr-2">English Language</span>
+                        <p class="mb-0 attachment">
+                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
+                          1 Attachment</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">
+                    <div class="d-flex flex-column justify-content-center">
+                      <p class="mb-0 fs-14">07, June 2020</p>
+                      <p class="mb-0 fs-13">2 days left</p>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">08:00 am</td>
+                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
+                  <td class="table-grey rounded-right border border-left-0">
+                    <div class="d-flex">
+                      <button class="mr-3 actions open">Open</button>
+                      <button class="actions upload">Upload</button>
+                    </div>
+                  </td>
+
+                </tr>
+                <tr class="pb-2 ">
+
+                  <td class="rounded-left border border-right-0">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                      <p class="mb-0 pb-1 topic fw-6 ">
+                        Descriptive Essay Assignment
+                      </p>
+                      <div class="d-flex">
+                        <span class="subject-holder px-2 mr-2">English Language</span>
+                        <p class="mb-0 attachment">
+                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
+                          1 Attachment</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">
+                    <div class="d-flex flex-column justify-content-center">
+                      <p class="mb-0 fs-14">07, June 2020</p>
+                      <p class="mb-0 fs-13">2 days left</p>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">08:00 am</td>
+                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
+                  <td class="table-grey rounded-right border border-left-0">
+                    <div class="d-flex">
+                      <button class="mr-3 actions open">Open</button>
+                      <button class="actions upload">Upload</button>
+                    </div>
+                  </td>
+
+                </tr>
+                <tr class="pb-2 ">
+
+                  <td class="rounded-left border border-right-0">
+                    <div class="d-flex flex-column align-items-center justify-content-start">
+                      <p class="mb-0 pb-1 topic fw-6 ">
+                        Descriptive Essay Assignment
+                      </p>
+                      <div class="d-flex">
+                        <span class="subject-holder px-2 mr-2">English Language</span>
+                        <p class="mb-0 attachment">
+                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
+                          1 Attachment</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">
+                    <div class="d-flex flex-column justify-content-center">
+                      <p class="mb-0 fs-14">07, June 2020</p>
+                      <p class="mb-0 fs-13">2 days left</p>
+                    </div>
+                  </td>
+                  <td class="border-top border-bottom">08:00 am</td>
+                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
+                  <td class="table-grey rounded-right border border-left-0">
+                    <div class="d-flex">
+                      <button class="mr-3 actions open">Open</button>
+                      <button class="actions upload">Upload</button>
+                    </div>
+                  </td>
+
+                </tr>
+
+              </tbody>
+            </table>
+
+          </section>
+        </div>
+        <div class="tab-pane fade " id="pills-record" role="tabpanel" aria-labelledby="pills-record-tab">
+
+          <section class="list">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+
+                  <th scope="col" class="w-50">Title
+
+                  </th>
+                  
+                  <th scope="col">Submitted date
+
+                  </th>
+                  <th scope="col"> </th>
+                  <th scope="col"> </th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pb-2 ">
+
+                  <td class="rounded-left border border-right-0 ">
+                    <div class="d-flex align-items-center">
+                        <div class="custom-control custom-checkbox mr-4">
+                                            <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                                            <label class="custom-control-label" for="customCheckTh"></label>
+                                        </div>
+                        <div class="d-flex flex-column justify-content-start">
+                          <p class="mb-0 pb-1 topic fw-6 ">
+                            Descriptive Essay Assignment
+                          </p>
+                          <div class="d-flex">
+                            <p class="mb-0 attachment">
+                              <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
+                              1 Attachment</p>
+                          </div>
+                        </div>
+                    </div>
+                  </td>
+                  
+                  <td class="border-top border-bottom ">07/20/20</td>
+                  <td class="table-grey border-top border-bottom  ">
+                      <button class="actions upload action-2" >View Submision</button>
+                  </td>
+                  <td class="rounded-right border border-left-0">
+                    <img src="assets/images/svg/more-action.svg" alt="new client" class="mr-1">
+                  </td>
+
+                </tr>
+                
+              </tbody>
+            </table>
+
+          </section>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-3 bg-white">
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- file manager Modal -->
+<div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter3Title"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-2">
+        <div class=" mb-3">
+          <h6 class="modal-title">English Language</h6>
+
+        </div>
+        <div class="d-flex  ">
+          <div class="d-flex w-25">
+            <img src="assets/images/svg/g-calendar.svg" alt="" class="mr-3">
+            <div class="d-flex flex-column justify-content-center">
+              <p class="mb-0 fs-14">07, June 2020</p>
+              <p class="mb-0 fs-13">Due Date</p>
+            </div>
+          </div>
+          <div class="d-flex  w-25">
+            <img src="assets/images/svg/g-time.svg" alt="" class="mr-3">
+            <div class="d-flex flex-column justify-content-center">
+              <p class="mb-0 fs-14">08: 00 am</p>
+              <p class="mb-0 fs-13">Due Time</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body client-modal">
+        <form>
+
+          <p class="fw-6 init">Assignment Details</p>
+
+          <div class="form-group file-upload mb-5">
+            <label for="fileupload">Drag & drop your files here <br> or click to browse your files </label>
+            <input type="file" class="file-input" id="fileupload">
+            <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
+          </div>
+
+          <div class="form-group mb-3">
+            <!-- <label for="message">Optional message</label> -->
+            <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+
+          </div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <button type="button" class="close close-text" data-dismiss="modal" aria-label="Close">Cancel </button>
+            <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of file manager modal -->

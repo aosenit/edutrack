@@ -5,8 +5,11 @@ import { ClassScheduleComponent } from './class-schedule/class-schedule.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FileManagerComponent } from './file-manager/file-manager.component';
 import { FilesComponent } from './files/files.component';
+import { NotificationPageComponent } from './notification-page/notification-page.component';
 import { SessionComponent } from './session/session.component';
+import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { StudentComponent } from './student.component';
+import { TaskPreviewComponent } from './task-preview/task-preview.component';
 import { VirtualClassroomComponent } from './virtual-classroom/virtual-classroom.component';
 
 
@@ -20,6 +23,9 @@ const routes: Routes = [
     {path: 'schedule', component: ClassScheduleComponent},
     {path: 'file-manager', component: FileManagerComponent},
     {path: 'files', component: FilesComponent},
+    {path: 'profile', component: StudentProfileComponent},
+    {path: 'notification', component: NotificationPageComponent},
+    {path: 'preview', component: TaskPreviewComponent},
   ]}
 
 ];
