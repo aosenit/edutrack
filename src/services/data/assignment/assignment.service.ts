@@ -41,7 +41,7 @@ export class AssignmentService {
   getAssignmentByClass(id: any) {
     const tenantId = '1';
 
-    const url = `${this.baseUrl + routes.getAssignmentByClass}?id=${id}`;
+    const url = `${this.baseUrl + routes.getAssignmentByClass}?classId=${id}`;
     console.log(url);
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
 

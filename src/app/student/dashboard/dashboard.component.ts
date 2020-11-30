@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { from, zip, of } from 'rxjs';
+import { groupBy, mergeMap, toArray } from 'rxjs/operators';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 import { TimeTableService } from 'src/services/data/time-table/time-table.service';
 
@@ -8,7 +10,9 @@ import { TimeTableService } from 'src/services/data/time-table/time-table.servic
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+assignments: any;
+dueAssignment: any;
+activeAssignment: any;
   constructor(
     private timeTableService: TimeTableService,
     private assignmentService: AssignmentService
@@ -55,7 +59,21 @@ export class DashboardComponent implements OnInit {
     this.assignmentService.getAssignmentByClass(classId).subscribe((data: any) => {
       console.log('sasasasas', data);
       if (data.hasErrors === false) {
-        // console.log(data);
+        this.assignments = data.payload;
+        const assignment = [];
+        from(this.assignments)
+         .pipe(
+           groupBy(
+             (result: any) => result.status.split('_')[0]
+           ),
+           mergeMap(group => zip(of(group.key), group.pipe(toArray())))
+         )
+         .subscribe(list => {
+           console.log('Assignments', ...list);
+           assignment.push(list);
+          });
+        this.dueAssignment = assignment[0][1];
+        this.activeAssignment = assignment[1][1];
       }
     });
   }

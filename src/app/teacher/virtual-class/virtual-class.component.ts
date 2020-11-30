@@ -45,7 +45,8 @@ export class VirtualClassComponent implements OnInit {
   startCamera() {
     if (!!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) {
       navigator.mediaDevices.getUserMedia(this.constraints)
-        .then(this.attachVideo.bind(this));
+        .then(this.attachVideo.bind(this))
+        .catch(this.handleError);
 
     } else {
       alert('Sorry, camera not available.');
@@ -55,6 +56,11 @@ export class VirtualClassComponent implements OnInit {
   attachVideo(stream) {
     this.renderer.setProperty(this.videoElement.nativeElement, 'srcObject', stream);
   }
+
+  handleError(error) {
+    console.log('Error: ', error);
+}
+
   back() {
     window.history.back();
   }

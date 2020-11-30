@@ -18,7 +18,7 @@
                     <div class="profile__hero">
                         <div class="profile__hero--intro bg-white br-10 pt-4 pb-2 px-3 mb-3">
                             <h5 class="fs-32 fc-lblue intro-text">Hello Samuel!</h5>
-                            <p>It’s good to see you again. You have <span class="pending fw-bold">2</span> pending assignments, <span class="overdue fw-bold">4</span> overdue <br> assigments and <span class="book fw-bold">1</span> book overdue for return to the library.</p>
+                            <p>It’s good to see you again. You have <span class="pending fw-bold">{{activeAssignment?.length}}</span> pending assignments, <span class="overdue fw-bold">{{dueAssignment?.length}}</span> overdue <br> assigments and <span class="book fw-bold">1</span> book overdue for return to the library.</p>
                             <img src="assets/images/svg/student-hero.svg" alt="student hero welcomr image" class="student-hero">
                         </div>
                         <div class="profile__cards">
