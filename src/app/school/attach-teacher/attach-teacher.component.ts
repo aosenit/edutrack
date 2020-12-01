@@ -89,6 +89,7 @@ attachedSubjectlist: any;
     this.classService.getAllClasses().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classes = data.payload;
+        console.log(this.classes);
       }
     });
   }
@@ -125,13 +126,13 @@ attachedSubjectlist: any;
   attachSubject() {
     console.log(this.attachSubjectForm.value);
     const {subjectIds} = this.attachSubjectForm.value;
-    const newSubjectIds = subjectIds.map((ids: any) => {
+    const  ClassSubjectIds = subjectIds.map((ids: any) => {
       return ids.id;
     });
     // tslint:disable-next-line:radix
     const TeacherId = parseInt(this.id);
     // tslint:disable-next-line:radix
-    const ClassSubjectIds = parseInt(newSubjectIds);
+    // const ClassSubjectIds = parseInt(newSubjectIds);
     const result = {
       TeacherId,
       ClassSubjectIds

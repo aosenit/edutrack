@@ -15,17 +15,10 @@ subjectList: object;
 
   ngOnInit() {
     this.getAllSubjects();
-    this.getStudentClass();
 
   }
 
-  getStudentClass() {
-    this.classService.getClassByIdWithStudent(6).subscribe((data: any) => {
-      if (data.hasErrors === false ) {
-        console.log(data);
-      }
-    });
-  }
+
 
   getAllSubjects() {
     const classId = 25;

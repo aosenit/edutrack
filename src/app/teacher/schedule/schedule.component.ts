@@ -82,7 +82,8 @@ timeTable: any;
            tables.push(xy);
           });
         this.timeTable = tables;
-        console.log('time table', this.timeTable);
+        const newarr = this.timeTable.sort((a, b) => a.index - b.index);
+        console.log('time table', newarr);
       }
     });
   }

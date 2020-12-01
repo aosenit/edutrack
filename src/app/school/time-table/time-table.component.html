@@ -19,7 +19,7 @@
                     <label for="class" class="fs-12 fw-6">Class</label>
                     <select name="" id="" class="form-control form-control-lg" (change)="getSubjectsByClassId($event.target.value)">
                         <option value="">Select class</option>
-                        <option [value]="class?.id" *ngFor="let class of classes">{{class?.name}} </option>
+                        <option [value]="class?.id" *ngFor="let class of classes">{{class?.name}}{{class?.classGroup}} </option>
 
                     </select>
                 </div>

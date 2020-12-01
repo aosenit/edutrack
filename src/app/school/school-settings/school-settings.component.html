@@ -467,7 +467,7 @@
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Edit Section</h6>
           <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
-            class="close">
+            class="close" id="editSectionModal">
 
         </div>
 
@@ -770,7 +770,7 @@
                   
                 </div> -->
                 <ng-multiselect-dropdown [placeholder]="' '" [data]="classBySectionDropdownList"
-                  formControlName="classSectionIds" [settings]="dropdownSettings" required>
+                  formControlName="classSectionIds" [settings]="dropdownSettings2" required>
                 </ng-multiselect-dropdown>
 
               </div>

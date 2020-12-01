@@ -8,6 +8,8 @@ const routes = {
   getclassbysection: 'schtrack-auth/api/v1/Class/GetClassBySection',
   getallsubjectsforclass: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClass', // this endpoint get all subjects attached to a class
   // tslint:disable-next-line:max-line-length
+  getallsubjectsWithAssignmentforclass: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClassWithAssignmentCount', // this endpoint get all subjects attached to a class
+  // tslint:disable-next-line:max-line-length
   getTeacherforSubject: 'schtrack-learning/api/v1/TeacherClassSubject/GetTeachersForClassSubject', // this endpoint get all subjects attached to a class
   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
   assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
@@ -90,7 +92,7 @@ export class ClassService {
   }
 
   getAllSubjectsInAClassByClassID(id: any) {
-    const url = `${this.baseUrl + routes.getallsubjectsforclass}/${id}`;
+    const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classid=${id}`;
     console.log(url);
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }

@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 const routes = {
   addstudent: 'schtrack-auth/api/v1/Student/AddStudent',
   getallstudent: 'schtrack-auth/api/v1/Student/GetAllStudent',
+  viewstudentdetails: 'schtrack-auth/api/v1/Student/GetStudentProfile',
   getstudentbyid: 'schtrack-auth/api/v1/Student/GetStudentById',
   updatestudentbyid: 'Student/UpdateStudent',
   deletestudent: 'Student/DeleteStudent'
@@ -91,5 +92,12 @@ export class StudentService {
     const url = `${this.baseUrl + routes.deletestudent}/${id}`;
     return this.http.delete(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
 
+  }
+
+  getStudentProfile(id) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl + routes.viewstudentdetails}/${id}`;
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
   }
 }

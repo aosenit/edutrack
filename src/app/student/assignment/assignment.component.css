@@ -36,12 +36,12 @@
   position: relative;
 }
 
-.files p:last-child {
+.files .last {
   color: #747474;
   font-size: 12px;
 }
 
-.notification {
+.notice-pane {
   position: absolute;
   right: -10px;
   top: -15px;

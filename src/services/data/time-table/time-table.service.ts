@@ -9,8 +9,10 @@ const routes = {
   addTimeTableCell: 'schtrack-learning/api/v1/TimeTable/AddNewTimetableCell',
   getTableforteacher: 'schtrack-learning/api/v1/TimeTable/GetTimetableForTeacher',
   getTableforTeacherByDay: 'schtrack-learning/api/v1/TimeTable/GetAllClassesForTeacherByDay',
+  getTableforClassByDay: 'schtrack-learning/api/v1/TimeTable/GetAllClassesForClassToday',
   getTableforClassByClassId: 'schtrack-learning/api/v1/TimeTable/GetTimetableForClass',
   getNextClassesforTeacherByDay: 'schtrack-learning/api/v1/TimeTable/GetNextClassesForTeacherByDay',
+  getNextClassesforClassByDay: 'schtrack-learning/api/v1/TimeTable/GetNextClassesForClassToday',
   deleteTableforClass: 'schtrack-learning/api/v1/TimeTable/DeleteTimetableCell',
 };
 
@@ -43,15 +45,15 @@ export class TimeTableService {
 
   AddTimeTableCell(result) {
     const tenantId = '1'; // just a temporary header till email services is ready
-    const body = new FormData();
-    body.append('PeriodId', result.PeriodId);
-    body.append('Day', result.Day);
-    body.append('TeacherClassSubjectId', result.TeacherClassSubjectId);
-    body.append('HasVirtual', result.HasVirtual);
+    // const body = new FormData();
+    // body.append('PeriodId', result.PeriodId);
+    // body.append('Day', result.Day);
+    // body.append('TeacherClassSubjectId', result.TeacherClassSubjectId);
+    // body.append('HasVirtual', result.HasVirtual);
     // body.append('NoOfPeriod', result.NoOfPeriod);
 
     const url = `${this.baseUrl + routes.addTimeTableCell}`;
-    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
   getTimeTableForTeacher() {
@@ -76,10 +78,25 @@ export class TimeTableService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
+  getAllClassesForClassByDay( classId, day) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl + routes.getTableforClassByDay}?classId=${classId}&day=${day}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
   getNextClassessForTeacherByDay(teacherId, day) {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getNextClassesforTeacherByDay}?teacherId=${teacherId}&day=${day}`;
+    console.log(url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
+  getNextClassessForClassByDay(classid, day) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl + routes.getNextClassesforClassByDay}?classid=${classid}&day=${day}`;
     console.log(url);
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }

@@ -50,6 +50,7 @@ export class TimeTableComponent implements OnInit {
     this.classService.getAllClasses().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classes = data.payload;
+        console.log(this.classes);
       }
     });
   }

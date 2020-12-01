@@ -32,7 +32,7 @@
                 <label for="state" class="fw-6">Class <span class="text-danger">*</span>
                 </label>
                 <select name="" id="state" class="form-control form-control-lg" formControlName="ClassId">
-                    <option *ngFor="let class of classes" [value]="class.id">{{class.name}}</option>
+                    <option *ngFor="let class of classes" [value]="class.id">{{class.name}}{{class?.classGroup}}</option>
                 </select>
             </div>
         </div>

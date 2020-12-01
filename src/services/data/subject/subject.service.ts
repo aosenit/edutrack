@@ -21,13 +21,13 @@ export class SubjectService {
 
   addNewSubject(result) {
     const tenantId = '1';
-    const body = new FormData();
-    body.append('ClassIds', result.ClassIds);
-    body.append('Name', result.Name);
+    // const body = new FormData();
+    // body.append('ClassIds', result.ClassIds);
+    // body.append('Name', result.Name);
 
-    body.append('IsActive', result.IsActive);
+    // body.append('IsActive', result.IsActive);
     const url = `${this.baseUrl + routes.addsubject}`;
-    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
   getAllSubjects() {

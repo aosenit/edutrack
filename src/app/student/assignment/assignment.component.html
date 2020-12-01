@@ -44,8 +44,8 @@
             <div class="file-cards mb-5" >
                 <div class="files px-3 pt-3 pb-4 cursor-pointer" *ngFor = "let subject of subjectList" routerLink = "/student/notification">
                     <p class="mb-0"> {{subject?.subject | titlecase}}</p>
-                    <p>Click to view submission</p>
-                    <!-- <span class="notification fw-6">1</span> -->
+                    <p class="last">Click to view submission</p>
+                    <span class="notice-pane fw-6" *ngIf="subject?.assignmentCount >= 1">{{subject?.assignmentCount}}</span>
                 </div>
                 
             </div>

@@ -31,6 +31,8 @@ import { UsersComponent } from './users/users.component';
 import { SharedModule } from '../shared/shared.module';
 import { SchoolManagerSettingsComponent } from './school-manager-settings/school-manager-settings.component';
 import { PeriodComponent } from './period/period.component';
+import { SchoolGradeBookComponent } from './school-grade-book/school-grade-book.component';
+import { StudentSheetComponent } from './student-sheet/student-sheet.component';
 
 
 @NgModule({
@@ -60,6 +62,8 @@ import { PeriodComponent } from './period/period.component';
                  UsersComponent,
                  SchoolManagerSettingsComponent,
                  PeriodComponent,
+                 SchoolGradeBookComponent,
+                 StudentSheetComponent,
                 ],
   imports: [
     CommonModule,

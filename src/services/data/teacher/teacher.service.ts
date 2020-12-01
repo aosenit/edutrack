@@ -123,12 +123,12 @@ export class TeacherService {
   attachTeacherToSubject(result) {
     const tenantId = '1'; // just a temporary header till email services is ready
 
-    const body = new FormData();
-    body.append('TeacherId', result.TeacherId);
-    body.append('ClassSubjectIds', result.ClassSubjectIds);
+    // const body = new FormData();
+    // body.append('TeacherId', result.TeacherId);
+    // body.append('ClassSubjectIds', result.ClassSubjectIds);
     const url = `${this.baseUrl + routes.attachteachertosubject}`;
 
-    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
 
   }
 

@@ -15,6 +15,7 @@ import { PayrollSetttingsComponent } from './payroll-setttings/payroll-setttings
 import { PeriodComponent } from './period/period.component';
 import { PersonalSettingsComponent } from './personal-settings/personal-settings.component';
 import { ResultSettingsComponent } from './result-settings/result-settings.component';
+import { SchoolGradeBookComponent } from './school-grade-book/school-grade-book.component';
 import { SchoolManagerSettingsComponent } from './school-manager-settings/school-manager-settings.component';
 import { SchoolManagerComponent } from './school-manager/school-manager.component';
 import { SchoolSettingsComponent } from './school-settings/school-settings.component';
@@ -22,6 +23,7 @@ import { SchoolComponent } from './school.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentSettingsComponent } from './student-settings/student-settings.component';
+import { StudentSheetComponent } from './student-sheet/student-sheet.component';
 import { TeachersComponent } from './teachers/teachers.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { UsersComponent } from './users/users.component';
@@ -55,6 +57,8 @@ const routes: Routes = [
       { path: 'school-manager', component: SchoolManagerComponent},
       { path: 'school-manager-settings', component: SchoolManagerSettingsComponent},
       { path: 'user', component: UsersComponent},
+      { path: 'grade-book', component: SchoolGradeBookComponent},
+      { path: 'student-sheet', component: StudentSheetComponent},
       {path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule)},
       {path: 'add-parents', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule)},
       {path: 'add-employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)},

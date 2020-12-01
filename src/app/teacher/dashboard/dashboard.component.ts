@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { TimeTableService } from 'src/services/data/time-table/time-table.service';
 
 @Component({
@@ -10,12 +11,15 @@ export class DashboardComponent implements OnInit {
 
   subjectAndTime: any;
   weekday: any;
+  teacherDetails: any;
   myDate = new Date();
   constructor(
     private timeTableService: TimeTableService
   ) { }
 
   ngOnInit() {
+    const helper = new JwtHelperService();
+    this.teacherDetails = helper.decodeToken(localStorage.getItem('access_token'));
     this.getClassesForTeacherByDay();
     this.getNextClassesForTeacherByDay();
   }

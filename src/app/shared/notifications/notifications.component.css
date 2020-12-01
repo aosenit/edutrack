@@ -4,5 +4,31 @@
     margin: 0 auto;
     top: 8vh;
     width: 60vw;
-    z-index: 34444444444444444444444
+    z-index: 34444444444444444444444;
+}
+
+.alert-info {
+    background: #DDF8E9;
+    border: 2px solid #A9EDC8;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #1C9D52;
+}
+
+.alert-warning {
+    background: #FFE5E5;
+    border: 2px solid #FEC5C5;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-family: Nunito Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    color: #CE4346;
 }

@@ -161,12 +161,20 @@ border-radius: 5px;
     display: block;
 }
 
-.pop-card-holder .images {
+.dropdown-menu {
+    background: #0052B4;
+    color: #FFFFFF;
+    font-family: nunito;
+    border-radius: 10px;
+    position: relative;
+    width: max-content;
+}
+.dropdown-menu .images {
     position: relative;
     width: 120px;
 }
 
-.pop-card-holder .caption {
+.dropdown-menu .caption {
     color: #D1D9DF;
 }
 

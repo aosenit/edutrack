@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   studentCount: any;
   p: number;
 
-  constructor(private schoolService: SchoolService, private studentservice:StudentService) { }
+  constructor(private schoolService: SchoolService, private studentservice: StudentService) { }
 
   ngOnInit() {
     const helper = new JwtHelperService();

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from 'src/services/data/student/student.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-student-profile',
@@ -8,7 +9,8 @@ import { StudentService } from 'src/services/data/student/student.service';
 })
 export class StudentProfileComponent implements OnInit {
   studentDetails: any;
-
+  studentId: any;
+  id: any;
   constructor(
     private studentService: StudentService
   ) { }
@@ -18,8 +20,11 @@ export class StudentProfileComponent implements OnInit {
   }
 
   getStudentByID() {
-    const id = 6;
-    this.studentService.getStudentById(id).subscribe((data: any) => {
+    const helper = new JwtHelperService();
+    this.studentId = helper.decodeToken(localStorage.getItem('access_token'));
+    this.id = this.studentId.sub;
+    console.log(this.id);
+    this.studentService.getStudentProfile(this.id).subscribe((data: any) => {
       console.log('ssasasa', data);
       if (data.hasErrors === false ) {
         this.studentDetails = data.payload;
@@ -27,9 +32,6 @@ export class StudentProfileComponent implements OnInit {
     }, error => {
       console.log(error);
     });
-  }
-  id(id: any) {
-    throw new Error('Method not implemented.');
   }
 
 }
