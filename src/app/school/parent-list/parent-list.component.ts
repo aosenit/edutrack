@@ -11,6 +11,9 @@ export class ParentListComponent implements OnInit {
   record = false;
   parentList: any;
   searchString: string;
+  p = 1;
+  itemsPerPage = 5;
+  parentCount: number;
 
   constructor(
               private parentService: ParentsService,
@@ -22,15 +25,29 @@ export class ParentListComponent implements OnInit {
   }
 
   getAllParents() {
-    this.parentService.getAllParents().subscribe( (data: any) => {
+    this.parentService.getAllParents(this.p, this.itemsPerPage).subscribe( (data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
         this.parentList = data.payload;
+        this.parentCount = data.totalCount;
       }
     },
     error => {
       this.notifyService.publishMessages(error.message, 'danger', 1);
     });
   }
+  getPage(page: number) {
+    console.log(page);
+    this.parentService.getAllParents(page, this.itemsPerPage).subscribe( (data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data);
+        this.parentList = data.payload;
+        this.parentCount = data.totalCount;
+      }
+    },
+    error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
 
+}
 }

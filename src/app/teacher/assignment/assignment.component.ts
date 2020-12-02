@@ -19,20 +19,20 @@ export class AssignmentComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAssignmentByTeacher();
+    // this.getAssignmentByTeacher();
   }
 
 
-  getAssignmentByTeacher() {
-    this.assignmentService.getAssignmentByTeacher().subscribe((data: any) => {
-      console.log(data);
-      if (data.hasErrors === false) {
-        console.log('asasasa', data);
-      }
-    }, error => {
-      console.log(error);
-    });
-  }
+  // getAssignmentByTeacher() {
+  //   this.assignmentService.getAssignmentByTeacher().subscribe((data: any) => {
+  //     console.log(data);
+  //     if (data.hasErrors === false) {
+  //       console.log('asasasa', data);
+  //     }
+  //   }, error => {
+  //     console.log(error);
+  //   });
+  // }
 
   back() {
     window.history.back();

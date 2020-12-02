@@ -31,9 +31,9 @@ export class AssignmentService {
     return this.http.post(url, body,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
-  getAssignmentByTeacher() {
+  getAssignmentByTeacher(p, perpage) {
     const tenantId = '1';
-    const url = `${this.baseUrl + routes.getAssignmentByTeacher}`;
+    const url = `${this.baseUrl + routes.getAssignmentByTeacher}?PageIndex=${p}&PageSize=${perpage}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
 
   }

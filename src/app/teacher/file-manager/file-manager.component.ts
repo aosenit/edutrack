@@ -31,6 +31,9 @@ export class FileManagerComponent implements OnInit {
   classworkList: any;
   assignmentlist: any;
   lessonId: any;
+  p = 1;
+  itemsPerPage = 5;
+  assignmentCount: number;
 
   constructor(
     private fb: FormBuilder,
@@ -240,16 +243,31 @@ export class FileManagerComponent implements OnInit {
   }
 
   getAllAssignmentsByTeacher() {
-    this.assignmentService.getAssignmentByTeacher().subscribe((data: any) => {
+    this.assignmentService.getAssignmentByTeacher(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
         // console.log('Assignment', data);
         this.assignmentlist = data.payload;
+        this.assignmentCount = data.totalCount;
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
     }
     );
+  }
+
+  getPage(page: number) {
+    console.log(page);
+    this.assignmentService.getAssignmentByTeacher(page, this.itemsPerPage).subscribe((data: any) => {
+      console.log(data);
+      if (data.hasErrors === false) {
+        console.log('asasasa', data);
+        this.assignmentlist = data.payload;
+        this.assignmentCount = data.totalCount;
+      }
+    }, error => {
+      console.log(error);
+    });
   }
 
   getLessonDetails(event, i) {

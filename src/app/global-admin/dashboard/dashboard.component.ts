@@ -13,7 +13,8 @@ export class DashboardComponent implements OnInit {
   registeredSchools: any;
   schoolCount: any;
   studentCount: any;
-  p: number;
+  p = 1;
+  itemsPerPage = 5;
 
   constructor(private schoolService: SchoolService, private studentservice: StudentService) { }
 
@@ -25,7 +26,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getAllSchool() {
-    this.schoolService.getAllSchools().subscribe((data: any) => {
+    this.schoolService.getAllSchools(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data) {
         this.registeredSchools = data.payload;
         this.schoolCount = data.totalCount;
@@ -34,7 +35,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getAllStudents() {
-    this.studentservice.getAllStudents().subscribe(
+    this.studentservice.getAllStudents(this.p, this.itemsPerPage).subscribe(
       (res: any) => {
         this.studentCount = res.totalCount;
 

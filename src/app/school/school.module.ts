@@ -33,6 +33,7 @@ import { SchoolManagerSettingsComponent } from './school-manager-settings/school
 import { PeriodComponent } from './period/period.component';
 import { SchoolGradeBookComponent } from './school-grade-book/school-grade-book.component';
 import { StudentSheetComponent } from './student-sheet/student-sheet.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { StudentSheetComponent } from './student-sheet/student-sheet.component';
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
+    NgxPaginationModule,
     NgMultiSelectDropDownModule.forRoot(),
     SchoolRoutingModule,
 

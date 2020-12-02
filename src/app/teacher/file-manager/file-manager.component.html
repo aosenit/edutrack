@@ -205,7 +205,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="pb-2" *ngFor = "let assignment of assignmentlist; let i = index">
+                            <tr class="pb-2" *ngFor = "let assignment of assignmentlist | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: assignmentCount  }; let i = index">
                                 <td scope="row" class="school-logo rounded-left">
                                     <div class="custom-control custom-checkbox"
                                         (change)="getAssignmentDetails($event, i)">
@@ -237,6 +237,10 @@
 
                         </tbody>
                     </table>
+
+                    <div class="d-flex justify-content-end">
+                        <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+                      </div>
 
                 </section>
                 </div>

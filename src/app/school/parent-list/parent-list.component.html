@@ -86,7 +86,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="pb-1" *ngFor = "let parent of parentList | tableSearch : 'fullName' : searchString">
+            <tr class="pb-1" *ngFor = "let parent of parentList | tableSearch : 'fullName' : searchString | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: parentCount }">
                 <td scope="row" class="check rounded-left">
                     <div class="custom-control custom-checkbox" >
                         <input type="checkbox" class="custom-control-input" id="customCheck{{parent?.id}}">
@@ -120,6 +120,10 @@
 
         </tbody>
     </table>
+
+    <div class="d-flex justify-content-end">
+        <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+      </div>
 
 </section>
 

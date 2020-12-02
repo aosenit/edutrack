@@ -51,7 +51,7 @@ export class BasicDetailsComponent implements OnInit {
   }
 
   getAllParents() {
-    this.parentService.getAllParents().subscribe(
+    this.parentService.getAllParentsWithName().subscribe(
       (res: any) => {
         this.parents = res.payload;
         console.log(this.parents);

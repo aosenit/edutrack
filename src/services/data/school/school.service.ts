@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   addschool: 'schtrack-auth/api/v1/School/AddSchool ',
-  getallschool: 'schtrack-auth/api/v1/School/GetSchools?PageIndex=1&PageSize=10',
+  getallschool: 'schtrack-auth/api/v1/School/GetSchools',
   // getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
   getschoolbyid: 'schtrack-auth/api/v1/School/GetSchool',
   bulkUplaod: 'schtrack-auth/api/v1/School/BulkAddSchool',
@@ -44,8 +44,10 @@ export class SchoolService {
     return this.http.post(url, formData);
   }
 
-  getAllSchools() {
-    const url = `${this.baseUrl + routes.getallschool}`;
+  getAllSchools( p, perpage ) {
+    // const url = `${this.baseUrl + routes.getallschool}`;
+    const url = `${this.baseUrl + routes.getallschool}?PageIndex=${p}&PageSize=${perpage}`;
+
     return this.http.get(url);
   }
 
@@ -56,9 +58,9 @@ export class SchoolService {
 
   uploadBulkDocument(bulkUpload) {
     const formData = new FormData();
-    formData.append('File', bulkUpload.Document);
+    formData.append('File', bulkUpload.bulkFile);
     const url = `${this.baseUrl + routes.bulkUplaod}`;
-    return this.http.post(url, bulkUpload);
+    return this.http.post(url, formData);
   }
 
   updateSchool(id, updateSchoolForm) {

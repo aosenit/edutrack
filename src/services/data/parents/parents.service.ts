@@ -47,7 +47,13 @@ export class ParentsService {
     return this.http.post(url, formData, { headers: { tenantId } });
   }
 
-  getAllParents() {
+  getAllParents(p, perpage) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl + routes.getallparent}?PageIndex=${p}&PageSize=${perpage}`;
+    return this.http.get(url, { headers: { tenantId } });
+  }
+  getAllParentsWithName() {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getallparent}`;
