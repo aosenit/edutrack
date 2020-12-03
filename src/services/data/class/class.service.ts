@@ -12,8 +12,8 @@ const routes = {
   // tslint:disable-next-line:max-line-length
   getTeacherforSubject: 'schtrack-learning/api/v1/TeacherClassSubject/GetTeachersForClassSubject', // this endpoint get all subjects attached to a class
   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
-  assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
-  getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses ',
+  assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass',
+  getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses',
   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
   updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
@@ -60,6 +60,11 @@ export class ClassService {
   getAllClasses() {
 
     const url = `${this.baseUrl + routes.getallclass}`;
+    return this.http.get(url, { headers: { tenantId } });
+  }
+  getAllClassesWithPagination(p, perpage) {
+
+    const url = `${this.baseUrl + routes.getallclass}?PageIndex=${p}&PageSize=${perpage}`;
     return this.http.get(url, { headers: { tenantId } });
   }
 

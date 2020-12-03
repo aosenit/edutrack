@@ -24,8 +24,8 @@ const routes: Routes = [
     {path: 'file-manager', component: FileManagerComponent},
     {path: 'files', component: FilesComponent},
     {path: 'profile', component: StudentProfileComponent},
-    {path: 'notification', component: NotificationPageComponent},
-    {path: 'preview', component: TaskPreviewComponent},
+    {path: 'notification/:id', component: NotificationPageComponent},
+    {path: 'preview/:name', component: TaskPreviewComponent},
   ]}
 
 ];

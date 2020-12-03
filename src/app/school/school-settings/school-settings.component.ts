@@ -44,6 +44,9 @@ export class SchoolSettingsComponent implements OnInit {
   theClass: any;
   theArm: any;
   subjectList: any;
+  classCount: number;
+  p = 1;
+  itemsPerPage = 5;
 
   constructor(
     private fb: FormBuilder,
@@ -350,6 +353,7 @@ export class SchoolSettingsComponent implements OnInit {
     this.classService.getClassById(id).subscribe(
       (res: any) => {
         this.theClass = res.payload;
+
       }
     );
   }
@@ -396,9 +400,22 @@ export class SchoolSettingsComponent implements OnInit {
     this.classService.getAllClasses().subscribe(
       (res: any) => {
         this.classes = res.payload;
+        this.classCount = res.totalCount;
         console.log('classes', res);
       }
     );
+  }
+
+  getPage(page: number) {
+    this.classService.getAllClasses().subscribe(
+      (res: any) => {
+        this.classes = res.payload;
+        this.classCount = res.totalCount;
+        console.log('classes', res);
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
   }
 
   deleteClass(id) {

@@ -6,6 +6,8 @@ const routes = {
   getAssignmentByTeacher: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByTeacher',
   getAssignmentByClass: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByClass',
   getAssignmentDetails: 'schtrack-learning/api/v1/Assignment/GetAssignmentDetail',
+  getAssignmentByClassSubject: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByClassSubject',
+  submitStudentAssignment: 'schtrack-learning/api/v1/AssignmentAnswer/UploadAssignmentAnswer',
 
 };
 
@@ -53,6 +55,25 @@ export class AssignmentService {
     const url = `${this.baseUrl + routes.getAssignmentDetails}?id=${id}`;
     console.log(url);
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+
+  }
+
+  getAssignmentsByClassSubject(classSubjectId: number) {
+    const tenantId = '1';
+
+    const url = `${this.baseUrl + routes.getAssignmentByClassSubject}?classSubjectId=${classSubjectId}`;
+    console.log(url);
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
+  submitStudentAssignment(result) {
+    const tenantId = '1';
+
+    const body = new FormData();
+    body.append('AssignmentId', result.AssignmentId);
+    body.append('Document', result.Document);
+    const url = `${this.baseUrl + routes.submitStudentAssignment}`;
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
 
   }
 }

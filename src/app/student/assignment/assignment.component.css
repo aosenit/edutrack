@@ -102,3 +102,7 @@
   background: #dcf2f0;
   border-radius: 9px;
 }
+
+.cursor {
+  cursor: pointer;
+}

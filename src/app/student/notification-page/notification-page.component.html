@@ -76,38 +76,42 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="pb-2 ">
+                <tr class="pb-2 " *ngFor = "let assignment of assignments; let i = index">
 
                   <td class="rounded-left border border-right-0">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                      <p class="mb-0 pb-1 topic fw-6 ">
-                        Descriptive Essay Assignment
+                    <div class="d-flex flex-column  justify-content-start">
+                      <p class="mb-0 pb-1 topic fw-6 text-left">
+                        {{assignment?.name | titlecase}}
                       </p>
                       <div class="d-flex">
-                        <span class="subject-holder px-2 mr-2">English Language</span>
+                        <span class="subject-holder px-2 mr-2">{{assignment?.subjectName | titlecase}}</span>
                         <p class="mb-0 attachment">
-                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
+                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1" *ngIf = "assignment?.fileId">
                           1 Attachment</p>
                       </div>
                     </div>
                   </td>
                   <td class="border-top border-bottom">
                     <div class="d-flex flex-column justify-content-center">
-                      <p class="mb-0 fs-14">07, June 2020</p>
-                      <p class="mb-0 fs-13">2 days left</p>
+                      <p class="mb-0 fs-14">{{assignment?.dueDate | date: 'mediumDate'}} </p>
+                      <p class="mb-0 fs-13"> {{mydate[i]}} </p>
+                      <!-- <p class="mb-0 fs-13" *ngIf = "mydate <  assignment?.creationDate"> Assignment never cast </p> -->
                     </div>
                   </td>
-                  <td class="border-top border-bottom">08:00 am</td>
-                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
+                  <td class="border-top border-bottom">{{assignment?.dueDate | date: 'shortTime'}}</td>
+                  <td class="border-top border-bottom "><span class="status_active">{{assignment?.status}}</span></td>
                   <td class="table-grey rounded-right border border-left-0">
                     <div class="d-flex">
-                      <button class="mr-3 actions open" routerLink="/student/preview">Open</button>
-                      <button class="actions upload" data-toggle="modal"
+                      <button class="mr-3 actions open" (click)="openPreview(assignment?.name, i)">Open</button>
+                      <button (click)="uploadAssignment(i, assignment?.id)"
+                      class="actions upload btn" data-toggle="modal" 
                         data-target="#exampleModalCenter3">Upload</button>
                     </div>
                   </td>
 
                 </tr>
+
+<!--                
                 <tr class="pb-2 ">
 
                   <td class="rounded-left border border-right-0">
@@ -134,197 +138,12 @@
                   <td class="table-grey rounded-right border border-left-0">
                     <div class="d-flex">
                       <button class="mr-3 actions open">Open</button>
-                      <button class="actions upload">Upload</button>
+                      <button class="actions upload" data-toggle="modal"
+                      data-target="#exampleModalCenter3">Upload</button>
                     </div>
                   </td>
 
-                </tr>
-                <tr class="pb-2 ">
-
-                  <td class="rounded-left border border-right-0">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                      <p class="mb-0 pb-1 topic fw-6 ">
-                        Descriptive Essay Assignment
-                      </p>
-                      <div class="d-flex">
-                        <span class="subject-holder px-2 mr-2">English Language</span>
-                        <p class="mb-0 attachment">
-                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
-                          1 Attachment</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">
-                    <div class="d-flex flex-column justify-content-center">
-                      <p class="mb-0 fs-14">07, June 2020</p>
-                      <p class="mb-0 fs-13">2 days left</p>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">08:00 am</td>
-                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
-                  <td class="table-grey rounded-right border border-left-0">
-                    <div class="d-flex">
-                      <button class="mr-3 actions open">Open</button>
-                      <button class="actions upload">Upload</button>
-                    </div>
-                  </td>
-
-                </tr>
-                <tr class="pb-2 ">
-
-                  <td class="rounded-left border border-right-0">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                      <p class="mb-0 pb-1 topic fw-6 ">
-                        Descriptive Essay Assignment
-                      </p>
-                      <div class="d-flex">
-                        <span class="subject-holder px-2 mr-2">English Language</span>
-                        <p class="mb-0 attachment">
-                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
-                          1 Attachment</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">
-                    <div class="d-flex flex-column justify-content-center">
-                      <p class="mb-0 fs-14">07, June 2020</p>
-                      <p class="mb-0 fs-13">2 days left</p>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">08:00 am</td>
-                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
-                  <td class="table-grey rounded-right border border-left-0">
-                    <div class="d-flex">
-                      <button class="mr-3 actions open">Open</button>
-                      <button class="actions upload">Upload</button>
-                    </div>
-                  </td>
-
-                </tr>
-                <tr class="pb-2 ">
-
-                  <td class="rounded-left border border-right-0">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                      <p class="mb-0 pb-1 topic fw-6 ">
-                        Descriptive Essay Assignment
-                      </p>
-                      <div class="d-flex">
-                        <span class="subject-holder px-2 mr-2">English Language</span>
-                        <p class="mb-0 attachment">
-                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
-                          1 Attachment</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">
-                    <div class="d-flex flex-column justify-content-center">
-                      <p class="mb-0 fs-14">07, June 2020</p>
-                      <p class="mb-0 fs-13">2 days left</p>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">08:00 am</td>
-                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
-                  <td class="table-grey rounded-right border border-left-0">
-                    <div class="d-flex">
-                      <button class="mr-3 actions open">Open</button>
-                      <button class="actions upload">Upload</button>
-                    </div>
-                  </td>
-
-                </tr>
-                <tr class="pb-2 ">
-
-                  <td class="rounded-left border border-right-0">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                      <p class="mb-0 pb-1 topic fw-6 ">
-                        Descriptive Essay Assignment
-                      </p>
-                      <div class="d-flex">
-                        <span class="subject-holder px-2 mr-2">English Language</span>
-                        <p class="mb-0 attachment">
-                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
-                          1 Attachment</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">
-                    <div class="d-flex flex-column justify-content-center">
-                      <p class="mb-0 fs-14">07, June 2020</p>
-                      <p class="mb-0 fs-13">2 days left</p>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">08:00 am</td>
-                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
-                  <td class="table-grey rounded-right border border-left-0">
-                    <div class="d-flex">
-                      <button class="mr-3 actions open">Open</button>
-                      <button class="actions upload">Upload</button>
-                    </div>
-                  </td>
-
-                </tr>
-                <tr class="pb-2 ">
-
-                  <td class="rounded-left border border-right-0">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                      <p class="mb-0 pb-1 topic fw-6 ">
-                        Descriptive Essay Assignment
-                      </p>
-                      <div class="d-flex">
-                        <span class="subject-holder px-2 mr-2">English Language</span>
-                        <p class="mb-0 attachment">
-                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
-                          1 Attachment</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">
-                    <div class="d-flex flex-column justify-content-center">
-                      <p class="mb-0 fs-14">07, June 2020</p>
-                      <p class="mb-0 fs-13">2 days left</p>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">08:00 am</td>
-                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
-                  <td class="table-grey rounded-right border border-left-0">
-                    <div class="d-flex">
-                      <button class="mr-3 actions open">Open</button>
-                      <button class="actions upload">Upload</button>
-                    </div>
-                  </td>
-
-                </tr>
-                <tr class="pb-2 ">
-
-                  <td class="rounded-left border border-right-0">
-                    <div class="d-flex flex-column align-items-center justify-content-start">
-                      <p class="mb-0 pb-1 topic fw-6 ">
-                        Descriptive Essay Assignment
-                      </p>
-                      <div class="d-flex">
-                        <span class="subject-holder px-2 mr-2">English Language</span>
-                        <p class="mb-0 attachment">
-                          <img src="assets/images/svg/attachment.svg" alt="new client" class="mr-1">
-                          1 Attachment</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">
-                    <div class="d-flex flex-column justify-content-center">
-                      <p class="mb-0 fs-14">07, June 2020</p>
-                      <p class="mb-0 fs-13">2 days left</p>
-                    </div>
-                  </td>
-                  <td class="border-top border-bottom">08:00 am</td>
-                  <td class="border-top border-bottom "><span class="status_active">Pending</span></td>
-                  <td class="table-grey rounded-right border border-left-0">
-                    <div class="d-flex">
-                      <button class="mr-3 actions open">Open</button>
-                      <button class="actions upload">Upload</button>
-                    </div>
-                  </td>
-
-                </tr>
+                </tr> -->
 
               </tbody>
             </table>
@@ -407,35 +226,35 @@
     <div class="modal-content">
 
       <div class="modal-head mb-2">
-        <div class=" mb-3">
-          <h6 class="modal-title">English Language</h6>
+        <div class=" mb-3"> 
+          <h6 class="modal-title">{{assignmentDetails?.subjectName | titlecase}}</h6>
 
         </div>
         <div class="d-flex  ">
           <div class="d-flex w-25">
             <img src="assets/images/svg/g-calendar.svg" alt="" class="mr-3">
             <div class="d-flex flex-column justify-content-center">
-              <p class="mb-0 fs-14">07, June 2020</p>
+              <p class="mb-0 fs-14">{{assignmentDetails?.dueDate | date: 'mediumDate'}}</p>
               <p class="mb-0 fs-13">Due Date</p>
             </div>
           </div>
           <div class="d-flex  w-25">
             <img src="assets/images/svg/g-time.svg" alt="" class="mr-3">
             <div class="d-flex flex-column justify-content-center">
-              <p class="mb-0 fs-14">08: 00 am</p>
+              <p class="mb-0 fs-14">{{assignmentDetails?.dueDate | date: 'shortTime'}}</p>
               <p class="mb-0 fs-13">Due Time</p>
             </div>
           </div>
         </div>
       </div>
       <div class="modal-body client-modal">
-        <form>
+        <form [formGroup]="uploadAssignmentForm" (ngSubmit)="submitAssignment()">
 
           <p class="fw-6 init">Assignment Details</p>
 
           <div class="form-group file-upload mb-5">
             <label for="fileupload">Drag & drop your files here <br> or click to browse your files </label>
-            <input type="file" class="file-input" id="fileupload">
+            <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)">
             <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
           </div>
 
@@ -446,7 +265,7 @@
           </div>
 
           <div class="d-flex justify-content-between mb-3">
-            <button type="button" class="close close-text" data-dismiss="modal" aria-label="Close">Cancel </button>
+            <button type="button" class="close close-text" data-dismiss="modal" aria-label="Close" id="closeAssignmentModal">Cancel </button>
             <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
           </div>
 
