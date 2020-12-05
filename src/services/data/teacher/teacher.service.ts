@@ -8,6 +8,7 @@ const routes = {
   getteacherbyid: 'schtrack-auth/api/v1/Teacher/GetTeachers',
   updateteacherbyid: 'schtrack-auth/api/v1/Teacher/UpdateTeacher',
   deleteteacher: 'schtrack-auth/api/v1/Teacher/DeleteTeacher',
+  getAllassignmentSubmission: 'schtrack-learning/api/v1/AssignmentAnswer/GetAllAssignmentAnswers',
 
   attachteachertosubject: 'schtrack-learning/api/v1/TeacherClassSubject/AddClassSubjectsToTeacher',
   getteacherdesignation: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher'
@@ -137,6 +138,14 @@ export class TeacherService {
 
     const url = `${this.baseUrl + routes.getteacherdesignation}/${id}`;
 
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+
+  }
+
+  getAllAssignmentSubmissionForASubject(id) {
+    const tenantId = '1'; // just a temporary header till email services is ready
+    const url = `${this.baseUrl + routes.getAllassignmentSubmission}?assignmentId=${id}`;
+    console.log(url);
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
 
   }

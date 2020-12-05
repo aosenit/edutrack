@@ -22,7 +22,7 @@ subjectList: object;
 
   getAllSubjects() {
     const classId = 25;
-    this.classService.getAllSubjectsInAClassByClassID(classId).subscribe((data: any) => {
+    this.classService.getAllSubjectsInAClassWithAssignmentCountByClassID(classId).subscribe((data: any) => {
       if (data.hasErrors === false ) {
         console.log(data);
         this.subjectList = data.payload;

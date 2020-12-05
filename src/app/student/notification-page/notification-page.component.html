@@ -102,10 +102,10 @@
                   <td class="border-top border-bottom "><span class="status_active">{{assignment?.status}}</span></td>
                   <td class="table-grey rounded-right border border-left-0">
                     <div class="d-flex">
-                      <button class="mr-3 actions open" (click)="openPreview(assignment?.name, i)">Open</button>
+                      <button class="mr-3 actions open" (click)="openPreview(assignment?.id, i)">Open</button>
                       <button (click)="uploadAssignment(i, assignment?.id)"
                       class="actions upload btn" data-toggle="modal" 
-                        data-target="#exampleModalCenter3">Upload</button>
+                        data-target="#exampleModalCenter3" [hidden]="assignment?.status == 'Due'">Upload</button>
                     </div>
                   </td>
 

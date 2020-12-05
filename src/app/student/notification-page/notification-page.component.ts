@@ -47,8 +47,8 @@ export class NotificationPageComponent implements OnInit {
           this.assignments = data.payload;
           console.log(this.assignments);
       }
-      this.mydate = this.assignments.map((ids) => {
-        return moment(ids.dueDate).fromNow();
+      this.mydate = this.assignments.map((date) => {
+        return moment(date.dueDate).fromNow();
       });
       // console.log(test);
     }, error => {
@@ -56,6 +56,7 @@ export class NotificationPageComponent implements OnInit {
 
     });
   }
+
 
   // calculateDiff(dateSent) {
   //   const currentDate = new Date();
@@ -68,8 +69,8 @@ export class NotificationPageComponent implements OnInit {
 
   uploadAssignment(i, id) {
     this.assignmentDetails = this.assignments[i];
-    console.log(this.assignmentDetails.id);
-    sessionStorage.setItem('student-assignment', JSON.stringify(this.assignments[i]));
+    // console.log(this.assignmentDetails.id);
+    // sessionStorage.setItem('student-assignment', JSON.stringify(this.assignments[i]));
 
   }
 
@@ -96,17 +97,17 @@ export class NotificationPageComponent implements OnInit {
     this.assignmentService.submitStudentAssignment(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
-        this.notifyService.publishMessages('Class note uploaded successfully', 'info', 1);
+        this.notifyService.publishMessages('Assignment submitted successfully', 'info', 1);
         document.getElementById('closeAssignmentModal').click();
 
       }
     });
   }
 
-  openPreview(name, i) {
-    this.router.navigateByUrl('/student/preview/' + name );
+  openPreview(id, i) {
+    this.router.navigateByUrl('/student/preview/' + id );
     this.assignmentDetails = this.assignments[i];
-    console.log(this.assignmentDetails.id);
+    sessionStorage.setItem('student-assignment', JSON.stringify(this.assignmentDetails));
   }
 
 

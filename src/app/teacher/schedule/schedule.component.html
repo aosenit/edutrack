@@ -28,15 +28,16 @@
       <form *ngIf="table">
         <div class="row">
           <div class="col ">
-            <select name="" id="" class="form-control form-control-lg">
-              <option value="">Select class</option>
+            <select id="class" class="form-control" >
+              <option [value]="class.id" *ngFor = "let class of classes" > {{class?.name}}{{class?.classGroup}}</option>
+              
             </select>
           </div>
-          <div class="col ">
+          <!-- <div class="col ">
             <select name="" id="" class="form-control form-control-lg">
               <option value="">Select Subject</option>
             </select>
-          </div>
+          </div> -->
         </div>
       </form>
       <form *ngIf="calendar">
@@ -59,18 +60,18 @@
               <div class="col-md-2">
 
               </div>
-              <div class="col-md-2" *ngFor="let day of days; let i = index">
+              <div class="col-md-2" *ngFor="let day of daysInWeek; let i = index">
                 {{day?.day}} {{i}}
               </div>
 
 
             </div>
-            <div class="row " *ngFor = "let period of timeTable">
+            <div class="row " *ngFor = "let period of daysInWeek">
               <div class="col-md-2  d-flex justify-content-between align-items-center">
                 <b>{{period[0]}} </b>
               </div>
-              <div class="col-md-2 border d-flex justify-content-center" *ngFor="let cell of period[1]; let i = index">
-                <div class="bg-lblue w-100 br-10 p-2" *ngIf="cell?.day === i">
+              <div class="col-md-2 border d-flex justify-content-center" *ngFor="let cell of period.classes; let i = index">
+                <div class="bg-lblue w-100 br-10 p-2" >
                   <p > 
                     {{cell.subjectName | titlecase}}
                     <b>{{cell?.day}}</b>

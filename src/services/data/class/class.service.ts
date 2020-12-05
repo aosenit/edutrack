@@ -96,12 +96,16 @@ export class ClassService {
 
   }
 
-  getAllSubjectsInAClassByClassID(id: any) {
+  getAllSubjectsInAClassWithAssignmentCountByClassID(id: any) {
     const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classid=${id}`;
     console.log(url);
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
+  getAllSubjectsInAClassByClassID(id) {
+    const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classid=${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
   getTeacherTeachingSubject(id: any) {
     const url = `${this.baseUrl + routes.getTeacherforSubject}/${id}`;
     console.log('teacher for sucject', url);

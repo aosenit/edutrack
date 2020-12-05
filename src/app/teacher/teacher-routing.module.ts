@@ -25,7 +25,7 @@ const routes: Routes = [
       { path: 'schedule', component: ScheduleComponent },
       { path: 'grade-assignment', component: GradingComponent },
       { path: 'assignments', component: AssignmentsComponent },
-      { path: 'student-assignment', component: AssignmentComponent },
+      { path: 'assignment-submission/:id', component: AssignmentComponent },
       { path: 'assignment/new', component: CreateAssignmentComponent },
       { path: 'filemanager', component: FileManagerComponent },
       { path: 'lesson-note/:id', component: ViewFileComponent },

@@ -64,7 +64,7 @@
               <td (mouseenter)="changeText(assignment?.id)" (mouseleave)="reverseText(assignment?.id)">
                 <span class="status" *ngIf="changetext">{{assignment?.status}}</span>
                 <span class="status" [ngStyle]="{cursor: 'pointer'}" *ngIf="!changetext"
-                  routerLink="/teacher/student-assignment">Open</span>
+                  routerLink="/teacher/assignment-submission/{{assignment?.id}}">Open</span>
               </td>
               <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
 

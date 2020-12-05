@@ -397,25 +397,25 @@ export class SchoolSettingsComponent implements OnInit {
 
 
   getClasses() {
-    this.classService.getAllClasses().subscribe(
+    this.classService.getAllClassesWithPagination(this.p, this.itemsPerPage).subscribe(
       (res: any) => {
         this.classes = res.payload;
         this.classCount = res.totalCount;
-        console.log('classes', res);
+        console.log('classes', this.classCount);
       }
     );
   }
 
   getPage(page: number) {
-    this.classService.getAllClasses().subscribe(
+    this.classService.getAllClassesWithPagination(page, this.itemsPerPage).subscribe(
       (res: any) => {
         this.classes = res.payload;
         this.classCount = res.totalCount;
         console.log('classes', res);
-    }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
+      }, error => {
+        this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-    });
+      });
   }
 
   deleteClass(id) {

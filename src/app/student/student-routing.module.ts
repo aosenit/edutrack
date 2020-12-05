@@ -25,7 +25,7 @@ const routes: Routes = [
     {path: 'files', component: FilesComponent},
     {path: 'profile', component: StudentProfileComponent},
     {path: 'notification/:id', component: NotificationPageComponent},
-    {path: 'preview/:name', component: TaskPreviewComponent},
+    {path: 'preview/:id', component: TaskPreviewComponent},
   ]}
 
 ];

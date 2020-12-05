@@ -14,54 +14,17 @@
             </div>
 
             <div class="file-cards mb-5">
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
+                <div class="files px-3 pt-3 pb-4 " *ngFor = "let subject of subjectList"  >
+                    <p class="mb-0 "  > {{subject?.subject | titlecase}}</p>
+                    <!-- <p class="last"  *ngIf="subject?.assignmentCount === 0"></p> -->
+                    <p class="last cursor-pointer"  routerLink = "/student/notification/{{subject?.id}}" *ngIf="subject?.assignmentCount > 1">Click to view file(s)</p>
+                </div>
+                
+                <!-- <div class="files px-3 pt-3 pb-4 cursor-pointer">
                     <p class="mb-0"> English language</p>
                     <p>Click to view files</p>
-                </div>
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
-                    <p class="mb-0"> English language</p>
-                    <p>Click to view files</p>
-                </div>
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
-                    <p class="mb-0"> English language</p>
-                    <p>Click to view files</p>
-                </div>
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
-                    <p class="mb-0"> English language</p>
-                    <p>Click to view files</p>
-                </div>
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
-                    <p class="mb-0"> English language</p>
-                    <p>Click to view files</p>
-                </div>
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
-                    <p class="mb-0"> English language</p>
-                    <p>Click to view files</p>
-                </div>
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
-                    <p class="mb-0"> English language</p>
-                    <p>Click to view files</p>
-                </div>
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
-                    <p class="mb-0"> English language</p>
-                    <p>Click to view files</p>
-                </div>
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
-                    <p class="mb-0"> English language</p>
-                    <p>Click to view files</p>
-                </div>
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
-                    <p class="mb-0"> English language</p>
-                    <p>Click to view files</p>
-                </div>
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
-                    <p class="mb-0"> English language</p>
-                    <p>Click to view files</p>
-                </div>
-                <div class="files px-3 pt-3 pb-4 cursor-pointer">
-                    <p class="mb-0"> English language</p>
-                    <p>Click to view files</p>
-                </div>
+                </div> -->
+                
             </div>
         </div>
         <div class="col-md-3 bg-white">

@@ -68,7 +68,7 @@ export class ClientsComponent implements OnInit {
 
     });
   }
-  
+
   getImageID(id) {
     // console.log('logo id', id);
     this.logoId = id;

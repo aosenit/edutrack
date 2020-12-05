@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClassService } from 'src/services/data/class/class.service';
 
 @Component({
   selector: 'app-file-manager',
@@ -6,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./file-manager.component.css']
 })
 export class FileManagerComponent implements OnInit {
-
-  constructor() { }
+  subjectList: object;
+  constructor(
+    private classService: ClassService
+  ) { }
 
   ngOnInit() {
+    this.getAllSubjects();
+
   }
 
+
+
+  getAllSubjects() {
+    const classId = 25;
+    this.classService.getAllSubjectsInAClassByClassID(classId).subscribe((data: any) => {
+      if (data.hasErrors === false ) {
+        console.log(data);
+        this.subjectList = data.payload;
+      }
+    });
+  }
 }
