@@ -28,7 +28,7 @@ export class UsersComponent implements OnInit {
     });
     this.showAllAdmin();
     // this.getRolesPermissions();
-    this.getRoles();
+    // this.getRoles();
   }
 
   showBanner(status: string) {
@@ -74,35 +74,35 @@ export class UsersComponent implements OnInit {
     console.log(this.bulkUpload.value);
   }
 
-  getRolesPermissions() {
-    this.adminService.getAllPermissions().subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.allRoles = data.payload;
+  // getRolesPermissions() {
+  //   this.adminService.getAllPermissions().subscribe((data: any) => {
+  //     if (data.hasErrors === false) {
+  //       this.allRoles = data.payload;
 
-        from(this.allRoles)
-          .pipe(
-            groupBy(
-              (person: any) => person.name.split('_')[0]
-            ),
-            mergeMap(group => zip(of(group.key), group.pipe(toArray())))
-          )
-          .subscribe(console.log);
-      }
-    }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
+  //       from(this.allRoles)
+  //         .pipe(
+  //           groupBy(
+  //             (person: any) => person.name.split('_')[0]
+  //           ),
+  //           mergeMap(group => zip(of(group.key), group.pipe(toArray())))
+  //         )
+  //         .subscribe(console.log);
+  //     }
+  //   }, error => {
+  //     this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-    });
-  }
+  //   });
+  // }
 
-  getRoles() {
-    this.adminService.getRoles().subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.allRoles = data.payload;
-        console.log(this.allRoles);
-      }
-    }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
-    });
-  }
+  // getRoles() {
+  //   this.adminService.getRoles().subscribe((data: any) => {
+  //     if (data.hasErrors === false) {
+  //       this.allRoles = data.payload;
+  //       console.log(this.allRoles);
+  //     }
+  //   }, error => {
+  //     this.notifyService.publishMessages(error.errors, 'danger', 1);
+  //   });
+  // }
 
 }

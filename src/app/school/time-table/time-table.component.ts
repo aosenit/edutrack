@@ -1,4 +1,4 @@
-import { getLocaleFirstDayOfWeek } from '@angular/common';
+import { getLocaleFirstDayOfWeek, JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { from, zip, of } from 'rxjs';
 import { groupBy, mergeMap, toArray } from 'rxjs/operators';
@@ -22,6 +22,7 @@ export class TimeTableComponent implements OnInit {
   days: any;
   timeTableCells: any;
   timeTable: any;
+  timetable2: any;
   addCell = { periodId: '', day: '', teacherClassSubjectId: '', HasVirtual: false };
   constructor(
     private schoolSectionService: SchoolSectionService,
@@ -60,6 +61,7 @@ export class TimeTableComponent implements OnInit {
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
+
       }
     }
     );
@@ -77,13 +79,27 @@ export class TimeTableComponent implements OnInit {
            mergeMap(group => zip(of(group.key), group.pipe(toArray())))
          )
          .subscribe(xy => {
-           console.log('Periods', ...xy);
            tables.push(xy);
           });
         this.timeTable = tables;
         console.log('time table', this.timeTable);
+        // const transpose = this.timeTable.reduce((arr, obj) => {
+        //   for (const key in obj) {
+        //     if (obj.hasOwnProperty(key)) {
+        //       arr[key] = arr[key] || [];
+        //       arr[key].push(obj[key]);
+        //     }
+        //   }
+        //   return arr;
+        // }, {});
+        // console.log('omoh', transpose);
+        // this.timetable2 = transpose;
       }
     });
+  }
+
+  loadData(period, dat) {
+    console.log('period', period, dat );
   }
 
 
@@ -155,6 +171,7 @@ export class TimeTableComponent implements OnInit {
     this.timeTableService.AddTimeTableCell(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
+        sessionStorage.setItem('table', JSON.stringify(data.payload));
         this.notifyService.publishMessages('Upload successfull', 'success', 1);
 
       }

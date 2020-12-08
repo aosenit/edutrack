@@ -1,4 +1,4 @@
-<section class="add-student" *ngIf= "record">
+<section class="add-student" *ngIf="studentList?.length === 0">
     <img src="assets/images/svg/add-student.svg" alt="new student" class="">
     <p class="text-center fw-6 pt-5">It looks like you are yet to create a student.You can do <br> that by clicking any of the buttons below.
         below.</p>
@@ -14,119 +14,121 @@
 
 
 
-
-<section class="banner mb-4 pb-3">
-    <div class="pt-5 pl-3 content ">
-        <h6 class="banner__text-primary fw-6 "> Students </h6>
-        <p class="text-white"> Directory of all registered students </p>
-    </div>
-    <div class="d-flex">
-        <button class="btn btn-outline-orange  mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
-            data-target="#exampleModalCenterUpload">Bulk
-            Upload</button>
-        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student"> Add New </button>
-    </div>
-
-</section>
-
-<section class="d-flex align-items-center justify-content-between mb-4 mt-5">
-    <div class="search__input has-search">
-        <span class="fa fa-search form-control-feedback"></span>
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
-    </div>
-    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
-
-</section>
-
-
-
-
-<section class="list">
-    <table class="table table-borderless client-table">
-        <thead>
-            <tr>
-                <th scope="col" class="head ">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                        <label class="custom-control-label" for="customCheckTh"></label>
-                    </div>
-                </th>
-                <th scope="col" class="text-center" >Student Name <img src="assets/images/svg/table-sort.svg"
-                        alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <!-- ================ DROPDOWN ==================== -->
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        
-                        <a class="dropdown-item fc-orange" href="#">All </a>
-                        <a class="dropdown-item" href="#">A - Z </a>
-                        <a class="dropdown-item" href="#">Z - A </a>
-                    </div>
-                </th>
-                <th scope="col">Student Number </th>
-               
-                <th scope="col">Sex <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
-                <th scope="col">Date of Birth <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
-                <th scope="col">Level <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
-                <th scope="col">Class <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
-
-                <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                        class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    <!-- ================ DROPDOWN ==================== -->
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                        
-                        <a class="dropdown-item fc-orange" href="#">All </a>
-                        <a class="dropdown-item" href="#">Active </a>
-                        <a class="dropdown-item" href="#">Inactive </a>
-                    </div>
-                </th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="pb-1" *ngFor="let student of studentList | tableSearch : 'firstName' : searchString | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: studentCount }">
-                <td scope="row" class="check rounded-left">
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="{{student?.id}}">
-                        <label class="custom-control-label" for="{{student?.id}}"></label>
-                    </div>
-                </td>
-                <td class="user" >
-                    
-                    <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
-                        <h6 class="fw-6 mb-0" >{{student?.firstName}} {{student?.lastName}} </h6>
-                    </div>
-                </td>
-                <td>{{student?.studentNumber}}</td>
-                <td>{{student?.sex | titlecase}}</td>
-                <td class="">{{student?.dateOfBirth | date : 'mediumDate'}}</td>
-                <td class="">{{student?.section}}</td>
-                <td class="">{{student?.class}}</td>
-                <td><span class="status_active">Active</span></td>
-                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+<div *ngIf="studentList?.length !== 0">
+    
+    <section class="banner mb-4 pb-3">
+        <div class="pt-5 pl-3 content ">
+            <h6 class="banner__text-primary fw-6 "> Students </h6>
+            <p class="text-white"> Directory of all registered students </p>
+        </div>
+        <div class="d-flex">
+            <button class="btn btn-outline-orange  mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+                data-target="#exampleModalCenterUpload">Bulk
+                Upload</button>
+            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student"> Add New </button>
+        </div>
+    
+    </section>
+    
+    <section class="d-flex align-items-center justify-content-between mb-4 mt-5">
+        <div class="search__input has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
+        </div>
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    
+    </section>
+    
+    
+    
+    
+    <section class="list">
+        <table class="table table-borderless client-table">
+            <thead>
+                <tr>
+                    <th scope="col" class="head ">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                            <label class="custom-control-label" for="customCheckTh"></label>
+                        </div>
+                    </th>
+                    <th scope="col" class="text-center" >Student Name <img src="assets/images/svg/table-sort.svg"
+                            alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <!-- ================ DROPDOWN ==================== -->
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#" [routerLink]="['/school', 'student-detail', student?.id]">View</a>
-                            <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenter3">Send SMS</a>
-                            <a class="dropdown-item"  >Send Email</a>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterPromote">Promote</a>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterDemote">Deactivate</a> -->
-                          </div>
+                            
+                            <a class="dropdown-item fc-orange" href="#">All </a>
+                            <a class="dropdown-item" href="#">A - Z </a>
+                            <a class="dropdown-item" href="#">Z - A </a>
+                        </div>
+                    </th>
+                    <th scope="col">Student Number </th>
+                   
+                    <th scope="col">Sex <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
+                    <th scope="col">Date of Birth <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
+                    <th scope="col">Level <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
+                    <th scope="col">Class <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
+    
+                    <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                            class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <!-- ================ DROPDOWN ==================== -->
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                            
+                            <a class="dropdown-item fc-orange" href="#">All </a>
+                            <a class="dropdown-item" href="#">Active </a>
+                            <a class="dropdown-item" href="#">Inactive </a>
+                        </div>
+                    </th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pb-1" *ngFor="let student of studentList | tableSearch : 'firstName' : searchString | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: studentCount }">
+                    <td scope="row" class="check rounded-left">
+                        <div class="custom-control custom-checkbox" >
+                            <input type="checkbox" class="custom-control-input" id="{{student?.id}}">
+                            <label class="custom-control-label" for="{{student?.id}}"></label>
+                        </div>
                     </td>
-            </tr>
-
-            
-
-
-
-        </tbody>
-    </table>
-    <div class="d-flex justify-content-end">
-        <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
-      </div>
-
-</section>
+                    <td class="user" >
+                        
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
+                            <h6 class="fw-6 mb-0" >{{student?.firstName}} {{student?.lastName}} </h6>
+                        </div>
+                    </td>
+                    <td>{{student?.studentNumber}}</td>
+                    <td>{{student?.sex | titlecase}}</td>
+                    <td class="">{{student?.dateOfBirth | date : 'mediumDate'}}</td>
+                    <td class="">{{student?.section}}</td>
+                    <td class="">{{student?.class}}</td>
+                    <td><span class="status_active">Active</span></td>
+                    <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
+                            alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#" [routerLink]="['/school', 'student-detail', student?.id]">View</a>
+                                <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenter3">Send SMS</a>
+                                <a class="dropdown-item"  >Send Email</a>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterPromote">Promote</a>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterDemote">Deactivate</a> -->
+                              </div>
+                        </td>
+                </tr>
+    
+                
+    
+    
+    
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-end">
+            <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+          </div>
+    
+    </section>
+</div>
 
 
 

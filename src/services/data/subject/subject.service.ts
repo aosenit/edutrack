@@ -20,20 +20,18 @@ export class SubjectService {
   constructor(private http: HttpClient) { }
 
   addNewSubject(result) {
-    const tenantId = '1';
     // const body = new FormData();
     // body.append('ClassIds', result.ClassIds);
     // body.append('Name', result.Name);
 
     // body.append('IsActive', result.IsActive);
     const url = `${this.baseUrl + routes.addsubject}`;
-    return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getAllSubjects() {
-    const tenantId = '1';
     const url = `${this.baseUrl + routes.getallSubjects}`;
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 }

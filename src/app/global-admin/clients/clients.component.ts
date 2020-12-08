@@ -47,7 +47,7 @@ export class ClientsComponent implements OnInit {
         console.log('all schools', data);
         this.clientList = data.payload;
         this.clientCount = data.totalCount;
-        this.clientList.reverse();
+        // this.clientList.reverse();
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -61,7 +61,7 @@ export class ClientsComponent implements OnInit {
         console.log('all schools', data);
         this.clientList = data.payload;
         this.clientCount = data.totalCount;
-        this.clientList.reverse();
+        // this.clientList.reverse();
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -129,7 +129,7 @@ export class ClientsComponent implements OnInit {
         console.log('assa', this.profileInfo);
         sessionStorage.setItem('client-info', JSON.stringify(this.profileInfo));
         this.router.navigateByUrl('/admin/edit-client/' + id);
-        this.getAllSchools()
+        this.getAllSchools();
 
       }
     });

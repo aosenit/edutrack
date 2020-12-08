@@ -22,7 +22,7 @@ export class StaffService {
   constructor(private http: HttpClient) { }
 
   addStaff(form) {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
     const { EducationExperienceVMs, WorkExperienceVMs } = form;
     const body = new FormData();
     body.append('FirstName', form.FirstName);
@@ -83,40 +83,40 @@ export class StaffService {
     const url = `${this.baseUrl + routes.addstaff}`;
     console.log(url);
     console.log(body);
-    return this.http.post(url, body, { headers: { tenantId } });
+    return this.http.post(url, body, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getAllStaffInSchool() {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getallstaff}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
   getStaffById(id) {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getstaffbyid}/${id}`;
 
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
 
   }
 
   updateStaff(id, updateForm) {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.updatestaffbyid}/${id}`;
-    return this.http.put(url, updateForm, { headers: { tenantId } });
+    return this.http.put(url, updateForm, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
   deleteStaffById(id) {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.deletestaff}/${id}`;
-    return this.http.delete(url, { headers: { tenantId } });
+    return this.http.delete(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 

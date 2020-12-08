@@ -53,11 +53,11 @@ export class PeriodComponent implements OnInit {
     isBreak
 
     };
-    this.periods.push(results);
     document.getElementById('myModal').click();
+    this.periods.push(results);
     this.periodName = this.periods;
     console.log(this.periodName);
-    this.addPeriodForm.reset();
+    // this.addPeriodForm.reset();
   }
 
   publishPeriods() {

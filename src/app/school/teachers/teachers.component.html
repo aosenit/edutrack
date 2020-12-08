@@ -1,4 +1,16 @@
-<section class="banner mb-4 pb-3">
+<section class="add-employee" *ngIf="teachersList?.length === 0" >
+    <img src="assets/images/svg/add-student.svg" alt="new employee" class="">
+    <p class="text-center fw-6 pt-5">It looks like you are yet to create a teacher. You can do <br> that by clicking any of the buttons below.
+        below.</p>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-employee']">
+        Add New </button>
+    <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
+        data-target="#exampleModalCenterUpload">Bulk
+        Upload</button>
+</section>
+
+
+<section class="banner mb-4 pb-3 " *ngIf="teachersList?.length !== 0" >
     <div class="pt-5 pl-3 content ">
         <h6 class="banner__text-primary fw-6 "> Teachers </h6>
         <p class=""> Directory of all registered teachers </p>
@@ -6,92 +18,94 @@
     <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student"> Add New </button> -->
 
 </section>
-
-<section class="d-flex align-items-center justify-content-between mb-4 mt-5">
-    <div class="search__input has-search">
-        <span class="fa fa-search form-control-feedback"></span>
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
-    </div>
-    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
-
-</section>
-
-
-
-
-<section class="list">
-    <table class="table table-borderless client-table">
-        <thead>
-            <tr>
-                <th scope="col" class="head ">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                        <label class="custom-control-label" for="customCheckTh"></label>
-                    </div>
-                </th>
-                <th scope="col" >Full Name <img src="assets/images/svg/table-sort.svg"
-                        alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <!-- ================ DROPDOWN ==================== -->
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        
-                        <a class="dropdown-item fc-orange" href="#">All </a>
-                        <a class="dropdown-item" href="#">A - Z </a>
-                        <a class="dropdown-item" href="#">Z - A </a>
-                    </div>
-                </th>
-                <th scope="col">Staff Number </th>
-               
-                <th scope="col">Designation <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
-                
-
-                <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                        class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    <!-- ================ DROPDOWN ==================== -->
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                        
-                        <a class="dropdown-item fc-orange" href="#">All </a>
-                        <a class="dropdown-item" href="#">Active </a>
-                        <a class="dropdown-item" href="#">Inactive </a>
-                    </div>
-                </th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="pb-1" *ngFor = "let teacher of teachersList | tableSearch : 'firstName' : searchString">
-                <td scope="row" class="check rounded-left">
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                </td>
-                <td class="user" >
-                    
-                    <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6 mb-0" >{{teacher?.firstName}} {{teacher?.lastName}} </h6>
-                    </div>
-                </td>
-                <td>AMI/ST/2020/001</td>
-                <td>SS 2A Class teacher</td>
-                
-                <td><span class="status_active">Active</span></td>
-                <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div *ngIf="teachersList?.length !== 0" >
+    
+    <section class="d-flex align-items-center justify-content-between mb-4 mt-5">
+        <div class="search__input has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
+        </div>
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    
+    </section>
+    
+    
+    
+    
+    <section class="list">
+        <table class="table table-borderless client-table">
+            <thead>
+                <tr>
+                    <th scope="col" class="head ">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                            <label class="custom-control-label" for="customCheckTh"></label>
+                        </div>
+                    </th>
+                    <th scope="col" >Full Name <img src="assets/images/svg/table-sort.svg"
+                            alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <!-- ================ DROPDOWN ==================== -->
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" routerLink ="/school/attach-teacher/{{teacher?.id}}">View</a>
-                            <a class="dropdown-item" href="#">Deactivate</a>
-                          </div>
-                     </td>
-            </tr>
-
-            
-
-
-
-        </tbody>
-    </table>
-
-</section>
+                            
+                            <a class="dropdown-item fc-orange" href="#">All </a>
+                            <a class="dropdown-item" href="#">A - Z </a>
+                            <a class="dropdown-item" href="#">Z - A </a>
+                        </div>
+                    </th>
+                    <th scope="col">Staff Number </th>
+                   
+                    <th scope="col">Designation <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
+                    
+    
+                    <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                            class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <!-- ================ DROPDOWN ==================== -->
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                            
+                            <a class="dropdown-item fc-orange" href="#">All </a>
+                            <a class="dropdown-item" href="#">Active </a>
+                            <a class="dropdown-item" href="#">Inactive </a>
+                        </div>
+                    </th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pb-1" *ngFor = "let teacher of teachersList | tableSearch : 'firstName' : searchString">
+                    <td scope="row" class="check rounded-left">
+                        <div class="custom-control custom-checkbox" >
+                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                    </td>
+                    <td class="user" >
+                        
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
+                            <h6 class="fw-6 mb-0" >{{teacher?.firstName}} {{teacher?.lastName}} </h6>
+                        </div>
+                    </td>
+                    <td>AMI/ST/2020/001</td>
+                    <td>SS 2A Class teacher</td>
+                    
+                    <td><span class="status_active">Active</span></td>
+                    <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
+                            alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" routerLink ="/school/attach-teacher/{{teacher?.id}}">View</a>
+                                <a class="dropdown-item" href="#">Deactivate</a>
+                              </div>
+                         </td>
+                </tr>
+    
+                
+    
+    
+    
+            </tbody>
+        </table>
+    
+    </section>
+</div>

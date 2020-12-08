@@ -34,53 +34,53 @@ export class ClassService {
   addClass(result) {
     const url = `${this.baseUrl + routes.addclass}`;
     console.log(url);
-    return this.http.post(url, result, { headers: { tenantId } });
+    return this.http.post(url, result,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   addStudentsToClass(addStudentForm) {
     const url = `${this.baseUrl + routes.addstudenttoclass}`;
-    return this.http.post(url, addStudentForm, { headers: { tenantId } });
+    return this.http.post(url, addStudentForm,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getClassBySection(id) {
     const url = `${this.baseUrl + routes.getclassbysection}/${id}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   assignSubjectToClass(id: any, form) {
     const url = `${this.baseUrl + routes.assignSubjectToClass}/${id}`;
-    return this.http.post(url, form, { headers: { tenantId } });
+    return this.http.post(url, form,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   assignTeachToClass(id: any, form) {
     const url = `${this.baseUrl + routes.assignTeacherToClass}/${id}`;
-    return this.http.post(url, form, { headers: { tenantId } });  // (form) will be changes to when necessary
+    return this.http.post(url, form,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});  // (form) will be changes to when necessary
   }
 
   getAllClasses() {
 
     const url = `${this.baseUrl + routes.getallclass}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
   getAllClassesWithPagination(p, perpage) {
 
     const url = `${this.baseUrl + routes.getallclass}?PageIndex=${p}&PageSize=${perpage}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getClassById(id) {
     const url = `${this.baseUrl + routes.getclassbyid}/${id}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getClassByIdWithStudent(id: any) {
     const url = `${this.baseUrl + routes.getstudentclass}/${id}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   updateParent(id, updateParentForm) {
     const url = `${this.baseUrl + routes.updateclassbyid}/${id}`;
-    return this.http.put(url, updateParentForm, { headers: { tenantId } });
+    return this.http.put(url, updateParentForm,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
@@ -88,27 +88,27 @@ export class ClassService {
     const body = new FormData();
     body.append('Id', id);
     body.append('Name', name);
-    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/Class/UpdateClass', body, { headers: { tenantId } });
+    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/Class/UpdateClass', body,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
   deleteClassById(id) {
     const url = `${this.baseUrl + routes.deleteclass}/${id}`;
-    return this.http.delete(url, { headers: { tenantId } });
+    return this.http.delete(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
   getAllSubjectsInAClassWithAssignmentCountByClassID(id: any) {
     const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classid=${id}`;
     console.log(url);
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getAllSubjectsInAClassByClassID(id) {
     const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classid=${id}`;
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
   getTeacherTeachingSubject(id: any) {
     const url = `${this.baseUrl + routes.getTeacherforSubject}/${id}`;
     console.log('teacher for sucject', url);
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

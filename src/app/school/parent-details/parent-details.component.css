@@ -108,7 +108,7 @@ border-radius: 10px;
 
 }
 
-.cards__profile .cards__profile-info .line {
+.cards__profile .cards__profile-info .line, .cards__plan .cards__profile-info .line {
     position: relative;
     width: 80%;
 }
@@ -126,7 +126,7 @@ border-radius: 10px;
     font-size: 18px;
 }
 
-.cards__profile .cards__profile-info .line::before {
+.cards__profile .cards__profile-info .line::before, .cards__plan .cards__profile-info .line::before {
     content: "";
     position: absolute;
     width: 80%;
@@ -136,7 +136,7 @@ border-radius: 10px;
     bottom: -6px;
 }
 
-.cards__profile .cards__profile-info .line::after {
+.cards__profile .cards__profile-info .line::after, .cards__plan .cards__profile-info .line::after {
     content: "";
     position: absolute;
     width: 110%;

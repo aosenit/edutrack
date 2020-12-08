@@ -66,7 +66,7 @@ export class MediaComponent implements OnInit {
         this.router.navigateByUrl('/school/employees');
       }
     }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
+      this.notifyService.publishMessages(error.errors[0], 'danger', 1);
 
     });
 

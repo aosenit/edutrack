@@ -19,8 +19,8 @@ export class StudentService {
   constructor(private http: HttpClient) { }
 
   addStudent(studentForm) {
-    const tenantId = '1'; // just a temporary header till email services is ready
-    const {immunizationVms} = studentForm;
+    // const tenantId = '1'; // just a temporary header till email services is ready
+    const { immunizationVms } = studentForm;
     const body = new FormData();
     body.append('FirstName', studentForm.FirstName);
     body.append('LastName', studentForm.LastName);
@@ -30,14 +30,14 @@ export class StudentService {
     body.append('DateOfBirth', studentForm.DateOfBirth);
     body.append('Religion', studentForm.Religion);
     body.append('Nationality', studentForm.Nationality);
-    body.append('ParentId', studentForm.ParentId );
+    body.append('ParentId', studentForm.ParentId);
     body.append('StateOfOrigin', studentForm.StateOfOrigin);
     body.append('LocalGovt', studentForm.LocalGovt);
     body.append('TransportRoute', studentForm.TransportRoute);
     body.append('EntryType', studentForm.EntryType);
     body.append('AdmissionDate', studentForm.AdmissionDate);
-    body.append('SectionId', studentForm.SectionId );
-    body.append('ClassId', studentForm.ClassId  );
+    body.append('SectionId', studentForm.SectionId);
+    body.append('ClassId', studentForm.ClassId);
     body.append('StudentType', studentForm.StudentType);
     body.append('ContactPhone', studentForm.ContactPhone);
     body.append('ContactCountry', studentForm.ContactCountry);
@@ -58,46 +58,36 @@ export class StudentService {
       body.append('immunizationVms[' + i + '].vaccine', immunizationVms[i].vaccine);
     }
     const url = `${this.baseUrl + routes.addstudent}`;
-    return this.http.post(url, body, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getAllStudents(p, perpage) {
-    const tenantId = '1'; // just a temporary header till email services is ready
-
     const url = `${this.baseUrl + routes.getallstudent}?PageIndex=${p}&PageSize=${perpage}`;
     console.log(url);
-    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getStudentById(id: any) {
-    const tenantId = '1'; // just a temporary header till email services is ready
-
     const url = `${this.baseUrl + routes.getstudentbyid}/${id}`;
     console.log(url);
-    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 
   updateStudent(id, updateStudentForm) {
-    const tenantId = '1'; // just a temporary header till email services is ready
-
     const url = `${this.baseUrl + routes.updatestudentbyid}/${id}`;
-    return this.http.put(url, updateStudentForm, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+    return this.http.put(url, updateStudentForm, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 
   deleteStudentById(id) {
-    const tenantId = '1'; // just a temporary header till email services is ready
-
     const url = `${this.baseUrl + routes.deletestudent}/${id}`;
-    return this.http.delete(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+    return this.http.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 
   getStudentProfile(id) {
-    const tenantId = '1'; // just a temporary header till email services is ready
-
     const url = `${this.baseUrl + routes.viewstudentdetails}/${id}`;
-    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

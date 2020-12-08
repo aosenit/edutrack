@@ -77,3 +77,68 @@ form .form-control {
     font-size: 16px;
     border: 1px solid #D1D9DF;
 }
+
+/* modals */
+.modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+
+}
+
+
+.modal-head {
+    padding: 20px 40px;
+    background: #EBF0F5;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
+.client-modal {
+    display: flex;
+    flex-direction: column;
+
+    /* padding: 0px 40px; */
+
+}
+
+ .client-modal form {
+    width: 100%;
+}
+
+
+
+ .client-modal textarea {
+    height: 150px;
+}
+
+.close {
+    cursor: pointer;
+}
+
+
+.row {
+    align-items: center;
+    position: relative;
+}
+
+.search__input .divider {
+    background: #CFD7DE;
+    border: 1px solid #CFD7DE;
+    height: 1px;
+    width: 21px;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: -4px;
+    left: 199px;
+}
+
+.table thead {
+    color: #4c75bd;
+}
+
+.table thead th {
+    border-top: 0;
+}

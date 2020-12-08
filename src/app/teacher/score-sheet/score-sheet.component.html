@@ -26,13 +26,15 @@
             </select>
           </div> -->
           <div class="col options">
-            <select name="" id="" class="form-control">
+            <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)">
               <option value="">Select Class</option>
+              <option [value]="class?.id" *ngFor = "let class of classList">  {{class.name}}{{class?.classGroup}}</option>
             </select>
           </div>
           <div class="col options">
             <select name="" id="" class="form-control">
               <option value="">Select Subject</option>
+              <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.subject}}</option>
             </select>
           </div>
         </div>
@@ -76,9 +78,9 @@
         <th>Second CA Score</th>
         <th>Exam Score</th>
         <th>Cummulative Score</th>
-        <th>Grade</th>
+        <!-- <th>Grade</th>
         <th>Position</th>
-        <th>Interpretation</th>
+        <th>Interpretation</th> -->
       </tr>
     </thead>
     <tbody>
@@ -116,9 +118,9 @@
         <td> </td>
         <td> </td>
         <td> </td>
+        <!-- <td> </td>
         <td> </td>
-        <td> </td>
-        <td> </td>
+        <td> </td> -->
       </tr>
       <tr>
         <td class="d-flex justify-content-between align-items-center border-bottom border-top">
@@ -138,9 +140,9 @@
         <td> </td>
         <td> </td>
         <td> </td>
+        <!-- <td> </td>
         <td> </td>
-        <td> </td>
-        <td> </td>
+        <td> </td> -->
       </tr>
       <tr>
         <td class="d-flex justify-content-between align-items-center border-bottom border-top">
@@ -160,9 +162,9 @@
         <td> </td>
         <td> </td>
         <td> </td>
+        <!-- <td> </td>
         <td> </td>
-        <td> </td>
-        <td> </td>
+        <td> </td> -->
       </tr>
       <tr>
         <td class="d-flex justify-content-between align-items-center border-bottom border-top">
@@ -182,9 +184,9 @@
         <td> </td>
         <td> </td>
         <td> </td>
+        <!-- <td> </td>
         <td> </td>
-        <td> </td>
-        <td> </td>
+        <td> </td> -->
       </tr>
       <tr>
         <td class="d-flex justify-content-between align-items-center border-bottom border-top">
@@ -204,9 +206,9 @@
         <td> </td>
         <td> </td>
         <td> </td>
+        <!-- <td> </td>
         <td> </td>
-        <td> </td>
-        <td> </td>
+        <td> </td> -->
       </tr>
       <tr>
         <td class="d-flex justify-content-between align-items-center border-bottom border-top">
@@ -226,9 +228,9 @@
         <td> </td>
         <td> </td>
         <td> </td>
+        <!-- <td> </td>
         <td> </td>
-        <td> </td>
-        <td> </td>
+        <td> </td> -->
       </tr>
      
 

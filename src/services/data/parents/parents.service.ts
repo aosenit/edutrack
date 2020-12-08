@@ -44,27 +44,24 @@ export class ParentsService {
     formData.append('Status', createParentForm.Status);
     formData.append('Title', createParentForm.Title);
     const url = `${this.baseUrl + routes.addparent}`;
-    return this.http.post(url, formData, { headers: { tenantId } });
+    return this.http.post(url, formData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getAllParents(p, perpage) {
-    const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getallparent}?PageIndex=${p}&PageSize=${perpage}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
   getAllParentsWithName() {
-    const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getallparent}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getParentById(id) {
-    const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getparentbyid}/${id}`;
-    return this.http.get(url,  { headers: { tenantId } });
+    return this.http.get(url,   {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getParentForStudent(studid) {
