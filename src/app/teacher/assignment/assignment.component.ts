@@ -16,6 +16,7 @@ export class AssignmentComponent implements OnInit {
   createAssignmentmentForm: FormGroup;
   classList: any;
   subjectList: any;
+  studentAssignmentList: any;
   id: any;
   constructor(
     private assignmentService: AssignmentService,
@@ -35,6 +36,7 @@ export class AssignmentComponent implements OnInit {
       console.log(data);
       if (data.hasErrors === false) {
         console.log('asasasa', data);
+        this.studentAssignmentList = data.payload;
       }
     }, error => {
       console.log(error);

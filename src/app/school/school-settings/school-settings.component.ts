@@ -400,6 +400,7 @@ export class SchoolSettingsComponent implements OnInit {
     this.classService.getAllClassesWithPagination(this.p, this.itemsPerPage).subscribe(
       (res: any) => {
         this.classes = res.payload;
+        console.log(this.classes);
         this.classCount = res.totalCount;
         console.log('classes', this.classCount);
       }

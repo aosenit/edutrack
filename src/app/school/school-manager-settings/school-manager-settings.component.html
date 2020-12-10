@@ -269,11 +269,11 @@
                 </div>
                 <div class="row search__input">
                   <div class="col-sm-6 seperator mt-1 ">
-                    <input type="date" class="form-control" formControlName="startDate">
+                    <input type="date" class="form-control" formControlName="startDate" (change)="validateStartDate($event.target.value)">
                   </div>
                   <span class="divider mt-4 ">&nbsp;</span>
                   <div class="col-sm-6  mt-1">
-                    <input type="date" class="form-control" formControlName="endDate">
+                    <input type="date" class="form-control" formControlName="endDate" (change)="validateEndDate($event.target.value)">
                   </div>
                 </div>
               </div>
@@ -287,7 +287,7 @@
             <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
               data-dismiss="modal">Cancel
             </button>
-            <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add term</button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="sessionForm.invalid"> Add term</button>
           </div>
         </form>
       </div>

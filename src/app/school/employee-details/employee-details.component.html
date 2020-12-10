@@ -173,9 +173,9 @@
                         
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">
-                        <div class="link">
-                            <p class="mb-0">{{employeeDetails?.educationExperienceVMs[0].educationSchoolName}}</p>
-                            <p class="fw-6">2010 / 2013</p>
+                        <div class="link"  *ngFor = "let education of employeeDetails?.educationExperienceVMs">
+                            <p class="mb-0">{{education?.educationSchoolName}}</p>
+                            <p class="fw-6">{{education?.startDate | date: 'yyyy'}} / 2013</p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3 ">

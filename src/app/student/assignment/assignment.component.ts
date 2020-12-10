@@ -21,8 +21,8 @@ subjectList: object;
 
 
   getAllSubjects() {
-    const classId = 25;
-    this.classService.getAllSubjectsInAClassWithAssignmentCountByClassID(classId).subscribe((data: any) => {
+    // const classId = 25;
+    this.classService.getAllSubjectsInAClassWithAssignmentCountByClassID().subscribe((data: any) => {
       if (data.hasErrors === false ) {
         console.log(data);
         this.subjectList = data.payload;

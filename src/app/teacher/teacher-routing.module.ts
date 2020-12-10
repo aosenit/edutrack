@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: '', component: DashboardComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'schedule', component: ScheduleComponent },
-      { path: 'grade-assignment', component: GradingComponent },
+      { path: 'grade-assignment/:id', component: GradingComponent },
       { path: 'assignments', component: AssignmentsComponent },
       { path: 'assignment-submission/:id', component: AssignmentComponent },
       { path: 'assignment/new', component: CreateAssignmentComponent },

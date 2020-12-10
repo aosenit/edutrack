@@ -21,6 +21,9 @@ export class SchoolManagerSettingsComponent implements OnInit {
   sequence = 0;
   sequencenumber: number;
   sessionList: any;
+  dateCheck: any;
+  date1: any;
+  date2: any;
   constructor(
     private fb: FormBuilder,
     private propertyService: PropertyService,
@@ -146,12 +149,19 @@ export class SchoolManagerSettingsComponent implements OnInit {
       }
     });
   }
-  // checkout_date(value: any) {
-  //   if (moment(value).isBefore(this.sessionForm.controls.checkInDate.value)) {
-  //     this.dateCheckout = true;
-  //   } else {
-  //     this.dateCheckout = false;
-  //   }
-  // }
 
+  validateStartDate(value) {
+    console.log(value);
+    this.date1 = value;
+  }
+  validateEndDate(value) {
+    console.log(value);
+    this.date2 = value;
+    if (moment(this.date2).isBefore(this.date1)) {
+      this.dateCheck = true;
+      console.log('ko possinle na');
+    }
+  }
+
+ 
 }

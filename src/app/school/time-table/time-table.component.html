@@ -109,6 +109,33 @@
                 </div>
                 -->
             </div>
+
+            <!-- <div class="container-fluid">
+              <div class="row  " *ngFor = "let period of periods; let i = index">
+                  <div class="col-md-2  d-flex justify-content-between align-items-center">
+                      <b>{{period?.name}}</b>
+                  </div>
+                  <div class="col-md-2 pb-2 border d-flex flex-column justify-content-center" *ngFor = "let day of timeTable; let i = index" >
+                      <img class="my-5" src="assets/images/svg/time-table.svg" alt="time table button" data-toggle="modal"
+                      data-target="#exampleModalCenterLevel" (click)="getDay(day.id, period.id)">  
+                      <div class="d-flex"> 
+                        <img src="assets/images/svg/table-time.svg" alt="" class="mr-3">
+                        <p class="mb-0"> {{period?.timeFromS}} - {{period?.timeToS}} 
+                        </p>
+
+                    </div>
+                      <div class="d-flex">
+                          <img src="assets/images/svg/table-comp.svg" alt="" class="mr-3">
+                          <p class="mb-0">
+                              Classroom
+                          </p>
+                          <p> </p>
+                      </div>
+                  </div>
+                  
+              </div>
+             
+          </div> -->
         </div>
 
 <!-- time table Modal -->

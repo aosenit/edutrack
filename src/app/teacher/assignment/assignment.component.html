@@ -5,7 +5,7 @@
       <li class="breadcrumb-item a1 " aria-current="page" >
         <a class="fc-lblue">Back</a>
       </li>
-      <li class="pl-3 fw-6">Descriptive Essay</li>
+      <!-- <li class="pl-3 fw-6">Descriptive Essay</li> -->
     </ol>
 
 
@@ -20,7 +20,13 @@
 
   </section>
 
-  <section class="list">
+  <div *ngIf="studentAssignmentList?.length === 0" class=" mh-100 bg-white d-flex flex-column justify-content-center align-items-center" style="height: 78vh"> 
+    <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+    <p class="fw-6 cursor-pointer" (click)="back()">
+    No assignment Submitted, click to go back
+  </p></div>
+
+  <section class="list" *ngIf="studentAssignmentList?.length >= 1">
     <table class="table table-borderless client-table">
       <thead>
         <tr>
@@ -65,7 +71,34 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="pb-2">
+        
+        
+        <tr class="pb-2" *ngFor="let assignment of studentAssignmentList">
+          <td scope="row" class="school-logo rounded-left">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1"></label>
+            </div>
+          </td>
+          <td class="">
+            <div class="d-flex  align-items-center justify-content-start">
+              <img src="assets/images/svg/assignment-owner.svg" alt="schools log" class="mr-3">
+              <p class="mb-0">
+                {{assignment?.studentName}}
+              </p>
+            </div>
+          </td>
+          <td> {{assignment?.studentNumber}} </td>
+          <td> {{assignment?.className}} </td>
+          <td>{{assignment?.date | date : 'd/M/yyyy' }}</td>
+          <td> {{assignment?.date | date : "shortTime"}} </td>
+          <td><span class="status_pending">Pending</span></td>
+          <td><span class="grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}">Grade</span></td>
+          <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+
+        </tr>
+
+        <!-- <tr class="pb-2" >
           <td scope="row" class="school-logo rounded-left">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="customCheck2">
@@ -88,104 +121,7 @@
           <td><span class="grade" routerLink = "/teacher/grade-assignment">Grade</span></td>
           <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
 
-        </tr>
-
-        <tr class="pb-2">
-          <td scope="row" class="school-logo rounded-left">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1"></label>
-            </div>
-          </td>
-          <td class="">
-            <div class="d-flex  align-items-center justify-content-start">
-              <img src="assets/images/svg/assignment-owner.svg" alt="schools log" class="mr-3">
-              <p class="mb-0">
-                Miss Cynthia Godbless
-              </p>
-            </div>
-          </td>
-          <td>AMI/ST/2020/002</td>
-          <td>Jss 3A</td>
-          <td>17/03/2020</td>
-          <td>08:12 AM</td>
-          <td><span class="status_pending">Pending</span></td>
-          <td><span class="grade">Grade</span></td>
-          <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
-
-        </tr>
-        <tr class="pb-2">
-          <td scope="row" class="school-logo rounded-left">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1"></label>
-            </div>
-          </td>
-          <td class="">
-            <div class="d-flex  align-items-center justify-content-start">
-              <img src="assets/images/svg/assignment-owner.svg" alt="schools log" class="mr-3">
-              <p class="mb-0">
-                Miss Cynthia Godbless
-              </p>
-            </div>
-          </td>
-          <td>AMI/ST/2020/002</td>
-          <td>Jss 3A</td>
-          <td>17/03/2020</td>
-          <td>08:12 AM</td>
-          <td><span class="status_graded">Graded</span></td>
-          <td><span class="grade">Grade</span></td>
-          <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
-
-        </tr>
-        <tr class="pb-2">
-          <td scope="row" class="school-logo rounded-left">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1"></label>
-            </div>
-          </td>
-          <td class="">
-            <div class="d-flex  align-items-center justify-content-start">
-              <img src="assets/images/svg/assignment-owner.svg" alt="schools log" class="mr-3">
-              <p class="mb-0">
-                Miss Cynthia Godbless
-              </p>
-            </div>
-          </td>
-          <td>AMI/ST/2020/002</td>
-          <td>Jss 3A</td>
-          <td>17/03/2020</td>
-          <td>08:12 AM</td>
-          <td><span class="status_pending">Pending</span></td>
-          <td><span class="grade">Grade</span></td>
-          <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
-
-        </tr>
-        <tr class="pb-2">
-          <td scope="row" class="school-logo rounded-left">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1"></label>
-            </div>
-          </td>
-          <td class="">
-            <div class="d-flex  align-items-center justify-content-start">
-              <img src="assets/images/svg/assignment-owner.svg" alt="schools log" class="mr-3">
-              <p class="mb-0">
-                Miss Cynthia Godbless
-              </p>
-            </div>
-          </td>
-          <td>AMI/ST/2020/002</td>
-          <td>Jss 3A</td>
-          <td>17/03/2020</td>
-          <td>08:12 AM</td>
-          <td><span class="status_pending">Pending</span></td>
-          <td><span class="grade">Grade</span></td>
-          <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
-
-        </tr>
+        </tr> -->
 
 
       </tbody>
