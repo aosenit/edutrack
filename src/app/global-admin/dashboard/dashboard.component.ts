@@ -30,6 +30,7 @@ export class DashboardComponent implements OnInit {
       if (data) {
         this.registeredSchools = data.payload;
         this.schoolCount = data.totalCount;
+        console.log(this.registeredSchools);
       }
     });
   }

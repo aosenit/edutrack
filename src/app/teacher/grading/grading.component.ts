@@ -45,7 +45,7 @@ export class GradingComponent implements OnInit {
         console.log(data);
       }
     });
-    
+
   }
   
   submitScore() {

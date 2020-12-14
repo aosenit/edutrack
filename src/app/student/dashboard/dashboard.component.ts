@@ -50,7 +50,7 @@ days: any;
   }
 
   getTimeTableByClass() {
-    const classId = 25;
+    const classId = 22;
     const weekday = [
       { id: 0, day: 'Monday' },
       { id: 1, day: 'Tuesday' },
@@ -87,12 +87,13 @@ days: any;
   }
 
   getAssignmentByClass() {
-    const classId = 25;
+    // const classId = 25;
 
-    this.assignmentService.getAssignmentByClass(classId).subscribe((data: any) => {
+    this.assignmentService.getAssignmentByClass().subscribe((data: any) => {
       // console.log('sasasasas', data);
       if (data.hasErrors === false) {
         this.assignments = data.payload;
+        console.log(this.assignments);
         const assignment = [];
         from(this.assignments)
           .pipe(
@@ -102,11 +103,11 @@ days: any;
             mergeMap(group => zip(of(group.key), group.pipe(toArray())))
           )
           .subscribe(list => {
-            //  console.log('Assignments', ...list);
-            assignment.push(list);
+             console.log('Assignments', ...list);
+             assignment.push(list);
           });
-        this.dueAssignment = assignment[0][1];
-        this.activeAssignment = assignment[1][1];
+        this.activeAssignment = assignment[0][1];
+        this.dueAssignment = assignment[1][1];
       }
     });
   }
@@ -126,7 +127,7 @@ days: any;
 
   getNextClassesForAClass(event) {
     const day = event;
-    const classId = 25;
+    const classId = 22;
 
     this.timeTableService.getAllClassesForClassByDay(classId, day).subscribe((data: any) => {
       if (data.hasErrors === false) {

@@ -40,9 +40,9 @@ export class AssignmentService {
 
   }
 
-  getAssignmentByClass(id: any) {
+  getAssignmentByClass() {
 
-    const url = `${this.baseUrl + routes.getAssignmentByClass}?classId=${id}`;
+    const url = `${this.baseUrl + routes.getAssignmentByClass}`;
     console.log(url);
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 

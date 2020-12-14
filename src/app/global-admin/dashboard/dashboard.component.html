@@ -59,7 +59,11 @@
                 <tbody>
                   <tr *ngFor = "let school of registeredSchools?.slice(0,5)">
                     <th scope="row" class="logo">
-                        <img src="assets/images/svg/school-victory.svg" alt="schools log" class="mr-3">
+                        <!-- <img src="assets/images/svg/school-victory.svg" alt="schools log" class="mr-3"> -->
+                        <img class="" *ngIf="school?.logo" src="data:image/png;base64,{{school?.logo}}" alt="schools log"
+                  class="mr-3 image-rounded" id="">
+                <img class="" *ngIf="school?.logo == null" src="assets/images/svg/companyalt.svg" alt="schools log"
+                  class="mr-3 image-rounded" id="">
                         <p>{{school.name}}</p>
 
                     </th>

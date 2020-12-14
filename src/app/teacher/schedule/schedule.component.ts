@@ -109,7 +109,7 @@ classes: any;
       }
     });
 
-    // console.log(this.daysInWeek);
+    console.log(this.daysInWeek);
     const tables = [];
 
     from(this.daysInWeek)

@@ -60,21 +60,21 @@
               <div class="col-md-2">
 
               </div>
-              <div class="col-md-2" *ngFor="let day of daysInWeek; let i = index">
+              <div class="col-md-2" *ngFor="let day of daysInWeek.classes; let i = index">
                 {{day?.day}} {{i}}
               </div>
 
 
             </div>
-            <div class="row " *ngFor = "let period of daysInWeek">
+            <div class="row " *ngFor = "let period of daysInWeek; let i = index">
               <div class="col-md-2  d-flex justify-content-between align-items-center">
-                <b>{{period[0]}} </b>
+                <b>{{period[0]}} {{i}} </b>
               </div>
               <div class="col-md-2 border d-flex justify-content-center" *ngFor="let cell of period.classes; let i = index">
                 <div class="bg-lblue w-100 br-10 p-2" >
                   <p > 
                     {{cell.subjectName | titlecase}}
-                    <b>{{cell?.day}}</b>
+                    <b>{{cell.day}}</b>
                   </p>
                   <p> 
                     {{cell?.className }} {{i}}

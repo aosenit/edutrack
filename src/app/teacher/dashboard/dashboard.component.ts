@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { TimeTableService } from 'src/services/data/time-table/time-table.service';
 
 @Component({
@@ -13,8 +14,12 @@ export class DashboardComponent implements OnInit {
   weekday: any;
   teacherDetails: any;
   myDate = new Date();
+  studentAssignmentList: any;
+
   constructor(
-    private timeTableService: TimeTableService
+    private timeTableService: TimeTableService,
+    private teacherService: TeacherService,
+
   ) { }
 
   ngOnInit() {
@@ -110,4 +115,15 @@ export class DashboardComponent implements OnInit {
     return newHours + ' hr(s) and ' + newMinutes + 'mins' ;
     }
 
+    // getAssignmentSubmission() {
+    //   this.teacherService.getAllAssignmentSubmissionForASubject(this.id).subscribe((data: any) => {
+    //     console.log(data);
+    //     if (data.hasErrors === false) {
+    //       console.log('asasasa', data);
+    //       this.studentAssignmentList = data.payload;
+    //     }
+    //   }, error => {
+    //     console.log(error);
+    //   });
+    // }
 }
