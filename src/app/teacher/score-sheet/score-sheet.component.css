@@ -1,3 +1,4 @@
+
 .banner {
     width: 100%;
     background-color: #0052B4;
@@ -121,3 +122,53 @@ tbody  td {
 }
 
 /*  */
+
+
+
+.student {
+    position: relative;
+}
+
+.pop-menu {
+    display: none;
+    position: absolute;
+    background: #ffffff;
+    right: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    transform: translate3d(233px, 55px, 0px);
+    
+}
+.show-pop {
+    display: block;
+}
+
+
+.modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+
+}
+
+
+.modal-head {
+    padding: 20px 40px;
+    background: #EBF0F5;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
+
+.client-modal {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 40px;
+
+}
+
+form {
+    width: 100%;
+}

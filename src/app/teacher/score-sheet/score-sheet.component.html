@@ -32,9 +32,9 @@
             </select>
           </div>
           <div class="col options">
-            <select name="" id="" class="form-control">
+            <select name="" id="" class="form-control" (change)="getSubjectsId($event.target.value)">
               <option value="">Select Subject</option>
-              <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.subject}}</option>
+              <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.subject | titlecase}}</option>
             </select>
           </div>
         </div>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="d-flex justify-content-between">
-      <div class="mr-4" (click)="generate()">
+      <div class="mr-4 cursor-pointer" (click)="generate()">
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0429 9.43396H10.7204L15 13.7221L13.7221 15L9.43396 10.7204V10.0429L9.2024 9.80274C8.2247 10.6432 6.9554 11.1492 5.57461 11.1492C2.49571 11.1492 0 8.65352 0 5.57461C0 2.49571 2.49571 0 5.57461 0C8.65352 0 11.1492 2.49571 11.1492 5.57461C11.1492 6.9554 10.6432 8.2247 9.80274 9.2024L10.0429 9.43396ZM1.71556 5.57444C1.71556 7.70995 3.4394 9.43379 5.57491 9.43379C7.71042 9.43379 9.43426 7.70995 9.43426 5.57444C9.43426 3.43894 7.71042 1.7151 5.57491 1.7151C3.4394 1.7151 1.71556 3.43894 1.71556 5.57444Z" fill="#0052B4"/>
             </svg>
@@ -56,7 +56,7 @@
             
         Search
       </div>
-      <div class="mr-4">
+      <div class="mr-4" (click)="generateExcel()">
         <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.125 4.9075C15.8451 3.5244 15.0813 2.27895 13.9642 1.38389C12.8471 0.488827 11.4459 -0.000318697 10 1.55786e-07C7.59167 1.55786e-07 5.5 1.3325 4.45833 3.2825C3.23353 3.41155 2.10084 3.97736 1.27791 4.8712C0.454976 5.76504 -0.000143085 6.92386 3.3744e-08 8.125C3.3744e-08 10.8144 2.24167 13 5 13H15.8333C18.1333 13 20 11.18 20 8.9375C20 6.7925 18.2917 5.05375 16.125 4.9075ZM14.1667 7.3125L10 11.375L5.83333 7.3125H8.33333V4.0625H11.6667V7.3125H14.1667Z" fill="#0052B4"/>
             </svg>
@@ -81,9 +81,9 @@
     <thead>
       <tr>
         <th class="w-40">Student Name</th>
-        <th>First CA Score</th>
-        <th>Second CA Score</th>
-        <th>Exam Score</th>
+        <th *ngFor = "let assessment of studentList; let y = index">  {{assessment?.name | titlecase}} </th>
+        <!-- <th>Second CA Score</th>
+        <th>Exam Score</th> -->
         <th>Cummulative Score</th>
         <!-- <th>Grade</th>
         <th>Position</th>
@@ -91,154 +91,46 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
+      <tr *ngFor= "let student of assessmentList; let u = index">
+        <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top student">
           <div class="d-flex text-left">
             <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
             <div class="student-info">
-              <p class="mb-0 cursor-pointer" routerLink="/teacher/score-sheet-student">Miss Cynthia Godbless</p>
+              <p class="mb-0 cursor-pointer" routerLink="/teacher/score-sheet-student">{{student.name}}</p>
               <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
             </div>
           </div>
-          <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <div class="dropdown-menu p-3">
-            <form >
-                <div class="form-group">
-                    <label for="cont">Type</label>
-                    <select id="cont" class="form-control">
-                        <option value="" >Select</option>
-                        <option value="CA">Continous Assessment</option>
-                        <option value="Exam">Examination</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="type">Score</label>
-                    <input type="number" class="form-control">
-                </div>
-            </form>
+          <a href="#" class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropdownMenuLink" >
+            <img src="assets/images/svg/add-grades.svg" alt=""  class="mr-2  cursor-pointer " >
+          </a>
+          <div class="dropdown-menu omo p-3  " id="dropdownMenuLink{{u}}">
+                <form [formGroup]="addGradeForm" (ngSubmit)="submitGrade(student.id, u)" > {{u}}
+                  <div class="form-group">
+                      <label for="cont">Type</label>
+                      <select id="cont" class="form-control" formControlName="assessmentId" (change)="getAssessmentName($event.target.value, u)" (click)="omo(u)"  >
+                          <option value="" >Select</option>
+                          <option [value]="assessment?.sequenceNumber" *ngFor = "let assessment of studentList; let j = index"> {{assessment?.name}} </option>
+        
+                      </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="type">Score</label>
+                      <input type="number" class="form-control" #score formControlName="score">
+                  </div>
+                </form>
           </div>
 
 
         </td>
 
+        <td >  </td>
+        <td>     </td>
+        <td>   </td>
+        <td>   </td>
         <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <!-- <td> </td>
-        <td> </td>
-        <td> </td> -->
+        <!-- <td> </td>  -->
       </tr>
-      <tr>
-        <td class="d-flex justify-content-between align-items-center border-bottom border-top">
-          <div class="d-flex text-left">
-            <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-            <div class="student-info">
-              <p class="mb-0">Miss Cynthia Godbless</p>
-              <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
-            </div>
-          </div>
-          <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2">
-
-
-        </td>
-
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <!-- <td> </td>
-        <td> </td>
-        <td> </td> -->
-      </tr>
-      <tr>
-        <td class="d-flex justify-content-between align-items-center border-bottom border-top">
-          <div class="d-flex text-left">
-            <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-            <div class="student-info">
-              <p class="mb-0">Miss Cynthia Godbless</p>
-              <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
-            </div>
-          </div>
-          <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2">
-
-
-        </td>
-
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <!-- <td> </td>
-        <td> </td>
-        <td> </td> -->
-      </tr>
-      <tr>
-        <td class="d-flex justify-content-between align-items-center border-bottom border-top">
-          <div class="d-flex text-left">
-            <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-            <div class="student-info">
-              <p class="mb-0">Miss Cynthia Godbless</p>
-              <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
-            </div>
-          </div>
-          <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2">
-
-
-        </td>
-
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <!-- <td> </td>
-        <td> </td>
-        <td> </td> -->
-      </tr>
-      <tr>
-        <td class="d-flex justify-content-between align-items-center border-bottom border-top">
-          <div class="d-flex text-left">
-            <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-            <div class="student-info">
-              <p class="mb-0">Miss Cynthia Godbless</p>
-              <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
-            </div>
-          </div>
-          <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2">
-
-
-        </td>
-
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <!-- <td> </td>
-        <td> </td>
-        <td> </td> -->
-      </tr>
-      <tr>
-        <td class="d-flex justify-content-between align-items-center border-bottom border-top">
-          <div class="d-flex text-left">
-            <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-            <div class="student-info">
-              <p class="mb-0">Miss Cynthia Godbless</p>
-              <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
-            </div>
-          </div>
-          <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2">
-
-
-        </td>
-
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <!-- <td> </td>
-        <td> </td>
-        <td> </td> -->
-      </tr>
+      
      
 
 
@@ -253,3 +145,41 @@
     <button class="btn-upload-top bg-lblue w-50" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  Submit </button>
   </div>
 </div>
+
+
+<!-- <div class="modal fade" id="advertModal{{u}}" tabindex="-1" role="dialog"
+  aria-labelledby="advertModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue"> {{u}} </h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myModal" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body h-50 d-flex justify-content-between align-items-center client-modal">
+        <form [formGroup]="addGradeForm" (ngSubmit)="submitGrade(student.id)" > {{u}}
+          <div class="form-group">
+              <label for="cont">Type</label>
+              <select id="cont" class="form-control" formControlName="assessmentId" (change)="getAssessmentName($event.target.value)" >
+                  <option value="" >Select</option>
+                  <option [value]="assessment?.sequenceNumber" *ngFor = "let assessment of studentList; let j = index"> {{assessment?.name}} </option>
+
+              </select>
+          </div>
+          <div class="form-group">
+              <label for="type">Score</label>
+              <input type="number" class="form-control" #score formControlName="score">
+          </div>
+        </form>
+      </div>
+
+
+
+    </div>
+  </div>
+</div> -->

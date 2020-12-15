@@ -80,11 +80,22 @@
             </div>
             <img src="assets/images/svg/Subtract.svg" alt="new client" class=" ml-3">
         </div>
+        <!-- <div>
+            <video #video class="vid screen" autoplay></video>
+            <div class="d-flex flex-column justify-content-center align-items-center info p-2">
+                <div class="d-flex justify-content-center my-3">
+                    <button class="class-btn" (click)="openSomething(classDetails?.zoomId)" >Join with computer Audio</button>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <p class="text-white fw-6">Test speaker and microphone</p>
+                </div>
+            </div>
+        </div> -->
         <div class="col-md-12 screen">
 
             <div class="d-flex flex-column justify-content-center align-items-center info p-2">
                 <div class="d-flex justify-content-center my-3">
-                    <button class="class-btn" [routerLink]="['/student', 'session']">Join with computer Audio</button>
+                    <button class="class-btn" (click)="openSomething(classDetails?.zoomId)" >Join with computer Audio</button>
                 </div>
                 <div class="d-flex justify-content-center">
                     <p class="text-white fw-6">Test speaker and microphone</p>

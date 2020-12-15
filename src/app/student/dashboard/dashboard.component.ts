@@ -63,7 +63,7 @@ days: any;
     this.timeTableService.getAllClassesForClassByDay(classId, day).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
-        console.log(this.subjectAndTime);
+        console.log('dsds', this.subjectAndTime);
         // this.timeTableCells = data.payload;
         // const tables = [];
 
@@ -84,6 +84,12 @@ days: any;
     }, error => {
       console.log(error);
     });
+  }
+
+  save(i) {
+    console.log(i);
+    console.log(this.subjectAndTime[i]);
+    sessionStorage.setItem('current-class', JSON.stringify(this.subjectAndTime[i]));
   }
 
   getAssignmentByClass() {

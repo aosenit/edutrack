@@ -78,8 +78,8 @@ export class VirtualClassComponent implements OnInit {
     return newHours + ' hr(s) and ' + newMinutes + 'mins' ;
     }
 
-  openSomething() {
-    window.open('https://zoom.us/j/121212121', '_blank');
+  openSomething(id) {
+    window.open('https://zoom.us/j/' + id , '_blank');
   }
 
 
