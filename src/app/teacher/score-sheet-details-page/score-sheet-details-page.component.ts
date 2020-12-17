@@ -12,4 +12,7 @@ export class ScoreSheetDetailsPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  back() {
+    window.history.back();
+  }
 }

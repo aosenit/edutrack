@@ -13,6 +13,8 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./score-sheet.component.css']
 })
 export class ScoreSheetComponent implements OnInit {
+  noClass = true;
+  displayClass = false;
   classList: any;
   subjectList: any;
   className: any;
@@ -92,6 +94,7 @@ export class ScoreSheetComponent implements OnInit {
   }
 
   getSubjects(id) {
+    
     console.log('class id ', id);
     this.Classid = id;
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
@@ -111,6 +114,13 @@ export class ScoreSheetComponent implements OnInit {
     //   console.log('wahala', data);
     // });
 
+  }
+
+  getSubjectsId(id) {
+    console.log('Subject ID here', id);
+    this.Subjectid = id;
+    this.noClass = false;
+    this.displayClass = true;
   }
 
   generate() {
@@ -231,10 +241,7 @@ export class ScoreSheetComponent implements OnInit {
 
   }
 
-  getSubjectsId(id) {
-    console.log('Subject ID here', id);
-    this.Subjectid = id;
-  }
+ 
 
 
 
@@ -247,7 +254,7 @@ export class ScoreSheetComponent implements OnInit {
       this.notifyService.publishMessages('Invalid score', 'danger', 1);
       return;
     }
-
+    
     if (this.scoreResult[studentId]) {
       this.scoreResult[studentId][this.AssessmentName] = {
         assesmentId: assessmentId,
@@ -261,9 +268,12 @@ export class ScoreSheetComponent implements OnInit {
         },
       };
     }
-    console.log(this.scoreResult[studentId]);
+    console.log(this.scoreResult[studentId][this.AssessmentName].Score);
+    const cummulative = [];
+    console.log(cummulative);
     this.scoreObject = this.scoreResult;
-    console.log(this.scoreObject);
+    // tslint:disable-next-line:forin
+    
     $(`#dropdownMenuLink${u}`).toggleClass('show-pop');
   }
 

@@ -42,7 +42,7 @@
       </form>
     </div>
 
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between"  *ngIf="displayClass">
       <div class="mr-4 cursor-pointer" (click)="generate()">
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
@@ -82,82 +82,93 @@
     </div>
   </div>
 
+ 
+
+  <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "
+          style="height: 85vh; width: 100%;" *ngIf="noClass">
+          <div class="d-flex flex-column text-center">
+            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+            <p class="fw-6 fs-24" style="color:#BAB9C1;">Select class and subject to display <br> information</p>
+          </div>
+  </div>
   <!-- <div class="grade-container bg-white mt-5 mb-3 py-5 px-4  br-10">
         
       </div> -->
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th class="w-40">Student Name</th>
-        <th *ngFor="let assessment of assessmentList; let y = index"> {{assessment?.name | titlecase}} </th>
-        <!-- <th>Second CA Score</th>
-        <th>Exam Score</th> -->
-        <th>Cummulative Score</th>
-        <!-- <th>Grade</th>
-        <th>Position</th>
-        <th>Interpretation</th> -->
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let student of newList; let u = index">
-        <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top student">
-          <div class="d-flex text-left">
-            <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-            <div class="student-info">
-              <p class="mb-0 cursor-pointer" routerLink="/teacher/score-sheet-student">{{student.name}}</p>
-              <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
+<div *ngIf="displayClass">
+  
+    <table class="table"  >
+      <thead>
+        <tr>
+          <th class="w-40">Student Name</th>
+          <th *ngFor="let assessment of assessmentList; let y = index"> {{assessment?.name | titlecase}} </th>
+          <!-- <th>Second CA Score</th>
+          <th>Exam Score</th> -->
+          <th>Cummulative Score</th>
+          <!-- <th>Grade</th>
+          <th>Position</th>
+          <th>Interpretation</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of newList; let u = index">
+          <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top student">
+            <div class="d-flex text-left">
+              <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
+              <div class="student-info">
+                <p class="mb-0 cursor-pointer" routerLink="/teacher/score-sheet-student">{{student.name}}</p>
+                <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
+              </div>
             </div>
-          </div>
-          <a href="#" class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-            id="dropdownMenuLink">
-            <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2  cursor-pointer ">
-          </a>
-          <div class="dropdown-menu omo p-3  " id="dropdownMenuLink{{u}}">
-            <form [formGroup]="addGradeForm" (ngSubmit)="submitGrade(student.id, u)"> {{u}}
-              <div class="form-group">
-                <label for="cont">Type</label>
-                <select id="cont" class="form-control" formControlName="assessmentId"
-                  (change)="getAssessmentName($event.target.value, u)" (click)="holdDropDown(u)">
-                  <option value="">Select</option>
-                  <option [value]="assessment?.sequenceNumber" *ngFor="let assessment of assessmentList; let j = index">
-                    {{assessment?.name}} </option>
-
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="type">Score</label>
-                <input type="number" class="form-control" formControlName="score">
-              </div>
-            </form>
-          </div>
-
-
-        </td>
-
-        <!-- <td *ngFor = "let assessment of newList[0].assessments" > <span *ngIf="student?.id == scoreObject?.studentid && assessment?.sequenceNumber == scoreObject.AssessmentId"> {{scoreObject?.Score}} </span>  </td> -->
-        <td *ngFor="let assessment of newList[0].assessments"> <span
-            *ngIf="scoreObject[student.id] ? scoreObject[student.id][assessment.name]  : false">
-            {{scoreObject[student?.id][assessment?.name].Score }} </span> </td>
-
-
-        <td> </td>
-        <!-- <td> </td>  -->
-      </tr>
-
-
-
-
-
-
-
-
-    </tbody>
-  </table>
-
-  <div class="d-flex justify-content-center my-5">
-    <button class="btn-upload-top bg-lblue w-50" type="button" (click)="submitResults()"> Submit </button>
-  </div>
+            <a href="#" class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              id="dropdownMenuLink">
+              <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2  cursor-pointer ">
+            </a>
+            <div class="dropdown-menu omo p-3  " id="dropdownMenuLink{{u}}">
+              <form [formGroup]="addGradeForm" (ngSubmit)="submitGrade(student.id, u)"> {{u}}
+                <div class="form-group">
+                  <label for="cont">Type</label>
+                  <select id="cont" class="form-control" formControlName="assessmentId"
+                    (change)="getAssessmentName($event.target.value, u)" (click)="holdDropDown(u)">
+                    <option value="">Select</option>
+                    <option [value]="assessment?.sequenceNumber" *ngFor="let assessment of assessmentList; let j = index">
+                      {{assessment?.name}} </option>
+  
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="type">Score</label>
+                  <input type="number" class="form-control" formControlName="score">
+                </div>
+              </form>
+            </div>
+  
+  
+          </td>
+  
+          <!-- <td *ngFor = "let assessment of newList[0].assessments" > <span *ngIf="student?.id == scoreObject?.studentid && assessment?.sequenceNumber == scoreObject.AssessmentId"> {{scoreObject?.Score}} </span>  </td> -->
+          <td *ngFor="let assessment of newList[0].assessments"> <span
+              *ngIf="scoreObject[student.id] ? scoreObject[student.id][assessment.name]  : false">
+              {{scoreObject[student?.id][assessment?.name].Score }} </span> </td>
+  
+  
+          <td > </td>
+          <!-- <td> </td>  -->
+        </tr>
+  
+  
+  
+  
+  
+  
+  
+  
+      </tbody>
+    </table>
+  
+    <div class="d-flex justify-content-center my-5">
+      <button class="btn-upload-top bg-lblue w-50" type="button" (click)="submitResults()"> Submit </button>
+    </div>
+</div>
 </div>
 
 
