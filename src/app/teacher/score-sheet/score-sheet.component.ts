@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-// import * as $ from 'jquery';
 import * as $ from 'jquery';
 import { ClassService } from 'src/services/data/class/class.service';
 import { ResultService } from 'src/services/data/result/result.service';
 import { SubjectService } from 'src/services/data/subject/subject.service';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-score-sheet',
@@ -17,22 +18,32 @@ export class ScoreSheetComponent implements OnInit {
   className: any;
   studentList: any;
   assessmentList: any;
+  newList: any;
   addGradeForm: FormGroup;
-  Subjectid: number;
-  Classid: number;
+  Subjectid: any;
+  Classid: any;
   AssessmentName: string;
   AssesmentId: any;
+  AssessmentSequence: any;
   AssessmentScore: number;
   studentResults = [];
   assessmentAndScores = [];
   score: any;
   result: any;
+  fileString: any;
   scoreObject = {};
+  bulkUpload: FormGroup;
+  filename = null;
+  scoreResult = {};
+
   constructor(
     private subjectService: SubjectService,
     private classService: ClassService,
     private resultService: ResultService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private notifyService: NotificationsService,
+    private sanitizer: DomSanitizer
+
 
   ) { }
 
@@ -45,24 +56,20 @@ export class ScoreSheetComponent implements OnInit {
 
     this.getAllClasses();
     this.populateResult();
-
+    this.populateBulkUpload();
   }
 
-  // drop(u) {
-  //   // alert(u);
-  //   // tslint:disable-next-line:only-arrow-functions
-  //   $('.dropmenu').on('click', function()  {
-  //     alert('asas');
-  //   });
-  // }
 
-  // omo(u) {
-  //   $(`#dropdownMenuLink${u}`).show();
-  // }
   populateResult() {
     this.addGradeForm = this.fb.group({
       assessmentId: ['', Validators.required],
       score: ['', Validators.required]
+    });
+  }
+
+  populateBulkUpload() {
+    this.bulkUpload = this.fb.group({
+      bulkFile: []
     });
   }
 
@@ -73,15 +80,7 @@ export class ScoreSheetComponent implements OnInit {
 
   }
 
-  // getAssessmentName() {
-  //   alert('hey');
-  //   document.getElementById('dropdown').click();
-  //   console.log('sasasasa');
-  //   $('#dropdown').on('click', function() {
-  //     $(this).parent().toggleClass('open');
-  //   });
-
-  // }
+  
   getAllClasses() {
     this.classService.getAllClasses().subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -93,19 +92,19 @@ export class ScoreSheetComponent implements OnInit {
   }
 
   getSubjects(id) {
-    console.log(id);
+    console.log('class id ', id);
     this.Classid = id;
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
-        console.log(this.subjectList.subject);
+        // console.log(this.subjectList.subject);
       }
     }
     );
 
     this.classService.getClassById(id).subscribe((data: any) => {
       this.className = data.payload;
-      console.log('sdsdsdsd', this.className.name);
+      console.log('Class Name', this.className.name);
     });
 
     // this.resultService.getStudentandAssement(1).subscribe((data: any) => {
@@ -115,86 +114,207 @@ export class ScoreSheetComponent implements OnInit {
   }
 
   generate() {
-     this.resultService.generateReport(this.className.id, this.className.name).subscribe((data: any) => {
-       console.log(data);
-       if (data.hasErrors === false) {
-         this.studentList = data.payload.assessments;
-         this.assessmentList = data.payload.students;
-        //  console.log(this.studentList);
+    this.resultService.generateReport(this.className.id, this.className.name).subscribe((data: any) => {
+      console.log(data);
+      if (data.hasErrors === false) {
+        this.studentList = data.payload.students;
+        this.assessmentList = data.payload.assessments;
+        const newList = this.studentList;
+        // tslint:disable-next-line:forin
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < newList.length; i++) {
+          console.log(newList[i]);
+          newList[i].assessments = this.assessmentList;
+          this.newList = newList;
+          console.log(this.newList);
+        }
         //  console.log('assessment', this.assessmentList);
-       }
-     });
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
   }
 
 
   generateExcel() {
-    const n = this.resultService.generateExcel(this.className.id, this.className.name);
-    console.log('sasas', n);
-    // tslint:disable-next-line:no-unused-expression
 
-  //   this.resultService.generateExcel(this.className.id, this.className.name).subscribe((data: any) => this.downloadFile(data)),
-  //  // tslint:disable-next-line:no-unused-expression
-  //   () => console.log('OK');
+
+    this.resultService.generateExcel(this.className.id, this.className.name).subscribe((data: any) => {
+      console.log(data);
+      if (data.hasErrors === false) {
+        this.fileString = data.payload;
+        this.convertBase64ToExcel();
+      }
+    });
   }
 
-  // downloadFile(data: Response) {
-  //   const blob = new Blob([data] , { type: 'application/pdf'});
-  //   const url = window.URL.createObjectURL(blob);
-  //   window.open(url);
-  // }
+
+  convertBase64ToExcel() {
+
+    const contentType = 'application/vnd.ms-excel';
+    const blob1 = this.b64toBlob(this.fileString, contentType, 512);
+    const blobUrl1 = URL.createObjectURL(blob1);
+
+    window.open(blobUrl1);
+
+  }
+
+  b64toBlob(b64Data, contentType, sliceSize) {
+    contentType = contentType || 'application/vnd.ms-excel';
+    sliceSize = sliceSize || 512;
+
+    const byteCharacters = window.atob(b64Data);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+
+      byteArrays.push(byteArray);
+    }
+
+    const blob = new Blob(byteArrays, { type: contentType });
+    return blob;
+  }
+
+
+  handleBulkUpload(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      console.log(file);
+      this.filename = file.name;
+      this.bulkUpload.get('bulkFile').setValue(file);
+      // this.DocumentTypes.push(0);
+    }
+  }
+
+
+  UploadBulkFile() {
+    const { bulkFile } = this.bulkUpload.value;
+    const ExcelFile = bulkFile;
+    const schoolClassId = this.Classid;
+    const subjectId = this.Subjectid;
+    // tslint:disable-next-line:radix
+    const SchoolClassId = parseInt(schoolClassId);
+    // tslint:disable-next-line:radix
+    const SubjectId = parseInt(subjectId);
+    const result = {
+      SchoolClassId,
+      SubjectId,
+      ExcelFile
+    };
+
+    console.log(result);
+
+    this.resultService.UploadExcelResult(result).subscribe((data: any) => {
+      console.log('bulk file', data);
+      if (data.hasError === false) {
+        this.notifyService.publishMessages('Result uploaded successfully', 'info', 1);
+        document.getElementById('myModelClose').click();
+        // this.getAllSchools();
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+
+
+  }
 
   getSubjectsId(id) {
-    console.log(id);
+    console.log('Subject ID here', id);
     this.Subjectid = id;
   }
 
-  // submitGrade(studentid) {
-  //   const studentId = studentid;
-  //   const classId = this.Classid;
-  //   const subjectId = this.Subjectid;
-  //   const { score } = this.addGradeForm.value;
-  //   const assessmentId = this.AssesmentId;
-  //   const assessmentName = this.AssessmentName;
-  //   const result = {
-  //     assessmentId,
-  //     score,
-  //     assessmentName
-  //   };
-  //   const assessmentAndScores = this.assessmentAndScores.push(result);
-  //   const result2 = {
-  //     studentId,
-  //     assessmentAndScores : this.assessmentAndScores
-  //   };
-  //   const studentResults = this.studentResults.push(result2);
-  //   const result3 = {
-  //     subjectId,
-  //     classId,
-  //     studentResults : this.studentResults
-  //   };
-  //   console.log(result3);
-  // }
 
 
-  submitGrade(id, u) {
-    // this.scoreObject['studentId'] = id;
-    // this.scoreObject['caType'] = this.AssessmentName;
-    // this.scoreObject['caScore'] = this.AssessmentScore;
-    // this.scoreObject['scoreValue'] = this.addGradeForm.controls.score.value;
-    // console.log(this.scoreObject);
-    this.result = this.addGradeForm.value;
+  submitGrade(studentId, u) {
+    console.log(this.AssessmentName);
+    const check = this.newList[u];
+    const { assessmentId, score } = this.addGradeForm.value;
+    // tslint:disable-next-line:triple-equals
+    if (check.id == studentId && this.AssessmentSequence == assessmentId && score >= this.AssessmentScore) {
+      this.notifyService.publishMessages('Invalid score', 'danger', 1);
+      return;
+    }
+
+    if (this.scoreResult[studentId]) {
+      this.scoreResult[studentId][this.AssessmentName] = {
+        assesmentId: assessmentId,
+        Score: score,
+      };
+    } else {
+      this.scoreResult[studentId] = {
+        [this.AssessmentName]: {
+          assesmentId: assessmentId,
+          Score: score,
+        },
+      };
+    }
+    console.log(this.scoreResult[studentId]);
+    this.scoreObject = this.scoreResult;
+    console.log(this.scoreObject);
     $(`#dropdownMenuLink${u}`).toggleClass('show-pop');
   }
 
-  getAssessmentName( id, u) {
-    console.log(this.studentList[id].id);
-    this.AssesmentId = this.studentList[id].id;
-    this.AssessmentName = this.studentList[id].name;
-    this.AssessmentScore = this.studentList[id].maxScore;
-    $(`#dropdownMenuLink${u}`).addClass('show-pop');
-    
+  submitResults() {
+    const submit = () => {
+      return Object.keys(this.scoreResult).map((value) => {
+        return {
+          // tslint:disable-next-line:radix
+          studentId: parseInt(value),
+          assessmentAndScores: Object.keys(this.scoreResult[value]).map((id) => ({
+            // tslint:disable-next-line:radix
+            assessmentId: parseInt(this.scoreResult[value][id].assesmentId),
+            assessmentName: id,
+            score: this.scoreResult[value][id].Score,
+          })),
+        };
+      });
+    };
+    // tslint:disable-next-line:radix
+    const classId = parseInt(this.Classid);
+    // tslint:disable-next-line:radix
+    const subjectId = parseInt(this.Subjectid);
+    const result = {
+      subjectId,
+      classId,
+      studentResults: submit()
+    };
+
+    console.log(result);
+    this.resultService.UploadAssessmentSetup(result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.notifyService.publishMessages('Result successfully published', 'success', 1);
+        console.log(data);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
   }
-  
-  omo(u) {
+
+  getAssessmentName(event, u) {
+    console.log(this.assessmentList[event].id);
+    this.AssesmentId = this.assessmentList[event].id;
+    this.AssessmentName = this.assessmentList[event].name;
+    this.AssessmentSequence = this.assessmentList[event].sequenceNumber;
+    this.AssessmentScore = this.assessmentList[event].maxScore;
+    $(`#dropdownMenuLink${u}`).addClass('show-pop');
+
+  }
+
+  holdDropDown(u) {
     $(`#dropdownMenuLink${u}`).addClass('show-pop');
 
   }

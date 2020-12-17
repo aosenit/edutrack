@@ -79,9 +79,24 @@ classes: any;
         console.log(data);
 
         this.sortDays(data.payload);
+
+        from(this.subjectAndTime)
+         .pipe(
+           groupBy(
+             (result: any) =>
+              result.periodName.split('_')[0]
+
+           ),
+           mergeMap(group => zip(of(group.key), group.pipe(toArray())))
+         )
+         .subscribe(xy => {
+           console.log('Periods', ...xy);
+           tables.push(xy);
+          });
+        tables.sort((a, b) => a - b);
         this.timeTable = tables;
-        const newarr = this.timeTable.sort((a, b) => a.index - b.index);
-        // console.log('time table', newarr);
+        console.log('new', this.timeTable);
+
       }
     });
   }
@@ -130,7 +145,7 @@ classes: any;
            tables.push(xy);
           });
     this.timeTable = tables;
-    console.log('time table', this.timeTable);
+    console.log('tne newwime table', this.timeTable);
 
   }
 

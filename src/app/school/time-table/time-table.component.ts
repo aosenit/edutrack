@@ -37,6 +37,7 @@ export class TimeTableComponent implements OnInit {
     this.getAllPeriods();
     this.daysofWeek();
     // this.deleteTableCell();
+
   }
 
   getSchoolSection() {
@@ -98,9 +99,10 @@ export class TimeTableComponent implements OnInit {
     });
   }
 
-  loadData(period, dat) {
-    console.log('period', period, dat );
-  }
+  // loadData(day, periodid) {
+  //   // console.log('period', period, dat );
+  //   alert(day, periodid);
+  // }
 
 
   getTeacherBySubjectId(id) {
