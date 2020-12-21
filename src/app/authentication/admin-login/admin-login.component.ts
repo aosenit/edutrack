@@ -38,11 +38,12 @@ export class AdminLoginComponent implements OnInit {
       return;
     } else {
       this.authService.loginAdmin(this.LoginForm.value).subscribe((data: any) => {
-        const helper = new JwtHelperService();
-        this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
         if (data) {
           localStorage.setItem('access_token', data.access_token);
           this.notifyService.publishMessages('Login successful', 'success', 1);
+          
+          const helper = new JwtHelperService();
+          this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
 
           if (this.loggedInUser.email === 'tester@gmail.com') {
             this.router.navigateByUrl('/admin');
