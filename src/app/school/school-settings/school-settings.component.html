@@ -327,7 +327,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="pb-1" *ngFor="let subject of subjectList">
+          <tr class="pb-1" *ngFor="let subject of subjectList | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: classCount }">
             <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -351,6 +351,9 @@
 
         </tbody>
       </table>
+      <div class="d-flex justify-content-end">
+        <pagination-controls (pageChange)="getSubjectPages(p = $event)" class="text-center"></pagination-controls>
+      </div>
 
     </section>
   </div>

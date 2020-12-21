@@ -20,8 +20,8 @@ export class FileManagerComponent implements OnInit {
 
 
   getAllSubjects() {
-    const classId = 25;
-    this.classService.getAllSubjectsInAClassByClassID(classId).subscribe((data: any) => {
+    // const classId = 25;
+    this.classService.getAllSubjectsInAClassWithClassNotePreview().subscribe((data: any) => {
       if (data.hasErrors === false ) {
         console.log(data);
         this.subjectList = data.payload;

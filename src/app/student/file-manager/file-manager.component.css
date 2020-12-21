@@ -16,12 +16,12 @@
 
 .file-cards {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
 }
 
 .file-cards > * {
-  margin: 1em 0;
+  margin: 1em 1em;
 }
 
 .files {
@@ -33,9 +33,28 @@
   box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   width: 23%;
+  position: relative;
+
 }
 
-.files p:last-child {
+.files .last {
   color: #747474;
   font-size: 12px;
+}
+/* .files p:last-child {
+  color: #747474;
+  font-size: 12px;
+} */
+
+.notice-pane {
+  position: absolute;
+  right: -10px;
+  top: -15px;
+  background: #EB6B04;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #ffffff;
+  text-align: center;
+  font-size: 18px;
 }

@@ -45,6 +45,7 @@ export class SchoolSettingsComponent implements OnInit {
   theArm: any;
   subjectList: any;
   classCount: number;
+  subjectCount: number;
   p = 1;
   itemsPerPage = 5;
 
@@ -454,12 +455,26 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getAllSubjects() {
-    this.subjectService.getAllSubjects().subscribe((data: any) => {
+    this.subjectService.getPaginatedSubject(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
+        this.subjectCount = data.totalCount;
+
         console.log(this.subjectList);
       }
     });
+  }
+
+  getSubjectPages(page: number) {
+    this.subjectService.getPaginatedSubject(page, this.itemsPerPage).subscribe(
+      (res: any) => {
+        this.subjectList = res.payload;
+        this.subjectCount = res.totalCount;
+        console.log('classes', res);
+      }, error => {
+        this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+      });
   }
 
 }

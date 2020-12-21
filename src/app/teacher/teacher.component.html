@@ -27,7 +27,7 @@
             </p>
         </div>
         <p class="px-3 ff-s fc-grey1 fs-14">&nbsp;</p>
-        <ul class="list-unstyled components mt-4">
+        <ul class="list-unstyled components my-4">
 
             <li class="nav-item mb-2">
                 <a href="#" class="nav-link" [routerLink]="['/teacher/dashboard']" [routerLinkActive]="['active']">
@@ -185,6 +185,19 @@
                 </a>
             </li>
         </ul>
+        <div class="p-3" (click)="logOut()">
+            <a href="#" class="nav-link" >
+                <span class="ico">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Group d">
+                            <path id="Vector"
+                                d="M0 8.88889H7.11111V0H0V8.88889ZM0 16H7.11111V10.6667H0V16ZM8.88889 16H16V7.11111H8.88889V16ZM8.88889 0V5.33333H16V0H8.88889Z" />
+                        </g>
+                    </svg>
+                </span>
+                Logout
+            </a>
+        </div>
 
 
     </div>

@@ -115,7 +115,7 @@
             <div class="d-flex text-left">
               <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
               <div class="student-info">
-                <p class="mb-0 cursor-pointer" routerLink="/teacher/score-sheet-student">{{student.name}}</p>
+                <p class="mb-0 cursor-pointer" routerLink="/teacher/score-sheet-student/{{student.id}}" (click)="saveStudentDetails(u)">{{student.name}}</p>
                 <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
               </div>
             </div>
@@ -124,7 +124,7 @@
               <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2  cursor-pointer ">
             </a>
             <div class="dropdown-menu omo p-3  " id="dropdownMenuLink{{u}}">
-              <form [formGroup]="addGradeForm" (ngSubmit)="submitGrade(student.id, u)"> {{u}}
+              <form [formGroup]="addGradeForm" (ngSubmit)="submitGrade(student.id, u)"> 
                 <div class="form-group">
                   <label for="cont">Type</label>
                   <select id="cont" class="form-control" formControlName="assessmentId"
@@ -146,12 +146,12 @@
           </td>
   
           <!-- <td *ngFor = "let assessment of newList[0].assessments" > <span *ngIf="student?.id == scoreObject?.studentid && assessment?.sequenceNumber == scoreObject.AssessmentId"> {{scoreObject?.Score}} </span>  </td> -->
-          <td *ngFor="let assessment of newList[0].assessments"> <span
+          <td *ngFor="let assessment of newList[0].assessments"> <span 
               *ngIf="scoreObject[student.id] ? scoreObject[student.id][assessment.name]  : false">
               {{scoreObject[student?.id][assessment?.name].Score }} </span> </td>
   
   
-          <td > </td>
+          <td  >  </td>
           <!-- <td> </td>  -->
         </tr>
   
@@ -172,42 +172,6 @@
 </div>
 
 
-<!-- <div class="modal fade" id="advertModal{{u}}" tabindex="-1" role="dialog"
-  aria-labelledby="advertModalTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
-    <div class="modal-content">
-
-      <div class="modal-head mb-4">
-        <div class="d-flex justify-content-between align-items-center ">
-          <h6 class="modal-title fc-lblue"> {{u}} </h6>
-          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myModal" data-dismiss="modal"
-            aria-label="Close" class="close">
-
-        </div>
-
-      </div>
-      <div class="modal-body h-50 d-flex justify-content-between align-items-center client-modal">
-        <form [formGroup]="addGradeForm" (ngSubmit)="submitGrade(student.id)" > {{u}}
-          <div class="form-group">
-              <label for="cont">Type</label>
-              <select id="cont" class="form-control" formControlName="assessmentId" (change)="getAssessmentName($event.target.value)" >
-                  <option value="" >Select</option>
-                  <option [value]="assessment?.sequenceNumber" *ngFor = "let assessment of studentList; let j = index"> {{assessment?.name}} </option>
-
-              </select>
-          </div>
-          <div class="form-group">
-              <label for="type">Score</label>
-              <input type="number" class="form-control" #score formControlName="score">
-          </div>
-        </form>
-      </div>
-
-
-
-    </div>
-  </div>
-</div> -->
 
 
 

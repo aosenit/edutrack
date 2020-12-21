@@ -149,6 +149,11 @@ classes: any;
 
   }
 
+  save(i) {
+    console.log(i);
+    console.log(this.daysInWeek[i].classes);
+    sessionStorage.setItem('current-class', JSON.stringify(this.daysInWeek[i].classes[0]));
+  }
   // sortTables(classes: any) {
   //   console.log(this.daysInWeek.classes);
   //   const tables = [];

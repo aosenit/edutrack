@@ -37,6 +37,8 @@ export class ScoreSheetComponent implements OnInit {
   bulkUpload: FormGroup;
   filename = null;
   scoreResult = {};
+  cummulativeScore: any;
+  omo: any;
 
   constructor(
     private subjectService: SubjectService,
@@ -51,7 +53,7 @@ export class ScoreSheetComponent implements OnInit {
 
   ngOnInit() {
     // tslint:disable-next-line:only-arrow-functions
-    $('#dropdownMenuLink').on('show.bs.dropdown', function () {
+    $('#dropdownMenuLink').on('show.bs.dropdown', function() {
       $(`#dropdownMenuLink`).show();
 
     });
@@ -82,7 +84,7 @@ export class ScoreSheetComponent implements OnInit {
 
   }
 
-  
+
   getAllClasses() {
     this.classService.getAllClasses().subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -94,9 +96,10 @@ export class ScoreSheetComponent implements OnInit {
   }
 
   getSubjects(id) {
-    
+
     console.log('class id ', id);
     this.Classid = id;
+    sessionStorage.setItem('class-id', this.Classid);
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
@@ -241,12 +244,11 @@ export class ScoreSheetComponent implements OnInit {
 
   }
 
- 
+
 
 
 
   submitGrade(studentId, u) {
-    console.log(this.AssessmentName);
     const check = this.newList[u];
     const { assessmentId, score } = this.addGradeForm.value;
     // tslint:disable-next-line:triple-equals
@@ -254,7 +256,7 @@ export class ScoreSheetComponent implements OnInit {
       this.notifyService.publishMessages('Invalid score', 'danger', 1);
       return;
     }
-    
+
     if (this.scoreResult[studentId]) {
       this.scoreResult[studentId][this.AssessmentName] = {
         assesmentId: assessmentId,
@@ -266,16 +268,38 @@ export class ScoreSheetComponent implements OnInit {
           assesmentId: assessmentId,
           Score: score,
         },
+        // cummulative: this.cummulativeScore
+
       };
     }
-    console.log(this.scoreResult[studentId][this.AssessmentName].Score);
-    const cummulative = [];
-    console.log(cummulative);
     this.scoreObject = this.scoreResult;
-    // tslint:disable-next-line:forin
-    
+    console.log(this.scoreObject);
     $(`#dropdownMenuLink${u}`).toggleClass('show-pop');
+    this.omo = this.scoreResult[studentId];
+    const arr = [];
+    
+    // tslint:disable-next-line:prefer-for-of
+    // for (let i = 0; i < this.scoreResult[studentId].length; i++) {
+    //   arr.push(this.scoreResult[studentId][i].Score);
+    //   const total  = arr.reduce((a, b) => a + b, 0);
+    //   console.log(total);
+    //   this.cummulativeScore = total;
+    //   console.log('asasa', this.cummulativeScore);
+    // }
+
+    // tslint:disable-next-line:forin
+    // for (const key in this.scoreResult[studentId]) {
+    //   arr.push(this.scoreResult[studentId][key].Score);
+    //   console.log(arr);
+    //   const filtered = arr.filter(Boolean);
+    //   const total  = filtered.reduce((a, b) => a + b, 0);
+    //   this.cummulativeScore = total;
+    //   console.log(this.cummulativeScore);
+    // }
   }
+
+
+
 
   submitResults() {
     const submit = () => {
@@ -302,7 +326,6 @@ export class ScoreSheetComponent implements OnInit {
       studentResults: submit()
     };
 
-    console.log(result);
     this.resultService.UploadAssessmentSetup(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result successfully published', 'success', 1);
@@ -315,7 +338,6 @@ export class ScoreSheetComponent implements OnInit {
   }
 
   getAssessmentName(event, u) {
-    console.log(this.assessmentList[event].id);
     this.AssesmentId = this.assessmentList[event].id;
     this.AssessmentName = this.assessmentList[event].name;
     this.AssessmentSequence = this.assessmentList[event].sequenceNumber;
@@ -329,4 +351,8 @@ export class ScoreSheetComponent implements OnInit {
 
   }
 
+  saveStudentDetails(u) {
+    console.log(this.studentList[u]);
+    sessionStorage.setItem('student-details', JSON.stringify(this.studentList[u]) );
+  }
 }

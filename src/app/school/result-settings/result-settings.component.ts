@@ -164,9 +164,9 @@ assessmentCount: number;
         console.log(data);
         this.grades = data.payload;
       }
-      this.grades.forEach(element => {
-        console.log(element.lowerBound);
-      });
+      // this.grades.forEach(element => {
+      //   console.log(element.lowerBound);
+      // });
     });
   }
 }

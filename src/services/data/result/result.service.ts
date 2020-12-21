@@ -8,6 +8,8 @@ const routes = {
   generateExcel: 'schtrack-assessment/api/v1/Result/GetResultUploadExcel',
   uploadexcelresult: 'schtrack-assessment/api/v1/Result/PostResultFromExcel',
   uploadResultFromForm: 'schtrack-assessment/api/v1/Result/UploadAssessmentSetups',
+  getclassbroadsheet: 'schtrack-assessment/api/v1/Result/GetClassBroadSheet',
+  getstudentbroadsheet: 'schtrack-assessment/api/v1/Result/GetStudentBroadSheet',
 };
 @Injectable({
   providedIn: 'root'
@@ -59,6 +61,20 @@ export class ResultService {
     console.log(url);
     // tslint:disable-next-line:max-line-length
     return this.http.post(url, result, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getClassBroadSheet(id) {
+    const url = `${this.baseUrl + routes.getclassbroadsheet}/${id}`;
+    console.log(url);
+    // tslint:disable-next-line:max-line-length
+    return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getStudentBroadSheet(studId, classId) {
+    const url = `${this.baseUrl + routes.getstudentbroadsheet}?studId=${studId}&classId=${classId}`;
+    console.log(url);
+    // tslint:disable-next-line:max-line-length
+    return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
 }

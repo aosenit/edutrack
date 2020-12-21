@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 const routes = {
   addsubject: 'schtrack-learning/api/v1/Subject/NewSubject',
   getallSubjects: 'schtrack-learning/api/v1/Subject/GetAllSubjects ',
+  getPaginatedSubject: 'schtrack-learning/api/v1/Subject/GetSubjects',
 
 };
 
@@ -31,6 +32,12 @@ export class SubjectService {
 
   getAllSubjects() {
     const url = `${this.baseUrl + routes.getallSubjects}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  getPaginatedSubject(p, perpage) {
+    const url = `${this.baseUrl + routes.getPaginatedSubject}?PageIndex=${p}&PageSize=${perpage}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }

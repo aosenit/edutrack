@@ -9,6 +9,7 @@ const routes = {
   getallsubjectsforclass: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClass', // this endpoint get all subjects attached to a class
   // tslint:disable-next-line:max-line-length
   getallsubjectsWithAssignmentforclass: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClassWithAssignmentCount', // this endpoint get all subjects and assignment counts in each subject
+  getallsubjectsWithFiles: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClassWithFilesCount', // this endpoint get all subjects and assignment counts in each subject
   // tslint:disable-next-line:max-line-length
   getTeacherforSubject: 'schtrack-learning/api/v1/TeacherClassSubject/GetTeachersForClassSubject', // this endpoint get all subjects attached to a class
   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
@@ -104,6 +105,11 @@ export class ClassService {
 
   getAllSubjectsInAClassByClassID(id) {
     const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classid=${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getAllSubjectsInAClassWithClassNotePreview() {
+    const url = `${this.baseUrl + routes.getallsubjectsWithFiles}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
   getTeacherTeachingSubject(id: any) {

@@ -53,6 +53,7 @@
                                 <form>
                                     <select class="form-control" (change)="getNextClassesForAClass($event.target.value)">
                                         <option value="" selected> Select day</option>
+                                        <!-- <option value="" selected> we day</option> -->
                                         <option [value]="day?.id" *ngFor="let day of days">{{day?.day}}</option>
                                     </select>
                                 </form>

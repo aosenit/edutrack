@@ -80,6 +80,8 @@ export class VirtualClassComponent implements OnInit {
 
   openSomething(id) {
     window.open('https://zoom.us/j/' + id , '_blank');
+    console.log(id);
+    // window.open(id , '_blank');
   }
 
 

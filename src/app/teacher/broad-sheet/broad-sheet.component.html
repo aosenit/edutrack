@@ -44,16 +44,17 @@
                 <div class="row">
                   <div class="col ">
                     <label for="section">Section</label>
-                    <select name="" id="section" class="form-control">
-                      <option value="">Select Section</option>
+                    <select name="" id="section" class="form-control" (change)="getClassBySectionId($event.target.value)" >
+                      <option [value]="level?.id" *ngFor="let level of levels">{{level?.name}}</option>
                     </select>
                   </div>
                   
                   <div class="col ">
                     <label for="class">Class</label>
 
-                    <select name="" id="class" class="form-control">
+                    <select name="" id="" class="form-control" (change)="getSubjectsAndStudents($event.target.value)">
                       <option value="">Select Class</option>
+                      <option [value]="class?.id" *ngFor="let class of classList"> {{class.name}}{{class?.classGroup}}</option>
                     </select>
                   </div>
                   
@@ -64,288 +65,84 @@
             
           </div>
 
-          <table class="table">
-            <thead>
-              <tr>
-                <th class="w-25"></th>
-                <th class="vertical-header"><span>English Language</span></th>
-                <th class="vertical-header"><span>Mathematics</span></th>
-                <th class="vertical-header"><span>Intro technology</span></th>
-                <th class="vertical-header"><span>Social Science</span></th>
-                <th class="vertical-header"><span>Home Economcis</span></th>
-                <th class="vertical-header"><span>Business Studies</span></th>
-                <th class="vertical-header"><span>French Language</span></th>
-                <th class="vertical-header"><span>French Language</span></th>
-                <th class="vertical-header"><span>French Language</span></th>
-                <th class="vertical-header"><span>French Language</span></th>
-                <th class="vertical-header"><span>French Language</span></th>
-                <th class="vertical-header"><span>French Language</span></th>
-                <th class="vertical-header"><span>French Language</span></th>
-                <th class="vertical-header"><span>Average Score</span></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
-                  <div class="d-flex text-left">
-                    <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                    <div class="student-info">
-                      <p class="mb-0 cursor-pointer" >Miss Cynthia Godbless</p>
-                    </div>
-                  </div>
+          <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "
+          style="height: 85vh; width: 100%;" *ngIf="noData">
+          <div class="d-flex flex-column text-center">
+            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+            <p class="fw-6 fs-24" style="color:#BAB9C1;">Select level and class to display <br> information</p>
+          </div>
+  </div>
+
+          <div *ngIf="displayData">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="w-25"></th>
+                  <th class="vertical-header" *ngFor = "let subject of subject; let u = index"><span>  {{subject?.subjectName | titlecase}}  </span></th>
                  
-        
-        
-                </td>
-        
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
-                  <div class="d-flex text-left">
-                    <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                    <div class="student-info">
-                      <p class="mb-0 cursor-pointer" >Miss Cynthia Godbless</p>
+                  <th class="vertical-header"><span>Average Score</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr  *ngFor = "let student of studentData ; let i = index">
+                  <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
+                    <div class="d-flex text-left">
+                      <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
+                      <div class="student-info">
+                        <p class="mb-0 cursor-pointer" routerLink="/teacher/score-sheet-student/{{student.id}}" >{{student?.studentName}}</p>
+                      </div>
                     </div>
-                  </div>
-                 
-        
-        
-                </td>
-        
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
-                  <div class="d-flex text-left">
-                    <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                    <div class="student-info">
-                      <p class="mb-0 cursor-pointer" >Miss Cynthia Godbless</p>
+                   
+          
+          
+                  </td>
+          
+                  <td  *ngFor = "let assessment of studentData[i].assessmentAndScores"> {{assessment?.score}} </td>
+                  <td> {{student?.averageScore}} </td>
+                  
+                </tr>
+              
+                <!-- <tr>
+                  <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
+                    <div class="d-flex text-left">
+                      <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
+                      <div class="student-info">
+                        <p class="mb-0 cursor-pointer" >Miss Cynthia Godbless</p>
+                      </div>
                     </div>
-                  </div>
-                 
-        
-        
-                </td>
-        
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
-                  <div class="d-flex text-left">
-                    <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                    <div class="student-info">
-                      <p class="mb-0 cursor-pointer" >Miss Cynthia Godbless</p>
-                    </div>
-                  </div>
-                 
-        
-        
-                </td>
-        
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
-                  <div class="d-flex text-left">
-                    <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                    <div class="student-info">
-                      <p class="mb-0 cursor-pointer" >Miss Cynthia Godbless</p>
-                    </div>
-                  </div>
-                 
-        
-        
-                </td>
-        
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
-                  <div class="d-flex text-left">
-                    <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                    <div class="student-info">
-                      <p class="mb-0 cursor-pointer" >Miss Cynthia Godbless</p>
-                    </div>
-                  </div>
-                 
-        
-        
-                </td>
-        
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
-                  <div class="d-flex text-left">
-                    <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                    <div class="student-info">
-                      <p class="mb-0 cursor-pointer" >Miss Cynthia Godbless</p>
-                    </div>
-                  </div>
-                 
-        
-        
-                </td>
-        
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
-                  <div class="d-flex text-left">
-                    <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                    <div class="student-info">
-                      <p class="mb-0 cursor-pointer" >Miss Cynthia Godbless</p>
-                    </div>
-                  </div>
-                 
-        
-        
-                </td>
-        
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-              <tr>
-                <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
-                  <div class="d-flex text-left">
-                    <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                    <div class="student-info">
-                      <p class="mb-0 cursor-pointer" >Miss Cynthia Godbless</p>
-                    </div>
-                  </div>
-                 
-        
-        
-                </td>
-        
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-              </tr>
-             
-        
-        
-             
-        
-        
-        
-            </tbody>
-          </table>
+                   
+          
+          
+                  </td>
+          
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                  <td> </td>
+                </tr> -->
+               
+          
+          
+               
+          
+          
+          
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-center my-5">
+              <button class="btn-upload-top bg-lblue w-50" type="button" > Submit </button>
+            </div>
+          </div>
       </div>
     
 </div>

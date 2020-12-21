@@ -72,11 +72,12 @@
               </div>
               <div class="col-md-2 border d-flex justify-content-center"
                 *ngFor="let cell of period.classes; let i = index">
-                <div class="bg-lblue w-100 br-10 p-2">
+                <div class="bg-lblue w-100 br-10 p-2 cursor-pointer " [routerLink]="['/teacher','class']"
+                (click)="save(cell.day)">
                   <p>
                     {{cell.subjectName | titlecase}} </p>
                   <p>
-                    {{cell?.className }}
+                    {{cell?.className }} {{cell.day}}
                   </p>
                   <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4"
                     *ngIf="cell?.hasVirtual == true">

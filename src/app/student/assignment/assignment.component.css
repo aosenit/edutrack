@@ -16,12 +16,12 @@
 
 .file-cards {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
 }
 
 .file-cards > * {
-  margin: 1em 0;
+  margin: 1em 1em;
 }
 
 .files {

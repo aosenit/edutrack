@@ -35,7 +35,7 @@ const routes: Routes = [
       { path: 'session', component: VirtualSessionComponent },
       { path: 'gradebook', component: GradebookComponent },
       { path: 'score-sheet', component: ScoreSheetComponent },
-      { path: 'score-sheet-student', component: ScoreSheetDetailsPageComponent },
+      { path: 'score-sheet-student/:id', component: ScoreSheetDetailsPageComponent },
       { path: 'broad-sheet', component: BroadSheetComponent },
     ]
   }

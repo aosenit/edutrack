@@ -27,10 +27,10 @@ days: any;
   ngOnInit() {
     const helper = new JwtHelperService();
     this.studentDetails = helper.decodeToken(localStorage.getItem('access_token'));
-
-    this.getTimeTableByClass();
-    this.getAssignmentByClass();
     this.daysofWeek();
+
+    this.getAssignmentByClass();
+    this.getTimeTableByClass();
   }
 
   daysofWeek() {
@@ -41,7 +41,7 @@ days: any;
     { id: 3, day: 'Thursday' },
     { id: 4, day: 'Friday' },
     ];
-    console.log(this.days);
+    console.log('dasy', this.days);
   }
 
   showPop() {
@@ -96,10 +96,10 @@ days: any;
     // const classId = 25;
 
     this.assignmentService.getAssignmentByClass().subscribe((data: any) => {
-      // console.log('sasasasas', data);
+      console.log('sasasasas', data);
       if (data.hasErrors === false) {
         this.assignments = data.payload;
-        console.log(this.assignments);
+        console.log('assignment', this.assignments);
         const assignment = [];
         from(this.assignments)
           .pipe(
@@ -112,8 +112,10 @@ days: any;
              console.log('Assignments', ...list);
              assignment.push(list);
           });
-        this.activeAssignment = assignment[0][1];
-        this.dueAssignment = assignment[1][1];
+        this.dueAssignment = assignment[0][1];
+        console.log(this.activeAssignment);
+        this.activeAssignment  = assignment[1][1];
+        console.log(this.dueAssignment);
       }
     });
   }
