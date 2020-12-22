@@ -93,10 +93,10 @@ export class ClientsComponent implements OnInit {
   UploadBulkFile() {
     this.schoolServices.uploadBulkDocument(this.bulkUpload.value).subscribe((data: any) => {
       console.log('bulk file', data);
-      if (data.hasError === false) {
-        console.log('file successfully uplaoded', data.paylaod);
-        this.notifyService.publishMessages(data.description, 'info', 1);
-        document.getElementById('close').click();
+      if (data.hasErrors === false) {
+        console.log('file successfully uplaoded', data.payload);
+        this.notifyService.publishMessages(data.description, 'success', 1);
+        document.getElementById('closeModal').click();
         this.getAllSchools();
       }
     }, error => {

@@ -21,6 +21,7 @@ export class SchoolGradeBookComponent implements OnInit {
   studentData: any;
   subjectList: any;
   subject: any;
+  cummlativeScore: any;
 
 
 
@@ -94,6 +95,15 @@ export class SchoolGradeBookComponent implements OnInit {
         console.log(data);
         this.studentData = data.payload;
         this.subject = this.studentData[0].assessmentAndScores;
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < this.studentData.length; i++) {
+          const arr = [];
+          this.studentData[i].assessmentAndScores.forEach(element => {
+            arr.push(element.score);
+            this.cummlativeScore = arr.reduce((a, b) => a + b, 0);
+            this.studentData[i].cummulative = this.cummlativeScore;
+          });
+        }
         // console.log();
       }
     }, error => {

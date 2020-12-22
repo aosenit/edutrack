@@ -21,6 +21,8 @@ grades = [];
 errorLabel = null;
 assessments: any;
 assessmentCount: number;
+toggleState = false;
+
   constructor(
     private fb: FormBuilder,
     private assessmentService: AssessmentService,
@@ -74,6 +76,15 @@ assessmentCount: number;
     }
   }
 
+  getStatus(event) {
+    if (event === true) {
+      this.toggleState = true;
+    } else {
+      this.toggleState = false;
+
+    }
+
+  }
 
   addAssessment() {
     console.log(this.assessmentForm.value);

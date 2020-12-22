@@ -115,7 +115,7 @@
             <div class="d-flex text-left">
               <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
               <div class="student-info">
-                <p class="mb-0 cursor-pointer" routerLink="/teacher/score-sheet-student/{{student.id}}" (click)="saveStudentDetails(u)">{{student.name}}</p>
+                <p class="mb-0 cursor-pointer"  (click)="saveStudentDetails(u)">{{student.name}}</p>
                 <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
               </div>
             </div>
@@ -151,7 +151,7 @@
               {{scoreObject[student?.id][assessment?.name].Score }} </span> </td>
   
   
-          <td  >  </td>
+          <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false" > {{this.scoreObject[student?.id].cummulative}} </td>
           <!-- <td> </td>  -->
         </tr>
   

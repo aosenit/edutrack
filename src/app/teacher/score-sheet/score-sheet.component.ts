@@ -267,38 +267,18 @@ export class ScoreSheetComponent implements OnInit {
         [this.AssessmentName]: {
           assesmentId: assessmentId,
           Score: score,
-        },
-        // cummulative: this.cummulativeScore
-
+        }
       };
     }
+    const prevCumulative = this.scoreResult[studentId].cummulative || 0;
+    this.scoreResult[studentId].cummulative = Number(prevCumulative) + Number(score);
     this.scoreObject = this.scoreResult;
-    console.log(this.scoreObject);
+    console.log(this.scoreResult);
     $(`#dropdownMenuLink${u}`).toggleClass('show-pop');
     // this.omo = this.scoreResult[studentId];
     const arr = [];
-    
-    // tslint:disable-next-line:prefer-for-of
-    // for (let i = 0; i < this.scoreResult[studentId].length; i++) {
-    //   arr.push(this.scoreResult[studentId][i].Score);
-    //   const total  = arr.reduce((a, b) => a + b, 0);
-    //   console.log(total);
-    //   this.cummulativeScore = total;
-    //   console.log('asasa', this.cummulativeScore);
-    // }
 
-    // tslint:disable-next-line:forin
-    // for (const key in this.scoreResult[studentId]) {
-    //   arr.push(this.scoreResult[studentId][key].Score);
-    //   console.log(arr);
-    //   const filtered = arr.filter(Boolean);
-    //   const total  = filtered.reduce((a, b) => a + b, 0);
-    //   this.cummulativeScore = total;
-    //   console.log(this.cummulativeScore);
-    // }
   }
-
-
 
 
   submitResults() {
@@ -307,7 +287,7 @@ export class ScoreSheetComponent implements OnInit {
         return {
           // tslint:disable-next-line:radix
           studentId: parseInt(value),
-          assessmentAndScores: Object.keys(this.scoreResult[value]).map((id) => ({
+          assessmentAndScores: Object.keys(this.scoreResult[value]).filter((id) => id !== 'cummulative').map((id) => ({
             // tslint:disable-next-line:radix
             assessmentId: parseInt(this.scoreResult[value][id].assesmentId),
             assessmentName: id,
