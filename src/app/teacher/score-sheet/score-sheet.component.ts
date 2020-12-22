@@ -275,7 +275,7 @@ export class ScoreSheetComponent implements OnInit {
     this.scoreObject = this.scoreResult;
     console.log(this.scoreObject);
     $(`#dropdownMenuLink${u}`).toggleClass('show-pop');
-    this.omo = this.scoreResult[studentId];
+    // this.omo = this.scoreResult[studentId];
     const arr = [];
     
     // tslint:disable-next-line:prefer-for-of

@@ -22,8 +22,10 @@
         <div class="row mb-4">
             <div class="col-md-6 ">
                 <label for="country" class="fw-6">Country</label>
-                <select name="" id="country" class="form-control form-control-lg" formControlName="ContactCountry">
-                    <option value="oyo" selected>Nigeria</option>
+                <select name="" id="country" class="form-control form-control-lg" formControlName="ContactCountry" (change)="getState($event.target.value)" >
+                    <option value="" selected>Select</option>
+                    <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
+
                 </select>
     
             </div>
@@ -47,7 +49,8 @@
             <div class="col-md-6 ">
                 <label for="state" class="fw-6">State <span class="text-danger">*</span></label>
                 <select name="" id="state" class="form-control form-control-lg" formControlName="ContactState">
-                    <option value="oyo" selected>lagos</option>
+                    <option value="" selected>Select</option>
+                    <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
                 </select>
             </div>
     

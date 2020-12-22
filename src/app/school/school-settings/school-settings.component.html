@@ -445,8 +445,10 @@
         </div> -->
         <div class="form-group mb-5">
           <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1">Active</label>
+            <input type="checkbox" class="custom-control-input" id="customSwitch111"
+              (change)="getStatus($event.target.checked)" formControlName="Status">
+              <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === false">Inactive</label>
+              <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === true">Active</label>
           </div>
         </div>
         <div class="d-flex justify-content-center mb-3">
@@ -606,8 +608,9 @@
           </div>
           <div class="form-group custom mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch2" formControlName="status">
-              <label class="custom-control-label" for="customSwitch2">Active</label>
+              <input type="checkbox" class="custom-control-input" id="customSwitch2" formControlName="status" (change)="getStatus($event.target.checked)">
+              <label class="custom-control-label" for="customSwitch2" *ngIf="toggleState === false">Inactive</label>
+              <label class="custom-control-label" for="customSwitch2" *ngIf="toggleState === true">Active</label>
             </div>
           </div>
 
@@ -788,8 +791,9 @@
 
           <div class="form-group custom mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch4" formControlName="IsActive">
-              <label class="custom-control-label" for="customSwitch4">Active</label>
+              <input type="checkbox" class="custom-control-input" id="customSwitch4" formControlName="IsActive" (change)="getStatus($event.target.checked)">
+              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === false">Inactive</label>
+              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === true">Active</label>
             </div>
           </div>
 

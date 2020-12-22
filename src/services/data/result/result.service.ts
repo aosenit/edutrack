@@ -28,7 +28,7 @@ export class ResultService {
   }
 
   generateReport(classId, className) {
-    const url = `${this.baseUrl + routes.generateReport}?classId=${classId}&?className=${className}`;
+    const url = `${this.baseUrl + routes.generateReport}?classId=${classId}&className=${className}`;
     console.log(url);
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 

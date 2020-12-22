@@ -29,9 +29,9 @@ export class AdminLoginComponent implements OnInit {
     });
 
     console.log(this.loggedInUser);
-    
+
   }
-  
+
   login() {
     if (this.LoginForm.invalid) {
       this.submitted = true;
@@ -41,7 +41,7 @@ export class AdminLoginComponent implements OnInit {
         if (data) {
           localStorage.setItem('access_token', data.access_token);
           this.notifyService.publishMessages('Login successful', 'success', 1);
-          
+
           const helper = new JwtHelperService();
           this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
 
@@ -53,8 +53,11 @@ export class AdminLoginComponent implements OnInit {
           } else if (this.loggedInUser.email === 'a@sbscm.com') {
             this.router.navigateByUrl('/teacher');
 
-          } else {
+          } else if (this.loggedInUser.email === 'emmanuel@school.com') {
             this.router.navigateByUrl('/student');
+
+          } else {
+            this.router.navigateByUrl('/school');
 
           }
         }

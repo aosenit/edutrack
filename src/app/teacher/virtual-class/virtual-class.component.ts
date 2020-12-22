@@ -37,29 +37,29 @@ export class VirtualClassComponent implements OnInit {
   ngOnInit() {
     this.myDate = new Date();
 
-    this.startCamera();
+    // this.startCamera();
     this.classDetails = JSON.parse(sessionStorage.getItem('current-class'));
 
   }
 
-  startCamera() {
-    if (!!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) {
-      navigator.mediaDevices.getUserMedia(this.constraints)
-        .then(this.attachVideo.bind(this))
-        .catch(this.handleError);
+//   startCamera() {
+//     if (!!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) {
+//       navigator.mediaDevices.getUserMedia(this.constraints)
+//         .then(this.attachVideo.bind(this))
+//         .catch(this.handleError);
 
-    } else {
-      alert('Sorry, camera not available.');
-    }
-  }
+//     } else {
+//       alert('Sorry, camera not available.');
+//     }
+//   }
 
-  attachVideo(stream) {
-    this.renderer.setProperty(this.videoElement.nativeElement, 'srcObject', stream);
-  }
+//   attachVideo(stream) {
+//     this.renderer.setProperty(this.videoElement.nativeElement, 'srcObject', stream);
+//   }
 
-  handleError(error) {
-    console.log('Error: ', error);
-}
+//   handleError(error) {
+//     console.log('Error: ', error);
+// }
 
   back() {
     window.history.back();

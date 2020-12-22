@@ -91,11 +91,11 @@
 
     .form-group .custom-control-label::before {
 
-        background: #D72638;
+        /* background: #D72638; */
     }
     
-    .form-group .custom-control-label::after {
+    /* .form-group .custom-control-label::after {
     
         background: #ffffff;
-    }
+    } */
 

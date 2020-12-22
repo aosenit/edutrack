@@ -60,121 +60,118 @@
         xzxz
       </div>
       <div class="tab-pane fade  px-5 mh-100 " id="pills-property" role="tabpanel" aria-labelledby="pills-property-tab">
-          <div *ngIf = "filled">
-            <form class="pt-5" [formGroup]="schoolPropertyForm" (ngSubmit)="createProperty()" >
-    
-    
-                <div class="row mb-4">
-                  <div class="col-md-6">
-                    <div class="row">
-                      <div class="col-md-4 ">
-                        <label for="properties" class="fw-6 prefix"> ID Properties <span class="text-danger">*</span> </label>
-                        <input type="text" class="form-control form-control-lg" placeholder="Prefix" id="properties" formControlName="prefix" readonly="schoolPropertyForm.valid">
-                      </div>
-                      <div class="col-md-8 ">
-                        <label for="domain" class="fw-6">&nbsp;</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="Seperator" id="domain" formControlName = "seperator" readonly="schoolPropertyForm.valid">
-                      </div>
-    
-                    </div>
+        <form class="pt-5" [formGroup]="schoolPropertyForm" (ngSubmit)="createProperty()">
+
+
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-4 ">
+                    <label for="properties" class="fw-6 prefix"> ID Properties <span class="text-danger">*</span> </label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Prefix" id="properties" formControlName="prefix" >
                   </div>
-                  <div class="col-md-6">
-                    <label for="website" class="fw-6">Enrollment Amount </label>
-                    <input type="url" class="form-control form-control-lg" placeholder="Enter amount" id="website" formControlName="EnrollmentAmount">
+                  <div class="col-md-8 ">
+                    <label for="domain" class="fw-6">&nbsp;</label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Seperator" id="domain" formControlName = "seperator" >
                   </div>
+
                 </div>
-                <div class="row mb-4">
-                  
-                  <div class="col-md-6 ">
-                    <label for="number" class="fw-6"> Number of Terms <span class="text-danger">*</span></label>
-                    <input type="number" class="form-control form-control-lg" placeholder="Enter number of terms"
-                      id="number" formControlName="numberOfTerms" readonly="schoolPropertyForm.valid">
-                  </div> 
-                  
-                  <div class="col-md-6">
-                    <label for="primary" class="fw-6">Class Days <span class="text-danger">*</span></label>
-                    <select name="" id="" class="form-control" formControlName="ClassDays" disabled="schoolPropertyForm.valid">
-                      <option value="" selected> Select</option>
-                      <option [value]="1" selected> Weekdays only</option>
-                      <option [value]="2" selected> Weekend only</option>
-                      <option [value]="3" selected> Weekdays and Weekends only</option>
-                    </select>
+              </div>
+              <div class="col-md-6">
+                <label for="website" class="fw-6">Enrollment Amount </label>
+                <input type="url" class="form-control form-control-lg" placeholder="Enter amount" id="website" formControlName="EnrollmentAmount">
+              </div>
+            </div>
+            <div class="row mb-4">
+              
+              <div class="col-md-6 ">
+                <label for="number" class="fw-6"> Number of Terms <span class="text-danger">*</span></label>
+                <input type="number" class="form-control form-control-lg" placeholder="Enter number of terms"
+                  id="number" formControlName="numberOfTerms" >
+              </div> 
+              
+              <div class="col-md-6">
+                <label for="primary" class="fw-6">Class Days <span class="text-danger">*</span></label>
+                <select name="" id="" class="form-control" formControlName="ClassDays" >
+                  <option value="" selected> Select</option>
+                  <option [value]="1" selected> Weekdays only</option>
+                  <option [value]="2" selected> Weekend only</option>
+                  <option [value]="3" selected> Weekdays and Weekends only</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="row mb-4">
+
+             
+            </div>
+
+
+            <div class=" d-flex justify-content-center mt-5">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.invalid"> Save </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.valid"> Update </button>
+
+            </div>
+        </form>
+        <!-- <form class="pt-5" [formGroup]="schoolPropertyForm" (ngSubmit)="createProperty()">
+
+
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-4 ">
+                    <label for="properties" class="fw-6 prefix"> ID Properties <span class="text-danger">*</span> </label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Prefix" id="properties" formControlName="prefix" readonly="schoolPropertyForm.valid">
                   </div>
-                </div>
-    
-    
-                <div class="row mb-4">
-    
-                
-                </div>
-    
-    
-                <div class=" d-flex justify-content-center mt-5">
-                  <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-                  <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.invalid"> Save </button>
-                  <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.valid"> Update </button>
-    
-                </div>
-            </form>
-          </div>
-          
-          <div *ngIf = "notFilled">
-            <form class="pt-5" [formGroup]="schoolPropertyForm" (ngSubmit)="createProperty()" >
-    
-    
-                <div class="row mb-4">
-                  <div class="col-md-6">
-                    <div class="row">
-                      <div class="col-md-4 ">
-                        <label for="properties" class="fw-6 prefix"> ID Properties <span class="text-danger">*</span> </label>
-                        <input type="text" class="form-control form-control-lg" placeholder="Prefix" id="properties" formControlName="prefix" readonly="schoolPropertyForm.valid">
-                      </div>
-                      <div class="col-md-8 ">
-                        <label for="domain" class="fw-6">&nbsp;</label>
-                        <input type="text" class="form-control form-control-lg" placeholder="Seperator" id="domain" formControlName = "seperator" readonly="schoolPropertyForm.valid">
-                      </div>
-    
-                    </div>
+                  <div class="col-md-8 ">
+                    <label for="domain" class="fw-6">&nbsp;</label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Seperator" id="domain" formControlName = "seperator" readonly="schoolPropertyForm.valid">
                   </div>
-                  <div class="col-md-6">
-                    <label for="website" class="fw-6">Enrollment Amount </label>
-                    <input type="url" class="form-control form-control-lg" placeholder="Enter amount" id="website" formControlName="EnrollmentAmount">
-                  </div>
+
                 </div>
-                <div class="row mb-4">
-                  
-                  <div class="col-md-6 ">
-                    <label for="number" class="fw-6"> Number of Terms <span class="text-danger">*</span></label>
-                    <input type="number" class="form-control form-control-lg" placeholder="Enter number of terms"
-                      id="number" formControlName="numberOfTerms" readonly="schoolPropertyForm.valid">
-                  </div> 
-                  
-                  <div class="col-md-6">
-                    <label for="primary" class="fw-6">Class Days <span class="text-danger">*</span></label>
-                    <select name="" id="" class="form-control" formControlName="ClassDays" disabled="schoolPropertyForm.valid">
-                      <option value="" selected> Select</option>
-                      <option [value]="1" selected> Weekdays only</option>
-                      <option [value]="2" selected> Weekend only</option>
-                      <option [value]="3" selected> Weekdays and Weekends only</option>
-                    </select>
-                  </div>
-                </div>
-    
-    
-                <div class="row mb-4">
-    
-                
-                </div>
-    
-    
-                <div class=" d-flex justify-content-center mt-5">
-                  <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-                  <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.invalid"> Save </button>
-                  <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.valid"> Update </button>
-    
-                </div>
-            </form>
-          </div>
+              </div>
+              <div class="col-md-6">
+                <label for="website" class="fw-6">Enrollment Amount </label>
+                <input type="url" class="form-control form-control-lg" placeholder="Enter amount" id="website" formControlName="EnrollmentAmount">
+              </div>
+            </div>
+            <div class="row mb-4">
+              
+              <div class="col-md-6 ">
+                <label for="number" class="fw-6"> Number of Terms <span class="text-danger">*</span></label>
+                <input type="number" class="form-control form-control-lg" placeholder="Enter number of terms"
+                  id="number" formControlName="numberOfTerms" readonly="schoolPropertyForm.valid">
+              </div> 
+              
+              <div class="col-md-6">
+                <label for="primary" class="fw-6">Class Days <span class="text-danger">*</span></label>
+                <select name="" id="" class="form-control" formControlName="ClassDays" >
+                  <option value="" selected> Select</option>
+                  <option [value]="1" selected> Weekdays only</option>
+                  <option [value]="2" selected> Weekend only</option>
+                  <option [value]="3" selected> Weekdays and Weekends only</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="row mb-4">
+
+             
+            </div>
+
+
+            <div class=" d-flex justify-content-center mt-5">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.invalid"> Save </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.valid"> Update </button>
+
+            </div>
+        </form> -->
+
+
       </div>
       <div class="tab-pane fade  px-5 mh-100 " id="pills-exam" role="tabpanel" aria-labelledby="pills-exam-tab">
         <!-- <form class="pt-5" >

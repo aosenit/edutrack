@@ -15,7 +15,6 @@ export class SchoolManagerSettingsComponent implements OnInit {
   schoolPropertyForm: FormGroup;
   sessionForm: FormGroup;
   fillProperty: any;
-  checkProperty: any;
   items: any;
   termCount: any;
   hide: true;
@@ -25,8 +24,6 @@ export class SchoolManagerSettingsComponent implements OnInit {
   dateCheck: any;
   date1: any;
   date2: any;
-  filled = true;
-  notFilled = false;
   constructor(
     private fb: FormBuilder,
     private propertyService: PropertyService,
@@ -116,12 +113,6 @@ export class SchoolManagerSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data);
         this.fillProperty = data.payload;
-        this.checkProperty = data.payload;
-        if (this.checkProperty === null) {
-          this.filled = false;
-          this.notFilled = true;
-        } else {
-        }
         this.schoolPropertyForm.setValue({
           prefix: this.fillProperty.prefix,
           seperator: this.fillProperty.seperator,
