@@ -163,6 +163,7 @@ toggleState = false;
       if (data.hasErrors === false) {
         console.log(data);
         this.notifyService.publishMessages('Grade setup successfully', 'success', 1);
+        this.getAllGrade();
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

@@ -3,6 +3,7 @@ import { from, zip, of } from 'rxjs';
 import { groupBy, mergeMap, toArray } from 'rxjs/operators';
 import { TimeTableService } from 'src/services/data/time-table/time-table.service';
 
+
 @Component({
   selector: 'app-class-schedule',
   templateUrl: './class-schedule.component.html',
@@ -11,7 +12,8 @@ import { TimeTableService } from 'src/services/data/time-table/time-table.servic
 export class ClassScheduleComponent implements OnInit {
   timeTableCells: any;
   timeTable: any;
-  days: any;
+  daysInWeek: any;
+  periods: any;
 
 
   constructor(
@@ -21,25 +23,35 @@ export class ClassScheduleComponent implements OnInit {
   ngOnInit() {
     this.getTimeTableByClass();
     this.daysofWeek();
+    this.getAllPeriods();
   }
 
   daysofWeek() {
-    this.days = [
+    this.daysInWeek = [
     { id: 0, day: 'Monday' },
     { id: 1, day: 'Tuesday' },
     { id: 2, day: 'Wednesday' },
     { id: 3, day: 'Thursday' },
     { id: 4, day: 'Friday' },
     ];
-    console.log(this.days);
+    console.log(this.daysInWeek);
   }
 
+  getAllPeriods() {
+    this.timeTableService.getPeriods().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.periods = data.payload;
+      }
+    });
+  }
+
+
   getTimeTableByClass() {
-    const classId = 25;
+    const classId = 22;
     this.timeTableService.getTimeTableForClass(classId).subscribe((data: any) => {
       if (data.hasErrors === false ) {
-        console.log(data);
         this.timeTableCells = data.payload;
+        console.log(this.timeTableCells);
         const tables = [];
 
         from(this.timeTableCells)

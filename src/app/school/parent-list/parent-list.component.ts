@@ -25,7 +25,7 @@ export class ParentListComponent implements OnInit {
   }
 
   getAllParents() {
-    this.parentService.getAllParents(this.p, this.itemsPerPage).subscribe( (data: any) => {
+    this.parentService.getAllParentsInASchool(this.p, this.itemsPerPage).subscribe( (data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
         this.parentList = data.payload;

@@ -46,3 +46,27 @@ select {
 border: 1px solid #92B5DD;
 font-size: 14px;
 }
+
+.cells {
+    border: 1px dashed red;
+}
+
+.cell-time {
+    position: relative;
+}
+
+.start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #A4A5A8;
+    font-size: 12px;
+}
+
+.end {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #A4A5A8;
+    font-size: 12px;
+}

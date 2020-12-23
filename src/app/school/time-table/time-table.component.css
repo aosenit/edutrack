@@ -47,3 +47,7 @@ h6 {
     font-weight: bold;
     font-weight: 600;
 }
+
+.hide-addImg{
+    display: none;
+}

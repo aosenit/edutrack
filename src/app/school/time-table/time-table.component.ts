@@ -48,6 +48,18 @@ export class TimeTableComponent implements OnInit {
     });
   }
 
+  getClassBySectionId(id) {
+    console.log(id);
+    this.classService.getClassBySection(id).subscribe((data: any) => {
+        if (data.hasErrors === false) {
+          this.classes = data.payload;
+
+        }
+      });
+
+  }
+
+
   getClasses() {
     this.classService.getAllClasses().subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -70,6 +82,7 @@ export class TimeTableComponent implements OnInit {
     this.timeTableService.getTimeTableForClass(id).subscribe((data: any) => {
       if (data.hasErrors === false ) {
         this.timeTableCells = data.payload;
+        console.log(this.timeTableCells);
         const tables = [];
 
         from(this.timeTableCells)
@@ -83,7 +96,7 @@ export class TimeTableComponent implements OnInit {
            tables.push(xy);
           });
         this.timeTable = tables;
-        console.log('time table', this.timeTable);
+        console.log('time table', this.timeTable[0]);
         // const transpose = this.timeTable.reduce((arr, obj) => {
         //   for (const key in obj) {
         //     if (obj.hasOwnProperty(key)) {

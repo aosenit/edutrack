@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 const routes = {
   addparent: 'schtrack-auth/api/v1/Parent/AddNewParent  ',
   getallparent: 'schtrack-auth/api/v1/Parent/GetAllParents',
+  getallparentinASchool: 'schtrack-auth/api/v1/Parent/GetAllParentsInSchool',
   getparentbyid: 'schtrack-auth/api/v1/Parent/GetParentById',
   getstudentparent: 'schtrack-auth/api/v1/Parent/GetParentsForStudent',
   updateparentbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
@@ -50,6 +51,11 @@ export class ParentsService {
   getAllParents(p, perpage) {
 
     const url = `${this.baseUrl + routes.getallparent}?PageIndex=${p}&PageSize=${perpage}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getAllParentsInASchool(p, perpage) {
+    const url = `${this.baseUrl + routes.getallparentinASchool}?PageIndex=${p}&PageSize=${perpage}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
   getAllParentsWithName() {

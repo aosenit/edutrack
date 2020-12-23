@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col ">
                     <label for="level" class="fs-12 fw-6">Level</label>
-                    <select name="" id="" class="form-control form-control-lg">
+                    <select name="" id="" class="form-control form-control-lg" (change)="getClassBySectionId($event.target.value)">
                         <option value="">Select Level</option>
 
                         <option [value]="section?.id" *ngFor="let section of sections">{{section?.name}} </option>
@@ -35,107 +35,45 @@
                 <div class="col-md-2">
                     
                 </div>
-                <div class="col-md-2" *ngFor = "let day of days; let i = index">
-                   {{day?.day}}
+                <div class="col-md-2" *ngFor = "let dayy of days; let d = index">
+                   <p class="fw-6 fc-lblue">
+                     {{dayy?.day}}
+                   </p>
                 </div>
                 
                 
             </div>
             <div class="container-fluid">
-                <div class="row  " *ngFor = "let period of periods; let i = index" >
+                <div class="row  " *ngFor = "let period of periods; let p = index" >
                     <div class="col-md-2  d-flex justify-content-between align-items-center">
                         <b>{{period?.name}}</b>
                     </div>
                     <div class="col-md-2 pb-2 border d-flex flex-column justify-content-center" *ngFor = "let day of days; let i = index" >
-                        <img class="my-5" src="assets/images/svg/time-table.svg" alt="time table button" data-toggle="modal"
-                        data-target="#exampleModalCenterLevel" (click)="getDay(day.id, period.id)">  
-                        <div class="d-flex"> 
+                      <img class="my-5" src="assets/images/svg/time-table.svg" alt="time table button" data-toggle="modal"
+                      data-target="#exampleModalCenterLevel" (click)="getDay(day.id, period.id)" > 
+                        <div class="d-flex flex-column" *ngFor = "let time of timeTableCells; let z = index"> 
+                        
+                          <p class="mb-0 fw-6 fc-lblue" *ngIf = "period?.name === time.periodName && day?.id === time?.day">  {{time?.subjectName | titlecase}} </p>
+                          <p *ngIf=" period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual === true"> Virtual Class </p>
+                          <p *ngIf=" period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual === false"> Physical Class </p>
+                          <p *ngIf=" period?.name === time.periodName && day?.id === time?.day" class="fw-6">  {{time?.teacherName | titlecase}} </p>
+                          
+                        </div>
+                        <div class="d-flex align-items-center">
                           <img src="assets/images/svg/table-time.svg" alt="" class="mr-3">
-                          <p class="mb-0"> {{period?.timeFromS}} - {{period?.timeToS}} 
-                          </p>
-  
-                      </div>
+                          <p class="mb-0">{{period?.timeFromS}} - {{period?.timeToS}} </p>
+                            
+                        </div>
                         <div class="d-flex">
-                            <img src="assets/images/svg/table-comp.svg" alt="" class="mr-3">
-                            <p class="mb-0">
-                                Classroom
-                            </p>
-                            <p> </p>
+                           
                         </div>
                     </div>
                     
                 </div>
-                <!-- <div class="row  mt-3" *ngFor = "let period of periods; let i = index">
-                    <div class="col-md-2  d-flex justify-content-between align-items-center">
-                        <b>{{period?.name}}</b>
-                    </div>
-                    <div class="col-md-2 border d-flex justify-content-center">
-                        <img src="assets/images/svg/time-table.svg" alt="time table button" data-toggle="modal"
-                        data-target="#exampleModalCenterLevel"> {{day?.id}}
-                    </div>
-                    <div class="col-md-2 border py-3">
-                        <p>Introductory Technology</p>
-                        <div class="d-flex">
-                            <img src="assets/images/svg/table-time.svg" alt="" class="mr-3">
-                            <p class="mb-0">
-                                9:10am - 9:50am
-                            </p>
-    
-                        </div>
-                        <div class="d-flex">
-                            <img src="assets/images/svg/table-school.svg" alt="" class="mr-3">
-                            <p class="mb-0">
-                                Americal Internation
-                            </p>
-    
-                        </div>
-                        <div class="d-flex">
-                            <img src="assets/images/svg/table-comp.svg" alt="" class="mr-3">
-                            <p class="mb-0">
-                                Classroom
-                            </p>
-    
-                        </div>
-                    </div>
-                    <div class="col-md-2 border d-flex justify-content-center">
-                        <img src="assets/images/svg/time-table.svg" alt="time table button">
-                    </div>
-                    <div class="col-md-2 border d-flex justify-content-center">
-                        <img src="assets/images/svg/time-table.svg" alt="time table button">
-                    </div>
-                    <div class="col-md-2 border d-flex justify-content-center">
-                        <img src="assets/images/svg/time-table.svg" alt="time table button">
-                    </div>
-                </div>
-                -->
+               
             </div>
 
-            <!-- <div class="container-fluid">
-              <div class="row  " *ngFor = "let period of periods; let i = index">
-                  <div class="col-md-2  d-flex justify-content-between align-items-center">
-                      <b>{{period?.name}}</b>
-                  </div>
-                  <div class="col-md-2 pb-2 border d-flex flex-column justify-content-center" *ngFor = "let day of timeTable; let i = index" >
-                      <img class="my-5" src="assets/images/svg/time-table.svg" alt="time table button" data-toggle="modal"
-                      data-target="#exampleModalCenterLevel" (click)="getDay(day.id, period.id)">  
-                      <div class="d-flex"> 
-                        <img src="assets/images/svg/table-time.svg" alt="" class="mr-3">
-                        <p class="mb-0"> {{period?.timeFromS}} - {{period?.timeToS}} 
-                        </p>
-
-                    </div>
-                      <div class="d-flex">
-                          <img src="assets/images/svg/table-comp.svg" alt="" class="mr-3">
-                          <p class="mb-0">
-                              Classroom
-                          </p>
-                          <p> </p>
-                      </div>
-                  </div>
-                  
-              </div>
-             
-          </div> -->
+           
         </div>
 
 <!-- time table Modal -->

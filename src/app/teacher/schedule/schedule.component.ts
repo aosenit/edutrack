@@ -50,12 +50,19 @@ classes: any;
   }
 
   daysofWeek() {
+    // this.daysInWeek = [
+    // { id: 0, day: 'Monday', classes: [] },
+    // { id: 1, day: 'Tuesday', classes: [] },
+    // { id: 2, day: 'Wednesday', classes: [] },
+    // { id: 3, day: 'Thursday', classes: [] },
+    // { id: 4, day: 'Friday', classes: [] },
+    // ];
     this.daysInWeek = [
-    { id: 0, day: 'Monday', classes: [] },
-    { id: 1, day: 'Tuesday', classes: [] },
-    { id: 2, day: 'Wednesday', classes: [] },
-    { id: 3, day: 'Thursday', classes: [] },
-    { id: 4, day: 'Friday', classes: [] },
+      { id: 0, day: 'Monday' },
+      { id: 1, day: 'Tuesday' },
+      { id: 2, day: 'Wednesday' },
+      { id: 3, day: 'Thursday' },
+      { id: 4, day: 'Friday' },
     ];
     console.log(this.daysInWeek);
   }
@@ -64,6 +71,7 @@ classes: any;
     this.timeTableService.getPeriods().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.periods = data.payload;
+        console.log('peridos', this.periods);
       }
     });
   }
@@ -78,28 +86,29 @@ classes: any;
 
         console.log(data);
 
-        this.sortDays(data.payload);
+      //   this.sortDays(data.payload);
 
-        from(this.subjectAndTime)
-         .pipe(
-           groupBy(
-             (result: any) =>
-              result.periodName.split('_')[0]
+      //   from(this.subjectAndTime)
+      //    .pipe(
+      //      groupBy(
+      //        (result: any) =>
+      //         result.periodName.split('_')[0]
 
-           ),
-           mergeMap(group => zip(of(group.key), group.pipe(toArray())))
-         )
-         .subscribe(xy => {
-           console.log('Periods', ...xy);
-           tables.push(xy);
-          });
-        tables.sort((a, b) => a - b);
-        this.timeTable = tables;
-        console.log('new', this.timeTable);
+      //      ),
+      //      mergeMap(group => zip(of(group.key), group.pipe(toArray())))
+      //    )
+      //    .subscribe(xy => {
+      //      console.log('Periods', ...xy);
+      //      tables.push(xy);
+      //     });
+      //   tables.sort((a, b) => a - b);
+      //   this.timeTable = tables;
+      //   console.log('new', this.timeTable);
 
-      }
-    });
-  }
+      // }
+    }
+  });
+}
 
   sortDays(data: any) {
     data.forEach(element => {
@@ -127,26 +136,6 @@ classes: any;
     console.log(this.daysInWeek);
     const tables = [];
 
-    from(this.daysInWeek)
-         .pipe(
-           groupBy(
-             (result: any) =>
-              console.log(result.classes)
-              // const apoti = result.classes;
-              // console.log('kire ', apoti);
-              //                     // tslint:disable-next-line:no-unused-expression
-              // apoti.periodName.split('_')[0];
-
-           ),
-    mergeMap(group => zip(of(group.key), group.pipe(toArray())))
-         )
-         .subscribe(xy => {
-           console.log('Periods', ...xy);
-           tables.push(xy);
-          });
-    this.timeTable = tables;
-    console.log('tne newwime table', this.timeTable);
-
   }
 
   save(i) {
@@ -154,26 +143,7 @@ classes: any;
     console.log(this.daysInWeek[i].classes);
     sessionStorage.setItem('current-class', JSON.stringify(this.daysInWeek[i].classes[0]));
   }
-  // sortTables(classes: any) {
-  //   console.log(this.daysInWeek.classes);
-  //   const tables = [];
-
-  //   from(classes)
-  //        .pipe(
-  //          groupBy(
-  //            (result: any) =>
-  //             result.periodName.split('_')[0]
-
-  //          ),
-  //          mergeMap(group => zip(of(group.key), group.pipe(toArray())))
-  //        )
-  //        .subscribe(xy => {
-  //          console.log('Periods', ...xy);
-  //          tables.push(xy);
-  //         });
-  //   this.timeTable = tables;
-  //   console.log('time table', this.timeTable);
-  // }
+ 
 
   getAllClassess() {
     this.classService.getAllClasses().subscribe((data: any) => {

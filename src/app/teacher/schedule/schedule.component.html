@@ -28,10 +28,10 @@
       <form *ngIf="table">
         <div class="row">
           <div class="col ">
-            <select id="class" class="form-control">
+            <!-- <select id="class" class="form-control">
               <option [value]="class.id" *ngFor="let class of classes"> {{class?.name}}{{class?.classGroup}}</option>
 
-            </select>
+            </select> -->
           </div>
           <!-- <div class="col ">
             <select name="" id="" class="form-control form-control-lg">
@@ -54,7 +54,7 @@
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active " id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
 
-        <div class="mt-5">
+        <!-- <div class="mt-5">
           <div class="container-fluid">
             <div class="row mb-2 text-center">
               <div class="col-md-2">
@@ -88,49 +88,52 @@
               </div>
 
             </div>
-            <!-- <div
-              </div> class="row " *ngFor = "let period of periods; let i = index">
-                        <div class="col-md-2  d-flex justify-content-between align-items-center">
-                            <b>{{period?.name}}</b>
-                        </div>
-                        <div class="col-md-2 border d-flex justify-content-center">
-                            <img src="assets/images/svg/time-table.svg" alt="time table button" data-toggle="modal"
-                            data-target="#exampleModalCenterLevel"> {{day?.id}}
-                        </div>
-                        <div class="col-md-2 border py-3">
-                            <p>Introductory Technology</p>
-                            <div class="d-flex">
-                                <img src="assets/images/svg/table-time.svg" alt="" class="mr-3">
-                                <p class="mb-0">
-                                    9:10am - 9:50am
-                                </p>
-        
-                            </div>
-                            <div class="d-flex">
-                                <img src="assets/images/svg/table-school.svg" alt="" class="mr-3">
-                                <p class="mb-0">
-                                    Americal Internation
-                                </p>
-        
-                            </div>
-                            <div class="d-flex">
-                                <img src="assets/images/svg/table-comp.svg" alt="" class="mr-3">
-                                <p class="mb-0">
-                                    Classroom
-                                </p>
-        
-                            </div>
-                        </div>
-                        <div class="col-md-2 border d-flex justify-content-center">
-                            <img src="assets/images/svg/time-table.svg" alt="time table button">
-                        </div>
-                        <div class="col-md-2 border d-flex justify-content-center">
-                            <img src="assets/images/svg/time-table.svg" alt="time table button">
-                        </div>
-                        <div class="col-md-2 border d-flex justify-content-center">
-                            <img src="assets/images/svg/time-table.svg" alt="time table button">
-                        </div>
-                    </div> -->
+           
+          </div>
+        </div> -->
+        <div class="mt-5">
+          <div class="container-fluid">
+            <div class="row mb-2 text-center">
+              <div class="col-md-2">
+
+              </div>
+              <div class="col-md-2 " *ngFor = "let day of daysInWeek; let i = index">
+                <p class="fw-6 fc-lblue">
+                  {{day?.day}}
+                </p>
+             </div>
+
+
+            </div>
+            <div class="row " *ngFor = "let period of periods; let i = index">
+              <div class="col-md-2 cells cell-time d-flex justify-content-between align-items-center">
+                <span class="start">  {{period?.timeFromS}} </span>
+                <b class="py-3">{{period?.name}}</b>
+                <span class="end">  {{period?.timeToS}} </span>
+            </div>
+            <div class="col-md-2 py-2 px-1 cells d-flex flex-column  justify-content-center" *ngFor = "let day of daysInWeek; let i = index" >
+               
+              <div class="d-flex flex-column   bg-lblue px-2  " *ngFor = "let time of subjectAndTime; let z = index"> 
+              
+                <p class="mb-0 fw-4 pt-2 " *ngIf=" period?.name === time.periodName && day?.id === time?.day" >  {{time?.subjectName | titlecase}} </p> 
+                <div class="d-flex justify-content-between">
+                  <p class="mb-0 fw-4 pb-2 " *ngIf=" period?.name === time.periodName && day?.id === time?.day" >  {{time?.className | titlecase}} </p> 
+                  <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4"
+                      *ngIf="period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual == true">
+                    <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4"
+                      *ngIf="period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual == false">
+                </div>
+              </div>
+              <!-- <div class="d-flex align-items-center">
+                <img src="assets/images/svg/table-time.svg" alt="" class="mr-3">
+                <p class="mb-0">{{period?.timeFromS}} - {{period?.timeToS}} </p>
+                  
+              </div> -->
+              
+          </div>
+
+            </div>
+           
           </div>
         </div>
 

@@ -68,6 +68,7 @@ export class TimeTableService {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getTableforClassByClassId}/${id}`;
+    console.log(url);
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
