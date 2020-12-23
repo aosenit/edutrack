@@ -47,8 +47,8 @@ export class ClassScheduleComponent implements OnInit {
 
 
   getTimeTableByClass() {
-    const classId = 22;
-    this.timeTableService.getTimeTableForClass(classId).subscribe((data: any) => {
+    // const classId = 22;
+    this.timeTableService.getTimeTableForClass().subscribe((data: any) => {
       if (data.hasErrors === false ) {
         this.timeTableCells = data.payload;
         console.log(this.timeTableCells);

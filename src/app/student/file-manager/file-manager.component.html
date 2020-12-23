@@ -19,7 +19,7 @@
                 <div class="files px-3 pt-3 pb-4 " *ngFor = "let subject of subjectList"  >
                     <p class="mb-0 "  > {{subject?.subject | titlecase}}</p>
                     <p class="last"  *ngIf="subject?.filesCount === 0"></p>
-                    <p class="last cursor-pointer"  routerLink = "/student/notification/{{subject?.id}}" *ngIf="subject?.filesCount >= 1">Click to view file(s)</p>
+                    <p class="last cursor-pointer"  routerLink = "/student/file-storage/{{subject.id}}" *ngIf="subject?.filesCount >= 1">Click to view file(s)</p>
                     <span class="notice-pane fw-6" *ngIf="subject?.filesCount >= 1">{{subject?.filesCount}}</span>
                 </div>
                 

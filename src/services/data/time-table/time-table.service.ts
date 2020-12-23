@@ -53,37 +53,45 @@ export class TimeTableService {
     // body.append('NoOfPeriod', result.NoOfPeriod);
 
     const url = `${this.baseUrl + routes.addTimeTableCell}`;
-    return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getTimeTableForTeacher() {
     const tenantId = '1'; // just a temporary header till email services is ready
 
-    const url = `${this.baseUrl + routes.getTableforteacher}/3`;
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    const url = `${this.baseUrl + routes.getTableforteacher}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
 
-  getTimeTableForClass(id: any) {
-    const tenantId = '1'; // just a temporary header till email services is ready
+  getTimeTableForClass() {
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
-    const url = `${this.baseUrl + routes.getTableforClassByClassId}/${id}`;
+    const url = `${this.baseUrl + routes.getTableforClassByClassId}`;
     console.log(url);
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getTimeTableForClassWithQuery(id) {
+    // const tenantId = '1'; // just a temporary header till email services is ready
+
+    const url = `${this.baseUrl + routes.getTableforClassByClassId}?classId=${id}`;
+    console.log(url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getAllClassesForTeacherByDay( day) {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getTableforTeacherByDay}?day=${day}`;
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getAllClassesForClassByDay( classId, day) {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getTableforClassByDay}?classId=${classId}&day=${day}`;
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getNextClassessForTeacherByDay(teacherId, day) {
@@ -91,7 +99,7 @@ export class TimeTableService {
 
     const url = `${this.baseUrl + routes.getNextClassesforTeacherByDay}?teacherId=${teacherId}&day=${day}`;
     console.log(url);
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getNextClassessForClassByDay(classid, day) {
@@ -99,7 +107,7 @@ export class TimeTableService {
 
     const url = `${this.baseUrl + routes.getNextClassesforClassByDay}?classid=${classid}&day=${day}`;
     console.log(url);
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
 

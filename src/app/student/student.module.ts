@@ -16,6 +16,7 @@ import { TaskPreviewComponent } from './task-preview/task-preview.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SharedModule } from '../shared/shared.module';
+import { FileStorageComponent } from './file-storage/file-storage.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { SharedModule } from '../shared/shared.module';
     FilesComponent,
     StudentProfileComponent,
     NotificationPageComponent,
-    TaskPreviewComponent],
+    TaskPreviewComponent,
+    FileStorageComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

@@ -4,6 +4,7 @@ import { AssignmentComponent } from './assignment/assignment.component';
 import { ClassScheduleComponent } from './class-schedule/class-schedule.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FileManagerComponent } from './file-manager/file-manager.component';
+import { FileStorageComponent } from './file-storage/file-storage.component';
 import { FilesComponent } from './files/files.component';
 import { NotificationPageComponent } from './notification-page/notification-page.component';
 import { SessionComponent } from './session/session.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
     {path: 'profile', component: StudentProfileComponent},
     {path: 'notification/:id', component: NotificationPageComponent},
     {path: 'preview/:id', component: TaskPreviewComponent},
+    {path: 'file-storage/:id', component: FileStorageComponent},
   ]}
 
 ];

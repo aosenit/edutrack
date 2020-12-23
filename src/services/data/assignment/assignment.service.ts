@@ -9,7 +9,8 @@ const routes = {
   getAssignmentByClassSubject: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByClassSubject',
   submitStudentAssignment: 'schtrack-learning/api/v1/AssignmentAnswer/UploadAssignmentAnswer',
   updatecomment: 'schtrack-learning/api/v1/AssignmentAnswer/UpdateComment',
-  updatescore: 'schtrack-learning/api/v1/AssignmentAnswer/UpdateScore'
+  updatescore: 'schtrack-learning/api/v1/AssignmentAnswer/UpdateScore',
+  getAssignmentFiles: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByClassSubject',
 
 };
 
@@ -83,5 +84,11 @@ export class AssignmentService {
     const url = `${this.baseUrl + routes.updatescore}`;
     
     return this.http.put(url, result, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getAssignmentFiles(id: any) {
+    const url = `${this.baseUrl + routes.getAssignmentFiles}/?classSubjectId=${id}`;
+    console.log(url);
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

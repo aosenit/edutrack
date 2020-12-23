@@ -234,6 +234,7 @@ export class FileManagerComponent implements OnInit {
       if (data.hasErrors === false) {
         // console.log('class work', data);
         this.classworkList = data.payload;
+        console.log(this.classworkList)
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

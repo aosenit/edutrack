@@ -79,7 +79,7 @@ export class TimeTableComponent implements OnInit {
     }
     );
 
-    this.timeTableService.getTimeTableForClass(id).subscribe((data: any) => {
+    this.timeTableService.getTimeTableForClassWithQuery(id).subscribe((data: any) => {
       if (data.hasErrors === false ) {
         this.timeTableCells = data.payload;
         console.log(this.timeTableCells);
