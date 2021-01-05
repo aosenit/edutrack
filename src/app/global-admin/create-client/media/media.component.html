@@ -21,22 +21,24 @@
               <label class="custom-file-label" for="customFile"> {{logoname}} </label>
             </ng-template>
             
+            <small class="text-danger">Upload file not more than 1mb</small>
           </div>
         </div>
-
+        
         <div class="  ">
-            <label for="icon" class="fw-6">Icon</label>
-            <div class="custom-file mb-3">
-              <input 
-              type="file" 
-              class="custom-file-input" 
-              accept="image/png, image/jpeg"
-              id="customFile" name="iconname" 
-              (change)="handleIconUpload($event)">
-              <label class="custom-file-label" for="customFile" *ngIf ="iconname === null; else icon"> Upload File </label>
-              <ng-template #icon>
-                <label class="custom-file-label" for="customFile"> {{iconname}} </label>
-              </ng-template>
+          <label for="icon" class="fw-6">Icon</label>
+          <div class="custom-file mb-3">
+            <input 
+            type="file" 
+            class="custom-file-input" 
+            accept="image/png, image/jpeg"
+            id="customFile" name="iconname" 
+            (change)="handleIconUpload($event)">
+            <label class="custom-file-label" for="customFile" *ngIf ="iconname === null; else icon"> Upload File </label>
+            <ng-template #icon>
+              <label class="custom-file-label" for="customFile"> {{iconname}} </label>
+            </ng-template>
+            <small class="text-danger">Upload file not more than 1mb</small>
             </div>
           </div>
       </div>

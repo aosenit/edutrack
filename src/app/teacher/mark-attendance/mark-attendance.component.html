@@ -1,0 +1,206 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+                    <li class="breadcrumb-item a1 " aria-current="page" (click)="back()">
+                        <a class="fc-lblue">Back</a>
+                    </li>
+                </ol>
+
+
+            </nav>
+
+            <div class="my-3 d-flex align-items-center">
+                <img src="assets/images/svg/mark-attendance.svg" class="mr-3" alt="..." />
+                <h6 class="mb-0">Take Attendance</h6>
+            </div>
+
+            <section class="list">
+                <table class="table table-borderless client-table">
+                    <thead>
+                        <tr>
+                            <th scope="col " class="head">
+                                <!-- <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                              <label class="custom-control-label" for="customCheckTh"></label>
+                            </div> -->
+                            </th>
+                            <th scope="col">Student Name
+
+                            </th>
+                            <th scope="col">Student Number
+
+                            </th>
+                           
+                           
+                            <th scope="col"> Status </th>
+                            <th scope="col"> </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="pb-2">
+                            <td scope="row" class="school-logo rounded-left align-items-center">
+                                <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input"
+                                        id="customCheck1" value=""
+                                        (change)="getElementId($event.target.value)">
+                                    <label class="custom-control-label" for="customCheck1"></label>
+                                </div>
+                            </td>
+                            <td class="">
+                                <div class="d-flex align-items-center">
+                                    <img class=""   src="assets/images/svg/companyalt.svg" alt="schools log"
+                                    class="mr-3 image-rounded" id="">
+                                    Okoli James
+                                </div>    
+                            </td>
+                            <td class=""> 2122121212</td>
+                            <td >
+                                <span class="status_active">Present</span>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                    <label class="custom-control-label" for="customSwitch1"></label>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr class="pb-2">
+                            <td scope="row" class="school-logo rounded-left align-items-center">
+                                <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input"
+                                        id="customCheck1" value=""
+                                        (change)="getElementId($event.target.value)">
+                                    <label class="custom-control-label" for="customCheck1"></label>
+                                </div>
+                            </td>
+                            <td class="">
+                                <div class="d-flex align-items-center">
+                                    <img class=""   src="assets/images/svg/companyalt.svg" alt="schools log"
+                                    class="mr-3 image-rounded" id="">
+                                    Okoli James
+                                </div>    
+                            </td>
+                            <td class=""> 2122121212</td>
+                            <td >
+                                <span class="status_inactive">Absent</span>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                    <label class="custom-control-label" for="customSwitch1"></label>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr class="pb-2">
+                            <td scope="row" class="school-logo rounded-left align-items-center">
+                                <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input"
+                                        id="customCheck1" value=""
+                                        (change)="getElementId($event.target.value)">
+                                    <label class="custom-control-label" for="customCheck1"></label>
+                                </div>
+                            </td>
+                            <td class="">
+                                <div class="d-flex align-items-center">
+                                    <img class=""   src="assets/images/svg/companyalt.svg" alt="schools log"
+                                    class="mr-3 image-rounded" id="">
+                                    Wisdom Emmanuel
+                                </div>    
+                            </td>
+                            <td class=""> 2122121212</td>
+                            <td >
+                                <span class="status_active">Present</span>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                    <label class="custom-control-label" for="customSwitch1"></label>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr class="pb-2">
+                            <td scope="row" class="school-logo rounded-left align-items-center">
+                                <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input"
+                                        id="customCheck1" value=""
+                                        (change)="getElementId($event.target.value)">
+                                    <label class="custom-control-label" for="customCheck1"></label>
+                                </div>
+                            </td>
+                            <td class="">
+                                <div class="d-flex align-items-center">
+                                    <img class=""   src="assets/images/svg/companyalt.svg" alt="schools log"
+                                    class="mr-3 image-rounded" id="">
+                                    Frank Obinna
+                                </div>    
+                            </td>
+                            <td class=""> 2122121212</td>
+                            <td >
+                                <span class="status_inactive">Absent</span>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch7">
+                                    <label class="custom-control-label" for="customSwitch7"></label>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr class="pb-2">
+                            <td scope="row" class="school-logo rounded-left align-items-center">
+                                <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input"
+                                        id="customCheck8" value=""
+                                        (change)="getElementId($event.target.value)">
+                                    <label class="custom-control-label" for="customCheck8"></label>
+                                </div>
+                            </td>
+                            <td class="">
+                                <div class="d-flex align-items-center">
+                                    <img class=""   src="assets/images/svg/companyalt.svg" alt="schools log"
+                                    class="mr-3 image-rounded" id="">
+                                    kayode Umar
+                                </div>    
+                            </td>
+                            <td class=""> 2122121212</td>
+                            <td >
+                                <span class="status_active">Present</span>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch9">
+                                    <label class="custom-control-label" for="customSwitch9"></label>
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+
+                    </tbody>
+                </table>
+                <!-- <div class="d-flex justify-content-end">
+                      <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+                    </div>
+             -->
+            </section>
+
+        </div>
+
+        <div class="col-md-3 col-md-3 bg-white  p-3 pt-4  notice-board d-flex flex-column" id="announcement">
+            asas
+        </div>
+    </div>
+</div>

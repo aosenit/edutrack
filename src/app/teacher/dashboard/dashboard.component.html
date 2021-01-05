@@ -20,7 +20,8 @@
               assignments to mark.</p>
           </div>
           <div class="profile__cards">
-            <div class="card1 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card">
+            <div class="card1 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card"
+            [routerLink]="['/teacher/attendance']">
               <img src="assets/images/svg/attendance.svg" alt="student card" class="mr-2">
               <p class="mb-0 fw-6">Attendance </p>
             </div>
@@ -58,7 +59,7 @@
                     {{table?.timeTo.hours}}:{{table?.timeTo.minutes}} </p>
                   <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4"
                     *ngIf="table?.hasVirtual == true">
-                  <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4"
+                  <img src="assets/images/svg/physical-class.svg" alt="new client" class="ml-4"
                     *ngIf="table?.hasVirtual == false">
                 </div>
               </div>

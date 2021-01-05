@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 import { ClassWorkService } from 'src/services/data/class-work/class-work.service';
+import { FilesService } from 'src/services/data/files/files.service';
 import { LessonNoteService } from 'src/services/data/lesson-note/lesson-note.service';
 
 @Component({
@@ -18,7 +19,8 @@ classWorks: any;
     private route: ActivatedRoute,
     private lessonNoteService: LessonNoteService,
     private classWorkService: ClassWorkService,
-    private assignmentServie: AssignmentService
+    private assignmentServie: AssignmentService,
+    private fileService: FilesService
   ) { }
 
   ngOnInit() {
@@ -52,6 +54,13 @@ classWorks: any;
         this.assignmentlist = data.payload;
       }
   });
+  }
+
+  downloadClassWork(fileId) {
+    console.log(fileId);
+    this.fileService.getFileUpload(fileId).subscribe((data: any) => {
+      console.log(data);
+    });
   }
 
 }

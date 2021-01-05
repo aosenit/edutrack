@@ -24,6 +24,7 @@ export class TimeTableComponent implements OnInit {
   timeTable: any;
   timetable2: any;
   addCell = { periodId: '', day: '', teacherClassSubjectId: '', HasVirtual: false };
+  hideImg = false;
   constructor(
     private schoolSectionService: SchoolSectionService,
     private classService: ClassService,
@@ -97,25 +98,12 @@ export class TimeTableComponent implements OnInit {
           });
         this.timeTable = tables;
         console.log('time table', this.timeTable[0]);
-        // const transpose = this.timeTable.reduce((arr, obj) => {
-        //   for (const key in obj) {
-        //     if (obj.hasOwnProperty(key)) {
-        //       arr[key] = arr[key] || [];
-        //       arr[key].push(obj[key]);
-        //     }
-        //   }
-        //   return arr;
-        // }, {});
-        // console.log('omoh', transpose);
-        // this.timetable2 = transpose;
+
       }
     });
   }
 
-  // loadData(day, periodid) {
-  //   // console.log('period', period, dat );
-  //   alert(day, periodid);
-  // }
+
 
 
   getTeacherBySubjectId(id) {
@@ -155,6 +143,7 @@ export class TimeTableComponent implements OnInit {
     console.log(id);
     this.addCell.day = id;
     this.addCell.periodId = periodid;
+    this.hideImg = true;
   }
   checkVirtual(event) {
 

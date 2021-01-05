@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -33,7 +34,7 @@ const routes: Routes = [
   {
     path: '', component: SchoolComponent,
     children: [
-      { path: 'dashboard', component: DashboardComponent},
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardGuard]},
       { path: 'students', component: StudentListComponent},
       { path: 'parents', component: ParentListComponent},
       { path: 'parent-detail/:id', component: ParentDetailsComponent},

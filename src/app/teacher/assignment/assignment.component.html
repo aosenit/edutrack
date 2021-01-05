@@ -94,8 +94,12 @@
           <td> {{assignment?.date | date : "shortTime"}} </td>
           <!-- <td><span class="status_pending">Pending</span></td> -->
           <td><span class="status_graded" *ngIf="assignment?.score">Graded</span></td>
-          <td><button class="grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" [disabled]="assignment?.score">Grade</button></td>
-          <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+          <td>
+            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" [disabled]="assignment?.score">Grade</button>
+          </td>
+          <td>
+            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" [hidden]="!assignment?.score" >Preview</button>
+            </td>
 
         </tr>
 

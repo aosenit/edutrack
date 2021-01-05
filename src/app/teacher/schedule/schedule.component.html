@@ -120,7 +120,7 @@
                   <p class="mb-0 fw-4 pb-2 " *ngIf=" period?.name === time.periodName && day?.id === time?.day" >  {{time?.className | titlecase}} </p> 
                   <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4"
                       *ngIf="period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual == true">
-                    <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4"
+                    <img src="assets/images/svg/physical-class.svg" alt="new client" class="ml-4"
                       *ngIf="period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual == false">
                 </div>
               </div>

@@ -252,7 +252,7 @@ export class ScoreSheetComponent implements OnInit {
     const check = this.newList[u];
     const { assessmentId, score } = this.addGradeForm.value;
     // tslint:disable-next-line:triple-equals
-    if (check.id == studentId && this.AssessmentSequence == assessmentId && score >= this.AssessmentScore) {
+    if (check.id == studentId && this.AssessmentSequence == assessmentId && score > this.AssessmentScore) {
       this.notifyService.publishMessages('Invalid score', 'danger', 1);
       return;
     }
@@ -273,6 +273,9 @@ export class ScoreSheetComponent implements OnInit {
     const prevCumulative = this.scoreResult[studentId].cummulative || 0;
     this.scoreResult[studentId].cummulative = Number(prevCumulative) + Number(score);
     this.scoreObject = this.scoreResult;
+    if (this.scoreResult[studentId].cummulative > 100) {
+      alert('Cummulative score can exceed 100');
+    }
     console.log(this.scoreResult);
     $(`#dropdownMenuLink${u}`).toggleClass('show-pop');
     // this.omo = this.scoreResult[studentId];

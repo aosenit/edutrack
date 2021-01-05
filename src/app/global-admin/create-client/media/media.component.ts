@@ -109,11 +109,15 @@ export class MediaComponent implements OnInit {
   handleImgUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      // console.log('file', file);
+      console.log('file', file);
       this.logoname = file.name;
       this.mediaForm.get('logo').setValue(file);
       this.DocumentTypes.push(0);
       // this.iconname = this.icon.name;
+      const size = event.target.files[0].size;
+      if (size >=  1048576 ) {
+        this.notifyService.publishMessages('File size too large', 'danger', 1);
+      }
     }
   }
 
@@ -124,7 +128,10 @@ export class MediaComponent implements OnInit {
       this.iconname = file.name;
       this.mediaForm.get('icon').setValue(file);
       this.DocumentTypes.push(1);
-
+      const size = event.target.files[0].size;
+      if (size >=  1048576 ) {
+        this.notifyService.publishMessages('File size too large', 'danger', 1);
+      }
       // this.iconname = this.icon.name;
     }
   }

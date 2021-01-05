@@ -308,7 +308,7 @@
                           <td>{{classWork?.creationDate | date: 'longDate'}}</td>
                           <td >
                             <span [ngStyle]="{cursor: 'pointer'}" class="status"
-                              routerLink="/teacher/class-work/{{classWork?.id}}">Download</span>
+                              (click)="downloadClassWork(classWork?.fileId)" >Download</span>
                           </td>
                           <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
         

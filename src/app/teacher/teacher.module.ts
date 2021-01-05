@@ -23,6 +23,9 @@ import { BroadSheetComponent } from './broad-sheet/broad-sheet.component';
 import { ScoreSheetComponent } from './score-sheet/score-sheet.component';
 import { ScoreSheetDetailsPageComponent } from './score-sheet-details-page/score-sheet-details-page.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { TimeTableComponent } from './time-table/time-table.component';
+import { AttendanceComponent } from './attendance/attendance.component';
+import { MarkAttendanceComponent } from './mark-attendance/mark-attendance.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
     GradebookComponent,
     BroadSheetComponent,
     ScoreSheetComponent,
-    ScoreSheetDetailsPageComponent],
+    ScoreSheetDetailsPageComponent,
+    TimeTableComponent,
+    AttendanceComponent,
+    MarkAttendanceComponent],
   imports: [
     CommonModule,
     CKEditorModule,

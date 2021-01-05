@@ -12,7 +12,7 @@ export class ParentListComponent implements OnInit {
   parentList: any;
   searchString: string;
   p = 1;
-  itemsPerPage = 5;
+  itemsPerPage = 10;
   parentCount: number;
 
   constructor(

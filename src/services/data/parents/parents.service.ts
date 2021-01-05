@@ -56,6 +56,7 @@ export class ParentsService {
 
   getAllParentsInASchool(p, perpage) {
     const url = `${this.baseUrl + routes.getallparentinASchool}?PageIndex=${p}&PageSize=${perpage}`;
+    console.log(url)
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
   getAllParentsWithName() {

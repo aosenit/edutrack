@@ -25,9 +25,9 @@ border-radius: 10px;
     border: 1px dashed #5A8BC5;
 }
 
-.cell-color {
+/* .cell-color {
     background: #C5DEFC;
-}
+} */
 
 .cell-time {
     position: relative;

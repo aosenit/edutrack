@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { ClassScheduleComponent } from './class-schedule/class-schedule.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -16,18 +17,18 @@ import { VirtualClassroomComponent } from './virtual-classroom/virtual-classroom
 
 const routes: Routes = [
   {path: '', component: StudentComponent, children: [
-    {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
-    {path: 'dashboard', component: DashboardComponent},
-    {path: 'start-class', component: VirtualClassroomComponent},
-    {path: 'session', component: SessionComponent},
-    {path: 'assignment', component: AssignmentComponent},
-    {path: 'schedule', component: ClassScheduleComponent},
-    {path: 'file-manager', component: FileManagerComponent},
-    {path: 'files', component: FilesComponent},
-    {path: 'profile', component: StudentProfileComponent},
-    {path: 'notification/:id', component: NotificationPageComponent},
-    {path: 'preview/:id', component: TaskPreviewComponent},
-    {path: 'file-storage/:id', component: FileStorageComponent},
+    {path: '', pathMatch: 'full', redirectTo: 'dashboard', canActivate: [AuthGuardGuard]},
+    {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardGuard] },
+    {path: 'start-class', component: VirtualClassroomComponent, canActivate: [AuthGuardGuard]},
+    {path: 'session', component: SessionComponent, canActivate: [AuthGuardGuard]},
+    {path: 'assignment', component: AssignmentComponent, canActivate: [AuthGuardGuard]},
+    {path: 'schedule', component: ClassScheduleComponent, canActivate: [AuthGuardGuard]},
+    {path: 'file-manager', component: FileManagerComponent, canActivate: [AuthGuardGuard]},
+    {path: 'files', component: FilesComponent, canActivate: [AuthGuardGuard]},
+    {path: 'profile', component: StudentProfileComponent, canActivate: [AuthGuardGuard]},
+    {path: 'notification/:id', component: NotificationPageComponent, canActivate: [AuthGuardGuard]},
+    {path: 'preview/:id', component: TaskPreviewComponent, canActivate: [AuthGuardGuard]},
+    {path: 'file-storage/:id', component: FileStorageComponent, canActivate: [AuthGuardGuard]},
   ]}
 
 ];
