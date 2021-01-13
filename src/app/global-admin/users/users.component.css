@@ -93,9 +93,10 @@ table.client-table {
     color: #4c75bd;
 }
 
-.list .table thead tr th {
+.list .table thead  th {
     font-weight: 600;
-    font-size: 13px;
+    line-height: 24px;
+    font-size: 15px;
 }
 
 .list .table thead .head {

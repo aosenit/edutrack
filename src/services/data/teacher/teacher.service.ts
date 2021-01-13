@@ -8,6 +8,10 @@ const routes = {
   getteacherbyid: 'schtrack-auth/api/v1/Teacher/GetTeachers',
   updateteacherbyid: 'schtrack-auth/api/v1/Teacher/UpdateTeacher',
   deleteteacher: 'schtrack-auth/api/v1/Teacher/DeleteTeacher',
+  attachteachertoclass: 'schtrack-auth/api/v1/Teacher/SetClassTeacher',
+  getClassTeacher: 'schtrack-auth/api/v1/Teacher/GetTeacherClass',
+
+
   getAllassignmentSubmission: 'schtrack-learning/api/v1/AssignmentAnswer/GetAllAssignmentAnswers',
 
   attachteachertosubject: 'schtrack-learning/api/v1/TeacherClassSubject/AddClassSubjectsToTeacher',
@@ -148,5 +152,19 @@ export class TeacherService {
     console.log(url);
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
+  }
+
+  attachTeacherToClass(result) {
+
+    const url = `${this.baseUrl + routes.attachteachertoclass}`;
+
+    return this.http.put(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  getTeacherAttachedToClass(id) {
+    const url = `${this.baseUrl + routes.getClassTeacher}/${id}`;
+
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

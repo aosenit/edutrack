@@ -12,6 +12,8 @@ export class GradingComponent implements OnInit {
   extraCommentForm: FormGroup;
   scoreForm: FormGroup;
   id: any;
+  hideSide = false;
+  gradeAssignment = true;
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -28,6 +30,7 @@ export class GradingComponent implements OnInit {
     this.scoreForm = this.fb.group({
       score: ['', Validators.required]
     });
+    this.getAssignmentPreview();
   }
 
   submitComment() {
@@ -63,6 +66,15 @@ export class GradingComponent implements OnInit {
 
       }
     });
+  }
+
+  getAssignmentPreview() {
+    const currentpath = this.route.snapshot.url[0].path; // get current path to know which endpoint to use
+    console.log(currentpath);
+    if (currentpath === 'preview-assignment') {
+      this.hideSide = true;
+      this.gradeAssignment = false;
+    }
   }
 
   back() {

@@ -60,6 +60,8 @@ export class BroadSheetComponent implements OnInit {
   getSubjectsAndStudents(id) {
     console.log('class id ', id);
     this.Classid = id;
+    sessionStorage.setItem('class-id', this.Classid);
+
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
@@ -82,6 +84,11 @@ export class BroadSheetComponent implements OnInit {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
     });
+  }
+
+  saveStudentDetails(u) {
+    console.log(this.studentData[u]);
+    sessionStorage.setItem('student-details', JSON.stringify(this.studentData[u]) );
   }
 
 }

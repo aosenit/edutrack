@@ -89,7 +89,7 @@
                     <div class="d-flex text-left">
                       <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
                       <div class="student-info">
-                        <p class="mb-0 cursor-pointer" routerLink="/teacher/score-sheet-student/{{student.studentId}}" >{{student?.studentName}}</p>
+                        <p class="mb-0 cursor-pointer" (click)="saveStudentDetails(i)" routerLink="/teacher/score-sheet-student/{{student.studentId}}" >{{student?.studentName}}</p>
                       </div>
                     </div>
                    

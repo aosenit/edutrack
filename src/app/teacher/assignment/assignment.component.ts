@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 import { ClassService } from 'src/services/data/class/class.service';
 import { SubjectService } from 'src/services/data/subject/subject.service';
@@ -21,7 +21,8 @@ export class AssignmentComponent implements OnInit {
   constructor(
     private assignmentService: AssignmentService,
     private teacherService: TeacherService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -41,6 +42,12 @@ export class AssignmentComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  previewAssignment() {
+    // console.log(this.route.snapshot);
+    // routerLink = ""
+    this.router.navigateByUrl('/teacher/preview-assignment/' + this.id);
   }
 
   back() {

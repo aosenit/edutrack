@@ -44,7 +44,7 @@ export class AssignmentsComponent implements OnInit {
       console.log(data);
       if (data.hasErrors === false) {
         console.log('asasasa', data);
-        this.assignmentLists = data.payload.reverse();
+        this.assignmentLists = data.payload;
         this.assignmentCount = data.totalCount;
       }
     }, error => {

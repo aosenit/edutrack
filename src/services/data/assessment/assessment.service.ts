@@ -8,6 +8,7 @@ const routes = {
   getcurrentsession: 'schtrack-assessment/api/v1/SessionSetup/GetCurrentSchoolSessions',
   setupassessment: 'schtrack-assessment/api/v1/AssessmentSetup/UploadAssessmentSetups',
   getassessmentsetup: 'schtrack-assessment/api/v1/AssessmentSetup/GetAllAssessmentSetup',
+  submitStudentResult: 'schtrack-assessment/api/v1/Result/SubmitStudentResult',
 };
 
 
@@ -35,7 +36,7 @@ export class AssessmentService {
     const url = `${this.baseUrl + routes.getschoolSessions}`;
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
- 
+
   setUpAssessment(result) {
     const url = `${this.baseUrl + routes.setupassessment}`;
     return this.http.post(url, result, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
@@ -44,5 +45,10 @@ export class AssessmentService {
   getAllAssessmentSetup() {
     const url = `${this.baseUrl + routes.getassessmentsetup}`;
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  submitStudentResultForApproval(result) {
+    const url = `${this.baseUrl + routes.submitStudentResult}`;
+    return this.http.post(url, result, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 }

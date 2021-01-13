@@ -34,7 +34,7 @@ export class TimeTableComponent implements OnInit {
 
   ngOnInit() {
     this.getSchoolSection();
-    this.getClasses();
+    // this.getClasses();
     this.getAllPeriods();
     this.daysofWeek();
     // this.deleteTableCell();
@@ -61,14 +61,14 @@ export class TimeTableComponent implements OnInit {
   }
 
 
-  getClasses() {
-    this.classService.getAllClasses().subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.classes = data.payload;
-        console.log(this.classes);
-      }
-    });
-  }
+  // getClasses() {
+  //   this.classService.getAllClasses().subscribe((data: any) => {
+  //     if (data.hasErrors === false) {
+  //       this.classes = data.payload;
+  //       console.log(this.classes);
+  //     }
+  //   });
+  // }
 
   getSubjectsByClassId(id) {
     console.log(id);
@@ -140,10 +140,11 @@ export class TimeTableComponent implements OnInit {
   }
 
   getDay(id, periodid) {
-    console.log(id);
+    console.log('id', id);
+    console.log('period', periodid);
     this.addCell.day = id;
     this.addCell.periodId = periodid;
-    this.hideImg = true;
+    // this.hideImg = true;
   }
   checkVirtual(event) {
 
@@ -177,7 +178,11 @@ export class TimeTableComponent implements OnInit {
         console.log(data);
         sessionStorage.setItem('table', JSON.stringify(data.payload));
         this.notifyService.publishMessages('Upload successfull', 'success', 1);
+        this.addCell = { periodId: '', day: '', teacherClassSubjectId: '', HasVirtual: false };
 
+        
+      } else if (data.hasErrors === true) {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

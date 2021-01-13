@@ -37,6 +37,7 @@ export class AssignmentService {
 
   getAssignmentByTeacher(p, perpage) {
     const url = `${this.baseUrl + routes.getAssignmentByTeacher}?PageIndex=${p}&PageSize=${perpage}`;
+    console.log(url)
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
