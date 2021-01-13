@@ -42,7 +42,7 @@
       </div>
       <!--  ================== EMPTY STATE HOLDER -->
 
-      <div class="d-flex flex-column justify-content-center align-items-center my-5"  >
+      <div class="d-flex flex-column justify-content-center align-items-center my-5"  *ngIf="classTeacherDetails?.className === ' ' "  >
         <img src="assets/images/svg/attach-image.svg" alt="..." class="mt-2" />
         <p class="fw-6 mt-3 text-center">This teacher is not currently attached to a class. Please <br> click the button
           below to attach teacher to a class.</p>
