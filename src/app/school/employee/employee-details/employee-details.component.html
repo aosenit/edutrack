@@ -1,96 +1,93 @@
 <div class="basic-details">
 
-    <form [formGroup]="employeeForm"  >
-      <div class="form-row mb-5 ">
-        <div class=" ">
-          <label for="staff" class="fw-6">Staff Type <span class="text-danger">*</span></label>
-          <select name="" id="staff" class="form-control form-control-lg" formControlName="StaffType">
-            <option value="" selected> select</option>
-            <option value="1" > Academic Staff</option>
-            <option value="2" > Non Academic Staff</option>
+  <form [formGroup]="employeeForm">
+    <div class="form-row mb-5 ">
+      <div class=" ">
+        <label for="staff" class="fw-6">Staff Type <span class="text-danger">*</span></label>
+        <select name="" id="staff" class="form-control form-control-lg" formControlName="StaffType">
+          <!-- <option value="" selected> select</option> -->
+          <option value="1"> Academic Staff</option>
+          <option value="2"> Non Academic Staff</option>
         </select>
-        </div>
-        <div class=" ">
-          <label for="status" class="fw-6">Employment Status <span class="text-danger">*</span></label>
-          <select name="" id="status" class="form-control form-control-lg" formControlName="EmploymentStatus">
-            <option value="" selected> select </option>
-            <option value="full-time" > Full Time </option>
-            <option value="part-time" > Part Time </option>
+      </div>
+      <div class=" ">
+        <label for="status" class="fw-6">Employment Status <span class="text-danger">*</span></label>
+        <select name="" id="status" class="form-control form-control-lg" formControlName="EmploymentStatus">
+          <!-- <option value="" selected> select </option> -->
+          <option value="full-time"> Full Time </option>
+          <option value="part-time"> Part Time </option>
         </select>
-        </div>
+      </div>
+
+    </div>
+
+    <div class="form-row mb-5 ">
+
+      <div class="  ">
+        <label for="qualification" class="fw-6">Highest Qualification <span class="text-danger">*</span></label>
+        <select name="" id="qualification" class="form-control form-control-lg" formControlName="HighestQualification">
+          <!-- <option value="" selected> select </option> -->
+          <option value="B.Sc" selected> B.Sc </option>
+          <option value="HND" selected> HND </option>
+          <option value="NCE" selected> NCE </option>
+        </select>
 
       </div>
 
-      <div class="form-row mb-5 ">
-        
-        <div class="  ">
-          <label for="qualification" class="fw-6">Highest Qualification <span class="text-danger">*</span></label>
-          <select name="" id="qualification" class="form-control form-control-lg" formControlName="HighestQualification">
-            <option value="" selected> select </option>
-            <option value="BSC" selected> BSC </option>
-            <option value="HND" selected> HND </option>
-            <option value="NCE" selected> NCE </option>
-        </select>
-         
-        </div>
-
-        <div class=" ">
-            <label for="job-title" class="fw-6">Job Title <span class="text-danger">*</span></label>
-            <input type="text" class="form-control form-control-lg" 
-            id="job-title" 
-            placeholder="Enter other names" formControlName="JobTitle" required>
-        </div>
+      <div class=" ">
+        <label for="job-title" class="fw-6">Job Title <span class="text-danger">*</span></label>
+        <input type="text" class="form-control form-control-lg" id="job-title" placeholder="Enter other names"
+          formControlName="JobTitle" required>
       </div>
+    </div>
 
-      <div class="form-row mb-5 ">
-        
-        <div class="  ">
-          <label for="department" class="fw-6">Department <span class="text-danger">*</span></label>
+    <div class="form-row mb-5 ">
 
-          <select name="" id="department" class="form-control form-control-lg" formControlName="DepartmentId">
-            <option value="" selected> select </option>
-            <option [value]="department?.id" *ngFor = "let department of departmentList"> {{department?.name}} </option>
-            <!-- <option [value]="N/A" *ngIf = "department?.name === null"> Not Available </option> -->
+      <div class="  ">
+        <label for="department" class="fw-6">Department <span class="text-danger">*</span></label>
+
+        <select name="" id="department" class="form-control form-control-lg" formControlName="DepartmentId">
+          <!-- <option value="" selected> select </option> -->
+          <option [value]="department?.id" *ngFor="let department of departmentList"> {{department?.name}} </option>
+          <!-- <option [value]="N/A" *ngIf = "department?.name === null"> Not Available </option> -->
 
         </select>
-        </div>
-
-        <div class=" ">
-            <label for="pay" class="fw-6">Pay Grade <span class="text-danger">*</span></label>
-
-           <select name="" id="pay" class="form-control form-control-lg" formControlName="PayGrade">
-               <option value="" selected> select</option>
-               <option value="150,000" > 150,000</option>
-               <option value="250,000" > 250,000</option>
-           </select>
-        </div>
       </div>
 
-      
-      <div class="form-row mb-5">
-        <div class=" ">
-            <label for="empdate" class="fw-6">Employment Date <span class="text-danger">*</span></label>
+      <div class=" ">
+        <label for="pay" class="fw-6">Pay Grade <span class="text-danger">*</span></label>
 
-          <input type="date" id="empdate" class="form-control form-control-lg" formControlName="EmploymentDate">
-        </div>
+        <select name="" id="pay" class="form-control form-control-lg" formControlName="PayGrade">
+          <!-- <option value="" selected> select</option> -->
+          <option value="150,000"> 150,000</option>
+          <option value="250,000"> 250,000</option>
+        </select>
+      </div>
+    </div>
 
-        <div class="  ">
-          <label for="icon" class="fw-6">Resumption Date</label>
-          <input type="date" id="empdate" class="form-control form-control-lg" formControlName="ResumptionDate">
 
-          </div>
+    <div class="form-row mb-5">
+      <div class=" ">
+        <label for="empdate" class="fw-6">Employment Date <span class="text-danger">*</span></label>
+
+        <input type="date" id="empdate" class="form-control form-control-lg" formControlName="EmploymentDate">
+      </div>
+
+      <div class="  ">
+        <label for="icon" class="fw-6">Resumption Date</label>
+        <input type="date" id="empdate" class="form-control form-control-lg" formControlName="ResumptionDate">
 
       </div>
 
-     
+    </div>
 
 
-    </form>
 
 
     <div class=" d-flex justify-content-center mt-5 mb-5">
       <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' [disabled]="employeeForm.invalid" > Next </button>
+      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() '
+        [disabled]="employeeForm.invalid"> Next </button>
 
     </div>
-  </div>
+</div>
