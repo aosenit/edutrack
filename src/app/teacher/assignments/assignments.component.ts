@@ -15,7 +15,8 @@ export class AssignmentsComponent implements OnInit {
   p = 1;
   itemsPerPage = 5;
   assignmentCount: number;
-  changetext = true;
+  changetext: any;
+  assignment = {};
 
   constructor(
     private assignmentService: AssignmentService,
@@ -26,16 +27,15 @@ export class AssignmentsComponent implements OnInit {
     this.getAssignmentByTeacher();
   }
 
-  changeText(id) {
-    if (id) {
-      this.changetext = false;
-    }
+  changeText(i) {
+    this.assignmentLists[i].status = 'Open';
+
   }
 
-  reverseText(id) {
-    if (id) {
-      this.changetext = true;
-    }
+  reverseText(status, i) {
+    console.log(status, i);
+    // this.assignmentLists[i].status = status;
+
   }
 
 
