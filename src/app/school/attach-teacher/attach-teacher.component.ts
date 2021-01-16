@@ -19,10 +19,12 @@ sections: any;
 classes: any;
 id: any;
 teacherDetails: any;
+classTeacherDetails: any;
 subjectList: any;
 dropdownList = [];
 dropdownSettings = {};
 attachSubjectForm: FormGroup;
+classTeacherForm: FormGroup;
 attachedSubjectlist: any;
 
 
@@ -40,10 +42,12 @@ attachedSubjectlist: any;
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
     this.populateAttachSubjectForm();
+    this.populateAttachTeacherForm();
     this.getAllSections();
     this.getAllClassess();
     this.getTeacherByID();
     this.getAttachedSubject();
+    this.getAttachedTeacher();
     // this.getAllSubjects();
     this.dropdownSettings = {
       singleSelection: false,
@@ -77,6 +81,12 @@ attachedSubjectlist: any;
     });
   }
 
+  populateAttachTeacherForm() {
+    this.classTeacherForm = this.fb.group({
+      ClassId: ['', Validators.required],
+    });
+  }
+
   getAllSections() {
     this.schoolSectionService.getSection().subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -85,10 +95,22 @@ attachedSubjectlist: any;
     });
   }
 
+  getClassBySectionId(id) {
+    console.log(id);
+    this.classService.getClassBySection(id).subscribe((data: any) => {
+        if (data.hasErrors === false) {
+          this.classes = data.payload;
+
+        }
+      });
+
+  }
+
   getAllClassess() {
     this.classService.getAllClasses().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.classes = data.payload;
+        // this.classes = data.payload;
+        // console.log(this.classes);
       }
     });
   }
@@ -97,7 +119,7 @@ attachedSubjectlist: any;
     this.teacherService.getTeacherById(this.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.teacherDetails = data.payload;
-        // console.log(this.teacherDetails);
+        console.log(this.teacherDetails);
       }
     });
   }
@@ -125,13 +147,13 @@ attachedSubjectlist: any;
   attachSubject() {
     console.log(this.attachSubjectForm.value);
     const {subjectIds} = this.attachSubjectForm.value;
-    const newSubjectIds = subjectIds.map((ids: any) => {
+    const  ClassSubjectIds = subjectIds.map((ids: any) => {
       return ids.id;
     });
     // tslint:disable-next-line:radix
     const TeacherId = parseInt(this.id);
     // tslint:disable-next-line:radix
-    const ClassSubjectIds = parseInt(newSubjectIds);
+    // const ClassSubjectIds = parseInt(newSubjectIds);
     const result = {
       TeacherId,
       ClassSubjectIds
@@ -141,6 +163,7 @@ attachedSubjectlist: any;
       if (data.hasErrors === false ) {
         console.log(data);
         document.getElementById('myModal').click();
+        this.getAttachedSubject();
         this.notifyService.publishMessages('Subject successfully attached to teacher ', 'info', 1);
       }
     }, error => {
@@ -152,7 +175,7 @@ attachedSubjectlist: any;
   getAttachedSubject() {
     console.log(this.id);
     this.teacherService.getAttachedSubjects(this.id).subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       this.attachedSubjectlist = data.payload;
       console.log('sasaassasasasasasas', this.attachedSubjectlist);
     }, error => {
@@ -160,4 +183,40 @@ attachedSubjectlist: any;
 
     });
   }
+
+  attachTeacher() {
+    const {ClassId} = this.classTeacherForm.value;
+    // tslint:disable-next-line:radix
+    const classId = parseInt(ClassId);
+    // tslint:disable-next-line:radix
+    const teacherId = parseInt(this.id);
+    const result = {
+      classId,
+      teacherId
+    };
+    this.teacherService.attachTeacherToClass(result).subscribe((data: any) => {
+      console.log(data);
+      if (data.hasErrors === false ) {
+        document.getElementById('classteacherModal').click();
+        this.getAttachedTeacher();
+        this.notifyService.publishMessages('Teacher successfully attached to class ', 'info', 1);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+  getAttachedTeacher() {
+    this.teacherService.getTeacherAttachedToClass(this.id).subscribe((data: any) => {
+      console.log(data);
+      if (data.hasErrors === false ) {
+        this.classTeacherDetails = data.payload;
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
 }

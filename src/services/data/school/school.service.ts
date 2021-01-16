@@ -4,11 +4,11 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   addschool: 'schtrack-auth/api/v1/School/AddSchool ',
-  getallschool: 'schtrack-auth/api/v1/School/GetSchools?PageIndex=1&PageSize=10',
+  getallschool: 'schtrack-auth/api/v1/School/GetSchools',
   // getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
   getschoolbyid: 'schtrack-auth/api/v1/School/GetSchool',
   bulkUplaod: 'schtrack-auth/api/v1/School/BulkAddSchool',
-  updateschoolbyid: 'schtrack-auth/api/v1School/UpdateSchool',
+  updateschoolbyid: 'schtrack-auth/api/v1/School/UpdateSchool',
   deleteschool: 'schtrack-auth/api/v1/School/DeleteSchool'
 };
 
@@ -44,8 +44,10 @@ export class SchoolService {
     return this.http.post(url, formData);
   }
 
-  getAllSchools() {
-    const url = `${this.baseUrl + routes.getallschool}`;
+  getAllSchools( p, perpage ) {
+    // const url = `${this.baseUrl + routes.getallschool}`;
+    const url = `${this.baseUrl + routes.getallschool}?PageIndex=${p}&PageSize=${perpage}`;
+
     return this.http.get(url);
   }
 
@@ -56,14 +58,30 @@ export class SchoolService {
 
   uploadBulkDocument(bulkUpload) {
     const formData = new FormData();
-    formData.append('File', bulkUpload.Document);
+    formData.append('File', bulkUpload.bulkFile);
     const url = `${this.baseUrl + routes.bulkUplaod}`;
-    return this.http.post(url, bulkUpload);
+    return this.http.post(url, formData);
   }
 
   updateSchool(id, updateSchoolForm) {
+    const formData = new FormData();
+    formData.append('Name', updateSchoolForm.Name);
+    formData.append('DomainName', updateSchoolForm.DomainName);
+    formData.append('WebsiteAddress', updateSchoolForm.WebsiteAddress);
+    formData.append('Files', updateSchoolForm.logo);
+    formData.append('Files', updateSchoolForm.icon);
+    // formData.append('DocumentTypes', updateSchoolForm.DocumentTypes);
+    updateSchoolForm.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
+    formData.append('Country', updateSchoolForm.Country);
+    formData.append('Address', updateSchoolForm.Address);
+    formData.append('State', updateSchoolForm.State);
+    formData.append('City', updateSchoolForm.City);
+    formData.append('ContactFirstName', updateSchoolForm.ContactFirstName);
+    formData.append('ContactLastName', updateSchoolForm.ContactLastName);
+    formData.append('ContactPhoneNo', updateSchoolForm.ContactPhoneNo);
+    formData.append('ContactEmail', updateSchoolForm.ContactEmail);
     const url = `${this.baseUrl + routes.updateschoolbyid}/${id}`;
-    return this.http.put(url, updateSchoolForm);
+    return this.http.put(url, formData);
 
   }
 

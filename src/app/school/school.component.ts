@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Component({
   selector: 'app-school',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./school.component.css']
 })
 export class SchoolComponent implements OnInit {
+  adminDetails: any;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    const helper = new JwtHelperService();
+    this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
+  }
+
+  logOut() {
+    localStorage.removeItem('access_token');
+    this.router.navigateByUrl('/');
+
   }
 
 }

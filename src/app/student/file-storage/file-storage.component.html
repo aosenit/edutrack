@@ -1,0 +1,481 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9 pl-5  pt-5 pr-5">
+            <div class="d-flex justify-content-between align-items-end mt-5 mb-5">
+
+                <div class="search d-flex flex-column  ">
+                  <h6 class=" fs-20 fw-6 pb-2 "> File Manager </h6>
+        
+                  <div class="search__input has-search">
+                    <span class="fa fa-search form-control-feedback"></span>
+                    <input type="text" class="form-control" placeholder="Search your files">
+                  </div>
+        
+                </div>
+                <button class="btn-upload-top bg-lblue " type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false"> <img src="assets/images/svg/upload.svg" alt="new client"
+                    class="mr-2"> Upload </button>
+                <!-- <button class="btn-upload-top bg-lblue "> <img
+                                src="assets/images/svg/upload.svg" alt="new client" class="mr-2"> Upload </button> -->
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Select type</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter3">Class Note</a>
+                  <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter4">Assignment/project</a>
+                  <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenterWork">Class Work</a>
+                  <a class="dropdown-item" href="#">Media</a>
+                </div>
+        
+              </div>
+        
+              <div>
+                <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
+                  <li class="nav-item d-flex align-items-center mr-3">
+                    <a class="nav-link active" id="pills-notes-tab" data-toggle="pill" href="#pills-notes" role="tab"
+                      aria-controls="pills-notes" aria-selected="true">
+                      <img src="assets/images/svg/file-tab-1.svg" alt="new client" class="mr-3">
+                      Class Notes</a>
+                  </li>
+                  <li class="nav-item d-flex mr-3">
+                    <a class="nav-link" id="pills-assignment-tab" data-toggle="pill" href="#pills-assignment" role="tab"
+                      aria-controls="pills-assignment" aria-selected="false">
+                      <img src="assets/images/svg/file-tab-2.svg" alt="new client" class="mr-3">
+                      Assignment</a>
+                  </li>
+                  <li class="nav-item d-flex mr-3">
+                    <a class="nav-link" id="pills-work-tab" data-toggle="pill" href="#pills-work" role="tab"
+                      aria-controls="pills-work" aria-selected="false">
+                      <img src="assets/images/svg/file-tab-4.svg" alt="new client" class="mr-3">
+                      Class work</a>
+                  </li>
+                  <li class="nav-item d-flex">
+                    <a class="nav-link" id="pills-media-tab" data-toggle="pill" href="#pills-media" role="tab"
+                      aria-controls="pills-media" aria-selected="false">
+                      <img src="assets/images/svg/file-tab-3.svg" alt="new client" class="mr-3">
+                      Media</a>
+                  </li>
+        
+                </ul>
+        
+              </div>
+        
+        
+        
+        
+              <div class="tab-content" id="pills-tabContent">
+        
+                <div class="tab-pane fade show active" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab">
+                  <div class="d-flex justify-content-between align-items-center mt-3 ">
+                    <p class="mb-0 fw-6">Class notes</p>
+        
+                    <div>
+                      <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                      <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                        type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <!-- ================ DROPDOWN ==================== -->
+                      <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-black " href="#">Ascending </a>
+                        <a class="dropdown-item text-black " href="#">Descending </a>
+                        <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-black " href="#">Type </a>
+                        <a class="dropdown-item text-black " href="#">Class </a>
+                        <a class="dropdown-item text-black " href="#">Modified </a>
+                        <a class="dropdown-item text-black " href="#">Date Created </a>
+                      </div>
+                    </div>
+                  </div>
+                  <section class="list">
+                    <table class="table table-borderless client-table">
+                      <thead>
+                        <tr>
+                          <th scope="col " class="head">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                              <label class="custom-control-label" for="customCheckTh"></label>
+                            </div>
+                          </th>
+                          <th scope="col">Name
+        
+                          </th>
+                          <th scope="col">Type
+        
+                          </th>
+                          <th scope="col">Class
+        
+                          </th>
+                          <th scope="col">Date Created
+        
+                          </th>
+                          <th scope="col"> Size</th>
+                          <th scope="col"> </th>
+        
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="pb-2 " *ngFor="let lesson of allLessonNote; let i = index">
+                          <td scope="row" class="school-logo rounded-left">
+                            <div class="custom-control custom-checkbox" >
+                              <input type="checkbox" class="custom-control-input" id="customCheck{{lesson?.id}}"
+                                [value]="lesson?.id">
+                              <label class="custom-control-label" for="customCheck{{lesson?.id}}"></label>
+                            </div>
+                          </td>
+                          <td class="">
+                            <div class="d-flex align-items-center justify-content-start">
+                              <img src="assets/images/svg/pdf.svg" alt="schools document" class="mr-3">
+                              <p class="mb-0">
+                                {{lesson?.subjectName | titlecase}}
+                              </p>
+                            </div>
+                          </td>
+                          <td>Class note</td>
+                          <td>{{lesson?.className}}</td>
+                          <td>{{lesson?.creationDate | date: 'longDate'}}</td>
+                          <td>
+                            <span [ngStyle]="{cursor: 'pointer'}" class="status"> Download </span>
+                          </td>
+                          <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+        
+                        </tr>
+        
+        
+                      </tbody>
+                    </table>
+        
+                  </section>
+                </div>
+        
+                <div class="tab-pane fade show " id="pills-assignment" role="tabpanel" aria-labelledby="pills-note-tab">
+                  <div class="d-flex justify-content-between align-items-center mt-3 ">
+                    <p class="mb-0 fw-6">Assignment</p>
+        
+                    <div>
+                      <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                      <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                        type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <!-- ================ DROPDOWN ==================== -->
+                      <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-black " href="#">Ascending </a>
+                        <a class="dropdown-item text-black " href="#">Descending </a>
+                        <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-black " href="#">Type </a>
+                        <a class="dropdown-item text-black " href="#">Class </a>
+                        <a class="dropdown-item text-black " href="#">Modified </a>
+                        <a class="dropdown-item text-black " href="#">Date Created </a>
+                      </div>
+                    </div>
+                  </div>
+                  <section class="list">
+                    <table class="table table-borderless client-table">
+                      <thead>
+                        <tr>
+                          <th scope="col " class="head">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="customCheckTh12">
+                              <label class="custom-control-label" for="customCheckTh12"></label>
+                            </div>
+                          </th>
+                          <th scope="col">Name
+        
+                          </th>
+                          <th scope="col">Type
+        
+                          </th>
+                          <th scope="col">Class
+        
+                          </th>
+                          <th scope="col">Date Created
+        
+                          </th>
+                          <th scope="col"> Size</th>
+                          <th scope="col"> </th>
+        
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="pb-2"
+                          *ngFor="let assignment of assignmentlist ">
+                          <td scope="row" class="school-logo rounded-left">
+                            <div class="custom-control custom-checkbox" >
+                              <input type="checkbox" class="custom-control-input" id="customChecks{{assignment?.id}}">
+                              <label class="custom-control-label" for="customChecks{{assignment?.id}}"></label>
+                            </div>
+                          </td>
+                          <td class="">
+                            <div class="d-flex align-items-center justify-content-start">
+                              <img src="assets/images/svg/pdf.svg" alt="schools document" class="mr-3">
+                              <p class="mb-0">
+                                {{assignment?.subjectName | titlecase}}
+                              </p>
+                            </div>
+                          </td>
+                          <td>Assignment</td>
+                          <td>{{assignment?.className}}</td>
+                          <td>{{assignment?.creationDate | date : 'longDate'}}</td>
+                          <td >
+                            <span [ngStyle]="{cursor: 'pointer'}" class="status" >Download</span>
+                          </td>
+                          <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+        
+                        </tr>
+        
+        
+        
+                      </tbody>
+                    </table>
+<!--         
+                    <div class="d-flex justify-content-end">
+                      <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+                    </div>
+         -->
+                  </section>
+                </div>
+        
+                <div class="tab-pane fade show " id="pills-work" role="tabpanel" aria-labelledby="pills-note-tab">
+                  <div class="d-flex justify-content-between align-items-center mt-3 ">
+                    <p class="mb-0 fw-6">Class Work</p>
+        
+                    <div>
+                      <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                      <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                        type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <!-- ================ DROPDOWN ==================== -->
+                      <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-black " href="#">Ascending </a>
+                        <a class="dropdown-item text-black " href="#">Descending </a>
+                        <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-black " href="#">Type </a>
+                        <a class="dropdown-item text-black " href="#">Class </a>
+                        <a class="dropdown-item text-black " href="#">Modified </a>
+                        <a class="dropdown-item text-black " href="#">Date Created </a>
+                      </div>
+                    </div>
+                  </div>
+                  <section class="list">
+                    <table class="table table-borderless client-table">
+                      <thead>
+                        <tr>
+                          <th scope="col " class="head">
+                            <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                              <label class="custom-control-label" for="customCheckTh"></label>
+                            </div>
+                          </th>
+                          <th scope="col">Name
+        
+                          </th>
+                          <th scope="col">Type
+        
+                          </th>
+                          <th scope="col">Class
+        
+                          </th>
+                          <th scope="col">Date Created
+        
+                          </th>
+                          <th scope="col"> Size</th>
+                          <th scope="col"> </th>
+        
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="pb-2" [ngStyle]="{cursor: 'pointer'}" *ngFor="let classWork of classWorks; let i = index">
+                          <td scope="row" class="school-logo rounded-left">
+                            <div class="custom-control custom-checkbox" >
+                              <input type="checkbox" class="custom-control-input" id="customCheck12{{classWork?.id}}">
+                              <label class="custom-control-label" for="customCheck12{{classWork?.id}}"></label>
+                            </div>
+                          </td>
+                          <td class="">
+                            <div class="d-flex align-items-center justify-content-start">
+                              <img src="assets/images/svg/pdf.svg" alt="schools document" class="mr-3">
+                              <p class="mb-0">
+                                {{classWork?.subjectName | titlecase}}
+                              </p>
+                            </div>
+                          </td>
+                          <td>Class Work</td>
+                          <td>{{classWork?.className}}</td>
+                          <td>{{classWork?.creationDate | date: 'longDate'}}</td>
+                          <td >
+                            <span [ngStyle]="{cursor: 'pointer'}" class="status"
+                              (click)="downloadClassWork(classWork?.fileId)" >Download</span>
+                          </td>
+                          <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+        
+                        </tr>
+        
+        
+                      </tbody>
+                    </table>
+        
+                  </section>
+                </div>
+        
+                <div class="tab-pane fade show " id="pills-media" role="tabpanel" aria-labelledby="pills-media-tab">
+        
+                  <div class="d-flex justify-content-between mt-2 mb-1">
+        
+                    <div class="media-inner">
+                      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item mr-2 ">
+                          <a class="nav-link active" id="pills-upload-tab" data-toggle="pill" href="#pills-upload" role="tab"
+                            aria-controls="pills-upload" aria-selected="true">Class Recording </a>
+                        </li>
+                        <li class="nav-item ">
+                          <a class="nav-link " id="pills-record-tab" data-toggle="pill" href="#pills-record" role="tab"
+                            aria-controls="pills-record" aria-selected="true">Uploaded Media </a>
+                        </li>
+        
+        
+                      </ul>
+        
+                    </div>
+        
+                    <div>
+                      <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                      <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                        type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <!-- ================ DROPDOWN ==================== -->
+                      <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-black " href="#">Ascending </a>
+                        <a class="dropdown-item text-black " href="#">Descending </a>
+                        <a class="dropdown-item filter-title fc-lblue" href="#">FILTER BY</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-black " href="#">Type </a>
+                        <a class="dropdown-item text-black " href="#">Class </a>
+                        <a class="dropdown-item text-black " href="#">Modified </a>
+                        <a class="dropdown-item text-black " href="#">Date Created </a>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-notes" role="tabpanel" aria-labelledby="pills-notes-tab">
+        
+                      <section class="list">
+                        <table class="table table-borderless client-table">
+                          <thead>
+                            <tr>
+                              <th scope="col " class="head">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                                  <label class="custom-control-label" for="customCheckTh"></label>
+                                </div>
+                              </th>
+                              <th scope="col" class="w-25">Name
+        
+                              </th>
+                              <th scope="col">Type
+        
+                              </th>
+                              <th scope="col">Class
+        
+                              </th>
+                              <th scope="col">Date Created
+        
+                              </th>
+                              <th scope="col"> Size</th>
+                              <th scope="col"> </th>
+        
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="pb-2">
+                              <td scope="row" class="school-logo rounded-left">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" id="recording1">
+                                  <label class="custom-control-label" for="recording1"></label>
+                                </div>
+                              </td>
+                              <td class="">
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <img src="assets/images/svg/recording.svg" alt="schools document" class="mr-3">
+                                  <p class="mb-0">
+                                    Recording
+                                  </p>
+                                </div>
+                              </td>
+                              <td>Class recording</td>
+                              <td>Jss3</td>
+                              <td class="font-italic">April 4, 2020</td>
+                              <td class="table-grey">342 KB</td>
+                              <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+        
+                            </tr>
+                            <tr class="pb-2">
+                              <td scope="row" class="school-logo rounded-left">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" id="recording2">
+                                  <label class="custom-control-label" for="recording2"></label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <img src="assets/images/svg/recording.svg" alt="schools document" class="mr-3">
+                                  <p class="mb-0">
+                                    Recording
+                                  </p>
+                                </div>
+                              </td>
+                              <td>Class recording</td>
+                              <td>Jss3</td>
+                              <td class="font-italic">April 4, 2020</td>
+                              <td>342 KB</td>
+                              <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+        
+        
+                            </tr>
+        
+                            <tr class="pb-2">
+                              <td scope="row" class="school-logo rounded-left">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox" class="custom-control-input" id="recording3">
+                                  <label class="custom-control-label" for="recording3"></label>
+                                </div>
+                              </td>
+                              <td class="">
+                                <div class="d-flex align-items-center justify-content-start">
+                                  <img src="assets/images/svg/recording.svg" alt="schools document" class="mr-3">
+                                  <p class="mb-0">
+                                    Recording
+                                  </p>
+                                </div>
+                              </td>
+                              <td>Class recording</td>
+                              <td>Jss3</td>
+                              <td class="font-italic">April 4, 2020</td>
+                              <td>342 KB</td>
+                              <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+                            </tr>
+        
+        
+                          </tbody>
+                        </table>
+        
+                      </section>
+                    </div>
+                  </div>
+        
+                </div>
+        
+              </div>
+        
+        
+        </div>
+        <div class="col-md-3 bg-white">
+
+        </div>
+    </div>
+</div>

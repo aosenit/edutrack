@@ -36,6 +36,7 @@ export class SchoolSettingsComponent implements OnInit {
   notifyService: any;
   toggleState = false;
   dropdownSettings = {};
+  dropdownSettings2 = {};
   dropdownList = [];
   classBySectionList: any;
   classBySectionDropdownList = [];
@@ -43,6 +44,10 @@ export class SchoolSettingsComponent implements OnInit {
   theClass: any;
   theArm: any;
   subjectList: any;
+  classCount: number;
+  subjectCount: number;
+  p = 1;
+  itemsPerPage = 5;
 
   constructor(
     private fb: FormBuilder,
@@ -56,8 +61,8 @@ export class SchoolSettingsComponent implements OnInit {
 
   ngOnInit() {
     this.classArmform = this.fb.group({
-      name: ['', Validators.required],
-      status: ['']
+      Name: ['', Validators.required],
+      Status: ['']
     });
     this.createNewClassForm = this.fb.group({
       name: ['', Validators.required],
@@ -80,6 +85,16 @@ export class SchoolSettingsComponent implements OnInit {
       singleSelection: false,
       idField: 'id',
       textField: 'arm',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 5,
+      allowSearchFilter: false
+    };
+
+    this.dropdownSettings2 = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'classandSection',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 5,
@@ -153,12 +168,154 @@ export class SchoolSettingsComponent implements OnInit {
     this.classArmService.addClassArm(this.classArmform.value).subscribe((data: any) => {
       console.log(data);
       this.notification.publishMessages(data.description, 'info', 1);
-      document.getElementById('close').click();
-      this.getClassArms()
+      document.getElementById('myClassArmModal').click();
+      this.getClassArms();
       // location.reload();
     }, error => {
       this.notification.publishMessages(error.errors, 'danger', 1);
     });
+  }
+
+  getClassArms() {
+    this.classArmService.getAllClassArm().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        // tslint:disable-next-line:no-string-literal
+        this.classArms = data['payload'];
+        const arr = [];
+        this.classArms.forEach(item => {
+          arr.push({
+            id: item.id,
+            arm: item.name
+          });
+        });
+        this.dropdownList = arr;
+      }
+    });
+  }
+
+  getArmById(id) {
+    this.classArmService.getClassArmById(id).subscribe(
+      (res: any) => {
+        this.theArm = res.payload;
+      }
+    );
+  }
+
+  editArm(id) {
+    const result = {
+      Name: this.theArm.name,
+      Status: this.theArm.status
+    };
+    this.classArmService.updateClassArm(id, result).subscribe(
+      (res: any) => {
+        console.log(res);
+        if (res.code === 1) {
+          this.notification.publishMessages('You have successfully updated this class arm', 'info', 0);
+          this.getClassArms();
+          // location.reload();
+        } else {
+          this.notification.publishMessages(res.errors[0], 'info', 0);
+
+        }
+      }
+    );
+  }
+
+  deleteArm(id) {
+    this.classArmService.deleteClassArm(id).subscribe((data: any) => {
+      if (data.code === 1) {
+        console.log(data);
+        this.notification.publishMessages('You have succesfully deleted a class arm', 'info', 0);
+        this.getClassArms();
+      }
+    }, error => {
+      this.notification.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+
+  getState(event) {
+    console.log('status', event);
+
+
+  }
+
+  getStatus(event) {
+    if (event === true) {
+      this.toggleState = true;
+    } else {
+      this.toggleState = false;
+
+    }
+
+  }
+
+
+
+  createSection() {
+    const result = {
+      name: this.section,
+    };
+    this.schoolSectionService.addSection(result).subscribe(
+      (res: any) => {
+        if (res.hasErrors === false) {
+          console.log('level created', res);
+          this.notification.publishMessages('You have successfully added a section', 'info', 0);
+          this.getSections();
+        }
+      }
+    );
+  }
+
+  getSections() {
+    this.schoolSectionService.getSection().subscribe(
+      (res: any) => {
+        // tslint:disable-next-line:no-string-literal
+        this.levels = res['payload'];
+        this.levels = this.levels.reverse();
+        // console.log('levels', this.levels);
+      }
+    );
+  }
+
+  getSection(id) {
+    this.schoolSectionService.getSectionById(id).subscribe(
+      (res: any) => {
+        this.theLevel = res.payload;
+        console.log(this.theLevel);
+      }, error => {
+        console.log(error);
+      }
+    );
+  }
+
+  editSection() {
+    const result = {
+      id: this.theLevel.id,
+      name: this.theLevel.name,
+    };
+    // console.log(id);
+    this.schoolSectionService.updateSection(result).subscribe((res: any) => {
+      console.log(res);
+      if (res.hasErrors === false) {
+        console.log(res);
+        this.notification.publishMessages('You have successfully edited this section', 'info', 0);
+        document.getElementById('editSectionModal').click();
+        this.getSections();
+      }
+    }, error => {
+      this.notification.publishMessages(error.error, 'warning', 0);
+    });
+  }
+
+  deleteSection(id) {
+    this.schoolSectionService.deleteSection(id).subscribe(
+      res => {
+        this.notification.publishMessages('You have successfully deleted a section', 'info', 0);
+        this.getSections();
+      }
+    );
   }
 
   createNewClass() {
@@ -181,10 +338,10 @@ export class SchoolSettingsComponent implements OnInit {
     };
     this.classService.addClass(result).subscribe((data: any) => {
       console.log('class create', data);
-      if (data.code == 1) {
+      if (data.code === 1) {
         this.notification.publishMessages('Class Added Successfully', 'info', 1);
         document.getElementById('close').click();
-        this.getClasses()
+        this.getClasses();
       }
     }, error => {
       this.notification.publishMessages(error.errors, 'danger', 1);
@@ -193,84 +350,29 @@ export class SchoolSettingsComponent implements OnInit {
 
   }
 
-
-  getState(event) {
-    console.log('status', event);
-
-
-  }
-
-  getStatus(event) {
-    if (event === true) {
-      this.toggleState = true;
-    } else {
-      this.toggleState = false;
-
-    }
-
-  }
-
-  getClassArms() {
-    this.classArmService.getAllClassArm().subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        // tslint:disable-next-line:no-string-literal
-        this.classArms = data['payload'];
-        const arr = [];
-        this.classArms.forEach(item => {
-          arr.push({
-            id: item.id,
-            arm: item.name
-          });
-        });
-        this.dropdownList = arr;
-      }
-    });
-  }
-
-
-  createSection() {
-    this.schoolSectionService.addSection(this.section).subscribe(
-      (res: any) => {
-        if (res.hasErrors === false) {
-          console.log('level created', res);
-          this.notification.publishMessages('You have successfully added a section', 'info', 0);
-          this.getSections();
-        }
-      }
-    );
-  }
-
-  getSections() {
-    this.schoolSectionService.getSection().subscribe(
-      res => {
-        // tslint:disable-next-line:no-string-literal
-        this.levels = res['payload'];
-        this.levels = this.levels.reverse()
-        // console.log('levels', this.levels);
-      }
-    );
-  }
-
   getClassById(id) {
     this.classService.getClassById(id).subscribe(
-      res => {
-        this.theClass = res['payload']
+      (res: any) => {
+        this.theClass = res.payload;
+
       }
     );
   }
-  
+
   editClass() {
     this.classService.editClass(this.theClass.id, this.theClass.name).subscribe(
-      res => {
-        if (res['code'] == 1) {
-          this.notification.publishMessages('You have successfully updated this class!', 'info', 0)
-          this.getClasses()
-        }else{
-          this.notification.publishMessages(res['description'], 'warning', 0)
+      (res: any) => {
+        if (res.code === 1) {
+          this.notification.publishMessages('You have successfully updated this class!', 'info', 0);
+          this.getClasses();
+        } else {
+          this.notification.publishMessages(res.description, 'warning', 0);
         }
       }
-    )
+    );
   }
+
+
   getClassBySectionId(id) {
     console.log(id);
     this.classService.getClassBySection(id).subscribe(
@@ -280,9 +382,11 @@ export class SchoolSettingsComponent implements OnInit {
           console.log(this.classBySectionList);
           const arr = [];
           this.classBySectionList.forEach(item => {
+            const className = item.name;
+            const classAndSection = className.concat(item.classGroup);
             arr.push({
               id: item.id,
-              arm: item.name
+              classandSection: classAndSection
             });
           });
           this.classBySectionDropdownList = arr;
@@ -294,87 +398,37 @@ export class SchoolSettingsComponent implements OnInit {
 
 
   getClasses() {
-    this.classService.getAllClasses().subscribe(
+    this.classService.getAllClassesWithPagination(this.p, this.itemsPerPage).subscribe(
       (res: any) => {
         this.classes = res.payload;
-        console.log('classes', res);
+        console.log(this.classes);
+        this.classCount = res.totalCount;
+        console.log('classes', this.classCount);
       }
     );
   }
 
-  getSection(id) {
-    this.schoolSectionService.getSectionById(id).subscribe(
-      res => {
-        this.theLevel = res['payload']
-      }
-    )
-  }
+  getPage(page: number) {
+    this.classService.getAllClassesWithPagination(page, this.itemsPerPage).subscribe(
+      (res: any) => {
+        this.classes = res.payload;
+        this.classCount = res.totalCount;
+        console.log('classes', res);
+      }, error => {
+        this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-  editSection() {
-    this.schoolSectionService.updateSection(this.theLevel.name, this.theLevel.id).subscribe(
-      res => {
-        if (res['code'] == 1) {
-          console.log(res);
-          this.notification.publishMessages('You have successfully edited this section', 'info', 0)
-          this.getSections()
-        } else {
-          this.notification.publishMessages(res['description'], 'warning', 0)
-        }
-      }
-    )
-  }
-
-  deleteSection(id) {
-    this.schoolSectionService.deleteSection(id).subscribe(
-      res => {
-        this.notification.publishMessages('You have successfully deleted a section', 'info', 0)
-        this.getSections()
-      }
-    )
+      });
   }
 
   deleteClass(id) {
     this.classService.deleteClassById(id).subscribe(
       res => {
-        this.notification.publishMessages('You have successfully deleted a class', 'info', 0)
-        this.getClasses()
+        this.notification.publishMessages('You have successfully deleted a class', 'info', 0);
+        this.getClasses();
       }
-    )
+    );
   }
 
-  getArmById(id){
-    this.classArmService.getClassArmById(id).subscribe(
-      res => {
-        this.theArm = res['payload']
-      }
-    )
-  }
-
-  editArm(id){
-    this.classArmService.updateClassArm(id, this.theArm.name, this.theArm.status).subscribe(
-      res => {
-        if(res['code'] == 1){
-          this.notification.publishMessages('You have successfully updated this class arm','info', 0)
-        }else{
-          this.notification.publishMessages(res['errors'][0],'info', 0)
-
-        }
-      }
-    )
-  }
-
-  deleteArm(id) {
-    this.classArmService.deleteClassArm(id).subscribe((data: any) => {
-      if (data['code'] == 1) {
-        console.log(data);
-        this.notification.publishMessages('You have succesfully deleted a class arm','info', 0)
-        this.getClassArms();
-      }
-    }, error => {
-      this.notification.publishMessages(error.errors, 'danger', 1);
-
-    });
-  }
 
   createSubject() {
     console.log('arrays', this.newsubjectForm.value);
@@ -387,11 +441,13 @@ export class SchoolSettingsComponent implements OnInit {
       ClassIds,
       IsActive
     };
-    console.log('subjects to be created', result);
+    // console.log('subjects to be created', result);
     this.subjectService.addNewSubject(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
-        document.getElementById('close').click();
+        document.getElementById('mySubjectModal').click();
+        this.notification.publishMessages('You have succesfully created a subject', 'info', 0);
+
         this.getAllSubjects();
       }
     });
@@ -399,12 +455,26 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getAllSubjects() {
-    this.subjectService.getAllSubjects().subscribe((data: any) => {
+    this.subjectService.getPaginatedSubject(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
+        this.subjectCount = data.totalCount;
+
         console.log(this.subjectList);
       }
     });
+  }
+
+  getSubjectPages(page: number) {
+    this.subjectService.getPaginatedSubject(page, this.itemsPerPage).subscribe(
+      (res: any) => {
+        this.subjectList = res.payload;
+        this.subjectCount = res.totalCount;
+        console.log('classes', res);
+      }, error => {
+        this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+      });
   }
 
 }

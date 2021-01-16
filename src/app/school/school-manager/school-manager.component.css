@@ -61,7 +61,7 @@
 
 
 
-/* .has-search .form-control {
+.has-search .form-control {
     padding-left: 2.375rem;
 }
 
@@ -75,7 +75,84 @@
     text-align: center;
     pointer-events: none;
     color: #aaa;
-} */
+}
+
+input[type="text"] {
+    width: 125%;
+}
+
+/* ================= table ====================== */
+table.client-table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+.list .table thead {
+    color: #4c75bd;
+}
+
+.list .table thead tr th {
+    font-weight: 600;
+    padding-bottom: 0;
+}
+
+table tr,
+td {
+    padding: 15px;
+}
+.list .table thead .head {
+    /* display: flex;
+      align-items: center;
+      color: #0a1128;
+      font-weight: 600; */
+    padding-left: 3.5rem;
+}
+
+.list .table tbody .check {
+    padding-left: 1.5rem;
+    padding-left: 3.5rem;
+}
+
+
+
+
+
+.list .table tbody tr {
+    background: #ffffff;
+    box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
+    border-radius: 5px;
+}
+
+.list .table tbody td:not(:first-child) {
+    color: #0a1128;
+    /* opacity: 0.6; */
+}
+
+.list .table tbody .status_active {
+    background: #ebfffa;
+    border-radius: 10px;
+    color: #09b78a;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+.list .table tbody .status_inactive {
+    background: #fae5e7;
+    border-radius: 10px;
+    color: #d72638;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
 
 
 

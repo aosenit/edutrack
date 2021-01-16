@@ -5,6 +5,7 @@ import { ClassService } from 'src/services/data/class/class.service';
 import { SubjectService } from 'src/services/data/subject/subject.service';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-assignment',
@@ -23,6 +24,7 @@ export class CreateAssignmentComponent implements OnInit {
     private classService: ClassService,
     private assignmentService: AssignmentService,
     private notifyService: NotificationsService,
+    private router: Router
 
   ) { }
 
@@ -95,14 +97,29 @@ export class CreateAssignmentComponent implements OnInit {
       TotalScore,
       Document
     };
+
     this.assignmentService.addAssignment(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
         this.notifyService.publishMessages('Assignment created successfully', 'info', 1);
-
+        this.router.navigateByUrl('/teacher/assignments');
       }
     }
     );
+  }
+
+
+  convertFile(filename, text) {
+    const element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
   }
 
   back() {

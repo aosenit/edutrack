@@ -29,6 +29,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { UsersComponent } from './users/users.component';
 import { SharedModule } from '../shared/shared.module';
+import { SchoolManagerSettingsComponent } from './school-manager-settings/school-manager-settings.component';
+import { PeriodComponent } from './period/period.component';
+import { SchoolGradeBookComponent } from './school-grade-book/school-grade-book.component';
+import { StudentSheetComponent } from './student-sheet/student-sheet.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -56,12 +61,17 @@ import { SharedModule } from '../shared/shared.module';
                  SchoolManagerComponent,
                  DashboardComponent,
                  UsersComponent,
+                 SchoolManagerSettingsComponent,
+                 PeriodComponent,
+                 SchoolGradeBookComponent,
+                 StudentSheetComponent,
                 ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
+    NgxPaginationModule,
     NgMultiSelectDropDownModule.forRoot(),
     SchoolRoutingModule,
 

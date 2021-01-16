@@ -207,7 +207,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="pb-1" *ngFor="let class of classes">
+          <tr class="pb-1" *ngFor="let class of classes | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: classCount }">
             <!-- <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -250,6 +250,9 @@
 
         </tbody>
       </table>
+      <div class="d-flex justify-content-end">
+        <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+      </div>
 
     </section>
   </div>
@@ -324,7 +327,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="pb-1" *ngFor="let subject of subjectList">
+          <tr class="pb-1" *ngFor="let subject of subjectList | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: classCount }">
             <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -332,7 +335,7 @@
               </div>
             </td>
             <td class="user">
-              <h6 class="fw-6 mb-0">{{subject.name}} </h6>
+              <h6 class="fw-6 mb-0">{{subject.name | titlecase}} </h6>
             </td>
             <td>
               <span class="status_active" *ngIf="subject.isActive == true">Active</span>
@@ -348,6 +351,9 @@
 
         </tbody>
       </table>
+      <div class="d-flex justify-content-end">
+        <pagination-controls (pageChange)="getSubjectPages(p = $event)" class="text-center"></pagination-controls>
+      </div>
 
     </section>
   </div>
@@ -439,8 +445,10 @@
         </div> -->
         <div class="form-group mb-5">
           <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1">Active</label>
+            <input type="checkbox" class="custom-control-input" id="customSwitch111"
+              (change)="getStatus($event.target.checked)" formControlName="Status">
+              <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === false">Inactive</label>
+              <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === true">Active</label>
           </div>
         </div>
         <div class="d-flex justify-content-center mb-3">
@@ -467,7 +475,7 @@
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Edit Section</h6>
           <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
-            class="close">
+            class="close" id="editSectionModal">
 
         </div>
 
@@ -600,8 +608,9 @@
           </div>
           <div class="form-group custom mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch2" formControlName="status">
-              <label class="custom-control-label" for="customSwitch2">Active</label>
+              <input type="checkbox" class="custom-control-input" id="customSwitch2" formControlName="status" (change)="getStatus($event.target.checked)">
+              <label class="custom-control-label" for="customSwitch2" *ngIf="toggleState === false">Inactive</label>
+              <label class="custom-control-label" for="customSwitch2" *ngIf="toggleState === true">Active</label>
             </div>
           </div>
 
@@ -633,7 +642,7 @@
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Class Arm</h6>
           <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
-            class="close">
+            class="close" id="myClassArmModal">
 
         </div>
 
@@ -644,13 +653,13 @@
 
           <div class="form-group mb-5">
             <label for="arm" class="">Class Arm <span class="text-danger">*</span></label>
-            <input type="text" id="arm" class="form-control" placeholder="Enter class arm" formControlName="name">
+            <input type="text" id="arm" class="form-control" placeholder="Enter class arm" formControlName="Name">
           </div>
 
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="customSwitch3"
-                (change)="getStatus($event.target.checked)" formControlName="status">
+                (change)="getStatus($event.target.checked)" formControlName="Status">
               <label class="custom-control-label" for="customSwitch3"
                 *ngIf="toggleState === false; then inactive; else active;"> {{toggleState}} </label>
               <ng-template #active>
@@ -736,7 +745,7 @@
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Subject</h6>
-          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal"
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="mySubjectModal" data-dismiss="modal"
             aria-label="Close" class="close">
 
         </div>
@@ -755,11 +764,13 @@
             <div *ngFor="let level of levels">
               <div class="w-25 bg-info mb-1 px-2 d-flex justify-content-between">
                 <p class="mb-0">{{level.name}}</p>
-                <img src="assets/images/svg/subject-drop.svg" alt="" class="ml-auto" data-toggle="collapse"
-                  href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"
-                  (click)="getClassBySectionId(level.id)">
+                <a href="#{{level?.name}}" class="ml-auto" data-toggle="collapse"
+                 role="button" aria-expanded="false" aria-controls="collapseExample">
+                  <img src="assets/images/svg/subject-drop.svg" alt="" 
+                    (click)="getClassBySectionId(level.id)">
+                </a>
               </div>
-              <div class="collapse" id="collapseExample">
+              <div class="collapse" id="{{level?.name}}">
                 <!-- <div formArrayName="ClassIds" *ngFor="let class of classBySectionList; let i = index;">
                   <div [formGroupName]="i">
                     <label for="a" class="class-label w-25"> {{class.name}}</label>
@@ -768,7 +779,7 @@
                   
                 </div> -->
                 <ng-multiselect-dropdown [placeholder]="' '" [data]="classBySectionDropdownList"
-                  formControlName="classSectionIds" [settings]="dropdownSettings" required>
+                  formControlName="classSectionIds" [settings]="dropdownSettings2" required>
                 </ng-multiselect-dropdown>
 
               </div>
@@ -780,8 +791,9 @@
 
           <div class="form-group custom mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch4" formControlName="IsActive">
-              <label class="custom-control-label" for="customSwitch4">Active</label>
+              <input type="checkbox" class="custom-control-input" id="customSwitch4" formControlName="IsActive" (change)="getStatus($event.target.checked)">
+              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === false">Inactive</label>
+              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === true">Active</label>
             </div>
           </div>
 

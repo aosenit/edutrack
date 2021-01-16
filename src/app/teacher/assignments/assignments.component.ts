@@ -12,6 +12,9 @@ export class AssignmentsComponent implements OnInit {
   clipnote = true;
   assignmentLists: any;
   searchString: string;
+  p = 1;
+  itemsPerPage = 5;
+  assignmentCount: number;
   changetext = true;
 
   constructor(
@@ -37,11 +40,26 @@ export class AssignmentsComponent implements OnInit {
 
 
   getAssignmentByTeacher() {
-    this.assignmentService.getAssignmentByTeacher().subscribe((data: any) => {
+    this.assignmentService.getAssignmentByTeacher(this.p, this.itemsPerPage).subscribe((data: any) => {
       console.log(data);
       if (data.hasErrors === false) {
         console.log('asasasa', data);
         this.assignmentLists = data.payload;
+        this.assignmentCount = data.totalCount;
+      }
+    }, error => {
+      console.log(error);
+    });
+  }
+
+  getPage(page: number) {
+    console.log(page);
+    this.assignmentService.getAssignmentByTeacher(page, this.itemsPerPage).subscribe((data: any) => {
+      console.log(data);
+      if (data.hasErrors === false) {
+        console.log('asasasa', data);
+        this.assignmentLists = data.payload;
+        this.assignmentCount = data.totalCount;
       }
     }, error => {
       console.log(error);

@@ -28,7 +28,7 @@ export class BasicDetailsComponent implements OnInit {
       Nationality: ['', Validators.required],
       ParentId : ['', Validators.required],
       StateOfOrigin: ['', Validators.required],
-      LocalGovt: ['', Validators.required],
+      LocalGovt: [''],
       TransportRoute: ['', Validators.required]
     });
 
@@ -51,7 +51,7 @@ export class BasicDetailsComponent implements OnInit {
   }
 
   getAllParents() {
-    this.parentService.getAllParents().subscribe(
+    this.parentService.getAllParentsWithName().subscribe(
       (res: any) => {
         this.parents = res.payload;
         console.log(this.parents);

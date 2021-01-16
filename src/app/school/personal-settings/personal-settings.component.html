@@ -140,7 +140,16 @@
               <span class="status_active" *ngIf ="department.status == true">Active</span>
               <span class="status_inactive" *ngIf ="department.status == false">Inactive</span>
             </td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+            <td class="rounded-right ">
+              <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle" type="button"
+                id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                <!-- <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditArm"
+                  (click)="getArmById(arm.id)">Edit Arm </a> -->
+                <a class="dropdown-item" (click)="deleteDepartment(department?.id)">Delete Arm</a>
+              </div>
+            </td>
           </tr>
 
 

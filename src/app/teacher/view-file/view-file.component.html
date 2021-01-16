@@ -1,74 +1,105 @@
 <div class="container-fluid ">
-    <div class="row">
-        <div class="col-md-9 mt-5 p-4">
+  <div class="row">
+    <div class="col-md-9 mt-3 p-4">
 
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
-                    <li class="breadcrumb-item a1 " aria-current="page" (click)="back()">
-                        <a class="fc-lblue">Back</a>
-                    </li>
-                </ol>
-
-
-            </nav>
-
-            <div class="file-viewer p-3 bg-white w-100 h-100">
-                <p>dOCUMENT VIEWR GOES HERE</p>
-            </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+          <li class="breadcrumb-item a1 " aria-current="page" (click)="back()">
+            <a class="fc-lblue">Back</a>
+          </li>
+        </ol>
 
 
+      </nav>
 
+      <div class="col-md-12" *ngIf="fileDetails?.fileType === 'image/png'">
+        <iframe class="file-viewer p-3 bg-white w-100 "
+          [src]="' data:image/png;base64,' + fileDetails?.fileName | trustedUrl" style="height: 85vh; width: 100%;">
+          <p>dOCUMENT VIEWR GOES HERE</p>
+        </iframe>
+      </div>
+
+      <div class="col-md-12" *ngIf="fileDetails?.fileType === 'image/jpeg'">
+        <iframe class="file-viewer p-3 bg-white w-100 "
+          [src]="' data:image/png;base64,' + fileDetails?.fileName | trustedUrl" style="height: 85vh; width: 100%;">
+          <p>dOCUMENT VIEWR GOES HERE</p>
+        </iframe>
+      </div>
+
+      <div class="col-md-12" *ngIf="fileDetails?.fileType === 'application/pdf'">
+        <iframe class="file-viewer p-3 bg-white w-100 "
+          [src]="'data:application/pdf;base64,' + fileDetails?.fileName | trustedUrl"
+          style="height: 85vh; width: 100%;">
+          <p>dOCUMENT VIEWR GOES HERE</p>
+        </iframe>
+      </div>
+
+      <div class="col-md-12"
+        *ngIf="fileDetails?.fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || fileDetails?.fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'">
+        <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "
+          style="height: 85vh; width: 100%;">
+          <div class="d-flex flex-column text-center">
+            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+            <p class="fw-6">Sorry, you cant preview this file but you can download.</p>
+            <p> <a href="" download=""> Click here to download</a></p>
+          </div>
         </div>
-
-        <div class="col-md-3 bg-white  p-3 pt-4  notice-board d-flex flex-column " id="announcement">
-
-            <div class="d-flex flex-column  mt-5 h-100">
+      </div>
 
 
-                <div class="information">
-                    <div class="d-flex info pb-2">
-                        <img src="assets/images/svg/assignment-n.svg" alt="table sort icon" class="mr-3">
-                        <p class="mb-0 fc-lblue fw-6">Properties</p>
-                    </div>
-                    <div class="d-flex justify-content-between ">
 
-                        <div class="d-flex align-items-center my-4">
-                            <img src="assets/images/svg/word.svg" alt="schools log" class="mr-3">
-                            <p class="mb-0 fw-6 mb-0">English Note</p>
-                        </div>
-                        <img src="assets/images/svg/more-action.svg" alt="schools log">
-                    </div>
-
-                    <div class="d-flex  mb-2  ">
-                        <p class="mb-0 w-50">File name</p>
-                        <p class="mb-0 fw-6">English Note</p>
-                    </div>
-                    <div class="d-flex mb-2 ">
-                        <p class="mb-0 w-50">Subject:</p>
-                        <p class="mb-0 fw-6">English Langauge</p>
-                    </div>
-                    <div class="d-flex mb-2 ">
-                        <p class="mb-0 w-50">Class</p>
-                        <p class="mb-0 fw-6">Jss3</p>
-                    </div>
-                    <div class="d-flex  mb-2">
-                        <p class="mb-0 w-50">Date Created</p>
-                        <p class="mb-0 fw-6">Apr 4, 2020 11:10 am</p>
-                    </div>
-                    <div class="d-flex mb-2 ">
-                        <p class="mb-0 w-50">Last Modified:</p>
-                        <p class="mb-0 fw-6">---</p>
-                    </div>
-                    <div class="d-flex mb-2 ">
-                        <p class="mb-0 w-50">Size</p>
-                        <p class="mb-0 fw-6">342 KB</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </div>
+
+    <div class="col-md-3 bg-white  p-3 pt-4  notice-board d-flex flex-column " id="announcement">
+
+      <div class="d-flex flex-column  mt-5 h-100">
+
+
+        <div class="information">
+          <div class="d-flex info pb-2">
+            <img src="assets/images/svg/assignment-n.svg" alt="table sort icon" class="mr-3">
+            <p class="mb-0 fc-lblue fw-6">Properties</p>
+          </div>
+          <div class="d-flex justify-content-between ">
+
+            <div class="d-flex align-items-center my-4">
+              <img src="assets/images/svg/word.svg" alt="schools log" class="mr-3">
+              <p class="mb-0 fw-6 mb-0">English Note</p>
+            </div>
+            <img src="assets/images/svg/more-action.svg" alt="schools log">
+          </div>
+
+          <div class="d-flex flex-column  mb-2  ">
+            <p class="mb-0 w-50">File name</p>
+            <p class="mb-0 fw-6 text-wrap text-truncate">{{fileDetails?.fileName }}</p>
+          </div>
+          <div class="d-flex flex-column mb-2 ">
+            <p class="mb-0 w-50">Subject:</p>
+            <p class="mb-0 fw-6">{{fileDetails?.subjectName | titlecase}}</p>
+          </div>
+          <div class="d-flex flex-column mb-2 ">
+            <p class="mb-0 w-50">Class</p>
+            <p class="mb-0 fw-6">{{fileDetails?.className}}</p>
+          </div>
+          <div class="d-flex flex-column  mb-2">
+            <p class="mb-0 w-50">Date Created</p>
+            <p class="mb-0 fw-6">{{fileDetails?.creationDate | date: 'medium'}}</p>
+          </div>
+          <div class="d-flex flex-column mb-2 ">
+            <p class="mb-0 w-50">Last Modified:</p>
+            <p class="mb-0 fw-6">---</p>
+          </div>
+          <div class="d-flex flex-column mb-2 ">
+            <p class="mb-0 w-50">Size</p>
+            <p class="mb-0 fw-6">{{fileDetails?.fileSize}}</p>
+            <p class="mb-0 fw-6" *ngIf="fileDetails?.fileSize == null">N/A</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
 

@@ -59,17 +59,15 @@ export class MediaComponent implements OnInit {
     if (result.StaffType === '1') {
       console.log('all employee data', result.staff);
       this.teacherService.addTeacher(result).subscribe((data: any) => {
-        console.log('employee added', data);
-        if (data.code == 1) {
-          this.notifyService.publishMessages(data.description, 'info', 1);
-          sessionStorage.clear();
-          this.router.navigateByUrl('/school/employees');
-        } else {
-          this.notifyService.publishMessages(data.description, 'danger', 1);
-        }
-      }, error => {
-        this.notifyService.publishMessages(error.errors, 'danger', 1);
-
+      console.log('employee added', data);
+      if ( data.hasErrors === false ) {
+        this.notifyService.publishMessages(data.description, 'info', 1);
+        sessionStorage.clear();
+        this.router.navigateByUrl('/school/employees');
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors[0], 'danger', 1);
+        
       });
 
     } else {

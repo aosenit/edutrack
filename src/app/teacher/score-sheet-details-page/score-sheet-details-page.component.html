@@ -1,10 +1,20 @@
 <div class="col-md-12 mt-5 mr-3">
  
 
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb" (click)="back()">
+      <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+      <li class="breadcrumb-item a1 " aria-current="page" >
+        <a class="fc-lblue">Back</a>
+      </li>
+    </ol>
+
+
+  </nav>
 
   <div class="d-flex justify-content-between  align-items-center mb-4">
     <div class="student-id">
-        <p class="mb-0 ">Miss Cynthia Godbless</p>
+        <p class="mb-0 "> {{studentNameAndReg?.studentName}}</p>
         <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
       </div>
 
@@ -42,193 +52,33 @@
     <thead>
       <tr>
         <th class="w-40 pl-5">Subjects</th>
-        <th>First CA Score</th>
-        <th>Second CA Score</th>
-        <th>Exam Score</th>
+        <th *ngFor="let assessment of assessments" >  {{assessment?.assessmentName}} </th>
         <th>Cummulative Score</th>
         <th>Grade</th>
-        <th>Position</th>
         <th>Interpretation</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor = "let subject of studentRecord; let i = index">
         <td class=" pl-5 d-flex justify-content-between dropright align-items-center ">
-          <p class="mb-0 cursor-pointer student-info">English Language</p>
-          <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2 dropdown-toggle" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-          <div class="dropdown-menu p-3">
-            <form>
-              <div class="form-group">
-                <label for="type">Type</label>
-                <select name="" id="" class="form-control">
-                  <option value="" selected>Select</option>
-                  <option value="CA">Continous Assessment</option>
-                  <option value="Exam">Examination</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="type">Score</label>
-                <input type="number" class="form-control">
-              </div>
-            </form>
-          </div>
+          <p class="mb-0 cursor-pointer student-info"> {{subject?.subjectName | titlecase}} </p>
+        
 
 
         </td>
 
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
+        <td *ngFor = "let assessment of studentRecord[i].assesmentAndScores"> {{assessment?.studentScore}} </td>
+        <td> {{subject?.cummulativeScore}} </td>
+        <td> {{subject?.grade}} </td>
         <td>
-          <span class="fs-14 interpretation very-good">Very Good</span>
+          <span class="fs-14 interpretation excellent" *ngIf="subject?.interpretation == 'Excellent'">  {{subject?.interpretation}} </span>
+          <span class="fs-14 interpretation very-good" *ngIf="subject?.interpretation == 'Very Good'">  {{subject?.interpretation}} </span>
+          <span class="fs-14 interpretation good" *ngIf="subject?.interpretation == 'Good'">  {{subject?.interpretation}} </span>
+          <span class="fs-14 interpretation fail" *ngIf="subject?.interpretation == 'Fail'">  {{subject?.interpretation}} </span>
+          <span class="fs-14 interpretation fair" *ngIf="subject?.interpretation == 'Fair'">  {{subject?.interpretation}} </span>
         </td>
       </tr>
-      <tr>
-        <td class="d-flex justify-content-between dropright align-items-center ">
-          <p class="mb-0 cursor-pointer student-info"> Mathematics</p>
-          <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2 dropdown-toggle" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-          <div class="dropdown-menu p-3">
-            <form>
-              <div class="form-group">
-                <label for="type">Type</label>
-                <select name="" id="" class="form-control">
-                  <option value="" selected>Select</option>
-                  <option value="CA">Continous Assessment</option>
-                  <option value="Exam">Examination</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="type">Score</label>
-                <input type="number" class="form-control">
-              </div>
-            </form>
-          </div>
-
-
-        </td>
-
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td>
-          <span class="fs-14 interpretation fail">Fail</span>
-        </td>
-      </tr>
-      <tr>
-        <td class="d-flex justify-content-between dropright align-items-center ">
-          <p class="mb-0 cursor-pointer student-info">Intro technology </p>
-          <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2 dropdown-toggle" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-          <div class="dropdown-menu p-3">
-            <form>
-              <div class="form-group">
-                <label for="type">Type</label>
-                <select name="" id="" class="form-control">
-                  <option value="" selected>Select</option>
-                  <option value="CA">Continous Assessment</option>
-                  <option value="Exam">Examination</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="type">Score</label>
-                <input type="number" class="form-control">
-              </div>
-            </form>
-          </div>
-
-
-        </td>
-
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td>
-          <span class="fs-14 interpretation excellent">Excellent</span>
-        </td>
-      </tr>
-
-        <tr>
-            <td class="d-flex justify-content-between dropright align-items-center ">
-            <p class="mb-0 cursor-pointer student-info">Home Economics </p>
-            <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2 dropdown-toggle" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-            <div class="dropdown-menu p-3">
-                <form>
-                <div class="form-group">
-                    <label for="type">Type</label>
-                    <select name="" id="" class="form-control">
-                    <option value="" selected>Select</option>
-                    <option value="CA">Continous Assessment</option>
-                    <option value="Exam">Examination</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="type">Score</label>
-                    <input type="number" class="form-control">
-                </div>
-                </form>
-            </div>
-
-
-            </td>
-
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td>
-            <span class="fs-14 interpretation good">Good</span>
-            </td>
-        </tr>
-      <tr>
-        <td class="d-flex justify-content-between dropright align-items-center ">
-          <p class="mb-0 cursor-pointer student-info">French Language </p>
-          <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2 dropdown-toggle" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-          <div class="dropdown-menu p-3">
-            <form>
-              <div class="form-group">
-                <label for="type">Type</label>
-                <select name="" id="" class="form-control">
-                  <option value="" selected>Select</option>
-                  <option value="CA">Continous Assessment</option>
-                  <option value="Exam">Examination</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="type">Score</label>
-                <input type="number" class="form-control">
-              </div>
-            </form>
-          </div>
-
-
-        </td>
-
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-        <td>
-          <span class="fs-14 interpretation fair">Fair</span>
-        </td>
-      </tr>
-
+    
 
 
 
@@ -238,48 +88,63 @@
     </tbody>
   </table>
 
-  <div class="mt-5 ml-5 col-md-9">
+  <div class="mt-5 ml-5 col-md-10 mb-5">
     <table class="table">
-        <thead>
-          <tr>
-            <th >Total CA Score</th>
-            <th >Total Exam Score</th>
-            <th >Total Score</th>
-            <th >Total Score Obtained</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Mark</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-         
-        </tbody>
-      </table>
+      <thead>
+        <tr>
+          <th *ngFor="let assessment of assessments" >  Total {{assessment?.assessmentName}}</th>
+          <th>Total Score</th>
+          <th>Total Score Obtained</th>
+          <th class="border-0 bg-transparent"></th>
+          <th>Average</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td *ngFor="let assessment of assessments">299</td>
+          <td>1074</td>
+          <td></td>
+          <td class="border-0"></td>
+          <td>90%</td>
+        </tr>
+
+      </tbody>
+    </table>
   </div>
 
   <!-- <div class="divider w-100 mx-5 border">&nbsp;</div> -->
   <div class="col-md-6 ml-5 mb-5">
-      <div class="form-group mb-3">
-          <label for="">Class Teacher's Comment</label>
-          <input type="text " class="form-control" placeholder="Enter comment">
+    <div class="form-group mb-4">
+      <label for="" class="fw-6 fs-16">Class Teacher's Comment</label>
+      <input type="text " class="form-control class-teacher" placeholder="Enter comment" [(ngModel)]="teacherComment.comment" name="comment" >
+    </div>
+    <div class="form-group mb-4">
+      <label for="" class="fw-6 fs-16">Head Teacher's Comment</label>
+      <input type="text " class="form-control head-teacher" placeholder="enter comment" readonly>
+    </div>
+    <div class="d-flex">
+      <div>
+
       </div>
-      <div class="form-group mb-3">
-          <label for="">Head Teacher's Comment</label>
-          <input type="text " class="form-control" placeholder="enter comment">
+    </div>
+  </div>
+
+  <div class=" col-md-6 ml-5 d-flex justify-content-between">
+      <div>
+          <p class="fw-6 mb-3">Signature</p>
+          <div class="breaks mb-1">&nbsp;</div>
+          <p>(Head Teacher)</p>
       </div>
-      <div class="d-flex">
-        <div>
-            
-        </div>
+      <div>
+          <p class="fw-6 mb-3">Signature</p>
+          <div class="breaks mb-1">&nbsp;</div>
+          <p>(Class Teacher)</p>
       </div>
   </div>
 
   </div>
 
   <div class="d-flex justify-content-center my-5">
-    <button class="btn-upload-top bg-lblue w-40" type="button"> Submit </button>
+    <button class="btn-upload-top bg-lblue w-40" type="button" (click)="submitStudentResult()"> Submit </button>
   </div>
 </div>

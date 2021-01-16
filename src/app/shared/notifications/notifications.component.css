@@ -1,8 +1,49 @@
 .notification {
-    position: fixed;
-    left: 20vw;
-    margin: 0 auto;
-    top: 8vh;
-    width: 60vw;
-    z-index: 34444444444444444444444
+  position: fixed;
+  left: 35vw;
+  margin: 0 auto;
+  top: 8vh;
+  width: 40vw;
+  z-index: 34444444444444444444444;
+}
+
+.alert-info {
+  background: #ddf8e9;
+  border: 2px solid #a9edc8;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: Nunito;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 25px;
+  color: #1c9d52;
+  font-weight: 600;
+}
+
+.alert-danger {
+  background: #FFE5E5;
+  border: 2px solid #FEC5C5;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: Nunito;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 25px;
+  color: #CE4346;
+  font-weight: 600;
+}
+.alert-success {
+  background: #eafbf1;
+  /* border: 2px solid #28a745 ; */
+  border: 2px solid #a9edc8;
+
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: Nunito;
+  font-style: normal;
+  /* font-weight: 600; */
+  font-size: 20px;
+  line-height: 25px;
+  color: #1C9D52;
+  font-weight: 600;
 }

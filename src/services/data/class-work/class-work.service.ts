@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment';
 const routes = {
   addClassWork: 'schtrack-learning/api/v1/ClassWork/UploadFile',
   getClassWorkByTeacher: 'schtrack-learning/api/v1/ClassWork/GetAllFileByTeacher',
+  getClassWorkDetails: 'schtrack-learning/api/v1/ClassWork/GetClassWorkDetail',
+  getClassWorFiles: 'schtrack-learning/api/v1/ClassWork/GetFileByClassSubject',
 
 };
 
@@ -33,5 +35,18 @@ export class ClassWorkService {
     const url = `${this.baseUrl + routes.getClassWorkByTeacher}`;
     console.log(url);
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
+  getClassWorkDetails(id: any) {
+    const tenantId = '1';
+    const url = `${this.baseUrl + routes.getClassWorkDetails}?id=${id}`;
+    console.log(url);
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
+  getClassWorkFiles(id: any) {
+    const url = `${this.baseUrl + routes.getClassWorFiles}/?classSubjectId=${id}`;
+    console.log(url);
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

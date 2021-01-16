@@ -29,7 +29,7 @@ a {
 .activated {
     display: flex;
     justify-content: space-between;
-    background: #F0F5F9;
+    background: #fff;
     /* background: rgba(235, 240, 245, 0.1); */
 
     /* border: 1px solid #d3dde9; */
@@ -115,12 +115,13 @@ a {
     padding: 2rem 1.5rem 1rem;
     border: 1px solid #d3dde9;
     border-radius: 10px;
+    background: #fff;
 }
 
 .cards .cards__profile {
-    background: #ebf0f5;
+    background: #fff;
     /* opacity: 0.5;  */
-    backdrop-filter: opacity(.9);
+    /* backdrop-filter: opacity(.9); */
 
 }
 

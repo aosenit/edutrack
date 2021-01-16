@@ -12,9 +12,11 @@ export class DashboardComponent implements OnInit {
   adminDetails: any;
   registeredSchools: any;
   schoolCount: any;
-  p: number;
+  studentCount: any;
+  p = 1;
+  itemsPerPage = 5;
 
-  constructor(private schoolService: SchoolService, private studentservice:StudentService) { }
+  constructor(private schoolService: SchoolService, private studentservice: StudentService) { }
 
   ngOnInit() {
     const helper = new JwtHelperService();
@@ -24,19 +26,22 @@ export class DashboardComponent implements OnInit {
   }
 
   getAllSchool() {
-    this.schoolService.getAllSchools().subscribe((data: any) => {
+    this.schoolService.getAllSchools(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data) {
         this.registeredSchools = data.payload;
         this.schoolCount = data.totalCount;
+        console.log(this.registeredSchools);
       }
     });
-  } 
-  getAllStudents(){
-    this.studentservice.getAllStudents().subscribe(
-      res => {
-        console.log(res)
+  }
+
+  getAllStudents() {
+    this.studentservice.getAllStudents(this.p, this.itemsPerPage).subscribe(
+      (res: any) => {
+        this.studentCount = res.totalCount;
+        console.log(this.studentCount);
       }
-    )
+    );
   }
 
 }

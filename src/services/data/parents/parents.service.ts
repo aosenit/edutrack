@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 const routes = {
   addparent: 'schtrack-auth/api/v1/Parent/AddNewParent  ',
   getallparent: 'schtrack-auth/api/v1/Parent/GetAllParents',
+  getallparentinASchool: 'schtrack-auth/api/v1/Parent/GetAllParentsInSchool',
   getparentbyid: 'schtrack-auth/api/v1/Parent/GetParentById',
   getstudentparent: 'schtrack-auth/api/v1/Parent/GetParentsForStudent',
   updateparentbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
@@ -44,21 +45,30 @@ export class ParentsService {
     formData.append('Status', createParentForm.Status);
     formData.append('Title', createParentForm.Title);
     const url = `${this.baseUrl + routes.addparent}`;
-    return this.http.post(url, formData, { headers: { tenantId } });
+    return this.http.post(url, formData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
-  getAllParents() {
-    const tenantId = '1'; // just a temporary header till email services is ready
+  getAllParents(p, perpage) {
+
+    const url = `${this.baseUrl + routes.getallparent}?PageIndex=${p}&PageSize=${perpage}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getAllParentsInASchool(p, perpage) {
+    const url = `${this.baseUrl + routes.getallparentinASchool}?PageIndex=${p}&PageSize=${perpage}`;
+    console.log(url)
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+  getAllParentsWithName() {
 
     const url = `${this.baseUrl + routes.getallparent}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getParentById(id) {
-    const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getparentbyid}/${id}`;
-    return this.http.get(url,  { headers: { tenantId } });
+    return this.http.get(url,   {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getParentForStudent(studid) {

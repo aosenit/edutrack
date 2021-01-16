@@ -5,6 +5,7 @@ const routes = {
   addlessonNote: 'schtrack-learning/api/v1/LessonNote/UploadFile',
   getlessonNoteByTeacher: 'schtrack-learning/api/v1/LessonNote/GetAllFileByTeacher',
   getlessonNoteDetails: 'schtrack-learning/api/v1/LessonNote/GetLessonNoteDetail',
+  getlessonNoteFiles: 'schtrack-learning/api/v1/LessonNote/GetFileByClassSubject',
 
 };
 @Injectable({
@@ -18,27 +19,30 @@ export class LessonNoteService {
   constructor(private http: HttpClient) { }
 
   addLessonNote(form) {
-    const tenantId = '1';
 
     const body = new FormData();
     body.append('ClassSubjectId', form.ClassSubjectId);
     body.append('FileObj', form.FileObj);
     body.append('Comment', form.Comment);
     const url = `${this.baseUrl + routes.addlessonNote}`;
-    return this.http.post(url, body,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.post(url, body,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getLessonNotesByTeacher() {
-    const tenantId = '1';
     const url = `${this.baseUrl + routes.getlessonNoteByTeacher}`;
-    console.log(url);
-    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    // console.log(url);
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getSinglelessonNoteDetail(id: any) {
-    const tenantId = '1';
     const url = `${this.baseUrl + routes.getlessonNoteDetails}/?id=${id}`;
+    // console.log(url);
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getlessonNoteFile(id: any) {
+    const url = `${this.baseUrl + routes.getlessonNoteFiles}/?classSubjectId=${id}`;
     console.log(url);
-    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

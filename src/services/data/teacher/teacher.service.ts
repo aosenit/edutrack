@@ -8,6 +8,11 @@ const routes = {
   getteacherbyid: 'schtrack-auth/api/v1/Teacher/GetTeachers',
   updateteacherbyid: 'schtrack-auth/api/v1/Teacher/UpdateTeacher',
   deleteteacher: 'schtrack-auth/api/v1/Teacher/DeleteTeacher',
+  attachteachertoclass: 'schtrack-auth/api/v1/Teacher/SetClassTeacher',
+  getClassTeacher: 'schtrack-auth/api/v1/Teacher/GetTeacherClass',
+
+
+  getAllassignmentSubmission: 'schtrack-learning/api/v1/AssignmentAnswer/GetAllAssignmentAnswers',
 
   attachteachertosubject: 'schtrack-learning/api/v1/TeacherClassSubject/AddClassSubjectsToTeacher',
   getteacherdesignation: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher'
@@ -25,7 +30,7 @@ export class TeacherService {
 
   addTeacher(form) {
 
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
     const { EducationExperienceVMs, WorkExperienceVMs } = form;
     const body = new FormData();
     body.append('FirstName', form.FirstName);
@@ -85,59 +90,81 @@ export class TeacherService {
     }
     const url = `${this.baseUrl + routes.addteacher}`;
     console.log(url);
-    return this.http.post(url, body, { headers: { tenantId } });
+    return this.http.post(url, body, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getAllTeachers() {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getallteacher}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getTeacherById(id: any) {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getteacherbyid}/${id}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   updateTeacher(userid, updateTeacherForm) {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.updateteacherbyid}/${userid}`;
-    return this.http.put(url, updateTeacherForm, { headers: { tenantId } });
+    return this.http.put(url, updateTeacherForm, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
   deleteTeacherById(userid) {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + '/givenApi'}/${userid}`;
-    return this.http.delete(url, { headers: { tenantId } });
+    return this.http.delete(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
   // learning service for teacher realted stuff goes down here
 
   attachTeacherToSubject(result) {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
-    const body = new FormData();
-    body.append('TeacherId', result.TeacherId);
-    body.append('ClassSubjectIds', result.ClassSubjectIds);
+    // const body = new FormData();
+    // body.append('TeacherId', result.TeacherId);
+    // body.append('ClassSubjectIds', result.ClassSubjectIds);
     const url = `${this.baseUrl + routes.attachteachertosubject}`;
 
-    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 
   getAttachedSubjects(id: any) {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getteacherdesignation}/${id}`;
 
-    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
+  }
+
+  getAllAssignmentSubmissionForASubject(id) {
+    // const tenantId = '1'; // just a temporary header till email services is ready
+    const url = `${this.baseUrl + routes.getAllassignmentSubmission}?assignmentId=${id}`;
+    console.log(url);
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  attachTeacherToClass(result) {
+
+    const url = `${this.baseUrl + routes.attachteachertoclass}`;
+
+    return this.http.put(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  getTeacherAttachedToClass(id) {
+    const url = `${this.baseUrl + routes.getClassTeacher}/${id}`;
+
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

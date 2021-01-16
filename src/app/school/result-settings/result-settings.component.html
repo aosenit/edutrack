@@ -11,7 +11,7 @@
 
 </section>
 
-<section class="banner mb-4 pb-3" *ngIf="type">
+<section class="banner mb-4 pb-3" *ngIf="assessment">
     <div class="pt-5 pl-3 text-content ">
       <h6 class="banner__text-primary fw-6 "> Result Settings </h6>
       <p class=""> Adjust school's result settings </p>
@@ -19,7 +19,7 @@
     <div class="d-flex">
         <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" > Bulk Actions </button>
         <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
-        data-target="#exampleModalCenterType" > Add New </button>
+        data-target="#exampleModalCenterType" [disabled]="assessmentCount === 100" > Add New </button>
     </div>
 
 </section>
@@ -47,9 +47,9 @@
           <a class="nav-link active" id="pills-grade-tab" data-toggle="pill" href="#pills-grade" role="tab"
             aria-controls="pills-grade" aria-selected="false">Grade</a>
         </li>
-        <li class="nav-item mr-5" (click)="showStatus('type')">
+        <li class="nav-item mr-5" (click)="showStatus('assessment')">
           <a class="nav-link" id="pills-type-tab" data-toggle="pill" href="#pills-type" role="tab"
-            aria-controls="pills-type" aria-selected="false">Domain Type</a>
+            aria-controls="pills-type" aria-selected="false"> Assessment</a>
         </li>
         <li class="nav-item mr-5" (click)="showStatus('domain')">
           <a class="nav-link" id="pills-domain-tab" data-toggle="pill" href="#pills-domain" role="tab"
@@ -107,7 +107,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="pb-1">
+                    <tr class="pb-1" *ngFor = "let grade of grades">
                         <td scope="row" class="check rounded-left">
                             <div class="custom-control custom-checkbox" >
                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -115,90 +115,30 @@
                             </div>
                         </td>
                         <td class="user" >
-                            <h6 class="fw-6 mb-0" >A </h6>
+                            <h6 class="fw-6 mb-0" > {{grade?.grade}} </h6>
                         </td>
-                        <td class="">Excellent</td>
-                        <td class="">75-100</td>
-                        <td><span class="status_active">Active</span></td>
+                        <td class="">{{grade?.interpretation}}</td>
+                        <td class="">{{grade?.lowerBound}}-{{grade?.upperBound}}</td>
+                        <td>
+                          <span class="status_active" *ngIf = "grade?.isActive == true">Active</span>
+                          <span class="status_inactive" *ngIf = "grade?.isActive == false">Inactive</span></td>
                         <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
                                 alt="schools log"> </td>
                     </tr>
         
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <h6 class="fw-6 mb-0" >B </h6>
-                        </td>
-                        <td class="">Very Good</td>
-                        <td class="">60-74</td>            
-                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <h6 class="fw-6 mb-0" >C </h6>
-                        </td>
-                        <td class="">Good</td>
-                        <td class="">55-59</td>
-                                               <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <h6 class="fw-6 mb-0" >D </h6>
-                        </td>
-                        <td class="">Fair</td>
-                        <td class="">50-54</td>
-                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-right">
-                            
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <h6 class="fw-6 mb-0" >F </h6>
-                        </td>
-                        <td class="">Fail</td>
-                        <td class="">0-49</td>
-                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
+                   
         
         
         
         
                 </tbody>
             </table>
+
+            <div class="d-flex justify-content-end mb-3">
+              
+              <button class="btn btn-orange-two px-5 mb-4 mt-3" [hidden]= "grades?.length === 0  " (click)="publishGrade()"> Publish </button>
+            </div>
+            
         
         </section>
     </div>
@@ -214,16 +154,15 @@
                                 <label class="custom-control-label" for="customCheckTh"></label>
                             </div>
                         </th>
-                        <th scope="col"  >Class <img src="assets/images/svg/table-sort.svg">  </th>
-                        <th scope="col"  >Level <img src="assets/images/svg/table-sort.svg">  </th>
+                        <th scope="col"  >Title <img src="assets/images/svg/table-sort.svg">  </th>
+                        <th scope="col"  >Max Score <img src="assets/images/svg/table-sort.svg">  </th>
                         <th scope="col" class="text-center"  >Sequence <img src="assets/images/svg/table-sort.svg">  </th>
                        
-                        <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="pb-1">
+                    <tr class="pb-1" *ngFor = "let assessment of allAssessment">
                         <td scope="row" class="check rounded-left">
                             <div class="custom-control custom-checkbox" >
                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -231,90 +170,22 @@
                             </div>
                         </td>
                         <td class="user" >
-                            <h6 class="fw-6 mb-0" >JSS 1 B </h6>
+                            <h6 class="fw-6 mb-0" >{{assessment.name}}  </h6>
                         </td>
-                        <td class="">Secondary</td>
-                        <td class="text-center">1</td>
-                        <td><span class="status_active">Active</span></td>
+                        <td class="">{{assessment?.maxScore}}</td>
+                        <td class="text-center"> {{assessment?.sequenceNumber}} </td>
                         <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
                                 alt="schools log"> </td>
                     </tr>
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <h6 class="fw-6 mb-0" >Primary 1 B </h6>
-                        </td>
-                        <td class="">Primary</td>
-                        <td class="text-center">2</td>                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <h6 class="fw-6 mb-0" >Nursery 1 Champion </h6>
-                        </td>
-                        <td class="">Nursery</td>
-                        <td class="text-center">4</td>                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-                    
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-left">
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <h6 class="fw-6 mb-0" >Primary 2 </h6>
-                        </td>
-                        <td class="">Primary</td>
-                        <td class="text-center">2</td>                        
-                        <td><span class="status_inactive">Inactive</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-                   
-        
-        
-                    <tr class="pb-1">
-                        <td scope="row" class="check rounded-right">
-                            
-                            <div class="custom-control custom-checkbox" >
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                        </td>
-                        <td class="user" >
-                            <h6 class="fw-6 mb-0" >SS 2 B </h6>
-                        </td>
-                        <td class="">Secondary</td>
-                        <td class="text-center">1</td>                        <td><span class="status_active">Active</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
-                    </tr>
-        
-        
-        
         
                 </tbody>
             </table>
         
+            <div class="d-flex justify-content-end mb-3">
+              
+              <button class="btn btn-orange-two px-5 mb-4 mt-3" [hidden]= "allAssessment?.length === 0 || assessmentCount === 100 " (click)="publishAssessment()"> Publish </button>
+            </div>
+            
         </section>
     </div>
 
@@ -422,6 +293,11 @@
         
                 </tbody>
             </table>
+
+            <div class="d-flex justify-content-end mb-3">
+              
+              <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="publishGrade()"> Publish </button>
+            </div>
         
         </section>
     </div>
@@ -443,47 +319,49 @@ aria-labelledby="exampleModalCenterGradeTitle" aria-hidden="true">
     <div class="modal-head mb-4">
       <div class="d-flex justify-content-between align-items-center ">
         <h6 class="modal-title fc-lblue">Add New Grade</h6>
-        <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+        <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close" id="myGradeModal">
 
       </div>
 
     </div>
     <div class="modal-body client-modal">
-      <form>
+      <form [formGroup]="gradeForm" (ngSubmit)="submitGrade()">
 
 
         <div class="form-group mb-4">
           <label for="grade" class="">Grade <span class="text-danger">*</span></label>
-          <input type="text" id="grade" class="form-control" placeholder="Enter grade">
+          <input type="text" id="grade" class="form-control" placeholder="Enter grade" formControlName="grade">
         </div>
         <div class="form-group mb-4">
           <label for="interpretation" class="">Interpretation <span class="text-danger">*</span></label>
-          <input type="text" id="interpretation" class="form-control" placeholder="Enter grade interpretation">
+          <input type="text" id="interpretation" class="form-control" placeholder="Enter grade interpretation" formControlName="interpretation">
         </div>
         <div class="row mb-5">
             <div class="col-md-6">
                 <label for="lower" class="">Range<span class="text-danger">*</span> </label>
-              <input type="number" class="form-control " placeholder="Lower Bound" id="lower">
+              <input type="number" class="form-control " placeholder="Lower Bound" id="lower" formControlName="lowerBound">
             </div>
             <div class="col-md-6">
-                <label for="upper" class=""> &nbsp; </label>
-              <input type="number" class="form-control " placeholder="Upper Bound" id="upper">
+              <label for="upper" class=""> &nbsp; </label>
+              <input type="number" class="form-control " placeholder="Upper Bound" id="upper" formControlName="upperBound">
             </div>
+            <span class="small text-danger pl-3" *ngIf="errorLabel !== null"> {{ errorLabel }} </span>
         </div>
         <div class="form-group mb-5">
           <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1">Active</label>
+            <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="isActive" (change)="getStatus($event.target.checked)">
+            <label class="custom-control-label" for="customSwitch1" *ngIf="toggleState === false"> Inactive</label>
+            <label class="custom-control-label" for="customSwitch1" *ngIf="toggleState === true" > Active</label>
           </div>
         </div>
 
 
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Grade</button>
+        </div>
       </form>
-      <div class="d-flex justify-content-center mb-3">
-        <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
-        </button>
-        <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Grade</button>
-      </div>
     </div>
 
   </div>
@@ -500,48 +378,33 @@ aria-labelledby="exampleModalCenterTypeTitle" aria-hidden="true">
 
     <div class="modal-head mb-4">
       <div class="d-flex justify-content-between align-items-center ">
-        <h6 class="modal-title fc-lblue">Add New Domain Type</h6>
-        <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+        <h6 class="modal-title fc-lblue">Add New Assessment</h6>
+        <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close" id="assessmentModal">
 
       </div>
 
     </div>
     <div class="modal-body client-modal">
-      <form>
+      <form [formGroup]="assessmentForm" (ngSubmit)="addAssessment()">
 
 
         <div class="form-group mb-4">
-          <label for="grade" class="">Grade <span class="text-danger">*</span></label>
-          <input type="text" id="grade" class="form-control" placeholder="Enter grade">
+          <label for="grade" class="">Title <span class="text-danger">*</span></label>
+          <input type="text" id="grade" class="form-control" placeholder="Enter title" formControlName="name">
         </div>
         <div class="form-group mb-4">
-          <label for="interpretation" class="">Interpretation <span class="text-danger">*</span></label>
-          <input type="text" id="interpretation" class="form-control" placeholder="Enter grade interpretation">
+          <label for="interpretation" class="">Max Score <span class="text-danger">*</span></label>
+          <input type="number" id="interpretation" class="form-control" placeholder="Enter max score" formControlName="maxScore">
         </div>
-        <div class="row mb-5">
-            <div class="col-md-6">
-                <label for="lower" class="">Range<span class="text-danger">*</span> </label>
-              <input type="number" class="form-control " placeholder="Lower Bound" id="lower">
-            </div>
-            <div class="col-md-6">
-                <label for="upper" class=""> &nbsp; </label>
-              <input type="number" class="form-control " placeholder="Upper Bound" id="upper">
-            </div>
-        </div>
-        <div class="form-group mb-5">
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1">Active</label>
-          </div>
-        </div>
+        
 
 
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]= assessmentForm.invalid> Add assessment</button>
+        </div>
       </form>
-      <div class="d-flex justify-content-center mb-3">
-        <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
-        </button>
-        <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Grade</button>
-      </div>
     </div>
 
   </div>

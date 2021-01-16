@@ -6,7 +6,7 @@ import { FormBuilder } from '@angular/forms';
 
 const routes = {
   newAdmin: 'schtrack-auth/api/v1/Admin',
-  getAdmins: 'schtrack-auth/api/v1/Admin?PageIndex=1&PageSize=15',
+  getAdmins: 'schtrack-auth/api/v1/Admin',
   getAllPermissions: 'schtrack-auth/api/v1/Role/GetAllPermissions',
   createRoles: 'schtrack-auth/api/v1/Role/CreateRole',
   getRoles: 'schtrack-auth/api/v1/Role/GetRoles',
@@ -40,12 +40,12 @@ export class AdminService {
     userForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     body.append('phoneNumber', userForm.phoneNumber);
     const url = `${this.baseUrl + routes.newAdmin}`;
-    return this.http.post(url, body );
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } }  );
   }
 
   getAllAdmin() {
     const url = `${this.baseUrl + routes.getAdmins}`;
-    return this.http.get(url );
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   getAllPermissions() {

@@ -64,6 +64,10 @@
     transition: .3s ease-in-out;
 }
 
+#sidebar ul li a.nav-link:hover {
+        color: #ffffff;
+}
+
 #sidebar ul li a.nav-link.active {
     font-family: Nunito;
     font-style: normal;

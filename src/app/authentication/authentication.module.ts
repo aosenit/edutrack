@@ -10,10 +10,11 @@ import { SchoolLoginComponent } from './school-login/school-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
+import { EmailVerifiedComponent } from './email-verified/email-verified.component';
 
 
 @NgModule({
-  declarations: [ForgotPasswordComponent, AdminLoginComponent, TeacherLoginComponent, StudentLoginComponent, SchoolLoginComponent],
+  declarations: [ForgotPasswordComponent, AdminLoginComponent, TeacherLoginComponent, StudentLoginComponent, SchoolLoginComponent, EmailVerifiedComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

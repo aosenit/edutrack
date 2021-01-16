@@ -1,0 +1,167 @@
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+a {
+    color: #1b5bac;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #1b5bac;
+    content: ">";
+    font-size: 10px;
+    display: none;
+}
+
+.btn-upload-top {
+
+    border: none;
+    outline: none;
+    padding: 11px 25px;
+    border-radius: 2.5px;
+    color: #fff;
+    /* font-weight: 600; */
+    border-radius: 10px;
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+    background: #FEFEFF;
+border: 1px solid #ABC3DF;
+box-sizing: border-box;
+border-radius: 5px;
+font-size: 12px;
+font-weight: normal;
+
+}
+
+.has-search .form-control::placeholder {
+    color: #ABC3DF;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #ABC3DF;
+
+    
+}
+
+input[type="text"] {
+    width: 125%;
+}
+
+select {
+    background: #FAFAFA;
+border: 1px solid #92B5DD;
+font-size: 12px;
+}
+
+
+.grade-container {
+    height: 100vh;
+}
+
+
+thead th {
+    background: #EBF0F5;
+border: 1px solid #B4CDE9;
+font-size: 16px;
+color: #355691;
+font-weight: normal;
+/* font-weight: 600; */
+}
+
+tbody  td {
+    background-color: #ffffff;
+    border: 1px solid #E0E0E0;
+    text-align: center;
+}
+
+.w-40 {
+    width: 30%;
+}
+
+.student-id p:first-child  {
+    color: #355691;
+    font-size: 18px;
+    
+    
+}   
+.student-info  {
+    color: #355691;
+    
+}   
+
+.interpretation {
+    
+    font-weight: 600;
+    width: 100px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 17px 40px; */
+}
+.excellent {
+    background: #ebfffa;
+    color: #09b78a;
+}
+
+
+.fail {
+    background :#F1DFE2;
+    color: #D80027;
+   
+}
+
+.very-good {
+ background :#E5F4D3;
+    color: #7EC02E;
+}
+.good {
+ background :#F1EFDF;
+    color: #C1AC00;
+}
+.fair {
+ background :#D9CE98;
+    color: #665500;
+}
+
+.head-teacher::placeholder {
+    font-size: 16px;
+    line-height: 16px;
+    /* identical to box height, or 100% */
+    
+    
+    color: #D1D9DF;
+}
+
+.breaks {
+    border-bottom: 2px dotted black;
+}

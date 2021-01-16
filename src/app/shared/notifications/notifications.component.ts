@@ -15,6 +15,7 @@ export class NotificationsComponent implements OnInit {
     this.notify.alertStatus.subscribe(
       res =>{
         // console.log(res);
+        // alert(this.notification);
         this.notification = res
       }
     )

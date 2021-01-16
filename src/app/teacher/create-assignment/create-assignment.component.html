@@ -28,7 +28,7 @@
             <label for="subject">Class</label>
             <select id="subject" class="form-control"  (change)="getSubjects($event.target.value)">
               <option selected>Select Class</option>
-              <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
+              <option [value]="class.id" *ngFor="let class of classList">{{class.name}}{{class?.classGroup}}</option>
   
             </select>
           </div>
@@ -60,7 +60,7 @@
           <div class="row no-gutters bg-white text-editor">
               <div class="col-md-9">
   
-                  <ckeditor  [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+                  <ckeditor  [editor]="Editor" formControlName="Document" data="<p>Hello, world!</p>"></ckeditor>
               </div>
               <div class="col-md-3 attach-file pl-3 pr-4 pb-4">
                   <p class="pt-3 pb-4  fw-6">Attach File</p>

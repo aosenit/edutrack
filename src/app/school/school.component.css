@@ -149,15 +149,20 @@
 
 #sidebar ul li a.nav-link svg path#Vector,
 #sidebar ul li a.nav-link svg g#icon {
-    fill: #94B3D1;
-    opacity: .3;
+    fill: #fff;
+    /* opacity: .3; */
     transition: .3s ease-in-out;
 }
 
 #sidebar ul li a.nav-link:hover svg path#Vector {
-    opacity: .7;
+    /* opacity: .7; */
+    fill: #ffffff;
 }
 
+svg path , svg g path {
+    fill: #ffffff;
+    fill-opacity: 1;
+}
 
 .ellipse {
     width: 11px;

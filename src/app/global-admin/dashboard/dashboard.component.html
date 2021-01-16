@@ -23,7 +23,8 @@
         <div class="students">
             <img src="assets/images/svg/students-number.svg" alt="number of students icon">
             <div class="revenue__text ">
-                <h6 class="pt-3 pr-4">0</h6>
+                <h6 class="pt-3 pr-4">{{studentCount}}</h6>
+                <h6 class="pt-3 pr-4" *ngIf="studentCount === null">0</h6>
             </div>
             <p>No. of students</p>
         </div>
@@ -56,9 +57,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor = "let school of registeredSchools.slice(0,5)">
+                  <tr *ngFor = "let school of registeredSchools?.slice(0,5)">
                     <th scope="row" class="logo">
-                        <img src="assets/images/svg/school-victory.svg" alt="schools log" class="mr-3">
+                        <!-- <img src="assets/images/svg/school-victory.svg" alt="schools log" class="mr-3"> -->
+                        <img class="" *ngIf="school?.logo" src="data:image/png;base64,{{school?.logo}}" alt="schools log"
+                  class="mr-3 image-rounded" id="">
+                <img class="" *ngIf="school?.logo == null" src="assets/images/svg/companyalt.svg" alt="schools log"
+                  class="mr-3 image-rounded" id="">
                         <p>{{school.name}}</p>
 
                     </th>

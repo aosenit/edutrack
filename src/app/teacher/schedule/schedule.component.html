@@ -1,65 +1,148 @@
 <div class="col-md-12 mt-5 mr-3">
-    <section class="banner mb-4 pb-3">
-        <div class="pt-5 pl-3 content ">
-          <h6 class="banner__text-primary fw-6 "> Class Schedule </h6>
-          <p class=""> Time table and schedule </p>
-        </div>
-    
-      </section>
+  <section class="banner mb-4 pb-3">
+    <div class="pt-5 pl-3 content ">
+      <h6 class="banner__text-primary fw-6 "> Class Schedule </h6>
+      <p class=""> Time table and schedule </p>
+    </div>
 
-      <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
+  </section>
 
-        <div>
-          <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item mr-3 " (click)="showSelect('table')">
-              <a class="nav-link active" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
-                aria-controls="pills-table" aria-selected="true">Time Table</a>
-            </li>
-            <li class="nav-item mr-3 " (click)="showSelect('calendar')">
-              <a class="nav-link" id="pills-calendar-tab" data-toggle="pill" href="#pills-calendar" role="tab"
-                aria-controls="pills-calendar" aria-selected="false">School Calendar</a>
-            </li>
-            
-          </ul>
-      
+  <div class="d-flex justify-content-between align-items-center mt-5 mb-3">
+
+    <div>
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item mr-3 " (click)="showSelect('table')">
+          <a class="nav-link active" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"
+            aria-controls="pills-table" aria-selected="true">Time Table</a>
+        </li>
+        <li class="nav-item mr-3 " (click)="showSelect('calendar')">
+          <a class="nav-link" id="pills-calendar-tab" data-toggle="pill" href="#pills-calendar" role="tab"
+            aria-controls="pills-calendar" aria-selected="false">School Calendar</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div>
+      <form *ngIf="table">
+        <div class="row">
+          <div class="col ">
+            <!-- <select id="class" class="form-control">
+              <option [value]="class.id" *ngFor="let class of classes"> {{class?.name}}{{class?.classGroup}}</option>
+
+            </select> -->
+          </div>
+          <!-- <div class="col ">
+            <select name="" id="" class="form-control form-control-lg">
+              <option value="">Select Subject</option>
+            </select>
+          </div> -->
         </div>
-      
-        <div>
-          <form *ngIf="table">
-              <div class="row">
-                  <div class="col ">
-                      <select name="" id="" class="form-control form-control-lg">
-                          <option value="">Select class</option>
-                      </select>
-                  </div>
-                  <div class="col ">
-                      <select name="" id="" class="form-control form-control-lg">
-                          <option value="">Select Subject</option>
-                      </select>
-                  </div>
+      </form>
+      <form *ngIf="calendar">
+        <div class="form-group">
+          <select name="" id="" class="form-control form-control-lg">
+            <option value="">Month</option>
+          </select>
+
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="bg-white h-100 mt-3 mb-3 br-10 py-5 px-4">
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active " id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
+
+        <!-- <div class="mt-5">
+          <div class="container-fluid">
+            <div class="row mb-2 text-center">
+              <div class="col-md-2">
+
               </div>
-          </form>
-          <form *ngIf="calendar">
-              <div class="form-group">
-                      <select name="" id="" class="form-control form-control-lg">
-                          <option value="">Month</option>
-                      </select>
+              <div class="col-md-2" *ngFor="let day of timeTable; let y = index">
+                {{day[0]}}
+              </div>
+
+
+            </div>
+            <div class="row " *ngFor="let period of daysInWeek">
+              <div class="col-md-2  d-flex justify-content-between align-items-center">
+                <b>{{period.day}} </b>
+              </div>
+              <div class="col-md-2 border d-flex justify-content-center"
+                *ngFor="let cell of period.classes; let i = index">
+                <div class="bg-lblue w-100 br-10 p-2 cursor-pointer " [routerLink]="['/teacher','class']"
+                (click)="save(cell.day)">
+                  <p>
+                    {{cell.subjectName | titlecase}} </p>
+                  <p>
+                    {{cell?.className }} {{cell.day}}
+                  </p>
+                  <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4"
+                    *ngIf="cell?.hasVirtual == true">
+                  <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4"
+                    *ngIf="cell?.hasVirtual == false">
+                </div>
+
+              </div>
+
+            </div>
+           
+          </div>
+        </div> -->
+        <div class="mt-5">
+          <div class="container-fluid">
+            <div class="row mb-2 text-center">
+              <div class="col-md-2">
+
+              </div>
+              <div class="col-md-2 " *ngFor = "let day of daysInWeek; let i = index">
+                <p class="fw-6 fc-lblue">
+                  {{day?.day}}
+                </p>
+             </div>
+
+
+            </div>
+            <div class="row " *ngFor = "let period of periods; let i = index">
+              <div class="col-md-2 cells cell-time d-flex justify-content-between align-items-center">
+                <span class="start">  {{period?.timeFromS}} </span>
+                <b class="py-3">{{period?.name}}</b>
+                <span class="end">  {{period?.timeToS}} </span>
+            </div>
+            <div class="col-md-2 py-2 px-1 cells d-flex flex-column  justify-content-center" *ngFor = "let day of daysInWeek; let i = index" >
+               
+              <div class="d-flex flex-column   bg-lblue px-2  " *ngFor = "let time of subjectAndTime; let z = index"> 
+              
+                <p class="mb-0 fw-4 pt-2 " *ngIf=" period?.name === time.periodName && day?.id === time?.day" >  {{time?.subjectName | titlecase}} </p> 
+                <div class="d-flex justify-content-between">
+                  <p class="mb-0 fw-4 pb-2 " *ngIf=" period?.name === time.periodName && day?.id === time?.day" >  {{time?.className | titlecase}} </p> 
+                  <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4"
+                      *ngIf="period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual == true">
+                    <img src="assets/images/svg/physical-class.svg" alt="new client" class="ml-4"
+                      *ngIf="period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual == false">
+                </div>
+              </div>
+              <!-- <div class="d-flex align-items-center">
+                <img src="assets/images/svg/table-time.svg" alt="" class="mr-3">
+                <p class="mb-0">{{period?.timeFromS}} - {{period?.timeToS}} </p>
                   
-              </div>
-          </form>
-        </div>
-      </div>
-      <div class="bg-white h-100 mt-3 mb-3 br-10 py-5 px-4">
-        <div class="tab-content" id="pills-tabContent">
-          <div class="tab-pane fade show active " id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">
-            <p>time table goes here</p>
-            
+              </div> -->
+              
           </div>
-          <div class="tab-pane fade" id="pills-calendar" role="tabpanel" aria-labelledby="pills-calendar-tab">
-            <p>School calendar goes here</p>
 
+            </div>
+           
           </div>
         </div>
+
       </div>
-    
-</div>
+
+      <div class="tab-pane fade" id="pills-calendar" role="tabpanel" aria-labelledby="pills-calendar-tab">
+        <p>School calendar goes here</p>
+
+      </div>
+    </div>
+
+  </div>

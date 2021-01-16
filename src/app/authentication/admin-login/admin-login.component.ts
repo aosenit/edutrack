@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/services/data/auth/auth.service';
 import { NotificationsService } from './../../../services/classes/notifications/notifications.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Component({
@@ -13,18 +14,22 @@ import { NotificationsService } from './../../../services/classes/notifications/
 export class AdminLoginComponent implements OnInit {
   submitted = false;
   LoginForm: FormGroup;
+  loggedInUser: any;
   constructor(
-              private fb: FormBuilder,
-              private router: Router,
-              private notifyService: NotificationsService,
-              private authService: AuthService,
-              ) { }
+    private fb: FormBuilder,
+    private router: Router,
+    private notifyService: NotificationsService,
+    private authService: AuthService,
+  ) { }
 
-    ngOnInit() {
+  ngOnInit() {
     this.LoginForm = this.fb.group({
-      username : ['', [Validators.email, Validators.required]],
+      username: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.minLength(5), Validators.required]],
     });
+
+    console.log(this.loggedInUser);
+
   }
 
   login() {
@@ -32,16 +37,35 @@ export class AdminLoginComponent implements OnInit {
       this.submitted = true;
       return;
     } else {
-      this.authService.loginAdmin(this.LoginForm.value).subscribe( (data: any) => {
+      this.authService.loginAdmin(this.LoginForm.value).subscribe((data: any) => {
+        console.log(data);
         if (data) {
           localStorage.setItem('access_token', data.access_token);
-          this.notifyService.publishMessages('login successful', 'success', 1);
-          this.router.navigateByUrl('/admin');
+          this.notifyService.publishMessages('Login successful', 'success', 1);
+
+          const helper = new JwtHelperService();
+          this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
+
+          if (this.loggedInUser.email === 'tester@gmail.com') {
+            this.router.navigateByUrl('/admin');
+          } else if (this.loggedInUser.email === 'tosin@sbsc.com') {
+            this.router.navigateByUrl('/school');
+
+          } else if (this.loggedInUser.email === 'a@sbscm.com') {
+            this.router.navigateByUrl('/teacher');
+
+          } else if (this.loggedInUser.email === 'emmanuel@school.com') {
+            this.router.navigateByUrl('/student');
+
+          } else {
+            this.router.navigateByUrl('/school');
+
+          }
         }
       },
-      error => {
-        this.notifyService.publishMessages(error.message, 'danger', 1);
-      });
+        error => {
+          this.notifyService.publishMessages(error.message, 'danger', 1);
+        });
     }
   }
 

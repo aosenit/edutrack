@@ -5,14 +5,16 @@
         <div class="row mb-4">
             <div class="col-md-6">
                 <label for="entry" class="fw-6">Phone Number </label>
-                <input type="number" placeholder="814 567 6749"
+                <input type="tel" placeholder="814 567 6749" maxlength="11"
                     class="form-control form-control-lg" formControlName="ContactPhone">
+                    <div *ngIf = "contactDetailsForm.controls.ContactPhone.errors?.pattern" class="text-danger">Invalid phone pattern</div>
             </div>
             <div class="col-md-6 ">
                 <label for="email" class="fw-6">Email Address</label>
                 <input type="email" class="form-control form-control-lg"
                     placeholder="johnboye@gmail.com" id="email" formControlName="ContactEmail">
-    
+                    <div *ngIf = "contactDetailsForm.controls.ContactEmail.errors?.email" class="text-danger">Invalid email pattern</div>
+
             </div>
         </div>
     
@@ -20,8 +22,10 @@
         <div class="row mb-4">
             <div class="col-md-6 ">
                 <label for="country" class="fw-6">Country</label>
-                <select name="" id="country" class="form-control form-control-lg" formControlName="ContactCountry">
-                    <option value="oyo" selected>Nigeria</option>
+                <select name="" id="country" class="form-control form-control-lg" formControlName="ContactCountry" (change)="getState($event.target.value)" >
+                    <option value="" selected>Select</option>
+                    <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
+
                 </select>
     
             </div>
@@ -45,7 +49,8 @@
             <div class="col-md-6 ">
                 <label for="state" class="fw-6">State <span class="text-danger">*</span></label>
                 <select name="" id="state" class="form-control form-control-lg" formControlName="ContactState">
-                    <option value="oyo" selected>lagos</option>
+                    <option value="" selected>Select</option>
+                    <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
                 </select>
             </div>
     
@@ -55,7 +60,7 @@
 
     <div class=" d-flex justify-content-center">
         <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() '> Next </button>
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' [disabled]="contactDetailsForm.invalid"> Next </button>
 
     </div>
 </div>

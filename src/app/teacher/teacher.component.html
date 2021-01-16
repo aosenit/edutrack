@@ -136,11 +136,11 @@
                 <ul class="collapse list-unstyled" id="gradebook-submenu">
                     <li class="  text-white  d-flex justify-content-center align-items-center">
                         <div class="ellipse bg-white mr-3 ml-5"> &nbsp; </div>
-                        <a href="" [routerLink]="['/teacher/score-sheet']" routerLinkActive #teacherActive="routerLinkActive" class=""> Subject Score Sheet</a>
+                        <a href="" [routerLink]="['/teacher/score-sheet']" routerLinkActive="active" class=""> Subject Score Sheet</a>
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-5"> &nbsp; </div>
-                        <a href="" [routerLink]="['/teacher/broad-sheet']" routerLinkActive #teacherActive="routerLinkActive" class="" > Broad Sheet</a>
+                        <a href="" [routerLink]="['/teacher/broad-sheet']" routerLinkActive ="active" class="" > Broad Sheet</a>
                     </li>
                  
                    
@@ -182,6 +182,26 @@
 
                     </span>
                     Class Material
+                </a>
+            </li>
+        </ul>
+
+        <ul class="list-unstyled components my-4">
+
+
+            <li class="nav-item mb-2 cursor-pointer" (click)="logOut()">
+                <a class="nav-link">
+                    <span class="ico">
+                        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.77704 10.872L6.92593 12L11 8L6.92593 4L5.77704 5.128L7.87926 7.2H0V8.8H7.87926L5.77704 10.872Z" fill="#8FA1B3"/>
+                            <path d="M13.3333 0H1.66667C0.741667 0 0 0.75 0 1.66667V5H1.66667V1.66667H13.3333V13.3333H1.66667V10H0V13.3333C0 14.25 0.741667 15 1.66667 15H13.3333C14.25 15 15 14.25 15 13.3333V1.66667C15 0.75 14.25 0 13.3333 0Z" fill="#8FA1B3"/>
+                            </svg>
+                            
+
+
+
+                    </span>
+                    Log Out
                 </a>
             </li>
         </ul>

@@ -1,22 +1,58 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-9 pl-5  pt-5 pr-4">
+        <div class="col-md-12 pl-5  pt-5 pr-5">
             <div class="assignment mb-4">
                 <div class="assignment-hero d-flex justify-content-between align-items-center bg-white px-3 pt-4 pb-3 item">
                     <div>
                         <h5 class="fs-32 fc-lblue intro-text">Assignment</h5>
-                        <p>You can assess your assignments, keep track of upcoming <br> assignments and due dates.</p>
+                        <p>You can assess your assignments, keep track of upcoming assignments and due dates.</p>
                     </div>
                     <img src="assets/images/svg/assignment-student.svg" alt="new client" class=" mr-4 ">
                 </div>
 
                 <div class="assignment-card bg-white px-3 item">
+                    <div class="sheet information-card-style p-3 mb-3">
 
+                        <div class="d-flex justify-content-between mb-3">
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/svg/sheet.svg" alt="new client" class="mr-3">
+                                <h6 class="fs-18 b-0 fw-bold mb-0">Recent grade</h6>
+                            </div>
+                            <span class="px-3 py-2 fs-10">See all</span>
+    
+                        </div>
+
+                        <div class="mb-4 subject1">
+                            <div class="d-flex justify-content-between mb-2">
+                                <p class="mb-0 fs-12 fw-6">Maths Test</p>
+                                <p class="mb-0 fs-12 fw-6"> 94% </p>
+                            </div>
+                            <div class="percentage mb-4"></div>
+                        </div>
+                        <div class="mb-3 subject2">
+                            <div class="d-flex justify-content-between mb-2">
+                                <p class="mb-0 fs-12 fw-6">Business Studies Assignment</p>
+                                <p class="mb-0 fs-12 fw-6"> 91% </p>
+                            </div>
+                            <div class="percentage"></div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3 bg-white">
 
+            <div class="file-cards mb-5" >
+                <div class="files px-3 pt-3 pb-4 " *ngFor = "let subject of subjectList"  >
+                    <p class="mb-0 "  > {{subject?.subject | titlecase}}</p>
+                    <p class="last"  *ngIf="subject?.assignmentCount === 0"></p>
+                    <p class="last cursor-pointer"  routerLink = "/student/notification/{{subject?.id}}" *ngIf="subject?.assignmentCount >= 1">Click to view assignment(s)</p>
+                    <span class="notice-pane fw-6" *ngIf="subject?.assignmentCount >= 1">{{subject?.assignmentCount}}</span>
+                </div>
+                
+            </div>
         </div>
+        <!-- <div class="col-md-3 bg-white">
+
+        </div> -->
     </div>
 </div>

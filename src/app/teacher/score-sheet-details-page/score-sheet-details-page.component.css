@@ -1,25 +1,31 @@
-.banner {
-    width: 100%;
-    background-color: #0052B4;
-    border-radius: 10px;
+
+.breadcrumb {
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 0 1.5rem;
-    color: #ffffff;
-    position: relative;
-    background-blend-mode: multiply;
-    mix-blend-mode: multiply;
-    backdrop-filter: opacity(.4);
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
 }
 
-
-
-.banner__text-primary {
-    font-size: 36px;
+a {
+    color: #1b5bac;
+    font-weight: normal;
+    cursor: pointer;
 }
 
-
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #1b5bac;
+    content: ">";
+    font-size: 10px;
+    display: none;
+}
 .btn-orange-two {
     background: #fb882c;
     border-radius: 5px;
@@ -157,4 +163,17 @@ tbody  td {
 .fair {
  background :#D9CE98;
     color: #665500;
+}
+
+.head-teacher::placeholder {
+    font-size: 16px;
+    line-height: 16px;
+    /* identical to box height, or 100% */
+    
+    
+    color: #D1D9DF;
+}
+
+.breaks {
+    border-bottom: 2px dotted black;
 }

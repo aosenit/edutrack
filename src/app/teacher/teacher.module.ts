@@ -22,6 +22,10 @@ import { SharedModule } from '../shared/shared.module';
 import { BroadSheetComponent } from './broad-sheet/broad-sheet.component';
 import { ScoreSheetComponent } from './score-sheet/score-sheet.component';
 import { ScoreSheetDetailsPageComponent } from './score-sheet-details-page/score-sheet-details-page.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { TimeTableComponent } from './time-table/time-table.component';
+import { AttendanceComponent } from './attendance/attendance.component';
+import { MarkAttendanceComponent } from './mark-attendance/mark-attendance.component';
 
 
 @NgModule({
@@ -34,10 +38,19 @@ import { ScoreSheetDetailsPageComponent } from './score-sheet-details-page/score
     GradingComponent,
     ScheduleComponent,
     ViewFileComponent,
-    VirtualClassComponent, VirtualSessionComponent, GradebookComponent, BroadSheetComponent, ScoreSheetComponent, ScoreSheetDetailsPageComponent],
+    VirtualClassComponent,
+    VirtualSessionComponent,
+    GradebookComponent,
+    BroadSheetComponent,
+    ScoreSheetComponent,
+    ScoreSheetDetailsPageComponent,
+    TimeTableComponent,
+    AttendanceComponent,
+    MarkAttendanceComponent],
   imports: [
     CommonModule,
     CKEditorModule,
+    NgxPaginationModule,
     ReactiveFormsModule,
     FormsModule,
     SharedModule,

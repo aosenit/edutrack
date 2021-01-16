@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  getFileUplaod: 'api/v1/Files/GetFile',
+  getFileUplaod: 'schtrack-learning/api/v1/Files/GetFile',
 };
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class FilesService {
  constructor(private http: HttpClient) { }
 
  getFileUpload(id) {
-  const url = `${this.baseUrl2 + routes.getFileUplaod}/${id}`;
+  const url = `${this.baseUrl + routes.getFileUplaod}/${id}`;
   console.log(url);
   return this.http.get(url);
 

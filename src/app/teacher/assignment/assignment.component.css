@@ -121,6 +121,8 @@ td {
     justify-content: center;
     align-items: center;
     padding: 5px 16px;
+    outline: none;
+    border: none;
 }
 
 .list .table tbody .status_graded {

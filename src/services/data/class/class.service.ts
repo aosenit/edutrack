@@ -7,26 +7,19 @@ const routes = {
   addstudenttoclass: 'schtrack-auth/api/v1/Class/AddStudentToClass',
   getclassbysection: 'schtrack-auth/api/v1/Class/GetClassBySection',
   getallsubjectsforclass: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClass', // this endpoint get all subjects attached to a class
+  // tslint:disable-next-line:max-line-length
+  getallsubjectsWithAssignmentforclass: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClassWithAssignmentCount', // this endpoint get all subjects and assignment counts in each subject
+  getallsubjectsWithFiles: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClassWithFilesCount', // this endpoint get all subjects and assignment counts in each subject
+  // tslint:disable-next-line:max-line-length
+  getTeacherforSubject: 'schtrack-learning/api/v1/TeacherClassSubject/GetTeachersForClassSubject', // this endpoint get all subjects attached to a class
   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
-  assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
-  getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses ',
+  assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass',
+  getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses',
   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
   updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
   deleteclass: 'schtrack-auth/api/v1/Class/DeleteClass'
 };
-// const routes = {
-//   addclass: 'api/v1/Class/AddClass',
-//   addstudenttoclass: 'api/v1/Class/AddStudentToClass',
-//   getclassbysection: 'api/v1/Class/GetClassBySection',
-//   assignSubjectToClass: 'schtrack-auth/api/v1/Class/AssignSubjectToClass',
-//   assignTeacherToClass: 'schtrack-auth/api/v1/Class/AssignTeacherToClass ',
-//   getallclass: 'api/v1/Class/GetAllClasses?PageIndex=1&PageSize=10 ',
-//   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
-//   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
-//   updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
-//   deleteclass: 'schtrack-auth/api/v1/Class/UpdateClass'
-// };
 
 
 @Injectable({
@@ -42,48 +35,53 @@ export class ClassService {
   addClass(result) {
     const url = `${this.baseUrl + routes.addclass}`;
     console.log(url);
-    return this.http.post(url, result, { headers: { tenantId } });
+    return this.http.post(url, result,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   addStudentsToClass(addStudentForm) {
     const url = `${this.baseUrl + routes.addstudenttoclass}`;
-    return this.http.post(url, addStudentForm, { headers: { tenantId } });
+    return this.http.post(url, addStudentForm,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getClassBySection(id) {
     const url = `${this.baseUrl + routes.getclassbysection}/${id}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   assignSubjectToClass(id: any, form) {
     const url = `${this.baseUrl + routes.assignSubjectToClass}/${id}`;
-    return this.http.post(url, form, { headers: { tenantId } });
+    return this.http.post(url, form,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   assignTeachToClass(id: any, form) {
     const url = `${this.baseUrl + routes.assignTeacherToClass}/${id}`;
-    return this.http.post(url, form, { headers: { tenantId } });  // (form) will be changes to when necessary
+    return this.http.post(url, form,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});  // (form) will be changes to when necessary
   }
 
   getAllClasses() {
 
     const url = `${this.baseUrl + routes.getallclass}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+  getAllClassesWithPagination(p, perpage) {
+
+    const url = `${this.baseUrl + routes.getallclass}?PageIndex=${p}&PageSize=${perpage}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getClassById(id) {
     const url = `${this.baseUrl + routes.getclassbyid}/${id}`;
-    return this.http.get(url, { headers: { tenantId } });
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
-  getClassByIdWithStudent(studid) {
-    const url = `${this.baseUrl + routes.getstudentclass}/${studid}`;
-    return this.http.get(url, { headers: { tenantId } });
+  getClassByIdWithStudent(id: any) {
+    const url = `${this.baseUrl + routes.getstudentclass}/${id}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   updateParent(id, updateParentForm) {
     const url = `${this.baseUrl + routes.updateclassbyid}/${id}`;
-    return this.http.put(url, updateParentForm, { headers: { tenantId } });
+    return this.http.put(url, updateParentForm,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
@@ -91,17 +89,32 @@ export class ClassService {
     const body = new FormData();
     body.append('Id', id);
     body.append('Name', name);
-    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/Class/UpdateClass', body, { headers: { tenantId } });
+    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/Class/UpdateClass', body,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
   deleteClassById(id) {
     const url = `${this.baseUrl + routes.deleteclass}/${id}`;
-    return this.http.delete(url, { headers: { tenantId } });
+    return this.http.delete(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
-  getAllSubjectsInAClassByClassID(id: any) {
-    const url = `${this.baseUrl + routes.getallsubjectsforclass}/${id}`;
+  getAllSubjectsInAClassWithAssignmentCountByClassID() {
+    const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}`;
     console.log(url);
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getAllSubjectsInAClassByClassID(id) {
+    const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classid=${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getAllSubjectsInAClassWithClassNotePreview() {
+    const url = `${this.baseUrl + routes.getallsubjectsWithFiles}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+  getTeacherTeachingSubject(id: any) {
+    const url = `${this.baseUrl + routes.getTeacherforSubject}/${id}`;
+    console.log('teacher for sucject', url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

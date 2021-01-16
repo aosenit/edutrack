@@ -20,7 +20,7 @@ DocumentTypes: number[] = [];
               private parentService: ParentsService,
               private notifyService: NotificationsService,
               private router: Router,
-              private location:Location
+              private location: Location
   ) { }
 
   ngOnInit() {
@@ -69,6 +69,10 @@ DocumentTypes: number[] = [];
       this.profileImageName = file.name;
       this.finalStepForm.get('profileImage').setValue(file);
       this.DocumentTypes.push(2);
+      const size = event.target.files[0].size;
+      if (size >  65536 ) {
+        this.notifyService.publishMessages('File size too large', 'danger', 1);
+      }
       // this.iconname = this.icon.name;
     }
   }

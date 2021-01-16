@@ -39,6 +39,7 @@ export class NewroleComponent implements OnInit {
     this.adminService.getAllPermissions().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allRoles = data.payload;
+        console.log('asasasas', this.allRoles);
         const tires = [];
 
         from(this.allRoles)
