@@ -1,6 +1,6 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { StaffService } from 'src/services/data/staff/staff.service';
@@ -26,7 +26,7 @@ export class MediaComponent implements OnInit {
     private teacherService: TeacherService,
     private notifyService: NotificationsService,
     private router: Router
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.sendChildName.emit('Images');
@@ -40,10 +40,10 @@ export class MediaComponent implements OnInit {
   createEmployee() {
     const profile = JSON.parse(sessionStorage.getItem('Personal-Data'));
     const details = JSON.parse(sessionStorage.getItem('Employee-Data'));
-    const contactperson =  JSON.parse(sessionStorage.getItem('employee-contact-details'));
-    const education =  JSON.parse(sessionStorage.getItem('employee-education'));
-    const nextKin =  JSON.parse(sessionStorage.getItem('employee-next-kin'));
-    const experience =  JSON.parse(sessionStorage.getItem('employee-experience'));
+    const contactperson = JSON.parse(sessionStorage.getItem('employee-contact-details'));
+    const education = JSON.parse(sessionStorage.getItem('employee-education'));
+    const nextKin = JSON.parse(sessionStorage.getItem('employee-next-kin'));
+    const experience = JSON.parse(sessionStorage.getItem('employee-experience'));
     const finalstep = this.mediaForm.value;
     const result = {
       ...profile,
@@ -67,17 +67,19 @@ export class MediaComponent implements OnInit {
       }
     }, error => {
       this.notifyService.publishMessages(error.errors[0], 'danger', 1);
-
-    });
+        
+      });
 
     } else {
       console.log('all employee data', result);
       this.staffService.addStaff(result).subscribe((data: any) => {
         console.log('employee added', data);
-        if ( data.hasErrors === false ) {
+        if (data.code == 1) {
           this.notifyService.publishMessages(data.description, 'info', 1);
           sessionStorage.clear();
           this.router.navigateByUrl('/school/employees');
+        }else {
+          this.notifyService.publishMessages(data.description, 'danger', 1);
         }
       }, error => {
         this.notifyService.publishMessages(error.errors, 'danger', 1);
