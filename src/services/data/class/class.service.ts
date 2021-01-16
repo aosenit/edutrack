@@ -55,7 +55,7 @@ export class ClassService {
 
   assignTeachToClass(id: any, form) {
     const url = `${this.baseUrl + routes.assignTeacherToClass}/${id}`;
-    return this.http.post(url, form,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});  // (form) will be changes to when necessary
+    return this.http.post(url, form,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }}); 
   }
 
   getAllClasses() {

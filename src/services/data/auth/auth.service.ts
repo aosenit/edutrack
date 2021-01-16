@@ -5,7 +5,8 @@ import { environment } from 'src/environments/environment';
 const routes = {
   login: 'schtrack-auth/api/v1/Authentication/Token',
   forgotPassword: 'schtrack-auth/api/v1/Authentication/RequestPasswordReset',
-  logout: 'Authentication/Logout '
+  verifyEmail: 'schtrack-auth/api/v1/Authentication/ConfirmEmail'
+
 };
 
 @Injectable({
@@ -34,6 +35,12 @@ export class AuthService {
     body.append('email', resetPasswordForm.email);
     const url = `${this.baseUrl + routes.forgotPassword}`;
     return this.http.post(url, body);
+
+  }
+
+  verifyUserEmail(userId, code) {
+    const url = `${this.baseUrl + routes.verifyEmail}?userId=${userId}?code=${code}`;
+    return this.http.get(url);
 
   }
 
