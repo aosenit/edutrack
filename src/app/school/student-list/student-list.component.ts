@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { StudentService } from 'src/services/data/student/student.service';
 
@@ -22,7 +23,8 @@ export class StudentListComponent implements OnInit {
   constructor(
     private notifyService: NotificationsService,
     private fb: FormBuilder,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -71,6 +73,7 @@ export class StudentListComponent implements OnInit {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
     });
   }
+
   getPage(page: number) {
     console.log(page);
     this.studentService.getAllStudents(page, this.itemsPerPage).subscribe((data: any) => {
@@ -81,5 +84,22 @@ export class StudentListComponent implements OnInit {
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
     });
+  }
+
+  editStudent(id) {
+    this.studentService.getStudentById(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        sessionStorage.setItem('all-student-info', JSON.stringify(data.payload));
+        this.router.navigateByUrl('/school/edit-student/' + id);
+      }
+    });
+  }
+
+  clearData() {
+    sessionStorage.removeItem('student-basic-details');
+    sessionStorage.removeItem('student-social-details');
+    sessionStorage.removeItem('Student-contact-details');
+    sessionStorage.removeItem('student-medical-details');
   }
 }

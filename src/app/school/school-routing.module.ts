@@ -61,7 +61,9 @@ const routes: Routes = [
       { path: 'grade-book', component: SchoolGradeBookComponent},
       { path: 'student-sheet', component: StudentSheetComponent},
       {path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule)},
+      {path: 'edit-student/:id', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule)},
       {path: 'add-parents', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule)},
+      {path: 'edit-parent/:id', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule)},
       {path: 'add-employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)},
 
 

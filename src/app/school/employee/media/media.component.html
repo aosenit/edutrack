@@ -18,10 +18,10 @@
             (change)="handlePhotoUpload($event)"
             >
             <label class="custom-file-label" for="customFile" *ngIf ="profilephotoname === null; else profile"> Upload File </label>
-            <label class="custom-file-label" for="customFile"   > Upload File </label>
             <ng-template #profile>
               <label class="custom-file-label" for="customFile"> {{profilephotoname}} </label>
             </ng-template>
+            <small class="text-danger">Upload file not more than 1mb</small>
           </div>
         </div>
 
@@ -39,6 +39,7 @@
             <ng-template #icon>
               <label class="custom-file-label" for="customFile"> {{signaturename}} </label>
             </ng-template>
+            <small class="text-danger">Upload file not more than 1mb</small>
           </div>
         </div>
 
@@ -46,7 +47,7 @@
 
       
       <div class=" d-flex justify-content-center mt-5 mb-5">
-        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="prevStep()"> Back </button>
         <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  > Add </button>
   
       </div>

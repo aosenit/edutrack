@@ -3,6 +3,8 @@ import { AddStudentsComponent } from '../add-students.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { countries } from '../../../../services/utils/country.json';
 import { ParentsService } from 'src/services/data/parents/parents.service';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-basic-details',
@@ -14,9 +16,33 @@ export class BasicDetailsComponent implements OnInit {
   states: any[];
   basicDetailsForm: FormGroup;
   parents: any;
-  constructor(private home: AddStudentsComponent, private parentService: ParentsService, private fb: FormBuilder) { }
+  basicDetails: any;
+  studentid: any;
+
+  constructor(
+    private home: AddStudentsComponent,
+    private parentService: ParentsService,
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private notifyService: NotificationsService) { }
 
   ngOnInit() {
+    this.studentid = this.route.snapshot.params.id;
+    this.createStudentData();
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.createStudentData();
+      } else {
+        this.getProfileInformation();
+
+      }
+    });
+
+    this.getAllParents();
+    this.getActivetab();
+  }
+
+  createStudentData() {
     this.basicDetailsForm = this.fb.group({
       FirstName: ['', Validators.required],
       LastName: ['', Validators.required],
@@ -26,18 +52,15 @@ export class BasicDetailsComponent implements OnInit {
       DateOfBirth: ['', Validators.required],
       Religion: ['', Validators.required],
       Nationality: ['', Validators.required],
-      ParentId : ['', Validators.required],
+      ParentId: ['', Validators.required],
       StateOfOrigin: ['', Validators.required],
       LocalGovt: [''],
       TransportRoute: ['', Validators.required]
     });
-
-    this.getAllParents();
   }
-
   nextStep() {
     this.home.stepper(2);
-    sessionStorage.setItem('basic-details', JSON.stringify(this.basicDetailsForm.value));
+    sessionStorage.setItem('student-basic-details', JSON.stringify(this.basicDetailsForm.value));
   }
 
   getState(event) {
@@ -53,10 +76,59 @@ export class BasicDetailsComponent implements OnInit {
   getAllParents() {
     this.parentService.getAllParentsWithName().subscribe(
       (res: any) => {
+       if (res.hasErrors === false) {
         this.parents = res.payload;
         console.log(this.parents);
-      }
-    );
+       }
+      }, error => {
+        this.notifyService.publishMessages( error.errors, 'danger', 1);
+
+      } );
   }
+
+  getActivetab() {
+    this.basicDetails = JSON.parse(sessionStorage.getItem('student-basic-details'));
+
+    if (sessionStorage.getItem('student-basic-details') !== null) {
+      console.log(`student  exists`);
+      this.basicDetailsForm.patchValue({
+        FirstName: this.basicDetails.FirstName,
+        LastName: this.basicDetails.LastName,
+        OtherNames: this.basicDetails.OtherNames,
+        MothersMaidenName: this.basicDetails.MothersMaidenName,
+        Sex: this.basicDetails.Sex,
+        DateOfBirth: this.basicDetails.DateOfBirth,
+        Religion: this.basicDetails.Religion,
+        Nationality: this.basicDetails.Nationality,
+        ParentId: this.basicDetails.ParentId,
+        StateOfOrigin: this.basicDetails.StateOfOrigin,
+        // LocalGovt: [''],
+        TransportRoute: this.basicDetails.TransportRoute
+      });
+    } else {
+      console.log(`student not found`);
+    }
+  }
+
+  getProfileInformation() {
+    const payload = JSON.parse(sessionStorage.getItem('all-student-info'));
+    console.log('na the paylod', payload);
+    this.basicDetailsForm.patchValue({
+      FirstName: payload.firstName,
+      LastName: payload.lastName,
+      OtherNames: payload.otherNames,
+      MothersMaidenName: payload.mothersMaidenName,
+      Sex: payload.sex,
+      DateOfBirth: payload.dateOfBirth,
+      Religion: payload.religion,
+      Nationality: payload.nationality,
+      ParentId: payload.parentName,
+      StateOfOrigin: payload.stateOfOrigin,
+      // LocalGovt: [''],
+      TransportRoute: payload.transportRoute
+    });
+
+  }
+
 
 }

@@ -4,7 +4,7 @@ import { AssessmentService } from 'src/services/data/assessment/assessment.servi
 import { ClassService } from 'src/services/data/class/class.service';
 import { ResultService } from 'src/services/data/result/result.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
-
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 @Component({
   selector: 'app-school-grade-book',
   templateUrl: './school-grade-book.component.html',
@@ -22,6 +22,9 @@ export class SchoolGradeBookComponent implements OnInit {
   subjectList: any;
   subject: any;
   cummlativeScore: any;
+  approvalForm: FormGroup;
+  rejectionForm: FormGroup;
+  className: any;
 
 
 
@@ -31,6 +34,7 @@ export class SchoolGradeBookComponent implements OnInit {
     private classService: ClassService,
     private resultService: ResultService,
     private notifyService: NotificationsService,
+    private fb: FormBuilder
 
 
 
@@ -41,6 +45,14 @@ export class SchoolGradeBookComponent implements OnInit {
   ngOnInit() {
     this.getSession();
     this.getSections();
+
+    this.approvalForm = this.fb.group({
+      headTeacherApprovalComment: ['', Validators.required]
+    });
+
+    this.rejectionForm = this.fb.group({
+      headTeacherRejectionComment: ['', Validators.required]
+    });
   }
 
   getSession() {
@@ -70,6 +82,7 @@ export class SchoolGradeBookComponent implements OnInit {
     this.classService.getClassBySection(id).subscribe((data: any) => {
         if (data.hasErrors === false) {
           this.classList = data.payload;
+          console.log(this.classList);
 
         }
       });
@@ -77,11 +90,11 @@ export class SchoolGradeBookComponent implements OnInit {
   }
 
   getSubjectsAndStudents(id) {
-    console.log('class id ', id);
+    console.log('class id ');
     this.Classid = id;
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        this.className = data.payload[0].class;
         this.noData = false;
         this.displayData = true;
         this.getBroadSheet();
@@ -92,9 +105,10 @@ export class SchoolGradeBookComponent implements OnInit {
   getBroadSheet() {
     this.resultService.getClassBroadSheet(this.Classid).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
         this.studentData = data.payload;
+        console.log(this.studentData);
         this.subject = this.studentData[0].assessmentAndScores;
+        console.log('subjects', this.subject);
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.studentData.length; i++) {
           const arr = [];
@@ -109,6 +123,60 @@ export class SchoolGradeBookComponent implements OnInit {
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
+    });
+  }
+
+  approvalResult() {
+    const {headTeacherApprovalComment} = this.approvalForm.value;
+    // tslint:disable-next-line:radix
+    const classId = parseInt(this.Classid);
+
+    const result = {
+      headTeacherComment: headTeacherApprovalComment,
+      classTeacherComment: '',
+      classId,
+      termSequence: 0,
+      classTeacherApprovalStatus: 1,
+      adminApprovalStatus: 1,
+      headTeacherApprovalStatus: 1
+    };
+
+    console.log(result);
+    this.assessmentService.approveClassResult(result).subscribe((data: any) => {
+      console.log(data);
+      if (data.hasErrors === false) {
+        this.notifyService.publishMessages('Result approved', 'success', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.payload, 'danger', 1);
+    });
+  }
+
+  rejectResult() {
+    const {headTeacherRejectionComment} = this.rejectionForm.value;
+    // tslint:disable-next-line:radix
+    const classId = parseInt(this.Classid);
+
+    const result = {
+      headTeacherComment: headTeacherRejectionComment,
+      classTeacherComment: '',
+      classId,
+      termSequence: 0,
+      classTeacherApprovalStatus: 1,
+      adminApprovalStatus: 1,
+      headTeacherApprovalStatus: 2
+    };
+
+    console.log(result);
+    this.assessmentService.approveClassResult(result).subscribe((data: any) => {
+      console.log(data);
+      if (data.hasErrors === false) {
+        this.notifyService.publishMessages('Result rejected', 'success', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.payload, 'danger', 1);
     });
   }
 

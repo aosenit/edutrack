@@ -13,6 +13,7 @@ export class PersonalInformationComponent implements OnInit {
   @Output() sendChildName = new EventEmitter<string>();
   countries: any = countries;
   states: any[];
+  personalDetails: any;
 
   iconname = null;
   personalDetailsForm: FormGroup;
@@ -22,6 +23,7 @@ export class PersonalInformationComponent implements OnInit {
   ngOnInit() {
     this.sendChildName.emit('Personal Information');
     this.populatePersonalDataForm();
+    this.getActiveTabDetails();
   }
 
 
@@ -46,7 +48,7 @@ export class PersonalInformationComponent implements OnInit {
 
   nextStep() {
     this.home.stepper(2);
-    sessionStorage.setItem('Personal-Data', JSON.stringify(this.personalDetailsForm.value));
+    sessionStorage.setItem('employee-personal-data', JSON.stringify(this.personalDetailsForm.value));
   }
 
 
@@ -63,7 +65,7 @@ export class PersonalInformationComponent implements OnInit {
 
   submitPersonalDetails() {
     console.log(this.personalDetailsForm.value);
-    sessionStorage.setItem('personal-data', JSON.stringify(this.personalDetailsForm.value));
+    sessionStorage.setItem('employee-personal-data', JSON.stringify(this.personalDetailsForm.value));
   }
 
   getState(event) {
@@ -82,6 +84,32 @@ export class PersonalInformationComponent implements OnInit {
     } else {
       this.toggleState = false;
 
+    }
+
+  }
+
+  getActiveTabDetails() {
+
+    this.personalDetails = JSON.parse( sessionStorage.getItem('employee-personal-data'));
+
+    if (sessionStorage.getItem('employee-personal-data') !== null) {
+      // console.log(`School person exists`);
+      this.personalDetailsForm.patchValue({
+        FirstName: this.personalDetails.FirstName,
+      LastName: this.personalDetails.LastName,
+      OtherNames: this.personalDetails.OtherNames,
+      DateOfBirth: this.personalDetails.DateOfBirth,
+      Sex: this.personalDetails.Sex,
+      Nationality: this.personalDetails.Nationality,
+      MaritalStatus: this.personalDetails.MaritalStatus,
+      BloodGroup: this.personalDetails.BloodGroup,
+      Religion: this.personalDetails.Religion,
+      StateOfOrigin: this.personalDetails.StateOfOrigin,
+      LocalGovernment: [''],
+      IsActive: this.personalDetails.IsActive
+      });
+    } else {
+      // console.log(`School person not found`);
     }
 
   }

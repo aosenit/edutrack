@@ -25,7 +25,7 @@
             <button class="btn btn-outline-orange  mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
                 data-target="#exampleModalCenterUpload">Bulk
                 Upload</button>
-            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student"> Add New </button>
+            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student" (click)="clearData()"> Add New </button>
         </div>
     
     </section>
@@ -109,6 +109,7 @@
                             alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#" [routerLink]="['/school', 'student-detail', student?.id]">View</a>
+                                <a class="dropdown-item" (click)="editStudent(student.id)" >Edit</a>
                                 <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenter3">Send SMS</a>
                                 <a class="dropdown-item"  >Send Email</a>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterPromote">Promote</a>

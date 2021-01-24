@@ -19,17 +19,24 @@ items: any;
     this.populateEmployeeExperienceForm();
   }
 
+populateEmployeeExperienceForm() {
+    this.employeeWorkExperienceForm = this.fb.group({
+      WorkExperienceVMs: this.fb.array([ this.createItem() ])
+    });
+  }
+
   nextStep() {
     this.home.stepper(7);
     sessionStorage.setItem('employee-experience', JSON.stringify(this.employeeWorkExperienceForm.value));
 
   }
 
-  populateEmployeeExperienceForm() {
-    this.employeeWorkExperienceForm = this.fb.group({
-      WorkExperienceVMs: this.fb.array([ this.createItem() ])
-    });
+  prevStep() {
+    this.home.stepper(5);
+    // this.currentStep = document.getElementById('step-' + `${3 + 1}`);
+    // this.currentStep.classList.remove('active');
   }
+
 
   createItem(): FormGroup {
     return this.fb.group({

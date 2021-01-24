@@ -7,8 +7,9 @@
                 <label for="entry" class="fw-6">Entry Type <span class="text-danger">*</span>
                 </label>
                 <select name="" id="entry" class="form-control form-control-lg" formControlName="EntryType">
-                    <option value="new" selected>New</option>
-                    <option value="old" selected>Old</option>
+                    <option value="" selected>New</option>
+                    <option value="new" >New</option>
+                    <option value="old" >Old</option>
                 </select>
             </div>
             <div class="col-md-6 ">
@@ -24,6 +25,7 @@
             <div class="col-md-6 ">
                 <label for="date" class="fw-6">Section <span class="text-danger">*</span></label>
                 <select name="" id="level" class="form-control form-control-lg" formControlName="SectionId" (change)="getClassesUnderSection($event.target.value)" >
+                    <option value="" selected> Select Section</option>
                     <option *ngFor="let section of sections" [value]="section.id">{{section.name}}</option>
                 </select>
             </div>
@@ -52,7 +54,7 @@
 </form>
 
     <div class=" d-flex justify-content-center">
-        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="prevStep()"> Back </button>
         <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' [disabled]="socialDetailsForm.invalid"> Next </button>
 
     </div>

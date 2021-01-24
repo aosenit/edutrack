@@ -46,8 +46,8 @@
       
 
       <div class=" d-flex justify-content-center mt-5 mb-5">
-        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" > {{formBtn.text}} </button>
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='prevStep() '> Back </button>
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [disabled]="mediaForm.invalid"  > {{formBtn.text}} </button>
   
       </div>
 

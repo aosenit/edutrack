@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { StaffService } from 'src/services/data/staff/staff.service';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
+import { EmployeeComponent } from '../employee.component';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class MediaComponent implements OnInit {
     private staffService: StaffService,
     private teacherService: TeacherService,
     private notifyService: NotificationsService,
-    private router: Router
+    private router: Router,
+    private home: EmployeeComponent
     ) { }
 
   ngOnInit() {
@@ -95,8 +97,17 @@ export class MediaComponent implements OnInit {
       console.log('file', file);
       this.profilephotoname = file.name;
       this.mediaForm.get('profile').setValue(file);
-      this.DocumentTypes.push(2);
       // this.iconname = this.icon.name;
+      const size = event.target.files[0].size;
+      if (size >=  1048576 ) {
+        this.notifyService.publishMessages('File size too large', 'danger', 1);
+      } else {
+        this.DocumentTypes.push(2);
+      }
+      if (this.DocumentTypes.length > 1) {
+        this.DocumentTypes.shift();
+        console.log(this.DocumentTypes);
+      }
     }
   }
 
@@ -106,9 +117,23 @@ export class MediaComponent implements OnInit {
       console.log('file', file);
       this.signaturename = file.name;
       this.mediaForm.get('signature').setValue(file);
-      this.DocumentTypes.push(8);
-
+      const size = event.target.files[0].size;
+      if (size >=  1048576 ) {
+        this.notifyService.publishMessages('File size too large', 'danger', 1);
+      } else {
+        this.DocumentTypes.push(8);
+      }
+      if (this.DocumentTypes.length > 1) {
+        this.DocumentTypes.shift();
+        // console.log(this.DocumentTypes);
+      }
       // this.iconname = this.icon.name;
     }
+  }
+
+  prevStep() {
+    this.home.stepper(6);
+    // this.currentStep = document.getElementById('step-' + `${3 + 1}`);
+    // this.currentStep.classList.remove('active');
   }
 }

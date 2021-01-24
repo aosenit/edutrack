@@ -46,4 +46,8 @@ searchString: string;
     });
   }
 
+  addNewEmp(){
+    
+  }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { StudentService } from 'src/services/data/student/student.service';
 import { AddStudentsComponent } from '../add-students.component';
@@ -11,13 +12,35 @@ import { AddStudentsComponent } from '../add-students.component';
 export class MedicalDetailsComponent implements OnInit {
   medicalForm: FormGroup;
   items: any;
+  currentStep: any;
+  step: any;
+  medicalDetials: any;
+  studentid: any;
+
 
   constructor(
     private fb: FormBuilder,
     private home: AddStudentsComponent,
-    private studentService: StudentService) { }
+    private studentService: StudentService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.studentid = this.route.snapshot.params.id;
+
+    this.populateMedicalForm();
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.populateMedicalForm();
+      } else {
+        this.getProfileInformation();
+
+      }
+    });
+    this.getActiveTabDetails();
+  }
+
+
+  populateMedicalForm() {
     this.medicalForm = this.fb.group({
       BloodGroup: ['', Validators.required],
       Genotype: ['', Validators.required],
@@ -29,10 +52,9 @@ export class MedicalDetailsComponent implements OnInit {
   }
 
 
-
   nextStep() {
     this.home.stepper(5);
-    sessionStorage.setItem('medical-details', JSON.stringify(this.medicalForm.value));
+    sessionStorage.setItem('student-medical-details', JSON.stringify(this.medicalForm.value));
   }
 
   addImmunization() {
@@ -46,6 +68,45 @@ export class MedicalDetailsComponent implements OnInit {
       date: ['', Validators.required],
       vaccine: ['', Validators.required]
     });
+  }
+
+  prevStep() {
+    this.home.stepper(3);
+    this.currentStep = document.getElementById('step-' + `${3 + 1}`);
+    this.currentStep.classList.remove('active');
+  }
+
+  getActiveTabDetails() {
+    this.medicalDetials = JSON.parse( sessionStorage.getItem('student-medical-details'));
+
+    if (sessionStorage.getItem('student-medical-details') !== null) {
+      console.log(`Student medicals exists`);
+      this.medicalForm.patchValue({
+        BloodGroup: this.medicalDetials.BloodGroup ,
+        Genotype: this.medicalDetials.Genotype,
+        Disability: this.medicalDetials.Disability ,
+        Allergies: this.medicalDetials.Allergies,
+        ConfidentialNotes: this.medicalDetials.ConfidentialNotes ,
+        // immunizationVms: this.medicalDetials.immunizationVms
+      });
+    } else {
+      console.log(`Student medicals not found`);
+    }
+
+  }
+
+  getProfileInformation() {
+    const payload = JSON.parse(sessionStorage.getItem('all-student-info'));
+    console.log('na the paylod', payload);
+    this.medicalForm.patchValue({
+      BloodGroup: payload.bloodGroup,
+      Genotype: payload.genotype,
+      Disability: payload.Disability ,
+      Allergies: payload.allergies,
+      ConfidentialNotes: payload.confidentialNote ,
+      // immunizationVms: payload.immunizationVms
+    });
+
   }
 
 }

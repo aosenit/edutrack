@@ -77,9 +77,11 @@ export class ScoreSheetDetailsPageComponent implements OnInit {
     this.assessmentService.submitStudentResultForApproval(result).subscribe((data: any) => {
         if (data.hasErrors === false) {
           console.log(data.payload);
+          this.notifyService.publishMessages(data.payload, 'success', 1);
         }
     }, error => {
-      console.log(error);
+      this.notifyService.publishMessages(error.payload, 'danger', 1);
+
     });
   }
 

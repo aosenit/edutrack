@@ -16,7 +16,7 @@
             <h6 class="banner__text-primary fw-6 "> Parents </h6>
             <p class=""> Directory of all registered parents </p>
         </div>
-        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-parents"> Add New </button>
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-parents" (click)="clearStorage()"> Add New </button>
     
     </section>
     
@@ -114,7 +114,8 @@
                             alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#" [routerLink]="['/school/parent-detail', parent.id]">View</a>
+                                <a class="dropdown-item" [routerLink]="['/school/parent-detail', parent.id]">View</a>
+                                <a class="dropdown-item" (click)="editParent(parent.id)"  >Edit</a>
                               </div>
                             
                             </td>

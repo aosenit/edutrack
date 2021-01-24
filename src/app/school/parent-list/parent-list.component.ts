@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { ParentsService } from 'src/services/data/parents/parents.service';
 
@@ -16,8 +17,9 @@ export class ParentListComponent implements OnInit {
   parentCount: number;
 
   constructor(
-              private parentService: ParentsService,
-              private notifyService: NotificationsService,
+    private parentService: ParentsService,
+    private notifyService: NotificationsService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -25,29 +27,47 @@ export class ParentListComponent implements OnInit {
   }
 
   getAllParents() {
-    this.parentService.getAllParentsInASchool(this.p, this.itemsPerPage).subscribe( (data: any) => {
+    this.parentService.getAllParentsInASchool(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
         this.parentList = data.payload;
         this.parentCount = data.totalCount;
       }
     },
-    error => {
-      this.notifyService.publishMessages(error.message, 'danger', 1);
-    });
+      error => {
+        this.notifyService.publishMessages(error.message, 'danger', 1);
+      });
   }
+
   getPage(page: number) {
     console.log(page);
-    this.parentService.getAllParents(page, this.itemsPerPage).subscribe( (data: any) => {
+    this.parentService.getAllParents(page, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
         this.parentList = data.payload;
         this.parentCount = data.totalCount;
       }
     },
-    error => {
-      this.notifyService.publishMessages(error.message, 'danger', 1);
-    });
+      error => {
+        this.notifyService.publishMessages(error.message, 'danger', 1);
+      });
 
-}
+  }
+
+  editParent(id) {
+    console.log(id);
+    this.parentService.getParentById(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        sessionStorage.setItem('all-parent-info', JSON.stringify(data.payload));
+        this.router.navigateByUrl('/school/edit-parent/' + id);
+      }
+    });
+  }
+
+  clearStorage() {
+    sessionStorage.removeItem('parent-basic-details');
+    sessionStorage.removeItem('parent-social-details');
+
+  }
 }

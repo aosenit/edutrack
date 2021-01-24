@@ -96,6 +96,7 @@
                     <label for="state" class="fw-6">State of Origin <span
                             class="text-danger">*</span> </label>
                     <select name="" id="state" class="form-control form-control-lg" formControlName="StateOfOrigin">
+                        <option value="" selected>Please Select State</option>
                         <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
 
                     </select>

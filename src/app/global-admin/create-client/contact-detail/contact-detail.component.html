@@ -5,8 +5,8 @@
                 <div class=" ">
                     <label for="domain" class="fw-6">Country <span class="text-danger">*</span> </label>
                     <select class="form-control form-control-lg" formControlName="Country" (change)="getState($event.target.value)"  >
-                        <option value="">Select Country</option>
-                        <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
+                        <option value="" selected>Select Country</option>
+                        <option [value]="country.country" *ngFor = "let country of countries">{{country?.country}}</option>
                     </select>
                 </div>
                 <div class=" ">
@@ -26,7 +26,7 @@
                 <div class=" ">
                     <label for="domain" class="fw-6">State</label>
                     <select class="form-control form-control-lg" formControlName="State">
-                        <option value=""select>Select state</option>
+                        <option value="" selected>Select state</option>
                         <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
                     </select>
                 </div>
@@ -43,8 +43,8 @@
         </form>
     
         <div class=" d-flex justify-content-center mb-5">
-            <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" > Cancel </button>
-            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() '> Next </button>
+            <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='prevStep() ' > Back </button>
+            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' [disabled]="schooldetailsForm.invalid"> Next </button>
     
         </div>
     </div>

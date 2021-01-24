@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
 import { countries } from '../../../../services/utils/country.json';
-import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class EducationComponent implements OnInit {
   items: any;
   EmployeeEducationForm: FormGroup;
 
-@Output() sendChildName = new EventEmitter<string>();
+  @Output() sendChildName = new EventEmitter<string>();
   constructor(private home: EmployeeComponent, private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -22,17 +22,24 @@ export class EducationComponent implements OnInit {
     this.populateNextofKinForm();
   }
 
+  populateNextofKinForm() {
+    this.EmployeeEducationForm = this.fb.group({
+      EducationExperienceVMs: this.fb.array([this.createItem()])
+    });
+  }
   nextStep() {
     this.home.stepper(6);
     sessionStorage.setItem('employee-education', JSON.stringify(this.EmployeeEducationForm.value));
 
   }
 
-  populateNextofKinForm() {
-    this.EmployeeEducationForm = this.fb.group({
-      EducationExperienceVMs: this.fb.array([ this.createItem() ])
-    });
+  prevStep() {
+    this.home.stepper(4);
+    // this.currentStep = document.getElementById('step-' + `${3 + 1}`);
+    // this.currentStep.classList.remove('active');
   }
+
+
 
   addEducation() {
     this.items = this.EmployeeEducationForm.get('EducationExperienceVMs') as FormArray;

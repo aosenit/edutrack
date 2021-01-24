@@ -113,7 +113,7 @@ export class ClientsComponent implements OnInit {
       if (data.hasErrors === false) {
         this.getAllSchools();
         this.notifyService.publishMessages(data.description, 'success', 1);
-        this.getAllSchools()
+        this.getAllSchools();
 
         // location.reload();
       }
@@ -133,6 +133,12 @@ export class ClientsComponent implements OnInit {
 
       }
     });
+  }
+
+  clearData() {
+    sessionStorage.removeItem('profile-info');
+    sessionStorage.removeItem('school-details');
+    sessionStorage.removeItem('contact-person');
   }
 
 

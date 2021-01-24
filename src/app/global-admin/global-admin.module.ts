@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {Ng2TelInputModule} from 'ng2-tel-input';
 
 import { GlobalAdminRoutingModule } from './global-admin-routing.module';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
@@ -35,7 +34,6 @@ import { NewroleComponent } from './newrole/newrole.component';
     SharedModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    Ng2TelInputModule ,
     GlobalAdminRoutingModule
   ]
 })

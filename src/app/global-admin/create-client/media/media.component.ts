@@ -3,6 +3,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { SchoolService } from 'src/services/data/school/school.service';
+import { CreateClientComponent } from '../create-client.component';
 
 
 @Component({
@@ -20,12 +21,15 @@ export class MediaComponent implements OnInit {
     type: 'create',
     text: 'Create Client'
   };
+  currentStep: any;
+  step: any;
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private notifyService: NotificationsService,
-    private schoolServies: SchoolService) { }
+    private schoolServies: SchoolService,
+    private home: CreateClientComponent) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
@@ -78,11 +82,13 @@ export class MediaComponent implements OnInit {
     const result = {...profile, ...details, ...contactperson, ...finalstep, DocumentTypes: this.DocumentTypes};
 
     if (this.formBtn.type === 'create') {
-      this.schoolServies.addSchool( result).subscribe( (data: any) => {
+      this.schoolServies.addSchool(result).subscribe( (data: any) => {
         if ( data ) {
             console.log('school create successfully', data);
             this.notifyService.publishMessages(data.description, 'info', 1);
-            sessionStorage.clear();
+            sessionStorage.removeItem('profile-info');
+            sessionStorage.removeItem('school-details');
+            sessionStorage.removeItem('contact-person');
             this.router.navigateByUrl('/admin/clients');
         }
       }, error => {
@@ -90,11 +96,13 @@ export class MediaComponent implements OnInit {
 
       });
     } else {
-      this.schoolServies.updateSchool( this.id, result).subscribe( (data: any) => {
-        if ( data ) {
+      this.schoolServies.updateSchool(this.id, result).subscribe( (data: any) => {
+        if ( data.hasErrors === false ) {
             console.log('school edited successfully', data);
             this.notifyService.publishMessages(data.description, 'info', 1);
-            sessionStorage.clear();
+            sessionStorage.removeItem('profile-info');
+            sessionStorage.removeItem('school-details');
+            sessionStorage.removeItem('contact-person');
             this.router.navigateByUrl('/admin/clients');
         }
       }, error => {
@@ -109,14 +117,18 @@ export class MediaComponent implements OnInit {
   handleImgUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log('file', file);
+      // console.log('file', file);
       this.logoname = file.name;
       this.mediaForm.get('logo').setValue(file);
-      this.DocumentTypes.push(0);
       // this.iconname = this.icon.name;
       const size = event.target.files[0].size;
       if (size >=  1048576 ) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
+      } else {
+        this.DocumentTypes.push(0);
+      }
+      if (this.DocumentTypes.length > 1) {
+        this.DocumentTypes.shift();
       }
     }
   }
@@ -127,15 +139,26 @@ export class MediaComponent implements OnInit {
       // console.log('file', file);
       this.iconname = file.name;
       this.mediaForm.get('icon').setValue(file);
-      this.DocumentTypes.push(1);
+      console.log('init doc ', this.DocumentTypes);
       const size = event.target.files[0].size;
       if (size >=  1048576 ) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
+      } else {
+        this.DocumentTypes.push(1);
+      }
+      if (this.DocumentTypes.length > 1) {
+        this.DocumentTypes.shift();
       }
       // this.iconname = this.icon.name;
     }
   }
 
+  prevStep() {
+    this.home.stepper(3);
+    this.currentStep = document.getElementById('step-' + `${3 + 1}`);
+    this.currentStep.classList.remove('active');
+
+  }
 
 
 
