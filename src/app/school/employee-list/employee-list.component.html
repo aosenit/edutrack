@@ -89,14 +89,15 @@
                     </div>
                 </td>
                 <td>AMI/ST/2020/001</td>
-                <td>{{staff.phoneNumber}}</td>
-                <td>{{staff?.email}}</td>
+                <td> {{staff.phoneNumber}} </td>
+                <td> {{staff?.email}} </td>
                 
                 <td><span class="status_active">Active</span></td>
                 <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
                         alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" routerLink="/school/employee-detail/{{staff?.id}}">View</a>
+                            <!-- <a class="dropdown-item"  >Edit</a> -->
                             <a class="dropdown-item" href="#">Deactivate</a>
                           </div>
                      </td>

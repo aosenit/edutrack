@@ -1,0 +1,39 @@
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+a {
+    color: #1b5bac;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #1b5bac;
+    content: ">";
+    font-size: 10px;
+    display: none;
+}
+
+
+.form-body {
+    background: rgba(255, 255, 255, 0.5);
+    border: transparent solid #D7DFE8;
+    padding: 6rem;
+}
+
+form .form-control {
+    color: #000000;
+    font-size: 16px;
+}

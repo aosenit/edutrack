@@ -6,6 +6,7 @@ import { SubjectService } from 'src/services/data/subject/subject.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 
 @Component({
   selector: 'app-score-sheet',
@@ -39,6 +40,10 @@ export class ScoreSheetComponent implements OnInit {
   scoreResult = {};
   cummulativeScore: any;
   omo: any;
+  gradeIntepretation: any;
+  studentGrade: any;
+  gradeSetup: any;
+  hideBtn = true;
 
   constructor(
     private subjectService: SubjectService,
@@ -46,6 +51,7 @@ export class ScoreSheetComponent implements OnInit {
     private resultService: ResultService,
     private fb: FormBuilder,
     private notifyService: NotificationsService,
+    private assessmentService: AssessmentService,
     private sanitizer: DomSanitizer
 
 
@@ -53,14 +59,16 @@ export class ScoreSheetComponent implements OnInit {
 
   ngOnInit() {
     // tslint:disable-next-line:only-arrow-functions
-    $('#dropdownMenuLink').on('show.bs.dropdown', function() {
+    $('#dropdownMenuLink').on('show.bs.dropdown', function () {
       $(`#dropdownMenuLink`).show();
 
     });
 
     this.getAllClasses();
+    this.generateGradeSetup();
     this.populateResult();
     this.populateBulkUpload();
+
   }
 
 
@@ -136,10 +144,12 @@ export class ScoreSheetComponent implements OnInit {
         // tslint:disable-next-line:forin
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < newList.length; i++) {
-          console.log(newList[i]);
+          // console.log(newList[i]);
           newList[i].assessments = this.assessmentList;
           this.newList = newList;
-          console.log(this.newList);
+          // console.log(this.newList);
+          
+
         }
         //  console.log('assessment', this.assessmentList);
       } else {
@@ -245,10 +255,9 @@ export class ScoreSheetComponent implements OnInit {
   }
 
 
-
-
-
   submitGrade(studentId, u) {
+    this.checkTableCellStatus();
+
     const check = this.newList[u];
     const { assessmentId, score } = this.addGradeForm.value;
     // tslint:disable-next-line:triple-equals
@@ -270,16 +279,36 @@ export class ScoreSheetComponent implements OnInit {
         }
       };
     }
+
     const prevCumulative = this.scoreResult[studentId].cummulative || 0;
     this.scoreResult[studentId].cummulative = Number(prevCumulative) + Number(score);
+    // this.scoreResult[studentId].studentGrade = this.studentGrade;
+    // this.scoreResult[studentId].gradeIntepretation = this.gradeIntepretation;
     this.scoreObject = this.scoreResult;
     if (this.scoreResult[studentId].cummulative > 100) {
       alert('Cummulative score can exceed 100');
     }
     console.log(this.scoreResult);
+    
+    const keyValue = (input) => Object.entries(input).forEach(([key, value]) => {
+      const hold: any = value;
+      // console.log(hold);
+      if (this.scoreResult[studentId].cummulative >= hold.lowerBound) {
+        this.scoreResult[studentId].gradeIntepretation = hold.interpretation;
+        this.scoreResult[studentId].studentGrade = hold.grade;
+        // tslint:disable-next-line:no-string-literal
+        console.log(key['interpretation'].interpretation);
+      } else {
+        return;
+      }
+
+    });
     $(`#dropdownMenuLink${u}`).toggleClass('show-pop');
+    keyValue(this.gradeSetup);
     // this.omo = this.scoreResult[studentId];
     const arr = [];
+
+    // this.displayStudentGradeInterpretation(studentId);
 
   }
 
@@ -290,7 +319,8 @@ export class ScoreSheetComponent implements OnInit {
         return {
           // tslint:disable-next-line:radix
           studentId: parseInt(value),
-          assessmentAndScores: Object.keys(this.scoreResult[value]).filter((id) => id !== 'cummulative').map((id) => ({
+          // tslint:disable-next-line:max-line-length
+          assessmentAndScores: Object.keys(this.scoreResult[value]).filter((id) => id !== 'cummulative' &&  id !== 'gradeIntepretation' && id !== 'studentGrade').map((id) => ({
             // tslint:disable-next-line:radix
             assessmentId: parseInt(this.scoreResult[value][id].assesmentId),
             assessmentName: id,
@@ -336,6 +366,49 @@ export class ScoreSheetComponent implements OnInit {
 
   saveStudentDetails(u) {
     console.log(this.studentList[u]);
-    sessionStorage.setItem('student-details', JSON.stringify(this.studentList[u]) );
+    sessionStorage.setItem('student-details', JSON.stringify(this.studentList[u]));
+  }
+
+  generateGradeSetup() {
+    this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log('All school grade', data.payload);
+        this.gradeSetup = data.payload;
+      }
+    });
+  }
+
+
+  // displayStudentGradeInterpretation(studentId) {
+  //   const keyValue = (input) => Object.entries(input).forEach(([key , value]) => {
+  //     const hold: any = value;
+  //     // console.log('na me hold dem', value);
+  //     if ( this.scoreResult[studentId].cummulative >= hold.lowerBound) {
+  //       console.log('matching key', key);
+  //       // this.interpretation = key['interpretation'].interpretation;
+  //       this.studentGrade = hold.grade;
+  //       this.gradeIntepretation = hold.interpretation;
+  //       // tslint:disable-next-line:no-string-literal
+  //       // console.log(key['interpretation'].interpretation);
+  //      }
+
+  //   });
+  //   keyValue(this.gradeSetup);
+  // }
+
+  checkTableCellStatus() {
+    const cellCheck = document.querySelectorAll('.scores');
+    console.log(cellCheck);
+
+    cellCheck.forEach((element: any) => {
+      console.log(element.innerText);
+      if (element.innerText === '') {
+        console.log('no be all complete');
+        this.hideBtn = false;
+      } else {
+        console.log('we complete');
+        this.hideBtn = true;
+      }
+    });
   }
 }

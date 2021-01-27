@@ -96,7 +96,7 @@
       </div> -->
 <div *ngIf="displayClass">
   
-    <table class="table"  >
+    <table class="table" id="gradeTable"  >
       <thead>
         <tr>
           <th class="w-40">Student Name</th>
@@ -104,13 +104,13 @@
           <!-- <th>Second CA Score</th>
           <th>Exam Score</th> -->
           <th>Cummulative Score</th>
-          <!-- <th>Grade</th>
-          <th>Position</th>
-          <th>Interpretation</th> -->
+          <!-- <th>Position</th> -->
+          <th>Grade</th>
+          <th>Interpretation</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let student of newList; let u = index">
+        <tr id="gradeRow" *ngFor="let student of newList; let u = index">
           <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top student">
             <div class="d-flex text-left">
               <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
@@ -146,13 +146,22 @@
           </td>
   
           <!-- <td *ngFor = "let assessment of newList[0].assessments" > <span *ngIf="student?.id == scoreObject?.studentid && assessment?.sequenceNumber == scoreObject.AssessmentId"> {{scoreObject?.Score}} </span>  </td> -->
-          <td *ngFor="let assessment of newList[0].assessments"> <span 
+          <td class="scores" *ngFor="let assessment of newList[0].assessments"> <span 
               *ngIf="scoreObject[student.id] ? scoreObject[student.id][assessment.name]  : false">
               {{scoreObject[student?.id][assessment?.name].Score }} </span> </td>
   
   
-          <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false" > {{this.scoreObject[student?.id].cummulative}} </td>
+          <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false" > {{scoreObject[student?.id].cummulative}} </td>
           <!-- <td> </td>  -->
+          <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false" > {{scoreResult[student?.id].studentGrade}} </td>
+          <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false">
+            <span class="fs-14 interpretation excellent" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Excellent' ">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
+            <span class="fs-14 interpretation very-good" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Very Good'"> {{ scoreResult[student?.id].gradeIntepretation}} </span>
+          <span class="fs-14 interpretation good" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Good'">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
+          <span class="fs-14 interpretation fail" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Fail'">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
+          <span class="fs-14 interpretation fair" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Fair'">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
+            
+          </td>
         </tr>
   
   
@@ -166,7 +175,7 @@
     </table>
   
     <div class="d-flex justify-content-center my-5">
-      <button class="btn-upload-top bg-lblue w-50" type="button" (click)="submitResults()"> Submit </button>
+      <button class="btn-upload-top btn bg-lblue w-50" type="button" (click)="submitResults()" [disabled]="hideBtn"> Submit </button>
     </div>
 </div>
 </div>

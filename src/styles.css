@@ -299,6 +299,9 @@ li.pagination-next:hover, li.pagination-previous:hover {
     cursor: default;
 }
 /* end of ngx-pagination style */
+.cursor-pointer {
+    cursor: pointer;
+}
 
 #zmmtg-root {
     height: 0% !important;

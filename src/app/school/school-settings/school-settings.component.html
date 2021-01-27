@@ -762,7 +762,7 @@
 
           <div class="form-group mb-4">
             <div *ngFor="let level of levels">
-              <div class="w-25 bg-info mb-1 px-2 d-flex justify-content-between">
+              <div class="w-100 bg-info mb-1 px-2 mb-3 d-flex justify-content-between">
                 <p class="mb-0">{{level.name}}</p>
                 <a href="#{{level?.name}}" class="ml-auto" data-toggle="collapse"
                  role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -770,7 +770,7 @@
                     (click)="getClassBySectionId(level.id)">
                 </a>
               </div>
-              <div class="collapse" id="{{level?.name}}">
+              <div class="collapse mb-2" id="{{level?.name}}">
                 <!-- <div formArrayName="ClassIds" *ngFor="let class of classBySectionList; let i = index;">
                   <div [formGroupName]="i">
                     <label for="a" class="class-label w-25"> {{class.name}}</label>

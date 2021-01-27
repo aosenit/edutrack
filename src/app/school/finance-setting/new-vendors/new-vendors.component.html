@@ -1,0 +1,107 @@
+<div class="container px-5">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" (click)="back()">
+            <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+            <li class="breadcrumb-item a1 " aria-current="page">
+                <a>Back</a>
+            </li>
+        </ol>
+
+
+    </nav>
+
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <p class="fw-6">Add New vendor </p>
+        </div>
+
+        <div class="col-md-12 form-body">
+            <div class="basic-details">
+                <form  >
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="title" class="fw-6">Vendor Name <span class="text-danger">*</span></label>
+                            <input type="text" placeholder="John" class="form-control form-control-lg">
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="fname" class="fw-6">Phone Number <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control form-control-lg" placeholder="00000000000"
+                                id="fname" name="FirstName">
+                        </div>
+                    </div>
+                
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="lname" class="fw-6">Email Address <span class="text-danger">*</span> <span
+                                    class="text-danger">*</span></label>
+                                    <input type="email" class="form-control form-control-lg" placeholder="00000000000"
+                                    id="fname" name="john@schooltrack.com">
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="others" class="fw-6">Address <span class="text-danger">*</span> </label>
+                            <input type="text" class="form-control form-control-lg" placeholder="00000000000"
+                            id="fname" name="FirstName">
+                        </div>
+                    </div>
+                
+                
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="sex" class="fw-6">Bank <span class="text-danger">*</span> </label>
+                            <select name="" id="sex" class="form-control form-control-lg" name="Sex">
+                                <option value="" selected>Select...</option>
+                                <option value="UNA" selected>UBA</option>
+\                            </select>
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="occupation" class="fw-6">Account Number</label>
+                            <input type="text" class="form-control form-control-lg"
+                                placeholder="Enter description" id="occupation" name="Occupation">
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="sex" class="fw-6">Contact Person <span class="text-danger">*</span> </label>
+                            <input type="text" class="form-control form-control-lg"
+                                placeholder="Enter description" id="occupation" name="Occupation">
+                        </div>
+                        
+                    </div>
+                
+                
+                    <div class="row mb-4 ">
+                      
+                
+                        <div class="col-md-6">
+                           
+                            <div class="form-group my-3">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="getStatus($event.target.checked)" formControlName="Status">
+                                    <label class="custom-control-label" for="customSwitch1" *ngIf = "toggleState === false; then inactive; else active;" >{{toggleState}} </label>
+                                    <ng-template #active>
+                                        <label class="custom-control-label" for="customSwitch1" >Active </label>
+                                      </ng-template>
+                                      <ng-template #inactive>
+                                        <label class="custom-control-label" for="customSwitch1" > Inactive </label>
+                                      </ng-template>
+                                </div>
+                            </div>
+                        </div>
+            
+                       
+                    </div>
+                </form>
+            
+                <div class=" d-flex justify-content-center mt-5">
+                    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="back()"> Cancel </button>
+                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" > Add Vendor </button>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

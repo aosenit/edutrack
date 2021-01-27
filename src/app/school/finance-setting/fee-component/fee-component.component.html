@@ -1,0 +1,187 @@
+<section class="banner mb-4 pb-3" >
+    <div class="pt-5 pl-3 content ">
+        <h6 class="banner__text-primary fw-6 "> Fee Component </h6>
+        <p class=""> Manage your school’s fee component </p>
+    </div>
+    <div class="d-flex">
+        
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+            data-target="#exampleModalCenterSubject"> Add New </button>
+    </div> -->
+
+<!-- </section>
+
+<section class="d-flex align-items-center justify-content-between mb-4 mt-5">
+    <div class="search__input has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
+    </div>
+    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
+
+</section>
+
+
+
+
+<section class="list">
+    <table class="table table-borderless client-table">
+        <thead>
+            <tr>
+                <th scope="col" class="head ">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                        <label class="custom-control-label" for="customCheckTh"></label>
+                    </div>
+                </th>
+                <th scope="col" class="text-left w-75"> Compoent <img src="assets/images/svg/table-sort.svg"
+                        alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- ================ DROPDOWN ==================== -->
+                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item filter-title" href="#">FILTER BY: CLIENT</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item fc-orange" href="#">All </a>
+                        <a class="dropdown-item" href="#">A - Z </a>
+                        <a class="dropdown-item" href="#">Z - A </a>
+                    </div> -->
+                </th>
+
+
+
+                <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                        class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    <!-- ================ DROPDOWN ==================== -->
+                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                        <a class="dropdown-item filter-title" href="#">FILTER BY: STATUS</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item fc-orange" href="#">All </a>
+                        <a class="dropdown-item" href="#">Active </a>
+                        <a class="dropdown-item" href="#">Inactive </a>
+                    </div> -->
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="pb-1">
+                <td scope="row" class="check rounded-left">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1"></label>
+                    </div>
+                </td>
+                <td class="user">
+
+                    <div class="d-flex align-items-center">
+
+                        <h6 class="fw-6 mb-0"> 1020 Tution Fee </h6>
+                    </div>
+                </td>
+
+                <td>
+                    <span class="status_active">Active</span>
+                </td>
+
+            </tr>
+
+
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-end">
+        <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+    </div>
+
+</section>
+
+
+<!-- Subject Modal -->
+<div class="modal fade" id="exampleModalCenterSubject" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+        <div class="modal-content">
+
+            <div class="modal-head mb-4">
+                <div class="d-flex justify-content-between align-items-center ">
+                    <h6 class="modal-title fc-lblue">Add New Component</h6>
+                    <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="mySubjectModal"
+                        data-dismiss="modal" aria-label="Close" class="close">
+
+                </div>
+
+            </div>
+            <div class="modal-body client-modal">
+                <form>
+
+
+                    <div class="form-group mb-4">
+                        <label for="class" class="">Component Name <span class="text-danger">*</span> </label>
+                        <input type="text" id="class" class="form-control" placeholder="Enter class" >
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <!-- <div *ngFor="let level of levels"> -->
+                            <!-- <div class="w-100 bg-info mb-1 px-2 mb-3 d-flex justify-content-between">
+                                <p class="mb-0">{{level.name}}</p>
+                                <a href="#{{level?.name}}" class="ml-auto" data-toggle="collapse" role="button"
+                                    aria-expanded="false" aria-controls="collapseExample">
+                                    <img src="assets/images/svg/subject-drop.svg" alt=""
+                                        (click)="getClassBySectionId(level.id)">
+                                </a>
+                            </div> -->
+                            <!-- <div class="collapse mb-2" id="{{level?.name}}"> -->
+                                <!-- <div formArrayName="ClassIds" *ngFor="let class of classBySectionList; let i = index;">
+                            <div [formGroupName]="i">
+                                <label for="a" class="class-label w-25"> {{class.name}}</label>
+                                <input type="checkbox" id="a" name="class" [value]="class.id" formControlName="classSectionIds" (change)="getState($event.target.value)" >
+                            </div>
+                            
+                            </div> -->
+                                <!-- <ng-multiselect-dropdown [placeholder]="' '" [data]="classBySectionDropdownList"
+                                    formControlName="classSectionIds" [settings]="dropdownSettings2" required>
+                                </ng-multiselect-dropdown> -->
+
+                            <!-- </div>
+                        </div> -->
+
+
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="class" class="">Revenue Account<span class="text-danger">*</span> </label>
+                        <select name="" id="" class="form-control">
+                            <option value="" selected>Select...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="class" class="">Sort Order<span class="text-danger">*</span> </label>
+                        <input type="text" placeholder="Select" class="form-control">
+                    </div>
+
+
+                    <div class="form-group custom mb-5">
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="customSwitch4"
+                                formControlName="IsActive" (change)="getStatus($event.target.checked)">
+                            <label class="custom-control-label" for="customSwitch4"
+                                *ngIf="toggleState === false">Inactive</label>
+                            <label class="custom-control-label" for="customSwitch4"
+                                *ngIf="toggleState === true">Active</label>
+                        </div>
+                    </div>
+
+
+                    <div class="d-flex justify-content-center mb-3">
+                        <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+                            data-dismiss="modal">Cancel
+                        </button>
+                        <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Component</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end of Subject modal -->

@@ -4,13 +4,13 @@
             <div class="row">
                 <div class="col-md-12 top-bar p-3">
                     <div class="row align-items-center">
-                        <div class="col-md-10 ">
+                        <div class="col-md-9 ">
                             <div class="d-flex align-items-center cursor-pointer" (click)="back()">
                                 <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
                                 <p class="mb-0">Back</p>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <div class="d-flex align-items-center">
                                 <p class="mb-0">Score</p>
                                 <form class="pl-2" [formGroup]="scoreForm" (ngSubmit)="submitScore()">
@@ -30,7 +30,7 @@
         </div>
         <div class="col-md-1 actions px-0" >
             <div class="d-flex justify-content-center align-items-center pt-5 pb-4 comment dropleft">
-                <img src="assets/images/svg/add_comment.svg" class="dropdown-toggle" data-toggle="dropdown"
+                <img src="assets/images/svg/add_comment.svg" title="Comment on assignment" class="dropdown-toggle" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false" alt="..." />
                 <div class="dropdown-menu px-3 pt-3 pb-3">
                     <p>Make Comment</p>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="col-md-3 notice-board p-3">
-            <button class="btn btn-orange-two px-5 mb-4 mt-3"> Return </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="back()"> Return </button>
             <div class="assignment-info">
                 <p class="fs-14 fw-6 text-white">Title</p>
                 <p class="fw-6 fs-18 ">How I Learnt Swimming</p>

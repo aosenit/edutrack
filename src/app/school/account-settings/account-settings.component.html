@@ -8,7 +8,7 @@
 
   </section>
 
-  <section class="banner mb-4 pb-3" *ngIf= "roles">
+  <section class="banner mb-4 pb-3" *ngIf="roles">
     <div class="pt-5 pl-3 text-content ">
       <h6 class="banner__text-primary fw-6 "> Accounts </h6>
       <p class=""> Showing all users and accounts </p>
@@ -21,12 +21,12 @@
 
     <div class="searchpills-bar">
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item" (click)="showUsers()">
+        <!-- <li class="nav-item" (click)="showUsers()">
           <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
             aria-controls="pills-home" aria-selected="true">Users</a>
-        </li>
+        </li> -->
         <li class="nav-item" (click)="showRoles()">
-          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+          <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
             aria-controls="pills-profile" aria-selected="false">Roles</a>
         </li>
 
@@ -41,7 +41,7 @@
 
   <div>
     <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <!-- <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <section class="list">
           <table class="table table-borderless client-table">
             <thead>
@@ -50,9 +50,10 @@
                     alt="table sort icon" class="">
                 </th>
                 <th scope="col">Email <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
-                
+
                 <th scope="col">Role <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
-                <th scope="col">Date Added <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
+                <th scope="col">Date Added <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="">
+                </th>
                 <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class=""></th>
               </tr>
             </thead>
@@ -70,7 +71,7 @@
                 <td><span class="status_active">Active</span></td>
 
               </tr>
-             
+
 
 
 
@@ -79,9 +80,9 @@
           </table>
 
         </section>
-      </div>
+      </div> -->
 
-      <div class="tab-pane fade " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <div class="tab-pane fade show active " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
         <section class="list">
           <table class="table table-borderless client-table">
             <thead>
@@ -107,11 +108,11 @@
                     class="mr-3"> Edit Role </td>
                 <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg" alt="schools log"
                     class="mr-3"> Delete Role </td>
-                <td class="rounded-right action" data-toggle="modal"
-                data-target="#exampleModalCenter"><img src="assets/images/svg/delete-role.svg" alt="schools log"
-                    class="mr-3" > Assign User </td>
+                <td class="rounded-right action cursor-pointer" data-toggle="modal" data-target="#exampleModalCenter">
+                  <i class="fa fa-tasks mr-3" aria-hidden="true"></i>
+                  Assign User </td>
               </tr>
-            
+
 
 
 
@@ -129,8 +130,8 @@
 
 
 <!-- Subject Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalCenter" aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-length" role="document">
     <div class="modal-content">
 
@@ -144,23 +145,23 @@
 
       </div>
       <div class="modal-body client-modal">
-        <form [formGroup]="assignRoleForm" (ngSubmit)="submit()" >
+        <form [formGroup]="assignRoleForm" (ngSubmit)="submit()">
 
 
           <div class="form-group mb-4">
             <label for="class" class="">Users <span class="text-danger">*</span> </label>
             <ng-multiselect-dropdown [placeholder]="' '" [data]="dropStaffList" formControlName="userid"
-             [settings]="dropdownSettings" required>
-          </ng-multiselect-dropdown>         
-         </div>
+              [settings]="dropdownSettings" required>
+            </ng-multiselect-dropdown>
+          </div>
           <div class="form-group mb-4">
             <label for="class" class="">Roles <span class="text-danger">*</span> </label>
             <ng-multiselect-dropdown [placeholder]="' '" [data]="dropRoleList" formControlName="roleid"
-             [settings]="dropdownSettings2" required>
-          </ng-multiselect-dropdown>         
-         </div>
+              [settings]="dropdownSettings2" required>
+            </ng-multiselect-dropdown>
+          </div>
 
-         
+
 
 
 

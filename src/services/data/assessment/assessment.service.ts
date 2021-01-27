@@ -10,6 +10,7 @@ const routes = {
   getassessmentsetup: 'schtrack-assessment/api/v1/AssessmentSetup/GetAllAssessmentSetup',
   submitStudentResult: 'schtrack-assessment/api/v1/Result/SubmitStudentResult',
   approveStudentsResult: 'schtrack-assessment/api/v1/Result/SubmitClassResultForApproval',
+  getAllGradeSetup: 'schtrack-assessment/api/v1/GradeSetup/GetAllGradeForSchoolSetup',
 };
 
 
@@ -56,5 +57,11 @@ export class AssessmentService {
   approveClassResult(result) {
     const url = `${this.baseUrl + routes.approveStudentsResult}`;
     return this.http.post(url, result, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+  getAllGradeSetupForSchool() {
+
+    const url = `${this.baseUrl + routes.getAllGradeSetup}`;
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
   }
 }
