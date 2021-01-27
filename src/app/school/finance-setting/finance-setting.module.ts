@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NewAccountChartComponent } from './new-account-chart/new-account-chart.component';
 import { NewVendorsComponent } from './new-vendors/new-vendors.component';
+import { NewFeeComponent } from './new-fee/new-fee.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { NewVendorsComponent } from './new-vendors/new-vendors.component';
     PayrollAccountsComponent,
     AccountMappingComponent,
     NewAccountChartComponent,
-    NewVendorsComponent],
+    NewVendorsComponent,
+    NewFeeComponent],
   imports: [
     CommonModule,
     SharedModule,

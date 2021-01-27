@@ -8,6 +8,7 @@ import { FeeComponentComponent } from './fee-component/fee-component.component';
 import { FeeTypeComponent } from './fee-type/fee-type.component';
 import { FeeComponent } from './fee/fee.component';
 import { NewAccountChartComponent } from './new-account-chart/new-account-chart.component';
+import { NewFeeComponent } from './new-fee/new-fee.component';
 import { NewVendorsComponent } from './new-vendors/new-vendors.component';
 import { PayrollAccountsComponent } from './payroll-accounts/payroll-accounts.component';
 import { VendorsComponent } from './vendors/vendors.component';
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'new-account-chart', component: NewAccountChartComponent},
   {path: 'fee-component', component: FeeComponentComponent},
   {path: 'fee', component: FeeComponent},
+  {path: 'new-fee', component: NewFeeComponent},
   {path: 'fee-type', component: FeeTypeComponent},
   {path: 'vendors', component: VendorsComponent},
   {path: 'new-vendor', component: NewVendorsComponent},
