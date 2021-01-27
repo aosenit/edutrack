@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
+import { TeacherGuard } from 'src/services/guards/teacher.guard';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AttendanceComponent } from './attendance/attendance.component';
@@ -22,8 +23,9 @@ import { VirtualSessionComponent } from './virtual-session/virtual-session.compo
 
 const routes: Routes = [
   {
-    path: '', component: TeacherComponent, children: [
-      { path: '', component: DashboardComponent, canActivate: [AuthGuardGuard] },
+    path: '', component: TeacherComponent, canActivate: [AuthGuardGuard], canActivateChild: [TeacherGuard],
+     children: [
+      { path: '', component: DashboardComponent,  },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'schedule', component: ScheduleComponent },
       { path: 'grade-assignment/:id', component: GradingComponent },
