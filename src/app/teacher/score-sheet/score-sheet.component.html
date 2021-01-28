@@ -100,7 +100,7 @@
       <thead>
         <tr>
           <th class="w-40">Student Name</th>
-          <th *ngFor="let assessment of assessmentList; let y = index"> {{assessment?.name | titlecase}} </th>
+          <th *ngFor="let assessment of assessmentList; let y = index"> {{assessment?.name }} ({{assessment?.maxScore}}) </th>
           <!-- <th>Second CA Score</th>
           <th>Exam Score</th> -->
           <th>Cummulative Score</th>
@@ -148,7 +148,7 @@
           <!-- <td *ngFor = "let assessment of newList[0].assessments" > <span *ngIf="student?.id == scoreObject?.studentid && assessment?.sequenceNumber == scoreObject.AssessmentId"> {{scoreObject?.Score}} </span>  </td> -->
           <td class="scores" *ngFor="let assessment of newList[0].assessments"> <span 
               *ngIf="scoreObject[student.id] ? scoreObject[student.id][assessment.name]  : false">
-              {{scoreObject[student?.id][assessment?.name].Score }} </span> </td>
+              {{scoreObject[student?.id][assessment?.name].Score }} </span>  </td>
   
   
           <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false" > {{scoreObject[student?.id].cummulative}} </td>
@@ -175,7 +175,7 @@
     </table>
   
     <div class="d-flex justify-content-center my-5">
-      <button class="btn-upload-top btn bg-lblue w-50" type="button" (click)="submitResults()" [disabled]="hideBtn"> Submit </button>
+      <button class="btn-upload-top btn bg-lblue-2 w-50" type="button" (click)="submitResults()" [disabled]="hideBtn"> Submit </button>
     </div>
 </div>
 </div>

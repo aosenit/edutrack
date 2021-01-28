@@ -57,7 +57,7 @@
                   <label class="custom-control-label" for="customCheck{{assignment?.id}}"></label>
                 </div>
               </td>
-              <td class=""> {{assignment?.name}} </td>
+              <td class=""> {{assignment?.name | titlecase }} </td>
               <td>{{assignment?.subjectName | titlecase}}</td>
               <td>{{assignment?.className}}</td>
               <td>{{assignment?.creationDate | date: 'dd/MM/y'}}</td>

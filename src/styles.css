@@ -20,12 +20,19 @@
     color: #0A1128;
 }
 .fc-lblue{
-    color: #014D94;
+    color: #0052B4;
 }
 .bg-lblue {
     color: #FFFFFF ;
     background: #014D94;
 }
+
+.bg-lblue-2 {
+    color: #FFFFFF ;
+    background: #0052B4;
+}
+
+
 
 .bg-orange {
     background: #FB7B04;

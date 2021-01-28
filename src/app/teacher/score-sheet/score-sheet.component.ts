@@ -262,7 +262,7 @@ export class ScoreSheetComponent implements OnInit {
     const { assessmentId, score } = this.addGradeForm.value;
     // tslint:disable-next-line:triple-equals
     if (check.id == studentId && this.AssessmentSequence == assessmentId && score > this.AssessmentScore) {
-      this.notifyService.publishMessages('Invalid score', 'danger', 1);
+      this.notifyService.publishMessages('Score cannot be greater than max score', 'danger', 1);
       return;
     }
 

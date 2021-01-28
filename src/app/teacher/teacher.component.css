@@ -10,7 +10,8 @@
     top: 0;
     left: 0;
     height: 100vh;
-    background: #014D94;
+    /* background: #014D94; */
+    background: #0052B4;
     color: #EDF7F6;
     z-index: 9;
 }
@@ -49,12 +50,13 @@
 #sidebar ul li a.nav-link {
     font-family: Nunito;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 16px;
     line-height: 22px;
     display: flex;
     align-items: center;
     color: #94B3D1;
+    color:  #8FA1B3;
     padding-left: 38px;
     padding-right: 15px;
     width: 100%;
@@ -71,7 +73,7 @@
 #sidebar ul li a.nav-link.active {
     font-family: Nunito;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 16px;
     line-height: 22px;
     display: flex;
@@ -231,7 +233,7 @@ svg g#icon {
 
 .row-sizing {
 
-    padding: 0rem 2rem 1rem 2rem;
+    padding: 0rem 2rem 1rem .7rem;
 }
 
 .ellipse {

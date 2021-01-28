@@ -278,3 +278,8 @@ tbody  td {
  background :#D9CE98;
     color: #665500;
 }
+
+.scores {
+    position: relative;
+}
+

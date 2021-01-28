@@ -113,9 +113,9 @@
             </div>
             <div class="col-md-2 py-2 px-1 cells d-flex flex-column  justify-content-center" *ngFor = "let day of daysInWeek; let i = index" >
                
-              <div class="d-flex flex-column   bg-lblue px-2  " *ngFor = "let time of subjectAndTime; let z = index"> 
+              <div class="d-flex flex-column   bg-lblue-2 px-2  " *ngFor = "let time of subjectAndTime; let z = index"> 
               
-                <p class="mb-0 fw-4 pt-2 " *ngIf=" period?.name === time.periodName && day?.id === time?.day" >  {{time?.subjectName | titlecase}} </p> 
+                <p class="mb-0 fw-6 pt-2 " *ngIf=" period?.name === time.periodName && day?.id === time?.day" >  {{time?.subjectName | titlecase}} </p> 
                 <div class="d-flex justify-content-between">
                   <p class="mb-0 fw-4 pb-2 " *ngIf=" period?.name === time.periodName && day?.id === time?.day" >  {{time?.className | titlecase}} </p> 
                   <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4"
