@@ -235,3 +235,12 @@ h6 {
 .class-label {
     margin-right: 5rem;
 }
+
+
+
+.empty-state{
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

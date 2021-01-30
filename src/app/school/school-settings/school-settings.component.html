@@ -103,7 +103,12 @@
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-level" role="tabpanel" aria-labelledby="pills-level-tab">
-    <section class="list">
+    <div class="empty-state" *ngIf="levels?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any Level
+      </p>
+    </div>
+    <section class="list" *ngIf="levels?.length > 0">
       <table class="table table-borderless client-table">
         <thead>
           <tr>
@@ -258,7 +263,12 @@
   </div>
 
   <div class="tab-pane fade " id="pills-arm" role="tabpanel" aria-labelledby="pills-arm-tab">
-    <section class="list">
+    <div class="empty-state" *ngIf="classArms?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any Class Arm
+      </p>
+    </div>
+    <section class="list" *ngIf="classArms?.length > 0">
       <table class="table table-borderless client-table">
         <thead>
           <tr>
@@ -311,7 +321,12 @@
 
 
   <div class="tab-pane fade " id="pills-subject" role="tabpanel" aria-labelledby="pills-subject-tab">
-    <section class="list">
+    <div class="empty-state" *ngIf="subjectList?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any Subject
+      </p>
+    </div>
+    <section class="list" *ngIf="subjectList?.length > 0">
       <table class="table table-borderless client-table">
         <thead>
           <tr>

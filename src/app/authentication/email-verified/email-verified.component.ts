@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AuthService } from 'src/services/data/auth/auth.service';
 
 @Component({
@@ -10,22 +11,21 @@ import { AuthService } from 'src/services/data/auth/auth.service';
 export class EmailVerifiedComponent implements OnInit {
   initialMessage = true;
   successMessage = false;
+  // messageDescription: any;
   verificationUrl: any;
   userId: any;
   userCode: any;
   constructor(
     private route: ActivatedRoute,
-    private authService: AuthService
+    private authService: AuthService,
+    private notifyService: NotificationsService
   ) { }
 
   ngOnInit() {
     this.verificationUrl = this.route.snapshot.queryParams;
-    console.log(this.verificationUrl);
     const {userId, code} = this.verificationUrl;
     this.userId = userId;
     this.userCode = code;
-    console.log('user id', this.userId);
-    console.log('user cdde', this.userCode);
     this.veryifyUserEmail();
   }
 
@@ -33,12 +33,16 @@ export class EmailVerifiedComponent implements OnInit {
   veryifyUserEmail() {
     this.authService.verifyUserEmail(this.userId, this.userCode).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('emial verification good', data.payload);
+        // console.log('emial verification good', data.payload);
+        // this.messageDescription = data.description;
+        this.successMessage = true;
+        this.initialMessage = false;
       } else {
-        console.log(data)
+        console.log(data);
       }
     }, error => {
-      console.log(error.error);
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+
     });
   }
 

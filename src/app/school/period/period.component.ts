@@ -28,6 +28,8 @@ export class PeriodComponent implements OnInit {
     });
     const periods = JSON.parse(sessionStorage.getItem('periods'));
     this.periodName = periods;
+    console.log('periods', this.periodName);
+
     this.notify();
 
 
@@ -56,7 +58,7 @@ export class PeriodComponent implements OnInit {
     document.getElementById('myModal').click();
     this.periods.push(results);
     this.periodName = this.periods;
-    console.log(this.periodName);
+    console.log('periods', this.periodName);
     // this.addPeriodForm.reset();
   }
 
