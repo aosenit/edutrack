@@ -121,6 +121,7 @@
 svg g#icon {
     fill: #ffffff;
     transition: .3s ease-in-out;
+    font-weight: bold;
 }
 
 #sidebar ul li a.nav-link .ico {

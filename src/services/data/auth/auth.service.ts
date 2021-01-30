@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   verifyUserEmail(userId, code) {
-    const url = `${this.baseUrl + routes.verifyEmail}?userId=${userId}?code=${code}`;
+    const url = `${this.baseUrl + routes.verifyEmail}?userId=${userId}&code=${code}`;
     return this.http.get(url);
 
   }

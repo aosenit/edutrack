@@ -398,15 +398,12 @@ export class ScoreSheetComponent implements OnInit {
 
   checkTableCellStatus() {
     const cellCheck = document.querySelectorAll('.scores');
-    console.log(cellCheck);
 
     cellCheck.forEach((element: any) => {
       console.log(element.innerText);
       if (element.innerText === '') {
-        console.log('no be all complete');
         this.hideBtn = false;
       } else {
-        console.log('we complete');
         this.hideBtn = true;
       }
     });

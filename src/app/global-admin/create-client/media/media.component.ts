@@ -114,44 +114,59 @@ export class MediaComponent implements OnInit {
 }
 
 
-  handleImgUpload(event: any) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      // console.log('file', file);
+handleImgUpload(event: any) {
+  if (event.target.files.length > 0) {
+    const file = event.target.files[0];
+    console.log('file', file);
+    // this.iconname = this.icon.name;
+    const size = event.target.files[0].size;
+    if (size >=  1048576 ) {
+      this.notifyService.publishMessages('File size too large', 'danger', 1);
+    } else {
       this.logoname = file.name;
       this.mediaForm.get('logo').setValue(file);
-      // this.iconname = this.icon.name;
-      const size = event.target.files[0].size;
-      if (size >=  1048576 ) {
-        this.notifyService.publishMessages('File size too large', 'danger', 1);
-      } else {
-        this.DocumentTypes.push(0);
-      }
-      if (this.DocumentTypes.length > 1) {
-        this.DocumentTypes.shift();
-      }
+      this.DocumentTypes.push(0);
+
     }
   }
+}
 
-  handleIconUpload(event: any) {
+handleIconUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       // console.log('file', file);
-      this.iconname = file.name;
-      this.mediaForm.get('icon').setValue(file);
-      console.log('init doc ', this.DocumentTypes);
       const size = event.target.files[0].size;
       if (size >=  1048576 ) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
       } else {
+        this.iconname = file.name;
+        this.mediaForm.get('icon').setValue(file);
         this.DocumentTypes.push(1);
-      }
-      if (this.DocumentTypes.length > 1) {
-        this.DocumentTypes.shift();
+
       }
       // this.iconname = this.icon.name;
     }
   }
+  // handleIconUpload(event: any) {
+  //   if (event.target.files.length > 0) {
+  //     const file = event.target.files[0];
+  //     // console.log('file', file);
+  //     this.iconname = file.name;
+  //     this.mediaForm.get('icon').setValue(file);
+  //     console.log('init doc ', this.DocumentTypes);
+  //     const size = event.target.files[0].size;
+  //     if (size >=  1048576 ) {
+  //       this.notifyService.publishMessages('File size too large', 'danger', 1);
+  //     } else {
+  //       this.DocumentTypes.push(1);
+  //       console.log(this.DocumentTypes);
+
+  //     }
+  //     if (this.DocumentTypes.length > 1) {
+  //       this.DocumentTypes.shift();
+  //     }
+  //   }
+  // }
 
   prevStep() {
     this.home.stepper(3);
