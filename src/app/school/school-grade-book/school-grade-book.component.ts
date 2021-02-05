@@ -92,6 +92,8 @@ export class SchoolGradeBookComponent implements OnInit {
   getSubjectsAndStudents(id) {
     console.log('class id ');
     this.Classid = id;
+    sessionStorage.setItem('class-id', this.Classid);
+
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.className = data.payload[0].class;
@@ -178,6 +180,11 @@ export class SchoolGradeBookComponent implements OnInit {
     }, error => {
       this.notifyService.publishMessages(error.payload, 'danger', 1);
     });
+  }
+
+  saveStudentDetails(u) {
+    console.log(this.studentData[u]);
+    sessionStorage.setItem('student-details', JSON.stringify(this.studentData[u]) );
   }
 
 }

@@ -14,7 +14,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AccountSettingsComponent implements OnInit {
   users = true;
-  roles = false;
+  roles = true;
   allRoles: any;
   allStaffs: any;
   newList: any;
@@ -73,10 +73,10 @@ export class AccountSettingsComponent implements OnInit {
     this.roles = true;
   }
 
-  showUsers() {
-    this.users = true;
-    this.roles = false;
-  }
+  // showUsers() {
+  //   this.users = true;
+  //   this.roles = false;
+  // }
 
 
   getRolesPermissions() {

@@ -16,6 +16,7 @@ export class SchoolComponent implements OnInit {
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
+    console.log(this.adminDetails);
   }
 
   logOut() {

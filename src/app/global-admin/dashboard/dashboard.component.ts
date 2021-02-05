@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   registeredSchools: any;
   schoolCount: any;
   studentCount: any;
+  greet: any;
   p = 1;
   itemsPerPage = 5;
 
@@ -21,6 +22,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
+    this.greeting();
     this.getAllSchool();
     this.getAllStudents();
   }
@@ -42,6 +44,20 @@ export class DashboardComponent implements OnInit {
         console.log(this.studentCount);
       }
     );
+  }
+
+  greeting() {
+    const myDate = new Date();
+    const hrs = myDate.getHours();
+
+
+    if (hrs < 12) {
+      this.greet = 'Good Morning';
+    } else if (hrs >= 12 && hrs <= 17) {
+      this.greet = 'Good Afternoon';
+    } else if (hrs >= 17 && hrs <= 24) {
+      this.greet = 'Good Evening';
+    }
   }
 
 }

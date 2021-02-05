@@ -60,7 +60,7 @@ const routes: Routes = [
       { path: 'school-manager-settings', component: SchoolManagerSettingsComponent },
       { path: 'user', component: UsersComponent },
       { path: 'grade-book', component: SchoolGradeBookComponent },
-      { path: 'student-sheet', component: StudentSheetComponent },
+      { path: 'student-sheet/:id', component: StudentSheetComponent },
       { path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },
       { path: 'edit-student/:id', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },
       { path: 'add-parents', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule) },

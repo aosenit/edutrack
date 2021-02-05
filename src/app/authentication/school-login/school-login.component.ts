@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/services/data/auth/auth.service';
 import { NotificationsService } from './../../../services/classes/notifications/notifications.service';
 
 
@@ -17,6 +18,7 @@ export class SchoolLoginComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router,
               private notifyService: NotificationsService,
+              private authService: AuthService
               ) { }
 
     ngOnInit() {
@@ -31,9 +33,34 @@ export class SchoolLoginComponent implements OnInit {
       this.submitted = true;
       return;
     } else {
-      console.log('login successful', this.schoolLoginForm.value);
-      this.notifyService.publishMessages('login successful', 'success', 1);
-      this.router.navigateByUrl('/school');
+      // this.authService.loginAdmin(this.LoginForm.value).subscribe((data: any) => {
+      //   if (data) {
+      //     localStorage.setItem('access_token', data.access_token);
+      //     this.notifyService.publishMessages('Login successful', 'success', 1);
+
+      //     const helper = new JwtHelperService();
+      //     this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
+
+      //     if (this.loggedInUser.email === 'tester@gmail.com') {
+      //       this.router.navigateByUrl('/admin');
+      //     } else if (this.loggedInUser.email === 'tosin@sbsc.com') {
+      //       this.router.navigateByUrl('/school');
+
+      //     } else if (this.loggedInUser.email === 'a@sbscm.com') {
+      //       this.router.navigateByUrl('/teacher');
+
+      //     } else if (this.loggedInUser.email === 'emmanuel@school.com') {
+      //       this.router.navigateByUrl('/student');
+
+      //     } else {
+      //       this.router.navigateByUrl('/school');
+
+      //     }
+      //   }
+      // },
+      //   error => {
+      //     this.notifyService.publishMessages(error.message, 'danger', 1);
+      //   });
       // location.reload();
     }
   }

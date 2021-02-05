@@ -9,7 +9,7 @@
         <ul class="list-unstyled components">
 
             <li class="nav-item mb-2">
-                <a href="#" class="nav-link" [routerLink]="['/school/dashboard']" [routerLinkActive]="['active']">
+                <a href="#" class="nav-link" [routerLink]="['/school']" [routerLinkActive]="['active']">
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="Group d">
@@ -426,7 +426,7 @@
                                 <div class="profile-intials"> <p> SO </p></div>
                                 <div class="pl-3">
                                     <p class="mb-0">{{adminDetails.given_name}} {{adminDetails.family_name}}</p>
-                                    <small>School Owner</small>
+                                    <small *ngIf="adminDetails.role !== null ">{{ adminDetails.role | titlecase}}</small>
                                 </div>
                             </div>
 

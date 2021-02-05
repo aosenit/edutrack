@@ -140,7 +140,7 @@ export class TeacherService {
   getAttachedSubjects(id: any) {
     // const tenantId = '1'; // just a temporary header till email services is ready
 
-    const url = `${this.baseUrl + routes.getteacherdesignation}/${id}`;
+    const url = `${this.baseUrl + routes.getteacherdesignation}?teacherid=${id}`;
 
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 

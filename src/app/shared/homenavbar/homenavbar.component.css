@@ -37,3 +37,7 @@ nav.navbar ul .nav-item a{
     line-height: 16px;
     color: #EFF1F3;
 }
+
+.droppy {
+    z-index: 99999;
+}

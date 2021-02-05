@@ -15,6 +15,7 @@ import { NewClientComponent } from './new-client/new-client.component';
 import { UsersComponent } from './users/users.component';
 import { GlobalAdminComponent } from './global-admin.component';
 import { NewroleComponent } from './newrole/newrole.component';
+import { LaterThingsComponent } from './later-things/later-things.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { NewroleComponent } from './newrole/newrole.component';
     NewClientComponent,
     UsersComponent,
     GlobalAdminComponent,
-    NewroleComponent],
+    NewroleComponent,
+    LaterThingsComponent],
   imports: [
     CommonModule,
     FormsModule,

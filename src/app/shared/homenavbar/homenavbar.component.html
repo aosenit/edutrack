@@ -1,9 +1,19 @@
 <div class="top">
     <div class="container">
         <div class="d-flex justify-content-end">
-            <button class="btn login-button px-3 mr-3" routerLink="/login">
+            <button class="btn login-button px-3 mr-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 School login
             </button>
+            <div class="dropdown-menu droppy" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" routerLink="/login">Global Admin</a>
+                <a class="dropdown-item" routerLink="/school/login">School Owner</a>
+                <a class="dropdown-item" routerLink="/teacher/login">Teacher</a>
+                <a class="dropdown-item" routerLink="/student/login">Student</a>
+                <!-- <a class="dropdown-item" href="#">Parent</a> -->
+              </div>
+            <!-- <button class="btn login-button px-3 mr-3" routerLink="/login">
+                School login
+            </button> -->
             <button class="btn login-button px-3" routerLink="/forgotpassword">
                 Create Account
             </button>

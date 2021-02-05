@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AuthService } from 'src/services/data/auth/auth.service';
 
@@ -18,7 +18,8 @@ export class EmailVerifiedComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private authService: AuthService,
-    private notifyService: NotificationsService
+    private notifyService: NotificationsService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,17 +27,26 @@ export class EmailVerifiedComponent implements OnInit {
     const {userId, code} = this.verificationUrl;
     this.userId = userId;
     this.userCode = code;
-    this.veryifyUserEmail();
+    if (this.userId === undefined) {
+      this.initialMessage = true;
+    } else {
+
+      this.veryifyUserEmail();
+    }
   }
 
 
   veryifyUserEmail() {
     this.authService.verifyUserEmail(this.userId, this.userCode).subscribe((data: any) => {
-      if (data.hasErrors === false) {
+      if (data.hasErrors === false ) {
         // console.log('emial verification good', data.payload);
         // this.messageDescription = data.description;
+        sessionStorage.setItem('tk', data.payload);
         this.successMessage = true;
         this.initialMessage = false;
+        setTimeout(() => {
+          this.router.navigateByUrl('/reset-password');
+        }, 2000);
       } else {
         console.log(data);
       }

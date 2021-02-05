@@ -7,6 +7,7 @@ import { ClientsComponent } from './clients/clients.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { GlobalAdminComponent } from './global-admin.component';
+import { LaterThingsComponent } from './later-things/later-things.component';
 import { NewClientComponent } from './new-client/new-client.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { NewroleComponent } from './newrole/newrole.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'newuser', component: NewUserComponent },
       { path: 'new-role', component: NewroleComponent },
       {path: 'edit-user', component: EditUserComponent},
+      {path: 'coming-soon', component: LaterThingsComponent},
       {path: 'create-client', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
       {path: 'edit-client/:id', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
 

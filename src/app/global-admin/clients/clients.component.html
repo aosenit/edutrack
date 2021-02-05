@@ -56,60 +56,60 @@
             class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
           <!-- ================ DROPDOWN ==================== -->
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item filter-title" href="#">FILTER BY: CLIENT</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item fc-orange" href="#">All </a>
             <a class="dropdown-item" href="#">A - Z </a>
             <a class="dropdown-item" href="#">Z - A </a>
-          </div>
+          </div> -->
         </th>
         <th scope="col">Client Code </th>
         <th scope="col">Users <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle"
             type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <!-- ================ DROPDOWN ==================== -->
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+          <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
             <a class="dropdown-item filter-title" href="#">FILTER BY: USERS</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item fc-orange" href="#">All </a>
             <a class="dropdown-item" href="#">Highest </a>
             <a class="dropdown-item" href="#">Lowest </a>
-          </div>
+          </div> -->
         </th>
         <th scope="col">State <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle"
             type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <!-- ================ DROPDOWN ==================== -->
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+          <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
             <a class="dropdown-item filter-title" href="#">FILTER BY: LOCATION</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item fc-orange" href="#">All </a>
             <a class="dropdown-item" href="#">Abuja </a>
             <a class="dropdown-item" href="#">Lagos </a>
             <a class="dropdown-item" href="#">Ogun </a>
-          </div>
+          </div> -->
         </th>
         <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle"
             type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <!-- ================ DROPDOWN ==================== -->
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+          <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
             <a class="dropdown-item filter-title" href="#">FILTER BY: STATUS</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item fc-orange" href="#">All </a>
             <a class="dropdown-item" href="#">Active </a>
             <a class="dropdown-item" href="#">Inactive </a>
-          </div>
+          </div> -->
         </th>
         <th scope="col">Date Added <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
             class="dropdown-toggle" type="button" id="dropdownMenuButton5" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
           <!-- ================ DROPDOWN ==================== -->
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+          <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
             <a class="dropdown-item filter-title" href="#">FILTER BY: DATE</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item fc-orange" href="#">All </a>
             <a class="dropdown-item" href="#">Newest </a>
             <a class="dropdown-item" href="#">Oldest </a>
-          </div>
+          </div> -->
         </th>
         <th scope="col"></th>
         <th scope="col">Action</th>
@@ -160,7 +160,7 @@
               </a></button>
           </td>
           <td class="rounded-right ">
-            <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle drop-bg" type="button"
+            <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle drop-bg pt-3" type="button"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="dropdown-menu">
 
@@ -227,13 +227,12 @@
       <div class="modal-body client-modal">
         <form [formGroup]="bulkUpload" (ngSubmit)="UploadBulkFile()">
           <div class="form-group file-upload mt-4 mb-3">
-            <label for="fileupload" *ngIf="filename === null; else bulkFile">Drag files to upload or click</label>
+            <label for="fileupload" *ngIf="filename === null">Drag files to upload or click</label>
+            <label for="fileupload" *ngIf="filename !== null">{{filename}}</label>
             <p class="text-center">
               <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add Files </button>
             </p>
-            <ng-template #bulkFile class="mt-5">
-              <label for="fileupload"> {{filename}} </label>
-            </ng-template>
+            
             <input type="file" class="file-input" id="fileupload"
               accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
               (change)="handleBulkUpload($event)">

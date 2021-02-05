@@ -4,7 +4,7 @@
     <p class=""> Adjust school settings </p>
   </div>
   <div class="d-flex">
-    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
     <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
       data-target="#exampleModalCenterLevel"> Add New </button>
   </div>
@@ -17,7 +17,7 @@
     <p class=""> Adjust school settings </p>
   </div>
   <div class="d-flex">
-    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
     <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
       data-target="#exampleModalCenterClass"> Add New </button>
   </div>
@@ -31,7 +31,7 @@
     <p class=""> Adjust school settings </p>
   </div>
   <div class="d-flex">
-    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
     <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
       data-target="#exampleModalCenterArm"> Add New </button>
   </div>
@@ -45,7 +45,7 @@
     <p class=""> Adjust school settings </p>
   </div>
   <div class="d-flex">
-    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
     <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
       data-target="#exampleModalCenterSubject"> Add New </button>
   </div>
@@ -118,31 +118,33 @@
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
             </th> -->
-            <th scope="col">Section <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+            <th scope="col" class="w-50">Level 
+              <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
                 class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
+                aria-haspopup="true" aria-expanded="false"> -->
               <!-- ================ DROPDOWN ==================== -->
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item filter-title" href="#">FILTER BY: CLIENT</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item fc-orange" href="#">All </a>
                 <a class="dropdown-item" href="#">A - Z </a>
                 <a class="dropdown-item" href="#">Z - A </a>
-              </div>
+              </div> -->
             </th>
             <th scope="col">Sequence </th>
 
-            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+            <th scope="col">Status 
+              <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
                 class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
+                aria-haspopup="true" aria-expanded="false"> -->
               <!-- ================ DROPDOWN ==================== -->
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+              <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
                 <a class="dropdown-item filter-title" href="#">FILTER BY: STATUS</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item fc-orange" href="#">All </a>
                 <a class="dropdown-item" href="#">Active </a>
                 <a class="dropdown-item" href="#">Inactive </a>
-              </div>
+              </div> -->
             </th>
             <th scope="col"></th>
           </tr>
@@ -163,15 +165,20 @@
             <td class="">1</td>
             <td><span class="status_active">Active</span></td>
             <td class="rounded-right ">
-              <div class="dropdown show">
-                <img src="assets/images/svg/more-action.svg" class="dropdown-toggle" data-toggle="dropdown"
+              <div class="">
+                <!-- <img src="assets/images/svg/more-action.svg" class="dropdown-toggle" data-toggle="dropdown"
                   alt="schools log">
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterEditLevel"
-                    (click)="getSection(level.id)">Edit Section</a>
-                  <a class="dropdown-item" (click)="deleteSection(level.id)">Delete Section</a>
+                    (click)="getSection(level.id)">Edit Level</a>
+                  <a class="dropdown-item" (click)="deleteSection(level.id)">Delete Level</a>
 
-                </div>
+                </div> -->
+                <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+                (click)="getSection(level.id)"
+                data-toggle="modal" data-target="#exampleModalCenterEditLevel"> Edit Level</button>
+                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                (click)="deleteSection(level.id)"> Delete Level </button>
               </div>
             </td>
           </tr>
@@ -238,16 +245,21 @@
               <span class="status_active" *ngIf="class?.status == false">Inactive</span>
             </td>
             <td class="rounded-right ">
-              <div class="dropdown show">
-                <img src="assets/images/svg/more-action.svg" class="dropdown-toggle" data-toggle="dropdown"
+              <!-- <div class="dropdown show"> -->
+                <!-- <img src="assets/images/svg/more-action.svg" class="dropdown-toggle" data-toggle="dropdown"
                   alt="schools log">
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterEditClass"
                     (click)="getClassById(class.id)">Edit Class</a>
                   <a class="dropdown-item" (click)="deleteClass(class.id)">Delete Class</a>
 
-                </div>
-              </div>
+                </div> -->
+              <!-- </div> -->
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+              data-toggle="modal" data-target="#exampleModalCenterEditClass"
+              (click)="getClassById(class.id)"> Edit Class</button>
+                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                (click)="deleteClass(class.id)"> Delete Class </button>
             </td>
           </tr>
 
@@ -297,14 +309,19 @@
             <td><span *ngIf="arm.status == true" class="status_active">Active</span>
               <span *ngIf="arm.status == false" class="status_inactive">Inactive</span></td>
             <td class="rounded-right ">
-              <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle" type="button"
-                id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <!-- <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle" type="button"
+                id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
               <!-- ================ DROPDOWN ==================== -->
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+              <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
                 <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditArm"
                   (click)="getArmById(arm.id)">Edit Arm </a>
                 <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete Arm</a>
-              </div>
+              </div> -->
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+              data-toggle="modal" data-target="#exampleModalEditArm"
+                  (click)="getArmById(arm.id)"> Edit Arm</button>
+                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                (click)="deleteArm(arm.id)"> Delete Arm </button>
             </td>
           </tr>
 
@@ -336,7 +353,7 @@
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
             </th>
-            <th scope="col" class="w-60">Subject <img src="assets/images/svg/table-sort.svg"> </th>
+            <th scope="col" class="w-50">Subject <img src="assets/images/svg/table-sort.svg"> </th>
             <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>
             <th scope="col"></th>
           </tr>
@@ -356,7 +373,13 @@
               <span class="status_active" *ngIf="subject.isActive == true">Active</span>
               <span class="status_active" *ngIf="subject.isActive == false">Inactive</span>
             </td>
-            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+            <td class="rounded-right ">
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+              
+                  > Edit Subject</button>
+                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                > Delete Subject </button>
+            </td>
           </tr>
 
 
@@ -440,7 +463,7 @@
 
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
-          <h6 class="modal-title fc-lblue">Add New Section</h6>
+          <h6 class="modal-title fc-lblue">Add New Level</h6>
           <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
             class="close">
 
@@ -449,7 +472,7 @@
       </div>
       <div class="modal-body client-modal">
         <div class="form-group mb-4">
-          <label for="level" class="">Section</label>
+          <label for="level" class="">Level</label>
           <input type="text" id="level" class="form-control" placeholder="Enter level" [(ngModel)]="section">
         </div>
         <!-- <div class="form-group mb-5">
@@ -488,7 +511,7 @@
 
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
-          <h6 class="modal-title fc-lblue">Edit Section</h6>
+          <h6 class="modal-title fc-lblue">Edit Level</h6>
           <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
             class="close" id="editSectionModal">
 
@@ -497,7 +520,7 @@
       </div>
       <div class="modal-body client-modal">
         <div class="form-group mb-4">
-          <label for="level" class="">Section</label>
+          <label for="level" class="">Level</label>
           <input type="text" id="level" class="form-control" [(ngModel)]="theLevel.name">
         </div>
         <!-- <div class="form-group mb-5">
@@ -515,7 +538,7 @@
         <div class="d-flex justify-content-center mb-3">
           <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
           </button>
-          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editSection()"> Update Section</button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editSection()"> Update Level</button>
         </div>
       </div>
 

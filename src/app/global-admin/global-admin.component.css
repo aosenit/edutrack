@@ -14,6 +14,10 @@
     color: #EDF7F6;
     z-index: 9;
 }
+.sidebar {
+    width: 0 !important;
+    display: none;
+}
 
 #sidebar.active {
     min-width: 80px;
@@ -29,6 +33,11 @@
     transition: margin-left .3s !important;
     background: #EBF0F5;
     min-height: 100vh;
+}
+
+.content {
+    margin-left: 0 !important;
+    width: 100%;
 }
 
 #content header {
@@ -77,8 +86,9 @@
 
 #sidebar ul li a.nav-link svg path#Vector,
 #sidebar ul li a.nav-link svg g#icon {
-    fill: #94B3D1;
-    opacity: .3;
+    /* fill: #94B3D1; */
+    fill: #ffffff;
+    /* opacity: .3; */
     transition: .3s ease-in-out;
 }
 
