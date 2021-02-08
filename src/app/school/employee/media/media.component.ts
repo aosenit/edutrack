@@ -64,7 +64,12 @@ export class MediaComponent implements OnInit {
       console.log('employee added', data);
       if ( data.hasErrors === false ) {
         this.notifyService.publishMessages(data.description, 'info', 1);
-        sessionStorage.clear();
+        sessionStorage.removeItem('Personal-Data');
+        sessionStorage.removeItem('Employee-Data');
+        sessionStorage.removeItem('employee-contact-details');
+        sessionStorage.removeItem('employee-education');
+        sessionStorage.removeItem('employee-next-kin');
+        sessionStorage.removeItem('employee-experience');
         this.router.navigateByUrl('/school/employees');
       }
     }, error => {
@@ -78,7 +83,12 @@ export class MediaComponent implements OnInit {
         console.log('employee added', data);
         if ( data.hasErrors === false ) {
           this.notifyService.publishMessages(data.description, 'info', 1);
-          sessionStorage.clear();
+          sessionStorage.removeItem('Personal-Data');
+          sessionStorage.removeItem('Employee-Data');
+          sessionStorage.removeItem('employee-contact-details');
+          sessionStorage.removeItem('employee-education');
+          sessionStorage.removeItem('employee-next-kin');
+          sessionStorage.removeItem('employee-experience');
           this.router.navigateByUrl('/school/employees');
         }
       }, error => {

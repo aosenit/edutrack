@@ -64,4 +64,13 @@ searchString: string;
   //   });
   // }
 
+  clearData() {
+    sessionStorage.removeItem('Personal-Data');
+    sessionStorage.removeItem('Employee-Data');
+    sessionStorage.removeItem('employee-contact-details');
+    sessionStorage.removeItem('employee-education');
+    sessionStorage.removeItem('employee-next-kin');
+    sessionStorage.removeItem('employee-experience');
+  }
+
 }

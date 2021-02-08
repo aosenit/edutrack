@@ -22,6 +22,13 @@
   font-weight: 400;
 }
 
+.last-login {
+  color: #ffffff;
+  font-size: 14px;
+  font-family: Nunito;
+
+}
+
 .cards {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
