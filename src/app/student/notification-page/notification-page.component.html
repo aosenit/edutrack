@@ -253,14 +253,17 @@
           <p class="fw-6 init">Assignment Details</p>
 
           <div class="form-group file-upload mb-5">
-            <label for="fileupload">Drag & drop your files here <br> or click to browse your files </label>
+            <label for="fileupload" *ngIf="assignmentFile === null; else bulkFile">Drag & drop your files here <br> or click to browse your files </label>
+            <ng-template #bulkFile class="mt-5">
+              <label for="fileupload"> {{assignmentFile}} </label>
+            </ng-template>
             <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)">
             <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
           </div>
 
           <div class="form-group mb-3">
             <!-- <label for="message">Optional message</label> -->
-            <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+            <!-- <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor> -->
 
           </div>
 

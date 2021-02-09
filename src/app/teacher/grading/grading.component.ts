@@ -45,8 +45,12 @@ export class GradingComponent implements OnInit {
     this.assignmentservice.updateComment(result).subscribe((data: any) => {
       console.log(data);
       if (data.hasErrors === false) {
-        console.log(data);
+        this.notifyService.publishMessages('Comment successful', 'success', 1);
+
       }
+    }, error => {
+      this.notifyService.publishMessages(error.error, 'success', 1);
+
     });
 
   }

@@ -32,10 +32,13 @@
     cursor: pointer;
 }
 
-.notice-board {
+.notice-board, .regrade {
     background: #0052B4;
 }
 
+.regrade {
+    color: #ffffff;
+}
 
 .notice-board .btn-orange-two {
     background: #fb882c;

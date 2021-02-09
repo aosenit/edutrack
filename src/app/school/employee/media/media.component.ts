@@ -40,7 +40,7 @@ export class MediaComponent implements OnInit {
   }
 
   createEmployee() {
-    const profile = JSON.parse(sessionStorage.getItem('Personal-Data'));
+    const profile = JSON.parse(sessionStorage.getItem('employee-personal-data'));
     const details = JSON.parse(sessionStorage.getItem('Employee-Data'));
     const contactperson =  JSON.parse(sessionStorage.getItem('employee-contact-details'));
     const education =  JSON.parse(sessionStorage.getItem('employee-education'));
@@ -59,42 +59,42 @@ export class MediaComponent implements OnInit {
     };
     // const {StaffType} = details;
     if (result.StaffType === '1') {
-      console.log('all employee data', result.staff);
-      this.teacherService.addTeacher(result).subscribe((data: any) => {
-      console.log('employee added', data);
-      if ( data.hasErrors === false ) {
-        this.notifyService.publishMessages(data.description, 'info', 1);
-        sessionStorage.removeItem('Personal-Data');
-        sessionStorage.removeItem('Employee-Data');
-        sessionStorage.removeItem('employee-contact-details');
-        sessionStorage.removeItem('employee-education');
-        sessionStorage.removeItem('employee-next-kin');
-        sessionStorage.removeItem('employee-experience');
-        this.router.navigateByUrl('/school/employees');
-      }
-    }, error => {
-      this.notifyService.publishMessages(error.errors[0], 'danger', 1);
+      console.log('all employee data', result);
+    //   this.teacherService.addTeacher(result).subscribe((data: any) => {
+    //   console.log('employee added', data);
+    //   if ( data.hasErrors === false ) {
+    //     this.notifyService.publishMessages(data.description, 'info', 1);
+    //     sessionStorage.removeItem('employee-personal-data');
+    //     sessionStorage.removeItem('Employee-Data');
+    //     sessionStorage.removeItem('employee-contact-details');
+    //     sessionStorage.removeItem('employee-education');
+    //     sessionStorage.removeItem('employee-next-kin');
+    //     sessionStorage.removeItem('employee-experience');
+    //     this.router.navigateByUrl('/school/employees');
+    //   }
+    // }, error => {
+    //   this.notifyService.publishMessages(error.errors[0], 'danger', 1);
 
-    });
+    // });
 
     } else {
       console.log('all employee data', result);
-      this.staffService.addStaff(result).subscribe((data: any) => {
-        console.log('employee added', data);
-        if ( data.hasErrors === false ) {
-          this.notifyService.publishMessages(data.description, 'info', 1);
-          sessionStorage.removeItem('Personal-Data');
-          sessionStorage.removeItem('Employee-Data');
-          sessionStorage.removeItem('employee-contact-details');
-          sessionStorage.removeItem('employee-education');
-          sessionStorage.removeItem('employee-next-kin');
-          sessionStorage.removeItem('employee-experience');
-          this.router.navigateByUrl('/school/employees');
-        }
-      }, error => {
-        this.notifyService.publishMessages(error.errors, 'danger', 1);
+    //   this.staffService.addStaff(result).subscribe((data: any) => {
+    //     console.log('employee added', data);
+    //     if ( data.hasErrors === false ) {
+    //       this.notifyService.publishMessages(data.description, 'info', 1);
+    //       sessionStorage.removeItem('employee-personal-data');
+    //       sessionStorage.removeItem('Employee-Data');
+    //       sessionStorage.removeItem('employee-contact-details');
+    //       sessionStorage.removeItem('employee-education');
+    //       sessionStorage.removeItem('employee-next-kin');
+    //       sessionStorage.removeItem('employee-experience');
+    //       this.router.navigateByUrl('/school/employees');
+    //     }
+    //   }, error => {
+    //     this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-      });
+    //   });
     }
 
   }

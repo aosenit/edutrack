@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AuthService } from 'src/services/data/auth/auth.service';
+import { MustMatch } from 'src/services/utils/mustMatch';
 
 @Component({
   selector: 'app-reset-password',
@@ -24,6 +25,9 @@ export class ResetPasswordComponent implements OnInit {
     this.validationToken = sessionStorage.getItem('tk');
     this.resetPasswordForm = this.fb.group({
       password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
+    }, {
+      validator: MustMatch('password', 'confirmPassword')
     });
   }
 

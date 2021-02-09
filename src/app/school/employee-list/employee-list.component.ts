@@ -65,7 +65,7 @@ searchString: string;
   // }
 
   clearData() {
-    sessionStorage.removeItem('Personal-Data');
+    sessionStorage.removeItem('employee-personal-data');
     sessionStorage.removeItem('Employee-Data');
     sessionStorage.removeItem('employee-contact-details');
     sessionStorage.removeItem('employee-education');

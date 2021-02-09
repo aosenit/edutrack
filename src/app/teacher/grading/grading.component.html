@@ -4,17 +4,18 @@
             <div class="row">
                 <div class="col-md-12 top-bar p-3">
                     <div class="row align-items-center">
-                        <div class="col-md-9 ">
+                        <div class="col-md-6 ">
                             <div class="d-flex align-items-center cursor-pointer" (click)="back()">
                                 <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
                                 <p class="mb-0">Back</p>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <div class="d-flex align-items-center">
                                 <p class="mb-0">Score</p>
-                                <form class="pl-2" [formGroup]="scoreForm" (ngSubmit)="submitScore()">
-                                    <input type="number" id="" class="form-control"  formControlName="score">
+                                <form class="pl-2 form-inline" [formGroup]="scoreForm" (ngSubmit)="submitScore()">
+                                    <input type="number" id="" class="form-control "  formControlName="score">
+                                    <button class="btn regrade  ml-2">Submit</button>
                                 </form>
                             </div>
                         </div>
