@@ -101,8 +101,8 @@
                         alt="schools log" class="dropdown-toggle cursor-pointe mt-3 r" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" routerLink="/school/employee-detail/{{staff?.id}}">View</a>
-                            <!-- <a class="dropdown-item"  >Edit</a> -->
-                            <a class="dropdown-item" href="#">Deactivate</a>
+                            <a class="dropdown-item" (click)="editEmployee(staff.id)"  >Edit</a>
+                            <a class="dropdown-item" (click)="deleteEmployee(staff.id)" >Delete</a>
                           </div>
                      </td>
             </tr>

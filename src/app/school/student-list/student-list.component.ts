@@ -96,6 +96,17 @@ export class StudentListComponent implements OnInit {
     });
   }
 
+  deleteStudent(id) {
+    this.studentService.deleteStudentById(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        this.notifyService.publishMessages('Student deleted successfully', 'success', 1);
+        this.getAllStudents();
+
+      }
+    });
+  }
+
   clearData() {
     sessionStorage.removeItem('student-basic-details');
     sessionStorage.removeItem('student-social-details');

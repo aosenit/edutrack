@@ -2,6 +2,7 @@ import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular
 import { EmployeeComponent } from '../employee.component';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { countries } from '../../../../services/utils/country.json';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-personal-information',
@@ -18,11 +19,23 @@ export class PersonalInformationComponent implements OnInit {
   iconname = null;
   personalDetailsForm: FormGroup;
   toggleState: any;
-  constructor(private home: EmployeeComponent, private fb: FormBuilder) { }
+  constructor(
+    private home: EmployeeComponent,
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    ) { }
 
   ngOnInit() {
     this.sendChildName.emit('Personal Information');
     this.populatePersonalDataForm();
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.populatePersonalDataForm();
+      } else {
+        this.getProfileInformation();
+
+      }
+    });
     this.getActiveTabDetails();
   }
 
@@ -40,7 +53,7 @@ export class PersonalInformationComponent implements OnInit {
       Religion: ['', Validators.required],
       StateOfOrigin: ['', Validators.required],
       LocalGovernment: [''],
-      IsActive: ['']
+      IsActive: ['', Validators.required]
     });
   }
 
@@ -93,7 +106,7 @@ export class PersonalInformationComponent implements OnInit {
     this.personalDetails = JSON.parse( sessionStorage.getItem('employee-personal-data'));
 
     if (sessionStorage.getItem('employee-personal-data') !== null) {
-      // console.log(`School person exists`);
+      console.log(`School person exists`);
       this.personalDetailsForm.patchValue({
         FirstName: this.personalDetails.FirstName,
       LastName: this.personalDetails.LastName,
@@ -109,9 +122,27 @@ export class PersonalInformationComponent implements OnInit {
       IsActive: this.personalDetails.IsActive
       });
     } else {
-      // console.log(`School person not found`);
+      console.log(`School person not found`);
     }
 
+  }
+
+  getProfileInformation() {
+    const payload = JSON.parse(sessionStorage.getItem('all-employee-info'));
+    this.personalDetailsForm.patchValue({
+      FirstName: payload.firstName,
+    LastName: payload.lastName,
+    OtherNames: payload.otherNames,
+    DateOfBirth: payload.dateOfBirth,
+    Sex: payload.sex,
+    Nationality: payload.nationality,
+    MaritalStatus: payload.maritalStatus,
+    BloodGroup: payload.bloodGroup,
+    Religion: payload.religion,
+    StateOfOrigin: payload.stateOfOrigin,
+    LocalGovernment: [''],
+    IsActive: payload.isActive
+    });
   }
 
 }

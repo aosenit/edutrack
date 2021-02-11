@@ -35,6 +35,7 @@ import { SchoolGradeBookComponent } from './school-grade-book/school-grade-book.
 import { StudentSheetComponent } from './student-sheet/student-sheet.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { StudentResultSheetComponent } from './student-result-sheet/student-result-sheet.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { StudentResultSheetComponent } from './student-result-sheet/student-resu
                  SchoolGradeBookComponent,
                  StudentSheetComponent,
                  StudentResultSheetComponent,
+                 ComingSoonComponent,
                 ],
   imports: [
     CommonModule,

@@ -60,41 +60,41 @@ export class MediaComponent implements OnInit {
     // const {StaffType} = details;
     if (result.StaffType === '1') {
       console.log('all employee data', result);
-    //   this.teacherService.addTeacher(result).subscribe((data: any) => {
-    //   console.log('employee added', data);
-    //   if ( data.hasErrors === false ) {
-    //     this.notifyService.publishMessages(data.description, 'info', 1);
-    //     sessionStorage.removeItem('employee-personal-data');
-    //     sessionStorage.removeItem('Employee-Data');
-    //     sessionStorage.removeItem('employee-contact-details');
-    //     sessionStorage.removeItem('employee-education');
-    //     sessionStorage.removeItem('employee-next-kin');
-    //     sessionStorage.removeItem('employee-experience');
-    //     this.router.navigateByUrl('/school/employees');
-    //   }
-    // }, error => {
-    //   this.notifyService.publishMessages(error.errors[0], 'danger', 1);
+      this.teacherService.addTeacher(result).subscribe((data: any) => {
+      console.log('employee added', data);
+      if ( data.hasErrors === false ) {
+        this.notifyService.publishMessages(data.description, 'info', 1);
+        sessionStorage.removeItem('employee-personal-data');
+        sessionStorage.removeItem('Employee-Data');
+        sessionStorage.removeItem('employee-contact-details');
+        sessionStorage.removeItem('employee-education');
+        sessionStorage.removeItem('employee-next-kin');
+        sessionStorage.removeItem('employee-experience');
+        this.router.navigateByUrl('/school/employees');
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors[0], 'danger', 1);
 
-    // });
+    });
 
     } else {
       console.log('all employee data', result);
-    //   this.staffService.addStaff(result).subscribe((data: any) => {
-    //     console.log('employee added', data);
-    //     if ( data.hasErrors === false ) {
-    //       this.notifyService.publishMessages(data.description, 'info', 1);
-    //       sessionStorage.removeItem('employee-personal-data');
-    //       sessionStorage.removeItem('Employee-Data');
-    //       sessionStorage.removeItem('employee-contact-details');
-    //       sessionStorage.removeItem('employee-education');
-    //       sessionStorage.removeItem('employee-next-kin');
-    //       sessionStorage.removeItem('employee-experience');
-    //       this.router.navigateByUrl('/school/employees');
-    //     }
-    //   }, error => {
-    //     this.notifyService.publishMessages(error.errors, 'danger', 1);
+      this.staffService.addStaff(result).subscribe((data: any) => {
+        console.log('employee added', data);
+        if ( data.hasErrors === false ) {
+          this.notifyService.publishMessages(data.description, 'info', 1);
+          sessionStorage.removeItem('employee-personal-data');
+          sessionStorage.removeItem('Employee-Data');
+          sessionStorage.removeItem('employee-contact-details');
+          sessionStorage.removeItem('employee-education');
+          sessionStorage.removeItem('employee-next-kin');
+          sessionStorage.removeItem('employee-experience');
+          this.router.navigateByUrl('/school/employees');
+        }
+      }, error => {
+        this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-    //   });
+      });
     }
 
   }
@@ -114,10 +114,10 @@ export class MediaComponent implements OnInit {
       } else {
         this.DocumentTypes.push(2);
       }
-      if (this.DocumentTypes.length > 1) {
-        this.DocumentTypes.shift();
-        console.log(this.DocumentTypes);
-      }
+      // if (this.DocumentTypes.length > 1) {
+      //   this.DocumentTypes.shift();
+      //   console.log(this.DocumentTypes);
+      // }
     }
   }
 
@@ -133,10 +133,10 @@ export class MediaComponent implements OnInit {
       } else {
         this.DocumentTypes.push(8);
       }
-      if (this.DocumentTypes.length > 1) {
-        this.DocumentTypes.shift();
-        // console.log(this.DocumentTypes);
-      }
+        // if (this.DocumentTypes.length > 1) {
+        //   this.DocumentTypes.shift();
+        //   // console.log(this.DocumentTypes);
+        // }
       // this.iconname = this.icon.name;
     }
   }

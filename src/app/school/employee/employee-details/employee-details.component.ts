@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DepartmentService } from 'src/services/data/department/department.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-employee-details',
@@ -19,12 +20,22 @@ export class EmployeeDetailsComponent implements OnInit {
   constructor(
     private home: EmployeeComponent,
     private fb: FormBuilder,
-    private departmentService: DepartmentService
+    private departmentService: DepartmentService,
+    private route: ActivatedRoute,
+
   ) { }
 
   ngOnInit() {
     this.sendChildName.emit('Employee Details');
     this.populateEmployeeDetailsForm();
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.populateEmployeeDetailsForm();
+      } else {
+        this.getProfileInformation();
+
+      }
+    });
     this.getAllDepartments();
     this.getActiveDetailsTab();
 
@@ -90,6 +101,21 @@ export class EmployeeDetailsComponent implements OnInit {
     }
 
 
+  }
+
+  getProfileInformation() {
+    const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
+    console.log(payload.employeeDetails)
+    this.employeeForm.patchValue({
+      StaffType: payload.employmentDetails.staffType,
+      EmploymentStatus: payload.employmentDetails.employmentStatus,
+      HighestQualification: payload.employmentDetails.highestQualification,
+      JobTitle: payload.employmentDetails.jobTitle,
+      DepartmentId: payload.employmentDetails.departmentId,
+      PayGrade: payload.employmentDetails.payGrade,
+      EmploymentDate: payload.employmentDetails.employmentDate,
+      ResumptionDate: payload.employmentDetails.resumptionDate
+    });
   }
 
 

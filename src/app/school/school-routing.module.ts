@@ -5,6 +5,7 @@ import { TeacherGuard } from 'src/services/guards/teacher.guard';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
@@ -59,6 +60,7 @@ const routes: Routes = [
       { path: 'school-manager', component: SchoolManagerComponent },
       { path: 'school-manager-settings', component: SchoolManagerSettingsComponent },
       { path: 'user', component: UsersComponent },
+      { path: 'coming-soon', component: ComingSoonComponent },
       { path: 'grade-book', component: SchoolGradeBookComponent },
       { path: 'student-sheet/:id', component: StudentSheetComponent },
       { path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },

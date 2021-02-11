@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
 import { countries } from '../../../../services/utils/country.json';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -16,11 +17,22 @@ export class NextOfKinComponent implements OnInit {
   nexKinDetails: any;
 
   @Output() sendChildName = new EventEmitter<string>();
-  constructor(private home: EmployeeComponent, private fb: FormBuilder) { }
+  constructor(
+    private home: EmployeeComponent,
+    private fb: FormBuilder,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.sendChildName.emit('Next Of Kin Information');
     this.populateNextofKinForm();
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.populateNextofKinForm();
+      } else {
+        this.getProfileInformation();
+
+      }
+    });
     this.getAActiveTab();
   }
 
@@ -81,5 +93,21 @@ export class NextOfKinComponent implements OnInit {
     } else {
     }
 
+  }
+
+  getProfileInformation() {
+    const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
+    this.nextOfKinForm.patchValue({
+      NextKinFirstName: payload.nextOfKin.nextKinFirstName,
+      NextKinLastName: payload.nextOfKin.nextKinLastName,
+      NextKinOtherName: payload.nextOfKin.nextKinOtherName,
+      NextKinRelationship: payload.nextOfKin.nextKinRelationship,
+      NextKinOccupation: payload.nextOfKin.nextKinOccupation,
+      NextKinPhone: payload.nextOfKin.nextKinPhone,
+      NextKinCountry: payload.nextOfKin.nextKinCountry,
+      NextKinAddress: payload.nextOfKin.nextKinAddress,
+      NextKinState: payload.nextOfKin.nextKinState,
+      NextKinTown: payload.nextOfKin.nextKinTown
+    });
   }
 }

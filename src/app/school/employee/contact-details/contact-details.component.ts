@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
 import { countries } from '../../../../services/utils/country.json';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -17,11 +18,21 @@ export class ContactDetailsComponent implements OnInit {
   contactForm: FormGroup;
   contactDetails: any;
 
-  constructor(private home: EmployeeComponent, private fb: FormBuilder) { }
+  constructor(private home: EmployeeComponent, private fb: FormBuilder,
+              private route: ActivatedRoute,
+    ) { }
 
   ngOnInit() {
     this.sendChildName.emit('Contact Details');
     this.populateContactDetailsForm();
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.populateContactDetailsForm();
+      } else {
+        this.getProfileInformation();
+
+      }
+    });
     this.getActiveTabDetails();
 
   }
@@ -75,6 +86,20 @@ populateContactDetailsForm() {
       });
     } else {
     }
+  }
+
+  getProfileInformation() {
+    const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
+    this.contactForm.patchValue({
+        PhoneNumber: payload.contactDetails.phoneNumber,
+      AltPhoneNumber: payload.contactDetails.altPhoneNumber,
+      EmailAddress: payload.contactDetails.emailAddress,
+      AltEmailAddress: payload.contactDetails.altEmailAddress,
+      Country: payload.contactDetails.country,
+      Address: payload.contactDetails.address,
+      State: payload.contactDetails.state,
+      Town: payload.contactDetails.town
+    });
   }
 
 

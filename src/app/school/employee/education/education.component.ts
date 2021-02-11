@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
 import { countries } from '../../../../services/utils/country.json';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { ActivatedRoute, ActivationEnd, Params } from '@angular/router';
 
 
 @Component({
@@ -12,17 +13,29 @@ import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 export class EducationComponent implements OnInit {
   countries: any = countries;
   items: any;
+  educationalDetials: any;
   EmployeeEducationForm: FormGroup;
 
   @Output() sendChildName = new EventEmitter<string>();
-  constructor(private home: EmployeeComponent, private fb: FormBuilder) { }
+  constructor(
+    private home: EmployeeComponent, 
+    private fb: FormBuilder,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.sendChildName.emit('Education');
-    this.populateNextofKinForm();
+    this.populateEducationForm();
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.populateEducationForm();
+      } else {
+        this.getProfileInformation();
+
+      }
+    });
   }
 
-  populateNextofKinForm() {
+  populateEducationForm() {
     this.EmployeeEducationForm = this.fb.group({
       EducationExperienceVMs: this.fb.array([this.createItem()])
     });
@@ -52,6 +65,30 @@ export class EducationComponent implements OnInit {
       educationSchoolQualification: '',
       startDate: '',
       endDate: '',
+    });
+  }
+
+  getAActiveTab() {
+    this.educationalDetials = JSON.parse(sessionStorage.getItem('employee-education'));
+
+    if (sessionStorage.getItem('employee-next-kin') !== null) {
+      // console.log(`School person exists`);
+      this.EmployeeEducationForm.patchValue({
+        EducationExperienceVMs: this.educationalDetials.educationExperienceVMs,
+      });
+    } else {
+    }
+
+  }
+
+  getProfileInformation() {
+    const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < payload.educationExperienceVMs.length; i++) {
+      console.log('asasaass', payload.educationExperienceVMs[i]);
+    }
+    this.EmployeeEducationForm.patchValue({
+        EducationExperienceVMs: payload.educationExperienceVMs,
     });
   }
 

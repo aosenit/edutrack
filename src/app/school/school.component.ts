@@ -17,6 +17,7 @@ export class SchoolComponent implements OnInit {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
     console.log(this.adminDetails);
+
   }
 
   logOut() {
@@ -24,5 +25,15 @@ export class SchoolComponent implements OnInit {
     this.router.navigateByUrl('/');
 
   }
+
+  getInitials(input) {
+    const  names = input.split(' ');
+    let initials = names[0].substring(0, 1).toUpperCase();
+
+    if (names.length > 1) {
+        initials += names[names.length - 1].substring(0, 1).toUpperCase();
+    }
+    return initials;
+}
 
 }
