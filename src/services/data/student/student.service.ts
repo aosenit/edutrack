@@ -6,8 +6,8 @@ const routes = {
   getallstudent: 'schtrack-auth/api/v1/Student/GetAllStudent',
   viewstudentdetails: 'schtrack-auth/api/v1/Student/GetStudentProfile',
   getstudentbyid: 'schtrack-auth/api/v1/Student/GetStudentById',
-  updatestudentbyid: 'Student/UpdateStudent',
-  deletestudent: 'Student/DeleteStudent'
+  updatestudentbyid: 'schtrack-auth/api/v1/Student/UpdateStudent',
+  deletestudent: 'schtrack-auth/api/v1/Student/DeleteStudent'
 };
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { StaffService } from 'src/services/data/staff/staff.service';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
@@ -20,6 +20,12 @@ export class MediaComponent implements OnInit {
   signaturename = null;
   mediaForm: FormGroup;
   DocumentTypes: number[] = [];
+  formBtn = {
+    type: 'create',
+    text: 'Create'
+  };
+  id: any;
+
 
   constructor(
     private fb: FormBuilder,
@@ -27,8 +33,10 @@ export class MediaComponent implements OnInit {
     private teacherService: TeacherService,
     private notifyService: NotificationsService,
     private router: Router,
-    private home: EmployeeComponent
-    ) { }
+    private home: EmployeeComponent,
+    private route: ActivatedRoute,
+
+  ) { }
 
   ngOnInit() {
     this.sendChildName.emit('Images');
@@ -37,15 +45,42 @@ export class MediaComponent implements OnInit {
       profile: [null],
       signature: [null]
     });
+    this.id = this.route.snapshot.params.id;
+    console.log('page id', this.id);
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.createMediaForm();
+      } else {
+        this.updateMediaForm();
+      }
+    });
+  }
+
+  createMediaForm() {
+    this.mediaForm = this.fb.group({
+      profile: [null],
+      signature: [null]
+    });
+  }
+  updateMediaForm() {
+    this.mediaForm = this.fb.group({
+      profile: [null],
+      signature: [null]
+    });
+
+    this.formBtn = {
+      type: 'Update',
+      text: 'Update Client'
+    };
   }
 
   createEmployee() {
     const profile = JSON.parse(sessionStorage.getItem('employee-personal-data'));
     const details = JSON.parse(sessionStorage.getItem('Employee-Data'));
-    const contactperson =  JSON.parse(sessionStorage.getItem('employee-contact-details'));
-    const education =  JSON.parse(sessionStorage.getItem('employee-education'));
-    const nextKin =  JSON.parse(sessionStorage.getItem('employee-next-kin'));
-    const experience =  JSON.parse(sessionStorage.getItem('employee-experience'));
+    const contactperson = JSON.parse(sessionStorage.getItem('employee-contact-details'));
+    const education = JSON.parse(sessionStorage.getItem('employee-education'));
+    const nextKin = JSON.parse(sessionStorage.getItem('employee-next-kin'));
+    const experience = JSON.parse(sessionStorage.getItem('employee-experience'));
     const finalstep = this.mediaForm.value;
     const result = {
       ...profile,
@@ -58,45 +93,85 @@ export class MediaComponent implements OnInit {
       DocumentTypes: this.DocumentTypes
     };
     // const {StaffType} = details;
+    // creating employer and teacher
     if (result.StaffType === '1') {
-      console.log('all employee data', result);
-      this.teacherService.addTeacher(result).subscribe((data: any) => {
-      console.log('employee added', data);
-      if ( data.hasErrors === false ) {
-        this.notifyService.publishMessages(data.description, 'info', 1);
-        sessionStorage.removeItem('employee-personal-data');
-        sessionStorage.removeItem('Employee-Data');
-        sessionStorage.removeItem('employee-contact-details');
-        sessionStorage.removeItem('employee-education');
-        sessionStorage.removeItem('employee-next-kin');
-        sessionStorage.removeItem('employee-experience');
-        this.router.navigateByUrl('/school/employees');
+      if (this.formBtn.type === 'create') {
+        console.log('all employee data', result);
+        this.teacherService.addTeacher(result).subscribe((data: any) => {
+          console.log('employee added', data);
+          if (data.hasErrors === false) {
+            this.notifyService.publishMessages(data.description, 'info', 1);
+            sessionStorage.removeItem('employee-personal-data');
+            sessionStorage.removeItem('Employee-Data');
+            sessionStorage.removeItem('employee-contact-details');
+            sessionStorage.removeItem('employee-education');
+            sessionStorage.removeItem('employee-next-kin');
+            sessionStorage.removeItem('employee-experience');
+            this.router.navigateByUrl('/school/employees');
+          }
+        }, error => {
+          this.notifyService.publishMessages(error.errors[0], 'danger', 1);
+
+        });
+      } else {
+        this.teacherService.updateTeacher(this.id, result).subscribe((data: any) => {
+          console.log('employee added', data);
+          if (data.hasErrors === false) {
+            this.notifyService.publishMessages(data.description, 'info', 1);
+            sessionStorage.removeItem('employee-personal-data');
+            sessionStorage.removeItem('Employee-Data');
+            sessionStorage.removeItem('employee-contact-details');
+            sessionStorage.removeItem('employee-education');
+            sessionStorage.removeItem('employee-next-kin');
+            sessionStorage.removeItem('employee-experience');
+            this.router.navigateByUrl('/school/employees');
+          }
+        }, error => {
+          this.notifyService.publishMessages(error.errors[0], 'danger', 1);
+
+        });
       }
-    }, error => {
-      this.notifyService.publishMessages(error.errors[0], 'danger', 1);
 
-    });
+    } else if (result.StaffType !== '1') {
+      if (this.formBtn.type === 'create') {
+        console.log('all employee data', result);
+        this.staffService.addStaff(result).subscribe((data: any) => {
+          console.log('employee added', data);
+          if (data.hasErrors === false) {
+            this.notifyService.publishMessages(data.description, 'info', 1);
+            sessionStorage.removeItem('employee-personal-data');
+            sessionStorage.removeItem('Employee-Data');
+            sessionStorage.removeItem('employee-contact-details');
+            sessionStorage.removeItem('employee-education');
+            sessionStorage.removeItem('employee-next-kin');
+            sessionStorage.removeItem('employee-experience');
+            this.router.navigateByUrl('/school/employees');
+          }
+        }, error => {
+          this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-    } else {
-      console.log('all employee data', result);
-      this.staffService.addStaff(result).subscribe((data: any) => {
-        console.log('employee added', data);
-        if ( data.hasErrors === false ) {
-          this.notifyService.publishMessages(data.description, 'info', 1);
-          sessionStorage.removeItem('employee-personal-data');
-          sessionStorage.removeItem('Employee-Data');
-          sessionStorage.removeItem('employee-contact-details');
-          sessionStorage.removeItem('employee-education');
-          sessionStorage.removeItem('employee-next-kin');
-          sessionStorage.removeItem('employee-experience');
-          this.router.navigateByUrl('/school/employees');
-        }
-      }, error => {
-        this.notifyService.publishMessages(error.errors, 'danger', 1);
+        });
+      } else {
+        console.log('all employee data', result);
+        this.staffService.updateStaff(this.id, result).subscribe((data: any) => {
+          console.log('employee added', data);
+          if (data.hasErrors === false) {
+            this.notifyService.publishMessages(data.description, 'info', 1);
+            sessionStorage.removeItem('employee-personal-data');
+            sessionStorage.removeItem('Employee-Data');
+            sessionStorage.removeItem('employee-contact-details');
+            sessionStorage.removeItem('employee-education');
+            sessionStorage.removeItem('employee-next-kin');
+            sessionStorage.removeItem('employee-experience');
+            this.router.navigateByUrl('/school/employees');
+          }
+        }, error => {
+          this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-      });
+        });
+      }
+
     }
-
   }
 
 
@@ -109,7 +184,7 @@ export class MediaComponent implements OnInit {
       this.mediaForm.get('profile').setValue(file);
       // this.iconname = this.icon.name;
       const size = event.target.files[0].size;
-      if (size >=  1048576 ) {
+      if (size >= 1048576) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
       } else {
         this.DocumentTypes.push(2);
@@ -128,15 +203,15 @@ export class MediaComponent implements OnInit {
       this.signaturename = file.name;
       this.mediaForm.get('signature').setValue(file);
       const size = event.target.files[0].size;
-      if (size >=  1048576 ) {
+      if (size >= 1048576) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
       } else {
         this.DocumentTypes.push(8);
       }
-        // if (this.DocumentTypes.length > 1) {
-        //   this.DocumentTypes.shift();
-        //   // console.log(this.DocumentTypes);
-        // }
+      // if (this.DocumentTypes.length > 1) {
+      //   this.DocumentTypes.shift();
+      //   // console.log(this.DocumentTypes);
+      // }
       // this.iconname = this.icon.name;
     }
   }

@@ -122,7 +122,7 @@ export class BasicDetailsComponent implements OnInit {
       DateOfBirth: payload.dateOfBirth,
       Religion: payload.religion,
       Nationality: payload.nationality,
-      ParentId: payload.parentName,
+      // ParentId: payload.parentName,
       StateOfOrigin: payload.stateOfOrigin,
       // LocalGovt: [''],
       TransportRoute: payload.transportRoute

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
 import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-work-experience',
@@ -11,12 +12,25 @@ export class WorkExperienceComponent implements OnInit {
 @Output() sendChildName = new EventEmitter<string>();
 employeeWorkExperienceForm: FormGroup;
 items: any;
+workDetials: any;
 
-  constructor(private home: EmployeeComponent, private fb: FormBuilder) { }
+
+  constructor(
+    private home: EmployeeComponent,
+    private fb: FormBuilder,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.sendChildName.emit('Work experience');
     this.populateEmployeeExperienceForm();
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.populateEmployeeExperienceForm();
+      } else {
+        this.getProfileInformation();
+
+      }
+    });
   }
 
 populateEmployeeExperienceForm() {
@@ -50,6 +64,31 @@ populateEmployeeExperienceForm() {
   addExperience() {
     this.items = this.employeeWorkExperienceForm.get('WorkExperienceVMs') as FormArray;
     this.items.push(this.createItem());
+  }
+
+
+  getAActiveTab() {
+    this.workDetials = JSON.parse(sessionStorage.getItem('employee-experience'));
+
+    if (sessionStorage.getItem('employee-next-kin') !== null) {
+      // console.log(`School person exists`);
+      this.employeeWorkExperienceForm.patchValue({
+        WorkExperienceVMs: this.workDetials.WorkExperienceVMs,
+      });
+    } else {
+    }
+
+  }
+
+  getProfileInformation() {
+    const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < payload.workExperienceVMs.length; i++) {
+      console.log('asasaass', payload.workExperienceVMs[i]);
+      this.employeeWorkExperienceForm.patchValue({
+        WorkExperienceVMs: payload.workExperienceVMs
+      });
+    }
   }
 
 

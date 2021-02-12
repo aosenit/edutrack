@@ -93,8 +93,9 @@ DocumentTypes: number[] = [];
         this.notifyService.publishMessages( error.errors, 'success', 1);
       });
     } else {
-      this.studentService.updateStudent( this.studentid, result).subscribe((data: any) => {
-        console.log('student created', data);
+      console.log('result', result);
+      this.studentService.updateStudent(this.studentid, result).subscribe((data: any) => {
+        console.log('student updated', data);
         if ( data.hasErrors === false) {
           console.log(data);
           this.notifyService.publishMessages( data.description, 'success', 1);
@@ -135,9 +136,9 @@ DocumentTypes: number[] = [];
       } else {
         this.DocumentTypes.push(2);
       }
-      if (this.DocumentTypes.length > 1) {
-        this.DocumentTypes.shift();
-      }
+      // if (this.DocumentTypes.length > 1) {
+      //   this.DocumentTypes.shift();
+      // }
       // this.iconname = this.icon.name;
     }
   }
