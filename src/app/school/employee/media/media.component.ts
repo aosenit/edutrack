@@ -70,7 +70,7 @@ export class MediaComponent implements OnInit {
 
     this.formBtn = {
       type: 'Update',
-      text: 'Update Client'
+      text: 'Update'
     };
   }
 

@@ -74,17 +74,36 @@ export class ParentsService {
 
   getParentForStudent(studid) {
     const url = `${this.baseUrl + routes.getstudentparent}/${studid}`;
-    return this.http.get(url, studid);
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
+  
   updateParent(id, updateParentForm) {
+    const formData = new FormData();
+    formData.append('HomeAddress', updateParentForm.HomeAddress);
+    formData.append('SecondaryPhoneNumber', updateParentForm.SecondaryPhoneNumber);
+    formData.append('SecondaryEmailAddress', updateParentForm.SecondaryEmailAddress);
+    formData.append('EmailAddress', updateParentForm.EmailAddress);
+    formData.append('FirstName', updateParentForm.FirstName);
+    formData.append('LastName', updateParentForm.LastName);
+    formData.append('OtherName', updateParentForm.OtherName);
+    formData.append('ModeOfIdentification', updateParentForm.ModeOfIdentification);
+    formData.append('IdentificationNumber', updateParentForm.IdentificationNumber);
+    formData.append('PhoneNumber', updateParentForm.PhoneNumber);
+    formData.append('Occupation', updateParentForm.Occupation);
+    formData.append('OfficeAddress', updateParentForm.OfficeAddress);
+    formData.append('File', updateParentForm.profileImage);
+    updateParentForm.DocumentTypes.forEach((item) => formData.append('DocumentType', item));
+    formData.append('Sex', updateParentForm.Sex);
+    formData.append('Status', updateParentForm.Status);
+    formData.append('Title', updateParentForm.Title);
     const url = `${this.baseUrl + routes.updateparentbyid}/${id}`;
-    return this.http.put(url, updateParentForm);
+    return this.http.put(url, updateParentForm, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
   deleteParentById(id) {
     const url = `${this.baseUrl + routes.deleteparent}/${id}`;
-    return this.http.delete(url);
+    return this.http.delete(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 }
