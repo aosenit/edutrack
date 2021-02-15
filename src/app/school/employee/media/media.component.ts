@@ -18,6 +18,8 @@ export class MediaComponent implements OnInit {
 
   profilephotoname = null;
   signaturename = null;
+  signature = [];
+  photo = [];
   mediaForm: FormGroup;
   DocumentTypes: number[] = [];
   formBtn = {
@@ -181,18 +183,22 @@ export class MediaComponent implements OnInit {
       const file = event.target.files[0];
       console.log('file', file);
       this.profilephotoname = file.name;
+      this.photo.push(2);
+
       this.mediaForm.get('profile').setValue(file);
       // this.iconname = this.icon.name;
       const size = event.target.files[0].size;
       if (size >= 1048576) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
-      } else {
-        this.DocumentTypes.push(2);
+        this.photo.pop();
+      } else if (this.photo.length > 1) {
+        this.photo.shift();
+        this.photo.toString();
+        const newPhoto: any = this.photo;
+        // console.
+        this.DocumentTypes.push(newPhoto);
+        console.log(this.DocumentTypes);
       }
-      // if (this.DocumentTypes.length > 1) {
-      //   this.DocumentTypes.shift();
-      //   console.log(this.DocumentTypes);
-      // }
     }
   }
 
@@ -201,17 +207,20 @@ export class MediaComponent implements OnInit {
       const file = event.target.files[0];
       console.log('file', file);
       this.signaturename = file.name;
+      this.signature.push(8);
+
       this.mediaForm.get('signature').setValue(file);
       const size = event.target.files[0].size;
       if (size >= 1048576) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
-      } else {
-        this.DocumentTypes.push(8);
+      } else if (this.signature.length > 1) {
+        this.signature.shift();
+        this.signature.toString();
+        const newSignature: any = this.signature;
+        this.DocumentTypes.push(newSignature);
+        // console.log(this.DocumentTypes);
+        console.log(this.DocumentTypes);
       }
-      // if (this.DocumentTypes.length > 1) {
-      //   this.DocumentTypes.shift();
-      //   // console.log(this.DocumentTypes);
-      // }
       // this.iconname = this.icon.name;
     }
   }

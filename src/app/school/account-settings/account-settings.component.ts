@@ -107,7 +107,7 @@ export class AccountSettingsComponent implements OnInit {
     this.adminService.getRoles().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allRoles = data.payload;
-        console.log(this.allRoles);
+        // console.log(this.allRoles);
         const arr = [];
         this.allRoles.forEach(item => {
           arr.push({
@@ -126,7 +126,7 @@ export class AccountSettingsComponent implements OnInit {
     this.staffServie.getAllStaffInSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allStaffs = data.payload;
-        console.log(this.allStaffs);
+        // console.log(this.allStaffs);
         const arr = [];
         this.allStaffs.forEach(item => {
           arr.push({
@@ -162,13 +162,45 @@ export class AccountSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('roles successfully assigned', 'info', 1);
         document.getElementById('close').click();
-        console.log(data);
+        // console.log(data);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
     });
   }
+
+  deleteRoleById(id) {
+    console.log(id);
+    this.adminService.deleteRoles(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.notifyService.publishMessages('roles successfully delete', 'info', 1);
+        this.getRoles();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+  
+  // getRolePermissionsByRoleId(id) {
+  //   this.adminService.getAllPermissionForRoleById(id).subscribe((data: any) => {
+  //     if (data.hasErrors === false) {
+
+  //       console.log(data.payload);
+  //     } else {
+  //       this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+  //     }
+  //   }, error => {
+  //     this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+  //   });
+  // }
 
 
 }

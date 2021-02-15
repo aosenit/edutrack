@@ -107,9 +107,12 @@ DocumentTypes: number[] = [];
           this.router.navigateByUrl('/school/students');
 
 
+        } else {
+          this.notifyService.publishMessages( data.errors, 'danger', 1);
+
         }
       }, error => {
-        this.notifyService.publishMessages( error.errors, 'success', 1);
+        this.notifyService.publishMessages( error.errors, 'danger', 1);
       });
     }
   }
@@ -128,17 +131,19 @@ DocumentTypes: number[] = [];
         });
       };
       this.profileImageName = file.name;
+      this.DocumentTypes.push(2);
+      console.log(this.DocumentTypes);
+
       this.finalStepForm.get('profilePhoto').setValue(file);
 
       const size = event.target.files[0].size;
       if (size >=  1048576 ) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
-      } else {
-        this.DocumentTypes.push(2);
+        this.DocumentTypes.pop();
+      } else if (this.DocumentTypes.length > 1) {
+        this.DocumentTypes.shift();
+        console.log(this.DocumentTypes);
       }
-      // if (this.DocumentTypes.length > 1) {
-      //   this.DocumentTypes.shift();
-      // }
       // this.iconname = this.icon.name;
     }
   }

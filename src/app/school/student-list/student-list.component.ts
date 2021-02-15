@@ -78,7 +78,8 @@ export class StudentListComponent implements OnInit {
     console.log(page);
     this.studentService.getAllStudents(page, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.studentList = data.payload.reverse();
+        this.studentList = data.payload;
+        // this.studentList = data.payload.reverse();
         console.log(this.studentList);
       }
     }, error => {

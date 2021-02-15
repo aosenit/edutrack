@@ -13,7 +13,7 @@
       <h6 class="banner__text-primary fw-6 "> Accounts </h6>
       <p class=""> Showing all Roles and Permssion </p>
     </div>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/records"> New Roles </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/role-permissions"> New Roles </button>
 
   </section>
 
@@ -102,15 +102,15 @@
                   {{role?.name}}
                 </td>
                 <td class="">STA1092076</td>
-                <td>3</td>
+                <td>{{role?.usersCount}}</td>
                 <td>17/03/2020</td>
-                <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg" alt="schools log"
-                    class="mr-3"> Edit Role </td>
-                <td class="rounded-right action"><img src="assets/images/svg/delete-role.svg" alt="schools log"
-                    class="mr-3"> Delete Role </td>
                 <td class="rounded-right action cursor-pointer" data-toggle="modal" data-target="#exampleModalCenter">
                   <i class="fa fa-tasks mr-3" aria-hidden="true"></i>
                   Assign User </td>
+                  <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg" alt="schools log"
+                      class="mr-3" routerLink="/school/edit-role-permission/{{role?.id}}"> Edit Role </td>
+                  <td class="rounded-right action cursor-pointer" (click)="deleteRoleById(role?.id)" ><img src="assets/images/svg/delete-role.svg" alt="schools log"
+                    class="mr-3"> Delete Role </td>
               </tr>
 
 

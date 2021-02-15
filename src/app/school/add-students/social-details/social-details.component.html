@@ -24,7 +24,7 @@
         <div class="row mb-4">
             <div class="col-md-6 ">
                 <label for="date" class="fw-6">Section <span class="text-danger">*</span></label>
-                <select name="" id="level" class="form-control form-control-lg" formControlName="SectionId" (change)="getClassesUnderSection($event.target.value)" >
+                <select name="" id="level" class="form-control form-control-lg" formControlName="sectionId" (change)="getClassesUnderSection($event.target.value)" >
                     <option value="" selected> Select Section</option>
                     <option *ngFor="let section of sections" [value]="section.id">{{section.name}}</option>
                 </select>
@@ -33,7 +33,7 @@
             <div class="col-md-6">
                 <label for="state" class="fw-6">Class <span class="text-danger">*</span>
                 </label>
-                <select name="" id="state" class="form-control form-control-lg" formControlName="ClassId">
+                <select name="" id="state" class="form-control form-control-lg" formControlName="classId">
                     <option *ngFor="let class of classes" [value]="class.id">{{class.name}}{{class?.classGroup}}</option>
                 </select>
             </div>
@@ -43,7 +43,7 @@
             <div class="col-md-6 ">
                 <label for="date" class="fw-6">Student Type <span
                         class="text-danger">*</span></label>
-                <select name="" id="level" class="form-control form-control-lg" formControlName="StudentType">
+                <select name="" id="level" class="form-control form-control-lg" formControlName="studentType">
                     <option value="1" selected>Day Student</option>
                     <option value="2" selected>Boarding Student</option>
                 </select>

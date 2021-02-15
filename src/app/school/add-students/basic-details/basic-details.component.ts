@@ -52,7 +52,7 @@ export class BasicDetailsComponent implements OnInit {
       DateOfBirth: ['', Validators.required],
       Religion: ['', Validators.required],
       Nationality: ['', Validators.required],
-      ParentId: ['', Validators.required],
+      parentId: ['', Validators.required],
       StateOfOrigin: ['', Validators.required],
       LocalGovt: [''],
       TransportRoute: ['', Validators.required]
@@ -60,7 +60,25 @@ export class BasicDetailsComponent implements OnInit {
   }
   nextStep() {
     this.home.stepper(2);
-    sessionStorage.setItem('student-basic-details', JSON.stringify(this.basicDetailsForm.value));
+    // tslint:disable-next-line:max-line-length
+    const {FirstName, LastName, OtherNames, MothersMaidenName, Sex, DateOfBirth, Religion, Nationality, parentId, StateOfOrigin, LocalGovt, TransportRoute  } = this.basicDetailsForm.value;
+    const result = {
+      FirstName,
+      LastName,
+      OtherNames,
+      MothersMaidenName,
+      Sex,
+      DateOfBirth,
+      Religion,
+      Nationality,
+      // tslint:disable-next-line:radix
+      ParentId: parseInt(parentId),
+      StateOfOrigin,
+      LocalGovt,
+      TransportRoute
+
+    };
+    sessionStorage.setItem('student-basic-details', JSON.stringify(result));
   }
 
   getState(event) {

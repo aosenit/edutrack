@@ -48,16 +48,25 @@ export class SocialDetailsComponent implements OnInit {
     this.socialDetailsForm = this.fb.group({
       EntryType: ['', Validators.required],
       AdmissionDate: ['', Validators.required],
-      SectionId : ['', Validators.required],
-      ClassId : ['', Validators.required],
-      StudentType: ['', Validators.required],
+      sectionId : ['', Validators.required],
+      classId : ['', Validators.required],
+      studentType: ['', Validators.required],
 
 
     });
   }
   nextStep() {
     this.home.stepper(3);
-    sessionStorage.setItem('student-social-details', JSON.stringify(this.socialDetailsForm.value));
+    const {EntryType, AdmissionDate, sectionId, classId, studentType } = this.socialDetailsForm.value;
+    const result = {
+      EntryType,
+      AdmissionDate,
+      SectionId: parseInt(sectionId),
+      ClassId: parseInt(classId),
+      StudentType: parseInt(studentType)
+    };
+
+    sessionStorage.setItem('student-social-details', JSON.stringify(result));
   }
 
   prevStep() {

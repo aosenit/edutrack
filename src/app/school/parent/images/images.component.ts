@@ -117,16 +117,16 @@ export class ImagesComponent implements OnInit {
         });
       };
       this.profileImageName = file.name;
+      // this.DocumentTypes.push(2);
+
       this.finalStepForm.get('profileImage').setValue(file);
       const size = event.target.files[0].size;
       if (size > 1048576) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
-      } else {
-        this.DocumentTypes.push(2);
-
-      }
-      if (this.DocumentTypes.length > 1) {
+        this.DocumentTypes.pop();
+      } else if (this.DocumentTypes.length > 1) {
         this.DocumentTypes.shift();
+        console.log(this.DocumentTypes);
       }
       // this.iconname = this.icon.name;
     }

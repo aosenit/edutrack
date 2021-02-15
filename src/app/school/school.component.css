@@ -164,6 +164,12 @@ svg path , svg g path {
     fill-opacity: 1;
 }
 
+
+svg #icons , svg g #icons {
+    fill-opacity: inherit;
+    fill: hsl(354deg 70% 50%);;
+}
+
 .ellipse {
     width: 11px;
     height: 9px;
