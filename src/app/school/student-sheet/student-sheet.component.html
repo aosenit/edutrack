@@ -122,7 +122,7 @@
       </div>
       <div class="form-group mb-4">
         <label for="" class="fw-6 fs-16">Head Teacher's Comment</label>
-        <input type="text " class="form-control head-teacher" placeholder="enter comment">
+        <input type="text " class="form-control head-teacher" [(ngModel)]="teacherComment.comment" name="comment" placeholder="enter comment">
       </div>
       <div class="d-flex">
         <div>
@@ -147,7 +147,7 @@
         <button class="btn btn-orange-two px-5 mt-3"> Approve</button>
     </div> -->
 
-    <div class="d-flex justify-content-center my-5">
+    <div class="d-flex justify-content-center my-5 pb-5">
       <button class="btn-upload-top bg-lblue w-40" type="button" (click)="submitStudentResult()"> Submit </button>
     </div>
 

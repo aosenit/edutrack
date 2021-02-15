@@ -52,8 +52,8 @@ export class StudentSheetComponent implements OnInit {
     const classId = parseInt(ClassId);
     const {comment} = this.teacherComment;
     const result = {
-      headTeacherComment: '',
-      classTeacherComment: comment,
+      headTeacherComment: comment,
+      classTeacherComment: '',
       // tslint:disable-next-line:radix
       studentId: parseInt(this.studId),
       sessionId: 0,
