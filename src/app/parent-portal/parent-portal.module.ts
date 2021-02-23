@@ -8,10 +8,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChildAssignmentComponent } from './child-assignment/child-assignment.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { BillingComponent } from './billing/billing.component';
+import { ViewAssignmentComponent } from './view-assignment/view-assignment.component';
+import { ReportCardComponent } from './report-card/report-card.component';
+import { ChildAttendanceComponent } from './child-attendance/child-attendance.component';
+import { ViewBillingComponent } from './view-billing/view-billing.component';
+import { ViewReportCardComponent } from './view-report-card/view-report-card.component';
 
 
 @NgModule({
-  declarations: [ParentPortalComponent, LandingScreenComponent, DashboardComponent, ChildAssignmentComponent, TimeTableComponent, BillingComponent],
+  declarations: [ParentPortalComponent, LandingScreenComponent, DashboardComponent, ChildAssignmentComponent, TimeTableComponent, BillingComponent, ViewAssignmentComponent, ReportCardComponent, ChildAttendanceComponent, ViewBillingComponent, ViewReportCardComponent],
   imports: [
     CommonModule,
     ParentPortalRoutingModule

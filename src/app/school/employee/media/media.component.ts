@@ -112,7 +112,7 @@ export class MediaComponent implements OnInit {
             this.router.navigateByUrl('/school/employees');
           }
         }, error => {
-          this.notifyService.publishMessages(error.errors[0], 'danger', 1);
+          this.notifyService.publishMessages(error.errors, 'danger', 1);
 
         });
       } else {
@@ -129,7 +129,7 @@ export class MediaComponent implements OnInit {
             this.router.navigateByUrl('/school/employees');
           }
         }, error => {
-          this.notifyService.publishMessages(error.errors[0], 'danger', 1);
+          this.notifyService.publishMessages(error.errors, 'danger', 1);
 
         });
       }
@@ -183,20 +183,16 @@ export class MediaComponent implements OnInit {
       const file = event.target.files[0];
       console.log('file', file);
       this.profilephotoname = file.name;
-      this.photo.push(2);
+      this.DocumentTypes[0] = 2;
 
       this.mediaForm.get('profile').setValue(file);
       // this.iconname = this.icon.name;
       const size = event.target.files[0].size;
       if (size >= 1048576) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
-        this.photo.pop();
-      } else if (this.photo.length > 1) {
-        this.photo.shift();
-        this.photo.toString();
-        const newPhoto: any = this.photo;
-        // console.
-        this.DocumentTypes.push(newPhoto);
+        this.DocumentTypes[0] = 0;
+      } else  {
+        this.DocumentTypes[0] = 2;
         console.log(this.DocumentTypes);
       }
     }
@@ -207,18 +203,15 @@ export class MediaComponent implements OnInit {
       const file = event.target.files[0];
       console.log('file', file);
       this.signaturename = file.name;
-      this.signature.push(8);
+      this.DocumentTypes[1] = 8;
 
       this.mediaForm.get('signature').setValue(file);
       const size = event.target.files[0].size;
       if (size >= 1048576) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
-      } else if (this.signature.length > 1) {
-        this.signature.shift();
-        this.signature.toString();
-        const newSignature: any = this.signature;
-        this.DocumentTypes.push(newSignature);
-        // console.log(this.DocumentTypes);
+        this.DocumentTypes[1] = 0;
+      } else  {
+        this.DocumentTypes[1] = 8;
         console.log(this.DocumentTypes);
       }
       // this.iconname = this.icon.name;

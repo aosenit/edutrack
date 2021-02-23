@@ -1,0 +1,36 @@
+.main .banner {
+    width: 100%;
+    background-image: url("../../../assets/images/svg/banner.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+mix-blend-mode: normal;
+border-radius: 5px;
+  }
+  
+  .banner .banner__text-primary {
+    color: #fb882c;
+    font-size: 32px;
+    font-family: Nunito;
+    font-weight: 200;
+  
+  }
+  .banner .banner__text-primary span {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 400;
+  }
+
+
+
+  .options select {
+    background: #FEFEFF;
+    border: 1px solid #D1D9DF;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 14px;
+line-height: 19px;
+/* identical to box height */
+
+
+color: #0A1128;
+}

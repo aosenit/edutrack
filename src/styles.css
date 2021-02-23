@@ -213,7 +213,24 @@
     color: #FB882C;
 }
 
-
+.parent-act-btn {
+    background: #0052B4;
+border: 2px solid #024B8F;
+outline:none;
+box-sizing: border-box;
+border-radius: 5px;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 16px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #FFFFFF;
+text-transform: uppercase;
+padding-top: 13px;
+padding-bottom: 13px;
+}
 
 /* forms  */
 .reg-form{

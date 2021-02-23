@@ -148,7 +148,7 @@ h6 {
 
 .list .table tbody td:not(:first-child) {
     color: #0a1128;
-    opacity: 0.6;
+    /* opacity: 0.6; */
 }
 
 .list .table tbody .status_active {

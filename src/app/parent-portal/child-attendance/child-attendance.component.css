@@ -1,78 +1,38 @@
 
-
-.billing__intro {
-    /* font-family: Montserrat; */
-font-style: normal;
-font-weight: 600;
-font-size: 18px;
-line-height: 22px;
-/* identical to box height */
-
-letter-spacing: 0.09625px;
-
-color: #0A122A;
-}
-.billing__cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1.5rem;
-}
-
-.billing__cards__1 {
-    background: #81B4E0;
-border: 1px solid #148AF0;
-box-sizing: border-box;
-/* card/shadow */
-
-box-shadow: 0px 10px 20px rgba(10, 18, 42, 0.06);
+.main .banner {
+    width: 100%;
+    background-image: url("../../../assets/images/svg/banner.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+mix-blend-mode: normal;
 border-radius: 5px;
-}
-
-.billing__cards__2 {
-    background: #DD6177;
-    border: 1px solid #D80027;
-    box-sizing: border-box;
-    /* card/shadow */
-    
-    box-shadow: 0px 10px 20px rgba(10, 18, 42, 0.06);
-    border-radius: 5px;
-}
-.billing__cards__3 {
-    background: #EDAC54;
-    border: 1px solid #FB882C;
-    box-sizing: border-box;
-    /* card/shadow */
-    
-    box-shadow: 0px 10px 20px rgba(10, 18, 42, 0.06);
-    border-radius: 5px;
-}
-
-.billing__card_intro {
+  }
+  
+  .banner .banner__text-primary {
+    color: #fb882c;
+    font-size: 32px;
     font-family: Nunito;
-    font-weight: bold;
-font-size: 16px;
-line-height: 22px;
-/* identical to box height */
-
-
-color: #FFFFFF;
-}
-.billing__card_amount {
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 28px;
-    line-height: 38px;
-    
-    color: #FFFFFF;
-}
+    font-weight: 200;
+  
+  }
+  .banner .banner__text-primary span {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 400;
+  }
+  
 
 .media-inner .nav-link {
     padding: 0.5rem 0.5rem;
   }
   .media-inner .nav-pills .nav-link.active,
   .nav-pills .show > .nav-link {
-    color: #000000;
+    font-size: 18px;
+line-height: 25px;
+/* identical to box height */
+
+
+color: #003E88;
     font-weight: 600;
     border-bottom: 3px solid #eb6b04;
     background: transparent;
@@ -85,6 +45,7 @@ color: #FFFFFF;
   .media-inner .nav-pills .nav-link,
   .nav-pills .show > .nav-link {
     color: #a4a5a8;
+    font-size: 18px;
     background: transparent;
     /* font-size: 13px; */
   }

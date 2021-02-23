@@ -9,13 +9,15 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class DashboardComponent implements OnInit {
   greet: string;
   adminDetails: any;
+  loginDate: any;
 
   constructor() { }
 
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
-    console.log(this.adminDetails);
+    this.loginDate =  this.adminDetails.last_login_time + ' ' + 'UTC';
+
     this.greeting();
   }
 

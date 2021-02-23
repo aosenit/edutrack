@@ -2,7 +2,7 @@
     <section class="banner mb-4 d-flex justify-content-between">
         <p class="banner__text-primary py-4 pl-5">{{greet}} <br> <span>{{adminDetails.given_name}}</span></p>
         <div class="justify-content-end">
-            <p class="last-login pt-3 pr-5 fw-6">Last Login: {{adminDetails.last_login_time | date: 'medium'}}</p>
+            <p class="last-login pt-3 pr-5 fw-6">Last Login: {{loginDate | date: 'medium'}}</p>
         </div>
     </section>
 

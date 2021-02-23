@@ -1,1 +1,293 @@
-<p>billing works!</p>
+<div class="main">
+    <div class="d-flex justify-content-end align-items-center mb-2">
+        <button class="parent-act-btn px-4 ">Send Message</button>
+    </div>
+    <div class="billing mb-5">
+        <p class="billing__intro">Billing</p>
+        <div class="billing__cards">
+            <div class="billing__cards__1 py-4 px-4">
+                <p class="billing__card_intro">
+                    Total amount paid
+                </p>
+                <h4 class="billing__card_amount">
+                    #7,162,945
+                </h4>
+            </div>
+            <div class="billing__cards__2 py-4 px-4">
+                <p class="billing__card_intro">
+                    Unpaid transactions
+                </p>
+                <h4 class="billing__card_amount">
+                    1
+                </h4>
+            </div>
+            <div class="billing__cards__3 py-4 px-4">
+                <p class="billing__card_intro">
+                    Total number of payments
+                </p>
+                <h4 class="billing__card_amount">
+                   5
+                </h4>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="media-inner mb-4">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+          <li class="nav-item mr-2 ">
+            <a class="nav-link active" id="pills-upload-tab" data-toggle="pill" href="#pills-upload" role="tab"
+              aria-controls="pills-upload" aria-selected="true">Payments </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link " id="pills-record-tab" data-toggle="pill" href="#pills-record" role="tab"
+              aria-controls="pills-record" aria-selected="true">Transaction history </a>
+          </li>
+
+
+        </ul>
+
+    </div>
+
+    <div class="tab-content bg-white px-4" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-upload" role="tabpanel" aria-labelledby="pills-upload-tab">
+
+            <section class="list">
+                <table class="table table-borderless client-table">
+                  <thead>
+                    <tr>
+    
+                      <th scope="col" >S/N
+    
+                      </th>
+                      
+                      <th scope="col">Transaction Id
+    
+                      </th>
+                      <th scope="col"> Total Amount </th>
+                      <th scope="col"> Description </th>
+                      <th scope="col"> Due Date </th>
+                      <th scope="col"> Term </th>
+                      <th scope="col"> Session </th>
+                      <th scope="col"> Status </th>
+                      <th scope="col"> Action </th>
+    
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+                    <tr class="pb-2 ">
+    
+                      <td class="border-bottom ">
+                        1
+                      </td>
+                      
+                      <td class=" border-bottom ">3029393029393 </td>
+                      <td class=" border-bottom ">#1,0000000000 </td>
+                      <td class="  border-bottom  ">
+                            School fees
+                      </td>
+                      <td class="  border-bottom  ">
+                           12, May 2020
+                      </td>
+                      <td class="  border-bottom  ">
+                            2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                           2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                        <span class="status_inactive">Unpaid</span>
+                      </td>
+                      <td class="border-bottom">
+                        <span class="view" routerLink="/parent/parent-portal/view-bill">View</span>
+                      </td>
+    
+                    </tr>
+                    <tr class="pb-2 ">
+    
+                      <td class="border-bottom ">
+                        1
+                      </td>
+                      
+                      <td class=" border-bottom ">3029393029393 </td>
+                      <td class=" border-bottom ">#1,0000000000 </td>
+                      <td class="  border-bottom  ">
+                            School fees
+                      </td>
+                      <td class="  border-bottom  ">
+                           12, May 2020
+                      </td>
+                      <td class="  border-bottom  ">
+                            2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                           2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                        <span class="status_inactive">Unpaid</span>
+                      </td>
+                      <td class="border-bottom">
+                        <span class="view">View</span>
+                      </td>
+    
+                    </tr>
+                    <tr class="pb-2 ">
+    
+                      <td class="border-bottom ">
+                        1
+                      </td>
+                      
+                      <td class=" border-bottom ">3029393029393 </td>
+                      <td class=" border-bottom ">#1,0000000000 </td>
+                      <td class="  border-bottom  ">
+                            School fees
+                      </td>
+                      <td class="  border-bottom  ">
+                           12, May 2020
+                      </td>
+                      <td class="  border-bottom  ">
+                            2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                           2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                        <span class="status_inactive">Unpaid</span>
+                      </td>
+                      <td class="border-bottom">
+                        <span class="view">View</span>
+                      </td>
+    
+                    </tr>
+                   
+                    
+                  </tbody>
+                </table>
+    
+              </section>
+         
+        </div>
+        <div class="tab-pane fade " id="pills-record" role="tabpanel" aria-labelledby="pills-record-tab">
+
+            <section class="list">
+                <table class="table table-borderless client-table">
+                  <thead>
+                    <tr>
+    
+                      <th scope="col" >S/N
+    
+                      </th>
+                      
+                      <th scope="col">Transaction Id
+    
+                      </th>
+                      <th scope="col"> Total Amount </th>
+                      <th scope="col"> Description </th>
+                      <th scope="col"> Due Date </th>
+                      <th scope="col"> Term </th>
+                      <th scope="col"> Session </th>
+                      <th scope="col"> Status </th>
+                      <th scope="col"> Action </th>
+    
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+                   
+                    <tr class="pb-2 ">
+    
+                      <td class="border-bottom ">
+                        1
+                      </td>
+                      
+                      <td class=" border-bottom ">3029393029393 </td>
+                      <td class=" border-bottom ">#1,0000000000 </td>
+                      <td class="  border-bottom  ">
+                            School fees
+                      </td>
+                      <td class="  border-bottom  ">
+                           12, May 2020
+                      </td>
+                      <td class="  border-bottom  ">
+                            2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                           2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                        <span class="status_active">Paid</span>
+                      </td>
+                      <td class="border-bottom">
+                        <button class="upload bg-lblue">View receipt</button>
+                      </td>
+    
+                    </tr>
+                    <tr class="pb-2 ">
+    
+                      <td class="border-bottom ">
+                        1
+                      </td>
+                      
+                      <td class=" border-bottom ">3029393029393 </td>
+                      <td class=" border-bottom ">#1,0000000000 </td>
+                      <td class="  border-bottom  ">
+                            School fees
+                      </td>
+                      <td class="  border-bottom  ">
+                           12, May 2020
+                      </td>
+                      <td class="  border-bottom  ">
+                            2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                           2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                        <span class="status_active">Paid</span>
+                      </td>
+                      <td class="border-bottom">
+                        <button class="upload bg-lblue">View receipt</button>
+                      </td>
+    
+                    </tr>
+                    <tr class="pb-2 ">
+    
+                      <td class="border-bottom ">
+                        1
+                      </td>
+                      
+                      <td class=" border-bottom ">3029393029393 </td>
+                      <td class=" border-bottom ">#1,0000000000 </td>
+                      <td class="  border-bottom  ">
+                            School fees
+                      </td>
+                      <td class="  border-bottom  ">
+                           12, May 2020
+                      </td>
+                      <td class="  border-bottom  ">
+                            2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                           2009/2010
+                      </td>
+                      <td class="  border-bottom  ">
+                        <span class="status_active">Paid</span>
+                      </td>
+                      <td class="border-bottom">
+                        <button class="upload bg-lblue">View receipt</button>
+                      </td>
+    
+                    </tr>
+                   
+                    
+                  </tbody>
+                </table>
+    
+              </section>
+        </div>
+      </div>
+
+
+</div>

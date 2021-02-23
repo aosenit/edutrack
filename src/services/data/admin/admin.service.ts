@@ -50,6 +50,12 @@ export class AdminService {
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
+  deleteAdmin(id) {
+    const url = `${this.baseUrl + routes.getAdmins}/${id}`;
+    return this.http.delete(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+
+  }
+
   getAllPermissions() {
     const url = `${this.baseUrl + routes.getAllPermissions}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });

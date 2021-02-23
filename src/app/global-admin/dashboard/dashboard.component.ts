@@ -16,12 +16,15 @@ export class DashboardComponent implements OnInit {
   greet: any;
   p = 1;
   itemsPerPage = 5;
+  loginDate: string;
 
   constructor(private schoolService: SchoolService, private studentservice: StudentService) { }
 
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
+    this.loginDate =  this.adminDetails.last_login_time + ' ' + 'UTC';
+
     this.greeting();
     this.getAllSchool();
     this.getAllStudents();
