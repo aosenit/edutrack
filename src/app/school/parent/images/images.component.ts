@@ -117,7 +117,7 @@ export class ImagesComponent implements OnInit {
         });
       };
       this.profileImageName = file.name;
-      // this.DocumentTypes.push(2);
+      this.DocumentTypes.push(2);
 
       this.finalStepForm.get('profileImage').setValue(file);
       const size = event.target.files[0].size;

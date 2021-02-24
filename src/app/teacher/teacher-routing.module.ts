@@ -11,10 +11,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FileManagerComponent } from './file-manager/file-manager.component';
 import { GradebookComponent } from './gradebook/gradebook.component';
 import { GradingComponent } from './grading/grading.component';
+import { MailReportCardComponent } from './mail-report-card/mail-report-card.component';
 import { MarkAttendanceComponent } from './mark-attendance/mark-attendance.component';
+import { ReportCardComponent } from './report-card/report-card.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ScoreSheetDetailsPageComponent } from './score-sheet-details-page/score-sheet-details-page.component';
 import { ScoreSheetComponent } from './score-sheet/score-sheet.component';
+import { StudentScoreSheetComponent } from './student-score-sheet/student-score-sheet.component';
 import { TeacherComponent } from './teacher.component';
 import { ViewFileComponent } from './view-file/view-file.component';
 import { VirtualClassComponent } from './virtual-class/virtual-class.component';
@@ -41,8 +44,11 @@ const routes: Routes = [
       { path: 'session', component: VirtualSessionComponent },
       { path: 'gradebook', component: GradebookComponent },
       { path: 'score-sheet', component: ScoreSheetComponent },
+      { path: 'student-score-sheet', component: StudentScoreSheetComponent },
       { path: 'score-sheet-student/:id', component: ScoreSheetDetailsPageComponent },
       { path: 'broad-sheet', component: BroadSheetComponent },
+      { path: 'report-card', component: ReportCardComponent },
+      { path: 'mail-card', component: MailReportCardComponent },
       { path: 'attendance', component: AttendanceComponent },
       { path: 'mark-attendance', component: MarkAttendanceComponent },
     ]

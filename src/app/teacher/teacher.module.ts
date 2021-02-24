@@ -26,6 +26,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { MarkAttendanceComponent } from './mark-attendance/mark-attendance.component';
+import { StudentScoreSheetComponent } from './student-score-sheet/student-score-sheet.component';
+import { MailReportCardComponent } from './mail-report-card/mail-report-card.component';
+import { ReportCardComponent } from './report-card/report-card.component';
 
 
 @NgModule({
@@ -46,7 +49,10 @@ import { MarkAttendanceComponent } from './mark-attendance/mark-attendance.compo
     ScoreSheetDetailsPageComponent,
     TimeTableComponent,
     AttendanceComponent,
-    MarkAttendanceComponent],
+    MarkAttendanceComponent,
+    StudentScoreSheetComponent,
+    MailReportCardComponent,
+    ReportCardComponent],
   imports: [
     CommonModule,
     CKEditorModule,

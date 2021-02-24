@@ -16,7 +16,18 @@ import { ViewReportCardComponent } from './view-report-card/view-report-card.com
 
 
 @NgModule({
-  declarations: [ParentPortalComponent, LandingScreenComponent, DashboardComponent, ChildAssignmentComponent, TimeTableComponent, BillingComponent, ViewAssignmentComponent, ReportCardComponent, ChildAttendanceComponent, ViewBillingComponent, ViewReportCardComponent],
+  declarations: [
+    ParentPortalComponent,
+    LandingScreenComponent,
+    DashboardComponent,
+    ChildAssignmentComponent,
+    TimeTableComponent,
+    BillingComponent,
+    ViewAssignmentComponent,
+    ReportCardComponent,
+    ChildAttendanceComponent,
+    ViewBillingComponent,
+    ViewReportCardComponent],
   imports: [
     CommonModule,
     ParentPortalRoutingModule

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { from, zip, of } from 'rxjs';
-import { groupBy, mergeMap, toArray } from 'rxjs/operators';
+
+
 import { TimeTableService } from 'src/services/data/time-table/time-table.service';
 
 @Component({
@@ -72,21 +72,7 @@ timeTableCells: any;
       if (data.hasErrors === false ) {
         this.timeTableCells = data.payload;
         console.log(this.timeTableCells);
-        const tables = [];
 
-        from(this.timeTableCells)
-         .pipe(
-           groupBy(
-             (result: any) => result.periodName.split('_')[0]
-           ),
-           mergeMap(group => zip(of(group.key), group.pipe(toArray())))
-         )
-         .subscribe(xy => {
-           console.log('Periods', ...xy);
-           tables.push(xy);
-          });
-        this.timeTable = tables;
-        console.log('time table', this.timeTable);
       }
     });
   }

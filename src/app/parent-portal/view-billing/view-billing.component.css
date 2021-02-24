@@ -35,3 +35,26 @@ a {
     font-size: 10px;
     display: none;
 }
+
+.bill-btn {
+background: #0052B4;
+border-radius: 5px;
+font-weight: 600;
+font-size: 14px;
+display: flex;
+align-items: center;
+border: none;
+outline: none;
+border-radius: 5px;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 16px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #FFFFFF;
+text-transform: uppercase;
+padding-top: 13px;
+padding-bottom: 13px;
+}
