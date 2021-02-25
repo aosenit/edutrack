@@ -8,13 +8,16 @@ import { ClassService } from 'src/services/data/class/class.service';
 })
 export class AttendanceComponent implements OnInit {
 
-  noClass = false;
+  noClass = true;
   classList: any;
   Classid: any;
   subjectList: any;
   className: any;
   Subjectid: any;
-  displayClass: boolean;
+  displayClass = false;
+  mainAttendance = true;
+  classAttendance = false;
+  subjectAttandance = false;
   constructor(
     private classService: ClassService
   ) { }
@@ -64,4 +67,28 @@ export class AttendanceComponent implements OnInit {
     this.displayClass = true;
   }
 
+  switchAttendance(status: string) {
+    const newAttendance = status;
+
+    switch (newAttendance) {
+
+      case 'class':
+        this.classAttendance = true;
+        this.subjectAttandance = false;
+        this.mainAttendance = false;
+        break;
+
+
+      case 'subject':
+        this.classAttendance = false;
+        this.subjectAttandance = true;
+        this.mainAttendance = false;
+        break;
+
+      default:
+        this.mainAttendance = true;
+
+    }
+
+  }
 }

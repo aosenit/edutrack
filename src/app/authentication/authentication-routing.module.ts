@@ -4,6 +4,7 @@ import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { EmailVerifiedComponent } from './email-verified/email-verified.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ParentLoginComponent } from './parent-login/parent-login.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { SchoolLoginComponent } from './school-login/school-login.component';
 import { StudentLoginComponent } from './student-login/student-login.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'teacher/login', component: TeacherLoginComponent},
   {path: 'student/login', component: StudentLoginComponent},
   {path: 'school/login', component: SchoolLoginComponent},
+  {path: 'parent/login', component: ParentLoginComponent},
   {path: 'forgotpassword', component: ForgotPasswordComponent},
   {path: 'email-verified', component: EmailVerifiedComponent},
   {path: 'reset-password', component: ResetPasswordComponent},

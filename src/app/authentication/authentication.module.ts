@@ -12,10 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from '../shared/shared.module';
 import { EmailVerifiedComponent } from './email-verified/email-verified.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ParentLoginComponent } from './parent-login/parent-login.component';
 
 
 @NgModule({
-  declarations: [ForgotPasswordComponent, AdminLoginComponent, TeacherLoginComponent, StudentLoginComponent, SchoolLoginComponent, EmailVerifiedComponent, ResetPasswordComponent],
+  declarations: [ForgotPasswordComponent, AdminLoginComponent, TeacherLoginComponent, StudentLoginComponent, SchoolLoginComponent, EmailVerifiedComponent, ResetPasswordComponent, ParentLoginComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

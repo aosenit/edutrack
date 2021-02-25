@@ -6,6 +6,7 @@ import { AssignmentComponent } from './assignment/assignment.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { BroadSheetComponent } from './broad-sheet/broad-sheet.component';
+import { ClassAttendanceComponent } from './class-attendance/class-attendance.component';
 import { CreateAssignmentComponent } from './create-assignment/create-assignment.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FileManagerComponent } from './file-manager/file-manager.component';
@@ -18,6 +19,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { ScoreSheetDetailsPageComponent } from './score-sheet-details-page/score-sheet-details-page.component';
 import { ScoreSheetComponent } from './score-sheet/score-sheet.component';
 import { StudentScoreSheetComponent } from './student-score-sheet/student-score-sheet.component';
+import { SubjecAttendanceComponent } from './subjec-attendance/subjec-attendance.component';
 import { TeacherComponent } from './teacher.component';
 import { ViewFileComponent } from './view-file/view-file.component';
 import { VirtualClassComponent } from './virtual-class/virtual-class.component';
@@ -50,6 +52,8 @@ const routes: Routes = [
       { path: 'report-card', component: ReportCardComponent },
       { path: 'mail-card', component: MailReportCardComponent },
       { path: 'attendance', component: AttendanceComponent },
+      { path: 'subject-attendance', component: SubjecAttendanceComponent },
+      { path: 'class-attendance', component: ClassAttendanceComponent },
       { path: 'mark-attendance', component: MarkAttendanceComponent },
     ]
   }

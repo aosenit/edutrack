@@ -29,6 +29,8 @@ import { MarkAttendanceComponent } from './mark-attendance/mark-attendance.compo
 import { StudentScoreSheetComponent } from './student-score-sheet/student-score-sheet.component';
 import { MailReportCardComponent } from './mail-report-card/mail-report-card.component';
 import { ReportCardComponent } from './report-card/report-card.component';
+import { SubjecAttendanceComponent } from './subjec-attendance/subjec-attendance.component';
+import { ClassAttendanceComponent } from './class-attendance/class-attendance.component';
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { ReportCardComponent } from './report-card/report-card.component';
     MarkAttendanceComponent,
     StudentScoreSheetComponent,
     MailReportCardComponent,
-    ReportCardComponent],
+    ReportCardComponent,
+    SubjecAttendanceComponent,
+    ClassAttendanceComponent],
   imports: [
     CommonModule,
     CKEditorModule,

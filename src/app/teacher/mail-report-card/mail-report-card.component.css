@@ -35,3 +35,130 @@
     line-height: 20px;
     color: #ffffff;
 }
+
+
+input[type="text"] {
+    width: 125%;
+}
+
+.options select {
+    background: #FAFAFA;
+border: 1px solid #92B5DD;
+font-size: 12px;
+}
+
+/* ================= table ====================== */
+table.client-table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+
+.list .table thead {
+    color: #0052B4;
+    
+
+}
+
+.list .table thead tr th {
+    font-weight: 600;
+    padding-bottom: 0;
+}
+
+.list .table thead .head {
+    /* display: flex;
+  align-items: center;
+  color: #0a1128;
+  font-weight: 600; */
+    /* padding-left: 3.5rem; */
+}
+
+.list .table tbody .school-logo {
+    /* display: flex;
+    align-items: center; */
+    color: #0a1128;
+    font-weight: 600;
+    padding-left: 1.5rem;
+    /* padding-left: 3.5rem; */
+    position: relative;
+    opacity: none;
+}
+
+.list .table tbody .school-logo span {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+}
+
+.list .table th,
+td {
+    padding: 15px 15px;
+}
+
+.list .table tbody tr {
+    background: #ffffff;
+    box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
+    border-radius: 5px;
+}
+
+.image-rounded {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+
+/* modals */
+.modal-content {
+    border-radius: 5px !important;
+    border: none;
+    position: relative;
+    background: #000000;
+    color: #fff;
+
+}
+
+.modal2 {
+    /* background: #000000; */
+}
+
+.modal-content2 {
+    border-radius: 5px !important;
+    border: none;
+    position: relative;
+    background: #ffffff;
+    padding: 0rem 2rem;
+}
+
+
+
+.modal-body .class-btn {
+    padding: 11px 50px;
+    border-radius: 2.5px;
+    background: #0052B4;
+    color: #fff;
+    /* font-weight: 600; */
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.modal-body .btn-red {
+    background: #EB0404;
+}
+
+.modal-body .btn-light-brown {
+    background: #424242;
+}
+
+
+.client-modal {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 40px;
+
+}
+
+
