@@ -16,7 +16,7 @@ import { ViewReportCardComponent } from './view-report-card/view-report-card.com
 const routes: Routes = [
   {path: '', component: LandingScreenComponent},
   {path: 'parent-portal', component: ParentPortalComponent, children: [
-    {path: 'dashboard', component: DashboardComponent},
+    {path: 'dashboard/:id', component: DashboardComponent},
     {path: 'assignments', component: ChildAssignmentComponent},
     {path: 'view-assignment', component: ViewAssignmentComponent},
     {path: 'time-table', component: TimeTableComponent},

@@ -35,7 +35,8 @@ export class ParentLoginComponent implements OnInit {
       return;
     } else {
       this.authService.loginAdmin(this.parentLoginForm.value).subscribe((data: any) => {
-        if (data.hasErrors === false) {
+        console.log(data);
+        if (data) {
           localStorage.setItem('access_token', data.access_token);
           this.notifyService.publishMessages('Login successful', 'success', 1);
 
@@ -45,8 +46,10 @@ export class ParentLoginComponent implements OnInit {
           if (this.loggedInUser.UserType === 'Parent') {
             this.router.navigateByUrl('/parent');
           } else {
-            this.router.navigateByUrl('/');
+            localStorage.removeItem('access_token');
+
             this.notifyService.publishMessages('Invalid details, please select the right login type', 'danger', 1);
+            this.router.navigateByUrl('/');
 
           }
         }
@@ -54,7 +57,7 @@ export class ParentLoginComponent implements OnInit {
         error => {
           this.notifyService.publishMessages(error.message, 'danger', 1);
         });
-      location.reload();
+      // location.reload();
     }
   }
 
