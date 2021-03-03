@@ -207,6 +207,22 @@ svg g#icon {
 
 }
 
+.school-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+.school-card {
+    border-radius: 5px;
+    font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+
+}
+
 .profile-intials p {
     margin-bottom: 0;
 }

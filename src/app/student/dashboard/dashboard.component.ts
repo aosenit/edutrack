@@ -50,7 +50,7 @@ days: any;
   }
 
   getTimeTableByClass() {
-    const classId = 22;
+    // const classId = 22;
     const weekday = [
       { id: 0, day: 'Monday' },
       { id: 1, day: 'Tuesday' },
@@ -60,7 +60,7 @@ days: any;
     ][new Date().getDay() - 1];
     const day = weekday.id;
 
-    this.timeTableService.getAllClassesForClassByDay(classId, day).subscribe((data: any) => {
+    this.timeTableService.getAllClassesForClassByDay(day).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
         console.log('dsds', this.subjectAndTime);
@@ -135,9 +135,9 @@ days: any;
 
   getNextClassesForAClass(event) {
     const day = event;
-    const classId = 22;
+    // const classId = 22;
 
-    this.timeTableService.getAllClassesForClassByDay(classId, day).subscribe((data: any) => {
+    this.timeTableService.getAllClassesForClassByDay(day).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
         console.log(this.subjectAndTime);

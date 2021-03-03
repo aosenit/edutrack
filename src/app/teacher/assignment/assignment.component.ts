@@ -44,9 +44,16 @@ export class AssignmentComponent implements OnInit {
     });
   }
 
-  previewAssignment() {
+
+  gradeAssignment(i) {
+    sessionStorage.setItem('preview-assignment', JSON.stringify(this.studentAssignmentList[i]));
+
+  }
+
+  previewAssignment(i) {
     // console.log(this.route.snapshot);
     // routerLink = ""
+    sessionStorage.setItem('preview-assignment', JSON.stringify(this.studentAssignmentList[i]));
     this.router.navigateByUrl('/teacher/preview-assignment/' + this.id);
   }
 

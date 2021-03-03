@@ -157,6 +157,7 @@ export class FileManagerComponent implements OnInit {
       if (data.hasErrors === false) {
         document.getElementById('close').click();
         this.notifyService.publishMessages('Class note uploaded successfully', 'info', 1);
+        this.getAllLessonNotesByTeacher();
 
       }
     }, error => {
@@ -180,6 +181,7 @@ export class FileManagerComponent implements OnInit {
       if (data.hasErrors === false) {
         document.getElementById('myModal2').click();
         this.notifyService.publishMessages('Class work uploaded successfully', 'info', 1);
+        this.getAllClassWorkByTeacher();
 
       }
     }, error => {
@@ -207,6 +209,7 @@ export class FileManagerComponent implements OnInit {
         document.getElementById('myModal').click();
         // location.reload();
         this.notifyService.publishMessages('Assignment uploaded successfully', 'info', 1);
+        this.getAllAssignmentsByTeacher();
 
       }
     }, error => {
@@ -234,7 +237,7 @@ export class FileManagerComponent implements OnInit {
       if (data.hasErrors === false) {
         // console.log('class work', data);
         this.classworkList = data.payload;
-        console.log(this.classworkList)
+        console.log(this.classworkList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

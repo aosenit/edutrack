@@ -5,6 +5,7 @@ import { NotificationsService } from 'src/services/classes/notifications/notific
 import { AdminService } from 'src/services/data/admin/admin.service';
 import { StaffService } from 'src/services/data/staff/staff.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TeacherService } from 'src/services/data/teacher/teacher.service';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class AccountSettingsComponent implements OnInit {
     private adminService: AdminService,
     private notifyService: NotificationsService,
     private staffServie: StaffService,
+    private teacherService: TeacherService,
     private fb: FormBuilder
 
 
@@ -123,11 +125,28 @@ export class AccountSettingsComponent implements OnInit {
   }
 
   getStaffs() {
+
+    const arr = [];
+    this.teacherService.getAllTeachers().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        const allTeacher: any = data.payload;
+        console.log(allTeacher);
+        allTeacher.forEach(item => {
+          arr.push({
+            // id: item.id,
+            userId: item.userId,
+            arm: item.firstName
+          });
+        });
+
+        console.log(arr);
+        this.dropStaffList = arr;
+      }
+    });
     this.staffServie.getAllStaffInSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allStaffs = data.payload;
         // console.log(this.allStaffs);
-        const arr = [];
         this.allStaffs.forEach(item => {
           arr.push({
             // id: item.id,
@@ -186,7 +205,7 @@ export class AccountSettingsComponent implements OnInit {
     });
   }
 
-  
+
   // getRolePermissionsByRoleId(id) {
   //   this.adminService.getAllPermissionForRoleById(id).subscribe((data: any) => {
   //     if (data.hasErrors === false) {

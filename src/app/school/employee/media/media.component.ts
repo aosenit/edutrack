@@ -110,6 +110,9 @@ export class MediaComponent implements OnInit {
             sessionStorage.removeItem('employee-next-kin');
             sessionStorage.removeItem('employee-experience');
             this.router.navigateByUrl('/school/employees');
+          } else {
+
+            this.notifyService.publishMessages(data.errors, 'danger', 1);
           }
         }, error => {
           this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -127,6 +130,9 @@ export class MediaComponent implements OnInit {
             sessionStorage.removeItem('employee-next-kin');
             sessionStorage.removeItem('employee-experience');
             this.router.navigateByUrl('/school/employees');
+          } else {
+            this.notifyService.publishMessages(data.errors, 'danger', 1);
+
           }
         }, error => {
           this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -148,6 +154,9 @@ export class MediaComponent implements OnInit {
             sessionStorage.removeItem('employee-next-kin');
             sessionStorage.removeItem('employee-experience');
             this.router.navigateByUrl('/school/employees');
+          } else {
+            this.notifyService.publishMessages(data.errors, 'danger', 1);
+
           }
         }, error => {
           this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -166,6 +175,9 @@ export class MediaComponent implements OnInit {
             sessionStorage.removeItem('employee-next-kin');
             sessionStorage.removeItem('employee-experience');
             this.router.navigateByUrl('/school/employees');
+          } else {
+            this.notifyService.publishMessages(data.errors, 'danger', 1);
+
           }
         }, error => {
           this.notifyService.publishMessages(error.errors, 'danger', 1);

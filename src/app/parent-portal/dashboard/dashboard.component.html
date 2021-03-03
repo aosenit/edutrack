@@ -4,32 +4,33 @@
   </div>
 
   <div class="row mb-4">
-    <div class="col-md-8  pr-3">
+    <div class="col-md-8  col-sm-12 ">
 
       <div class="profile__hero d-flex flex-column">
         <div class="profile__hero--intro bg-white br-10 py-5 pb-2 px-4 mb-3">
           <p class="banner__text-primary ">{{greet}} <span> {{loggedInUser?.given_name}} </span> </p>
-          <p class="text-white">Samuel has <b class="text-danger">2</b> pending assignment and
+          <p class="text-white" *ngIf="noWardSelected">Please select a child first</p>
+          <p class="text-white" *ngIf="wardSelected">{{wardDetail?.fullName | titlecase}} has <b class="text-danger">{{assignmentCount}}</b> pending assignment and
             outstanding fees</p>
         </div>
-        <div class="profile__cards">
-          <div class="card1 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card"
-            [routerLink]="['/teacher/attendance']">
+        <div class="profile__cards col-sm-12">
+          <div class="card1 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card col-sm-12"
+            [routerLink]="['/parent/parent-portal/attendance']">
             <img src="assets/images/svg/attendance.svg" alt="student card" class="mr-2">
             <p class="mb-0 fw-6">Attendance </p>
           </div>
-          <div class="card2 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card"
-            [routerLink]="['/teacher/score-sheet']">
+          <div class="card2 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card col-sm-12"
+            [routerLink]="['/parent/parent-portal/report-card']">
             <img src="assets/images/svg/assignment.svg" alt="student card" class="mr-2">
             <p class="mb-0 fw-6">Report Card</p>
           </div>
-          <div class="card3 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card"
-            [routerLink]="['/teacher/filemanager']">
+          <div class="card3 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card col-sm-12"
+            >
             <img src="assets/images/svg/medical.svg" alt="student card" class="mr-2">
             <p class="mb-0 fw-6">Medical</p>
           </div>
-          <div class="card4 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card"
-            [routerLink]="['/teacher/filemanager']">
+          <div class="card4 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card col-sm-12"
+            [routerLink]="['/parent/parent-portal/billing']">
             <img src="assets/images/svg/upload.svg" alt="student card" class="mr-2">
             <p class="mb-0 fw-6">Billing</p>
           </div>
@@ -38,24 +39,24 @@
       </div>
 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 col-sm-12">
       <div class="profile__ward bg-white p-4">
         <p class="profile__ward_intro mb-0">Ward</p>
         <p class="profile__ward_next">Select student to display information</p>
-        <div class="d-flex ward-card p-3 mb-2">
+        <div class="d-flex ward-card p-3 mb-2 col-sm-12" *ngFor="let child of childrenList; let u = index" (click)="selectWard(child?.id, u)">
+          <img src="assets/images/svg/student-img-nav.svg" alt="new client" class="">
+          <div class="ml-3">
+            <p class="mb-0 fc-lblue fw-6">{{child?.fullName | titlecase}}</p>
+            <p class="mb-0">{{child?.regNo}}</p>
+          </div>
+        </div>
+        <!-- <div class="d-flex ward-card p-3 mb-2">
           <img src="assets/images/svg/student-img-nav.svg" alt="new client" class="">
           <div class="ml-3">
             <p class="mb-0 fc-lblue fw-6">Samuel Adeyemi</p>
             <p class="mb-0">AMT/2019/001</p>
           </div>
-        </div>
-        <div class="d-flex ward-card p-3 mb-2">
-          <img src="assets/images/svg/student-img-nav.svg" alt="new client" class="">
-          <div class="ml-3">
-            <p class="mb-0 fc-lblue fw-6">Samuel Adeyemi</p>
-            <p class="mb-0">AMT/2019/001</p>
-          </div>
-        </div>
+        </div> -->
         <!-- <button class="bg-lblue-2 btn-block  btn-teacher p-2">View Profile</button> -->
       </div>
     </div>
@@ -96,28 +97,31 @@
       
             <div class="date-picker mb-4 py-2 px-3 d-flex align-items-center justify-content-between">
 
-              <p class="mb-0">Mon</p>
-              <p class="mb-0">Tue</p>
+              <p class="mb-0 cursor-pointer"  *ngFor="let day of days" (click)="getNextClassesForAClass(day?.id)">
+               {{day?.day}} 
+              </p>
+              <!-- <p class="mb-0">Tue</p>
               <p class="mb-0"><span class="today">Wed</span></p>
               <p class="mb-0">Thur</p>
-              <p class="mb-0">Fri</p>
+              <p class="mb-0">Fri</p> -->
               
           </div>
-          <p class="fw-6 mb-4"> Samuel has 3 classes today</p>
+          <p class="fw-6 mb-4"> {{subjectAndTime?.length}} classes <span *ngIf="today">today</span> </p>
   
-          <div  class="dropright" >
+          <div  *ngFor="let class of subjectAndTime | slice: 0:4 ; let i = index"  >
               <div class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center pop-card "  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >
                   <div class="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                      <p class="fw-6 mb-0">English language</p>
+                      <p class="fw-6 mb-0">{{class?.subjectName | titlecase}}</p>
                       <div class="d-flex">
                           <img src="assets/images/svg/student-time-1.svg" alt="student" class="mr-2">
   
-                          <p class="mb-0 fs-12 fw-6">5:00 - 6:00 </p>
+                          <p class="mb-0 fs-12 fw-6">{{class?.timeFrom.hours}}:{{class?.timeFrom.minutes}} - {{class?.timeTo.hours}}:{{class?.timeTo.minutes}} </p>
                       </div>
                   </div> 
                   <div class="d-flex">
-                      <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4" >
-                      <!-- <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4"> -->
+                    <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4" *ngIf="class?.hasVirtual == true">
+                    <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4" *ngIf="class?.hasVirtual == false">
+
   
   
                   </div>
@@ -126,46 +130,7 @@
   
              
               </div>
-              <div class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center pop-card "  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >
-                  <div class="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                      <p class="fw-6 mb-0">English language</p>
-                      <div class="d-flex">
-                          <img src="assets/images/svg/student-time-1.svg" alt="student" class="mr-2">
-  
-                          <p class="mb-0 fs-12 fw-6">5:00 - 6:00 </p>
-                      </div>
-                  </div> 
-                  <div class="d-flex">
-                      <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4" >
-                      <!-- <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4"> -->
-  
-  
-                  </div>
-  
-                  
-  
-             
-              </div>
-              <div class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center pop-card "  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >
-                  <div class="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                      <p class="fw-6 mb-0">English language</p>
-                      <div class="d-flex">
-                          <img src="assets/images/svg/student-time-1.svg" alt="student" class="mr-2">
-  
-                          <p class="mb-0 fs-12 fw-6">5:00 - 6:00 </p>
-                      </div>
-                  </div> 
-                  <div class="d-flex">
-                      <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4" >
-                      <!-- <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4"> -->
-  
-  
-                  </div>
-  
-                  
-  
-             
-              </div>
+              
           </div>
            
           </div>

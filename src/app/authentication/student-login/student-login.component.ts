@@ -35,7 +35,6 @@ export class StudentLoginComponent implements OnInit {
       return;
     } else {
       this.authService.loginAdmin(this.studentLoginForm.value).subscribe((data: any) => {
-        console.log(data);
         if (data) {
           localStorage.setItem('access_token', data.access_token);
           const helper = new JwtHelperService();

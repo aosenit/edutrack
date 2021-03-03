@@ -35,7 +35,6 @@ export class ParentLoginComponent implements OnInit {
       return;
     } else {
       this.authService.loginAdmin(this.parentLoginForm.value).subscribe((data: any) => {
-        console.log(data);
         if (data) {
           localStorage.setItem('access_token', data.access_token);
           this.notifyService.publishMessages('Login successful', 'success', 1);

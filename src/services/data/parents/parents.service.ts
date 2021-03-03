@@ -12,9 +12,21 @@ const routes = {
   updateparentbyid: 'schtrack-auth/api/v1/Parent/UpdateParent',
   deleteparent: 'schtrack-auth/api/v1/Parent/DeleteParent',
   getstudentSchools: 'schtrack-auth/api/v1/Parent/GetStudentsSchools',
-  getstudentInASchoolsForParent: 'schtrack-auth/api/v1/Parent/GetStudentsInSchool'
+  getstudentInASchoolsForParent: 'schtrack-auth/api/v1/Parent/GetStudentsInSchool',
+
+  // All endpoint below are exclusively for the parent portal
+  getTableforClassByClassId: 'schtrack-learning/api/v1/TimeTable/GetTimetableForClass',
+  getTableforClassByDay: 'schtrack-learning/api/v1/TimeTable/GetAllClassesForClassToday',
+  getPeriods : 'schtrack-learning/api/v1/TimeTable/GetPeriods',
+  // tslint:disable-next-line:max-line-length
+  getallsubjectsWithAssignmentforclass: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClassWithAssignmentCount', // this endpoint get all subjects and assignment counts in each subject
+  getAssignmentByClassSubject: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByClassSubject',
+  getchildsubmissions: 'schtrack-learning/api/v1/AssignmentAnswer/GetAssignmentSubmissionForStudent',
+
+
 };
 
+const tenantId = sessionStorage.getItem('tenant');
 @Injectable({
   providedIn: 'root'
 })
@@ -22,11 +34,9 @@ export class ParentsService {
   baseUrl: string = environment.serverUrl;
   baseUrl2: string = environment.demourl;
 
-
   constructor(private http: HttpClient) { }
 
   addParent(createParentForm) {
-    const tenantId = '1'; // just a temporary header till email services is ready
 
     const formData = new FormData();
     formData.append('HomeAddress', createParentForm.HomeAddress);
@@ -109,6 +119,9 @@ export class ParentsService {
 
   }
 
+
+  // Endpoints designnated for parent portal
+
   getStudentSchools() {
     const url = `${this.baseUrl + routes.getstudentSchools}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
@@ -116,10 +129,63 @@ export class ParentsService {
   }
 
   getChildInASchoolForParent() {
-    const id = sessionStorage.getItem('tenant');
-    const tenantId = id;
+    // const id = sessionStorage.getItem('tenant');
+    // const tenantId = id;
     const url = `${this.baseUrl + routes.getstudentInASchoolsForParent}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
 
   }
+
+
+  getPeriods() {
+    // const id = sessionStorage.getItem('tenant');
+    // const tenantId = id;
+
+    const url = `${this.baseUrl + routes.getPeriods}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
+  getTimeTableForClass(classId) {
+    // const id = sessionStorage.getItem('tenant');
+    // const tenantId = id;
+    const url = `${this.baseUrl + routes.getTableforClassByClassId}?classId=${classId}`;
+    console.log(url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
+
+
+  getAllClassesForClassByDay( classId, day) {
+    // const id = sessionStorage.getItem('tenant');
+    // const tenantId = id;
+
+    const url = `${this.baseUrl + routes.getTableforClassByDay}?classId=${classId}&day=${day}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
+  getAllSubjectsInAClassWithAssignmentCountByClassID(classId) {
+    // const id = sessionStorage.getItem('tenant');
+    // const tenantId = id;
+    const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classId=${classId}`;
+    console.log(url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
+  getAssignmentsByClassSubject(classSubjectId: number) {
+    // const id = sessionStorage.getItem('tenant');
+    // const tenantId = id;
+    const url = `${this.baseUrl + routes.getAssignmentByClassSubject}?classSubjectId=${classSubjectId}`;
+    console.log(url);
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+
+
+  getStudentAssignmentSubmission(childId) {
+    const url = `${this.baseUrl + routes.getchildsubmissions}?studentId=${childId}`;
+
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+  }
+
+
+
 }

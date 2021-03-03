@@ -19,15 +19,15 @@
               <form>
                 <div class="row">
                   <div class="col options">
-                    <select name="" id="" class="form-control" >
+                    <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)" >
                       <option value="">Select Class</option>
-                      <option value="1"> 1</option>
+                      <option value={{class.classSubjectId}} *ngFor="let class of classList; let i = index">{{class.class}}</option>
                     </select>
                   </div>
                   <div class="col options">
                     <select name="" id="" class="form-control" (change)="getSubjectsId($event.target.value)">
                       <option value="">Select Subject</option>
-                      <option [value]= "1">1</option>
+                      <option [value]="subject.classSubjectId" *ngFor="let subject of subjectList">{{subject.subject | titlecase}}</option>
                     </select>
                   </div>
                 </div>

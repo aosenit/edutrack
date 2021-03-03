@@ -3,6 +3,8 @@
     box-sizing: border-box;
     /* box-shadow: 0px 1px 21px rgba(119, 119, 119, 0.21); */
     border-radius: 5px;
+    overflow-y: scroll;
+    max-height: 288px;
 }
 
 .profile__ward_intro {
@@ -127,7 +129,7 @@ border-radius: 5px;
 }
 
 
-.information__schedule .date-picker span {
+.information__schedule .date-picker .today {
     background: #003E88;
 border-radius: 2px;
     padding: 8px 10px;

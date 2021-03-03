@@ -17,7 +17,7 @@
     </div>
     <section class="banner mb-4 p-5 justify-content-between">
       <p class="banner__text-primary mb-0 ">Assignment </p>
-      <p class="text-white">Samuel has <b class="text-danger">2</b> pending assignment </p>
+      <p class="text-white">{{wardDetail?.fullName | titlecase}} has <b class="text-danger">{{assignmentCount}}</b> pending assignment </p>
         <div class="justify-content-end"> 
             <!-- <p class="last-login pt-3 pr-5 fw-6">Last Login: </p> -->
         </div>
@@ -64,57 +64,26 @@
             <tbody>
             
              
-              <tr class="pb-2 ">
+              <tr class="pb-2 " *ngFor = "let assignment of assignments; let i = index">
 
                 <td class="border-bottom ">
-                  Descriptive Essay Assignment
+                  {{assignment?.name | titlecase}}
+
                 </td>
                 
-                <td class=" border-bottom ">07, June 2020 </td>
-                <td class=" border-bottom ">08: 00 am </td>
+                <td class=" border-bottom ">{{assignment?.dueDate | date: 'mediumDate'}} </td>
+                <td class=" border-bottom ">{{assignment?.dueDate | date: 'shortTime'}} </td>
                 
                 <td class="  border-bottom  ">
-                  <span class="status_pending">Pending</span>
+                  <span class="status_pending" *ngIf="assignment?.status == 'Due'">Due</span>
+                  <span class="status_active" *ngIf="assignment?.status == 'Active'">Pending</span>
                 </td>
                 <td class="border-bottom">
-                 2 days left
+                  {{mydate[i]}} 
                 </td>
 
               </tr>
-              <tr class="pb-2 ">
-
-                <td class="border-bottom ">
-                  Descriptive Essay Assignment
-                </td>
-                
-                <td class=" border-bottom ">07, June 2020 </td>
-                <td class=" border-bottom ">08: 00 am </td>
-                
-                <td class="  border-bottom  ">
-                  <span class="status_pending">Pending</span>
-                </td>
-                <td class="border-bottom">
-                 2 days left
-                </td>
-
-              </tr>
-              <tr class="pb-2 ">
-
-                <td class="border-bottom ">
-                  Descriptive Essay Assignment
-                </td>
-                
-                <td class=" border-bottom ">07, June 2020 </td>
-                <td class=" border-bottom ">08: 00 am </td>
-                
-                <td class="  border-bottom  ">
-                  <span class="status_pending">Pending</span>
-                </td>
-                <td class="border-bottom">
-                 2 days left
-                </td>
-
-              </tr>
+             
              
               
             </tbody>
@@ -147,57 +116,25 @@
               <tbody>
               
                
-                <tr class="pb-2 ">
+                <tr class="pb-2 " *ngFor="let submssion of assignmentSubmission">
 
                   <td class="border-bottom ">
-                    Descriptive Essay Assignment
+                   {{submssion?.title}}
                   </td>
                   
-                  <td class=" border-bottom ">07, June 2020 </td>
-                  <td class=" border-bottom ">08: 00 am </td>
+                  <td class=" border-bottom ">{{submssion?.submissionDate | date: 'mediumDate'}} </td>
+                  <td class=" border-bottom ">{{submssion?.submissionDate | date: 'shortTime'}} </td>
                   
                   <td class="  border-bottom  ">
-                    <span class="status_graded">Graded</span>
+                    <span class="status_graded" *ngIf="submssion?.status === 'Graded'">Graded</span>
+                    <span class="status_submitted" *ngIf="submssion?.status !== 'Graded'">Submitted</span>
                   </td>
                   <td class="border-bottom">
-                   15/20
+                  {{submssion?.score}}
                   </td>
 
                 </tr>
-                <tr class="pb-2 ">
-
-                  <td class="border-bottom ">
-                    Descriptive Essay Assignment
-                  </td>
-                  
-                  <td class=" border-bottom ">07, June 2020 </td>
-                  <td class=" border-bottom ">08: 00 am </td>
-                  
-                  <td class="  border-bottom  ">
-                    <span class="status_submitted">Submitted</span>
-                  </td>
-                  <td class="border-bottom">
-                   5/20
-                  </td>
-
-                </tr>
-                <tr class="pb-2 ">
-
-                  <td class="border-bottom ">
-                    Descriptive Essay Assignment
-                  </td>
-                  
-                  <td class=" border-bottom ">07, June 2020 </td>
-                  <td class=" border-bottom ">08: 00 am </td>
-                  
-                  <td class="  border-bottom  ">
-                    <span class="status_submitted">Submitted</span>
-                  </td>
-                  <td class="border-bottom">
-                   19/20
-                  </td>
-
-                </tr>
+              
                
                 
               </tbody>

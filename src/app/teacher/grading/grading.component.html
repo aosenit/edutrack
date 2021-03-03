@@ -1,89 +1,151 @@
 <div class="container-fluid">
-    <div class="row " *ngIf="gradeAssignment">
-        <div class="col-md-8 file-reader">
-            <div class="row">
-                <div class="col-md-12 top-bar p-3">
-                    <div class="row align-items-center">
-                        <div class="col-md-6 ">
-                            <div class="d-flex align-items-center cursor-pointer" (click)="back()">
-                                <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
-                                <p class="mb-0">Back</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex align-items-center">
-                                <p class="mb-0">Score</p>
-                                <form class="pl-2 form-inline" [formGroup]="scoreForm" (ngSubmit)="submitScore()">
-                                    <input type="number" id="" class="form-control "  formControlName="score">
-                                    <button class="btn regrade  ml-2">Submit</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-12 document-viewer p-3">
-                    <div class="document-pages p-3">
-                        Document reader goes here
-                    </div>
-                </div>
+  <div class="row " *ngIf="gradeAssignment">
+    <div class="col-md-8 file-reader">
+      <div class="row">
+        <div class="col-md-12 top-bar p-3">
+          <div class="row align-items-center">
+            <div class="col-md-6 ">
+              <div class="d-flex align-items-center cursor-pointer" (click)="back()">
+                <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+                <p class="mb-0">Back</p>
+              </div>
             </div>
-        </div>
-        <div class="col-md-1 actions px-0" >
-            <div class="d-flex justify-content-center align-items-center pt-5 pb-4 comment dropleft">
-                <img src="assets/images/svg/add_comment.svg" title="Comment on assignment" class="dropdown-toggle" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false" alt="..." />
-                <div class="dropdown-menu px-3 pt-3 pb-3">
-                    <p>Make Comment</p>
-                    <form [formGroup]="extraCommentForm" (ngSubmit)="submitComment()">
-                        <div class="form-group">
-                            <textarea class="form-control" formControlName="comment"></textarea>
-                        </div>
-                        <div class="d-flex justify-content-start mb-3   ">
-                            <button class="pop-left btn-blue mr-3">Comment</button>
-                            <button class="pop-left btn-clear">Cancel</button>
-                        </div>
-                    </form>
-                </div>
+            <div class="col-md-6">
+              <div class="d-flex align-items-center">
+                <p class="mb-0">Score</p>
+                <form class="pl-2 form-inline" [formGroup]="scoreForm" (ngSubmit)="submitScore()">
+                  <input type="number" id="" class="form-control " formControlName="score">
+                  <button class="btn regrade  ml-2">Submit</button>
+                </form>
+              </div>
             </div>
-            <div class="d-flex justify-content-center align-items-center pt-5 pb-4 download">
-                <img src="assets/images/svg/download-grading.svg" class="" alt="..." />
-            </div>
-        </div>
-        <div class="col-md-3 notice-board p-3">
-            <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="back()"> Return </button>
-            <div class="assignment-info">
-                <p class="fs-14 fw-6 text-white">Title</p>
-                <p class="fw-6 fs-18 ">How I Learnt Swimming</p>
-                <p class="date fs-12 mb-0 pb-1">Submitted 07 Aug 2020 </p>
-                <p class="fw-6 mb-0 ">Miss Cynthia Godbless</p>
-                <p class="fs-12"> AMI/ST/2020/002</p>
-            </div>
+          </div>
 
         </div>
+
+        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === 'text/plain'">
+
+          <iframe class="document-pages p-3 bg-white w-100 "
+            [src]="' data:text/plain;base64,' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">
+            <p>dOCUMENT VIEWR GOES HERE</p>
+          </iframe>
+        </div>
+        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === 'image/png'">
+
+          <iframe class="document-pages p-3 bg-white w-100 "
+            [src]="' data:image/png;base64,' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">
+            <p>dOCUMENT VIEWR GOES HERE</p>
+          </iframe>
+        </div>
+        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === 'image/jpeg'">
+
+          <iframe class="document-pages p-3 bg-white w-100 "
+            [src]="' data:image/jpeg;base64,' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">
+            <p>dOCUMENT VIEWR GOES HERE</p>
+          </iframe>
+        </div>
+        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === 'application/pdf'">
+
+          <iframe class="document-pages p-3 bg-white w-100 "
+            [src]="' data:application/pdf;base64,' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">
+            <p>dOCUMENT VIEWR GOES HERE</p>
+          </iframe>
+        </div>
+        <div class="col-md-12 document-viewer p-3"
+          *ngIf="filePreview?.fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || filePreview?.fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||  filePreview?.fileType === 'application/msword'">
+
+
+          <div class="d-flex flex-column text-center">
+            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+            <p class="fw-6">Sorry, you cant preview this file but you can download.</p>
+            <p> <a href="" download=""> Click here to download</a></p>
+          </div>
+        </div>
+
+
+      </div>
     </div>
-
-    <div class="row" *ngIf="hideSide">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-12 top-bar p-3">
-                    <div class="row align-items-center">
-                        <div class="col-md-10 ">
-                            <div class="d-flex align-items-center cursor-pointer" (click)="back()">
-                                <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
-                                <p class="mb-0">Back</p>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-                </div>
-                <div class="col-md-12 document-viewer p-3">
-                    <div class="document-pages p-3">
-                        Document reader goes here
-                    </div>
-                </div>
+    <div class="col-md-1 actions px-0">
+      <div class="d-flex justify-content-center align-items-center pt-5 pb-4 comment dropleft">
+        <img src="assets/images/svg/add_comment.svg" title="Comment on assignment" class="dropdown-toggle"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="..." />
+        <div class="dropdown-menu px-3 pt-3 pb-3">
+          <p>Make Comment</p>
+          <form [formGroup]="extraCommentForm" (ngSubmit)="submitComment()">
+            <div class="form-group">
+              <textarea class="form-control" formControlName="comment"></textarea>
             </div>
+            <div class="d-flex justify-content-start mb-3   ">
+              <button class="pop-left btn-blue mr-3">Comment</button>
+              <button class="pop-left btn-clear">Cancel</button>
+            </div>
+          </form>
         </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center pt-5 pb-4 download">
+        <img src="assets/images/svg/download-grading.svg" class="" alt="..." />
+      </div>
     </div>
+    <div class="col-md-3 notice-board p-3">
+      <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="back()"> Return </button>
+      <div class="assignment-info">
+        <!-- <p class="fs-14 fw-6 text-white">Title</p>
+        <p class="fw-6 fs-18 ">How I Learnt Swimming</p> -->
+        <p class="date fs-12 mb-0 pb-1">Submitted {{filePreview?.date | date: 'mediumDate'}} </p>
+        <p class="fw-6 mb-0 ">{{filePreview?.studentName | titlecase}}</p>
+        <!-- <p class="fs-12"> AMI/ST/2020/002</p> -->
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row" *ngIf="hideSide">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-12 top-bar p-3">
+          <div class="row align-items-center">
+            <div class="col-md-10 ">
+              <div class="d-flex align-items-center cursor-pointer" (click)="back()">
+                <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+                <p class="mb-0">Back</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === 'image/png'">
+
+          <iframe class="document-pages p-3 bg-white w-100 "
+            [src]="' data:image/png;base64,' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">
+            <p>dOCUMENT VIEWR GOES HERE</p>
+          </iframe>
+        </div>
+        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === 'image/jpeg'">
+
+          <iframe class="document-pages p-3 bg-white w-100 "
+            [src]="' data:image/jpeg;base64,' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">
+            <p>dOCUMENT VIEWR GOES HERE</p>
+          </iframe>
+        </div>
+        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === 'application/pdf'">
+
+          <iframe class="document-pages p-3 bg-white w-100 "
+            [src]="' data:application/pdf;base64,' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">
+            <p>dOCUMENT VIEWR GOES HERE</p>
+          </iframe>
+        </div>
+        <div class="col-md-12 document-viewer p-3"
+          *ngIf="filePreview?.fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || filePreview?.fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ||  filePreview?.fileType === 'application/msword'">
+
+
+          <div class="d-flex flex-column text-center">
+            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+            <p class="fw-6">Sorry, you cant preview this file but you can download.</p>
+            <p> <a href="" download=""> Click here to download</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

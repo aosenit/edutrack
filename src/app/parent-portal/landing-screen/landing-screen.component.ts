@@ -22,6 +22,8 @@ export class LandingScreenComponent implements OnInit {
     this.getStudentSchools();
   }
 
+
+
   getStudentSchools() {
     this.parentService.getStudentSchools().subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -32,6 +34,11 @@ export class LandingScreenComponent implements OnInit {
       this.notifyService.publishMessages('Cannot get child schools', 'danger', 1);
 
     });
+  }
+
+  getTenantId(id) {
+    sessionStorage.setItem('tenant', id);
+
   }
 
 }

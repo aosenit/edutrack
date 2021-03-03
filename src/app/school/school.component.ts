@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 
 
 @Component({
@@ -11,7 +12,10 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 export class SchoolComponent implements OnInit {
   adminDetails: any;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private notifyService: NotificationsService
+    ) { }
 
   ngOnInit() {
     const helper = new JwtHelperService();
@@ -22,8 +26,11 @@ export class SchoolComponent implements OnInit {
 
   logOut() {
     localStorage.removeItem('access_token');
-    this.router.navigateByUrl('/');
+    setTimeout(() => {
+      this.notifyService.publishMessages('Logged out successfully', 'success', 1);
+      this.router.navigateByUrl('/');
 
+    }, 2000);
   }
 
   getInitials(input) {

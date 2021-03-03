@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ParentsService } from 'src/services/data/parents/parents.service';
 
 
 import { TimeTableService } from 'src/services/data/time-table/time-table.service';
@@ -15,13 +16,16 @@ daysInWeek: any;
 periods: any;
 timeTableCells: any;
   timeTable: any;
+  wardDetail: any;
 
   constructor(
-    private timeTableService: TimeTableService
+    private timeTableService: TimeTableService,
+    private parentService: ParentsService
 
   ) { }
 
   ngOnInit() {
+    this.wardDetail = JSON.parse(sessionStorage.getItem('ward'));
     this.getTimeTableByClass();
     this.daysofWeek();
     this.getAllPeriods();
@@ -58,7 +62,7 @@ timeTableCells: any;
   }
 
   getAllPeriods() {
-    this.timeTableService.getPeriods().subscribe((data: any) => {
+    this.parentService.getPeriods().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.periods = data.payload;
       }
@@ -68,7 +72,7 @@ timeTableCells: any;
 
   getTimeTableByClass() {
     // const classId = 22;
-    this.timeTableService.getTimeTableForClass().subscribe((data: any) => {
+    this.parentService.getTimeTableForClass(this.wardDetail.classID).subscribe((data: any) => {
       if (data.hasErrors === false ) {
         this.timeTableCells = data.payload;
         console.log(this.timeTableCells);
