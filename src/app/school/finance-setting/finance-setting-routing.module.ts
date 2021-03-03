@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccountMappingComponent } from './account-mapping/account-mapping.component';
+import { AccountPanelComponent } from './account-panel/account-panel.component';
 import { BankAccountsComponent } from './bank-accounts/bank-accounts.component';
 import { ChartOfAccountComponent } from './chart-of-account/chart-of-account.component';
 import { DiscountsComponent } from './discounts/discounts.component';
@@ -15,6 +16,7 @@ import { VendorsComponent } from './vendors/vendors.component';
 
 
 const routes: Routes = [
+  {path: 'accounts', component: AccountPanelComponent},
   {path: 'chart-of-account', component: ChartOfAccountComponent},
   {path: 'new-account-chart', component: NewAccountChartComponent},
   {path: 'fee-component', component: FeeComponentComponent},

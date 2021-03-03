@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FinanceService } from 'src/services/data/finance/finance.service';
 
 @Component({
   selector: 'app-chart-of-account',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class ChartOfAccountComponent implements OnInit {
   searchString: string;
   p = 1;
-  constructor() { }
+  constructor(
+    private finance: FinanceService
+  ) { }
 
   ngOnInit() {
   }

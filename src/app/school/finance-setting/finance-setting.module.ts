@@ -17,6 +17,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NewAccountChartComponent } from './new-account-chart/new-account-chart.component';
 import { NewVendorsComponent } from './new-vendors/new-vendors.component';
 import { NewFeeComponent } from './new-fee/new-fee.component';
+import { AccountPanelComponent } from './account-panel/account-panel.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { NewFeeComponent } from './new-fee/new-fee.component';
     AccountMappingComponent,
     NewAccountChartComponent,
     NewVendorsComponent,
-    NewFeeComponent],
+    NewFeeComponent,
+    AccountPanelComponent],
   imports: [
     CommonModule,
     SharedModule,

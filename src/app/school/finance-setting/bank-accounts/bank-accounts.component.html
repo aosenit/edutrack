@@ -75,7 +75,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="pb-1" >
+            <tr class="pb-1" *ngFor="let account of bankAccountList | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: accountCount }" >
                 <td scope="row" class="check rounded-left">
                     <div class="custom-control custom-checkbox" >
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -86,13 +86,14 @@
                     
                     <div class="d-flex align-items-center">
                         
-                        <h6 class="fw-6 mb-0" >   Tution Fee </h6>
+                        <h6 class="fw-6 mb-0" >   {{account?.bank}}</h6>
                     </div>
                 </td>
-                <td>00897689 </td>
-                <td>UBA </td>
+                <td>{{account?.accountNumber}} </td>
+                <td>{{account?.accountName}} </td>
                 <td>
-                    <span class="status_active" >Active</span>
+                    <span class="status_active" *ngIf="account.isActive === true" >Active</span>
+                    <span class="status_inactive" *ngIf="account.isActive === false" >Inactive</span>
                 </td>
                
             </tr>
@@ -118,19 +119,19 @@
             <div class="modal-head mb-4">
                 <div class="d-flex justify-content-between align-items-center ">
                     <h6 class="modal-title fc-lblue">Add New Bank Account</h6>
-                    <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="mySubjectModal"
+                    <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myAccountModal"
                         data-dismiss="modal" aria-label="Close" class="close">
 
                 </div>
 
             </div>
             <div class="modal-body client-modal">
-                <form>
+                <form [formGroup]="bankAccountForm" (ngSubmit)="createBankAccount()">
 
 
                     <div class="form-group mb-4">
                         <label for="class" class="">Bank  <span class="text-danger">*</span> </label>
-                        <select name="" id="" class="form-control">
+                        <select name="" id="" class="form-control" formControlName="bank">
                             <option value="" selected>Select...</option>
                             <option value="UBA">UBA</option>
                         </select>
@@ -139,20 +140,20 @@
                     
                     <div class="form-group mb-4">
                         <label for="class" class="">Account Name<span class="text-danger">*</span> </label>
-                        <input type="text" id="class" class="form-control" placeholder="Enter account name" >
+                        <input type="text" id="class" class="form-control" formControlName="accountName" placeholder="Enter account name" >
                         
                     </div>
 
                     <div class="form-group mb-4">
                         <label for="class" class="">Account Number<span class="text-danger">*</span> </label>
-                        <input type="text" placeholder="Enter Account number" class="form-control">
+                        <input type="text" placeholder="Enter Account number" formControlName="accountNumber" class="form-control" maxlength="11">
                     </div>
 
 
                     <div class="form-group custom mb-5">
                         <div class="custom-control custom-switch">
                             <input type="checkbox" class="custom-control-input" id="customSwitch4"
-                                formControlName="IsActive" (change)="getStatus($event.target.checked)">
+                                formControlName="isActive" (change)="getStatus($event.target.checked)">
                             <label class="custom-control-label" for="customSwitch4"
                                 *ngIf="toggleState === false">Inactive</label>
                             <label class="custom-control-label" for="customSwitch4"
@@ -165,7 +166,7 @@
                         <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
                             data-dismiss="modal">Cancel
                         </button>
-                        <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Account</button>
+                        <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="bankAccountForm.invalid"> Add Account</button>
                     </div>
                 </form>
             </div>
