@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { FinanceService } from 'src/services/data/finance/finance.service';
 
+
 @Component({
   selector: 'app-account-panel',
   templateUrl: './account-panel.component.html',
