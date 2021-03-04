@@ -15,9 +15,11 @@ export class BankAccountsComponent implements OnInit {
   p = 1;
   itemsPerPage = 10;
   accountCount: number;
-toggleState = false;
+  toggleState = false;
   bankAccountForm: FormGroup;
   bankAccountList: any;
+  editBankAccountForm: FormGroup;
+  selectedAccountId: any;
 
   constructor(
     private fb: FormBuilder,
@@ -29,13 +31,22 @@ toggleState = false;
   ngOnInit() {
     this.populateBankAccountForm();
     this.getAllBankAccounts();
+    this.populateEditBankAccountForm();
   }
 
   populateBankAccountForm() {
     this.bankAccountForm = this.fb.group({
       bank: ['', Validators.required],
       accountName: ['', Validators.required],
-      accountNumber: ['',[ Validators.required, Validators.maxLength(11)]],
+      accountNumber: ['', [Validators.required, Validators.maxLength(11)]],
+      isActive: false
+    });
+  }
+  populateEditBankAccountForm() {
+    this.editBankAccountForm = this.fb.group({
+      bank: ['', Validators.required],
+      accountName: ['', Validators.required],
+      accountNumber: ['', [Validators.required, Validators.maxLength(11)]],
       isActive: false
     });
   }
@@ -51,7 +62,7 @@ toggleState = false;
   }
 
   createBankAccount() {
-    const {bank, accountName, accountNumber, isActive} = this.bankAccountForm.value;
+    const { bank, accountName, accountNumber, isActive } = this.bankAccountForm.value;
     const result = {
       bank,
       accountName,
@@ -59,7 +70,7 @@ toggleState = false;
       isActive: this.toggleState
     };
 
-    console.log('bank account', result);
+    // console.log('bank account', result);
     this.finance.createNewBankAccount(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
@@ -80,7 +91,7 @@ toggleState = false;
         this.accountCount = data.totalCount;
       }
     }, error => {
-      this.notifyService.publishMessages('Banc Account creation failed', 'danger', 1);
+      this.notifyService.publishMessages('Bank Account creation failed', 'danger', 1);
 
     });
   }
@@ -94,8 +105,49 @@ toggleState = false;
         this.accountCount = data.totalCount;
       }
     }, error => {
+      this.notifyService.publishMessages(' Account creation failed', 'danger', 1);
+
+    });
+  }
+
+  editBankAccount(id) {
+    this.selectedAccountId = id;
+    this.finance.getBankAccountById(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+       console.log(data.payload);
+       this.editBankAccountForm.patchValue({
+         bank: data.payload.bank,
+         accountName: data.payload.accountName,
+         accountNumber: data.payload.accountNumber,
+         isActive: data.payload.isActive,
+       });
+      }
+    }, error => {
       this.notifyService.publishMessages('Banc Account creation failed', 'danger', 1);
 
     });
-}
+  }
+
+  updateBankAccount() {
+    const { bank, accountName, accountNumber, isActive } = this.editBankAccountForm.value;
+    const result = {
+      bank,
+      accountName,
+      accountNumber,
+      isActive: this.toggleState
+    };
+
+    console.log('bank account', result);
+    this.finance.updateBankAccountById(this.selectedAccountId, result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        this.notifyService.publishMessages('Account created successfully', 'success', 1);
+        document.getElementById('editAccountModal').click();
+        this.getAllBankAccounts();
+      }
+    }, error => {
+      this.notifyService.publishMessages('Bank Account creation failed', 'danger', 1);
+
+    });
+  }
 }

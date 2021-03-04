@@ -54,7 +54,7 @@ const routes: Routes = [
       { path: 'attendance', component: AttendanceComponent },
       { path: 'subject-attendance', component: SubjecAttendanceComponent },
       { path: 'class-attendance', component: ClassAttendanceComponent },
-      { path: 'mark-attendance', component: MarkAttendanceComponent },
+      { path: 'mark-attendance/:id', component: MarkAttendanceComponent },
     ]
   }
 ];

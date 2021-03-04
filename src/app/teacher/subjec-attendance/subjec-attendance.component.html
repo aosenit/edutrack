@@ -19,22 +19,23 @@
               <form>
                 <div class="row">
                   <div class="col options">
-                    <select name="" id="" class="form-control" >
+                    <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)" >
                       <option value="">Select Class</option>
-                      <option [value]="1">sd</option>
+                      <option value={{class.class}} *ngFor="let class of classList; let i = index">{{class.class}}</option>
                     </select>
                   </div>
-                  <div class="col options">
+                  <!-- <div class="col options">
                     <select name="" id="" class="form-control" (change)="getSubjectsId($event.target.value)">
                       <option value="">Select Subject</option>
+                      <option [value]="subject.classSubjectId" *ngFor="let subject of subjectList">{{subject.subject | titlecase}}</option>
                     </select>
-                  </div>
+                  </div> -->
                 </div>
               </form>
             </div>
 
-            <button *ngIf="displayClass" class="btn bg-lblue-2 mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/teacher/mark-attendance']">
-              Update </button>
+            <!-- <button *ngIf="displayClass" class="btn bg-lblue-2 mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/teacher/mark-attendance']">
+              Update </button> -->
         
            
           </div>
@@ -50,68 +51,20 @@
           </div>
 
 
-          <!-- <div class="d-flex justify-content-between  align-items-center mb-3" *ngIf="displayClass">
-            <form>
-              <div class="row">
-                <div class="col options">
-                  <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)">
-                    <option value="">Select Class</option>
-                    <option [value]="class?.id" *ngFor="let class of classList"> {{class.name}}{{class?.classGroup}}</option>
-                  </select>
-                </div>
-                <div class="col options">
-                  <select name="" id="" class="form-control" (change)="getSubjectsId($event.target.value)">
-                    <option value="">Select Subject</option>
-                    <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.subject | titlecase}}</option>
-                  </select>
-                </div>
-              </div>
-            </form>
-            <button class="btn bg-lblue-2 mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/teacher/mark-attendance']">
-             Update </button>
-    
-        
-           
-          </div> -->
+          
 
 
           <div class="row" *ngIf="displayClass">
-            <div class="col-md-3 mb-4  ">
+            <div class="col-md-3 mb-4  cursor-pointer pointer " *ngFor="let subject of subjectList" routerLink="/teacher/mark-attendance/{{subject?.classId}}">
              <div class=" attendance bg-white br-10 p-4 d-flex justify-content-between align-items-center">
                <div class="d-flex flex-column align-items-left">
-                  <p class="attendance__student_name  mb-0">Social Studies</p>
-                  <p class="attendance__student_reg mb-0">JSS 1</p>
+                  <p class="attendance__student_name  mb-0">{{subject?.subject | titlecase}}</p>
+                  <p class="attendance__student_reg mb-0">{{subject?.class}}</p>
                </div>
                
              </div>
             </div>
-            <div class="col-md-3 mb-4  ">
-             <div class=" attendance bg-white br-10 p-4 d-flex justify-content-between align-items-center">
-               <div class="d-flex flex-column align-items-left">
-                  <p class="attendance__student_name  mb-0">Social Studies</p>
-                  <p class="attendance__student_reg mb-0">JSS 1</p>
-               </div>
-               
-             </div>
-            </div>
-            <div class="col-md-3 mb-4  ">
-             <div class=" attendance bg-white br-10 p-4 d-flex justify-content-between align-items-center">
-               <div class="d-flex flex-column align-items-left">
-                  <p class="attendance__student_name  mb-0">Social Studies</p>
-                  <p class="attendance__student_reg mb-0">JSS 1</p>
-               </div>
-               
-             </div>
-            </div>
-            <div class="col-md-3 mb-4  ">
-             <div class=" attendance bg-white br-10 p-4 d-flex justify-content-between align-items-center">
-               <div class="d-flex flex-column align-items-left">
-                  <p class="attendance__student_name  mb-0">Social Studies</p>
-                  <p class="attendance__student_reg mb-0">JSS 1</p>
-               </div>
-               
-             </div>
-            </div>
+           
           
           
             

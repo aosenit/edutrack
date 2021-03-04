@@ -59,12 +59,12 @@ export class ScoreSheetComponent implements OnInit {
 
   ngOnInit() {
     // tslint:disable-next-line:only-arrow-functions
-    $('#dropdownMenuLink').on('show.bs.dropdown', function () {
+    $('#dropdownMenuLink').on('show.bs.dropdown', function() {
       $(`#dropdownMenuLink`).show();
 
     });
 
-    this.getAllClasses();
+    this.getClassAndSubjectForTeacher();
     this.generateGradeSetup();
     this.populateResult();
     this.populateBulkUpload();
@@ -93,9 +93,10 @@ export class ScoreSheetComponent implements OnInit {
   }
 
 
-  getAllClasses() {
-    this.classService.getAllClasses().subscribe((data: any) => {
+  getClassAndSubjectForTeacher() {
+    this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
+        // console.log(data.payload);
         this.classList = data.payload;
         console.log(this.classList);
       }
@@ -148,7 +149,7 @@ export class ScoreSheetComponent implements OnInit {
           newList[i].assessments = this.assessmentList;
           this.newList = newList;
           // console.log(this.newList);
-          
+
 
         }
         //  console.log('assessment', this.assessmentList);
@@ -289,7 +290,7 @@ export class ScoreSheetComponent implements OnInit {
       alert('Cummulative score can exceed 100');
     }
     console.log(this.scoreResult);
-    
+
     const keyValue = (input) => Object.entries(input).forEach(([key, value]) => {
       const hold: any = value;
       // console.log(hold);

@@ -18,6 +18,8 @@ import { NewAccountChartComponent } from './new-account-chart/new-account-chart.
 import { NewVendorsComponent } from './new-vendors/new-vendors.component';
 import { NewFeeComponent } from './new-fee/new-fee.component';
 import { AccountPanelComponent } from './account-panel/account-panel.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { AccountPanelComponent } from './account-panel/account-panel.component';
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    NgMultiSelectDropDownModule.forRoot(),
     FinanceSettingRoutingModule
   ]
 })

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { FinanceService } from 'src/services/data/finance/finance.service';
 
 @Component({
   selector: 'app-fee-component',
@@ -9,11 +13,56 @@ export class FeeComponentComponent implements OnInit {
   toggleState = false;
   searchString: string;
   p = 1;
+  termList: any;
+  terms = [];
+  componentForm: FormGroup;
+  sequenceCount = 0;
+  bankAccountList: any;
 
 
-  constructor() { }
+  constructor(
+    private assessmentService: AssessmentService,
+    private fb: FormBuilder,
+    private finance: FinanceService,
+    private notifyService: NotificationsService
+
+  ) { }
 
   ngOnInit() {
+    this.getSession();
+    this.populateComponentForm();
+    this.getChartOfAccount();
+  }
+
+  populateComponentForm() {
+    this.componentForm = this.fb.group({
+      AccountId: ['', Validators.required],
+      name: ['', Validators.required],
+      terms: ['', Validators.required],
+      isActive: false
+    });
+  }
+
+  getSession() {
+    this.assessmentService.getCurrentSession().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data);
+        const sessionList: any = data.payload;
+        this.termList = sessionList[0].terms;
+        console.log(this.terms);
+      }
+    });
+  }
+
+  getChartOfAccount() {
+    this.finance.getAllChartOfAccount().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.bankAccountList = data.payload;
+      }
+    }, error => {
+      this.notifyService.publishMessages('Banc Account creation failed', 'danger', 1);
+
+    });
   }
 
   getStatus(event) {
@@ -26,7 +75,31 @@ export class FeeComponentComponent implements OnInit {
 
   }
 
+  getTerms(e) {
+      this.terms.push(e);
+  }
 
+
+  createnewComponent() {
+    const {AccountId, name, terms, isActive} = this.componentForm.value;
+    const sequenceNumber = this.sequenceCount++;
+
+    const term = this.terms.map((ids: any) => {
+      return parseInt(ids);
+    });
+    const result = {
+      name,
+      // tslint:disable-next-line:radix
+      accountId: parseInt(AccountId),
+      terms: term,
+      sequenceNumber,
+      isActive: this.toggleState
+    };
+    console.log(result);
+    // this.finance.createNewComponent(result).subscribe((data: any) => {
+    //   conso
+    // })
+  }
 
 
   getPage(page: number) {
