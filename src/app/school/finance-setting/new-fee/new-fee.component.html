@@ -26,16 +26,18 @@
             <div class="row mb-4">
               <div class="col-md-6">
                 <label for="title" class="fw-6">Level <span class="text-danger">*</span></label>
-                <select name="" id="sex" class="form-control form-control-lg" name="lvel">
+                <select name="" id="sex" class="form-control form-control-lg" name="lvel" (change)="getClassBySectionId($event.target.value)">
                   <option value="" selected>Select...</option>
-                  <option value="UNA" selected>Secondary</option>
+                  <option [value]="section.id" *ngFor = "let section of sections" > {{section.name}}</option>
+
                 </select>
               </div>
               <div class="col-md-6 ">
                 <label for="fname" class="fw-6">Class <span class="text-danger">*</span></label>
                 <select name="" id="sex" class="form-control form-control-lg" name="lvel">
                   <option value="" selected>Select...</option>
-                  <option value="UNA" selected>JSS1A</option>
+                  <option [value]="class.id" *ngFor = "let class of classes" > {{class.name + ' ' + class?.classGroup}}</option>
+
                 </select>
               </div>
             </div>

@@ -47,6 +47,7 @@ export class MarkAttendanceComponent implements OnInit {
       this.populateAttendance();
       this.subjectClass = JSON.parse(sessionStorage.getItem('subject-class'));
       console.log(this.subjectClass);
+      this.getSubjectAttendance();
   }
 
   populateAttendance() {
@@ -175,6 +176,20 @@ export class MarkAttendanceComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data.payload);
         this.notifyService.publishMessages('Attendance saved', 'success', 1);
+        // this.studentList = data.payload;
+        // console.log(this.classList);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'success', 1);
+
+    });
+  }
+
+  getSubjectAttendance() {
+    this.attendance.getSubjectAttendance(this.subjectClass.classSubjectId).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+
         // this.studentList = data.payload;
         // console.log(this.classList);
       }
