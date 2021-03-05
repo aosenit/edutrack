@@ -51,4 +51,9 @@ export class SubjecAttendanceComponent implements OnInit {
     this.subjectList = selectedClass;
 
   }
+
+  saveClass(i) {
+   const subjectClass = this.subjectList[i];
+   sessionStorage.setItem('subject-class', JSON.stringify(subjectClass));
+  }
 }

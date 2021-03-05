@@ -23,12 +23,13 @@ export class AttendanceComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAllClasses();
+    this.getClassAndSubjectForTeacher();
   }
 
-  getAllClasses() {
-    this.classService.getAllClasses().subscribe((data: any) => {
+  getClassAndSubjectForTeacher() {
+    this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
+        // console.log(data.payload);
         this.classList = data.payload;
         console.log(this.classList);
       }

@@ -42,7 +42,7 @@
                   <div class="col options">
                     <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)">
                       <option value="">Select Class</option>
-                      <option [value]="class?.id" *ngFor="let class of classList"> {{class.name}}{{class?.classGroup}}</option>
+                      <option [value]="class?.id" *ngFor="let class of classList"> {{class.class}}</option>
                     </select>
                   </div>
                   <div class="col options">

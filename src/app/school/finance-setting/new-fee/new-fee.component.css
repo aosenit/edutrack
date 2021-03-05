@@ -33,6 +33,12 @@ a {
     padding: 3rem 6rem 2rem;
 }
 
+.form-body2 {
+    background: rgba(255, 255, 255, 0.5);
+    border: transparent solid #D7DFE8;
+    padding: 1rem 6rem 1rem;
+
+}
 form .form-control {
     color: #000000;
     font-size: 16px;

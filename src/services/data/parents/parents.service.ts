@@ -22,6 +22,8 @@ const routes = {
   getallsubjectsWithAssignmentforclass: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClassWithAssignmentCount', // this endpoint get all subjects and assignment counts in each subject
   getAssignmentByClassSubject: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByClassSubject',
   getchildsubmissions: 'schtrack-learning/api/v1/AssignmentAnswer/GetAssignmentSubmissionForStudent',
+  getsubjectAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject',
+
 
 
 };
@@ -184,6 +186,11 @@ export class ParentsService {
     const url = `${this.baseUrl + routes.getchildsubmissions}?studentId=${childId}`;
 
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+  }
+
+  getSubjectAttendance(StudentId) {
+    const url = `${this.baseUrl + routes.getsubjectAttendance}?StudentId=${StudentId}`;
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
 

@@ -14,252 +14,83 @@
         </section>
         
        
-        <div class="d-flex justify-content-between  align-items-center mb-4">
-            <div>
-              <form>
+        <form [formGroup]="attendanceForm">
+          <div class="d-flex justify-content-between  align-items-center mb-4">
+            <div class="col-md-12 col-sm-12">
                 <div class="row">
-                  <div class="col options">
-                    <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)" >
+                  <div class="col-md-3 col-sm-12 mb-4 ">
+                    <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)" formControlName="class" >
                       <option value="">Select Class</option>
-                      <option value={{class.classSubjectId}} *ngFor="let class of classList; let i = index">{{class.class}}</option>
+                      <option value={{class.classId}} *ngFor="let class of classList; let i = index">{{class.class}}</option>
                     </select>
                   </div>
-                  <div class="col options">
-                    <select name="" id="" class="form-control" (change)="getSubjectsId($event.target.value)">
-                      <option value="">Select Subject</option>
-                      <option [value]="subject.classSubjectId" *ngFor="let subject of subjectList">{{subject.subject | titlecase}}</option>
-                    </select>
-                  </div>
+                  <div class="col-md-3 col-sm-12 mb-4 ">
+                    <input type="date" class="form-control" formControlName="dates" name="date">
+                 </div>
+                 <div class="col-md-2 offset-md-2"></div>
+                 <div class="col-md-2 col-sm-12 mb-4 justify-content-end">
+                  <button  class="btn bg-lblue-2  px-5 " [disabled]="attendanceForm.invalid" (click)="submitAttendance()" >
+                    Update </button>
                 </div>
-              </form>
+                </div>
             </div>
-
-            <button *ngIf="displayClass" class="btn bg-lblue-2 mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/teacher/mark-attendance']">
-              Update </button>
-        
-           
-          </div>
-        
-         
-        
-          <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 " *ngIf="noClass"
-                  style="height: 85vh; width: 100%;">
-                  <div class="d-flex flex-column text-center">
-                    <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
-                    <p class="fw-6 fs-24" style="color:#BAB9C1;">Select class and subject to display <br> information</p>
-                  </div>
-          </div>
-
-
-          <!-- <div class="d-flex justify-content-between  align-items-center mb-3" *ngIf="displayClass">
-            <form>
-              <div class="row">
-                <div class="col options">
-                  <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)">
-                    <option value="">Select Class</option>
-                    <option [value]="class?.id" *ngFor="let class of classList"> {{class.name}}{{class?.classGroup}}</option>
-                  </select>
-                </div>
-                <div class="col options">
-                  <select name="" id="" class="form-control" (change)="getSubjectsId($event.target.value)">
-                    <option value="">Select Subject</option>
-                    <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.subject | titlecase}}</option>
-                  </select>
-                </div>
-              </div>
-            </form>
-            <button class="btn bg-lblue-2 mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/teacher/mark-attendance']">
-             Update </button>
-    
-        
-           
-          </div> -->
-
-
-          <div class="row" *ngIf="displayClass">
-            <div class="col-md-3 mb-4 ">
-             <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
-               <div class="d-flex align-items-center">
-                <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                <div>
-                  <p class="attendance__student_name  mb-0">Master paul Boyega</p>
-                  <p class="attendance__student_reg mb-0">AMS/STUD/2001</p>
-                </div>
-               </div>
-               <div class="d-flex flex-column justify-content-between align-items-center">
-                  <p class="attendance__student_percentage mb-5">95%</p>
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1"></label>
-                </div>
-               </div>
-             </div>
-            </div>
-            <div class="col-md-3 mb-4 ">
-             <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
-               <div class="d-flex align-items-center">
-                <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                <div>
-                  <p class="attendance__student_name  mb-0">Master paul Boyega</p>
-                  <p class="attendance__student_reg mb-0">AMS/STUD/2001</p>
-                </div>
-               </div>
-               <div class="d-flex flex-column justify-content-between align-items-center">
-                  <p class="attendance__student_percentage mb-5">95%</p>
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1"></label>
-                </div>
-               </div>
-             </div>
-            </div>
-            <div class="col-md-3 mb-4 ">
-             <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
-               <div class="d-flex align-items-center">
-                <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                <div>
-                  <p class="attendance__student_name  mb-0">Master paul Boyega</p>
-                  <p class="attendance__student_reg mb-0">AMS/STUD/2001</p>
-                </div>
-               </div>
-               <div class="d-flex flex-column justify-content-between align-items-center">
-                  <p class="attendance__student_percentage mb-5">95%</p>
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1"></label>
-                </div>
-               </div>
-             </div>
-            </div>
-            <div class="col-md-3 mb-4 ">
-             <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
-               <div class="d-flex align-items-center">
-                <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                <div>
-                  <p class="attendance__student_name  mb-0">Master paul Boyega</p>
-                  <p class="attendance__student_reg mb-0">AMS/STUD/2001</p>
-                </div>
-               </div>
-               <div class="d-flex flex-column justify-content-between align-items-center">
-                  <p class="attendance__student_percentage mb-5">95%</p>
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1"></label>
-                </div>
-               </div>
-             </div>
-            </div>
-            <div class="col-md-3 mb-4 ">
-             <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
-               <div class="d-flex align-items-center">
-                <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                <div>
-                  <p class="attendance__student_name  mb-0">Master paul Boyega</p>
-                  <p class="attendance__student_reg mb-0">AMS/STUD/2001</p>
-                </div>
-               </div>
-               <div class="d-flex flex-column justify-content-between align-items-center">
-                  <p class="attendance__student_percentage mb-5">95%</p>
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1"></label>
-                </div>
-               </div>
-             </div>
-            </div>
-            <div class="col-md-3 mb-4 ">
-             <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
-               <div class="d-flex align-items-center">
-                <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                <div>
-                  <p class="attendance__student_name  mb-0">Master paul Boyega</p>
-                  <p class="attendance__student_reg mb-0">AMS/STUD/2001</p>
-                </div>
-               </div>
-               <div class="d-flex flex-column justify-content-between align-items-center">
-                  <p class="attendance__student_percentage mb-5">95%</p>
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1"></label>
-                </div>
-               </div>
-             </div>
-            </div>
-            <div class="col-md-3 mb-4 ">
-             <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
-               <div class="d-flex align-items-center">
-                <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                <div>
-                  <p class="attendance__student_name  mb-0">Master paul Boyega</p>
-                  <p class="attendance__student_reg mb-0">AMS/STUD/2001</p>
-                </div>
-               </div>
-               <div class="d-flex flex-column justify-content-between align-items-center">
-                  <p class="attendance__student_percentage mb-5">95%</p>
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1"></label>
-                </div>
-               </div>
-             </div>
-            </div>
-            <div class="col-md-3 mb-4 ">
-             <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
-               <div class="d-flex align-items-center">
-                <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                <div>
-                  <p class="attendance__student_name  mb-0">Master paul Boyega</p>
-                  <p class="attendance__student_reg mb-0">AMS/STUD/2001</p>
-                </div>
-               </div>
-               <div class="d-flex flex-column justify-content-between align-items-center">
-                  <p class="attendance__student_percentage mb-5">95%</p>
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1"></label>
-                </div>
-               </div>
-             </div>
-            </div>
-            <div class="col-md-3 mb-4 ">
-             <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
-               <div class="d-flex align-items-center">
-                <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                <div>
-                  <p class="attendance__student_name  mb-0">Master paul Boyega</p>
-                  <p class="attendance__student_reg mb-0">AMS/STUD/2001</p>
-                </div>
-               </div>
-               <div class="d-flex flex-column justify-content-between align-items-center">
-                  <p class="attendance__student_percentage mb-5">95%</p>
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1"></label>
-                </div>
-               </div>
-             </div>
-            </div>
-            <div class="col-md-3 mb-4 ">
-             <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
-               <div class="d-flex align-items-center">
-                <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                <div>
-                  <p class="attendance__student_name  mb-0">Master paul Boyega</p>
-                  <p class="attendance__student_reg mb-0">AMS/STUD/2001</p>
-                </div>
-               </div>
-               <div class="d-flex flex-column justify-content-between align-items-center">
-                  <p class="attendance__student_percentage mb-5">95%</p>
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1"></label>
-                </div>
-               </div>
-             </div>
-            </div>
-          
             
+          
           </div>
+            <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 " *ngIf="noClass"
+                    style="height: 85vh; width: 100%;">
+                    <div class="d-flex flex-column text-center">
+                      <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+                      <p class="fw-6 fs-24" style="color:#BAB9C1;">Select class and subject to display <br> information</p>
+                    </div>
+            </div>
+            <div class="row" *ngIf="displayClass">
+              <div class="col-md-3 mb-4 " *ngFor="let student of studentList; let d = index">
+                <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
+                  <div class="d-flex align-items-center">
+                   <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
+                   <div>
+                     <p class="attendance__student_name  mb-0">{{student?.firstName + ' ' + student?.lastName}}</p>
+                     <p class="attendance__student_reg mb-0">
+                         <span *ngIf="student?.studentNumber">{{student?.studentNumber}}</span>
+                         <span *ngIf="student?.studentNumber === null"> N/A</span>
+                       </p>
+                   </div>
+                  </div>
+                  <div class="d-flex flex-column justify-content-between align-items-center">
+                     <p class="attendance__student_percentage mb-5">0%</p>
+                     <div class="custom-control custom-switch">
+                       <input type="checkbox" class="custom-control-input" id="customSwitch{{d}}"
+                       formControlName="attendanceStatus"
+                        (change)="getStatus($event, student?.id, d)">
+                       <label class="custom-control-label" for="customSwitch{{d}}"></label>
+                   </div>
+                   <button class="btn btn-secondary dropdown-toggle"  type="button" id="absentDrop{{d}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: none;">
+                    Dropdown button
+                  </button>
+                   <div class="dropdown-menu drop-down2 px-3" id="dropdownMenuLink{{d}}" aria-labelledby="absentDrop">
+                    <a class="dropdown-item">Select reason for absence</a>
+                    <div class="dropdown-divider"></div>
+                    <div class="form-group">
+                      <select name="" id="" class="form-control" formControlName="Remark" (change)="getAssessmentName($event.target.value, d)" (click)="holdDropDown(d)">
+                        <option value="" selected>Select..</option>
+                        <option value="Health">Health</option>
+                        <option value="Disciplinary">Disciplinary</option>
+                        <option value="Event">Event</option>
+                        <option value="Others">Others</option>
+                      </select>
+                        <div class="form-group">
+                          <button class="btn bg-lblue-2" (click)="closeDropdown(d)"  >Submit</button>
+                        </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+               </div>
+          
+          
+            </div>
+        </form>
   
      
   

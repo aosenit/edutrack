@@ -9,14 +9,18 @@ const routes = {
   udatebankAccountwithId: 'schtrack-finance/api/v1/BankAccount/UpdateBankAccount',
   addAccountclass: 'schtrack-finance/api/v1/AccountClass/NewAccountClass',
   getAccountclass: 'schtrack-finance/api/v1/AccountClass/GetAccountClasses',
+  getAccountclassByid: 'schtrack-finance/api/v1/AccountClass/GetAccountClass',
+  editAccountclassByid: 'schtrack-finance/api/v1/AccountClass/UpdateAccountClass',
   addAccounttype: 'schtrack-finance/api/v1/AccountType/NewAccountType',
   getAccountTypes: 'schtrack-finance/api/v1/AccountType/GetAccountTypes',
-  getAccountTypesbyId: 'schtrack-finance/api/v1/AccountType/GetAccountTypees',
+  getAccountTypesbyId: 'schtrack-finance/api/v1/AccountType/GetAccountType',
+  editAccountTypesbyId: 'schtrack-finance/api/v1/AccountType/UpdateAccountType',
   createAccount: 'schtrack-finance/api/v1/Account/NewAccount',
   getChartAccount: 'schtrack-finance/api/v1/Account/GetAccounts',
-  addfeeGruop: 'schtrack-finance/api/feeGroup',
-  getallfeeGruop: 'schtrack-finance/api/getFees',
-  createComponent: 'schtrack-finance/api/Component/NewComponent',
+  addfeeGruop: 'schtrack-finance/api/v1/FeeGroup/NewFeeGroup',
+  getallfeeGruop: 'schtrack-finance/api/v1/FeeGroup/GetFeeGroups',
+  createComponent: 'schtrack-finance/api/v1/Component/NewComponent',
+  fetchComponent: 'schtrack-finance/api/v1/Component/GetComponents',
 
 };
 
@@ -59,6 +63,16 @@ export class FinanceService {
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
+  getAccountClassById(id) {
+    const url = `${this.baseUrl + routes.getAccountclassByid}/${id}`;
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  updateAccountClassById(updateDataForm) {
+    const url = `${this.baseUrl + routes.editAccountclassByid}`;
+    return this.http.put(url, updateDataForm, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
   createNewAccountType(newAccountData) {
     const url = `${this.baseUrl + routes.addAccounttype}`;
     return this.http.post(url, newAccountData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
@@ -72,6 +86,11 @@ export class FinanceService {
   getAccountTypeById(id) {
     const url = `${this.baseUrl + routes.getAccountTypesbyId}/${id}`;
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  updateAccountTypeById(id, updateDataForm) {
+    const url = `${this.baseUrl + routes.editAccountTypesbyId}/${id}`;
+    return this.http.put(url, updateDataForm, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   createNewChartAccount(newAccountData) {
@@ -90,13 +109,17 @@ export class FinanceService {
   }
 
   getAllFeeGroup() {
-    const url = `${this.baseUrl + routes.addfeeGruop}`;
+    const url = `${this.baseUrl + routes.getallfeeGruop}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   createNewComponent(componentData) {
     const url = `${this.baseUrl + routes.createComponent}`;
     return this.http.post(url, componentData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
 
+  getComponent() {
+    const url = `${this.baseUrl + routes.fetchComponent}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
  }

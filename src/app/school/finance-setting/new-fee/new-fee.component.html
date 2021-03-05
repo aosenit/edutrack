@@ -15,114 +15,111 @@
     <div class="col-md-12 mb-3">
       <p class="fw-6">Add New Fee </p>
     </div>
+  </div>
 
-    <div class="col-md-12 form-body">
-      <div class="basic-details">
-        <form>
-          <div class="row mb-4">
-            <div class="col-md-6">
-              <label for="title" class="fw-6">Level <span class="text-danger">*</span></label>
-              <select name="" id="sex" class="form-control form-control-lg" name="lvel">
-                <option value="" selected>Select...</option>
-                <option value="UNA" selected>Secondary</option>
-                
-              </select>
-            </div>
-            <div class="col-md-6 ">
-              <label for="fname" class="fw-6">Class <span class="text-danger">*</span></label>
-              <select name="" id="sex" class="form-control form-control-lg" name="lvel">
-                <option value="" selected>Select...</option>
-                <option value="UNA" selected>JSS1A</option>
-                
-              </select>
-            </div>
-          </div>
 
-          <div class="row mb-4">
-            <div class="col-md-12">
-              <label for="lname" class="fw-6">Fee Type <span class="text-danger">*</span> </label>
-                  <select name="" id="sex" class="form-control form-control-lg" name="lvel">
-                    <option value="" selected>Select...</option>
-                    <option value="UNA" selected>JSS1A</option>
-                    
-                  </select>
+  <form [formGroup]="feeForm">
+    <div class="row">
+      <div class="col-md-12 form-body">
+        <div class="basic-details">
+          <form>
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <label for="title" class="fw-6">Level <span class="text-danger">*</span></label>
+                <select name="" id="sex" class="form-control form-control-lg" name="lvel">
+                  <option value="" selected>Select...</option>
+                  <option value="UNA" selected>Secondary</option>
+                </select>
+              </div>
+              <div class="col-md-6 ">
+                <label for="fname" class="fw-6">Class <span class="text-danger">*</span></label>
+                <select name="" id="sex" class="form-control form-control-lg" name="lvel">
+                  <option value="" selected>Select...</option>
+                  <option value="UNA" selected>JSS1A</option>
+                </select>
+              </div>
             </div>
-            
-          </div>
-        
-        </form>
-
-     
+            <div class="row mb-4">
+              <div class="col-md-12">
+                <label for="lname" class="fw-6">Fee Type <span class="text-danger">*</span> </label>
+                <select name="" id="sex" class="form-control form-control-lg" name="lvel">
+                  <option value="" selected>Select...</option>
+                  <option [value]="fee.id" *ngFor="let fee of feeGroupList">{{fee?.name}}</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-    
-    
-  </div>
-  <div class="row  py-3 form-body divider">
-        <div class="col-md-4">
-            <p class="fw-6 mb-0">
-                COMPONENT
-            </p>
-        </div>
-        <div class="col-md-4">
-            <p class="fw-6 mb-0">
-                AMOUNT
-            </p>
-        </div>
-        <div class="col-md-4">
-            <p class="fw-6 mb-0">
-                COMPLUSORY
-            </p>
-        </div>
-</div>
-<div class="row form-body">
-    <div class="basic-details col-md-12">
-      <form>
-        <div class="row mb-4">
-          <div class="col-md-4">
-            <select name="" id="sex" class="form-control form-control-lg" name="lvel">
-              <option value="" selected>Select Fee...</option>
-              <option value="UNA" selected>Tuition Fee</option>
-              
-            </select>
-          </div>
-          <div class="col-md-4 ">
-            <select name="" id="sex" class="form-control form-control-lg" name="lvel">
-              <option value="" selected>Select Amount...</option>
-              <option value="UNA" selected>50000</option>
-              
-            </select>
-          </div>
-          <div class="col-md-4 ">
-            <div class="mb-3">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                    <label class="custom-control-label" for="customCheckTh"></label>
-                </div>
-            </div>
-          </div>
-        </div>
-
-        <svg width="105" height="20" viewBox="0 0 105 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.0001 18.3333C14.6025 18.3333 18.3334 14.6023 18.3334 9.99996C18.3334 5.39759 14.6025 1.66663 10.0001 1.66663C5.39771 1.66663 1.66675 5.39759 1.66675 9.99996C1.66675 14.6023 5.39771 18.3333 10.0001 18.3333Z" fill="#FB882C" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M10 6.66663V13.3333" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M6.66675 10H13.3334" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M33.39 15L32.22 12.285H26.7L25.53 15H24.27L28.92 4.425H29.985L34.635 15H33.39ZM27.135 11.265H31.785L29.46 5.85L27.135 11.265ZM36.2034 4.425H39.7584C41.4484 4.425 42.7534 4.885 43.6734 5.805C44.6034 6.715 45.0684 8.015 45.0684 9.705C45.0684 11.395 44.6034 12.7 43.6734 13.62C42.7534 14.54 41.4484 15 39.7584 15H36.2034V4.425ZM39.6834 13.95C42.4234 13.95 43.7934 12.535 43.7934 9.705C43.7934 6.885 42.4234 5.475 39.6834 5.475H37.4334V13.95H39.6834ZM47.2923 4.425H50.8473C52.5373 4.425 53.8423 4.885 54.7623 5.805C55.6923 6.715 56.1573 8.015 56.1573 9.705C56.1573 11.395 55.6923 12.7 54.7623 13.62C53.8423 14.54 52.5373 15 50.8473 15H47.2923V4.425ZM50.7723 13.95C53.5123 13.95 54.8823 12.535 54.8823 9.705C54.8823 6.885 53.5123 5.475 50.7723 5.475H48.5223V13.95H50.7723ZM71.2334 4.425H72.2384V15H71.1134L71.1284 6.81L67.6934 13.32H66.8234L63.3734 6.87L63.3884 15H62.2484V4.425H63.2684L67.2734 12.09L71.2334 4.425ZM79.2857 15.12C78.3057 15.12 77.4507 14.9 76.7207 14.46C76.0007 14.02 75.4457 13.395 75.0557 12.585C74.6657 11.775 74.4707 10.82 74.4707 9.72C74.4707 8.61 74.6607 7.65 75.0407 6.84C75.4307 6.02 75.9857 5.395 76.7057 4.965C77.4357 4.525 78.2957 4.305 79.2857 4.305C80.2757 4.305 81.1307 4.525 81.8507 4.965C82.5807 5.395 83.1357 6.02 83.5157 6.84C83.9057 7.65 84.1007 8.605 84.1007 9.705C84.1007 10.805 83.9057 11.765 83.5157 12.585C83.1257 13.395 82.5657 14.02 81.8357 14.46C81.1157 14.9 80.2657 15.12 79.2857 15.12ZM79.2857 14.07C80.4057 14.07 81.2757 13.695 81.8957 12.945C82.5257 12.185 82.8407 11.105 82.8407 9.705C82.8407 8.305 82.5307 7.23 81.9107 6.48C81.2907 5.73 80.4157 5.355 79.2857 5.355C78.1657 5.355 77.2907 5.735 76.6607 6.495C76.0407 7.245 75.7307 8.315 75.7307 9.705C75.7307 11.095 76.0407 12.17 76.6607 12.93C77.2907 13.69 78.1657 14.07 79.2857 14.07ZM94.6407 15H93.2907L91.4907 11.61C91.2707 11.2 91.0107 10.92 90.7107 10.77C90.4207 10.61 90.0207 10.53 89.5107 10.53H87.5307V15H86.3157V4.425H90.6657C91.8157 4.425 92.6907 4.68 93.2907 5.19C93.9007 5.7 94.2057 6.45 94.2057 7.44C94.2057 8.26 93.9707 8.925 93.5007 9.435C93.0407 9.935 92.3807 10.25 91.5207 10.38C91.7907 10.46 92.0257 10.595 92.2257 10.785C92.4357 10.975 92.6257 11.23 92.7957 11.55L94.6407 15ZM90.5607 9.51C91.3807 9.51 91.9907 9.34 92.3907 9C92.8007 8.66 93.0057 8.145 93.0057 7.455C93.0057 6.775 92.8057 6.27 92.4057 5.94C92.0057 5.61 91.3907 5.445 90.5607 5.445H87.5307V9.51H90.5607ZM96.5989 15V4.425H103.289V5.445H97.8139V9.12H102.989V10.14H97.8139V13.98H103.289V15H96.5989Z" fill="#FB882C"/>
-            </svg>
-            
-
-        
-      
-      </form>
-
-   
+    <div class="row  py-3 form-body divider">
+      <div class="col-md-4">
+        <p class="fw-6 mb-0">
+          COMPONENT
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p class="fw-6 mb-0">
+          AMOUNT
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p class="fw-6 mb-0">
+          COMPLUSORY
+        </p>
+      </div>
     </div>
-  </div>
+    <div formArrayName="feeComponents" *ngFor ="let item of feeForm.get('feeComponents')['controls']; let i = index;">
+      <div [formGroupName]="i">
+        <div class="row form-body2">
+          <div class="basic-details col-md-12">
+              <div class="row mb-2">
+                <div class="col-md-4">
+                  <select name="" id="sex" class="form-control form-control-lg" name="lvel" formControlName="componentId">
+                    <option value="" selected>Select Fee...</option>
+                    <option [value]="component?.id" *ngFor = "let component of components">{{component?.name}}</option>
+                  </select>
+                </div>
+                <div class="col-md-4 ">
+                  <input type="text" class="form-control form-control-lg"  formControlName="amount">
+                </div>
+                <div class="col-md-4 ">
+                  <div class="mb-3">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheckTh{{i}}" formControlName="isCompulsory">
+                      <label class="custom-control-label" for="customCheckTh{{i}}"></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class=" d-flex justify-content-center mt-5">
-    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="back()"> Cancel </button>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Add Fee </button>
+    <div class="row form-body">
+      <div (click)='addComponent() '>
+        <svg width="105" height="20" viewBox="0 0 105 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M10.0001 18.3333C14.6025 18.3333 18.3334 14.6023 18.3334 9.99996C18.3334 5.39759 14.6025 1.66663 10.0001 1.66663C5.39771 1.66663 1.66675 5.39759 1.66675 9.99996C1.66675 14.6023 5.39771 18.3333 10.0001 18.3333Z"
+            fill="#FB882C" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M10 6.66663V13.3333" stroke="white" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M6.66675 10H13.3334" stroke="white" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path
+            d="M33.39 15L32.22 12.285H26.7L25.53 15H24.27L28.92 4.425H29.985L34.635 15H33.39ZM27.135 11.265H31.785L29.46 5.85L27.135 11.265ZM36.2034 4.425H39.7584C41.4484 4.425 42.7534 4.885 43.6734 5.805C44.6034 6.715 45.0684 8.015 45.0684 9.705C45.0684 11.395 44.6034 12.7 43.6734 13.62C42.7534 14.54 41.4484 15 39.7584 15H36.2034V4.425ZM39.6834 13.95C42.4234 13.95 43.7934 12.535 43.7934 9.705C43.7934 6.885 42.4234 5.475 39.6834 5.475H37.4334V13.95H39.6834ZM47.2923 4.425H50.8473C52.5373 4.425 53.8423 4.885 54.7623 5.805C55.6923 6.715 56.1573 8.015 56.1573 9.705C56.1573 11.395 55.6923 12.7 54.7623 13.62C53.8423 14.54 52.5373 15 50.8473 15H47.2923V4.425ZM50.7723 13.95C53.5123 13.95 54.8823 12.535 54.8823 9.705C54.8823 6.885 53.5123 5.475 50.7723 5.475H48.5223V13.95H50.7723ZM71.2334 4.425H72.2384V15H71.1134L71.1284 6.81L67.6934 13.32H66.8234L63.3734 6.87L63.3884 15H62.2484V4.425H63.2684L67.2734 12.09L71.2334 4.425ZM79.2857 15.12C78.3057 15.12 77.4507 14.9 76.7207 14.46C76.0007 14.02 75.4457 13.395 75.0557 12.585C74.6657 11.775 74.4707 10.82 74.4707 9.72C74.4707 8.61 74.6607 7.65 75.0407 6.84C75.4307 6.02 75.9857 5.395 76.7057 4.965C77.4357 4.525 78.2957 4.305 79.2857 4.305C80.2757 4.305 81.1307 4.525 81.8507 4.965C82.5807 5.395 83.1357 6.02 83.5157 6.84C83.9057 7.65 84.1007 8.605 84.1007 9.705C84.1007 10.805 83.9057 11.765 83.5157 12.585C83.1257 13.395 82.5657 14.02 81.8357 14.46C81.1157 14.9 80.2657 15.12 79.2857 15.12ZM79.2857 14.07C80.4057 14.07 81.2757 13.695 81.8957 12.945C82.5257 12.185 82.8407 11.105 82.8407 9.705C82.8407 8.305 82.5307 7.23 81.9107 6.48C81.2907 5.73 80.4157 5.355 79.2857 5.355C78.1657 5.355 77.2907 5.735 76.6607 6.495C76.0407 7.245 75.7307 8.315 75.7307 9.705C75.7307 11.095 76.0407 12.17 76.6607 12.93C77.2907 13.69 78.1657 14.07 79.2857 14.07ZM94.6407 15H93.2907L91.4907 11.61C91.2707 11.2 91.0107 10.92 90.7107 10.77C90.4207 10.61 90.0207 10.53 89.5107 10.53H87.5307V15H86.3157V4.425H90.6657C91.8157 4.425 92.6907 4.68 93.2907 5.19C93.9007 5.7 94.2057 6.45 94.2057 7.44C94.2057 8.26 93.9707 8.925 93.5007 9.435C93.0407 9.935 92.3807 10.25 91.5207 10.38C91.7907 10.46 92.0257 10.595 92.2257 10.785C92.4357 10.975 92.6257 11.23 92.7957 11.55L94.6407 15ZM90.5607 9.51C91.3807 9.51 91.9907 9.34 92.3907 9C92.8007 8.66 93.0057 8.145 93.0057 7.455C93.0057 6.775 92.8057 6.27 92.4057 5.94C92.0057 5.61 91.3907 5.445 90.5607 5.445H87.5307V9.51H90.5607ZM96.5989 15V4.425H103.289V5.445H97.8139V9.12H102.989V10.14H97.8139V13.98H103.289V15H96.5989Z"
+            fill="#FB882C" />
+        </svg>
+      </div>
+    </div>
 
-  </div>
+
+    <div class=" d-flex justify-content-center mt-5">
+      <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="back()"> Cancel </button>
+      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="createNewFee()"> Add Fee </button>
+    </div>
+  </form>
 
 </div>

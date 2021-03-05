@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { AttendanceService } from 'src/services/data/attendance/attendance.service';
 import { ClassService } from 'src/services/data/class/class.service';
+import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-mark-attendance',
@@ -14,29 +18,43 @@ export class MarkAttendanceComponent implements OnInit {
   displayClass = false;
   studentList: any;
   attendanceForm: any;
-  toggleState: number;
+  toggleState = 1;
   studentModel = {};
   date: string;
-  attendanceStructure = { dates: '',  };
+  attendanceStructure = { dates: '', attendanceStatus: true, absentRemark: '' };
   studentID: any;
   studentModels: {};
   studentAttendanceVMs = [];
+  subjectClass: any;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private attendance: AttendanceService,
+    private notifyService: NotificationsService,
+
 
   ) { }
 
   ngOnInit() {
-    this.getClassAndSubjectForTeacher();
+      // tslint:disable-next-line:only-arrow-functions
+      $('#dropdownMenuLink').on('show.bs.dropdown', function() {
+        $(`#dropdownMenuLink`).show();
 
-    this.populateAttendance();
+      });
+      this.getClassAndSubjectForTeacher();
+
+      this.populateAttendance();
+      this.subjectClass = JSON.parse(sessionStorage.getItem('subject-class'));
+      console.log(this.subjectClass);
   }
 
   populateAttendance() {
     this.attendanceForm = this.fb.group({
-      attendanceStatus: true
+      attendanceStatus: true,
+      dates: ['', Validators.required],
+      class: '',
+      Remark: ''
     });
   }
 
@@ -60,20 +78,30 @@ export class MarkAttendanceComponent implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.classList.length; i++) {
       if (this.classList[i].classId === id) {
-       console.log('assas', this.classList[i]);
+        console.log('assas', this.classList[i]);
       }
     }
     this.classService.getStudentsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
         this.studentList = data.payload;
-        console.log(this.classList);
+        const {Remark} = this.attendanceForm.value;
+
+        for (let i = 0; i < this.studentList.length; i++) {
+          this.studentModel[i] = {
+            studentId: this.studentList[i].id,
+            attendanceStatus: this.toggleState,
+            remark: Remark
+          };
+
+          this.studentAttendanceVMs.push(this.studentModel[i]);
+        }
       }
     });
 
   }
 
- 
+
 
   back() {
     window.history.back();
@@ -84,33 +112,76 @@ export class MarkAttendanceComponent implements OnInit {
   }
 
   getStatus(event, id, i) {
+    console.log(event);
     this.studentID = id;
-    if (event === true) {
+    this.toggleState = 1;
+    if (event.target.checked === true) {
       this.toggleState = 1;
+      this.studentModel[i] = {
+        studentId: id,
+        attendanceStatus: this.toggleState,
+        remark: ''
+      };
+
+      this.studentAttendanceVMs.push(this.studentModel[i]);
+
+
     } else {
       this.toggleState = 2;
+      document.getElementById('absentDrop' + `${i}`).click();
+      $(`#dropdownMenuLink${i}`).toggleClass('show-pop');
 
+      this.studentAttendanceVMs = this.studentAttendanceVMs.map((status: any) => {
+        // tslint:disable-next-line:curly
+        if (this.studentID === status.studentId) return { ...status, attendanceStatus: this.toggleState };
+        return status;
+      });
+      const {Remark} = this.attendanceForm.value;
+      this.studentModel[i].remark = Remark;
+      console.log(this.studentModel[i].remark);
     }
-
-
-    this.studentModel[i] = {
-      studentId: id,
-      attendanceStatus: this.toggleState,
-      remark: 'string'
-     };
-
-    this.studentAttendanceVMs.push(this.studentModel[i]);
 
   }
 
+  getAssessmentName(event, u) {
+    $(`#dropdownMenuLink${u}`).addClass('show-pop');
+
+  }
+
+  holdDropDown(u) {
+    $(`#dropdownMenuLink${u}`).addClass('show-pop');
+
+  }
+
+  closeDropdown(u) {
+    $(`#dropdownMenuLink${u}`).removeClass('show-pop');
+    const {Remark} = this.attendanceForm.value;
+    this.studentModel[u].remark = Remark;
+    console.log(this.studentModel[u].remark);
+
+  }
+
+
   submitAttendance() {
-    const {dates} = this.attendanceStructure;
-    const result =  {
-      subjectId: 0,
-      date : dates,
-      studentAttendanceVMs : this.studentAttendanceVMs
+    const { dates } = this.attendanceForm.value;
+    const result = {
+      subjectId: this.subjectClass.classSubjectId,
+      date: dates,
+      studentAttendanceVMs: this.studentAttendanceVMs
     };
 
     console.log(result);
+    this.attendance.createSubjectAttendance(result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        this.notifyService.publishMessages('Attendance saved', 'success', 1);
+        // this.studentList = data.payload;
+        // console.log(this.classList);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'success', 1);
+
+    });
   }
 }
+

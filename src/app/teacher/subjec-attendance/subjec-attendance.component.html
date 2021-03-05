@@ -55,7 +55,9 @@
 
 
           <div class="row" *ngIf="displayClass">
-            <div class="col-md-3 mb-4  cursor-pointer pointer " *ngFor="let subject of subjectList" routerLink="/teacher/mark-attendance/{{subject?.classId}}">
+            <div class="col-md-3 mb-4  cursor-pointer pointer " *ngFor="let subject of subjectList; let i = index"
+             routerLink="/teacher/mark-attendance/{{subject?.classId}}"
+             (click)="saveClass(i)">
              <div class=" attendance bg-white br-10 p-4 d-flex justify-content-between align-items-center">
                <div class="d-flex flex-column align-items-left">
                   <p class="attendance__student_name  mb-0">{{subject?.subject | titlecase}}</p>

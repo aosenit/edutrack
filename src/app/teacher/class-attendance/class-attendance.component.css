@@ -72,3 +72,26 @@
   
   }
   
+  .pop-menu {
+    display: none;
+    position: absolute;
+    background: #ffffff;
+    right: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    transform: translate3d(233px, 55px, 0px);
+    
+}
+
+.show-pop {
+  display: block;
+}
+
+
+.drop-down2 {
+  position: absolute;
+  will-change: transform;
+  top: 3px !important;
+  left: 52px  !important;
+  transform: none !important;
+}

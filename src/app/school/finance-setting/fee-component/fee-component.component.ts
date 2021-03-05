@@ -18,6 +18,7 @@ export class FeeComponentComponent implements OnInit {
   componentForm: FormGroup;
   sequenceCount = 0;
   bankAccountList: any;
+  components: any;
 
 
   constructor(
@@ -32,6 +33,7 @@ export class FeeComponentComponent implements OnInit {
     this.getSession();
     this.populateComponentForm();
     this.getChartOfAccount();
+    this.getAllComponent();
   }
 
   populateComponentForm() {
@@ -96,9 +98,26 @@ export class FeeComponentComponent implements OnInit {
       isActive: this.toggleState
     };
     console.log(result);
-    // this.finance.createNewComponent(result).subscribe((data: any) => {
-    //   conso
-    // })
+    this.finance.createNewComponent(result).subscribe((data: any) => {
+        if (data.hasErrors === false) {
+        this.notifyService.publishMessages('Successful', 'success', 1);
+        document.getElementById('mySubjectModal').click();
+        this.getAllComponent();
+        }
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
+  }
+
+
+  getAllComponent() {
+    this.finance.getComponent().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.components = data.payload;
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
   }
 
 

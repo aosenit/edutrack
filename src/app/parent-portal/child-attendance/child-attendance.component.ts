@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { from, zip, of } from 'rxjs';
 import { groupBy, mergeMap, toArray } from 'rxjs/operators';
+import { ParentsService } from 'src/services/data/parents/parents.service';
 import { TimeTableService } from 'src/services/data/time-table/time-table.service';
 
 @Component({
@@ -13,13 +14,20 @@ export class ChildAttendanceComponent implements OnInit {
   periods: any;
   timeTableCells: any;
     timeTable: any;
+  wardDetail: any;
   constructor(
-    private timeTableService: TimeTableService
+    private timeTableService: TimeTableService,
+    private parentService: ParentsService,
+
+
 
   ) { }
 
   ngOnInit() {
+    this.wardDetail = JSON.parse(sessionStorage.getItem('ward'));
+
     this.daysofWeek();
+    this.getSubjectAttendance();
 
   }
 
@@ -64,6 +72,14 @@ export class ChildAttendanceComponent implements OnInit {
           });
         this.timeTable = tables;
         console.log('time table', this.timeTable);
+      }
+    });
+  }
+
+  getSubjectAttendance() {
+    this.parentService.getSubjectAttendance(this.wardDetail.id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
       }
     });
   }

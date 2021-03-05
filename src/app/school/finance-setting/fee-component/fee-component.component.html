@@ -63,7 +63,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="pb-1">
+            <tr class="pb-1" *ngFor="let component of components">
                 <td scope="row" class="check rounded-left">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -74,12 +74,13 @@
 
                     <div class="d-flex align-items-center">
 
-                        <h6 class="fw-6 mb-0"> 1020 Tution Fee </h6>
+                        <h6 class="fw-6 mb-0"> {{component?.name}} </h6>
                     </div>
                 </td>
 
                 <td>
-                    <span class="status_active">Active</span>
+                    <span class="status_active" *ngIf="component?.isActive === true" >Active</span>
+                    <span class="status_inactive" *ngIf="component?.isActive === false" >Inactive</span>
                 </td>
 
             </tr>
@@ -131,13 +132,14 @@
                         <label for="class" class="">Revenue Account<span class="text-danger">*</span> </label>
                         <select name="" id="" class="form-control" formControlName="AccountId">
                             <option value="" selected>Select...</option>
+                            <option [value]="account?.id" *ngFor="let account of bankAccountList">{{account?.name}}</option>
                         </select>
                     </div>
 
-                    <div class="form-group mb-4">
+                    <!-- <div class="form-group mb-4">
                         <label for="class" class="">Sort Order<span class="text-danger">*</span> </label>
                         <input type="text" placeholder="Select" class="form-control">
-                    </div>
+                    </div> -->
 
 
                     <div class="form-group custom mb-5">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { FinanceService } from 'src/services/data/finance/finance.service';
 
 @Component({
@@ -9,11 +10,28 @@ import { FinanceService } from 'src/services/data/finance/finance.service';
 export class ChartOfAccountComponent implements OnInit {
   searchString: string;
   p = 1;
+  accountList: any;
+  accountCount: any;
   constructor(
-    private finance: FinanceService
+    private finance: FinanceService,
+    private notifyService: NotificationsService
+
   ) { }
 
   ngOnInit() {
+    this.getChartOfAccounts();
+  }
+
+  getChartOfAccounts() {
+    this.finance.getAllChartOfAccount().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.accountList = data.payload;
+        this.accountCount = data.totalCount;
+      }
+    }, error => {
+      this.notifyService.publishMessages('Bank Account creation failed', 'danger', 1);
+
+    });
   }
 
   getPage(page: number) {

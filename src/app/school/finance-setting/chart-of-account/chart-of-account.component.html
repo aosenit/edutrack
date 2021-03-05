@@ -58,7 +58,7 @@
                         <a class="dropdown-item" href="#">Ogun </a>
                     </div> -->
                 </th>
-                <th scope="col">Account Class <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
+                <th scope="col">Account Number <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
 
                 <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
                         class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
@@ -75,7 +75,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="pb-1" >
+            <tr class="pb-1" *ngFor="let account of accountList">
                 <td scope="row" class="check rounded-left">
                     <div class="custom-control custom-checkbox" >
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -86,13 +86,14 @@
                     
                     <div class="d-flex align-items-center">
                         
-                        <h6 class="fw-6 mb-0" >  1020 Tution Fee </h6>
+                        <h6 class="fw-6 mb-0" >  {{account?.name | titlecase}} </h6>
                     </div>
                 </td>
-                <td>Revenue </td>
-                <td>Revenue </td>
+                <td>{{account?.accountType | titlecase}} </td>
+                <td>{{account?.accountNumber}} </td>
                 <td>
-                    <span class="status_active" >Active</span>
+                    <span class="status_active" *ngIf="account.isActive === true" >Active</span>
+                    <span class="status_inactive" *ngIf="account.isActive === false" >Inactive</span>
                 </td>
                
             </tr>
