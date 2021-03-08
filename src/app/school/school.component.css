@@ -82,7 +82,8 @@
 
 #sidebar ul li ul#record-submenu, #sidebar ul li ul#setting-submenu,
 #sidebar ul li ul#academics-submenu, #sidebar ul li ul#human-submenu,
-#sidebar ul li ul#schedule-submenu, #sidebar ul li ul#finance-settings-submenu  {
+#sidebar ul li ul#schedule-submenu, #sidebar ul li ul#finance-settings-submenu,
+#sidebar ul li ul#finance-submenu {
     background: #013F7A;
     width: 100%;
     /* padding-left: 47px; */
@@ -94,7 +95,8 @@
 
 #sidebar ul li ul#record-submenu a, #sidebar ul li ul#setting-submenu a,
 #sidebar ul li ul#academics-submenu a, #sidebar ul li ul#human-submenu a,
-#sidebar ul li ul#schedule-submenu a, #sidebar ul li ul#finance-settings-submenu a  {
+#sidebar ul li ul#schedule-submenu a, #sidebar ul li ul#finance-settings-submenu a,
+#sidebar ul li ul#finance-submenu a  {
     font-family: Nunito;
     font-style: normal;
     font-weight: normal;
@@ -113,7 +115,8 @@
 
 #sidebar ul li ul#record-submenu a.active, #sidebar ul li ul#setting-submenu a.active,
 #sidebar ul li ul#academics-submenu a.active, #sidebar ul li ul#human-submenu a.active,
-#sidebar ul li ul#schedule-submenu a.active, #sidebar ul li ul#finance-settings-submenu a.active  {
+#sidebar ul li ul#schedule-submenu a.active, #sidebar ul li ul#finance-settings-submenu a.active,
+#sidebar ul li ul#finance-submenu a.active  {
     
     color: #ffffff;
     

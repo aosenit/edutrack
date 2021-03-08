@@ -25,6 +25,12 @@ export class SchoolGradeBookComponent implements OnInit {
   approvalForm: FormGroup;
   rejectionForm: FormGroup;
   className: any;
+  gradeSetup: any;
+  sessions: any;
+  termName: any;
+  selectedTermId: any;
+  studentBehaviour: any;
+  selectedStudentId: any;
 
 
 
@@ -43,7 +49,8 @@ export class SchoolGradeBookComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getSession();
+    this.getCurrentSesion();
+    this.generateGradeSetup();
     this.getSections();
 
     this.approvalForm = this.fb.group({
@@ -55,16 +62,27 @@ export class SchoolGradeBookComponent implements OnInit {
     });
   }
 
-  getSession() {
-    this.assessmentService.getCurrentSession().subscribe((data: any) => {
+  generateGradeSetup() {
+    this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
-        this.sessionList = data.payload;
-        this.terms = this.sessionList[0].terms;
-        console.log(this.terms);
+        console.log('All school grade', data.payload);
+        this.gradeSetup = data.payload;
       }
     });
   }
+
+  getCurrentSesion() {
+    this.assessmentService.getCurrentSession().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.sessions = data.payload;
+        this.terms = data.payload.terms;
+      }
+    });
+  }
+
+
+
+
 
   getSections() {
     this.schoolSectionService.getSection().subscribe(
@@ -103,6 +121,14 @@ export class SchoolGradeBookComponent implements OnInit {
       }
     });
   }
+
+
+  selectedTerm(event) {
+    this.termName = this.terms[event];
+    this.selectedTermId = this.terms[event].sequenceNumber;
+
+
+   }
 
   getBroadSheet() {
     this.resultService.getClassBroadSheet(this.Classid).subscribe((data: any) => {
@@ -184,7 +210,31 @@ export class SchoolGradeBookComponent implements OnInit {
 
   saveStudentDetails(u) {
     console.log(this.studentData[u]);
+    this.selectedStudentId = this.studentData[u].studentId;
     sessionStorage.setItem('student-details', JSON.stringify(this.studentData[u]) );
+    const records = {
+      sessionId: this.sessions.id,
+      termSequence: this.selectedTermId,
+      classId: this.Classid,
+      studentId: this.selectedStudentId
+    };
+    sessionStorage.setItem('result-record', JSON.stringify(records) );
+
+
+    // tslint:disable-next-line:max-line-length
+    this.resultService.getStudentBehviour(this.sessions.id, this.selectedTermId, this.Classid, this.selectedStudentId ).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        this.studentBehaviour = data.payload.resultTypeAndValues;
+        sessionStorage.setItem('studentBehaviour', JSON.stringify(this.studentBehaviour));
+       //  this.studentRecord = data.payload.breakdowns;
+       //  this.assessments = data.payload.breakdowns[0].assesmentAndScores;
+       //  console.log(this.assessments);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
   }
 
 }

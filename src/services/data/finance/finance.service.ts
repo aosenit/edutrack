@@ -13,7 +13,8 @@ const routes = {
   editAccountclassByid: 'schtrack-finance/api/v1/AccountClass/UpdateAccountClass',
   addAccounttype: 'schtrack-finance/api/v1/AccountType/NewAccountType',
   getAccountTypes: 'schtrack-finance/api/v1/AccountType/GetAccountTypes',
-  getAccountTypesbyId: 'schtrack-finance/api/v1/AccountType/GetAccountType',
+  getAccountTypewithId: 'schtrack-finance/api/v1/AccountType/GetAccountType',
+  getAccountTypesbyId: 'schtrack-finance/api/v1/AccountType/GetAccountTypes',
   editAccountTypesbyId: 'schtrack-finance/api/v1/AccountType/UpdateAccountType',
   createAccount: 'schtrack-finance/api/v1/Account/NewAccount',
   getChartAccount: 'schtrack-finance/api/v1/Account/GetAccounts',
@@ -21,6 +22,14 @@ const routes = {
   getallfeeGruop: 'schtrack-finance/api/v1/FeeGroup/GetFeeGroups',
   createComponent: 'schtrack-finance/api/v1/Component/NewComponent',
   fetchComponent: 'schtrack-finance/api/v1/Component/GetComponents',
+  addNewFee: 'schtrack-finance/api/v1/Fee/NewFee',
+  createInvoice: 'schtrack-finance/api/v1/Invoice/GenerateInvoice',
+  getAllInvoices: 'schtrack-finance/api/v1/Invoice/GetAllInvoices',
+  getInvoicepaymenthistory: 'schtrack-finance/api/v1/Invoice/GetPaymentHistoryInvoices',
+  getpendingInvoicepaymen: 'schtrack-finance/api/v1/Invoice/GetPendingPaymentInvoices',
+  getInvocesbyId: 'schtrack-finance/api/v1/Invoice/GetInvoice',
+  getpaymentinvoices: 'schtrack-finance/api/v1/Invoice/GetPaymentInvoices',
+  getinvoices: 'schtrack-finance/api/v1/Invoice/GetInvoices',
 
 };
 
@@ -83,6 +92,10 @@ export class FinanceService {
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
+  getAccountTypewithId(id) {
+    const url = `${this.baseUrl + routes.getAccountTypewithId}/${id}`;
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
   getAccountTypeById(id) {
     const url = `${this.baseUrl + routes.getAccountTypesbyId}/${id}`;
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
@@ -122,4 +135,47 @@ export class FinanceService {
     const url = `${this.baseUrl + routes.fetchComponent}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
+
+  createFee(newAccountData) {
+    const url = `${this.baseUrl + routes.addNewFee}`;
+    return this.http.post(url, newAccountData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  generteInvoices(newAccountData) {
+    const url = `${this.baseUrl + routes.createInvoice}`;
+    return this.http.post(url, newAccountData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getInvoicesById() {
+    const url = `${this.baseUrl + routes.getInvocesbyId}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getAllCretedInvoices() {
+    const url = `${this.baseUrl + routes.getAllInvoices}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getInvoicePaymentHistory() {
+    const url = `${this.baseUrl + routes.getInvoicepaymenthistory}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getPendingInvoicePayment() {
+    const url = `${this.baseUrl + routes.getpendingInvoicepaymen}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getPaymentInvoices() {
+    const url = `${this.baseUrl + routes.getpaymentinvoices}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+  }
+
+  getInvoices() {
+    const url = `${this.baseUrl + routes.getinvoices}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+  }
+
  }

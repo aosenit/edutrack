@@ -266,7 +266,7 @@
                 </ul>
             </li>
             <li class="nav-item mb-2">
-                <a href="" [routerLink]="['/school', 'coming-soon']" class="nav-link"  >
+                <a href="#finance-submenu" class="nav-link"   data-toggle="collapse" aria-expanded="false"  >
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.473 7.946C14.3911 7.946 15.946 7.06266 15.946 5.973C15.946 4.88334 14.3911 4 12.473 4C10.5549 4 9 4.88334 9 5.973C9 7.06266 10.5549 7.946 12.473 7.946Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -281,7 +281,21 @@
 
                     </span>
                     Finance
+                    <span class="ml-auto mr-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>
+                            </svg>
+                            
+                    </span>
                 </a>
+                <ul class="collapse list-unstyled" id="finance-submenu">
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="" [routerLink]="['/school/finance/billing']" routerLinkActive="active" class=""> Billing </a>
+                    </li>
+                  
+                    
+                </ul>
             </li>
             <li class="nav-item mb-2">
                 <a href="" [routerLink]="['/school', 'coming-soon']" class="nav-link"  >

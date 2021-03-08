@@ -17,8 +17,8 @@
     <div class="activated__image ">
       <img src="assets/images/svg/teacher-attach.svg" class="mr-3 avatar" alt="..." />
       <div>
-        <p class="activated__title fw-6 fc-lblue"> {{teacherDetails?.firstName}} {{teacherDetails?.lastName}} </p>
-        <p class="activated__code">AMI/SF/2016/012</p>
+        <p class="activated__title fw-6 fc-lblue"> {{teacherDetails?.firstName + ' ' + teacherDetails?.lastName | titlecase}} </p>
+        <p class="activated__code">{{teacherDetails?.regNumber}}</p>
       </div>
     </div>
     <div class="activated__date mr-5 text-right">

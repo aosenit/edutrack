@@ -15,6 +15,8 @@ export class StudentSheetComponent implements OnInit {
   assessments: any;
   studentNameAndReg: any;
   teacherComment = {comment: ''};
+  studentBehaviour: any;
+  gradeSetup: any;
 
 
   constructor(
@@ -22,13 +24,19 @@ export class StudentSheetComponent implements OnInit {
     private resultService: ResultService,
     private notifyService: NotificationsService,
     private assessmentService: AssessmentService,
+
   ) { }
 
   ngOnInit() {
     this.studId = this.route.snapshot.params.id;
     this.studentNameAndReg = JSON.parse(sessionStorage.getItem('student-details'));
+    this.studentBehaviour = JSON.parse(sessionStorage.getItem('studentBehaviour'));
     console.log(this.studentNameAndReg);
     this.getStudentScoreSheet();
+    this.generateGradeSetup();
+    const records = JSON.parse(sessionStorage.getItem('result-record'));
+    console.log(records);
+
   }
 
   getStudentScoreSheet() {
@@ -46,22 +54,33 @@ export class StudentSheetComponent implements OnInit {
     });
   }
 
+  generateGradeSetup() {
+    this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log('All school grade', data.payload);
+        this.gradeSetup = data.payload;
+      }
+    });
+  }
+
   submitStudentResult() {
     const ClassId = sessionStorage.getItem('class-id');
+    const records: any = JSON.parse(sessionStorage.getItem('result-record'));
+    console.log(records);
     // tslint:disable-next-line:radix
     const classId = parseInt(ClassId);
     const {comment} = this.teacherComment;
     const result = {
-      headTeacherComment: comment,
-      classTeacherComment: '',
       // tslint:disable-next-line:radix
       studentId: parseInt(this.studId),
-      sessionId: 0,
+      sessionId: records.sessionId,
       classId,
-      termSequence: 0,
+      termSequence: records.termSequence,
+      classTeacherComment: '',
+      headTeacherComment: comment,
       classTeacherApprovalStatus: 1,
-      adminApprovalStatus: 0,
-      headTeacherApprovalStatus: 0
+      adminApprovalStatus: 1,
+      headTeacherApprovalStatus: 1
     };
 
     console.log(result);
@@ -76,6 +95,8 @@ export class StudentSheetComponent implements OnInit {
 
     });
   }
+
+
 
   back() {
     window.history.back();

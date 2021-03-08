@@ -35,7 +35,7 @@ export class AssessmentService {
   }
 
   getCurrentSession() {
-    const url = `${this.baseUrl + routes.getschoolSessions}`;
+    const url = `${this.baseUrl + routes.getcurrentsession}`;
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 

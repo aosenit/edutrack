@@ -4,21 +4,22 @@
           <form>
             <div class="row">
               <div class="col options">
-                <select name="" id="" class="form-control" >
+                <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)" >
                   <option value="">Select Class</option>
-                  <option value="1"> 1</option>
+                  <!-- <option value={{class.classId}} *ngFor="let class of classList; let i = index">{{class.class}}</option> -->
+                  <option value={{i}} *ngFor="let class of classList; let i = index">{{class.class}}</option>
                 </select>
               </div>
               <div class="col options">
-                <select name="" id="" class="form-control" >
-                  <option value="">Select Subject</option>
-                  <option [value]= "1">1</option>
+                <select name="" id="" class="form-control" (change)="selectedTerm($event.target.value)" >
+                  <option value="">Term</option>
+                  <option [value]= "t" *ngFor="let term of terms; let t = index"> {{term?.name}}</option>
                 </select>
               </div>
               <div class="col-5 options">
-                <select name="" id="" class="form-control" >
+                <select name="" id="" class="form-control" (change)="selectStudent($event.target.value)" >
                   <option value="">Select student name</option>
-                  <option [value]= "1">1</option>
+                  <option [value]= "std" *ngFor="let student of studentList; let std = index"> {{student?.firstName + ' ' + student?.lastName}}</option>
                 </select>
               </div>
             </div>
@@ -134,10 +135,13 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td >Adeyemi</td>
-                        <td>HIS/ST/2020/001</td>
-                        <td>M</td>
-                        <td>29 Years Old</td>
+                        <td >  {{selectedStudent?.firstName + ' ' + selectedStudent?.lastName}} </td>
+                        <td>{{selectedStudent?.studentNumber}}</td>
+                        <td>
+                          <span *ngIf="selectedStudent?.sex === 'male' ">M</span>
+                          <span *ngIf="selectedStudent?.sex === 'female' ">F</span>
+                        </td>
+                        <td>{{getAge(selectedStudent?.dateOfBirth)}} Years Old</td>
                       </tr>
               
                     </tbody>
@@ -160,9 +164,9 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td >Grade 5 Pearl</td>
-                                <td>2008/2009</td>
-                                <td>1st</td>
+                                <td >{{selectedClass}}</td>
+                        <td>{{sessions?.name}}</td>
+                        <td>{{termName?.name}}</td>
                               </tr>
                       
                             </tbody>
@@ -182,7 +186,7 @@
                               <tr>
                                 <td >27</td>
                                 <td>20</td>
-                                <td>35</td>
+                                <td>{{studentList?.length}}</td>
                                 <td></td>
                               </tr>
                       
@@ -528,20 +532,10 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr >
-                                <td class="text-left" >70 - 79</td>
-                                <td> B </td>
-                                <td>Very Good</td>
-                              </tr>
-                              <tr >
-                                <td class="text-left" >80 - 100</td>
-                                <td> A </td>
-                                <td>Excellent</td>
-                              </tr>
-                              <tr >
-                                <td class="text-left" >80 - 100</td>
-                                <td> A </td>
-                                <td>Excellent</td>
+                              <tr *ngFor="let grade of gradeSetup; let g = index" >
+                                <td class="text-left" >{{grade?.lowerBound + ' - ' + grade?.upperBound}} </td>
+                                <td> {{grade?.grade}} </td>
+                                <td>{{grade?.interpretation}}</td>
                               </tr>
                             </tbody>
                           </table>
@@ -555,22 +549,15 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr >
-                                <td class="text-left" >Analysis</td>
+                              <tr *ngFor="let cognitve of studentBehaviour?.Cognitive" >
+                                <td class="text-left" >{{cognitve?.behaviourName}}</td>
                                 <td>  
                                  
-                                    A
+                                  {{cognitve?.grade}}
                                  
                                 </td>
                               </tr>
-                              <tr >
-                                <td class="text-left" >Application</td>
-                                <td>  A </td>
-                              </tr>
-                              <tr >
-                                <td class="text-left" >Synthesis</td>
-                                <td>  A </td>
-                              </tr>
+                              
                               
                             </tbody>
                           </table>
@@ -585,27 +572,11 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr >
-                                <td class="text-left" >Characteristics</td>
-                                <td>  A </td>
+                              <tr *ngFor="let feeling of studentBehaviour?.Feeling" >
+                                <td class="text-left" >{{feeling?.behaviourName}}</td>
+                                <td>  {{feeling?.grade}} </td>
                               </tr>
-                              <tr >
-                                <td class="text-left" >Organization</td>
-                                <td>  A </td>
-                              </tr>
-                              <tr >
-                                <td class="text-left" >Receiving</td>
-                                <td>  A </td>
-                              </tr>
-                              <tr >
-                                <td class="text-left" >Responding </td>
-                                <td>  A </td>
-                              </tr>
-                              <tr >
-                                <td class="text-left" >Valueing</td>
-                                <td>  A </td>
-                              </tr>
-                              
+                                            
                             </tbody>
                           </table>
                     </div>
@@ -619,26 +590,11 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr >
-                                <td class="text-left" >Fundamental Movement</td>
-                                <td>  A </td>
+                              <tr *ngFor="let kinetics of studentBehaviour?.psychomotor" >
+                                <td class="text-left" >{{kinetics?.behaviourName}}</td>
+                                <td>  {{kinetics?.grade}} </td>
                               </tr>
-                              <tr >
-                                <td class="text-left" >Non discursive movement</td>
-                                <td>  A </td>
-                              </tr>
-                              <tr >
-                                <td class="text-left" >Perceptual Abilities</td>
-                                <td>  A </td>
-                              </tr>
-                              <tr >
-                                <td class="text-left" >Reflex Movement </td>
-                                <td>  A </td>
-                              </tr>
-                              <tr >
-                                <td class="text-left" >Skilled Movement</td>
-                                <td>  A </td>
-                              </tr>
+                              
                               
                             </tbody>
                           </table>

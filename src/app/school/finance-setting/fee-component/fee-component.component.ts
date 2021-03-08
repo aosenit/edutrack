@@ -50,7 +50,7 @@ export class FeeComponentComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data);
         const sessionList: any = data.payload;
-        this.termList = sessionList[0].terms;
+        this.termList = sessionList.terms;
         console.log(this.terms);
       }
     });
@@ -77,8 +77,18 @@ export class FeeComponentComponent implements OnInit {
 
   }
 
-  getTerms(e) {
-      this.terms.push(e);
+  getTerms(event, sequence) {
+    if (event.target.checked === true) {
+      this.terms.push(event.target.value);
+    } else {
+      const index = this.terms.indexOf(`${sequence}`);
+      if (index > -1) {
+        this.terms.splice(index, 1);
+      
+      }
+      this.terms.filter((item) => item !== sequence);
+      console.log(this.terms)
+    }
   }
 
 
@@ -102,6 +112,7 @@ export class FeeComponentComponent implements OnInit {
         if (data.hasErrors === false) {
         this.notifyService.publishMessages('Successful', 'success', 1);
         document.getElementById('mySubjectModal').click();
+        this.componentForm.reset();
         this.getAllComponent();
         }
     }, error => {

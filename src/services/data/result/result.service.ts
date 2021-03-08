@@ -10,6 +10,9 @@ const routes = {
   uploadResultFromForm: 'schtrack-assessment/api/v1/Result/UploadAssessmentSetups',
   getclassbroadsheet: 'schtrack-assessment/api/v1/Result/GetClassBroadSheet',
   getstudentbroadsheet: 'schtrack-assessment/api/v1/Result/GetStudentBroadSheet',
+  createstudentbehaviour: 'schtrack-assessment/api/v1/Result/PostBehaviourResult',
+  viewstudentbehaviour: 'schtrack-assessment/api/v1/Result/GetBehaviourResult',
+  getapprovedResult: 'schtrack-assessment/api/v1/Result/GetApprovedStudentReportSheet',
 };
 @Injectable({
   providedIn: 'root'
@@ -65,8 +68,6 @@ export class ResultService {
 
   getClassBroadSheet(id) {
     const url = `${this.baseUrl + routes.getclassbroadsheet}/${id}`;
-    console.log(url);
-    // tslint:disable-next-line:max-line-length
     return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
@@ -76,5 +77,26 @@ export class ResultService {
     // tslint:disable-next-line:max-line-length
     return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
+
+
+  createStudentBehaviour(behaviourData) {
+      const url = `${this.baseUrl + routes.createstudentbehaviour}`;
+      // tslint:disable-next-line:max-line-length
+      return this.http.post(url, behaviourData, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+ }
+
+ getStudentBehviour(SessionId, TermSequence, ClassId, StudentId) {
+  // tslint:disable-next-line:max-line-length
+  const url = `${this.baseUrl + routes.viewstudentbehaviour}?SessionId=${SessionId}&TermSequence=${TermSequence}&ClassId=${ClassId}&StudentId=${StudentId}`;
+  return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+ }
+
+ getApprovedStudentResult(classId, sessionId, termSequenceNumber) {
+  // tslint:disable-next-line:max-line-length
+  const url = `${this.baseUrl + routes.getapprovedResult}?classId=${classId}&sessionId=${sessionId}&termSequenceNumber=${termSequenceNumber}`;
+  return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+ }
+
 
 }

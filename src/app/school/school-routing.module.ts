@@ -71,6 +71,7 @@ const routes: Routes = [
       { path: 'add-employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) },
       { path: 'edit-employee/:id', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) },
       { path: 'finance-setting', loadChildren: () => import('./finance-setting/finance-setting.module').then(m => m.FinanceSettingModule) },
+      { path: 'finance', loadChildren: () => import('./finance/finance.module').then(m => m.FinanceModule) },
 
 
 

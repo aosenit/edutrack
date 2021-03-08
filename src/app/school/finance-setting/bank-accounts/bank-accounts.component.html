@@ -1,22 +1,22 @@
-<section class="banner mb-4 pb-3" >
-    <div class="pt-5 pl-3 content ">
-        <h6 class="banner__text-primary fw-6 "> Bank Account </h6>
-        <p class=""> Manage all your school bank accounts </p>
-    </div>
-    <div class="d-flex">
-                     
-        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
-        data-target="#exampleModalCenterSubject"> Add New </button>
-    </div>
+<section class="banner mb-4 pb-3">
+  <div class="pt-5 pl-3 content ">
+    <h6 class="banner__text-primary fw-6 "> Bank Account </h6>
+    <p class=""> Manage all your school bank accounts </p>
+  </div>
+  <div class="d-flex">
+
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterSubject"> Add New </button>
+  </div>
 
 </section>
 
-<section class="d-flex align-items-center justify-content-between mb-4 mt-5" >
-    <div class="search__input has-search">
-        <span class="fa fa-search form-control-feedback"></span>
-        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
-    </div>
-    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
+<section class="d-flex align-items-center justify-content-between mb-4 mt-5">
+  <div class="search__input has-search">
+    <span class="fa fa-search form-control-feedback"></span>
+    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
+  </div>
+  <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
 
 </section>
 
@@ -24,33 +24,32 @@
 
 
 <section class="list">
-    <table class="table table-borderless client-table">
-        <thead>
-            <tr>
-                <th scope="col" class="head ">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                        <label class="custom-control-label" for="customCheckTh"></label>
-                    </div>
-                </th>
-                <th scope="col" class="text-left w-25" > Account Name <img src="assets/images/svg/table-sort.svg"
-                        alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <!-- ================ DROPDOWN ==================== -->
-                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <table class="table table-borderless client-table">
+    <thead>
+      <tr>
+        <th scope="col" class="head ">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheckTh">
+            <label class="custom-control-label" for="customCheckTh"></label>
+          </div>
+        </th>
+        <th scope="col" class="text-left w-25"> Account Name <img src="assets/images/svg/table-sort.svg"
+            alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+          <!-- ================ DROPDOWN ==================== -->
+          <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item filter-title" href="#">FILTER BY: CLIENT</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item fc-orange" href="#">All </a>
                         <a class="dropdown-item" href="#">A - Z </a>
                         <a class="dropdown-item" href="#">Z - A </a>
                     </div> -->
-                </th>
-               <th>Account Number </th>
-                <th scope="col" >Bank <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                        class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    <!-- ================ DROPDOWN ==================== -->
-                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+        </th>
+        <th>Account Number </th>
+        <th scope="col">Bank <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle"
+            type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <!-- ================ DROPDOWN ==================== -->
+          <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
                         <a class="dropdown-item filter-title" href="#">FILTER BY: LOCATION</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item fc-orange" href="#">All </a>
@@ -58,66 +57,66 @@
                         <a class="dropdown-item" href="#">Lagos </a>
                         <a class="dropdown-item" href="#">Ogun </a>
                     </div> -->
-                </th>
+        </th>
 
-                <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                        class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    <!-- ================ DROPDOWN ==================== -->
-                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+        <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle"
+            type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <!-- ================ DROPDOWN ==================== -->
+          <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
                         <a class="dropdown-item filter-title" href="#">FILTER BY: STATUS</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item fc-orange" href="#">All </a>
                         <a class="dropdown-item" href="#">Active </a>
                         <a class="dropdown-item" href="#">Inactive </a>
                     </div> -->
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="pb-1" *ngFor="let account of bankAccountList | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: accountCount }" >
-                <td scope="row" class="check rounded-left">
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                </td>
-                <td class="user" >
-                    
-                    <div class="d-flex align-items-center">
-                        
-                        <h6 class="fw-6 mb-0" >   {{account?.bank}}</h6>
-                    </div>
-                </td>
-                <td>{{account?.accountNumber}} </td>
-                <td>{{account?.accountName}} </td>
-                <td>
-                    <span class="status_active" *ngIf="account.isActive === true" >Active</span>
-                    <span class="status_inactive" *ngIf="account.isActive === false" >Inactive</span>
-                </td>
-                    <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log" class="mt-3" id="dropdownMenuButton3" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="pb-1"
+        *ngFor="let account of bankAccountList | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: accountCount }">
+        <td scope="row" class="check rounded-left">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label class="custom-control-label" for="customCheck1"></label>
+          </div>
+        </td>
+        <td class="user">
 
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                       
-                        <a class="dropdown-item fc-orange" (click)="editBankAccount(account.id)" data-toggle="modal" data-target="#editBankAccountModal" >Edit </a>
-                        
-                    </div>
-                    
-                    </td>
-                    
-               
-            </tr>
+          <div class="d-flex align-items-center">
+
+            <h6 class="fw-6 mb-0"> {{account?.bank}}</h6>
+          </div>
+        </td>
+        <td>{{account?.accountNumber}} </td>
+        <td>{{account?.accountName}} </td>
+        <td>
+          <span class="status_active" *ngIf="account.isActive === true">Active</span>
+          <span class="status_inactive" *ngIf="account.isActive === false">Inactive</span>
+        </td>
+        <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log" class="mt-3"
+            id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+
+            <a class="dropdown-item fc-orange" (click)="editBankAccount(account.id)" data-toggle="modal"
+              data-target="#editBankAccountModal">Edit </a>
+
+          </div>
+
+        </td>
 
 
-        </tbody>
-    </table>
+      </tr>
 
-    <div class="d-flex justify-content-end">
-        <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
-      </div>
+
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-end">
+    <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+  </div>
 
 </section>
 
@@ -125,67 +124,86 @@
 
 <!-- Subject Modal -->
 <div class="modal fade" id="exampleModalCenterSubject" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-length" role="document">
-        <div class="modal-content">
+  aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
 
-            <div class="modal-head mb-4">
-                <div class="d-flex justify-content-between align-items-center ">
-                    <h6 class="modal-title fc-lblue">Add New Bank Account</h6>
-                    <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myAccountModal"
-                        data-dismiss="modal" aria-label="Close" class="close">
-
-                </div>
-
-            </div>
-            <div class="modal-body client-modal">
-                <form [formGroup]="bankAccountForm" (ngSubmit)="createBankAccount()">
-
-
-                    <div class="form-group mb-4">
-                        <label for="class" class="">Bank  <span class="text-danger">*</span> </label>
-                        <select name="" id="" class="form-control" formControlName="bank">
-                            <option value="" selected>Select...</option>
-                            <option value="UBA">UBA</option>
-                        </select>
-                    </div>
-                    
-                    
-                    <div class="form-group mb-4">
-                        <label for="class" class="">Account Name<span class="text-danger">*</span> </label>
-                        <input type="text" id="class" class="form-control" formControlName="accountName" placeholder="Enter account name" >
-                        
-                    </div>
-
-                    <div class="form-group mb-4">
-                        <label for="class" class="">Account Number<span class="text-danger">*</span> </label>
-                        <input type="text" placeholder="Enter Account number" formControlName="accountNumber" class="form-control" maxlength="11">
-                    </div>
-
-
-                    <div class="form-group custom mb-5">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch4"
-                                formControlName="isActive" (change)="getStatus($event.target.checked)">
-                            <label class="custom-control-label" for="customSwitch4"
-                                *ngIf="toggleState === false">Inactive</label>
-                            <label class="custom-control-label" for="customSwitch4"
-                                *ngIf="toggleState === true">Active</label>
-                        </div>
-                    </div>
-
-
-                    <div class="d-flex justify-content-center mb-3">
-                        <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
-                            data-dismiss="modal">Cancel
-                        </button>
-                        <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="bankAccountForm.invalid"> Add Account</button>
-                    </div>
-                </form>
-            </div>
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Bank Account</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myAccountModal" data-dismiss="modal"
+            aria-label="Close" class="close">
 
         </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="bankAccountForm" (ngSubmit)="createBankAccount()">
+
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Bank <span class="text-danger">*</span> </label>
+            <select name="" id="" class="form-control" formControlName="bank">
+              <option value="" selected>Select...</option>
+              <option value="UBA">UBA</option>
+              <option value="diamond">Diamond Bank</option>
+              <option value="ecobank">Ecobank</option>
+              <option value="fidelity">Fidelity Bank</option>
+              <option value="firstbank">First Bank</option>
+              <option value="fcmb">First City Monument Bank (FCMB)</option>
+              <option value="gtb">Guaranty Trust Bank (GTB)</option>
+              <option value="heritage">Heritage Bank</option>
+              <option value="keystone">Keystone Bank</option>
+              <option value="polaris">Polaris Bank</option>
+              <option value="providus">Providus Bank</option>
+              <option value="stanbic">Stanbic IBTC Bank</option>
+              <option value="standard">Standard Chartered Bank</option>
+              <option value="sterling">Sterling Bank</option>
+              <option value="suntrust">Suntrust Bank</option>
+              <option value="union">Union Bank</option>
+              <option value="uba">United Bank for Africa (UBA)</option>
+              <option value="unity">Unity Bank</option>
+              <option value="wema">Wema Bank</option>
+              <option value="zenith">Zenith Bank</option>
+            </select>
+          </div>
+
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Account Name<span class="text-danger">*</span> </label>
+            <input type="text" id="class" class="form-control" formControlName="accountName"
+              placeholder="Enter account name">
+
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Account Number<span class="text-danger">*</span> </label>
+            <input type="text" placeholder="Enter Account number" formControlName="accountNumber" class="form-control"
+              maxlength="11">
+          </div>
+
+
+          <div class="form-group custom mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch4" formControlName="isActive"
+                (change)="getStatus($event.target.checked)">
+              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === false">Inactive</label>
+              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === true">Active</label>
+            </div>
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="bankAccountForm.invalid"> Add Account</button>
+          </div>
+        </form>
+      </div>
+
     </div>
+  </div>
 </div>
 <!-- end of Subject modal -->
 
@@ -193,66 +211,86 @@
 
 <!-- Subject Modal -->
 <div class="modal fade" id="editBankAccountModal" tabindex="-1" role="dialog"
-    aria-labelledby="editBankAccountModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-length" role="document">
-        <div class="modal-content">
+  aria-labelledby="editBankAccountModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
 
-            <div class="modal-head mb-4">
-                <div class="d-flex justify-content-between align-items-center ">
-                    <h6 class="modal-title fc-lblue">Edit Bank Account</h6>
-                    <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="editAccountModal"
-                        data-dismiss="modal" aria-label="Close" class="close">
-
-                </div>
-
-            </div>
-            <div class="modal-body client-modal">
-                <form [formGroup]="editBankAccountForm" (ngSubmit)="updateBankAccount()">
-
-
-                    <div class="form-group mb-4">
-                        <label for="class" class="">Bank  <span class="text-danger">*</span> </label>
-                        <select name="" id="" class="form-control" formControlName="bank">
-                            <option value="" selected>Select...</option>
-                            <option value="UBA">UBA</option>
-                        </select>
-                    </div>
-                    
-                    
-                    <div class="form-group mb-4">
-                        <label for="class" class="">Account Name<span class="text-danger">*</span> </label>
-                        <input type="text" id="class" class="form-control" formControlName="accountName" placeholder="Enter account name" >
-                        
-                    </div>
-
-                    <div class="form-group mb-4">
-                        <label for="class" class="">Account Number<span class="text-danger">*</span> </label>
-                        <input type="text" placeholder="Enter Account number" formControlName="accountNumber" class="form-control" maxlength="11">
-                    </div>
-
-
-                    <div class="form-group custom mb-5">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitchE"
-                                formControlName="isActive" (change)="getStatus($event.target.checked)">
-                            <label class="custom-control-label" for="customSwitchE"
-                                *ngIf="toggleState === false">Inactive</label>
-                            <label class="custom-control-label" for="customSwitchE"
-                                *ngIf="toggleState === true">Active</label>
-                        </div>
-                    </div>
-
-
-                    <div class="d-flex justify-content-center mb-3">
-                        <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
-                            data-dismiss="modal">Cancel
-                        </button>
-                        <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="editBankAccountForm.invalid"> Update Account</button>
-                    </div>
-                </form>
-            </div>
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Edit Bank Account</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="editAccountModal"
+            data-dismiss="modal" aria-label="Close" class="close">
 
         </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="editBankAccountForm" (ngSubmit)="updateBankAccount()">
+
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Bank <span class="text-danger">*</span> </label>
+            <select name="" id="" class="form-control" formControlName="bank">
+              <option value="" selected>Select...</option>
+              <option value="citibank">Citibank</option>
+              <option value="diamond">Diamond Bank</option>
+              <option value="ecobank">Ecobank</option>
+              <option value="fidelity">Fidelity Bank</option>
+              <option value="firstbank">First Bank</option>
+              <option value="fcmb">First City Monument Bank (FCMB)</option>
+              <option value="gtb">Guaranty Trust Bank (GTB)</option>
+              <option value="heritage">Heritage Bank</option>
+              <option value="keystone">Keystone Bank</option>
+              <option value="polaris">Polaris Bank</option>
+              <option value="providus">Providus Bank</option>
+              <option value="stanbic">Stanbic IBTC Bank</option>
+              <option value="standard">Standard Chartered Bank</option>
+              <option value="sterling">Sterling Bank</option>
+              <option value="suntrust">Suntrust Bank</option>
+              <option value="union">Union Bank</option>
+              <option value="uba">United Bank for Africa (UBA)</option>
+              <option value="unity">Unity Bank</option>
+              <option value="wema">Wema Bank</option>
+              <option value="zenith">Zenith Bank</option>
+            </select>
+          </div>
+
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Account Name<span class="text-danger">*</span> </label>
+            <input type="text" id="class" class="form-control" formControlName="accountName"
+              placeholder="Enter account name">
+
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Account Number<span class="text-danger">*</span> </label>
+            <input type="text" placeholder="Enter Account number" formControlName="accountNumber" class="form-control"
+              maxlength="11">
+          </div>
+
+
+          <div class="form-group custom mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitchE" formControlName="isActive"
+                (change)="getStatus($event.target.checked)">
+              <label class="custom-control-label" for="customSwitchE" *ngIf="toggleState === false">Inactive</label>
+              <label class="custom-control-label" for="customSwitchE" *ngIf="toggleState === true">Active</label>
+            </div>
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="editBankAccountForm.invalid"> Update
+              Account</button>
+          </div>
+        </form>
+      </div>
+
     </div>
+  </div>
 </div>
 <!-- end of Subject modal -->

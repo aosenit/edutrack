@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-teacher',
@@ -10,6 +11,8 @@ import { TeacherService } from 'src/services/data/teacher/teacher.service';
 })
 export class TeacherComponent implements OnInit {
 teacherslist: any;
+  loggedInUser: any;
+  hide = false;
 
   constructor(
     private teacherService: TeacherService,
@@ -19,6 +22,13 @@ teacherslist: any;
 
   ngOnInit() {
     // this.getAllteachers();
+          const helper = new JwtHelperService();
+          this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
+          if ( this.loggedInUser.TeacherClassId === undefined || null) {
+            this.hide = true;
+          } else {
+            this.hide = false;
+          }
   }
 
 

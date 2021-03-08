@@ -22,11 +22,17 @@
     <div class="row">
       <div class="col-md-12 form-body">
         <div class="basic-details">
-          <form>
+          <div class="row mb-4">
+            <div class="col-md-12">
+              <label for="lname" class="fw-6">Fee Type <span class="text-danger">*</span> </label>
+              <input type="text" placeholder="Enter name" class="form-control" formControlName="name">
+            </div>
+          </div>
             <div class="row mb-4">
               <div class="col-md-6">
                 <label for="title" class="fw-6">Level <span class="text-danger">*</span></label>
-                <select name="" id="sex" class="form-control form-control-lg" name="lvel" (change)="getClassBySectionId($event.target.value)">
+                <select name="" id="sex" class="form-control form-control-lg" name="lvel"
+                formControlName="level" (change)="getClassBySectionId($event.target.value)">
                   <option value="" selected>Select...</option>
                   <option [value]="section.id" *ngFor = "let section of sections" > {{section.name}}</option>
 
@@ -34,7 +40,7 @@
               </div>
               <div class="col-md-6 ">
                 <label for="fname" class="fw-6">Class <span class="text-danger">*</span></label>
-                <select name="" id="sex" class="form-control form-control-lg" name="lvel">
+                <select name="" id="sex" class="form-control form-control-lg" name="lvel" formControlName="SchoolClassId">
                   <option value="" selected>Select...</option>
                   <option [value]="class.id" *ngFor = "let class of classes" > {{class.name + ' ' + class?.classGroup}}</option>
 
@@ -43,14 +49,24 @@
             </div>
             <div class="row mb-4">
               <div class="col-md-12">
+                <div class="form-group mb-4">
+                  <p>Terms</p>
+                  <div class="custom-control custom-checkbox" *ngFor="let term of termList; let t = index">
+                      <input type="checkbox" [value]="term?.sequenceNumber" class="custom-control-input" id="customCheckTh{{t}}h" formControlName="terms" (change)="getTerms($event, term.sequenceNumber)">
+                      <label class="custom-control-label" for="customCheckTh{{t}}h">{{term.name}}</label>
+                  </div>
+              </div>
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-md-12">
                 <label for="lname" class="fw-6">Fee Type <span class="text-danger">*</span> </label>
-                <select name="" id="sex" class="form-control form-control-lg" name="lvel">
+                <select name="" id="sex" class="form-control form-control-lg" name="lvel" formControlName="FeeGroupId">
                   <option value="" selected>Select...</option>
                   <option [value]="fee.id" *ngFor="let fee of feeGroupList">{{fee?.name}}</option>
                 </select>
               </div>
             </div>
-          </form>
         </div>
       </div>
     </div>
@@ -71,25 +87,25 @@
         </p>
       </div>
     </div>
-    <div formArrayName="feeComponents" *ngFor ="let item of feeForm.get('feeComponents')['controls']; let i = index;">
-      <div [formGroupName]="i">
+    <div formArrayName="feeComponents" *ngFor ="let item of feeForm.get('feeComponents')['controls']; let y = index;">
+      <div [formGroupName]="y">
         <div class="row form-body2">
           <div class="basic-details col-md-12">
               <div class="row mb-2">
                 <div class="col-md-4">
-                  <select name="" id="sex" class="form-control form-control-lg" name="lvel" formControlName="componentId">
+                  <select name="" id="sex" class="form-control form-control-lg" name="lvel" formControlName="ComponentId">
                     <option value="" selected>Select Fee...</option>
                     <option [value]="component?.id" *ngFor = "let component of components">{{component?.name}}</option>
                   </select>
                 </div>
                 <div class="col-md-4 ">
-                  <input type="text" class="form-control form-control-lg"  formControlName="amount">
+                  <input type="number" class="form-control form-control-lg"  formControlName="amount">
                 </div>
                 <div class="col-md-4 ">
                   <div class="mb-3">
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheckTh{{i}}" formControlName="isCompulsory">
-                      <label class="custom-control-label" for="customCheckTh{{i}}"></label>
+                      <input type="checkbox" class="custom-control-input" id="customCheckTh{{y}}" formControlName="isCompulsory">
+                      <label class="custom-control-label" for="customCheckTh{{y}}"></label>
                     </div>
                   </div>
                 </div>
@@ -100,8 +116,8 @@
       </div>
     </div>
 
-    <div class="row form-body">
-      <div (click)='addComponent() '>
+    <div class="row d-flex form-body mb-3">
+      <div class="form-group" (click)='addComponent() '>
         <svg width="105" height="20" viewBox="0 0 105 20" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M10.0001 18.3333C14.6025 18.3333 18.3334 14.6023 18.3334 9.99996C18.3334 5.39759 14.6025 1.66663 10.0001 1.66663C5.39771 1.66663 1.66675 5.39759 1.66675 9.99996C1.66675 14.6023 5.39771 18.3333 10.0001 18.3333Z"
@@ -115,7 +131,20 @@
             fill="#FB882C" />
         </svg>
       </div>
+
+      <div class="form-group ml-5 custom mb-5">
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch12"
+                formControlName="isActive" (change)="getStatus($event.target.checked)">
+            <label class="custom-control-label" for="customSwitch12"
+                *ngIf="toggleState === false">Inactive</label>
+            <label class="custom-control-label" for="customSwitch12"
+                *ngIf="toggleState === true">Active</label>
+        </div>
     </div>
+    </div>
+
+    
 
 
     <div class=" d-flex justify-content-center mt-5">

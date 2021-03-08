@@ -227,7 +227,7 @@ export class AccountPanelComponent implements OnInit {
 
   editAccountType(id) {
     this.selectedAccountType = id;
-    this.finance.getAccountTypeById(id).subscribe((data: any) => {
+    this.finance.getAccountTypewithId(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
        
         this.editAccountTypeForm.patchValue({

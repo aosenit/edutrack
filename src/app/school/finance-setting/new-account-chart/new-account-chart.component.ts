@@ -33,7 +33,7 @@ export class NewAccountChartComponent implements OnInit {
       AccountTypeId: ['', Validators.required],
       name: ['', Validators.required],
       description: ['', Validators.required],
-      AccountNumber: ['', [Validators.required, Validators.maxLength(11), Validators.minLength(11)]],
+      AccountNumber: ['', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]],
       OpeningBalance: ['', Validators.required],
       cashPostable: false,
       isActive: false

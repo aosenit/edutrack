@@ -12,18 +12,18 @@
         <form class="d-flex align-items-center">
         <div class="row">
             <div class="col options">
-            <select name="" id="section" class="form-control">
-                <option value="" selected>Select Level</option>
-                <option [value]="1">1</option>
-            </select>
+            <select name="" id="section" class="form-control" (change)="getSubjects($event.target.value)">
+                <option value="" selected>Select Class</option>
+                <option [value]="class.classId" *ngFor="let class of classList; let i = index">{{class.class}}</option>
+              </select>
             </div>
 
-            <div class="col options">
+            <!-- <div class="col options">
             <select name="" id="" class="form-control">
                 <option value="" selected>Select Class</option>
                 <option value="2">h</option>
             </select>
-            </div>
+            </div> -->
         </div>
         </form>
         <button class="btn btn-orange-two px-5 mb-4 mt-3" data-toggle="modal" data-target="#exampleModalCenterEndClass" [disabled]="boxChecked === false">
@@ -71,7 +71,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="pb-2"  >
+            <tr class="pb-2" *ngFor="let student of studentList"  >
               <td scope="row" class="school-logo rounded-left" id="customCheck12">
                 <!-- <div class="custom-control custom-checkbox" > -->
                 <div class="custom-control custom-checkbox">
@@ -87,43 +87,17 @@
                         class="mr-3 image-rounded" id="">
                       </div>
                       <div>
-                          Olamilekan Solih Alaketu
+                         {{student?.firstName + ' ' + student?.lastName}}
                         
                       </div>
                   </div>
                 </td>
-              <td>SCHT?STU/2010</td>
-              <td>fader@yopmail.com</td>
+              <td>{{student?.studentNumber}}</td>
+              <td>{{student?.email}}</td>
               
 
             </tr>
-            <tr class="pb-2" >
-              <td scope="row" class="school-logo rounded-left">
-                <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1"
-                    [value]="1" >
-                  <label class="custom-control-label" for="customCheck1"></label>
-                </div>
-              </td>
-              <td class="">
-                  <div class="d-flex align-items-center">
-                      <div>
-                        <img class=""  src="assets/images/svg/companyalt.svg" alt="schools log"
-                        class="mr-3 image-rounded" id="">
-                      </div>
-                      <div>
-                          Olamilekan Solih Alaketu
-                        
-                      </div>
-                  </div>
-                </td>
-              <td>SCHT?STU/2010</td>
-              <td>fader@yopmail.com</td>
-              
-
-            </tr>
-
+            
 
 
           </tbody>
