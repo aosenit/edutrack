@@ -25,7 +25,8 @@ export class NewAccountChartComponent implements OnInit {
 
   ngOnInit() {
     this.populateChartOFAccountForm();
-    this.getAccountTypes();
+    this.getAccountClasses();
+    
   }
 
   populateChartOFAccountForm() {
@@ -33,7 +34,7 @@ export class NewAccountChartComponent implements OnInit {
       AccountTypeId: ['', Validators.required],
       name: ['', Validators.required],
       description: ['', Validators.required],
-      AccountNumber: ['', [Validators.required, Validators.maxLength(4), Validators.minLength(4)]],
+      AccountNumber: ['', [Validators.required, Validators.minLength(1)]],
       OpeningBalance: ['', Validators.required],
       cashPostable: false,
       isActive: false
@@ -66,10 +67,22 @@ export class NewAccountChartComponent implements OnInit {
     });
   }
 
-  getAccountClasses(id) {
-    this.finance.getAccountTypeById(id).subscribe((data: any) => {
+  getAccountClasses() {
+    this.finance.getAllAccountClass().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.accountClassList = data.payload;
+        // this.accountCount = data.totalCount;
+      }
+    }, error => {
+      this.notifyService.publishMessages('Account type creation failed', 'danger', 1);
+
+    });
+  }
+
+  getAccountTypesfromClass( id) {
+    this.finance.getAccountTypesByAccountClass(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.accountTypeList = data.payload;
         // this.accountCount = data.totalCount;
       }
     }, error => {
@@ -99,6 +112,9 @@ export class NewAccountChartComponent implements OnInit {
         this.notifyService.publishMessages('Account created successfully', 'success', 1);
         this.router.navigateByUrl('/school/finance-setting/chart-of-account');
         // this.getAllAccountClass();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages('Bank Account creation failed', 'danger', 1);

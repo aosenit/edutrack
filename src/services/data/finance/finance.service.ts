@@ -16,6 +16,7 @@ const routes = {
   getAccountTypewithId: 'schtrack-finance/api/v1/AccountType/GetAccountType',
   getAccountTypesbyId: 'schtrack-finance/api/v1/AccountType/GetAccountTypes',
   editAccountTypesbyId: 'schtrack-finance/api/v1/AccountType/UpdateAccountType',
+  viewAccounttypesbyClass: 'schtrack-finance/api/v1/AccountType/GetAccountTypes',
   createAccount: 'schtrack-finance/api/v1/Account/NewAccount',
   getChartAccount: 'schtrack-finance/api/v1/Account/GetAccounts',
   addfeeGruop: 'schtrack-finance/api/v1/FeeGroup/NewFeeGroup',
@@ -174,6 +175,12 @@ export class FinanceService {
 
   getInvoices() {
     const url = `${this.baseUrl + routes.getinvoices}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+  }
+
+  getAccountTypesByAccountClass(accountClassId) {
+    const url = `${this.baseUrl + routes.viewAccounttypesbyClass}/${accountClassId}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }

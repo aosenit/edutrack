@@ -25,36 +25,39 @@
                             <input type="text" placeholder="Account name" class="form-control form-control-lg " formControlName="name">
                         </div>
                         <div class="col-md-6 ">
-                            <label for="fname" class="fw-6">Accout Number <span
-                                    class="text-danger">*</span></label>
-                            <input type="text" class="form-control form-control-lg" placeholder="00000000000"
-                                id="fname" name="FirstName" formControlName="AccountNumber" maxlength="4" minlength="4">
+                            <label for="others" class="fw-6">Account class <span class="text-danger">*</span> </label>
+                            <select name="" id="" class="form-control form-control-lg" (change)="getAccountTypesfromClass($event.target.value)">
+                                <option value="" selected>Choose ...</option>
+                                <option [value]="class?.id" *ngFor="let class of accountClassList">{{class?.name + ' ' +  '(' +   class?.minNumberValue + '-' + class?.maxNumberValue + ')'  + '' }}</option>
+                            </select>
                         </div>
+                        
                     </div>
                 
                     <div class="row mb-4">
+                        
                         <div class="col-md-6">
                             <label for="lname" class="fw-6">Account Type <span class="text-danger">*</span> <span
                                     class="text-danger">*</span></label>
-                            <select name="" id="" class="form-control form-control-lg" formControlName="AccountTypeId" (change)="getAccountClasses($event.target.value)">
+                            <select name="" id="" class="form-control form-control-lg" formControlName="AccountTypeId" >
                                 <option value="" selected>Choose ...</option>
                                 <option [value]="type.id" *ngFor="let type of accountTypeList">{{type.name}}</option>
                             </select>
                         </div>
                         <div class="col-md-6 ">
-                            <label for="others" class="fw-6">Account class <span class="text-danger">*</span> </label>
-                            <select name="" id="" class="form-control form-control-lg">
-                                <option value="" selected>Choose ...</option>
-                                <option [value]="class?.id" *ngFor="let class of accountClassList">{{class?.name}}</option>
-                            </select>
+                            <label for="fname" class="fw-6">Account Code <span
+                                    class="text-danger">*</span></label>
+                            <input type="number" class="form-control form-control-lg" placeholder="00000000000"
+                                id="fname" name="FirstName" formControlName="AccountNumber" minlength="1">
                         </div>
+                        
                     </div>
                 
                 
                     <div class="row mb-4">
                         <div class="col-md-6">
                             <label for="sex" class="fw-6">Opening Balance <span class="text-danger">*</span> </label>
-                            <input type="text" class="form-control" formControlName="OpeningBalance">
+                            <input type="number" class="form-control" formControlName="OpeningBalance">
                         </div>
                         <div class="col-md-6 ">
                             <label for="occupation" class="fw-6">Description</label>
