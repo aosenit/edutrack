@@ -18,12 +18,12 @@
               </select>
             </div>
 
-            <!-- <div class="col options">
-            <select name="" id="" class="form-control">
-                <option value="" selected>Select Class</option>
-                <option value="2">h</option>
-            </select>
-            </div> -->
+            <div class="col options">
+              <select name="" id="" class="form-control" (change)="selectedTerm($event.target.value)" >
+                <option value="">Term</option>
+                <option [value]= "t" *ngFor="let term of terms; let t = index"> {{term?.name}}</option>
+              </select>
+            </div>
         </div>
         </form>
         <button class="btn btn-orange-two px-5 mb-4 mt-3" data-toggle="modal" data-target="#exampleModalCenterEndClass" [disabled]="boxChecked === false">
@@ -62,22 +62,18 @@
                 <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
 
               </th>
-              <th scope="col">Email 
-                <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
-
-              </th>
              
 
             </tr>
           </thead>
           <tbody>
-            <tr class="pb-2" *ngFor="let student of studentList"  >
-              <td scope="row" class="school-logo rounded-left" id="customCheck12">
+            <tr class="pb-2" *ngFor="let student of studentList; let i = index"  >
+              <td scope="row" class="school-logo rounded-left" id="customtable{{i}}">
                 <!-- <div class="custom-control custom-checkbox" > -->
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1"
-                    [value]="1" (change)="checked($event.target.checked)" >
-                  <label class="custom-control-label" for="customCheck1"></label>
+                  <input type="checkbox" class="custom-control-input" id="customCheck{{i}}"
+                    [value]="student?.id" (change)="checked($event, i)" >
+                  <label class="custom-control-label" for="customCheck{{i}}"></label>
                 </div>
               </td>
               <td class="">
@@ -87,13 +83,12 @@
                         class="mr-3 image-rounded" id="">
                       </div>
                       <div>
-                         {{student?.firstName + ' ' + student?.lastName}}
+                         {{student?.name}}
                         
                       </div>
                   </div>
                 </td>
               <td>{{student?.studentNumber}}</td>
-              <td>{{student?.email}}</td>
               
 
             </tr>
@@ -118,7 +113,7 @@
 <div class="modal fade modal2" id="exampleModalCenterEndClass" tabindex="-1" role="dialog"
 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered"  role="document">
-    <div class="modal-content2">
+    <div class="modal-content">
 
         <div class="modal-body  justify-content-center p-3">
             <div class="d-flex justify-content-center my-5">
@@ -126,10 +121,10 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             </div>
             <div class="d-flex flex-column justify-content-center">
                 <!-- <p class="text-center mb-0 fw-6">25 Students</p> -->
-                <p class="text-center fw-6">You have marked <span class="text-danger">(15)</span> student's to schedule mail to</p>
+                <p class="text-center fw-6 email-text">You have marked <span class="text-danger">({{StudentIds?.length}})</span> student's to schedule mail to</p>
             </div>
             <div class="d-flex justify-content-center my-4">
-                <button class="class-btn btn-blue">Submit</button>
+                <button class="class-btn btn-blue" type="button" (click)="postMaiToParent()">Submit</button>
             </div>
         </div>
         <!-- <div class="modal-footer">

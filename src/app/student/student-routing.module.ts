@@ -10,6 +10,7 @@ import { FileStorageComponent } from './file-storage/file-storage.component';
 import { FilesComponent } from './files/files.component';
 import { NotificationPageComponent } from './notification-page/notification-page.component';
 import { SessionComponent } from './session/session.component';
+import { StudentAttendanceComponent } from './student-attendance/student-attendance.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
 import { StudentComponent } from './student.component';
 import { TaskPreviewComponent } from './task-preview/task-preview.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent },
     {path: 'start-class', component: VirtualClassroomComponent},
     {path: 'session', component: SessionComponent},
+    {path: 'attendance', component: StudentAttendanceComponent},
     {path: 'assignment', component: AssignmentComponent},
     {path: 'schedule', component: ClassScheduleComponent},
     {path: 'file-manager', component: FileManagerComponent},

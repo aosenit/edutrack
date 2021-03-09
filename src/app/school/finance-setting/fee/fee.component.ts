@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
+import { FinanceService } from 'src/services/data/finance/finance.service';
 
 @Component({
   selector: 'app-fee',
@@ -9,9 +12,29 @@ export class FeeComponent implements OnInit {
 
   searchString: string;
   p = 1;
-  constructor() { }
+  feeList: any;
+  constructor(
+    private assessmentService: AssessmentService,
+    private finance: FinanceService,
+    private notifyService: NotificationsService
+
+
+
+  ) { }
 
   ngOnInit() {
+    this.getALLCreatedFees();
+  }
+
+
+  getALLCreatedFees() {
+    this.finance.getAllFees().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.feeList = data.payload;
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
   }
 
   getPage(page: number) {

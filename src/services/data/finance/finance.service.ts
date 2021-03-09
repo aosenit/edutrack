@@ -19,11 +19,18 @@ const routes = {
   viewAccounttypesbyClass: 'schtrack-finance/api/v1/AccountType/GetAccountTypes',
   createAccount: 'schtrack-finance/api/v1/Account/NewAccount',
   getChartAccount: 'schtrack-finance/api/v1/Account/GetAccounts',
+  getChartAccountWithId: 'schtrack-finance/api/v1/Account/GetAccount',
+  editChartAccount: 'schtrack-finance/api/v1/Account/UpdateAccount',
   addfeeGruop: 'schtrack-finance/api/v1/FeeGroup/NewFeeGroup',
   getallfeeGruop: 'schtrack-finance/api/v1/FeeGroup/GetFeeGroups',
   createComponent: 'schtrack-finance/api/v1/Component/NewComponent',
   fetchComponent: 'schtrack-finance/api/v1/Component/GetComponents',
+  fetchComponentwithId: 'schtrack-finance/api/v1/Component/GetComponent',
+  editComponent: 'schtrack-finance/api/v1/Component/UpdateComponent',
   addNewFee: 'schtrack-finance/api/v1/Fee/NewFee',
+  viewAllfee: 'schtrack-finance/api/v1/Fee/GetFees',
+  viewfeeById: 'schtrack-finance/api/v1/Fee/GetFee',
+  editfeeById: 'schtrack-finance/api/v1/Fee/UpdateFee',
   createInvoice: 'schtrack-finance/api/v1/Invoice/GenerateInvoice',
   getAllInvoices: 'schtrack-finance/api/v1/Invoice/GetAllInvoices',
   getInvoicepaymenthistory: 'schtrack-finance/api/v1/Invoice/GetPaymentHistoryInvoices',
@@ -117,6 +124,18 @@ export class FinanceService {
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
+  getChartAccountByID(id) {
+    const url = `${this.baseUrl + routes.getChartAccountWithId}/${id}`;
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+  }
+
+  updateChartAccountByID(id, formBody) {
+    const url = `${this.baseUrl + routes.editChartAccount}/${id}`;
+    return this.http.put(url, formBody, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+  }
+
   createFeeGroup(feegroupdata) {
     const url = `${this.baseUrl + routes.addfeeGruop}`;
     return this.http.post(url, feegroupdata,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
@@ -137,9 +156,25 @@ export class FinanceService {
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
+  getComponentById(id) {
+    const url = `${this.baseUrl + routes.fetchComponentwithId}/${id}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  updateComponentById(id, formBody) {
+    const url = `${this.baseUrl + routes.editComponent}`;
+    return this.http.put(url, formBody,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
   createFee(newAccountData) {
     const url = `${this.baseUrl + routes.addNewFee}`;
     return this.http.post(url, newAccountData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getAllFees() {
+    const url = `${this.baseUrl + routes.viewAllfee}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
   }
 
   generteInvoices(newAccountData) {
@@ -147,8 +182,8 @@ export class FinanceService {
     return this.http.post(url, newAccountData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
-  getInvoicesById() {
-    const url = `${this.baseUrl + routes.getInvocesbyId}`;
+  getInvoicesById(id) {
+    const url = `${this.baseUrl + routes.getInvocesbyId}/${id}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
@@ -182,7 +217,6 @@ export class FinanceService {
   getAccountTypesByAccountClass(accountClassId) {
     const url = `${this.baseUrl + routes.viewAccounttypesbyClass}/${accountClassId}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
-
   }
 
  }

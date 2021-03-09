@@ -32,8 +32,8 @@ export class AttendanceService {
     return this.http.post(url, attendanceData,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  getSubjectAttendance(SubjectId ) {
-    const url = `${this.baseUrl + routes.getsubjectAttendance}?SubjectId=${SubjectId }`;
+  getSubjectAttendance( ) {
+    const url = `${this.baseUrl + routes.getsubjectAttendance}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

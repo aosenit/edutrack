@@ -19,6 +19,10 @@ export class FeeComponentComponent implements OnInit {
   sequenceCount = 0;
   bankAccountList: any;
   components: any;
+  editComponentForm: FormGroup;
+  componentID: any;
+  checkTerm: boolean;
+  sessionList: any;
 
 
   constructor(
@@ -32,6 +36,7 @@ export class FeeComponentComponent implements OnInit {
   ngOnInit() {
     this.getSession();
     this.populateComponentForm();
+    this.populateEditComponentForm();
     this.getChartOfAccount();
     this.getAllComponent();
   }
@@ -45,12 +50,21 @@ export class FeeComponentComponent implements OnInit {
     });
   }
 
+  populateEditComponentForm() {
+    this.editComponentForm = this.fb.group({
+      AccountId: ['', Validators.required],
+      name: ['', Validators.required],
+      terms: ['', Validators.required],
+      isActive: false
+    });
+  }
+
   getSession() {
     this.assessmentService.getCurrentSession().subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
-        const sessionList: any = data.payload;
-        this.termList = sessionList.terms;
+        this.sessionList  = data.payload;
+        this.termList = this.sessionList.terms;
         console.log(this.terms);
       }
     });
@@ -84,10 +98,10 @@ export class FeeComponentComponent implements OnInit {
       const index = this.terms.indexOf(`${sequence}`);
       if (index > -1) {
         this.terms.splice(index, 1);
-      
+
       }
       this.terms.filter((item) => item !== sequence);
-      console.log(this.terms)
+      console.log(this.terms);
     }
   }
 
@@ -145,5 +159,69 @@ export class FeeComponentComponent implements OnInit {
     //     this.notifyService.publishMessages(error.message, 'danger', 1);
     //   });
 
+  }
+
+
+  getComponent(id) {
+    this.componentID = id;
+    this.finance.getComponentById(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        const terMs = data.payload.terms;
+        const splitTerms = terMs.split(',');
+        splitTerms.forEach(v => {
+          // tslint:disable-next-line:prefer-for-of
+          for (let i = 0; i < this.sessionList.terms.length; i++) {
+            console.log(this.sessionList.terms[i]);
+            if (this.sessionList.terms[i].sequenceNumber === v) {
+              console.log('yes');
+              this.sessionList.terms[i].checked = true;
+              this.terms.push(v);
+              // console.log(this.hobbiesArray);
+              // console.log(this.allHobbyList);
+              // tslint:disable-next-line:no-unused-expression
+
+            }
+          }
+        });
+
+        this.editComponentForm.patchValue({
+            AccountId: data.payload.accountId,
+            name: data.payload.name,
+            // terms: data.payload.splitTerms,
+            isActive: data.payload.isActive
+
+        });
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
+  }
+
+  updateComponent() {
+    const {AccountId, name, terms, isActive} = this.editComponentForm.value;
+    const sequenceNumber = this.sequenceCount++;
+
+    const term = this.terms.map((ids: any) => {
+      return parseInt(ids);
+    });
+    const result = {
+      name,
+      // tslint:disable-next-line:radix
+      accountId: parseInt(AccountId),
+      terms: term,
+      sequenceNumber,
+      isActive: this.toggleState
+    };
+    console.log(result);
+    this.finance.updateComponentById( this.componentID , result).subscribe((data: any) => {
+        if (data.hasErrors === false) {
+        this.notifyService.publishMessages('Successful', 'success', 1);
+        document.getElementById('mySubjectModal').click();
+        this.componentForm.reset();
+        this.getAllComponent();
+        }
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
   }
 }

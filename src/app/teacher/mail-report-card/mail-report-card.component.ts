@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 import { ClassService } from 'src/services/data/class/class.service';
+import { ResultService } from 'src/services/data/result/result.service';
 
 @Component({
   selector: 'app-mail-report-card',
@@ -10,13 +14,27 @@ export class MailReportCardComponent implements OnInit {
   boxChecked = false;
   classList: any;
   studentList: any;
+  sessions: any;
+  terms: any;
+  classId: any;
+  selectedTermId: any;
+  StudentIds = [];
   constructor(
     private classService: ClassService,
+    private assessmentService: AssessmentService,
+    private resultService: ResultService,
+    private notifyService: NotificationsService,
+    private route: ActivatedRoute
+
+
+
 
   ) { }
 
   ngOnInit() {
     this.getClassAndSubjectForTeacher();
+    this.getCurrentSesion();
+
   }
 
   getClassAndSubjectForTeacher() {
@@ -30,24 +48,86 @@ export class MailReportCardComponent implements OnInit {
   }
 
   getSubjects(id) {
-    
-    this.classService.getStudentsInAClassByClassID(id).subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        console.log(data.payload);
-        this.studentList = data.payload;
-        console.log(this.classList);
-      }
-    });
+    this.classId = id;
 
   }
 
-  checked(event) {
-    if (event === true) {
-      document.getElementById('customCheck12').style.borderLeft = '5px solid #FB7B04';
+  getCurrentSesion() {
+    this.assessmentService.getCurrentSession().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.sessions = data.payload;
+        this.terms = data.payload.terms;
+      }
+    });
+  }
+
+  selectedTerm(event) {
+    this.selectedTermId = this.terms[event].sequenceNumber;
+    this.getApprovedStudentResults();
+
+  }
+
+
+  checked(event, i) {
+    if (event.target.checked === true) {
+      this.StudentIds.push(event.target.value);
+      console.log(this.StudentIds);
+
+      document.getElementById('customtable' + `${i}`).style.borderLeft = '5px solid #FB7B04';
       this.boxChecked = true;
     } else {
-      document.getElementById('customCheck12').style.borderLeft = 'none';
+      const index = this.StudentIds.indexOf(event.target.value);
+      console.log(index);
+      if (index > -1) {
+        this.StudentIds.splice(index, 1);
+      }
+      this.StudentIds.filter((item) => item !== i);
+      console.log(this.StudentIds);
+      document.getElementById('customtable' + `${i}`).style.borderLeft = 'none';
+    }
+    if (this.StudentIds.length === 0) {
       this.boxChecked = false;
-   }
+    }
+  }
+
+  getApprovedStudentResults() {
+    // tslint:disable-next-line:max-line-length
+    this.resultService.getStudentApprovedResults(this.classId, this.sessions.id, this.selectedTermId).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        this.studentList = data.payload;
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+  postMaiToParent() {
+    document.getElementById('exampleModalCenterEndClass').click();
+    const studentId = this.StudentIds.map((ids: any) => {
+      return parseInt(ids);
+    });
+    const result = {
+      studentIds: studentId,
+      resultPageURL: '/#/teacher/report-card',
+      classId: parseInt(this.classId),
+      curSessionId: this.sessions.id,
+      termSequenceNumber: this.selectedTermId
+    };
+    console.log(result);
+    this.resultService.mailReportSheetToParent(result).subscribe((data: any) => {
+      if (data.hasErrors === false ) {
+        console.log(data.payload);
+        this.notifyService.publishMessages('Email sent out', 'success', 1);
+        document.getElementById('closeMailModal').click();
+        location.reload()
+      } else {
+        this.notifyService.publishMessages('Email processing failed', 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+    });
   }
 }

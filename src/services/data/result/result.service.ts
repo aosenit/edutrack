@@ -13,6 +13,8 @@ const routes = {
   createstudentbehaviour: 'schtrack-assessment/api/v1/Result/PostBehaviourResult',
   viewstudentbehaviour: 'schtrack-assessment/api/v1/Result/GetBehaviourResult',
   getapprovedResult: 'schtrack-assessment/api/v1/Result/GetApprovedStudentReportSheet',
+  getapprovedStudentResult: 'schtrack-assessment/api/v1/Result/GetStudentsWithApprovedResult',
+  mailreportsheet: 'schtrack-assessment/api/v1/Result/PostMailResult',
 };
 @Injectable({
   providedIn: 'root'
@@ -91,12 +93,57 @@ export class ResultService {
   return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
  }
 
- getApprovedStudentResult(classId, sessionId, termSequenceNumber) {
+ getApprovedStudentResult(studId, classId, sessionId, termSequenceNumber) {
   // tslint:disable-next-line:max-line-length
-  const url = `${this.baseUrl + routes.getapprovedResult}?classId=${classId}&sessionId=${sessionId}&termSequenceNumber=${termSequenceNumber}`;
+  const url = `${this.baseUrl + routes.getapprovedResult}?studId=${studId}&classId=${classId}&sessionId=${sessionId}&termSequenceNumber=${termSequenceNumber}`;
   return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
  }
 
+ getStudentApprovedResults(classId, sessionId, termSequenceNumber) {
+  // tslint:disable-next-line:max-line-length
+  const url = `${this.baseUrl + routes.getapprovedStudentResult}?classId=${classId}&sessionId=${sessionId}&termSequenceNumber=${termSequenceNumber}`;
+  return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
+ }
+
+ mailReportSheetToParent(mailData) {
+  const url = `${this.baseUrl + routes.mailreportsheet}`;
+  return this.http.post(url, mailData,  {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
 }

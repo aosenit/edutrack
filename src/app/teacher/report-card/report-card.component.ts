@@ -24,6 +24,18 @@ export class ReportCardComponent implements OnInit {
   selectedClass: any;
   selectedTermId: any;
   studentBehaviour: any;
+  reportSheetDetails: any;
+  totalScoreObtained: any;
+  performanceRate: number;
+  selectedStudentID: any;
+  sessionsId: any;
+  classSubjectCount: number;
+  subjectoffered: any;
+  averageScore: number;
+  totalSchoolScore: number;
+  totalCA: number;
+  totalExam: number;
+  classPercentage: number;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -36,7 +48,9 @@ export class ReportCardComponent implements OnInit {
     this.getClassAndSubjectForTeacher();
     this.getCurrentSesion();
     this.generateGradeSetup();
-    this.getApprovedStudentResults();
+    // this.getApprovedStudentResults();
+    console.log('route', this.route);
+
 
   }
 
@@ -80,6 +94,7 @@ export class ReportCardComponent implements OnInit {
     this.assessmentService.getCurrentSession().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.sessions = data.payload;
+        this.sessionsId = data.payload.id;
         this.terms = data.payload.terms;
       }
     });
@@ -99,8 +114,9 @@ export class ReportCardComponent implements OnInit {
 
   selectStudent(i) {
     this.selectedStudent = this.studentList[i];
+    this.selectedStudentID = this.studentList[i].id;
     // tslint:disable-next-line:max-line-length
-    this.resultService.getStudentBehviour(this.sessions.id, this.selectedTermId, this.selectedClassId, this.selectedStudent.id ).subscribe((data: any) => {
+    this.resultService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.selectedClassId, this.selectedStudentID  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
        console.log(data.payload);
        this.studentBehaviour = data.payload.resultTypeAndValues;
@@ -117,18 +133,77 @@ export class ReportCardComponent implements OnInit {
 
 
  getApprovedStudentResults() {
-  this.resultService.getApprovedStudentResult(this.selectedClassId, this.sessions.id, this.selectedTermId ).subscribe((data: any) => {
+  // tslint:disable-next-line:max-line-length
+  this.resultService.getApprovedStudentResult(this.selectedStudentID, this.selectedClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
     if (data.hasErrors === false) {
       console.log(data.payload);
+      this.reportSheetDetails = data.payload;
+      this.studentRecord = data.payload.breakdowns;
+      this.subjectoffered = data.payload.subjectOffered;
+      this.calculateTotalScoreObtained(this.studentRecord);
+      this.getAllSubjectsInAClasses();
+      this.assessments = data.payload.breakdowns[0].assesmentAndScores;
+      const caArray = [];
+      const examArray = [];
+      console.log(this.assessments);
+    } else {
 
-     //  this.studentRecord = data.payload.breakdowns;
-     //  this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-     //  console.log(this.assessments);
+      this.notifyService.publishMessages(data.errors, 'danger', 1);
     }
   }, error => {
     this.notifyService.publishMessages(error.errors[0], 'danger', 1);
 
   });
  }
+
+ getAllSubjectsInAClasses() {
+   this.classService.getAllSubjectsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
+     if (data.hasErrors === false) {
+       const classSubjectCount: any = data.payload;
+       console.log(classSubjectCount.length);
+       this.classSubjectCount = classSubjectCount.length;
+     }
+    });
+ }
+
+calculateTotalScoreObtained(data) {
+  const totalScore = [];
+  const totalExamScore = [];
+  // tslint:disable-next-line:prefer-for-of
+  for ( let i = 0; i < data.length; i++) {
+    totalScore.push(data[i].cummulativeScore);
+    totalExamScore.push(data[i].cummulativeScore);
+    this.totalScoreObtained = totalScore.reduce((a, b) => a + b, 0);
+    this.averageScore = Math.round(((this.totalScoreObtained / this.subjectoffered) * 10) / 10);
+    this.getRate();
+    this.getTotalSchoolScoreForClass();
+    this.getPercentage();
+  }
+}
+
+getRate() {
+  this.performanceRate = (this.classPercentage / 100) * 5;
+}
+
+getStatus() {
+
+}
+
+getTotalSchoolScoreForClass() {
+
+  const firstCA = 10 * 20;
+  console.log(firstCA);
+  const secondCA = (10 * 20);
+  const thirdCA = (10 * 20);
+  const exam = (10 * 40);
+  this.totalSchoolScore = firstCA + secondCA + thirdCA + exam;
+  this.totalCA = firstCA + secondCA + thirdCA;
+  this.totalExam = exam;
+}
+
+
+getPercentage() {
+   this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
+}
 
 }

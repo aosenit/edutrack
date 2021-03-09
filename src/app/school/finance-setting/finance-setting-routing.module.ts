@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: 'accounts', component: AccountPanelComponent},
   {path: 'chart-of-account', component: ChartOfAccountComponent},
   {path: 'new-account-chart', component: NewAccountChartComponent},
+  {path: 'edit-account-chart/:id', component: NewAccountChartComponent},
   {path: 'fee-component', component: FeeComponentComponent},
   {path: 'fee', component: FeeComponent},
   {path: 'new-fee', component: NewFeeComponent},

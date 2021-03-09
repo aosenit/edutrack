@@ -186,7 +186,8 @@ export class MarkAttendanceComponent implements OnInit {
   }
 
   getSubjectAttendance() {
-    this.attendance.getSubjectAttendance(this.subjectClass.classSubjectId).subscribe((data: any) => {
+    // this.attendance.getSubjectAttendance(this.subjectClass.classSubjectId).subscribe((data: any) => {
+    this.attendance.getSubjectAttendance().subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
 

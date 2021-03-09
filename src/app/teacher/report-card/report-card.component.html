@@ -184,10 +184,10 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td >27</td>
-                                <td>20</td>
-                                <td>{{studentList?.length}}</td>
-                                <td></td>
+                                <td >{{classSubjectCount}}</td>
+                                <td>{{reportSheetDetails?.subjectOffered}}</td>
+                                <td>{{reportSheetDetails?.totalInClass}}</td>
+                                <td>{{reportSheetDetails?.position}}</td>
                               </tr>
                       
                             </tbody>
@@ -201,9 +201,7 @@
                             <thead>
                               <tr>
                                 <th class="w-50" >  Subject </th>
-                                <th>First CA <br> Score</th>
-                                <th>Second CA <br> Score</th>
-                                <th>Exam <br> Score</th>
+                                <th *ngFor="let assessment of assessments" >  {{assessment?.assessmentName}} </th>
                                 <th>Cummulative<br> Score</th>
                                 <th>Grade</th>
                                 <th>Interpretation</th>
@@ -211,193 +209,22 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
+                              <tr *ngFor = "let subject of studentRecord; let i = index">
+                                <td class="subject-info" >{{subject?.subjectName | titlecase}}</td>
+                                <td *ngFor = "let assessment of studentRecord[i].assesmentAndScores"> {{assessment?.studentScore}} </td>
+                                <td> {{subject?.cummulativeScore}} </td>
+                                <td> {{subject?.grade}} </td>
                                 <td>
-                                    <span class="fs-14 interpretation excellent" > Excellent </span>
+                                  <span class="fs-14 interpretation excellent" *ngIf="subject?.interpretation == 'Excellent'">  {{subject?.interpretation}} </span>
+                                  <span class="fs-14 interpretation very-good" *ngIf="subject?.interpretation == 'Very Good'">  {{subject?.interpretation}} </span>
+                                  <span class="fs-14 interpretation good" *ngIf="subject?.interpretation == 'Good'">  {{subject?.interpretation}} </span>
+                                  <span class="fs-14 interpretation fail" *ngIf="subject?.interpretation == 'Fail'">  {{subject?.interpretation}} </span>
+                                  <span class="fs-14 interpretation fair" *ngIf="subject?.interpretation == 'Fair'">  {{subject?.interpretation}} </span>
+                        
                                 </td>
                               </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation very-good" > Very Good </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation good" > Good </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation fair" > Fair </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation fail" > Fail </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation good" > Good </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation fair" > Fair </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation fail" > Fail </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation good" > Good </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation fair" > Fair </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation fail" > Fail </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation good" > Good </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation fair" > Fair </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation fail" > Fail </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation good" > Good </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation fair" > Fair </span>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="subject-info" >English Language</td>
-                                <td>12</td>
-                                <td>9</td>
-                                <td>30</td>
-                                <td>50</td>
-                                <td>A</td>
-                                <td>
-                                    <span class="fs-14 interpretation fail" > Fail </span>
-                                </td>
-                              </tr>
+
+                              
                             </tbody>
                           </table>
                     </div>
@@ -416,9 +243,9 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td >2000</td>
-                                <td>800</td>
-                                <td>1200</td>
+                                <td >{{totalSchoolScore}}</td>
+                                <td>{{totalCA}}</td>
+                                <td>{{totalExam}}</td>
                               </tr>
                       
                             </tbody>
@@ -438,7 +265,7 @@
                               <tr>
                                 <td >2000</td>
                                 <td>800</td>
-                                <td>1956</td>
+                                <td>{{totalScoreObtained}}</td>
                               </tr>
                       
                             </tbody>
@@ -454,15 +281,21 @@
                                 <th > Percentage </th>
                                 <th>Average</th>
                                 <th>Rate</th>
-                                <th>Sattus</th>
+                                <th>Status</th>
                               </tr>
                             </thead>
                             <tbody>
                               <tr>
-                                <td >97.80</td>
-                                <td>97.80</td>
-                                <td>4.89</td>
-                                <td>Passed</td>
+                                <td >{{classPercentage}}</td>
+                                <td>{{averageScore}}</td>
+                                <td>{{performanceRate}}</td>
+                                <td>
+                                  <span class="fs-14 " *ngIf="classPercentage >= 75 ">  Excellent </span>
+                                  <span class="fs-14 " *ngIf="classPercentage >= 60 ">  Very Good </span>
+                                  <span class="fs-14 " *ngIf="classPercentage >= 55 ">  Good </span>
+                                  <span class="fs-14" *ngIf="classPercentage >= 50">  Fair </span>
+                                  <span class="fs-14" *ngIf="classPercentage < 49 ">  Fail </span>
+                                </td>
                               </tr>
                       
                             </tbody>
@@ -485,8 +318,8 @@
                             <tbody>
                               <tr>
                                 <td >Mr. Samuel Adekunle</td>
-                                <td>Satisfactory</td>
-                                <td>🎉👀😊🎉🎉🎉✔</td>
+                                <td>{{reportSheetDetails?.classTeacherComment}}</td>
+                                <td>{{reportSheetDetails?.classTeacherSignature}}</td>
                               </tr>
                       
                             </tbody>
@@ -509,8 +342,8 @@
                             <tbody>
                               <tr>
                                 <td >Mr. Samuel Adekunle</td>
-                                <td>Satisfactory</td>
-                                <td>🎉👀😊🎉🎉🎉✔</td>
+                                <td>{{reportSheetDetails?.headTeacherComment}}</td>
+                                <td>{{reportSheetDetails?.headTeacherSignature}}</td>
                               </tr>
                       
                             </tbody>

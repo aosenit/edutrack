@@ -116,6 +116,8 @@ td {
     position: relative;
     background: #000000;
     color: #fff;
+    background: #ffffff;
+    padding: 0rem 2rem;
 
 }
 
@@ -123,13 +125,13 @@ td {
     /* background: #000000; */
 }
 
-.modal-content2 {
+/* .modal-content2 {
     border-radius: 5px !important;
     border: none;
     position: relative;
     background: #ffffff;
     padding: 0rem 2rem;
-}
+} */
 
 
 
@@ -144,14 +146,9 @@ td {
     outline: none;
 }
 
-.modal-body .btn-red {
-    background: #EB0404;
+.email-text {
+    color: #000000;
 }
-
-.modal-body .btn-light-brown {
-    background: #424242;
-}
-
 
 .client-modal {
     display: flex;

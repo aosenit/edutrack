@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassService } from 'src/services/data/class/class.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Component({
   selector: 'app-attendance',
@@ -7,6 +9,7 @@ import { ClassService } from 'src/services/data/class/class.service';
   styleUrls: ['./attendance.component.css']
 })
 export class AttendanceComponent implements OnInit {
+  loggedInUser: any;
 
   noClass = true;
   classList: any;
@@ -18,12 +21,20 @@ export class AttendanceComponent implements OnInit {
   mainAttendance = true;
   classAttendance = false;
   subjectAttandance = false;
+  hide = false;
   constructor(
     private classService: ClassService
   ) { }
 
   ngOnInit() {
     this.getClassAndSubjectForTeacher();
+    const helper = new JwtHelperService();
+    this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
+    if ( this.loggedInUser.TeacherClassId === undefined || null) {
+            this.hide = true;
+          } else {
+            this.hide = false;
+          }
   }
 
   getClassAndSubjectForTeacher() {

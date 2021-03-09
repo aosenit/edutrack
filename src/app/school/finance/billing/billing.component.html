@@ -472,9 +472,9 @@
                 </div>
                 <div class="col-md-6">
                     <label for="account" class="">Session </label>
-                    <select name="" id="sex" class="form-control " name="lvel" formControlName="session">
+                    <select name="" id="sex" class="form-control " name="lvel" formControlName="session" (change)="getTerms($event.target.value)" >
                         <option value="" selected>Select...</option>
-                        <option [value]="session.id" *ngFor = "let session of sessionList" > {{session.name }}</option>
+                        <option [value]="s" *ngFor = "let session of sessionList; let s = index" > {{session.name }}</option>
       
                       </select> 
                 </div>
@@ -484,7 +484,7 @@
                 <div class="col-md-6">
                     <label for="account" class="">Term </label>
                     <select name="" id="sex" class="form-control " name="lvel"
-                formControlName="term" (change)="getClassBySectionId($event.target.value)">
+                formControlName="term" >
                   <option value="" selected>Select...</option>
                   <option [value]="term.sequenceNumber " *ngFor="let term of termList; let t = index" > {{term.name}}</option>
 

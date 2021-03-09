@@ -31,6 +31,7 @@ import { MailReportCardComponent } from './mail-report-card/mail-report-card.com
 import { ReportCardComponent } from './report-card/report-card.component';
 import { SubjecAttendanceComponent } from './subjec-attendance/subjec-attendance.component';
 import { ClassAttendanceComponent } from './class-attendance/class-attendance.component';
+import { ViewReportCardComponent } from './view-report-card/view-report-card.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { ClassAttendanceComponent } from './class-attendance/class-attendance.co
     MailReportCardComponent,
     ReportCardComponent,
     SubjecAttendanceComponent,
-    ClassAttendanceComponent],
+    ClassAttendanceComponent,
+    ViewReportCardComponent],
   imports: [
     CommonModule,
     CKEditorModule,

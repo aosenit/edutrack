@@ -10,7 +10,7 @@
           <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
             Take Attendance </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" routerLink="/teacher/class-attendance" >Class Attendance</a>
+              <a class="dropdown-item" routerLink="/teacher/class-attendance" *ngIf="hide !== true" >Class Attendance</a>
               <a class="dropdown-item" routerLink="/teacher/subject-attendance">Subject Attendance</a>
             </div>
   

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 import { ResultService } from 'src/services/data/result/result.service';
@@ -24,6 +24,7 @@ export class StudentSheetComponent implements OnInit {
     private resultService: ResultService,
     private notifyService: NotificationsService,
     private assessmentService: AssessmentService,
+    private router: Router
 
   ) { }
 
@@ -89,6 +90,7 @@ export class StudentSheetComponent implements OnInit {
         if (data.hasErrors === false) {
           console.log(data.payload);
           this.notifyService.publishMessages(data.payload, 'success', 1);
+          this.router.navigateByUrl('/school/grade-book');
         }
     }, error => {
       this.notifyService.publishMessages(error.payload, 'danger', 1);

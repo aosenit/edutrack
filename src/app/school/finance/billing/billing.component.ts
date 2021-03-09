@@ -20,6 +20,7 @@ export class BillingComponent implements OnInit {
   sections: any;
   feeGroupList: any;
   sessionList: any;
+  sessionId: any;
   constructor(
     private fb: FormBuilder,
     private finance: FinanceService,
@@ -36,6 +37,7 @@ export class BillingComponent implements OnInit {
     this.getAllSections();
     this.getSession();
     this.getCurretSession();
+    this.getAllInvoiceCreated();
   }
 
   populateInvoiceForm() {
@@ -78,6 +80,12 @@ export class BillingComponent implements OnInit {
         // console.log(this.terms);
       }
     });
+  }
+
+  getTerms(i) {
+    console.log(this.sessionList[i]);
+    this.sessionId = this.sessionList[i].id;
+    this.termList = this.sessionList[i].terms;
   }
 
   getSession() {
@@ -125,16 +133,51 @@ export class BillingComponent implements OnInit {
     const result = {
       classId: parseInt(ClassId),
       feeGroupId: parseInt(FeegroupId),
-      term,
-      session,
+      term: parseInt(term),
+      session: parseInt(this.sessionId),
       paymentDate
 
     };
+    console.log(result);
     this.finance.generteInvoices(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
       this.notifyService.publishMessages('Successful', 'success', 1);
       document.getElementById('closeInvoiceModal').click();
       this.invoiceForm.reset();
+      // this.getAllComponent();
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
+  }
+
+  getAllInvoiceCreated() {
+    this.finance.getAllCretedInvoices().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+     console.log(data.payload);
+      // this.getAllComponent();
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
+  }
+
+
+  getInvoiceByID(id) {
+    this.finance.getInvoicesById(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+      console.log(data.payload);
+      // this.getAllComponent();
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
+  }
+
+  getAllPaymentInvoices() {
+    this.finance.getPaymentInvoices().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+     console.log(data.payload);
       // this.getAllComponent();
       }
   }, error => {
