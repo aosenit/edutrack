@@ -5,6 +5,7 @@ import { NotificationsService } from 'src/services/classes/notifications/notific
 import { AttendanceService } from 'src/services/data/attendance/attendance.service';
 import { ClassService } from 'src/services/data/class/class.service';
 import * as $ from 'jquery';
+import { TeacherService } from 'src/services/data/teacher/teacher.service';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class MarkAttendanceComponent implements OnInit {
     private fb: FormBuilder,
     private attendance: AttendanceService,
     private notifyService: NotificationsService,
+    private teacher: TeacherService
 
 
   ) { }
@@ -187,7 +189,7 @@ export class MarkAttendanceComponent implements OnInit {
 
   getSubjectAttendance() {
     // this.attendance.getSubjectAttendance(this.subjectClass.classSubjectId).subscribe((data: any) => {
-    this.attendance.getSubjectAttendance().subscribe((data: any) => {
+    this.teacher.getSubjectAttendance(10013).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
 

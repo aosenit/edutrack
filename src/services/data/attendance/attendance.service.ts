@@ -32,8 +32,8 @@ export class AttendanceService {
     return this.http.post(url, attendanceData,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  getSubjectAttendance( ) {
-    const url = `${this.baseUrl + routes.getsubjectAttendance}`;
+  getSubjectAttendance(StudentUserId) {
+    const url = `${this.baseUrl + routes.getsubjectAttendance}?StudentUserId=${StudentUserId}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -42,8 +42,8 @@ export class AttendanceService {
     return this.http.post(url, attendanceData,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  getClassAttendance(SubjectId ) {
-    const url = `${this.baseUrl + routes.getclassAttendance}?SubjectId=${SubjectId }`;
+  getClassAttendance(StudentUserId) {
+    const url = `${this.baseUrl + routes.getclassAttendance}?StudentUserId=${StudentUserId}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

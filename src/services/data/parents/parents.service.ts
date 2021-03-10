@@ -23,6 +23,7 @@ const routes = {
   getAssignmentByClassSubject: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByClassSubject',
   getchildsubmissions: 'schtrack-learning/api/v1/AssignmentAnswer/GetAssignmentSubmissionForStudent',
   getsubjectAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject',
+  getclassAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForClass',
   getapprovedResult: 'schtrack-assessment/api/v1/Result/GetApprovedStudentReportSheet',
   viewstudentbehaviour: 'schtrack-assessment/api/v1/Result/GetBehaviourResult',
   getClassAndSubjectForATeahcer: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
@@ -195,6 +196,10 @@ export class ParentsService {
 
   getSubjectAttendance(StudentId) {
     const url = `${this.baseUrl + routes.getsubjectAttendance}?StudentId=${StudentId}`;
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+  }
+  getClassAttendance(StudentId, ClassId ) {
+    const url = `${this.baseUrl + routes.getclassAttendance}?StudentId=${StudentId}&ClassId=${ClassId}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 

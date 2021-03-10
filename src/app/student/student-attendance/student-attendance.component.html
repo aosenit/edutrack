@@ -45,90 +45,20 @@
               </thead>
               <tbody>
     
-                <tr class="pb-2 ">
-    
+                <tr class="pb-2 " *ngFor="let subjectAttendance of attendanceList">
+
                   <td class="border-bottom ">
-                    English Language
+                    {{subjectAttendance?.subjectName}}
                   </td>
     
-                  <td class=" border-bottom ">10 </td>
-                  <td class=" border-bottom "> 10 </td>
+                  <td class=" border-bottom ">{{subjectAttendance?.noOfTImesHeld}} </td>
+                  <td class=" border-bottom "> {{subjectAttendance?.noOfTimesAttended}} </td>
                   <td class="  border-bottom  ">
-                    100%
+                    {{subjectAttendance?.percentage + '%'}}
                   </td>
     
                 </tr>
-    
-                <tr class="pb-2 ">
-    
-                  <td class="border-bottom ">
-                    English Language
-                  </td>
-    
-                  <td class=" border-bottom ">10 </td>
-                  <td class=" border-bottom "> 10 </td>
-                  <td class="  border-bottom  ">
-                    100%
-                  </td>
-    
-                </tr>
-    
-                <tr class="pb-2 ">
-    
-                  <td class="border-bottom ">
-                    English Language
-                  </td>
-    
-                  <td class=" border-bottom ">10 </td>
-                  <td class=" border-bottom "> 10 </td>
-                  <td class="  border-bottom  ">
-                    100%
-                  </td>
-    
-                </tr>
-    
-                <tr class="pb-2 ">
-    
-                  <td class="border-bottom ">
-                    English Language
-                  </td>
-    
-                  <td class=" border-bottom ">10 </td>
-                  <td class=" border-bottom "> 10 </td>
-                  <td class="  border-bottom  ">
-                    100%
-                  </td>
-    
-                </tr>
-    
-                <tr class="pb-2 ">
-    
-                  <td class="border-bottom ">
-                    English Language
-                  </td>
-    
-                  <td class=" border-bottom ">10 </td>
-                  <td class=" border-bottom "> 10 </td>
-                  <td class="  border-bottom  ">
-                    100%
-                  </td>
-    
-                </tr>
-    
-                <tr class="pb-2 ">
-    
-                  <td class="border-bottom ">
-                    English Language
-                  </td>
-    
-                  <td class=" border-bottom ">10 </td>
-                  <td class=" border-bottom "> 10 </td>
-                  <td class="  border-bottom  ">
-                    100%
-                  </td>
-    
-                </tr>
-    
+               
     
     
               </tbody>

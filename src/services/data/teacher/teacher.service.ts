@@ -15,7 +15,10 @@ const routes = {
   getAllassignmentSubmission: 'schtrack-learning/api/v1/AssignmentAnswer/GetAllAssignmentAnswers',
 
   attachteachertosubject: 'schtrack-learning/api/v1/TeacherClassSubject/AddClassSubjectsToTeacher',
-  getteacherdesignation: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher'
+  getteacherdesignation: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
+  getsubjectAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject',
+  getclassAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForClass',
+
 };
 @Injectable({
   providedIn: 'root'
@@ -168,5 +171,14 @@ export class TeacherService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
- 
+  getClassAttendance(ClassId) {
+    const url = `${this.baseUrl + routes.getclassAttendance}?ClassId=${ClassId}`;
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getSubjectAttendance(SubjectId) {
+    const url = `${this.baseUrl + routes.getsubjectAttendance}?SubjectId=${SubjectId}`;
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
 }

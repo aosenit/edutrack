@@ -34,7 +34,7 @@ export class NewAccountChartComponent implements OnInit {
     this.populateEditChartOFAccountForm();
     this.getChartAccountByItsId();
 
-    console.log(this.pageId)
+    console.log(this.pageId);
     this.getAccountClasses();
     this.route.params.subscribe((param: Params) => {
       if (!param.id) {
@@ -94,7 +94,7 @@ export class NewAccountChartComponent implements OnInit {
         // this.accountCount = data.totalCount;
       }
     }, error => {
-      this.notifyService.publishMessages('Account type creation failed', 'danger', 1);
+      // this.notifyService.publishMessages('Account type creation failed', 'danger', 1);
 
     });
   }
@@ -106,7 +106,7 @@ export class NewAccountChartComponent implements OnInit {
         // this.accountCount = data.totalCount;
       }
     }, error => {
-      this.notifyService.publishMessages('Account type creation failed', 'danger', 1);
+      // this.notifyService.publishMessages('Account type creation failed', 'danger', 1);
 
     });
   }
@@ -118,7 +118,7 @@ export class NewAccountChartComponent implements OnInit {
         // this.accountCount = data.totalCount;
       }
     }, error => {
-      this.notifyService.publishMessages('Account type creation failed', 'danger', 1);
+      // this.notifyService.publishMessages('Account type creation failed', 'danger', 1);
 
     });
   }
@@ -158,7 +158,7 @@ export class NewAccountChartComponent implements OnInit {
     this.finance.getChartAccountByID(this.pageId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
-        
+
         this.editChartAccountForm.patchValue({
           AccountTypeId: data.payload.accountTypeId,
           name: data.payload.name,
@@ -167,8 +167,8 @@ export class NewAccountChartComponent implements OnInit {
           OpeningBalance: data.payload.openingBalance,
           cashPostable: false,
           isActive: data.payload.isActive
-        })
-        
+        });
+
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
 

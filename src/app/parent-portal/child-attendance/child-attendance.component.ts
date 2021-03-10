@@ -16,6 +16,7 @@ export class ChildAttendanceComponent implements OnInit {
     timeTable: any;
   wardDetail: any;
   attendanceList: any;
+  classAttendanceList: any;
   constructor(
     private timeTableService: TimeTableService,
     private parentService: ParentsService,
@@ -29,6 +30,7 @@ export class ChildAttendanceComponent implements OnInit {
 
     this.daysofWeek();
     this.getSubjectAttendance();
+    this.getClassAttendanceForStudent();
 
   }
 
@@ -82,7 +84,15 @@ export class ChildAttendanceComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data.payload);
         this.attendanceList = data.payload;
-        
+
+      }
+    });
+  }
+
+  getClassAttendanceForStudent() {
+    this.parentService.getClassAttendance(this.wardDetail.id, this.wardDetail.classID).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.classAttendanceList = data.payload;
       }
     });
   }

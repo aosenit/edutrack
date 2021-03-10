@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AttendanceService } from 'src/services/data/attendance/attendance.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-student-attendance',
@@ -8,13 +9,19 @@ import { AttendanceService } from 'src/services/data/attendance/attendance.servi
 })
 export class StudentAttendanceComponent implements OnInit {
   daysInWeek: any;
+  studentDetails: any;
+  attendanceList: any;
+
 
   constructor(
     private attendance: AttendanceService
   ) { }
 
   ngOnInit() {
-    this.getSubjectAttendance();
+    const helper = new JwtHelperService();
+    this.studentDetails = helper.decodeToken(localStorage.getItem('access_token'));
+    this.getSubjectAttendanceForStudent();
+    this.getClassAttendanceForStudent();
     this.daysofWeek();
 
   }
@@ -30,10 +37,18 @@ export class StudentAttendanceComponent implements OnInit {
     console.log(this.daysInWeek);
   }
 
-  getSubjectAttendance() {
-    this.attendance.getSubjectAttendance().subscribe((data: any) => {
+  getSubjectAttendanceForStudent() {
+    this.attendance.getSubjectAttendance(this.studentDetails.sub).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        this.attendanceList = data.payload;
+      }
+    });
+  }
+
+  getClassAttendanceForStudent() {
+    this.attendance.getClassAttendance(this.studentDetails.sub).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.attendanceList = data.payload;
       }
     });
   }
