@@ -14,6 +14,7 @@ import { ChildAttendanceComponent } from './child-attendance/child-attendance.co
 import { ViewBillingComponent } from './view-billing/view-billing.component';
 import { ViewReportCardComponent } from './view-report-card/view-report-card.component';
 import { SharedModule } from '../shared/shared.module';
+import { ViewReportSheetComponent } from './view-report-sheet/view-report-sheet.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { SharedModule } from '../shared/shared.module';
     ReportCardComponent,
     ChildAttendanceComponent,
     ViewBillingComponent,
-    ViewReportCardComponent],
+    ViewReportCardComponent,
+    ViewReportSheetComponent],
   imports: [
     CommonModule,
     SharedModule,

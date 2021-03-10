@@ -14,13 +14,15 @@
             <div class="col options">
                 <select name="" id="" class="form-control" >
                   <option value="" selected>Select Session</option>
-                  <option  > 1</option>
+                  <option [value]="s" *ngFor = "let session of sessionList; let s = index" > {{session.name }}</option>
+
                 </select>
               </div>
               <div class="col options">
                 <select name="" id="" class="form-control" >
                   <option value="">Select Term</option>
-                  <option >2 </option>
+                  <option [value]="term.sequenceNumber " *ngFor="let term of termList; let t = index" > {{term.name}}</option>
+
                 </select>
               </div>
         </div>

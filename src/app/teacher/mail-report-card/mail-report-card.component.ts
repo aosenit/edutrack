@@ -110,7 +110,7 @@ export class MailReportCardComponent implements OnInit {
     });
     const result = {
       studentIds: studentId,
-      resultPageURL: '/#/teacher/report-card',
+      resultPageURL: 'http://school-track-1.vercel.app/#/parent/parent-portal/view-report-card',
       classId: parseInt(this.classId),
       curSessionId: this.sessions.id,
       termSequenceNumber: this.selectedTermId

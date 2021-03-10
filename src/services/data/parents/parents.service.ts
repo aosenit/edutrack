@@ -23,6 +23,11 @@ const routes = {
   getAssignmentByClassSubject: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByClassSubject',
   getchildsubmissions: 'schtrack-learning/api/v1/AssignmentAnswer/GetAssignmentSubmissionForStudent',
   getsubjectAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject',
+  getapprovedResult: 'schtrack-assessment/api/v1/Result/GetApprovedStudentReportSheet',
+  viewstudentbehaviour: 'schtrack-assessment/api/v1/Result/GetBehaviourResult',
+  getClassAndSubjectForATeahcer: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
+  getschoolSessions: 'schtrack-assessment/api/v1/SessionSetup/GetSchoolSessions',
+
 
 
 
@@ -192,6 +197,25 @@ export class ParentsService {
     const url = `${this.baseUrl + routes.getsubjectAttendance}?StudentId=${StudentId}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
+
+  getStudentBehviour(SessionId, TermSequence, ClassId, StudentId) {
+    // tslint:disable-next-line:max-line-length
+    const url = `${this.baseUrl + routes.viewstudentbehaviour}?SessionId=${SessionId}&TermSequence=${TermSequence}&ClassId=${ClassId}&StudentId=${StudentId}`;
+    return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+   }
+
+
+ getApprovedStudentResult(studId, classId, sessionId, termSequenceNumber) {
+  // tslint:disable-next-line:max-line-length
+  const url = `${this.baseUrl + routes.getapprovedResult}?studId=${studId}&classId=${classId}&sessionId=${sessionId}&termSequenceNumber=${termSequenceNumber}`;
+  return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+
+ }
+
+ getSchoolSessions() {
+  const url = `${this.baseUrl + routes.getschoolSessions}`;
+  return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  }});
+}
 
 
 

@@ -15,6 +15,7 @@ export class ChildAttendanceComponent implements OnInit {
   timeTableCells: any;
     timeTable: any;
   wardDetail: any;
+  attendanceList: any;
   constructor(
     private timeTableService: TimeTableService,
     private parentService: ParentsService,
@@ -80,6 +81,8 @@ export class ChildAttendanceComponent implements OnInit {
     this.parentService.getSubjectAttendance(this.wardDetail.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
+        this.attendanceList = data.payload;
+        
       }
     });
   }
