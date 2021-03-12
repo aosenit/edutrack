@@ -242,10 +242,14 @@ export class ScoreSheetComponent implements OnInit {
 
     this.resultService.UploadExcelResult(result).subscribe((data: any) => {
       console.log('bulk file', data);
-      if (data.hasError === false) {
+      if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result uploaded successfully', 'info', 1);
         document.getElementById('myModelClose').click();
+        location.reload();
         // this.getAllSchools();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -344,6 +348,10 @@ export class ScoreSheetComponent implements OnInit {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result successfully published', 'success', 1);
         console.log(data);
+        location.reload();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

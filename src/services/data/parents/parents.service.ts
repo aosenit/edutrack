@@ -29,6 +29,10 @@ const routes = {
   getClassAndSubjectForATeahcer: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
   getschoolSessions: 'schtrack-assessment/api/v1/SessionSetup/GetSchoolSessions',
 
+  createTransaction: 'schtrack-finance/api/v1/Transaction/NewTransaction',
+  editTransactionReciept: 'schtrack-finance/api/v1/Transaction/UploadTransactionReceipt',
+
+
 
 
 
@@ -220,6 +224,20 @@ export class ParentsService {
  getSchoolSessions() {
   const url = `${this.baseUrl + routes.getschoolSessions}`;
   return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  }});
+}
+
+createNewTransaction(transactionData) {
+  const url = `${this.baseUrl + routes.createTransaction}`;
+  return this.http.post(url, transactionData, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+
+}
+
+updateTransactionReceipt(transactionData) {
+  const body = new FormData();
+  body.append('TransactionId', transactionData.TransactionId) ;
+  body.append('Document', transactionData.Document);
+  const url = `${this.baseUrl + routes.editTransactionReciept}`;
+  return this.http.put(url, body,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
 }
 
 

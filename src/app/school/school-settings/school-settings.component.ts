@@ -169,6 +169,7 @@ export class SchoolSettingsComponent implements OnInit {
       console.log(data);
       this.notification.publishMessages(data.description, 'info', 1);
       document.getElementById('myClassArmModal').click();
+
       this.getClassArms();
       // location.reload();
     }, error => {
@@ -341,6 +342,7 @@ export class SchoolSettingsComponent implements OnInit {
       if (data.code === 1) {
         this.notification.publishMessages('Class Added Successfully', 'info', 1);
         document.getElementById('close').click();
+        this.addNewClassForm.reset();
         this.getClasses();
       }
     }, error => {
@@ -446,6 +448,7 @@ export class SchoolSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data);
         document.getElementById('mySubjectModal').click();
+        this.newsubjectForm.reset();
         this.notification.publishMessages('You have succesfully created a subject', 'info', 0);
 
         this.getAllSubjects();

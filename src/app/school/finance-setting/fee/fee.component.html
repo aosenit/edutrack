@@ -88,7 +88,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="pb-1" >
+            <tr class="pb-1" *ngFor="let fee of feeList" >
                 <td scope="row" class="check rounded-left">
                     <div class="custom-control custom-checkbox" >
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -99,14 +99,15 @@
                     
                     <div class="d-flex align-items-center">
                         
-                        <h6 class="fw-6 mb-0" >  JSS1 B </h6>
+                        <h6 class="fw-6 mb-0" > {{fee?.class}} </h6>
                     </div>
                 </td>
                 <td>Secondary </td>
-                <td>School Bill </td>
-                <td>
-                    <span class="status_active" >Active</span>
-                </td>
+                <td>{{fee?.feeGroup}} </td>
+                    <td>
+                        <span class="status_active" *ngIf="fee?.isActive === true">Active</span>
+                        <span class="status_inactive" *ngIf="fee?.isActive === false">Inactive</span>
+                      </td>
                
             </tr>
 

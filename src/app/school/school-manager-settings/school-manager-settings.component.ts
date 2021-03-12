@@ -99,7 +99,7 @@ export class SchoolManagerSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data);
         this.notifyService.publishMessages('School Property saved successfully', 'success', 1);
-        this.getProperty();
+        this.getSession();
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -142,7 +142,7 @@ export class SchoolManagerSettingsComponent implements OnInit {
   }
 
   getSession() {
-    this.assessmentService.getCurrentSession().subscribe((data: any) => {
+    this.assessmentService.getSchoolSessions().subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
         this.sessionList = data.payload;
@@ -163,5 +163,5 @@ export class SchoolManagerSettingsComponent implements OnInit {
     }
   }
 
- 
+
 }

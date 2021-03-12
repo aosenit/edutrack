@@ -38,6 +38,13 @@ const routes = {
   getInvocesbyId: 'schtrack-finance/api/v1/Invoice/GetInvoice',
   getpaymentinvoices: 'schtrack-finance/api/v1/Invoice/GetPaymentInvoices',
   getinvoices: 'schtrack-finance/api/v1/Invoice/GetInvoices',
+  createTransaction: 'schtrack-finance/api/v1/Transaction/NewTransaction',
+  viewAllTransaction: 'schtrack-finance/api/v1/Transaction/GetAllTransactions',
+  viewAwaitingApprovalTransaction: 'schtrack-finance/api/v1/Transaction/GetAllAwaitingApprovalTransactions',
+  viewPendingTransaction: 'schtrack-finance/api/v1/Transaction/GetAllPendingTransactions',
+  viewTransactionHistory: 'schtrack-finance/api/v1/Transaction/GetTransactionHistory',
+  editTransactionReciept: 'schtrack-finance/api/v1/Transaction/UploadTransactionReceipt',
+  rejectTransaction: 'schtrack-finance/api/v1/Transaction/ApproveRejectTransaction',
 
 };
 
@@ -217,6 +224,46 @@ export class FinanceService {
   getAccountTypesByAccountClass(accountClassId) {
     const url = `${this.baseUrl + routes.viewAccounttypesbyClass}/${accountClassId}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  createNewTransaction(transactionData) {
+    const url = `${this.baseUrl + routes.createTransaction}`;
+    return this.http.post(url, transactionData, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+  }
+
+  getAllTransactions() {
+    const url = `${this.baseUrl + routes.viewAllTransaction}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getAllTransactionsAwaitingApproval() {
+    const url = `${this.baseUrl + routes.viewAwaitingApprovalTransaction}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getAllPendingTransactions(StudentId) {
+    const url = `${this.baseUrl + routes.viewPendingTransaction}/${StudentId}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getAllTransactionHistory() {
+    const url = `${this.baseUrl + routes.viewTransactionHistory}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  updateTransactionReceipt(transactionData) {
+    const body = new FormData();
+    body.append('TransactionId', transactionData.TransactionId) ;
+    body.append('Document', transactionData.Document);
+    const url = `${this.baseUrl + routes.editTransactionReciept}`;
+    return this.http.put(url, body,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+
+  rejectTransactionReceipt(transactionData) {
+    const url = `${this.baseUrl + routes.rejectTransaction}`;
+    return this.http.put(url, transactionData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
  }
