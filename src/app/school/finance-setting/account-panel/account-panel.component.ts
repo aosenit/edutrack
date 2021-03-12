@@ -66,7 +66,7 @@ export class AccountPanelComponent implements OnInit {
       isActive: false
     });
   }
-  
+
   populateEditAccountTypeForm() {
     this.editAccountTypeForm = this.fb.group({
       AccountClassId: ['', Validators.required],
@@ -126,6 +126,9 @@ export class AccountPanelComponent implements OnInit {
         document.getElementById('CloseaccountClass').click();
         this.accountClassForm.reset();
         this.getAllAccountClass();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages('Bank Account creation failed', 'danger', 1);
@@ -140,7 +143,7 @@ export class AccountPanelComponent implements OnInit {
         // this.accountCount = data.totalCount;
       }
     }, error => {
-      this.notifyService.publishMessages('Banc Account creation failed', 'danger', 1);
+      // this.notifyService.publishMessages('Banc Account creation failed', 'danger', 1);
 
     });
   }
@@ -150,7 +153,7 @@ export class AccountPanelComponent implements OnInit {
 
     this.finance.getAccountClassById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-       
+
         this.editAccountClassForm.patchValue({
           name: data.payload.name,
           minNumberValue: data.payload.minNumberValue,
@@ -159,10 +162,10 @@ export class AccountPanelComponent implements OnInit {
         });
       }
     }, error => {
-      this.notifyService.publishMessages('Account type creation failed', 'danger', 1);
+      // this.notifyService.publishMessages('Account type creation failed', 'danger', 1);
 
     });
-    
+
   }
 
   updateAccountClassData() {
@@ -180,6 +183,9 @@ export class AccountPanelComponent implements OnInit {
         document.getElementById('CloseEditaccountClass').click();
         this.accountClassForm.reset();
         this.getAllAccountClass();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages('Bank Account creation failed', 'danger', 1);
@@ -205,6 +211,9 @@ export class AccountPanelComponent implements OnInit {
         document.getElementById('CloseaccountType').click();
         this.accountTypeForm.reset();
         this.getAccountTypes();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages('Account type creation failed', 'danger', 1);
@@ -229,7 +238,7 @@ export class AccountPanelComponent implements OnInit {
     this.selectedAccountType = id;
     this.finance.getAccountTypewithId(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-       
+
         this.editAccountTypeForm.patchValue({
           name: data.payload.name,
           AccountClassId: data.payload.accountClassId,
@@ -261,6 +270,9 @@ export class AccountPanelComponent implements OnInit {
         document.getElementById('CloseEditaccountType').click();
         this.accountTypeForm.reset();
         this.getAccountTypes();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages('Account type creation failed', 'danger', 1);

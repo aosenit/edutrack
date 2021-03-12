@@ -96,6 +96,9 @@ export class MailReportCardComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data.payload);
         this.studentList = data.payload;
+      } else {
+
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -121,7 +124,7 @@ export class MailReportCardComponent implements OnInit {
         console.log(data.payload);
         this.notifyService.publishMessages('Email sent out', 'success', 1);
         document.getElementById('closeMailModal').click();
-        location.reload()
+        location.reload();
       } else {
         this.notifyService.publishMessages('Email processing failed', 'danger', 1);
 
