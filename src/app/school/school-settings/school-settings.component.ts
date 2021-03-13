@@ -451,8 +451,11 @@ export class SchoolSettingsComponent implements OnInit {
         document.getElementById('mySubjectModal').click();
         this.newsubjectForm.reset();
         this.notification.publishMessages('You have succesfully created a subject', 'info', 0);
-
+        
         this.getAllSubjects();
+      } else {
+        this.notification.publishMessages(data.errors, 'info', 0);
+        
       }
     });
 
