@@ -47,17 +47,11 @@ export class AdminLoginComponent implements OnInit {
 
           if (this.loggedInUser.email === 'tester@gmail.com') {
             this.router.navigateByUrl('/admin');
-          } else if (this.loggedInUser.email === 'tosin@sbsc.com') {
-            this.router.navigateByUrl('/school');
-
-          } else if (this.loggedInUser.email === 'a@sbscm.com') {
-            this.router.navigateByUrl('/teacher');
-
-          } else if (this.loggedInUser.email === 'emmanuel@school.com') {
-            this.router.navigateByUrl('/student');
-
           } else {
-            this.router.navigateByUrl('/school');
+            localStorage.removeItem('access_token');
+
+            this.notifyService.publishMessages('Invalid details, please select the right login type', 'danger', 1);
+            this.router.navigateByUrl('/');
 
           }
         }

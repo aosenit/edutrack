@@ -3,6 +3,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/services/data/auth/auth.service';
 import { NotificationsService } from './../../../services/classes/notifications/notifications.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class SchoolLoginComponent implements OnInit {
 
   submitted = false;
   schoolLoginForm: FormGroup;
+  loggedInUser: any;
+
   constructor(
               private fb: FormBuilder,
               private router: Router,
@@ -33,34 +36,28 @@ export class SchoolLoginComponent implements OnInit {
       this.submitted = true;
       return;
     } else {
-      // this.authService.loginAdmin(this.LoginForm.value).subscribe((data: any) => {
-      //   if (data) {
-      //     localStorage.setItem('access_token', data.access_token);
-      //     this.notifyService.publishMessages('Login successful', 'success', 1);
+      this.authService.loginAdmin(this.schoolLoginForm.value).subscribe((data: any) => {
+        if (data) {
+          localStorage.setItem('access_token', data.access_token);
+          this.notifyService.publishMessages('Login successful', 'success', 1);
 
-      //     const helper = new JwtHelperService();
-      //     this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
+          const helper = new JwtHelperService();
+          this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
 
-      //     if (this.loggedInUser.email === 'tester@gmail.com') {
-      //       this.router.navigateByUrl('/admin');
-      //     } else if (this.loggedInUser.email === 'tosin@sbsc.com') {
-      //       this.router.navigateByUrl('/school');
+          if (this.loggedInUser.UserType === 'SchoolAdmin') {
+            this.router.navigateByUrl('/school');
+          } else {
+            localStorage.removeItem('access_token');
 
-      //     } else if (this.loggedInUser.email === 'a@sbscm.com') {
-      //       this.router.navigateByUrl('/teacher');
+            this.notifyService.publishMessages('Invalid details, please select the right login type', 'danger', 1);
+            this.router.navigateByUrl('/');
 
-      //     } else if (this.loggedInUser.email === 'emmanuel@school.com') {
-      //       this.router.navigateByUrl('/student');
-
-      //     } else {
-      //       this.router.navigateByUrl('/school');
-
-      //     }
-      //   }
-      // },
-      //   error => {
-      //     this.notifyService.publishMessages(error.message, 'danger', 1);
-      //   });
+          }
+        }
+      },
+        error => {
+          this.notifyService.publishMessages(error.message, 'danger', 1);
+        });
       // location.reload();
     }
   }
