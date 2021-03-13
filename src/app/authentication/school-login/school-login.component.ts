@@ -44,7 +44,7 @@ export class SchoolLoginComponent implements OnInit {
           const helper = new JwtHelperService();
           this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
 
-          if (this.loggedInUser.UserType === 'SchoolAdmin') {
+          if (this.loggedInUser.UserType === 'SchoolAdmin' || this.loggedInUser.UserType ===  'NonTeachingStaff') {
             this.router.navigateByUrl('/school');
           } else {
             localStorage.removeItem('access_token');

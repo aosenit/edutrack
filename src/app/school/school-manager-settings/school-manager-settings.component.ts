@@ -135,6 +135,7 @@ export class SchoolManagerSettingsComponent implements OnInit {
         this.notifyService.publishMessages('Term & Session created successfully', 'success', 1);
         console.log(data);
         document.getElementById('mySessionModal').click();
+        this.getSession();
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

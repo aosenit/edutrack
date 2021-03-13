@@ -169,7 +169,7 @@ export class SchoolSettingsComponent implements OnInit {
       console.log(data);
       this.notification.publishMessages(data.description, 'info', 1);
       document.getElementById('myClassArmModal').click();
-
+      this.classArmform.reset();
       this.getClassArms();
       // location.reload();
     }, error => {
@@ -264,6 +264,7 @@ export class SchoolSettingsComponent implements OnInit {
           console.log('level created', res);
           this.notification.publishMessages('You have successfully added a section', 'info', 0);
           this.getSections();
+          // this.section = ''
         }
       }
     );
