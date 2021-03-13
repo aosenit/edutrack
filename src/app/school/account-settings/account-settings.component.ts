@@ -127,22 +127,22 @@ export class AccountSettingsComponent implements OnInit {
   getStaffs() {
 
     const arr = [];
-    this.teacherService.getAllTeachers().subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        const allTeacher: any = data.payload;
-        console.log(allTeacher);
-        allTeacher.forEach(item => {
-          arr.push({
-            // id: item.id,
-            userId: item.userId,
-            arm: item.firstName
-          });
-        });
+    // this.teacherService.getAllTeachers().subscribe((data: any) => {
+    //   if (data.hasErrors === false) {
+    //     const allTeacher: any = data.payload;
+    //     console.log(allTeacher);
+    //     allTeacher.forEach(item => {
+    //       arr.push({
+    //         // id: item.id,
+    //         userId: item.userId,
+    //         arm: item.firstName
+    //       });
+    //     });
 
-        console.log(arr);
-        this.dropStaffList = arr;
-      }
-    });
+    //     console.log(arr);
+    //     this.dropStaffList = arr;
+    //   }
+    // });
     this.staffServie.getAllStaffInSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allStaffs = data.payload;
