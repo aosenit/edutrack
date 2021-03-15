@@ -15,7 +15,9 @@ export class BillingComponent implements OnInit {
   parentInvoice: any;
   allPendingPaymentList: any;
   TransactionId: any;
-
+  allTransactionList: any;
+  totalMoneyPaid = 0;
+  paymentCount: any;
   constructor(
     private fb: FormBuilder,
     private parent: ParentsService,
@@ -30,6 +32,8 @@ export class BillingComponent implements OnInit {
     this.populateAssignmentForm();
     this.getinvoice();
     this.getPaymentHistory();
+    this.getTransactionHistory();
+
 
   }
 
@@ -86,8 +90,10 @@ export class BillingComponent implements OnInit {
   }
 
   submitReceipt() {
-    const {Document} = this.uploadReceiptForm.value;
+    const {Document, referenceNumber, description  } = this.uploadReceiptForm.value;
     const result = {
+      PaymentReference: referenceNumber,
+      PaymentDescription: description,
       TransactionId : parseInt(this.TransactionId),
       Document
     };
@@ -103,5 +109,47 @@ export class BillingComponent implements OnInit {
       }
     });
   }
+
+
+  getTransactionHistory() {
+    this.parent.getTransactionPaymentHistory( this.wardDetail.id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.allTransactionList = data.payload;
+        this.paymentCount = this.allTransactionList.filter((status: any) => status.status === 'Paid');
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < this.allTransactionList.length; i++) {
+            this.totalMoneyPaid += this.allTransactionList[i].amount;
+          }
+      // this.getAllComponent();
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
+  }
+
+  viewFile(id) {
+    this.parent.getFiles(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        // document.getElementById('closeReceiptModal').click();
+        // this.notifyService.publishMessages('Evidence uploaded successfully', 'success', 1);
+
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    });
+  }
+
+
+  // tslint:disable-next-line:variable-name
+addCommas(number: any) {
+  const num = Number(number);
+  if (isNaN(num)) {
+    return number;
+  }
+
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 
 }

@@ -10,7 +10,7 @@
                     Total amount paid
                 </p>
                 <h4 class="billing__card_amount">
-                    #7,162,945
+                  &#x20A6;{{  addCommas(totalMoneyPaid)}}
                 </h4>
             </div>
             <div class="billing__cards__2 py-4 px-4">
@@ -18,7 +18,7 @@
                     Unpaid transactions
                 </p>
                 <h4 class="billing__card_amount">
-                    1
+                    0
                 </h4>
             </div>
             <div class="billing__cards__3 py-4 px-4">
@@ -26,7 +26,7 @@
                     Total number of payments
                 </p>
                 <h4 class="billing__card_amount">
-                   5
+                  {{paymentCount?.length}}
                 </h4>
             </div>
         </div>
@@ -201,92 +201,35 @@
                   <tbody>
                   
                    
-                    <tr class="pb-2 ">
+                    <tr class="pb-2 " *ngFor="let history of allTransactionList; let h = index">
     
                       <td class="border-bottom ">
-                        1
+                        {{h + 1}}
                       </td>
                       
-                      <td class=" border-bottom ">3029393029393 </td>
-                      <td class=" border-bottom ">#1,0000000000 </td>
+                      <td class=" border-bottom ">{{history?.transactionNumber}} </td>
+                      <td class=" border-bottom "> {{history?.amount}} </td>
                       <td class="  border-bottom  ">
-                            School fees
+                            {{history?.description}}
                       </td>
                       <td class="  border-bottom  ">
-                           12, May 2020
+                           {{history?.dueDate | date: 'mediumDate'}}
                       </td>
                       <td class="  border-bottom  ">
-                            2009/2010
+                            {{2009/2010}}
                       </td>
                       <td class="  border-bottom  ">
                            2009/2010
                       </td>
                       <td class="  border-bottom  ">
-                        <span class="status_active">Paid</span>
+                        <span class="status_active" *ngIf="history?.status === 'Paid'">Paid</span>
                       </td>
                       <td class="border-bottom">
-                        <button class="upload bg-lblue">View receipt</button>
+                        <button class="upload bg-lblue" (click)="viewFile(history?.fileId) " data-toggle="modal" data-target="#exampleModalCenter">View receipt</button>
                       </td>
     
                     </tr>
-                    <tr class="pb-2 ">
-    
-                      <td class="border-bottom ">
-                        1
-                      </td>
-                      
-                      <td class=" border-bottom ">3029393029393 </td>
-                      <td class=" border-bottom ">#1,0000000000 </td>
-                      <td class="  border-bottom  ">
-                            School fees
-                      </td>
-                      <td class="  border-bottom  ">
-                           12, May 2020
-                      </td>
-                      <td class="  border-bottom  ">
-                            2009/2010
-                      </td>
-                      <td class="  border-bottom  ">
-                           2009/2010
-                      </td>
-                      <td class="  border-bottom  ">
-                        <span class="status_active">Paid</span>
-                      </td>
-                      <td class="border-bottom">
-                        <button class="upload bg-lblue">View receipt</button>
-                      </td>
-    
-                    </tr>
-                    <tr class="pb-2 ">
-    
-                      <td class="border-bottom ">
-                        1
-                      </td>
-                      
-                      <td class=" border-bottom ">3029393029393 </td>
-                      <td class=" border-bottom ">#1,0000000000 </td>
-                      <td class="  border-bottom  ">
-                            School fees
-                      </td>
-                      <td class="  border-bottom  ">
-                           12, May 2020
-                      </td>
-                      <td class="  border-bottom  ">
-                            2009/2010
-                      </td>
-                      <td class="  border-bottom  ">
-                           2009/2010
-                      </td>
-                      <td class="  border-bottom  ">
-                        <span class="status_active">Paid</span>
-                      </td>
-                      <td class="border-bottom">
-                        <button class="upload bg-lblue" >View receipt</button>
-                      </td>
-    
-                    </tr>
-                   
-                    
+                 
                   </tbody>
                 </table>
     
@@ -351,3 +294,140 @@
   </div>
 </div>
 <!-- end of file manager modal -->
+
+
+
+<!-- file manager Modal -->
+<div class="modal fade" id="receiptModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter3Title"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-2">
+        <div class=" mb-3"> 
+          <h6 class="modal-title">Upload Receipt</h6>
+
+        </div>
+        
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="uploadReceiptForm" (ngSubmit)="submitReceipt()">
+
+          <div class="form-group mb-3">
+            <label for="title" class="fw-6">Reference Number </label>
+            <input type="text" placeholder="Enter your teller or receipt number" class="form-control form-control-lg " formControlName="referenceNumber">
+          </div>
+          <div class="form-group mb-3">
+            <label for="title" class="fw-6">Description </label>
+            <input type="text" placeholder="Enter payment narration" class="form-control form-control-lg " formControlName="description">
+          </div>
+         
+          <p>Enter your evidence of payment if you paid via bank</p>
+          <div class="form-group file-upload mb-5">
+            <label for="fileupload" *ngIf="assignmentFile === null; else bulkFile">Drag & drop your files here <br> or click to browse your files </label>
+            <ng-template #bulkFile class="mt-5">
+              <label for="fileupload"> {{assignmentFile}} </label>
+            </ng-template>
+            <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)">
+            <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
+          </div>
+
+          <div class="form-group mb-3">
+            <!-- <label for="message">Optional message</label> -->
+            <!-- <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor> -->
+
+          </div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <button type="button" class="close close-text" data-dismiss="modal" aria-label="Close" id="closeReceiptModal">Cancel </button>
+            <button type="button " class="btn-blue  mb-3 " [disabled]="uploadReceiptForm.invalid" >Submit</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of file manager modal -->
+
+
+
+<!-- file manager Modal -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 45%;" role="document">
+    <div class="modal-content">
+      <div class="modal-head">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Payment Receipt</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="closeConfirmPaymentModal"
+            data-dismiss="modal" aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <div class="row">
+          <div class="col-md-12 my-3 p-2">
+
+
+
+            <div class="col-md-12" >
+              <iframe class="file-viewer p-3 bg-white w-100 "
+                 style="height: 85vh; width: 100%;">
+                <p>dOCUMENT VIEWR GOES HERE</p>
+              </iframe>
+            </div>
+      
+            <!-- <div class="col-md-12" *ngIf="fileDetails?.fileType === 'image/jpeg'">
+              <iframe class="file-viewer p-3 bg-white w-100 "
+                [src]="' data:image/jpg;base64,' + fileDetails?.file | trustedUrl" style="height: 85vh; width: 100%;">
+                <p>dOCUMENT VIEWR GOES HERE</p>
+              </iframe>
+            </div>
+            <div class="col-md-12" *ngIf="fileDetails?.fileType === 'image/jpeg'">
+              <iframe class="file-viewer p-3 bg-white w-100 "
+                [src]="' data:image/jpeg;base64,' + fileDetails?.file | trustedUrl" style="height: 85vh; width: 100%;">
+                <p>dOCUMENT VIEWR GOES HERE</p>
+              </iframe>
+            </div>
+      
+            <div class="col-md-12" *ngIf="fileDetails?.fileType === 'application/pdf'">
+              <iframe class="file-viewer p-3 bg-white w-100 "
+                [src]="'data:application/pdf;base64,' + fileDetails?.file | trustedUrl"
+                style="height: 85vh; width: 100%;">
+                <p>dOCUMENT VIEWR GOES HERE</p>
+              </iframe>
+            </div> 
+      
+            <div class="col-md-12"
+              *ngIf="fileDetails?.fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || fileDetails?.fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'">
+              <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "
+                style="height: 85vh; width: 100%;">
+                <div class="d-flex flex-column text-center">
+                  <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+                  <p class="fw-6">Sorry, you cant preview this file but you can download.</p>
+                  <p> <a href="" download=""> Click here to download</a></p>
+                </div>
+              </div>
+            </div> -->
+            
+      
+      
+      
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of file manager modal -->
+
+
+
+
+
+
+

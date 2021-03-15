@@ -85,16 +85,16 @@
                     <p class=" mb-0">{{payment?.studentRegNumber}} </p>
                   </td>
                   <td class="user">
-                    <p class=" mb-0">{{payment?.total}} </p>
+                    <p class=" mb-0">{{payment?.totalAmount}} </p>
                   </td>
                   <td class="user">
-                    <p class=" mb-0">{{payment?.paid}} </p>
+                    <p class=" mb-0">{{payment?.totalPaid}} </p>
                   </td>
                   <td class="user">
                     <p class=" mb-0"> {{payment?.outstanding}} </p>
                   </td>
                   <td class="user">
-                    <p class=" mb-0"> {{payment?.feeGroup}} </p>
+                    <p class=" mb-0"> {{payment?.feeType}} </p>
                   </td>
                   <td class="user">
                     <p class=" mb-0"> {{payment?.dueDate | date: 'mediumDate'}} </p>
@@ -102,15 +102,15 @@
                  
       
                   <td>
-                    <span class="status status_active" *ngIf="payment?.status === 'Confirmed'" >Confirmed</span>
+                    <span class="status status_active" *ngIf="payment?.status === 'Paid'" >Paid</span>
                     <span class="status status_inactive" *ngIf="payment?.status === 'Pending'">Pending</span>
-                    <span class="status status_overdue" *ngIf="payment?.status === 'Overdue'">Overdue</span>
-                    <span class="status status_outstanding" *ngIf="payment?.status === 'Outstanding'">Outstanding</span>
+                    <span class="status status_overdue" *ngIf="payment?.status === 'Awaiting_Approval'">Awaiting</span>
+                    <span class="status status_outstanding" *ngIf="payment?.status === 'Rejected'">Rejected</span>
                   </td>
                   <td>
                     <img *ngIf="payment?.status === 'Confirmed'"   src="assets/images/svg/view-payment.png" class="mr-3" alt="..." />
                     <img data-toggle="modal" data-target="#paymentModal" *ngIf="payment?.status === 'Pending' || payment?.status === 'Overdue'   "   src="assets/images/svg/make-payment.png" class="mr-3 cursor-pointer" alt="..." />
-                    <img data-toggle="modal" data-target="#confirmPaymentModal" *ngIf="payment?.status === 'Outstanding' "   src="assets/images/svg/view-payment.png" class="mr-3 cursor-pointer" alt="..." />
+                    <img data-toggle="modal" data-target="#confirmPaymentModal" *ngIf="payment?.status === 'Awaiting_Approval' "  (click)="getTransactionDetails(payment?.transactionId)"  src="assets/images/svg/view-payment.png" class="mr-3 cursor-pointer" alt="..." />
                    
                     
                    
@@ -535,24 +535,24 @@
           <div class="modal-head mb-4">
             <div class="d-flex justify-content-between align-items-center ">
               <h6 class="modal-title fc-lblue">Payment Confirmation</h6>
-              <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="closeInvoiceModal"
+              <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="closeConfirmPaymentModal"
                 data-dismiss="modal" aria-label="Close" class="close">
     
             </div>
     
           </div>
           <div class="modal-body client-modal">
-            <form [formGroup]="invoiceForm" (ngSubmit)="generateInvoice()">
+            <form [formGroup]="acceptRejectForm">
     
     
               <div class="row mb-3">
                   <div class="col-md-6">
                       <label for="account" class="">Transaction ID <span class="text-danger">*</span></label>
-                     <input type="text" placeholder="Transaction ID" class="form-control">
+                     <input type="text" placeholder="Transaction ID" class="form-control" formControlName="transactionId">
                   </div>
                   <div class="col-md-6">
-                      <label for="account" class="">Bank </label>
-                      <input type="text" placeholder="Transaction ID" class="form-control">
+                      <label for="account" class="">Invoice Number </label>
+                      <input type="text" placeholder="Invoice number" class="form-control" formControlName="invoice">
 
                   </div>
               </div>
@@ -560,29 +560,36 @@
               <div class="row mb-3">
                   <div class="col-md-6">
                       <label for="account" class="">Payment Reference </label>
-                      <input type="text" class="form-control" placeholder="Enter reference number">
+                      <input type="text" class="form-control" placeholder="Enter reference number" formControlName="paymentReference">
                   </div>
                   <div class="col-md-6">
                     <label for="account" class="">Payment Channel </label>
-                    <input type="text" class="form-control" placeholder="Payment made by">
+                    <input type="text" class="form-control" placeholder="Payment channel" formControlName="paymentChannel">
                 </div>
               </div>
   
-                <div class="form-group">
+              <div class="form-group">
                   <label for="account" class="">Transaction Description</label>
-                  <input type="date" class="form-control" placeholder="Enter payment date">
+                  <input type="text" class="form-control" placeholder="Enter payment date" formControlName="description">
               </div>
-              
-              
-    
-    
+
+              <div class="form-group" *ngIf="reject">
+                  <label for="account" class="">Rejection reason</label>
+                  <input type="text" class="form-control" placeholder="Enter reason for rejection" formControlName="Comment">
+              </div>
     
               <div class="d-flex justify-content-center mb-3">
-                <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+                <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "  *ngIf="approve" (click)="rejectTransanction(true)"
                  >Reject
                 </button>
-                <button class="btn btn-orange-two px-5 mb-4 mt-3" > Confirm</button>
+                <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="approvalTransaction()"  *ngIf="approve"  > Confirm</button>
               </div>
+
+              <div class="d-flex justify-content-center mb-3" *ngIf="reject2" >
+                
+                <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="sendRejection()"   > Confirm Reject</button>
+              </div>
+
             </form>
           </div>
     

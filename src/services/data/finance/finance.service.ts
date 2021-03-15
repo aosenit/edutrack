@@ -48,6 +48,7 @@ const routes = {
   viewTransactionHistory: 'schtrack-finance/api/v1/Transaction/GetTransactionHistory',
   editTransactionReciept: 'schtrack-finance/api/v1/Transaction/UploadTransactionReceipt',
   rejectTransaction: 'schtrack-finance/api/v1/Transaction/ApproveRejectTransaction',
+  viewtransactionId: 'schtrack-finance/api/v1/Transaction/GetTransaction',
 
 };
 
@@ -267,6 +268,11 @@ export class FinanceService {
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
+  getTransactionBYId(id) {
+    const url = `${this.baseUrl + routes.viewtransactionId}/${id}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
 
   updateSelectedInvoice(formBody) {
     const url = `${this.baseUrl + routes.updateinvoices}`;
@@ -283,7 +289,7 @@ export class FinanceService {
   }
 
 
-  rejectTransactionReceipt(transactionData) {
+  ApproveRejectTransactionReceipt(transactionData) {
     const url = `${this.baseUrl + routes.rejectTransaction}`;
     return this.http.put(url, transactionData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }

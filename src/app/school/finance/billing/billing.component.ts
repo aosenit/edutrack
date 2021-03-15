@@ -25,6 +25,11 @@ export class BillingComponent implements OnInit {
   allPaymentList: any;
   allPaymentHistoryList: any;
   allPendingPaymentList: any;
+  acceptRejectForm: FormGroup;
+  reject = false;
+  approve = true;
+  reject2 = false;
+  TransactionId: any;
   constructor(
     private fb: FormBuilder,
     private finance: FinanceService,
@@ -36,6 +41,7 @@ export class BillingComponent implements OnInit {
 
   ngOnInit() {
     this.populateInvoiceForm();
+    this.populateApproveRejectTransactionForm();
     this.getSession();
     this.getAllFeeGroups();
     this.getAllSections();
@@ -59,6 +65,17 @@ export class BillingComponent implements OnInit {
     });
   }
 
+
+  populateApproveRejectTransactionForm() {
+    this.acceptRejectForm = this.fb.group({
+      transactionId: ['', Validators.required],
+      invoice: ['', Validators.required],
+      paymentReference: ['', Validators.required],
+      paymentChannel: ['', Validators.required],
+      description: ['', Validators.required],
+     Comment: ['', Validators.required]
+    });
+  }
   showStatus(status: string) {
     const newStatus = status;
     switch (newStatus) {
@@ -234,6 +251,77 @@ export class BillingComponent implements OnInit {
   }, error => {
     this.notifyService.publishMessages(error.message, 'danger', 1);
   });
+  }
+
+  getTransactionDetails(id) {
+    this.finance.getTransactionBYId(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        // this.allPendingPaymentList = data.payload;
+        this.TransactionId = data.payload.transactionId;
+        console.log(data.payload);
+        this.acceptRejectForm.patchValue({
+          transactionId: data.payload.transactionNumber,
+          invoice: data.payload.invoiceNumber,
+          paymentReference: data.payload.paymentReference,
+          paymentChannel: data.payload.paymentChannel,
+          description: data.payload.description,
+        });
+      // this.getAllComponent();
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
+  }
+
+
+  rejectTransanction(status) {
+    this.reject = true;
+    this.approve = false;
+    this.reject2 = true;
+    console.log(status);
+  }
+
+  sendRejection() {
+    const {Comment} = this.acceptRejectForm.value;
+    const result = {
+      transactionId: parseInt(this.TransactionId),
+      approve: false,
+      comment: Comment
+    };
+    console.log(result);
+    this.finance.ApproveRejectTransactionReceipt(result).subscribe((data: any) => {
+      if (data.hasErrors === false ) {
+        this.notifyService.publishMessages('Payment rejected', 'success', 1);
+        document.getElementById('closeConfirmPaymentModal').click();
+        this.getAllPaymentInvoices();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'success', 1);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'success', 1);
+
+    });
+  }
+
+  approvalTransaction() {
+    const result = {
+      transactionId: parseInt(this.TransactionId),
+      approve: true,
+      comment: ''
+    };
+    console.log(result);
+    this.finance.ApproveRejectTransactionReceipt(result).subscribe((data: any) => {
+      if (data.hasErrors === false ) {
+        this.notifyService.publishMessages('Payment confirmed', 'success', 1);
+        document.getElementById('closeConfirmPaymentModal').click();
+        this.getAllPaymentInvoices();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'success', 1);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'success', 1);
+
+    });
   }
 
 }

@@ -42,6 +42,9 @@ const routes = {
   viewPendingTransaction: 'schtrack-finance/api/v1/Transaction/GetAllPendingTransactions',
 
 
+  viewfile: 'schtrack-auth/api/v1/Files/GetFile',
+
+
 
 
 
@@ -280,6 +283,8 @@ getAllPendingTransactions(StudentId) {
 updateTransactionReceipt(transactionData) {
   const body = new FormData();
   body.append('TransactionId', transactionData.TransactionId) ;
+  body.append('PaymentReference', transactionData.PaymentReference) ;
+  body.append('PaymentDescription', transactionData.PaymentDescription) ;
   body.append('Document', transactionData.Document);
   const url = `${this.baseUrl + routes.editTransactionReciept}`;
   return this.http.put(url, body,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
@@ -288,6 +293,12 @@ updateTransactionReceipt(transactionData) {
 updateSelectedInvoice(formBody) {
   const url = `${this.baseUrl + routes.updateinvoices}`;
   return this.http.put(url, formBody,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+}
+
+getFiles(id) {
+  const url = `${this.baseUrl + routes.viewfile}/${id}`;
+  return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+
 }
 
 }
