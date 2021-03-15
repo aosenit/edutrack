@@ -21,6 +21,10 @@ export class BillingComponent implements OnInit {
   feeGroupList: any;
   sessionList: any;
   sessionId: any;
+  invoiceList: any;
+  allPaymentList: any;
+  allPaymentHistoryList: any;
+  allPendingPaymentList: any;
   constructor(
     private fb: FormBuilder,
     private finance: FinanceService,
@@ -38,6 +42,9 @@ export class BillingComponent implements OnInit {
     this.getSession();
     this.getCurretSession();
     this.getAllInvoiceCreated();
+    this.getAllPaymentInvoices();
+    this.getPaymentHistory();
+    this.getPendingPayments();
   }
 
   populateInvoiceForm() {
@@ -133,8 +140,8 @@ export class BillingComponent implements OnInit {
     const result = {
       classId: parseInt(ClassId),
       feeGroupId: parseInt(FeegroupId),
-      term: parseInt(term),
-      session: parseInt(this.sessionId),
+      termSequence: parseInt(term),
+      sessionId: parseInt(this.sessionId),
       paymentDate
 
     };
@@ -144,10 +151,13 @@ export class BillingComponent implements OnInit {
       this.notifyService.publishMessages('Successful', 'success', 1);
       document.getElementById('closeInvoiceModal').click();
       this.invoiceForm.reset();
-      // this.getAllComponent();
+      this.getAllInvoiceCreated();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
   }, error => {
-    this.notifyService.publishMessages(error.message, 'danger', 1);
+    this.notifyService.publishMessages(error.errors, 'danger', 1);
   });
   }
 
@@ -155,6 +165,7 @@ export class BillingComponent implements OnInit {
     this.finance.getAllCretedInvoices().subscribe((data: any) => {
       if (data.hasErrors === false) {
      console.log(data.payload);
+     this.invoiceList = data.payload;
       // this.getAllComponent();
       }
   }, error => {
@@ -177,7 +188,34 @@ export class BillingComponent implements OnInit {
   getAllPaymentInvoices() {
     this.finance.getPaymentInvoices().subscribe((data: any) => {
       if (data.hasErrors === false) {
-     console.log(data.payload);
+        this.allPaymentList = data.payload;
+    //  console.log(data.payload);
+      // this.getAllComponent();
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
+  }
+
+
+  getPaymentHistory() {
+    this.finance.getInvoicePaymentHistory().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.allPaymentHistoryList = data.payload;
+        console.log(data.payload);
+      // this.getAllComponent();
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
+  }
+
+
+  getPendingPayments() {
+    this.finance.getPendingInvoicePayment().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.allPendingPaymentList = data.payload;
+        console.log(data.payload);
       // this.getAllComponent();
       }
   }, error => {

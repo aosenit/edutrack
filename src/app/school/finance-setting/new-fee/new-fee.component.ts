@@ -73,7 +73,7 @@ export class NewFeeComponent implements OnInit {
     return this.fb.group({
       ComponentId: '',
       amount: '',
-      isCompulsory: '',
+      isCompulsory: false,
     });
   }
 

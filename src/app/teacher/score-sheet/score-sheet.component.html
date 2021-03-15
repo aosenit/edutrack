@@ -116,7 +116,7 @@
               <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
               <div class="student-info">
                 <p class="mb-0 cursor-pointer"  (click)="saveStudentDetails(u)">{{student.name}}</p>
-                <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
+                <p class="mb-0 fs-12">{{student?.regNumber}}</p>
               </div>
             </div>
             <a href="#" class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -124,13 +124,13 @@
               <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2  cursor-pointer ">
             </a>
             <div class="dropdown-menu omo p-3  " id="dropdownMenuLink{{u}}">
-              <form [formGroup]="addGradeForm" (ngSubmit)="submitGrade(student.id, u)"> 
+              <form [formGroup]="addGradeForm" (ngSubmit)="submitGrade(student?.id, u)"> 
                 <div class="form-group">
                   <label for="cont">Type</label>
                   <select id="cont" class="form-control" formControlName="assessmentId"
                     (change)="getAssessmentName($event.target.value, u)" (click)="holdDropDown(u)">
                     <option value="">Select</option>
-                    <option [value]="assessment?.sequenceNumber" *ngFor="let assessment of assessmentList; let j = index">
+                    <option [value]="j" *ngFor="let assessment of assessmentList; let j = index">
                       {{assessment?.name}} </option>
   
                   </select>
@@ -147,7 +147,7 @@
   
           <!-- <td *ngFor = "let assessment of newList[0].assessments" > <span *ngIf="student?.id == scoreObject?.studentid && assessment?.sequenceNumber == scoreObject.AssessmentId"> {{scoreObject?.Score}} </span>  </td> -->
           <td class="scores" *ngFor="let assessment of newList[0].assessments"> <span 
-              *ngIf="scoreObject[student.id] ? scoreObject[student.id][assessment.name]  : false">
+              *ngIf="scoreObject[student.id] ? scoreObject[student.id][assessment?.name]  : false">
               {{scoreObject[student?.id][assessment?.name].Score }} </span>  </td>
   
   
@@ -155,8 +155,8 @@
           <!-- <td> </td>  -->
           <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false" > {{scoreResult[student?.id].studentGrade}} </td>
           <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false">
-            <span class="fs-14 interpretation excellent" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Excellent' ">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
-            <span class="fs-14 interpretation very-good" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Very Good'"> {{ scoreResult[student?.id].gradeIntepretation}} </span>
+            <span class="fs-14 interpretation excellent" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Excellent ' ">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
+            <span class="fs-14 interpretation very-good" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Very Good '"> {{ scoreResult[student?.id].gradeIntepretation}} </span>
           <span class="fs-14 interpretation good" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Good'">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
           <span class="fs-14 interpretation fail" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Fail'">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
           <span class="fs-14 interpretation fair" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Fair'">  {{ scoreResult[student?.id].gradeIntepretation}} </span>

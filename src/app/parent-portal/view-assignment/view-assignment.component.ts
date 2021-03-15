@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 import { ParentsService } from 'src/services/data/parents/parents.service';
 
@@ -12,7 +13,6 @@ import { ParentsService } from 'src/services/data/parents/parents.service';
 export class ViewAssignmentComponent implements OnInit {
   assignments: any;
   mydate: any;
-  notifyService: any;
   id: number;
   wardDetail: any;
   assignmentCount = 0;
@@ -22,6 +22,7 @@ export class ViewAssignmentComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private parentService: ParentsService,
+    private notifyService: NotificationsService
   ) { }
 
   ngOnInit() {

@@ -29,8 +29,16 @@ const routes = {
   getClassAndSubjectForATeahcer: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
   getschoolSessions: 'schtrack-assessment/api/v1/SessionSetup/GetSchoolSessions',
 
+  getinvoices: 'schtrack-finance/api/v1/Invoice/GetInvoices',
+  updateinvoices: 'schtrack-finance/api/v1/Invoice/UpdateInvoiceSelection',
+  getInvoicepaymenthistory: 'schtrack-finance/api/v1/Invoice/GetPaymentHistoryInvoices',
+
   createTransaction: 'schtrack-finance/api/v1/Transaction/NewTransaction',
   editTransactionReciept: 'schtrack-finance/api/v1/Transaction/UploadTransactionReceipt',
+  getInvocesbyId: 'schtrack-finance/api/v1/Invoice/GetInvoice',
+
+  viewTransactionHistory: 'schtrack-finance/api/v1/Transaction/GetTransactionHistory',
+  viewAllTransaction: 'schtrack-finance/api/v1/Transaction/GetAllTransactions',
 
 
 
@@ -226,10 +234,32 @@ export class ParentsService {
   return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  }});
 }
 
+getInvoices(ClassId, StudentId) {
+  const url = `${this.baseUrl + routes.getinvoices}?ClassId=${ClassId}&StudentId=${StudentId}`;
+  return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') , tenantId  }});
+
+}
+
+getTransactionPaymentHistory(StudentId) {
+  const url = `${this.baseUrl + routes.viewTransactionHistory}/${StudentId}`;
+  return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+}
+
 createNewTransaction(transactionData) {
   const url = `${this.baseUrl + routes.createTransaction}`;
   return this.http.post(url, transactionData, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
 
+}
+
+getAllTransactions() {
+  const url = `${this.baseUrl + routes.viewAllTransaction}`;
+  return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+}
+
+
+getInvoicesById(id) {
+  const url = `${this.baseUrl + routes.getInvocesbyId}/${id}`;
+  return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  }});
 }
 
 updateTransactionReceipt(transactionData) {
@@ -240,6 +270,9 @@ updateTransactionReceipt(transactionData) {
   return this.http.put(url, body,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
 }
 
-
+updateSelectedInvoice(formBody) {
+  const url = `${this.baseUrl + routes.updateinvoices}`;
+  return this.http.put(url, formBody,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+}
 
 }

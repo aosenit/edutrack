@@ -118,10 +118,10 @@ export class AccountPanelComponent implements OnInit {
       isActive: this.toggleState
     };
 
-    console.log('bank account', result);
+    // console.log('bank account', result);
     this.finance.createNewAccountClass(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // console.log(data.payload);
         this.notifyService.publishMessages('Account created successfully', 'success', 1);
         document.getElementById('CloseaccountClass').click();
         this.accountClassForm.reset();
@@ -178,7 +178,7 @@ export class AccountPanelComponent implements OnInit {
     };
     this.finance.updateAccountClassById(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // console.log(data.payload);
         this.notifyService.publishMessages('Account updated successfully', 'success', 1);
         document.getElementById('CloseEditaccountClass').click();
         this.accountClassForm.reset();
@@ -206,7 +206,7 @@ export class AccountPanelComponent implements OnInit {
     console.log('bank account', result);
     this.finance.createNewAccountType(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // console.log(data.payload);
         this.notifyService.publishMessages('Account created successfully', 'success', 1);
         document.getElementById('CloseaccountType').click();
         this.accountTypeForm.reset();
@@ -262,10 +262,10 @@ export class AccountPanelComponent implements OnInit {
       isActive: this.toggleState
     };
 
-    console.log('bank account', result);
+    // console.log('bank account', result);
     this.finance.updateAccountTypeById( this.selectedAccountType, result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // console.log(data.payload);
         this.notifyService.publishMessages('Account updated successfully', 'success', 1);
         document.getElementById('CloseEditaccountType').click();
         this.accountTypeForm.reset();

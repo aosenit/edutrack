@@ -267,12 +267,12 @@ textarea {
 }
 
 
-h6 {
+form h6 {
     font-weight: bold;
     font-weight: 600;
 }
 
-p {
+form p {
     color: #000000;
     font-size: 14px;
 }
@@ -301,4 +301,19 @@ p {
     color: #0052B4;
     height: 45px;
     
+}
+
+
+.sub-total {
+  background-color: #0052B4;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sub-title {
+font-weight: 600;
+font-size: 14px;
+line-height: 19px;
+color: #013F7A;
 }

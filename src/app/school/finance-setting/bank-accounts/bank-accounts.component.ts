@@ -78,6 +78,7 @@ export class BankAccountsComponent implements OnInit {
         document.getElementById('myAccountModal').click();
         this.getAllBankAccounts();
       }
+      
     }, error => {
       this.notifyService.publishMessages('Bank Account creation failed', 'danger', 1);
 

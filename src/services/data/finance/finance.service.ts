@@ -38,6 +38,7 @@ const routes = {
   getInvocesbyId: 'schtrack-finance/api/v1/Invoice/GetInvoice',
   getpaymentinvoices: 'schtrack-finance/api/v1/Invoice/GetPaymentInvoices',
   getinvoices: 'schtrack-finance/api/v1/Invoice/GetInvoices',
+  updateinvoices: 'schtrack-finance/api/v1/Invoice/UpdateInvoiceSelection',
   createTransaction: 'schtrack-finance/api/v1/Transaction/NewTransaction',
   viewAllTransaction: 'schtrack-finance/api/v1/Transaction/GetAllTransactions',
   viewAwaitingApprovalTransaction: 'schtrack-finance/api/v1/Transaction/GetAllAwaitingApprovalTransactions',
@@ -251,6 +252,13 @@ export class FinanceService {
     const url = `${this.baseUrl + routes.viewTransactionHistory}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
+
+  
+  updateSelectedInvoice(formBody) {
+    const url = `${this.baseUrl + routes.updateinvoices}`;
+    return this.http.put(url, formBody,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
 
   updateTransactionReceipt(transactionData) {
     const body = new FormData();

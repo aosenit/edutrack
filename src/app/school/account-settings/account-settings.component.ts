@@ -24,6 +24,7 @@ export class AccountSettingsComponent implements OnInit {
   dropRoleList = [];
   dropStaffList = [];
   assignRoleForm: FormGroup;
+  allUsers = [];
 
   constructor(
     private adminService: AdminService,
@@ -127,27 +128,35 @@ export class AccountSettingsComponent implements OnInit {
   getStaffs() {
 
     const arr = [];
-    // this.teacherService.getAllTeachers().subscribe((data: any) => {
-    //   if (data.hasErrors === false) {
-    //     const allTeacher: any = data.payload;
-    //     console.log(allTeacher);
-    //     allTeacher.forEach(item => {
-    //       arr.push({
-    //         // id: item.id,
-    //         userId: item.userId,
-    //         arm: item.firstName
-    //       });
-    //     });
+    this.teacherService.getAllTeachers().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        const allTeacher: any = data.payload;
+        console.log(allTeacher);
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < allTeacher.length; i++) {
+          this.allUsers.push(allTeacher[i]);
+        }
+        // allTeacher.forEach(item => {
+        //   arr.push({
+        //     // id: item.id,
+        //     userId: item.userId,
+        //     arm: item.firstName
+        //   });
+        // });
 
-    //     console.log(arr);
-    //     this.dropStaffList = arr;
-    //   }
-    // });
+        // console.log(arr);
+        // this.dropStaffList = arr;
+      }
+    });
     this.staffServie.getAllStaffInSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allStaffs = data.payload;
-        // console.log(this.allStaffs);
-        this.allStaffs.forEach(item => {
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < this.allStaffs.length; i++) {
+          this.allUsers.push(this.allStaffs[i]);
+        }
+        console.log(this.allUsers);
+        this.allUsers.forEach(item => {
           arr.push({
             // id: item.id,
             userId: item.userId,

@@ -21,7 +21,7 @@ const routes: Routes = [
     {path: 'view-assignment/:id', component: ViewAssignmentComponent},
     {path: 'time-table', component: TimeTableComponent},
     {path: 'billing', component: BillingComponent},
-    {path: 'view-bill', component: ViewBillingComponent},
+    {path: 'view-bill/:id', component: ViewBillingComponent},
     {path: 'attendance', component: ChildAttendanceComponent},
     {path: 'report-card', component: ReportCardComponent},
     {path: 'view-report-card', component: ViewReportCardComponent},

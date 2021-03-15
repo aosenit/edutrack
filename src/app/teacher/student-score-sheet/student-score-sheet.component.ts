@@ -177,7 +177,7 @@ export class StudentScoreSheetComponent implements OnInit {
     const currentYear = new Date();
     const diff = currentYear.getFullYear() - new Date(birthDate).getFullYear();
     // return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
-    return diff;
+    return diff || 0;
   }
 
 

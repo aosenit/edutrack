@@ -138,6 +138,23 @@ td {
     background: #ebfffa;
     border-radius: 10px;
     color: #09b78a;
+    
+}
+
+.list .table tbody .status_overdue {
+    background: #fae5e7;
+    border-radius: 10px;
+    color: #d72638;
+   
+}
+.list .table tbody .status_pending {
+    background: #FEF2C8;
+    border-radius: 10px;
+    color: #463701;
+    
+}
+
+.list .table tbody .status {
     font-weight: 600;
     width: 110px;
     height: 26px;
@@ -148,32 +165,12 @@ td {
     font-size: 12px;
 }
 
-.list .table tbody .status_overdue {
-    background: #fae5e7;
-    border-radius: 10px;
-    color: #d72638;
-    font-weight: 600;
-    width: 110px;
-    height: 26px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 40px;
-    font-size: 12px;
+.status_outstanding {
+    background: #E9E6FE;
+border-radius: 10px;
+color: #482FF7;
 }
-.list .table tbody .status_pending {
-    background: #FEF2C8;
-    border-radius: 10px;
-    color: #463701;
-    font-weight: 600;
-    width: 110px;
-    height: 26px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 40px;
-    font-size: 12px;
-}
+
 
 
 

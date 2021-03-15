@@ -70,7 +70,7 @@
                       <th scope="col"> Description </th>
                       <th scope="col"> Total Amount </th>
                       <th scope="col"> Amount Payable </th>
-                      <th scope="col"> Anount Paid </th>
+                      <th scope="col"> Amount Paid </th>
                       <th scope="col"> Outstanding </th>
                       <th scope="col"> Status </th>
                       <th scope="col"> Action </th>
@@ -79,27 +79,31 @@
                   </thead>
                   <tbody>
                   
-                    <tr class="pb-2 ">
+                    <tr class="pb-2 " *ngFor="let invoice of parentInvoice">
     
                       <td class="border-bottom ">
-                        3000033
+                        {{invoice?.invoiceNumber}}
                       </td>
                       
-                      <td class=" border-bottom ">School fee </td>
-                      <td class=" border-bottom ">#1,0000000000 </td>
-                      <td class=" border-bottom ">#1,0000000000 </td>
+                      <td class=" border-bottom ">{{invoice?.feeGroup}} </td>
+                      <td class=" border-bottom ">{{invoice?.total}} </td>
+                      <td class=" border-bottom ">{{invoice?.total}}</td>
                       <td class="  border-bottom  ">
-                           #0.00
+                           {{invoice?.paid}}
                       </td>
                       <td class="  border-bottom  ">
-                         #100000
+                         {{invoice?.outstanding}}
                       </td>
                       
                       <td class="  border-bottom  ">
-                        <span class="status_inactive">Unpaid</span>
-                      </td>
+                        <!-- <span class="status_inactive">{{invoice?.status}}</span> -->
+                         <span class="status status_active" *ngIf="invoice?.status === 'Active'" >Active</span>
+                        <span class="status status_inactive" *ngIf="invoice?.status === 'Pending'">Pending</span>
+                        <span class=" status status_overdue" *ngIf="invoice?.status === 'Overdue'">Overdue</span>
+                        <span class=" status status_outstanding" *ngIf="invoice?.status === 'Outstanding'">Outstanding</span>
+                      </td> 
                       <td class="border-bottom">
-                        <span class="view" routerLink="/parent/parent-portal/view-bill">View</span>
+                        <span class="view" routerLink="/parent/parent-portal/view-bill/{{invoice.invoiceId}}"  > View</span>
                       </td>
     
                     </tr>

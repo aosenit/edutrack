@@ -21,7 +21,7 @@
                 </div>
               </section>
 
-              <section class="list bg-white">
+              <section class="list bg-white px-4">
                 <table class="table table-borderless client-table">
                   <thead>
                     <tr>
@@ -39,32 +39,76 @@
                   </thead>
                   <tbody>
         
-                    <tr class="pb-2 " >
+                    <tr class="pb-2 " *ngFor="let invoice of parentInvoice?.invoiceItems; let inv = index" >
         
                       <td class="border-bottom ">
                         <div class="d-flex">
                           <div class="custom-control custom-checkbox" >
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1"></label>
+                            <input type="checkbox" class="custom-control-input" id="customCheck{{inv}}"
+                            value={{invoice?.isSelected}}
+                            (change)="checkInvoice($event, inv, invoice?.id)"
+                            [checked]="invoice?.isCompulsory === true"
+                            [disabled]="invoice?.isCompulsory === true">
+                            <label class="custom-control-label" for="customCheck{{inv}}"></label>
                         </div>
-                        <p class="mb-0">Monthly</p>
+                        <p class="mb-0">{{invoice?.name}}</p>
                         </div>
                       </td>
         
-                      <td class=" border-bottom ">1 </td>
+                      <td class=" border-bottom ">{{invoice?.amount}} </td>
                       <td class="  border-bottom  ">
-                       3
+                        {{invoice?.amount}}
+
+                      </td>
+        
+                    </tr>
+                    <p>Optional</p>
+                    <hr>
+                    
+                    <tr class="pb-2 "  >
+        
+                      <td class="border-bottom ">
+                        <div class="d-flex">
+                          <div class="custom-control custom-checkbox" >
+                            <input type="checkbox" class="custom-control-input" id="customCheck1" [checked]="invoice?.isSelected">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                        <p class="mb-0">{{parentInvoice?.name}}</p>
+                        </div>
+                      </td>
+        
+                      <td class=" border-bottom ">{{parentInvoice?.amount}} </td>
+                      <td class="  border-bottom  ">
+                        {{parentInvoice?.amount}}
+
                       </td>
         
                     </tr>
         
-                    
-        
-        
                   </tbody>
                 </table>
+
+                <div class="d-flex flex-column  ">
+                    
+                  <div class="d-flex justify-content-end align-items-center">
+                    <p class="mb-0 pb-1  sub-title">Subtotal</p>
+                    <p class="mb-0 ml-4">{{subTotal}}</p>
+                  </div>
+                  <!-- <div class="d-flex justify-content-end align-items-center">
+                    <p class="mb-0  pb-1 sub-title" >VAT</p>
+                    <p class="mb-0 ml-4">#2000</p>
+                  </div> -->
+                  
+
+                </div>
+
+                
         
               </section>
+              <div class="d-flex pr-4 py-2  sub-total justify-content-end align-items-center">
+                <p class="mb-0">Total</p>
+                <p class="mb-0 ml-4">{{subTotal}}</p>
+              </div>
         
 
         </div>
@@ -79,20 +123,20 @@
             </div>
             <div class="d-flex mb-2">
               <p class="mb-0 pr-5">Description</p>
-              <p class="mb-0">School Fees</p>
+              <p class="mb-0">{{parentInvoice?.feeGroup}}</p>
             </div>
             <div class="d-flex mb-2">
               <p class="mb-0 pr-5">Date Created</p>
-              <p class="mb-0">Apr 30, 2020</p>
+              <p class="mb-0">{{parentInvoice?.creationDate | date: 'mediumDate'}}</p>
             </div>
             <div class="d-flex mb-2">
               <p class="mb-0 pr-5">Date Due</p>
-              <p class="mb-0">12, May 2020</p>
+              <p class="mb-0">{{parentInvoice?.dueDate | date: 'mediumDate'}}</p>
             </div>
 
             <div class="d-flex align-items-center justify-content-start mt-5">
                 <button class="btn-payment bill-btn mr-3" data-toggle="modal" 
-                data-target="#exampleModalCenter3">Make Payment</button>
+                data-target="#exampleModalCenter3" (click)="prefilData()">Make Payment</button>
             </div>
         </div>
     </div>
@@ -133,7 +177,7 @@
 
 
           <div class="d-flex justify-content-center mb-3">
-            <button type="button " class="btn-blue  mb-3 " >Create transaction </button>
+            <button type="button " class="btn-blue  mb-3 " [disabled]="createTransactionForm.invalid" >Create transaction </button>
             <button type="button" class=" btn-blue actions ml-3 " data-dismiss="modal" aria-label="Close" id="closeAssignmentModal">Cancel </button>
           </div>
 

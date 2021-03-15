@@ -49,7 +49,7 @@
                           <span *ngIf="selectedStudent?.sex === 'male' ">M</span>
                           <span *ngIf="selectedStudent?.sex === 'female' ">F</span>
                         </td>
-                        <td>{{getAge(selectedStudent?.dateOfBirth)}} Years Old</td>
+                        <td>{{getAge(selectedStudent?.dateOfBirth) + ' ' + 'Years Old'}}</td>
                       </tr>
               
                     </tbody>
