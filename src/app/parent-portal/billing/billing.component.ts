@@ -9,10 +9,12 @@ import { ParentsService } from 'src/services/data/parents/parents.service';
   styleUrls: ['./billing.component.css']
 })
 export class BillingComponent implements OnInit {
-  uploadAssignmentForm: FormGroup;
+  uploadReceiptForm: FormGroup;
   assignmentFile: any;
   wardDetail: any;
   parentInvoice: any;
+  allPendingPaymentList: any;
+  TransactionId: any;
 
   constructor(
     private fb: FormBuilder,
@@ -32,8 +34,9 @@ export class BillingComponent implements OnInit {
   }
 
   populateAssignmentForm() {
-    this.uploadAssignmentForm = this.fb.group({
-      assimentId: [''],
+    this.uploadReceiptForm = this.fb.group({
+      referenceNumber: ['', Validators.required],
+      description: ['', Validators.required],
       Document: ['']
     });
   }
@@ -45,7 +48,7 @@ export class BillingComponent implements OnInit {
       const file = event.target.files[0];
       console.log('file', file);
       this.assignmentFile = file.name;
-      this.uploadAssignmentForm.get('Document').setValue(file);
+      this.uploadReceiptForm.get('Document').setValue(file);
       // this.iconname = this.icon.name;
     }
   }
@@ -67,9 +70,9 @@ export class BillingComponent implements OnInit {
   }
 
   getPaymentHistory() {
-    this.parent.getAllTransactions().subscribe((data: any) => {
+    this.parent.getAllPendingTransactions( this.wardDetail.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // this.allPaymentList = data.payload;
+        this.allPendingPaymentList = data.payload;
         console.log(data.payload);
       // this.getAllComponent();
       }
@@ -78,8 +81,27 @@ export class BillingComponent implements OnInit {
   });
   }
 
-  submitReceipt() {
+  getReceiptid(id) {
+    this.TransactionId = id;
+  }
 
+  submitReceipt() {
+    const {Document} = this.uploadReceiptForm.value;
+    const result = {
+      TransactionId : parseInt(this.TransactionId),
+      Document
+    };
+    this.parent.updateTransactionReceipt(result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        document.getElementById('closeReceiptModal').click();
+        this.notifyService.publishMessages('Evidence uploaded successfully', 'success', 1);
+
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    });
   }
 
 }

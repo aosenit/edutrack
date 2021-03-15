@@ -39,6 +39,8 @@ const routes = {
 
   viewTransactionHistory: 'schtrack-finance/api/v1/Transaction/GetTransactionHistory',
   viewAllTransaction: 'schtrack-finance/api/v1/Transaction/GetAllTransactions',
+  viewPendingTransaction: 'schtrack-finance/api/v1/Transaction/GetAllPendingTransactions',
+
 
 
 
@@ -260,6 +262,11 @@ getAllTransactions() {
 getInvoicesById(id) {
   const url = `${this.baseUrl + routes.getInvocesbyId}/${id}`;
   return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  }});
+}
+
+getAllPendingTransactions(StudentId) {
+  const url = `${this.baseUrl + routes.viewPendingTransaction}/${StudentId}`;
+  return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
 }
 
 updateTransactionReceipt(transactionData) {

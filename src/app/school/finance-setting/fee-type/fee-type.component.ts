@@ -13,6 +13,8 @@ export class FeeTypeComponent implements OnInit {
   toggleState = false;
   feeGroupForm: FormGroup;
   feeGroupList: any;
+  EditfeeGroupForm: FormGroup;
+  selectedFeeID: any;
   constructor(
     private fb: FormBuilder,
     private finance: FinanceService,
@@ -21,15 +23,23 @@ export class FeeTypeComponent implements OnInit {
 
   ngOnInit() {
     this.populatekFeeGroupForm();
+    this.populateEditFeeGroupForm();
     this.getAllFeeGroups();
   }
 
-  
+
   populatekFeeGroupForm() {
     this.feeGroupForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
       isActive: false
+    });
+  }
+  populateEditFeeGroupForm() {
+    this.EditfeeGroupForm = this.fb.group({
+      name: ['', Validators.required],
+      description: ['', Validators.required],
+      isActive: Boolean
     });
   }
 
@@ -90,6 +100,47 @@ export class FeeTypeComponent implements OnInit {
       }
     }, error => {
       this.notifyService.publishMessages('Error occured', 'danger', 1);
+
+    });
+  }
+
+  editFeeGroup(id) {
+    this.selectedFeeID = id;
+    this.finance.getFeeGroupById(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.EditfeeGroupForm.patchValue({
+          name: data.payload.name,
+          description: data.payload.description,
+          isActive: data.payload.isActive
+        });
+      }
+    }, error => {
+      this.notifyService.publishMessages('Error occured', 'danger', 1);
+
+  });
+}
+
+  updateFeegroup() {
+    const {name, description, isActive} = this.feeGroupForm.value;
+    const result = {
+      name,
+      description,
+      isActive: this.toggleState
+    };
+
+    this.finance.UpdateFeeGroupByID(this.selectedFeeID, result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        this.notifyService.publishMessages('Fee Group updated successfully', 'success', 1);
+        document.getElementById('CloseEditFeeGroupModal').click();
+        this.EditfeeGroupForm.reset();
+        this.getAllFeeGroups();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages('Fee group creation failed', 'danger', 1);
 
     });
   }

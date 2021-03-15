@@ -103,7 +103,6 @@ export class StudentListComponent implements OnInit {
         console.log(data.payload);
         this.notifyService.publishMessages('Student deleted successfully', 'success', 1);
         this.getAllStudents();
-
       }
     });
   }

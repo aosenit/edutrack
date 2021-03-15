@@ -23,6 +23,8 @@ const routes = {
   editChartAccount: 'schtrack-finance/api/v1/Account/UpdateAccount',
   addfeeGruop: 'schtrack-finance/api/v1/FeeGroup/NewFeeGroup',
   getallfeeGruop: 'schtrack-finance/api/v1/FeeGroup/GetFeeGroups',
+  getfeeGruopById: 'schtrack-finance/api/v1/FeeGroup/GetFeeGroup',
+  updatefeeGruopById: 'schtrack-finance/api/v1/FeeGroup/UpdateFeeGroup',
   createComponent: 'schtrack-finance/api/v1/Component/NewComponent',
   fetchComponent: 'schtrack-finance/api/v1/Component/GetComponents',
   fetchComponentwithId: 'schtrack-finance/api/v1/Component/GetComponent',
@@ -154,6 +156,18 @@ export class FinanceService {
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
+  getFeeGroupById(id) {
+    const url = `${this.baseUrl + routes.getfeeGruopById}/${id}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+  }
+
+  UpdateFeeGroupByID(id, bodyData) {
+    const url = `${this.baseUrl + routes.updatefeeGruopById}/${id}`;
+    return this.http.put(url, bodyData, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+  }
+
   createNewComponent(componentData) {
     const url = `${this.baseUrl + routes.createComponent}`;
     return this.http.post(url, componentData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
@@ -253,7 +267,7 @@ export class FinanceService {
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
-  
+
   updateSelectedInvoice(formBody) {
     const url = `${this.baseUrl + routes.updateinvoices}`;
     return this.http.put(url, formBody,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});

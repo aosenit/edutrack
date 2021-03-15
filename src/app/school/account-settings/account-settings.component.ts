@@ -126,8 +126,8 @@ export class AccountSettingsComponent implements OnInit {
   }
 
   getStaffs() {
-
     const arr = [];
+
     this.teacherService.getAllTeachers().subscribe((data: any) => {
       if (data.hasErrors === false) {
         const allTeacher: any = data.payload;

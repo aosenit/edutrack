@@ -142,26 +142,27 @@
                   <tbody>
                   
                    
-                    <tr class="pb-2 ">
+                    <tr class="pb-2 " *ngFor="let transaction of allPendingPaymentList; let t = index ">
     
                       <td class="border-bottom ">
-                        1
+                        {{t + 1}}
+                      </td>
+                      <td class="border-bottom ">
+                        {{transaction?.transactionNumber}}
                       </td>
                       
-                      <td class=" border-bottom ">3029393029393 </td>
-                      <td class=" border-bottom ">#1,0000000000 </td>
+                      <td class=" border-bottom ">{{transaction?.amount}} </td>
+                      <td class=" border-bottom ">{{transaction?.description}} </td>
                       <td class="  border-bottom  ">
-                            School fees
+                           {{transaction?.dueDate | date: 'mediumDate'}}
                       </td>
+                    
                       <td class="  border-bottom  ">
-                           12, May 2020
-                      </td>
-                      
-                      <td class="  border-bottom  ">
-                        <span class="status_pending">Pending</span>
+                        <span class="status status_inactive" *ngIf="transaction?.status === 'Pending'">Pending</span>
+
                       </td>
                       <td class="border-bottom">
-                        <button class="send-receipt  " data-toggle="modal" data-target="#receiptModal">Upload receipt</button>
+                        <button class="send-receipt  " (click)="getReceiptid(transaction?.transactionId)"  data-toggle="modal" data-target="#receiptModal">Upload receipt</button>
                       </td>
     
                     </tr>
@@ -305,31 +306,24 @@
 
       <div class="modal-head mb-2">
         <div class=" mb-3"> 
-          <h6 class="modal-title">sas</h6>
+          <h6 class="modal-title">Upload Receipt</h6>
 
         </div>
-        <div class="d-flex  ">
-          <div class="d-flex w-25">
-            <img src="assets/images/svg/g-calendar.svg" alt="" class="mr-3">
-            <div class="d-flex flex-column justify-content-center">
-              <p class="mb-0 fs-14">ssas</p>
-              <p class="mb-0 fs-13">Due Date</p>
-            </div>
-          </div>
-          <div class="d-flex  w-25">
-            <img src="assets/images/svg/g-time.svg" alt="" class="mr-3">
-            <div class="d-flex flex-column justify-content-center">
-              <p class="mb-0 fs-14">sasas</p>
-              <p class="mb-0 fs-13">Due Time</p>
-            </div>
-          </div>
-        </div>
+        
       </div>
       <div class="modal-body client-modal">
-        <form [formGroup]="uploadAssignmentForm" (ngSubmit)="submitReceipt()">
+        <form [formGroup]="uploadReceiptForm" (ngSubmit)="submitReceipt()">
 
-          <p class="fw-6 init">Assignment Details</p>
-
+          <div class="form-group mb-3">
+            <label for="title" class="fw-6">Reference Number </label>
+            <input type="text" placeholder="Enter your teller or receipt number" class="form-control form-control-lg " formControlName="referenceNumber">
+          </div>
+          <div class="form-group mb-3">
+            <label for="title" class="fw-6">Description </label>
+            <input type="text" placeholder="Enter payment narration" class="form-control form-control-lg " formControlName="description">
+          </div>
+         
+          <p>Enter your evidence of payment if you paid via bank</p>
           <div class="form-group file-upload mb-5">
             <label for="fileupload" *ngIf="assignmentFile === null; else bulkFile">Drag & drop your files here <br> or click to browse your files </label>
             <ng-template #bulkFile class="mt-5">
@@ -346,9 +340,8 @@
           </div>
 
           <div class="d-flex justify-content-between mb-3">
-            <button type="button" class="close close-text" data-dismiss="modal" aria-label="Close" id="closeAssignmentModal">Cancel </button>
-            <button type="button " class="btn-blue  mb-3 " data-toggle="modal" 
-            data-target="#exampleModalCenter3" >Upload Files </button>
+            <button type="button" class="close close-text" data-dismiss="modal" aria-label="Close" id="closeReceiptModal">Cancel </button>
+            <button type="button " class="btn-blue  mb-3 " [disabled]="uploadReceiptForm.invalid" >Submit</button>
           </div>
 
         </form>

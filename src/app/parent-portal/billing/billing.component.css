@@ -330,6 +330,27 @@ p {
   font-size: 14px;
 }
 
+form label {
+font-weight: 600;
+font-size: 14px;
+line-height: 19px;
+
+
+color: #0A1128;
+
+border-radius: 2px;
+}
+
+form input {
+
+background: #FFFFFF;
+border: 1px solid #D1D9DF;
+box-sizing: border-box;
+font-size: 14px;
+
+border-radius: 5px;
+}
+
 .close-text {
 font-size: 15px;
 outline: none;

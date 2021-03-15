@@ -38,7 +38,7 @@ export class BankAccountsComponent implements OnInit {
     this.bankAccountForm = this.fb.group({
       bank: ['', Validators.required],
       accountName: ['', Validators.required],
-      accountNumber: ['', [Validators.required, Validators.maxLength(11)]],
+      accountNumber: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       isActive: false
     });
   }
@@ -46,7 +46,7 @@ export class BankAccountsComponent implements OnInit {
     this.editBankAccountForm = this.fb.group({
       bank: ['', Validators.required],
       accountName: ['', Validators.required],
-      accountNumber: ['', [Validators.required, Validators.maxLength(11)]],
+      accountNumber: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
       isActive: false
     });
   }

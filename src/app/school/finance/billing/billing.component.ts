@@ -45,6 +45,7 @@ export class BillingComponent implements OnInit {
     this.getAllPaymentInvoices();
     this.getPaymentHistory();
     this.getPendingPayments();
+    this.getPaymentAwwaitingApproval();
   }
 
   populateInvoiceForm() {
@@ -213,6 +214,18 @@ export class BillingComponent implements OnInit {
 
   getPendingPayments() {
     this.finance.getPendingInvoicePayment().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.allPendingPaymentList = data.payload;
+        console.log(data.payload);
+      // this.getAllComponent();
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
+  }
+
+  getPaymentAwwaitingApproval() {
+    this.finance.getAllTransactionsAwaitingApproval().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPendingPaymentList = data.payload;
         console.log(data.payload);
