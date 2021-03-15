@@ -30,7 +30,7 @@ export class ReportCardComponent implements OnInit {
   selectedStudentID: any;
   sessionsId: any;
   classSubjectCount: number;
-  subjectoffered: any;
+  subjectoffered: number;
   averageScore: number;
   totalSchoolScore: number;
   totalCA: number;
@@ -191,16 +191,23 @@ getStatus() {
 
 getTotalSchoolScoreForClass() {
 
-  const firstCA = 10 * 20;
-  console.log(firstCA);
-  const secondCA = (10 * 20);
-  const thirdCA = (10 * 20);
-  const exam = (10 * 40);
+  const firstCA = this.subjectoffered * 20;
+  const secondCA = (this.subjectoffered * 20);
+  const thirdCA = (this.subjectoffered * 20);
+  const exam = (this.subjectoffered * 40);
   this.totalSchoolScore = firstCA + secondCA + thirdCA + exam;
   this.totalCA = firstCA + secondCA + thirdCA;
   this.totalExam = exam;
+  this.getTotalExamScore( );
 }
 
+getTotalExamScore() {
+  const data: any = this.studentRecord;
+  // tslint:disable-next-line:prefer-for-of
+  for (let i = 0; i < data.length; i++) {
+    console.log(data[i].assesmentAndScores);
+  }
+}
 
 getPercentage() {
    this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;

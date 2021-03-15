@@ -164,13 +164,14 @@
                   <th scope="col">Submitted date
 
                   </th>
-                  <th scope="col"> </th>
-                  <th scope="col"> </th>
+                  <th scope="col"> Submission Time </th>
+                  <th scope="col"> Status</th>
+                  <th scope="col"> Score</th>
 
                 </tr>
               </thead>
               <tbody>
-                <tr class="pb-2 ">
+                <tr class="pb-2 " *ngFor="let submission of assignmentSubmission">
 
                   <td class="rounded-left border border-right-0 ">
                     <div class="d-flex align-items-center">
@@ -180,7 +181,7 @@
                                         </div>
                         <div class="d-flex flex-column justify-content-start">
                           <p class="mb-0 pb-1 topic fw-6 ">
-                            Descriptive Essay Assignment
+                            {{submission?.title}}
                           </p>
                           <div class="d-flex">
                             <p class="mb-0 attachment">
@@ -191,12 +192,14 @@
                     </div>
                   </td>
                   
-                  <td class="border-top border-bottom ">07/20/20</td>
+                  <td class="border-top border-bottom ">{{submission?.submissionDate | date: 'mediumDate'}}</td>
+                  <td class="border-top border-bottom ">{{submission?.submissionDate | date: 'shortTime'}}</td>
                   <td class="table-grey border-top border-bottom  ">
-                      <button class="actions upload action-2" >View Submision</button>
+                      <span class="status_graded" *ngIf="submission?.status === 'Graded'">Graded</span>
+                      <span class="status_submitted" *ngIf="submission?.status !== 'Graded'">Submitted</span>
                   </td>
                   <td class="rounded-right border border-left-0">
-                    <img src="assets/images/svg/more-action.svg" alt="new client" class="mr-1">
+                      {{submission?.score}}
                   </td>
 
                 </tr>

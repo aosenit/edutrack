@@ -357,6 +357,7 @@ export class StudentScoreSheetComponent implements OnInit {
         console.log(data.payload);
         this.teacherComment.comment = '';
         this.notifyService.publishMessages('Result submmmited successfully', 'success', 1);
+        location.reload();
       }
   }, error => {
     this.notifyService.publishMessages(error.payload, 'danger', 1);

@@ -11,6 +11,7 @@ export class StudentAttendanceComponent implements OnInit {
   daysInWeek: any;
   studentDetails: any;
   attendanceList: any;
+  classAttendanceList: any;
 
 
   constructor(
@@ -48,7 +49,8 @@ export class StudentAttendanceComponent implements OnInit {
   getClassAttendanceForStudent() {
     this.attendance.getClassAttendance(this.studentDetails.sub).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.attendanceList = data.payload;
+        this.classAttendanceList = data.payload;
+        console.log(data.payload);
       }
     });
   }

@@ -79,6 +79,7 @@ wardRecord = false;
   getWardReportCard(event) {
 
     this.selectedTermId = event;
+    this.selectStudent();
     this.getApprovedStudentResults();
   }
 
@@ -109,10 +110,9 @@ wardRecord = false;
   }
 
   getCurrentSesion() {
-    this.assessmentService.getCurrentSession().subscribe((data: any) => {
+    this.parentService.getSchoolSessions().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.sessions = data.payload;
-        this.sessionsId = data.payload.id;
         this.terms = data.payload.terms;
       }
     });
@@ -127,14 +127,18 @@ wardRecord = false;
 
   selectedTerm(event) {
    this.termName = this.terms[event];
+   this.sessionsId = this.terms[event].id;
+   console.log(this.sessionId);
    this.selectedTermId = this.terms[event].sequenceNumber;
   }
 
-  selectStudent(i) {
-    this.selectedStudent = this.studentList[i];
-    this.selectedStudentID = this.studentList[i].id;
+  selectStudent() {
+    // this.selectedStudent = this.studentList[i];
+    // this.selectedStudentID = this.studentList[i].id;
     // tslint:disable-next-line:max-line-length
-    this.parentService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.wardDetails.classID, this.wardDetails.id  ).subscribe((data: any) => {
+    console.log(this.sessionId);
+    // tslint:disable-next-line:max-line-length
+    this.parentService.getStudentBehviour(1, this.selectedTermId, this.wardDetails.classID, this.wardDetails.id  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
        console.log(data.payload);
        this.studentBehaviour = data.payload.resultTypeAndValues;
@@ -177,7 +181,7 @@ wardRecord = false;
  }
 
  getAllSubjectsInAClasses() {
-   this.classService.getAllSubjectsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
+   this.parentService.getAllSubjectsInAClassByClassID(this.wardDetails.classID).subscribe((data: any) => {
      if (data.hasErrors === false) {
        const classSubjectCount: any = data.payload;
        console.log(classSubjectCount.length);

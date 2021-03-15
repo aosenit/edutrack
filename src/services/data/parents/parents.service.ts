@@ -167,6 +167,8 @@ export class ParentsService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
+  
+
   getTimeTableForClass(classId) {
     // const id = sessionStorage.getItem('tenant');
     // const tenantId = id;
@@ -184,6 +186,12 @@ export class ParentsService {
     const url = `${this.baseUrl + routes.getTableforClassByDay}?classId=${classId}&day=${day}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
+
+  getAllSubjectsInAClassByClassID(id) {
+    const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classid=${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
 
   getAllSubjectsInAClassWithAssignmentCountByClassID(classId) {
     // const id = sessionStorage.getItem('tenant');

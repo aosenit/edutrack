@@ -17,6 +17,8 @@ export class StudentSheetComponent implements OnInit {
   teacherComment = {comment: ''};
   studentBehaviour: any;
   gradeSetup: any;
+  totalScoreObtained: number;
+  averageScore: number;
 
 
   constructor(
@@ -47,6 +49,8 @@ export class StudentSheetComponent implements OnInit {
         console.log(data);
         this.studentRecord = data.payload.breakdowns;
         this.assessments = data.payload.breakdowns[0].assesmentAndScores;
+        this.calculateTotalScoreObtained(this.studentRecord);
+
         console.log(this.assessments);
       }
     }, error => {
@@ -98,6 +102,20 @@ export class StudentSheetComponent implements OnInit {
     });
   }
 
+
+  calculateTotalScoreObtained(data) {
+    const totalScore = [];
+    const totalExamScore = [];
+    // tslint:disable-next-line:prefer-for-of
+    for ( let i = 0; i < data.length; i++) {
+      totalScore.push(data[i].cummulativeScore);
+      totalExamScore.push(data[i].cummulativeScore);
+      this.totalScoreObtained = totalScore.reduce((a, b) => a + b, 0);
+      // this.averageScore = Math.round(((this.totalScoreObtained / this.subjectoffered) * 10) / 10);
+      // this.getTotalSchoolScoreForClass();
+      // this.getPercentage();
+    }
+  }
 
 
   back() {

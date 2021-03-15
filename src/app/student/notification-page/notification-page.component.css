@@ -147,6 +147,29 @@ td {
   padding: 17px 40px;
 }
 
+.list .table tbody .status_submitted {
+  color: #0052B4;
+  background: #C5DEFC;
+border-radius: 10px; font-weight: 600;
+  width: 80px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 30px;
+}
+.list .table tbody .status_graded {
+  color: #09B78A;
+  background: #EBFFFA;
+border-radius: 10px; font-weight: 600;
+  width: 80px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 30px;
+}
+
 .subject-holder {
   background: #eaf0ff;
   border-radius: 5px;

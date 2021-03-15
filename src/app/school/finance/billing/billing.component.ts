@@ -187,7 +187,7 @@ export class BillingComponent implements OnInit {
   }
 
   getAllPaymentInvoices() {
-    this.finance.getPaymentInvoices().subscribe((data: any) => {
+    this.finance.getAllTransactions().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPaymentList = data.payload;
     //  console.log(data.payload);
