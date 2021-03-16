@@ -18,6 +18,7 @@ export class BillingComponent implements OnInit {
   allTransactionList: any;
   totalMoneyPaid = 0;
   paymentCount: any;
+  fileDetails: any;
   constructor(
     private fb: FormBuilder,
     private parent: ParentsService,
@@ -131,9 +132,7 @@ export class BillingComponent implements OnInit {
     this.parent.getFiles(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
-        // document.getElementById('closeReceiptModal').click();
-        // this.notifyService.publishMessages('Evidence uploaded successfully', 'success', 1);
-
+        this.fileDetails = data.payload;
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
 

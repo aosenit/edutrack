@@ -370,53 +370,10 @@
       <div class="modal-body client-modal">
         <div class="row">
           <div class="col-md-12 my-3 p-2">
-
-
-
-            <div class="col-md-12" >
               <iframe class="file-viewer p-3 bg-white w-100 "
-                 style="height: 85vh; width: 100%;">
+                [src]="' data:image/jpeg;base64,' + fileDetails | trustedUrl" style="height: 85vh; width: 100%;">
                 <p>dOCUMENT VIEWR GOES HERE</p>
               </iframe>
-            </div>
-      
-            <!-- <div class="col-md-12" *ngIf="fileDetails?.fileType === 'image/jpeg'">
-              <iframe class="file-viewer p-3 bg-white w-100 "
-                [src]="' data:image/jpg;base64,' + fileDetails?.file | trustedUrl" style="height: 85vh; width: 100%;">
-                <p>dOCUMENT VIEWR GOES HERE</p>
-              </iframe>
-            </div>
-            <div class="col-md-12" *ngIf="fileDetails?.fileType === 'image/jpeg'">
-              <iframe class="file-viewer p-3 bg-white w-100 "
-                [src]="' data:image/jpeg;base64,' + fileDetails?.file | trustedUrl" style="height: 85vh; width: 100%;">
-                <p>dOCUMENT VIEWR GOES HERE</p>
-              </iframe>
-            </div>
-      
-            <div class="col-md-12" *ngIf="fileDetails?.fileType === 'application/pdf'">
-              <iframe class="file-viewer p-3 bg-white w-100 "
-                [src]="'data:application/pdf;base64,' + fileDetails?.file | trustedUrl"
-                style="height: 85vh; width: 100%;">
-                <p>dOCUMENT VIEWR GOES HERE</p>
-              </iframe>
-            </div> 
-      
-            <div class="col-md-12"
-              *ngIf="fileDetails?.fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || fileDetails?.fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'">
-              <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "
-                style="height: 85vh; width: 100%;">
-                <div class="d-flex flex-column text-center">
-                  <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
-                  <p class="fw-6">Sorry, you cant preview this file but you can download.</p>
-                  <p> <a href="" download=""> Click here to download</a></p>
-                </div>
-              </div>
-            </div> -->
-            
-      
-      
-      
-          </div>
         </div>
       </div>
 

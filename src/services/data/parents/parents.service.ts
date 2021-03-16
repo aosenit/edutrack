@@ -42,7 +42,7 @@ const routes = {
   viewPendingTransaction: 'schtrack-finance/api/v1/Transaction/GetAllPendingTransactions',
 
 
-  viewfile: 'schtrack-auth/api/v1/Files/GetFile',
+  viewfile: 'schtrack-finance/api/v1/Files/GetFile',
 
 
 
