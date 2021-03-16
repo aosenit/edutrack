@@ -97,10 +97,10 @@
           <td>{{assignment?.date | date : 'd/M/yyyy' }}</td>
           <td> {{assignment?.date | date : "shortTime"}} </td>
           <!-- <td><span class="status_pending">Pending</span></td> -->
-          <td><span class="status_graded" *ngIf="assignment?.score">Graded</span></td>
+          <td><span class="status_graded" *ngIf="assignment?.score > -1">Graded</span></td>
           <td>
-            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" (click)="gradeAssignment(i)" *ngIf="assignment?.score == 0">Grade</button>
-            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" *ngIf="assignment?.score != 0">Regrade</button>
+            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" (click)="gradeAssignment(i)" *ngIf="assignment?.score < 0">Grade</button>
+            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" *ngIf="assignment?.score >= 0">Regrade</button>
           </td>
           <td>
             <button class="btn grade" (click)="previewAssignment(i)" [hidden]="!assignment?.score" >Preview</button>

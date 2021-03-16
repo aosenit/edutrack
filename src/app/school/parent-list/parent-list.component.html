@@ -105,7 +105,7 @@
                             <!-- <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3"> -->
                             <img class="" *ngIf="parent.image" src="data:image/png;base64,{{parent.image}}" alt="schools log"
                             class="mr-3 image-rounded" id="">
-                            <h6 class="fw-6 mb-0" >{{parent?.fullName}} </h6>
+                            <h6 class="fw-6 mb-0" >{{parent?.fullName | titlecase}} </h6>
                         </div>
                     </td>
                     <td>{{parent?.parentCode}}</td>

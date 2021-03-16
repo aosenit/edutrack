@@ -88,11 +88,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="pb-1" *ngFor="let fee of feeList" >
+            <tr class="pb-1" *ngFor="let fee of feeList; let f = index" >
                 <td scope="row" class="check rounded-left">
                     <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
+                        <input type="checkbox" class="custom-control-input" id="customChecks{{f}}">
+                        <label class="custom-control-label" for="customChecks{{f}}"></label>
                     </div>
                 </td>
                 <td class="user" >

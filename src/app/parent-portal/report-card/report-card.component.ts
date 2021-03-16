@@ -43,6 +43,7 @@ wardRecord = false;
   totalExam: number;
   classPercentage: number;
   wardDetails: any;
+  studentName: any;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -138,7 +139,7 @@ wardRecord = false;
     // tslint:disable-next-line:max-line-length
     console.log(this.sessionId);
     // tslint:disable-next-line:max-line-length
-    this.parentService.getStudentBehviour(1, this.selectedTermId, this.wardDetails.classID, this.wardDetails.id  ).subscribe((data: any) => {
+    this.parentService.getStudentBehviour(this.sessionId, this.selectedTermId, this.wardDetails.classID, this.wardDetails.id  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
        console.log(data.payload);
        this.studentBehaviour = data.payload.resultTypeAndValues;
@@ -164,6 +165,7 @@ wardRecord = false;
       this.reportSheetDetails = data.payload;
       this.studentRecord = data.payload.breakdowns;
       this.subjectoffered = data.payload.subjectOffered;
+      // this.studentName = data.payload.studentName;
       this.calculateTotalScoreObtained(this.studentRecord);
       this.getAllSubjectsInAClasses();
       this.assessments = data.payload.breakdowns[0].assesmentAndScores;

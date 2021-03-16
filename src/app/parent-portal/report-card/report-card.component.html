@@ -284,15 +284,16 @@
                 <tr>
                   <td>
                     {{
-                      selectedStudent?.firstName + " " + selectedStudent?.lastName
+                      reportSheetDetails?.studentName
                     }}
                   </td>
-                  <td>{{ selectedStudent?.studentNumber }}</td>
+                  <td>{{ reportSheetDetails?.regNumber }}</td>
                   <td>
-                    <span *ngIf="selectedStudent?.sex === 'male'">M</span>
-                    <span *ngIf="selectedStudent?.sex === 'female'">F</span>
+                    <span *ngIf="reportSheetDetails?.sex === 'male'">M</span>
+                    <span *ngIf="reportSheetDetails?.sex === 'female'">F</span>
+                    <span *ngIf="reportSheetDetails?.sex === null ">N/A</span>
                   </td>
-                  <td>{{ getAge(selectedStudent?.dateOfBirth) }} Years Old</td>
+                  <td>{{ getAge(reportSheetDetails?.age) }} Years Old</td>
                 </tr>
               </tbody>
             </table>
@@ -313,9 +314,9 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{{ selectedClass }}</td>
-                      <td>{{ sessions?.name }}</td>
-                      <td>{{ termName?.name }}</td>
+                      <td>{{ reportSheetDetails?.class }}</td>
+                      <td>{{ reportSheetDetails?.session }}</td>
+                      <td>{{ reportSheetDetails?.term }}</td>
                     </tr>
                   </tbody>
                 </table>

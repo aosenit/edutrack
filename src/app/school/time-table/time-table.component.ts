@@ -178,9 +178,10 @@ export class TimeTableComponent implements OnInit {
         console.log(data);
         sessionStorage.setItem('table', JSON.stringify(data.payload));
         this.notifyService.publishMessages('Upload successfull', 'success', 1);
+        location.reload();
         this.addCell = { periodId: '', day: '', teacherClassSubjectId: '', HasVirtual: false };
 
-        
+
       } else if (data.hasErrors === true) {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
