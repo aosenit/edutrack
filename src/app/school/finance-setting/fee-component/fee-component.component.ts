@@ -94,6 +94,7 @@ export class FeeComponentComponent implements OnInit {
   getTerms(event, sequence) {
     if (event.target.checked === true) {
       this.terms.push(event.target.value);
+      console.log(this.terms)
     } else {
       const index = this.terms.indexOf(`${sequence}`);
       if (index > -1) {
@@ -168,14 +169,16 @@ export class FeeComponentComponent implements OnInit {
       if (data.hasErrors === false) {
         const terMs = data.payload.terms;
         const splitTerms = terMs.split(',');
+        this.terms = [];
         splitTerms.forEach(v => {
           // tslint:disable-next-line:prefer-for-of
           for (let i = 0; i < this.sessionList.terms.length; i++) {
             console.log(this.sessionList.terms[i]);
-            if (this.sessionList.terms[i].sequenceNumber === v) {
+            if (this.sessionList.terms[i].sequenceNumber == v) {
               console.log('yes');
               this.sessionList.terms[i].checked = true;
               this.terms.push(v);
+              console.log(this.terms)
               // console.log(this.hobbiesArray);
               // console.log(this.allHobbyList);
               // tslint:disable-next-line:no-unused-expression
@@ -216,7 +219,7 @@ export class FeeComponentComponent implements OnInit {
     this.finance.updateComponentById( this.componentID , result).subscribe((data: any) => {
         if (data.hasErrors === false) {
         this.notifyService.publishMessages('Successful', 'success', 1);
-        document.getElementById('mySubjectModal').click();
+        document.getElementById('closeEditComponent').click();
         this.componentForm.reset();
         this.getAllComponent();
         }

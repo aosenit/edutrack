@@ -191,7 +191,7 @@
             <div class="modal-head mb-4">
                 <div class="d-flex justify-content-between align-items-center ">
                     <h6 class="modal-title fc-lblue">Update Component</h6>
-                    <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="mySubjectModal"
+                    <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="closeEditComponent"
                         data-dismiss="modal" aria-label="Close" class="close">
 
                 </div>
@@ -208,10 +208,10 @@
 
                     <div class="form-group mb-4">
                         <p>Terms</p>
-                        <div class="custom-control custom-checkbox" *ngFor="let term of termList; let t2 = index">
-                            <input type="checkbox" [value]="term?.sequenceNumber" class="custom-control-input" id="customCheckTh{{t2}}"
-                             formControlName="terms" (change)="getTerms($event, term.sequenceNumber)" [checked]="term.checked === true">
-                            <label class="custom-control-label" for="customCheckTh{{t2}}">{{term.name}}</label>
+                        <div class="custom-control custom-checkbox" *ngFor="let term of termList; let t5 = index">
+                            <input type="checkbox" [value]="term?.sequenceNumber" class="custom-control-input" id="customCheckThs{{t5}}"
+                             formControlName="terms" (change)="getTerms($event, term.sequenceNumber)" [checked]="term?.checked">
+                            <label class="custom-control-label" for="customCheckThs{{t5}}">{{term.name}}</label>
                         </div>
                     </div>
 
@@ -231,11 +231,11 @@
 
                     <div class="form-group custom mb-5">
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="customSwitch4"
+                            <input type="checkbox" class="custom-control-input" id="customSwitch944"
                                 formControlName="isActive" (change)="getStatus($event.target.checked)">
-                            <label class="custom-control-label" for="customSwitch4"
+                            <label class="custom-control-label" for="customSwitch944"
                                 *ngIf="toggleState === false">Inactive</label>
-                            <label class="custom-control-label" for="customSwitch4"
+                            <label class="custom-control-label" for="customSwitch944"
                                 *ngIf="toggleState === true">Active</label>
                         </div>
                     </div>
@@ -245,7 +245,7 @@
                         <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
                             data-dismiss="modal">Cancel
                         </button>
-                        <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="editComponentForm.invalid"> Update Component</button>
+                        <button class="btn btn-orange-two px-5 mb-4 mt-3" > Update Component</button>
                     </div>
                 </form>
             </div>

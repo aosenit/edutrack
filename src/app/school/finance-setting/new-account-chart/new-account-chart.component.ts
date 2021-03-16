@@ -32,7 +32,6 @@ export class NewAccountChartComponent implements OnInit {
     this.pageId = this.route.snapshot.params.id;
     this.populateChartOFAccountForm();
     this.populateEditChartOFAccountForm();
-    this.getChartAccountByItsId();
 
     console.log(this.pageId);
     this.getAccountClasses();

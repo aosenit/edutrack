@@ -185,7 +185,7 @@ export class FinanceService {
   }
 
   updateComponentById(id, formBody) {
-    const url = `${this.baseUrl + routes.editComponent}`;
+    const url = `${this.baseUrl + routes.editComponent}/${id}`;
     return this.http.put(url, formBody,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
