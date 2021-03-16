@@ -160,7 +160,7 @@ export class AccountSettingsComponent implements OnInit {
           arr.push({
             // id: item.id,
             userId: item.userId,
-            arm: item.firstName
+            arm: item.firstName + ' ' + item.lastName
           });
         });
         this.dropStaffList = arr;

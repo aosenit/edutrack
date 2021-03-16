@@ -337,7 +337,7 @@
         </div>
 
         <div class="d-flex justify-content-center my-5">
-            <button class="btn-upload-top bg-lblue w-40" type="button" (click)="createResult()" > Submit </button>
+            <button class="btn-upload-top bg-lblue w-40" type="button" (click)="createResult()" [disabled]="teacherComment.comment === '' " > Submit </button>
           </div>
       </div>
 </div>

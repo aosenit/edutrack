@@ -22,23 +22,23 @@ export class StudentScoreSheetComponent implements OnInit {
   assessments: any;
   selectedClassId: any;
   cognitive = [
-    {name: 'Analysis', value: ''},
-    {name: 'Application', value: ''},
-    {name: 'Synthesis', value: ''}
+    { name: 'Analysis', value: '' },
+    { name: 'Application', value: '' },
+    { name: 'Synthesis', value: '' }
   ];
   affective = [
-    {name: 'Characteristics', value: ''},
-    {name: 'Organization', value: ''},
-    {name: 'Receiving', value: ''},
-    {name: 'Responding', value: ''},
-    {name: 'Valueing', value: ''}
+    { name: 'Characteristics', value: '' },
+    { name: 'Organization', value: '' },
+    { name: 'Receiving', value: '' },
+    { name: 'Responding', value: '' },
+    { name: 'Valueing', value: '' }
   ];
-  Psycomotor  = [
-    {name: 'Fundamental', value: ''},
-    {name: 'Non-discursive', value: ''},
-    {name: 'Perceptual', value: ''},
-    {name: 'Reflex', value: ''},
-    {name: 'Skilled', value: ''}
+  Psycomotor = [
+    { name: 'Fundamental', value: '' },
+    { name: 'Non-discursive', value: '' },
+    { name: 'Perceptual', value: '' },
+    { name: 'Reflex', value: '' },
+    { name: 'Skilled', value: '' }
   ];
   CongitiveBehaviour = {};
   PyschomotorBehaviour = {};
@@ -57,7 +57,7 @@ export class StudentScoreSheetComponent implements OnInit {
   termName: any;
   selectedClass: any;
   selectedTermId: any;
-  teacherComment = {comment: ''};
+  teacherComment = { comment: '' };
 
   constructor(
     private classService: ClassService,
@@ -140,13 +140,13 @@ export class StudentScoreSheetComponent implements OnInit {
   }
 
   selectedTerm(event) {
-   this.termName = this.terms[event];
-   this.selectedTermId = this.terms[event].sequenceNumber;
+    this.termName = this.terms[event];
+    this.selectedTermId = this.terms[event].sequenceNumber;
   }
 
   selectStudent(i) {
-     this.selectedStudent = this.studentList[i];
-     this.resultService.getStudentBroadSheet(this.selectedStudent.id, this.selectedClassId).subscribe((data: any) => {
+    this.selectedStudent = this.studentList[i];
+    this.resultService.getStudentBroadSheet(this.selectedStudent.id, this.selectedClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
         this.studentRecord = data.payload.breakdowns;
@@ -197,17 +197,17 @@ export class StudentScoreSheetComponent implements OnInit {
 
   }
 
-  holdDropDown(i ) {
+  holdDropDown(i) {
     $(`#dropdownMenuLink${i}`).addClass('show-pop');
 
   }
 
-  close(i ) {
+  close(i) {
     $(`#dropdownMenuLink${i}`).removeClass('show-pop');
     console.log(this.cognitiveForm.value);
     if (this.cognitive[i].name === this.name) {
-     this.cognitive[i].value = this.cognitiveValue;
-     this.cognitive[i].value = this.cognitiveValue;
+      this.cognitive[i].value = this.cognitiveValue;
+      this.cognitive[i].value = this.cognitiveValue;
     }
     this.CongitiveBehaviour = [
       {
@@ -234,16 +234,16 @@ export class StudentScoreSheetComponent implements OnInit {
 
   }
 
-  holdDropDownFeeling(i ) {
+  holdDropDownFeeling(i) {
     $(`#dropdownMenuLink2${i}`).addClass('show-pop');
 
   }
 
-  closeFeeling(feel ) {
+  closeFeeling(feel) {
     $(`#dropdownMenuLink2${feel}`).removeClass('show-pop');
     console.log(this.affectiveForm.value);
     if (this.affective[feel].name === this.nameFeeling) {
-     this.affective[feel].value = this.feelingValue;
+      this.affective[feel].value = this.feelingValue;
     }
     this.AffectiveBehaviour = [
       {
@@ -277,17 +277,17 @@ export class StudentScoreSheetComponent implements OnInit {
     $(`#dropdownMenuLink3${u}`).addClass('show-pop');
 
   }
-  holdDropDownPsycho(i ) {
+  holdDropDownPsycho(i) {
     $(`#dropdownMenuLink3${i}`).addClass('show-pop');
 
   }
 
 
-  closePsychomotor(psycho ) {
+  closePsychomotor(psycho) {
     $(`#dropdownMenuLink3${psycho}`).removeClass('show-pop');
     console.log(this.psychomotorForm.value);
     if (this.Psycomotor[psycho].name === this.kineticeName) {
-     this.Psycomotor[psycho].value = this.psychoValue;
+      this.Psycomotor[psycho].value = this.psychoValue;
     }
     this.PyschomotorBehaviour = [
       {
@@ -315,29 +315,8 @@ export class StudentScoreSheetComponent implements OnInit {
   }
 
 
-  createResult() {
-    const resultTypeAndValue = {
-      Cognitive: this.CongitiveBehaviour,
-      Feeling: this.AffectiveBehaviour,
-      psychomotor: this.PyschomotorBehaviour
-    };
-    const result = {
-      sessionId: this.sessions.id,
-      termSequence: this.selectedTermId,
-      classId: this.selectedClassId,
-      studentId: this.selectedStudent.id,
-      resultTypeAndValues: resultTypeAndValue
-    };
-
-    console.log(result);
-
-    this.resultService.createStudentBehaviour(result).subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        console.log('behaviour', data.payload);
-      }
-    });
-
-    const {comment} = this.teacherComment;
+  SubmitStudentResults() {
+    const { comment } = this.teacherComment;
 
     const studentResult = {
       sessionId: this.sessions.id,
@@ -359,10 +338,40 @@ export class StudentScoreSheetComponent implements OnInit {
         this.notifyService.publishMessages('Result submmmited successfully', 'success', 1);
         location.reload();
       }
-  }, error => {
-    this.notifyService.publishMessages(error.payload, 'danger', 1);
+    }, error => {
+      this.notifyService.publishMessages(error.payload, 'danger', 1);
 
-  });
+    });
   }
+
+  createResult() {
+    const resultTypeAndValue = {
+      Cognitive: this.CongitiveBehaviour,
+      Feeling: this.AffectiveBehaviour,
+      psychomotor: this.PyschomotorBehaviour
+    };
+    const result = {
+      sessionId: this.sessions.id,
+      termSequence: this.selectedTermId,
+      classId: this.selectedClassId,
+      studentId: this.selectedStudent.id,
+      resultTypeAndValues: resultTypeAndValue
+    };
+
+    console.log(result);
+    // Submit student result if student behviour is submitted
+    this.resultService.createStudentBehaviour(result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log('behaviour', data.payload);
+        this.SubmitStudentResults();
+      } else {
+        this.notifyService.publishMessages(data.payload, 'danger', 1);
+      }
+    });
+
+  }
+
+
+
 }
 

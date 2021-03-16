@@ -121,7 +121,7 @@ export class FeeTypeComponent implements OnInit {
 }
 
   updateFeegroup() {
-    const {name, description, isActive} = this.feeGroupForm.value;
+    const {name, description, isActive} = this.EditfeeGroupForm.value;
     const result = {
       name,
       description,
