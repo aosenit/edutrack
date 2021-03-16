@@ -354,7 +354,7 @@
                 <div class="col-md-6">
                     <label for="account" class="">Fee Type </label>
                     <select name="" id="sex" class="form-control " name="lvel"
-                formControlName="FeegroupId" (change)="getClassBySectionId($event.target.value)">
+                formControlName="FeegroupId" >
                   <option value="" selected>Select...</option>
                   <option [value]="fee.id" *ngFor="let fee of feeGroupList">{{fee?.name}}</option>
 
