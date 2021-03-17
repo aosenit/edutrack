@@ -199,6 +199,17 @@ export class FinanceService {
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
+  getFeesById(id) {
+    const url = `${this.baseUrl + routes.viewfeeById}/${id}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+  }
+
+  UpdateFeeById(id, formdata) {
+    const url = `${this.baseUrl + routes.editfeeById}/${id}`;
+    return this.http.put(url, formdata,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+  }
 
   generteInvoices(newAccountData) {
     const url = `${this.baseUrl + routes.createInvoice}`;

@@ -290,11 +290,12 @@
                                 <td>{{averageScore}}</td>
                                 <td>{{performanceRate}}</td>
                                 <td>
-                                  <span class="fs-14 " *ngIf="classPercentage >= 75 ">  Excellent </span>
-                                  <span class="fs-14 " *ngIf="classPercentage >= 60 ">  Very Good </span>
-                                  <span class="fs-14 " *ngIf="classPercentage >= 55 ">  Good </span>
-                                  <span class="fs-14" *ngIf="classPercentage >= 50">  Fair </span>
-                                  <span class="fs-14" *ngIf="classPercentage < 49 ">  Fail </span>
+                                  <span class="fs-14 " *ngIf="classPercentage === 75 || classPercentage > 75 ">  Excellent </span>
+                                   <span class="fs-14 " *ngIf="classPercentage === 60 || classPercentage <= 74 ">  Very Good </span>
+                                   <span class="fs-14 " *ngIf="classPercentage === 55 || classPercentage <= 59">  Very Good </span>
+                                   <span class="fs-14 " *ngIf="classPercentage === 50 || classPercentage <= 54">  Very Good </span>
+                                   <span class="fs-14" *ngIf="classPercentage < 49 ">  Fail </span> 
+                                 
                                 </td>
                               </tr>
                       
@@ -317,7 +318,7 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td >Mr. Samuel Adekunle</td>
+                                <td > N/A </td>
                                 <td>{{reportSheetDetails?.classTeacherComment}}</td>
                                 <td>{{reportSheetDetails?.classTeacherSignature}}</td>
                               </tr>
@@ -341,7 +342,7 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td >Mr. Samuel Adekunle</td>
+                                <td > N/A </td>
                                 <td>{{reportSheetDetails?.headTeacherComment}}</td>
                                 <td>{{reportSheetDetails?.headTeacherSignature}}</td>
                               </tr>

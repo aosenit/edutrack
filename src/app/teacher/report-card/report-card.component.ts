@@ -211,6 +211,7 @@ getTotalExamScore() {
 
 getPercentage() {
    this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
+   console.log(this.classPercentage);
 }
 
 }

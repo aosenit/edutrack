@@ -37,6 +37,7 @@ export class ViewReportCardComponent implements OnInit {
   totalCA: number;
   totalExam: number;
   classPercentage: number;
+  studentdata: any;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -47,9 +48,19 @@ export class ViewReportCardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.studentdata = this.route.snapshot.queryParams;
+    console.log(this.studentdata);
+    const {classId, sessionId, studId, termSequenceNumber} = this.studentdata;
+    this.selectedClassId = classId;
+    this.sessionsId = sessionId,
+    this.selectedStudentID = studId;
+    this.selectedTermId = termSequenceNumber;
+
+    this.selectStudent();
     this.getClassAndSubjectForTeacher();
     this.getCurrentSesion();
     this.generateGradeSetup();
+    this.getApprovedStudentResults();
   }
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
@@ -79,7 +90,7 @@ export class ViewReportCardComponent implements OnInit {
   }
 
   generateGradeSetup() {
-    this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
+    this.parent.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log('All school grade', data.payload);
         this.gradeSetup = data.payload;
@@ -88,7 +99,7 @@ export class ViewReportCardComponent implements OnInit {
   }
 
   getCurrentSesion() {
-    this.assessmentService.getCurrentSession().subscribe((data: any) => {
+    this.parent.getSchoolSessions().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.sessions = data.payload;
         this.sessionsId = data.payload.id;
@@ -109,15 +120,12 @@ export class ViewReportCardComponent implements OnInit {
    this.selectedTermId = this.terms[event].sequenceNumber;
   }
 
-  selectStudent(i) {
-    this.selectedStudent = this.studentList[i];
-    this.selectedStudentID = this.studentList[i].id;
-    // tslint:disable-next-line:max-line-length
+  selectStudent() {
+      // tslint:disable-next-line:max-line-length
     this.parent.getStudentBehviour(this.sessionsId, this.selectedTermId, this.selectedClassId, this.selectedStudentID  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
        console.log(data.payload);
        this.studentBehaviour = data.payload.resultTypeAndValues;
-       this.getApprovedStudentResults();
       //  this.studentRecord = data.payload.breakdowns;
       //  this.assessments = data.payload.breakdowns[0].assesmentAndScores;
       //  console.log(this.assessments);
@@ -131,7 +139,7 @@ export class ViewReportCardComponent implements OnInit {
 
  getApprovedStudentResults() {
   // tslint:disable-next-line:max-line-length
-  this.resultService.getApprovedStudentResult(this.selectedStudentID, this.selectedClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
+  this.parent.getApprovedStudentResult(this.selectedStudentID, this.selectedClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
     if (data.hasErrors === false) {
       console.log(data.payload);
       this.reportSheetDetails = data.payload;
@@ -201,6 +209,10 @@ getTotalSchoolScoreForClass() {
 
 getPercentage() {
    this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
+}
+
+printpage() {
+  window.print();
 }
 
 }

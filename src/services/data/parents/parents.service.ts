@@ -44,6 +44,9 @@ const routes = {
 
   viewfile: 'schtrack-finance/api/v1/Files/GetFile',
 
+  getAllGradeSetup: 'schtrack-assessment/api/v1/GradeSetup/GetAllGradeForSchoolSetup',
+
+
 
 
 
@@ -170,7 +173,7 @@ export class ParentsService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
-  
+
 
   getTimeTableForClass(classId) {
     // const id = sessionStorage.getItem('tenant');
@@ -300,5 +303,15 @@ getFiles(id) {
   return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
 
 }
+
+
+getAllGradeSetupForSchool() {
+
+  const url = `${this.baseUrl + routes.getAllGradeSetup}`;
+  return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
+
+}
+
+
 
 }

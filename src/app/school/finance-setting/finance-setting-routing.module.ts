@@ -23,6 +23,7 @@ const routes: Routes = [
   {path: 'fee-component', component: FeeComponentComponent},
   {path: 'fee', component: FeeComponent},
   {path: 'new-fee', component: NewFeeComponent},
+  {path: 'edit-fee/:id', component: NewFeeComponent},
   {path: 'fee-type', component: FeeTypeComponent},
   {path: 'vendors', component: VendorsComponent},
   {path: 'new-vendor', component: NewVendorsComponent},
