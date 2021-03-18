@@ -31,8 +31,8 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1.5rem;
   justify-content: space-between;
   margin-top: 2.2rem;
 
