@@ -191,8 +191,8 @@
                       <th scope="col"> Total Amount </th>
                       <th scope="col"> Description </th>
                       <th scope="col"> Due Date </th>
-                      <th scope="col"> Term </th>
-                      <th scope="col"> Session </th>
+                      <!-- <th scope="col"> Term </th> -->
+                      <!-- <th scope="col"> Session </th> -->
                       <th scope="col"> Status </th>
                       <th scope="col"> Action </th>
     
@@ -215,12 +215,12 @@
                       <td class="  border-bottom  ">
                            {{history?.dueDate | date: 'mediumDate'}}
                       </td>
-                      <td class="  border-bottom  ">
+                      <!-- <td class="  border-bottom  ">
                             {{2009/2010}}
                       </td>
                       <td class="  border-bottom  ">
                            2009/2010
-                      </td>
+                      </td> -->
                       <td class="  border-bottom  ">
                         <span class="status_active" *ngIf="history?.status === 'Paid'">Paid</span>
                       </td>

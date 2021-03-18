@@ -104,6 +104,7 @@ export class NewFeeComponent implements OnInit {
           // tslint:disable-next-line:prefer-for-of
           for (let i = 0; i < this.termList.length; i++) {
             console.log(this.termList[i]);
+            // tslint:disable-next-line:triple-equals
             if (this.termList[i].sequenceNumber == v) {
               console.log('yes');
               this.termList[i].checked = true;
@@ -287,7 +288,38 @@ export class NewFeeComponent implements OnInit {
   }
 
   editCreatedFee() {
+    console.log(this.feeForm.value);
+    const { name, SchoolClassId, FeeGroupId, terms, feeComponents } = this.editFeeForm.value;
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < feeComponents.length; i++) {
+      console.log(feeComponents[i]);
+      const { amount, ComponentId, isCompulsory } = feeComponents[i];
+      const result2 = {
+        amount,
+        componentId: parseInt(ComponentId),
+        isCompulsory
+      };
+      this.newComponent.push(result2);
+    }
+    const sequenceNumber = this.sequenceCount++;
 
+    const term = this.terms.map((ids: any) => {
+      return parseInt(ids);
+    });
+    const result = {
+      name,
+      // tslint:disable-next-line:radix
+      feeGroupId: parseInt(FeeGroupId),
+      // tslint:disable-next-line:radix
+      schoolClassId: parseInt(SchoolClassId),
+      terms: term,
+      sequenceNumber,
+      isActive: this.toggleState,
+      feeComponents: this.newComponent
+
+
+    };
+    console.log(result);
   }
 
   back() {

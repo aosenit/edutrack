@@ -42,12 +42,31 @@ export class AdminService {
     userForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     body.append('phoneNumber', userForm.phoneNumber);
     const url = `${this.baseUrl + routes.newAdmin}`;
-    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } }  );
+    return this.http.put(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } }  );
+  }
+
+  getAdminByID(id) {
+    const url = `${this.baseUrl + routes.getAdmins}/${id}`;
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+
   }
 
   getAllAdmin() {
     const url = `${this.baseUrl + routes.getAdmins}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  updateAdmin(id, userForm) {
+    const body = new FormData();
+    body.append('firstName', userForm.firstName);
+    body.append('lastName', userForm.lastName);
+    body.append('userName', userForm.userName);
+    body.append('email', userForm.email);
+    body.append('Files', userForm.image);
+    userForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
+    body.append('phoneNumber', userForm.phoneNumber);
+    const url = `${this.baseUrl + routes.newAdmin}/${id}`;
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } }  );
   }
 
   deleteAdmin(id) {
