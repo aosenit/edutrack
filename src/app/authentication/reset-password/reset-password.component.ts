@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AuthService } from 'src/services/data/auth/auth.service';
 import { MustMatch } from 'src/services/utils/mustMatch';
@@ -14,14 +14,19 @@ export class ResetPasswordComponent implements OnInit {
 
   validationToken: any;
   resetPasswordForm: FormGroup;
+  verificationUrl: any;
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
+    private route: ActivatedRoute,
     private notifyService: NotificationsService,
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.verificationUrl = this.route.snapshot.queryParams;
+    const {code} = this.verificationUrl;
+    sessionStorage.setItem('tk', code);
     this.validationToken = sessionStorage.getItem('tk');
     this.resetPasswordForm = this.fb.group({
       password: ['', Validators.required],

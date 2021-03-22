@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 import { ParentsService } from 'src/services/data/parents/parents.service';
 import { TimeTableService } from 'src/services/data/time-table/time-table.service';
+import { Chart } from 'chart.js';
 
 
 @Component({
@@ -26,6 +27,14 @@ export class DashboardComponent implements OnInit {
   wardSelected = false;
   assignmentCount = 0;
   schoolList: any;
+  chart: any = [];
+
+
+  @ViewChild('lineChart', { static: true }) lineChartRef: ElementRef;
+  attendanceList: any;
+  classAttendanceList: any;
+  dashboardDatas: unknown[];
+  dashboardDataKeys: string[];
 
   constructor(
     private parentService: ParentsService,
@@ -44,6 +53,7 @@ export class DashboardComponent implements OnInit {
     this.greeting();
     this.daysofWeek();
     this.getChildInSelectedSchool();
+
   }
 
   greeting() {
@@ -60,7 +70,7 @@ export class DashboardComponent implements OnInit {
     }
   }
 
- 
+
 
   daysofWeek() {
     this.days = [
@@ -89,7 +99,7 @@ export class DashboardComponent implements OnInit {
     this.selectedWard = this.childrenList[u];
     this.noWardSelected = false;
     this.wardSelected = true;
-    
+
     sessionStorage.setItem('ward', JSON.stringify(this.childrenList[u]));
     this.wardDetail = JSON.parse(sessionStorage.getItem('ward'));
 
@@ -114,6 +124,9 @@ export class DashboardComponent implements OnInit {
       });
 
     this.getAllSubjects();
+    this.getSubjectAttendance();
+
+
     this.assignmentCount = 0;
   }
 
@@ -169,7 +182,112 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  getSubjectAttendance() {
+    this.parentService.getSubjectAttendance(this.wardDetail.id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        this.attendanceList = data.payload;
+        const newData = {};
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < this.attendanceList.length; i++) {
+          const {subjectName, noOfTimesAttended } = this.attendanceList[i];
+          console.log(subjectName, noOfTimesAttended);
+          newData[subjectName] = noOfTimesAttended;
+          console.log('new Data', newData);
+          this.dashboardDatas = Object.values(newData);
+          this.dashboardDataKeys = Object.keys(newData);
+          this.createLineChart(this.dashboardDatas);
+        }
+        console.log(this.attendanceList);
+        console.log(this.dashboardDatas);
 
+
+      }
+    });
+  }
+
+  getClassAttendanceForStudent() {
+    this.parentService.getClassAttendance(this.wardDetail.id, this.wardDetail.classID).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.classAttendanceList = data.payload;
+      }
+    });
+  }
+
+  createLineChart(dashboardData: any) {
+    const keys = [];
+    const chartKey = this.dashboardDataKeys.forEach( element => {
+      keys.push(element);
+    });
+    const classTopics = [
+      ...keys
+    ];
+    this.chart = new Chart(this.lineChartRef.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: classTopics,
+        datasets: [
+          {
+            label: 'Subjects',
+            data: dashboardData,
+            // borderColor: ['#EA2604'],
+            backgroundColor: ['#4288DC'],
+            // backgroundColor: ['#e76f51', '#ffb638', '#04b4ac', '#25554f'],
+            // hoverBorderColor: '#4288DC',
+            // hoverBorderWidth: 3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        cutoutPercentage: 70,
+        legend: {
+          display: true,
+          labelString: 'Subject Attended',
+        },
+        scales: {
+          xAxes: [
+            {
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Subjects',
+                fontColor: 'black',
+                fontFamily : 'Nunito',
+                fontSize : 16
+
+
+              },
+
+              gridLines: {
+                display: true
+              }
+            }
+          ],
+          yAxes: [
+            {
+              display: true,
+              scaleLabel: {
+                display: true,
+                // labelString: 'No of active users',
+                fontColor: 'black',
+                fontFamily : 'Nunito',
+                fontSize : 16
+
+              },
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                beginAtZero: true
+              }
+            }
+          ]
+        }
+      }
+    }
+    );
+  }
 
 
 

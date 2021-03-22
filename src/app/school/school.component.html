@@ -2,7 +2,9 @@
     <div id="sidebar">
         <div class="p-3">
             <p class="text-center">
-                <img src="assets/images/svg/logo.svg" alt="">
+                <img *ngIf="schoolLogo == null" src="assets/images/svg/logo.svg" alt=""> 
+                <img class="" *ngIf="schoolLogo" src="data:image/png;base64,{{schoolLogo}}" alt="schools log"
+                class="mr-3 school-image " id=""> 
             </p>
         </div>
         <p class="px-3 ff-s fc-grey1 fs-14">MAIN MENU</p>
@@ -431,7 +433,7 @@
         <header class="main-head sticky-top py-lg-2">
             <div class="container-fluid">
                 <div class="row lang">
-                    <div class="col-lg-8 hamburger">
+                    <div class="col-lg-8 hamburger"  (click)="toggleSideBar()">
                         <img src="assets/images/svg/hamburger.svg" alt="new client" class="">
 
                     </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { SchoolService } from 'src/services/data/school/school.service';
 
 
 @Component({
@@ -11,16 +12,19 @@ import { NotificationsService } from 'src/services/classes/notifications/notific
 })
 export class SchoolComponent implements OnInit {
   adminDetails: any;
+  schoolLogo: any;
 
   constructor(
     private router: Router,
-    private notifyService: NotificationsService
+    private notifyService: NotificationsService,
+    private school: SchoolService
     ) { }
 
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
-    console.log(this.adminDetails);
+    // console.log(this.adminDetails);
+    this.getSchoolProperties();
 
   }
 
@@ -41,6 +45,24 @@ export class SchoolComponent implements OnInit {
         initials += names[names.length - 1].substring(0, 1).toUpperCase();
     }
     return initials;
+}
+
+getSchoolProperties() {
+  this.school.getSchoolLogo(this.adminDetails.TenantId).subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      console.log(data.paylaod);
+      this.schoolLogo = data.payload;
+    }
+  });
+}
+
+
+toggleSideBar() {
+  console.log('admin');
+  const sidebar = document.querySelector('#sidebar');
+  const content = document.querySelector('#content');
+  sidebar.classList.toggle('sidebar');
+  content.classList.toggle('content');
 }
 
 }

@@ -22,6 +22,11 @@
     background: transparent;
 }
 
+.sidebar {
+    width: 0 !important;
+    display: none;
+}
+
 #sidebar.active {
     min-width: 80px;
     max-width: 80px;
@@ -36,6 +41,11 @@
     transition: margin-left .3s !important;
     background: #EBF0F5;
     min-height: 100vh;
+}
+
+.content {
+    margin-left: 0 !important;
+    width: 100%;
 }
 
 #content header {
@@ -262,4 +272,12 @@ svg #icons , svg g #icons {
 
 .row-sizing {
     padding: 1.5rem 4rem 1rem 2rem;
+}
+
+
+.school-logo {
+    width: auto;
+    height: 55px;
+    width: fit-content;
+
 }

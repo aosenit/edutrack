@@ -10,7 +10,7 @@
         <div class="revenue">
             <img src="assets/images/svg/school-amount.png" alt="card revenue icon" class="justify-items-end">
             <div class="revenue__text pt-4">
-                <h6 class=" pr-4">0</h6>
+                <h6 class=" pr-4">{{addCommas(allFee)}}</h6>
                 <p class="pt-1">NGN</p> 
             </div>
             <p>Revenue Generated</p>
@@ -18,7 +18,7 @@
         <div class="schools">
             <img src="assets/images/svg/school-students.png" alt="card school icon">
             <div class="revenue__text ">
-                <h6 class="pt-3 pr-4"> 0 </h6>
+                <h6 class="pt-3 pr-4"> {{studentCount}} </h6>
             </div>
             <p>Registered Student</p>
         </div>
@@ -26,7 +26,7 @@
             <img src="assets/images/svg/school-staff.png" alt="number of students icon">
             <div class="revenue__text ">
                 <!-- <h6 class="pt-3 pr-4"></h6> -->
-                <h6 class="pt-3 pr-4">0</h6>
+                <h6 class="pt-3 pr-4">{{staffCount}}</h6>
             </div>
             <p>No. of Employee</p>
         </div>
