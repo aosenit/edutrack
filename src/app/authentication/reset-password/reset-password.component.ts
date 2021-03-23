@@ -24,10 +24,20 @@ export class ResetPasswordComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.validationToken = sessionStorage.getItem('tk');
     this.verificationUrl = this.route.snapshot.queryParams;
     const {code} = this.verificationUrl;
-    sessionStorage.setItem('tk', code);
-    this.validationToken = sessionStorage.getItem('tk');
+
+    // console.log(this.validationToken);
+//     console.log(code);
+    if (this.validationToken === null ) {
+      sessionStorage.setItem('tk', code);
+      this.validationToken = sessionStorage.getItem('tk');
+      // console.log('no token use uRL');
+    } else {
+      this.validationToken = sessionStorage.getItem('tk');
+    }
+    // this.validationToken = sessionStorage.getItem('tk');
     this.resetPasswordForm = this.fb.group({
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required]

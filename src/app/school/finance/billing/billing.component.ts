@@ -45,7 +45,7 @@ export class BillingComponent implements OnInit {
     this.getSession();
     this.getAllFeeGroups();
     this.getAllSections();
-    this.getSession();
+    // this.getSession();
     this.getCurretSession();
     this.getAllInvoiceCreated();
     this.getAllPaymentInvoices();

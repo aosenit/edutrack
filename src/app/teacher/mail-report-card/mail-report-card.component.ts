@@ -90,6 +90,22 @@ export class MailReportCardComponent implements OnInit {
     }
   }
 
+  selectAllBoxes(i) {
+    console.log(i);
+    console.log(document.getElementsByClassName('boxes'));
+    const allBoxes: any = document.getElementsByName('boxes');
+    // tslint:disable-next-line:prefer-for-of
+    for (let index = 0; index < allBoxes.length; index++) {
+      console.log(allBoxes[index]);
+      if (allBoxes[index].type === 'checkbox') {
+
+        allBoxes[index].checked = true;
+      }
+
+    }
+
+  }
+
   getApprovedStudentResults() {
     // tslint:disable-next-line:max-line-length
     this.resultService.getStudentApprovedResults(this.classId, this.sessions.id, this.selectedTermId).subscribe((data: any) => {
@@ -106,6 +122,8 @@ export class MailReportCardComponent implements OnInit {
     });
   }
 
+  
+
   postMaiToParent() {
     document.getElementById('exampleModalCenterEndClass').click();
     const studentId = this.StudentIds.map((ids: any) => {
@@ -120,7 +138,7 @@ export class MailReportCardComponent implements OnInit {
     };
     console.log(result);
     this.resultService.mailReportSheetToParent(result).subscribe((data: any) => {
-      if (data.hasErrors === false ) {
+      if (data.hasErrors === false) {
         console.log(data.payload);
         this.notifyService.publishMessages('Email sent out', 'success', 1);
         document.getElementById('closeMailModal').click();

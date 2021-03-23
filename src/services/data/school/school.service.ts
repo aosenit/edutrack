@@ -10,7 +10,7 @@ const routes = {
   bulkUplaod: 'schtrack-auth/api/v1/School/BulkAddSchool',
   updateschoolbyid: 'schtrack-auth/api/v1/School/UpdateSchool',
   deleteschool: 'schtrack-auth/api/v1/School/DeleteSchool',
-  viewSchoolproperty: 'schtrack-auth/api/v1/School/GetSchoolLogo'
+  viewSchoolproperty: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogo'
 };
 
 @Injectable({

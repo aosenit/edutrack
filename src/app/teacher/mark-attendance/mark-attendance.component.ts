@@ -6,6 +6,8 @@ import { AttendanceService } from 'src/services/data/attendance/attendance.servi
 import { ClassService } from 'src/services/data/class/class.service';
 import * as $ from 'jquery';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
+import * as moment from 'moment';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -27,6 +29,9 @@ export class MarkAttendanceComponent implements OnInit {
   studentModels: {};
   studentAttendanceVMs = [];
   subjectClass: any;
+  todayDate: Date = new Date();
+  invalidate: true;
+
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -50,6 +55,8 @@ export class MarkAttendanceComponent implements OnInit {
       this.subjectClass = JSON.parse(sessionStorage.getItem('subject-class'));
       console.log(this.subjectClass);
       this.getSubjectAttendance();
+
+
   }
 
   populateAttendance() {
@@ -164,6 +171,16 @@ export class MarkAttendanceComponent implements OnInit {
 
   }
 
+  compareDate(e) {
+    const day = moment();
+    const today = day.format('YYYY-MM-DD');
+    if (e !== today) {
+      this.notifyService.publishMessages( `You can only pick today's date`, 'danger', 1);
+      // this.attendanceForm.invalid = true;
+    } else {
+      this.invalidate = true;
+    }
+  }
 
   submitAttendance() {
     const { dates } = this.attendanceForm.value;
@@ -182,7 +199,7 @@ export class MarkAttendanceComponent implements OnInit {
         // console.log(this.classList);
       }
     }, error => {
-      this.notifyService.publishMessages(error.errors, 'success', 1);
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
 
     });
   }

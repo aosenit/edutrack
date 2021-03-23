@@ -73,7 +73,7 @@ wardRecord = false;
   getTerms(i) {
     console.log(this.sessionList[i]);
     this.sessionId = this.sessionList[i].id;
-    console.log(this.sessionId);
+    // console.log(this.sessionId);
     this.termList = this.sessionList[i].terms;
   }
 
@@ -93,9 +93,9 @@ wardRecord = false;
 
     this.classService.getStudentsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // console.log(data.payload);
         this.studentList = data.payload;
-        console.log(this.classList);
+        // console.log(this.classList);
       }
     });
 
@@ -104,7 +104,7 @@ wardRecord = false;
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('All school grade', data.payload);
+        // console.log('All school grade', data.payload);
         this.gradeSetup = data.payload;
       }
     });
@@ -129,7 +129,7 @@ wardRecord = false;
   selectedTerm(event) {
    this.termName = this.terms[event];
    this.sessionsId = this.terms[event].id;
-   console.log(this.sessionId);
+  //  console.log(this.sessionId);
    this.selectedTermId = this.terms[event].sequenceNumber;
   }
 
@@ -137,11 +137,11 @@ wardRecord = false;
     // this.selectedStudent = this.studentList[i];
     // this.selectedStudentID = this.studentList[i].id;
     // tslint:disable-next-line:max-line-length
-    console.log(this.sessionId);
+    // console.log(this.sessionId);
     // tslint:disable-next-line:max-line-length
     this.parentService.getStudentBehviour(this.sessionId, this.selectedTermId, this.wardDetails.classID, this.wardDetails.id  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
-       console.log(data.payload);
+      //  console.log(data.payload);
        this.studentBehaviour = data.payload.resultTypeAndValues;
        this.getApprovedStudentResults();
       //  this.studentRecord = data.payload.breakdowns;
@@ -161,7 +161,7 @@ wardRecord = false;
     if (data.hasErrors === false) {
       this.wardRecord = true;
       this.noData = false;
-      console.log(data.payload);
+      // console.log(data.payload);
       this.reportSheetDetails = data.payload;
       this.studentRecord = data.payload.breakdowns;
       this.subjectoffered = data.payload.subjectOffered;
@@ -171,7 +171,7 @@ wardRecord = false;
       this.assessments = data.payload.breakdowns[0].assesmentAndScores;
       const caArray = [];
       const examArray = [];
-      console.log(this.assessments);
+      // console.log(this.assessments);
     } else {
 
       this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -186,7 +186,7 @@ wardRecord = false;
    this.parentService.getAllSubjectsInAClassByClassID(this.wardDetails.classID).subscribe((data: any) => {
      if (data.hasErrors === false) {
        const classSubjectCount: any = data.payload;
-       console.log(classSubjectCount.length);
+      //  console.log(classSubjectCount.length);
        this.classSubjectCount = classSubjectCount.length;
      }
     });
@@ -232,5 +232,20 @@ getPercentage() {
    this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
 }
 
+
+printCard() {
+  const prtContent = document.getElementById('reportHolder');
+  const newStyle = document.createElement('panel');
+  newStyle.setAttribute('type', 'text/css');
+  newStyle.setAttribute('media', 'print');
+  newStyle.append(prtContent)
+  console.log(prtContent)
+  const WinPrint = window.open('', '');
+  WinPrint.document.write(newStyle.innerHTML);
+  WinPrint.document.close();
+  WinPrint.focus();
+  WinPrint.print();
+  WinPrint.close();
+}
 
 }

@@ -49,7 +49,7 @@
           <thead>
             <tr>
               <th scope="col " class="head">
-                <div class="custom-control custom-checkbox">
+                <div class="custom-control custom-checkbox" (click)="selectAllBoxes(i)">
                   <input type="checkbox" class="custom-control-input" id="customCheckTh">
                   <label class="custom-control-label" for="customCheckTh"></label>
                 </div>
@@ -71,8 +71,8 @@
               <td scope="row" class="school-logo rounded-left" id="customtable{{i}}">
                 <!-- <div class="custom-control custom-checkbox" > -->
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheck{{i}}"
-                    [value]="student?.id" (change)="checked($event, i)" >
+                  <input type="checkbox" class="custom-control-input boxes" id="customCheck{{i}}"
+                    [value]="student?.id" (change)="checked($event, i)" name="boxes" >
                   <label class="custom-control-label" for="customCheck{{i}}"></label>
                 </div>
               </td>

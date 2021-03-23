@@ -13,6 +13,7 @@ import { SchoolService } from 'src/services/data/school/school.service';
 export class SchoolComponent implements OnInit {
   adminDetails: any;
   schoolLogo: any;
+  schoolname: any;
 
   constructor(
     private router: Router,
@@ -51,7 +52,8 @@ getSchoolProperties() {
   this.school.getSchoolLogo(this.adminDetails.TenantId).subscribe((data: any) => {
     if (data.hasErrors === false) {
       console.log(data.paylaod);
-      this.schoolLogo = data.payload;
+      this.schoolLogo = data.payload.logo;
+      this.schoolname = data.payload.schoolName;
     }
   });
 }

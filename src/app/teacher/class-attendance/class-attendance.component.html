@@ -25,11 +25,11 @@
                     </select>
                   </div>
                   <div class="col-md-3 col-sm-12 mb-4 ">
-                    <input type="date" class="form-control" formControlName="dates" name="date">
+                    <input type="date" class="form-control" formControlName="dates" name="date" (change)="compareDate($event.target.value)">
                  </div>
                  <div class="col-md-2 offset-md-2"></div>
                  <div class="col-md-2 col-sm-12 mb-4 justify-content-end">
-                  <button  class="btn bg-lblue-2  px-5 " [disabled]="attendanceForm.invalid" (click)="submitAttendance()" >
+                  <button  class="btn bg-lblue-2  px-5 " *ngIf="invalidate" (click)="submitAttendance()" >
                     Update </button>
                 </div>
                 </div>

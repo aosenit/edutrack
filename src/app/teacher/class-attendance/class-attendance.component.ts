@@ -4,6 +4,7 @@ import { ClassService } from 'src/services/data/class/class.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import * as $ from 'jquery';
+import * as moment from 'moment';
 
 
 @Component({
@@ -19,12 +20,14 @@ export class ClassAttendanceComponent implements OnInit {
   classID: any;
   studentList: any;
   date: string;
-
   attendanceForm: FormGroup;
   toggleState = 1;
   studentModels: {};
   studentAttendanceVMs = [];
   studentModel = {};
+  todayDate: Date = new Date();
+  invalidate: true;
+
 
 
   attendanceStructure = {dates: '',  attendanceStatus: Boolean, absentRemark: '' };
@@ -54,7 +57,7 @@ export class ClassAttendanceComponent implements OnInit {
   populateAttendance() {
     this.attendanceForm = this.fb.group({
       attendanceStatus: true,
-      dates: ['', Validators.required],
+      dates: [, Validators.required],
       class: '',
       Remark: ''
     });
@@ -164,6 +167,16 @@ export class ClassAttendanceComponent implements OnInit {
 
   }
 
+  compareDate(e) {
+    const day = moment();
+    const today = day.format('YYYY-MM-DD');
+    if (e !== today) {
+      this.notifyService.publishMessages( `You can only pick today's date`, 'danger', 1);
+      // this.attendanceForm.invalid = true;
+    } else {
+      this.invalidate = true;
+    }
+  }
 
   submitAttendance() {
 
@@ -186,7 +199,7 @@ export class ClassAttendanceComponent implements OnInit {
         // console.log(this.classList);
       }
     }, error => {
-      this.notifyService.publishMessages(error.errors, 'success', 1);
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
 
     });
   }
