@@ -4,6 +4,13 @@
     align-items: stretch;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
+
 #sidebar {
     width: 280px;
     position: fixed;

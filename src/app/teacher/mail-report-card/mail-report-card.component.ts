@@ -90,8 +90,7 @@ export class MailReportCardComponent implements OnInit {
     }
   }
 
-  selectAllBoxes(i) {
-    console.log(i);
+  selectAllBoxes() {
     console.log(document.getElementsByClassName('boxes'));
     const allBoxes: any = document.getElementsByName('boxes');
     // tslint:disable-next-line:prefer-for-of

@@ -14,7 +14,7 @@ export class SchoolComponent implements OnInit {
   adminDetails: any;
   schoolLogo: any;
   schoolname: any;
-
+  year: Date = new Date();
   constructor(
     private router: Router,
     private notifyService: NotificationsService,
@@ -65,6 +65,10 @@ toggleSideBar() {
   const content = document.querySelector('#content');
   sidebar.classList.toggle('sidebar');
   content.classList.toggle('content');
+}
+
+getYear() {
+  return this.year.getFullYear();
 }
 
 }

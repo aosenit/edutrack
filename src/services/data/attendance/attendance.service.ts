@@ -46,4 +46,9 @@ export class AttendanceService {
     const url = `${this.baseUrl + routes.getclassAttendance}?StudentUserId=${StudentUserId}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
+
+  getClassAttendanceForTeacher(ClassId) {
+    const url = `${this.baseUrl + routes.getclassAttendance}?ClassId=${ClassId}`;
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
 }

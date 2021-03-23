@@ -30,6 +30,7 @@ export class BillingComponent implements OnInit {
   approve = true;
   reject2 = false;
   TransactionId: any;
+  pendingInvoicesList: any;
   constructor(
     private fb: FormBuilder,
     private finance: FinanceService,
@@ -52,6 +53,7 @@ export class BillingComponent implements OnInit {
     this.getPaymentHistory();
     this.getPendingPayments();
     this.getPaymentAwwaitingApproval();
+    // this.getPendingTransactions();
   }
 
   populateInvoiceForm() {
@@ -323,5 +325,17 @@ export class BillingComponent implements OnInit {
 
     });
   }
+
+  // getPendingTransactions() {
+  //   this.finance.getPendingInvoicePayment().subscribe((data: any) => {
+  //     if (data.hasErrors === false) {
+  //       this.pendingInvoicesList = data.payload;
+  //   //  console.log(data.payload);
+  //     // this.getAllComponent();
+  //     }
+  // }, error => {
+  //   this.notifyService.publishMessages(error.message, 'danger', 1);
+  // });
+  // }
 
 }
