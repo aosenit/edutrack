@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { FinanceService } from 'src/services/data/finance/finance.service';
 import { StaffService } from 'src/services/data/staff/staff.service';
 import { StudentService } from 'src/services/data/student/student.service';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,8 +19,16 @@ export class DashboardComponent implements OnInit {
   p = 1;
   itemsPerPage = 5;
   staffCount = 0;
+  staffCount2 = 0;
   allPaymentList: any;
   allFee = 0;
+  allFee2: any;
+  chart: any = [];
+  dashboardDatas = [];
+
+  @ViewChild('lineChart', { static: true }) lineChartRef: ElementRef;
+  totalRevenue: any;
+
 
   constructor(
     private studentService: StudentService,
@@ -69,16 +78,13 @@ export class DashboardComponent implements OnInit {
     this.staffService.getAllStaffInSchool().subscribe( (data: any) => {
       if (data.hasErrors === false) {
         this.staffCount = data.payload;
-        console.log(data.payload.length);
         this.staffCount = data.payload.length;
       }
     });
 
     this.teacherService.getAllTeachers().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
-        this.staffCount += data.totalCount;
-        console.log(this.staffCount);
+        this.staffCount2 = data.totalCount;
       }
     });
   }
@@ -88,14 +94,95 @@ export class DashboardComponent implements OnInit {
     this.finance.getAllTransactions().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPaymentList = data.payload;
+        const revenue = [];
+        const totalPaid = [];
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.allPaymentList.length; i++) {
-         console.log(this.allPaymentList[i].amount);
-         this.allFee += this.allPaymentList[i].amount;
+          this.allFee += this.allPaymentList[i].amount;
+          revenue.push(this.allPaymentList[i].totalAmount);
+          this.totalRevenue = revenue.reduce((a, b) => a + b, 0);
+          totalPaid.push(this.allPaymentList[i].amount);
+          this.allFee2 = totalPaid.reduce((a, b) => a + b, 0);
 
         }
+        this.dashboardDatas.push(this.totalRevenue);
+        this.dashboardDatas.push(this.allFee2);
+        this.createLineChart(this.dashboardDatas);
       }
   });
+  }
+
+  createLineChart(dashboardData: any) {
+
+    const classTopics = [
+      'Total Revenue',
+      'Amount Paid'
+    ];
+    this.chart = new Chart(this.lineChartRef.nativeElement, {
+      type: 'pie',
+      data: {
+        labels: classTopics,
+        datasets: [
+          {
+            label: 'Revenue',
+            data: dashboardData,
+            // borderColor: ['#EA2604'],
+            // backgroundColor: ['#4288DC'],
+            backgroundColor: ['#e76f51', '#ffb638'],
+            // hoverBorderColor: '#4288DC',
+            // hoverBorderWidth: 3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        cutoutPercentage: 70,
+        legend: {
+          display: true,
+          labelString: 'Subject Attended',
+        },
+        scales: {
+          xAxes: [
+            {
+              display: false,
+              scaleLabel: {
+                display: true,
+                labelString: 'Revenue Chart',
+                fontColor: 'black',
+                fontFamily : 'Nunito',
+                fontSize : 16
+
+
+              },
+
+              gridLines: {
+                display: true
+              }
+            }
+          ],
+          yAxes: [
+            {
+              display: false,
+              scaleLabel: {
+                display: true,
+                // labelString: 'No of active users',
+                fontColor: 'black',
+                fontFamily : 'Nunito',
+                fontSize : 16
+
+              },
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                beginAtZero: true
+              }
+            }
+          ]
+        }
+      }
+    }
+    );
   }
 
   // tslint:disable-next-line:variable-name

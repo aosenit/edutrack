@@ -10,7 +10,8 @@
         <div class="profile__hero--intro bg-white br-10 py-5 pb-2 px-4 mb-3">
           <p class="banner__text-primary ">{{greet}} <span> {{loggedInUser?.given_name}} </span> </p>
           <p class="text-white" *ngIf="noWardSelected">Please select a child first</p>
-          <p class="text-white" *ngIf="wardSelected">{{wardDetail?.fullName | titlecase}} has <b class="text-danger">{{assignmentCount}}</b> pending assignment and
+          <p class="text-white" *ngIf="wardSelected">{{wardDetail?.fullName | titlecase}} has <b
+              class="text-danger">{{assignmentCount}}</b> pending assignment and
             outstanding fees</p>
         </div>
         <div class="profile__cards col-sm-12">
@@ -24,8 +25,7 @@
             <img src="assets/images/svg/assignment.svg" alt="student card" class="mr-2">
             <p class="mb-0 fw-6">Report Card</p>
           </div>
-          <div class="card3 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card col-sm-12"
-            >
+          <div class="card3 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card col-sm-12">
             <img src="assets/images/svg/medical.svg" alt="student card" class="mr-2">
             <p class="mb-0 fw-6">Medical</p>
           </div>
@@ -43,7 +43,8 @@
       <div class="profile__ward bg-white p-4">
         <p class="profile__ward_intro mb-0">Ward</p>
         <p class="profile__ward_next">Select student to display information</p>
-        <div class="d-flex ward-card p-3 mb-2 col-sm-12" *ngFor="let child of childrenList; let u = index" (click)="selectWard(child?.id, u)">
+        <div class="d-flex ward-card p-3 mb-2 col-sm-12" *ngFor="let child of childrenList; let u = index"
+          (click)="selectWard(child?.id, u)">
           <img src="assets/images/svg/student-img-nav.svg" alt="new client" class="">
           <div class="ml-3">
             <p class="mb-0 fc-lblue fw-6">{{child?.fullName | titlecase}}</p>
@@ -77,65 +78,70 @@
                 <a class="nav-link " id="pills-record-tab" data-toggle="pill" href="#pills-record" role="tab"
                   aria-controls="pills-record" aria-selected="true">Event </a>
               </li>
-      
-      
+
+
             </ul>
-      
-        </div>
-            <div>
-               
-            </div>
+
+          </div>
+          <div>
+
+          </div>
 
         </div>
 
         <!-- <div class=" mb-4 py-2 px-3"></div> -->
 
-       
+
 
         <div class="tab-content bg-white " id="pills-tabContent">
           <div class="tab-pane fade show active" id="pills-upload" role="tabpanel" aria-labelledby="pills-upload-tab">
-      
+
             <div class="date-picker mb-4 py-2 px-3 d-flex align-items-center justify-content-between">
 
-              <p class="mb-0 cursor-pointer"  *ngFor="let day of days" (click)="getNextClassesForAClass(day?.id)">
-               {{day?.day}} 
+              <p class="mb-0 cursor-pointer" *ngFor="let day of days" (click)="getNextClassesForAClass(day?.id)">
+                {{day?.day}}
               </p>
               <!-- <p class="mb-0">Tue</p>
               <p class="mb-0"><span class="today">Wed</span></p>
               <p class="mb-0">Thur</p>
               <p class="mb-0">Fri</p> -->
-              
-          </div>
-          <p class="fw-6 mb-4"> {{subjectAndTime?.length}} classes <span *ngIf="today">today</span> </p>
-  
-          <div  *ngFor="let class of subjectAndTime | slice: 0:4 ; let i = index"  >
-              <div class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center pop-card "  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >
-                  <div class="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                      <p class="fw-6 mb-0">{{class?.subjectName | titlecase}}</p>
-                      <div class="d-flex">
-                          <img src="assets/images/svg/student-time-1.svg" alt="student" class="mr-2">
-  
-                          <p class="mb-0 fs-12 fw-6">{{class?.timeFrom.hours}}:{{class?.timeFrom.minutes}} - {{class?.timeTo.hours}}:{{class?.timeTo.minutes}} </p>
-                      </div>
-                  </div> 
-                  <div class="d-flex">
-                    <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4" *ngIf="class?.hasVirtual == true">
-                    <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4" *ngIf="class?.hasVirtual == false">
 
-  
-  
+            </div>
+            <p class="fw-6 mb-4"> {{subjectAndTime?.length}} classes <span *ngIf="today">today</span> </p>
+
+            <div *ngFor="let class of subjectAndTime | slice: 0:4 ; let i = index">
+              <div
+                class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center pop-card "
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p class="fw-6 mb-0">{{class?.subjectName | titlecase}}</p>
+                  <div class="d-flex">
+                    <img src="assets/images/svg/student-time-1.svg" alt="student" class="mr-2">
+
+                    <p class="mb-0 fs-12 fw-6">{{class?.timeFrom.hours}}:{{class?.timeFrom.minutes}} -
+                      {{class?.timeTo.hours}}:{{class?.timeTo.minutes}} </p>
                   </div>
-  
-                  
-  
-             
+                </div>
+                <div class="d-flex">
+                  <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4"
+                    *ngIf="class?.hasVirtual == true">
+                  <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4"
+                    *ngIf="class?.hasVirtual == false">
+
+
+
+                </div>
+
+
+
+
               </div>
-              
-          </div>
-           
+
+            </div>
+
           </div>
           <div class="tab-pane fade " id="pills-record" role="tabpanel" aria-labelledby="pills-record-tab">
-      
+
             <div class="date-picker mb-4 py-2 px-3 d-flex align-items-center justify-content-between">
 
               <p class="mb-0">Jan</p>
@@ -143,89 +149,90 @@
               <p class="mb-0"><span class="today">Mar</span></p>
               <p class="mb-0">Apr</p>
               <p class="mb-0">May</p>
-              
-          </div>
-          <p class="fw-6 mb-4"> 2 school events this month</p>
-  
-          <div  class="dropright" >
-              <div class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center pop-card "  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >
-                  <div class="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                      <p class="fw-6 mb-0">PTA Meeting</p>
-                      <div class="d-flex">
-                          <img src="assets/images/svg/student-time-1.svg" alt="student" class="mr-2">
-  
-                          <p class="mb-0 fs-12 fw-6">12 March, 2020 </p>
-                      </div>
-                  </div> 
-                 
-  
-                  
-  
-             
-              </div>
-              <div class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center pop-card "  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  >
-                  <div class="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                      <p class="fw-6 mb-0">PTA Meeting</p>
-                      <div class="d-flex">
-                          <img src="assets/images/svg/student-time-1.svg" alt="student" class="mr-2">
-  
-                          <p class="mb-0 fs-12 fw-6">12 March, 20200 </p>
-                      </div>
-                  </div> 
+
+            </div>
+            <p class="fw-6 mb-4"> 2 school events this month</p>
+
+            <div class="dropright">
+              <div
+                class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center pop-card "
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p class="fw-6 mb-0">PTA Meeting</p>
                   <div class="d-flex">
-                      <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4" >
-                      <!-- <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4"> -->
-  
-  
+                    <img src="assets/images/svg/student-time-1.svg" alt="student" class="mr-2">
+
+                    <p class="mb-0 fs-12 fw-6">12 March, 2020 </p>
                   </div>
-  
-                  
-  
-             
+                </div>
+
+
+
+
+
               </div>
-              
-          </div>
-             
+              <div
+                class="px-4 py-2 mb-4 bg-lblue class br-10 d-flex justify-content-between align-items-center pop-card "
+                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <p class="fw-6 mb-0">PTA Meeting</p>
+                  <div class="d-flex">
+                    <img src="assets/images/svg/student-time-1.svg" alt="student" class="mr-2">
+
+                    <p class="mb-0 fs-12 fw-6">12 March, 20200 </p>
+                  </div>
+                </div>
+                <div class="d-flex">
+                  <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4">
+                  <!-- <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4"> -->
+
+
+                </div>
+
+
+
+
+              </div>
+
+            </div>
+
           </div>
         </div>
-        
-     </div>
+
+      </div>
     </div>
     <div class="col-md-8 pl-3">
-        <div class="student__chart p-4 pt-4 bg-white br-10">
-          <div class="mb-5">
-            <div class=" d-flex justify-content-between align-items-center">
-              <h6 class="fw-6 mb-0 mr-3">Attendance</h6>
-              <div class="d-flex justify-content-between class__stat">
-                <span class="mr-4 d-flex align-items-center">
-                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="4.89648" cy="4.25293" r="4" fill="#E0EFF7"/>
-                    </svg>
-                    
-                  <p class="mb-0 ml-2">Class Attended</p>
-                </span>
-                <span class="d-flex align-items-center">
-                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="4.4458" cy="4.25293" r="4" fill="#4288DC"/>
-                    </svg>
-                    
-                  <p class="mb-0 ml-2">Class held</p>
-                </span>
-              </div>
+      <div class="student__chart p-4 pt-4 bg-white br-10">
+        <div class="mb-5">
+          <div class=" d-flex justify-content-between align-items-center">
+            <h6 class="fw-6 mb-0 mr-3">Attendance</h6>
+            <div class="d-flex justify-content-between class__stat">
+              <span class="mr-4 d-flex align-items-center">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="4.89648" cy="4.25293" r="4" fill="#E0EFF7" />
+                </svg>
+
+                <p class="mb-0 ml-2">Class Attended</p>
+              </span>
+              <span class="d-flex align-items-center">
+                <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="4.4458" cy="4.25293" r="4" fill="#4288DC" />
+                </svg>
+
+                <p class="mb-0 ml-2">Class held</p>
+              </span>
             </div>
-            <div class="line mt-1"></div>
+          </div>
+          <div class="line mt-1"></div>
         </div>
         <div class="row mt-3">
           <div class="col-md-12 mt-4" style="position: relative; height:50vh; width:75vw">
-              <canvas role="img"
-        #lineChart
-        
-      >
-        {{ chart }}
-      </canvas>
+            <canvas role="img" #lineChart>
+              {{ chart }}
+            </canvas>
           </div>
-      </div>
         </div>
+      </div>
     </div>
 
   </div>

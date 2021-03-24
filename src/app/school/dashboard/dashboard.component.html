@@ -13,7 +13,7 @@
                 <h6 class=" pr-4">{{addCommas(allFee)}}</h6>
                 <p class="pt-1">NGN</p> 
             </div>
-            <p>Revenue Generated</p>
+            <p>Total Money Paid</p>
         </div>
         <div class="schools">
             <img src="assets/images/svg/school-students.png" alt="card school icon">
@@ -26,7 +26,7 @@
             <img src="assets/images/svg/school-staff.png" alt="number of students icon">
             <div class="revenue__text ">
                 <!-- <h6 class="pt-3 pr-4"></h6> -->
-                <h6 class="pt-3 pr-4">{{staffCount}}</h6>
+                <h6 class="pt-3 pr-4">{{staffCount + staffCount2}}</h6>
             </div>
             <p>No. of Employee</p>
         </div>
@@ -70,11 +70,19 @@
         <div class="info__chart">
             <div class="info__chart-info">
                 <div class="line2">
-                    <h6> Revenue by Schools</h6>
-                    <p>See the top grossing schools across the application</p>
+                    <h6> Revenue </h6>
+                    <p>See school revenue in graphical format</p>
                     <div> &nbsp;</div>
                 </div>
             </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12 mt-4" style="position: relative; height:45vh">
+                  <canvas role="img" #lineChart>
+                    {{ chart }}
+                  </canvas>
+                </div>
+              </div>
         </div>
     </section>
 </div>
