@@ -75,7 +75,7 @@ export class BillingComponent implements OnInit {
   }
 
   getPaymentHistory() {
-    this.parent.getAllPendingTransactions( this.wardDetail.id).subscribe((data: any) => {
+    this.parent.getAllPendingTransactions(this.wardDetail.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPendingPaymentList = data.payload;
         console.log(data.payload);
@@ -103,7 +103,8 @@ export class BillingComponent implements OnInit {
         console.log(data.payload);
         document.getElementById('closeReceiptModal').click();
         this.notifyService.publishMessages('Evidence uploaded successfully', 'success', 1);
-
+        this.getinvoice();
+        this.getPaymentHistory();
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
 

@@ -279,7 +279,7 @@ getInvoicesById(id) {
 }
 
 getAllPendingTransactions(StudentId) {
-  const url = `${this.baseUrl + routes.viewPendingTransaction}/${StudentId}`;
+  const url = `${this.baseUrl + routes.viewPendingTransaction}?studentId=${StudentId}`;
   return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId }});
 }
 

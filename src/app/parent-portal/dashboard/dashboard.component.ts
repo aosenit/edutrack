@@ -89,7 +89,7 @@ export class DashboardComponent implements OnInit {
   getChildInSelectedSchool() {
     this.parentService.getChildInASchoolForParent().subscribe((data: any) => {
       if (data.hasErrors === false ) {
-        console.log(data.payload);
+        // console.log(data.payload);
         this.childrenList = data.payload;
       }
     });
@@ -103,7 +103,7 @@ export class DashboardComponent implements OnInit {
     sessionStorage.setItem('ward', JSON.stringify(this.childrenList[u]));
     this.wardDetail = JSON.parse(sessionStorage.getItem('ward'));
 
-    console.log(id);
+    // console.log(id);
       // const classId = 22;
     const weekday = [
         { id: 0, day: 'Monday' },
@@ -117,10 +117,10 @@ export class DashboardComponent implements OnInit {
     this.parentService.getAllClassesForClassByDay(this.selectedWard.classID, day).subscribe((data: any) => {
         if (data.hasErrors === false) {
           this.subjectAndTime = data.payload;
-          console.log('dsds', this.subjectAndTime);
+          // console.log('dsds', this.subjectAndTime);
         }
       }, error => {
-        console.log(error);
+        // console.log(error);
       });
 
     this.getAllSubjects();
@@ -140,7 +140,7 @@ export class DashboardComponent implements OnInit {
 
       }
     }, error => {
-      console.log(error);
+      // console.log(error);
     });
   }
 
@@ -159,11 +159,11 @@ export class DashboardComponent implements OnInit {
     this.parentService.getAllClassesForClassByDay(this.selectedWard.classID, day).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
-        console.log('dsds', this.subjectAndTime);
+        // console.log('dsds', this.subjectAndTime);
 
       }
     }, error => {
-      console.log(error);
+      // console.log(error);
     });
   }
 
@@ -198,8 +198,8 @@ export class DashboardComponent implements OnInit {
           this.dashboardDataKeys = Object.keys(newData);
           this.createLineChart(this.dashboardDatas);
         }
-        console.log(this.attendanceList);
-        console.log(this.dashboardDatas);
+        // console.log(this.attendanceList);
+        // console.log(this.dashboardDatas);
 
 
       }

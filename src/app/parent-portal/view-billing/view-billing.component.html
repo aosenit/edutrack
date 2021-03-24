@@ -135,9 +135,9 @@
             </div>
 
             <div class="d-flex align-items-center justify-content-start mt-5">
-                <button class="btn-payment bill-btn mr-3" data-toggle="modal" [hidden]="parentInvoice?.outstanding > 0"
-                data-target="#exampleModalCenter3" (click)="prefilData()">Make Payment</button>
                 <button class="btn-payment bill-btn mr-3" data-toggle="modal" 
+                data-target="#exampleModalCenter3" (click)="prefilData()" [hidden]="parentInvoice?.outstanding !== parentInvoice?.totalPayable"  >Make Payment</button>
+                <button class="btn-payment bill-btn mr-3" data-toggle="modal" [hidden]="parentInvoice?.outstanding === parentInvoice?.totalPayable" 
                   data-target="#exampleModalCenter4" (click)="prefilData()">Balance Payment</button>
             </div>
         </div>

@@ -49,6 +49,8 @@ const routes = {
   editTransactionReciept: 'schtrack-finance/api/v1/Transaction/UploadTransactionReceipt',
   rejectTransaction: 'schtrack-finance/api/v1/Transaction/ApproveRejectTransaction',
   viewtransactionId: 'schtrack-finance/api/v1/Transaction/GetTransaction',
+  viewfile: 'schtrack-finance/api/v1/Files/GetFile',
+
 
 };
 
@@ -232,7 +234,7 @@ export class FinanceService {
   }
 
   getPendingInvoicePayment() {
-    const url = `${this.baseUrl + routes.getpendingInvoicepaymen}`;
+    const url = `${this.baseUrl + routes.viewPendingTransaction}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
@@ -304,5 +306,10 @@ export class FinanceService {
     const url = `${this.baseUrl + routes.rejectTransaction}`;
     return this.http.put(url, transactionData,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
+
+getFiles(id) {
+  const url = `${this.baseUrl + routes.viewfile}/${id}`;
+  return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+}
 
  }

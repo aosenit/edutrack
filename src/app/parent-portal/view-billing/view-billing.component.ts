@@ -96,7 +96,7 @@ export class ViewBillingComponent implements OnInit {
 
 
   prefilData() {
-    if (this.parentInvoice.outstanding === 0) {
+    if (this.parentInvoice.outstanding === this.parentInvoice.totalPayable) {
 
       this.createTransactionForm.patchValue({
         totalAmount: this.subTotal,

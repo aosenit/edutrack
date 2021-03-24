@@ -328,7 +328,7 @@
             <ng-template #bulkFile class="mt-5">
               <label for="fileupload"> {{assignmentFile}} </label>
             </ng-template>
-            <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)">
+            <input type="file" class="file-input" id="fileupload" accept="application/pdf" (change)="handleFileUpload($event)">
             <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
           </div>
 
@@ -371,7 +371,7 @@
         <div class="row">
           <div class="col-md-12 my-3 p-2">
               <iframe class="file-viewer p-3 bg-white w-100 "
-                [src]="' data:image/jpeg;base64,' + fileDetails | trustedUrl" style="height: 85vh; width: 100%;">
+                [src]="'  data:application/pdf;base64,' + fileDetails | trustedUrl" style="height: 85vh; width: 100%;">
                 <p>dOCUMENT VIEWR GOES HERE</p>
               </iframe>
         </div>

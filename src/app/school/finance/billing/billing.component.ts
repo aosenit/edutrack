@@ -31,6 +31,14 @@ export class BillingComponent implements OnInit {
   reject2 = false;
   TransactionId: any;
   pendingInvoicesList: any;
+  allPendingPaymentHistory: any;
+  fileName: any;
+  fileString: any;
+  studentInvoicePreview: any;
+  invData: any;
+  subTotal: number;
+  invoiceAmount = [];
+  schoolLogo: any;
   constructor(
     private fb: FormBuilder,
     private finance: FinanceService,
@@ -53,6 +61,8 @@ export class BillingComponent implements OnInit {
     this.getPaymentHistory();
     this.getPendingPayments();
     this.getPaymentAwwaitingApproval();
+
+    this.schoolLogo = sessionStorage.getItem('prop');
     // this.getPendingTransactions();
   }
 
@@ -205,6 +215,23 @@ export class BillingComponent implements OnInit {
   });
   }
 
+  previewInvoice(id) {
+    this.finance.getInvoicesById(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+      console.log(data.payload);
+      this.studentInvoicePreview = data.payload;
+      this.invData = this.studentInvoicePreview.invoiceItems;
+       // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < this.invData.length; i++) {
+          this.invoiceAmount.push(this.invData[i].amount);
+          this.subTotal = this.invoiceAmount.reduce((a, b) => a + b, 0);
+      }
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
+  }
+
   getAllPaymentInvoices() {
     this.finance.getAllTransactions().subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -234,7 +261,7 @@ export class BillingComponent implements OnInit {
   getPendingPayments() {
     this.finance.getPendingInvoicePayment().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.allPendingPaymentList = data.payload;
+        this.allPendingPaymentHistory = data.payload;
         console.log(data.payload);
       // this.getAllComponent();
       }
@@ -268,6 +295,7 @@ export class BillingComponent implements OnInit {
           paymentChannel: data.payload.paymentChannel,
           description: data.payload.description,
         });
+        this.fileName = data.payload.fileId;
       // this.getAllComponent();
       }
   }, error => {
@@ -275,6 +303,54 @@ export class BillingComponent implements OnInit {
   });
   }
 
+
+  downloadProofOfpayment(id) {
+    this.finance.getFiles(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.fileString = data.payload;
+        this.convertBase64ToExcel();
+        // const downloadLink = document.createElement('a');
+        // downloadLink.href = window.URL.createObjectURL(new Blob([data.payload], {type: 'application/pdf'}));
+        // downloadLink.setAttribute('download', 'Payment Proof');
+        // document.body.appendChild(downloadLink);
+        // downloadLink.click();
+      }
+    });
+  }
+
+  convertBase64ToExcel() {
+
+    const contentType = 'application/pdf';
+    const blob1 = this.b64toBlob(this.fileString, contentType, 512);
+    const blobUrl1 = URL.createObjectURL(blob1);
+
+    window.open(blobUrl1);
+
+  }
+
+  b64toBlob(b64Data, contentType, sliceSize) {
+    contentType = contentType || 'application/pdf';
+    sliceSize = sliceSize || 512;
+
+    const byteCharacters = window.atob(b64Data);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+
+      byteArrays.push(byteArray);
+    }
+
+    const blob = new Blob(byteArrays, { type: contentType });
+    return blob;
+  }
 
   rejectTransanction(status) {
     this.reject = true;

@@ -53,6 +53,7 @@ getSchoolProperties() {
     if (data.hasErrors === false) {
       console.log(data.paylaod);
       this.schoolLogo = data.payload.logo;
+      sessionStorage.setItem('prop', this.schoolLogo);
       this.schoolname = data.payload.schoolName;
     }
   });
