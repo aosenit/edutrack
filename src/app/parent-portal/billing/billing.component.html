@@ -97,7 +97,7 @@
                       
                       <td class="  border-bottom  ">
                         <!-- <span class="status_inactive">{{invoice?.status}}</span> -->
-                         <span class="status status_active" *ngIf="invoice?.status === 'Active'" >Active</span>
+                         <span class="status status_active" *ngIf="invoice?.status === 'Completed'" >Completed</span>
                         <span class="status status_inactive" *ngIf="invoice?.status === 'Pending'">Pending</span>
                         <span class=" status status_overdue" *ngIf="invoice?.status === 'Overdue'">Overdue</span>
                         <span class=" status status_outstanding" *ngIf="invoice?.status === 'Outstanding'">Outstanding</span>
@@ -222,7 +222,7 @@
                            2009/2010
                       </td> -->
                       <td class="  border-bottom  ">
-                        <span class="status_active" *ngIf="history?.status === 'Paid'">Paid</span>
+                        <span class=" status status_active" *ngIf="history?.status === 'Paid'">Paid</span>
                       </td>
                       <td class="border-bottom">
                         <button class="upload bg-lblue" (click)="viewFile(history?.fileId) " data-toggle="modal" data-target="#exampleModalCenter">View receipt</button>
