@@ -48,13 +48,20 @@ export class BillingComponent implements OnInit {
 
 
   handleFileUpload(event: any) {
-    const reader = new FileReader();
-    if (event.target.files.length > 0) {
+    console.log(event);
+    const upld = event.target.value.split('.').pop();
+    if (upld !== 'pdf') {
+      this.notifyService.publishMessages('Please upload evidence in form of pdf', 'danger', 1);
+    } else {
+      console.log(upld);
+      const reader = new FileReader();
+      if (event.target.files.length > 0) {
       const file = event.target.files[0];
       console.log('file', file);
       this.assignmentFile = file.name;
       this.uploadReceiptForm.get('Document').setValue(file);
       // this.iconname = this.icon.name;
+    }
     }
   }
 
