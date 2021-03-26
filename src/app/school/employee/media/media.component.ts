@@ -84,6 +84,7 @@ export class MediaComponent implements OnInit {
     const nextKin = JSON.parse(sessionStorage.getItem('employee-next-kin'));
     const experience = JSON.parse(sessionStorage.getItem('employee-experience'));
     const finalstep = this.mediaForm.value;
+    console.log(finalstep);
     const result = {
       ...profile,
       ...details,
@@ -95,10 +96,11 @@ export class MediaComponent implements OnInit {
       DocumentTypes: this.DocumentTypes
     };
     // const {StaffType} = details;
+    console.log(result.StaffType);
     // creating employer and teacher
     if (result.StaffType === '1') {
       if (this.formBtn.type === 'create') {
-        console.log('all employee data', result);
+        console.log('all teacher data', result);
         this.teacherService.addTeacher(result).subscribe((data: any) => {
           console.log('employee added', data);
           if (data.hasErrors === false) {
@@ -119,8 +121,9 @@ export class MediaComponent implements OnInit {
 
         });
       } else {
+        alert('na editing teacher');
         this.teacherService.updateTeacher(this.id, result).subscribe((data: any) => {
-          console.log('employee added', data);
+          console.log('updating teacher added', data);
           if (data.hasErrors === false) {
             this.notifyService.publishMessages(data.description, 'info', 1);
             sessionStorage.removeItem('employee-personal-data');
@@ -165,7 +168,7 @@ export class MediaComponent implements OnInit {
       } else {
         console.log('all employee data', result);
         this.staffService.updateStaff(this.id, result).subscribe((data: any) => {
-          console.log('employee added', data);
+          console.log('updating added', data);
           if (data.hasErrors === false) {
             this.notifyService.publishMessages(data.description, 'info', 1);
             sessionStorage.removeItem('employee-personal-data');

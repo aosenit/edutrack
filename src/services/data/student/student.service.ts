@@ -113,7 +113,7 @@ export class StudentService {
       body.append('immunizationVms[' + i + '].vaccine', immunizationVms[i].vaccine);
     }
     const url = `${this.baseUrl + routes.updatestudentbyid}/${id}`;
-    return this.http.put(url, updateStudentForm, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    return this.http.put(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 

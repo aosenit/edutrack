@@ -54,10 +54,6 @@ DocumentTypes: number[] = [];
     this.finalStepForm = this.fb.group({
       profilePhoto: null
     });
-    this.formBtn = {
-      type: 'Update',
-      text: 'Update Student'
-    };
   }
 
   createStudent() {
@@ -76,8 +72,7 @@ DocumentTypes: number[] = [];
       DocumentTypes: this.DocumentTypes
     };
     console.log('VERIFY PARENT ID', result.ParentId);
-    if (this.formBtn.type === 'create') {
-      this.studentService.addStudent(result).subscribe((data: any) => {
+    this.studentService.addStudent(result).subscribe((data: any) => {
         console.log('student created', data);
         if ( data.hasErrors === false) {
           console.log(data);
@@ -92,9 +87,27 @@ DocumentTypes: number[] = [];
       }, error => {
         this.notifyService.publishMessages( error.errors, 'success', 1);
       });
-    } else {
-      console.log('result', result);
-      this.studentService.updateStudent(this.studentid, result).subscribe((data: any) => {
+  }
+
+
+  updateStudent() {
+    const basicDetials = JSON.parse(sessionStorage.getItem('student-basic-details')) ;
+    const contactDetails = JSON.parse(sessionStorage.getItem('student-social-details')) ;
+    const socialDetails = JSON.parse(sessionStorage.getItem('Student-contact-details')) ;
+    const medicalDetails = JSON.parse(sessionStorage.getItem('student-medical-details')) ;
+    const finals = this.finalStepForm.value;
+
+    const result = {
+      ...basicDetials,
+      ...contactDetails,
+      ...socialDetails,
+      ...medicalDetails,
+      ...finals,
+      DocumentTypes: this.DocumentTypes
+    };
+    console.log('VERIFY PARENT ID', result.ParentId);
+    console.log('result', result);
+    this.studentService.updateStudent(this.studentid, result).subscribe((data: any) => {
         console.log('student updated', data);
         if ( data.hasErrors === false) {
           console.log(data);
@@ -114,9 +127,7 @@ DocumentTypes: number[] = [];
       }, error => {
         this.notifyService.publishMessages( error.errors, 'danger', 1);
       });
-    }
   }
-
 
   handleImgUpload(event: any) {
     const reader = new FileReader();
