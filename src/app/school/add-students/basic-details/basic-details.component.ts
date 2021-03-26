@@ -5,6 +5,7 @@ import { countries } from '../../../../services/utils/country.json';
 import { ParentsService } from 'src/services/data/parents/parents.service';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { ActivatedRoute, Params } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-basic-details',
@@ -106,7 +107,6 @@ export class BasicDetailsComponent implements OnInit {
 
   getActivetab() {
     this.basicDetails = JSON.parse(sessionStorage.getItem('student-basic-details'));
-
     if (sessionStorage.getItem('student-basic-details') !== null) {
       console.log(`student  exists`);
       this.basicDetailsForm.patchValue({
@@ -115,7 +115,7 @@ export class BasicDetailsComponent implements OnInit {
         OtherNames: this.basicDetails.OtherNames,
         MothersMaidenName: this.basicDetails.MothersMaidenName,
         Sex: this.basicDetails.Sex,
-        DateOfBirth: this.basicDetails.DateOfBirth,
+        DateOfBirth: moment(this.basicDetails.DateOfBirth).format('YYYY-MM-DD'),
         Religion: this.basicDetails.Religion,
         Nationality: this.basicDetails.Nationality,
         ParentId: this.basicDetails.ParentId,

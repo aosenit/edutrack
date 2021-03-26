@@ -4,6 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { ClassService } from 'src/services/data/class/class.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import { AddStudentsComponent } from '../add-students.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-social-details',
@@ -100,7 +101,7 @@ export class SocialDetailsComponent implements OnInit {
       console.log(`Student social details exists`);
       this.socialDetailsForm.patchValue({
         EntryType: this.socialDetails.EntryType,
-      AdmissionDate: this.socialDetails.AdmissionDate,
+      AdmissionDate: moment(this.socialDetails.admissionDate).format('YYYY-MM-DD'),
       SectionId : this.socialDetails.SectionId,
       ClassId : this.socialDetails.ClassId,
       StudentType: this.socialDetails.StudentType,

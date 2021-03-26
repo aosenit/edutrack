@@ -56,7 +56,7 @@ export class StaffService {
     body.append('ContactDetails.State', form.State);
     body.append('ContactDetails.Town', form.Town);
     body.append('NextOfKin.NextKinAddress', form.NextKinAddress);
-    body.append('NextOfKin.NextKinCity', form.NextKinCity);
+    body.append('NextOfKin.NextKinTown', form.NextKinTown);
     body.append('NextOfKin.NextKinCountry', form.NextKinCountry);
     body.append('NextOfKin.NextKinFirstName', form.NextKinLastName);
     body.append('NextOfKin.NextKinLastName', form.NextKinLastName);
@@ -139,7 +139,7 @@ export class StaffService {
     body.append('ContactDetails.State', form.State);
     body.append('ContactDetails.Town', form.Town);
     body.append('NextOfKin.NextKinAddress', form.NextKinAddress);
-    body.append('NextOfKin.NextKinCity', form.NextKinCity);
+    body.append('NextOfKin.NextKinTown', form.NextKinTown);
     body.append('NextOfKin.NextKinCountry', form.NextKinCountry);
     body.append('NextOfKin.NextKinFirstName', form.NextKinLastName);
     body.append('NextOfKin.NextKinLastName', form.NextKinLastName);

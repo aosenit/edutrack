@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EmployeeComponent } from '../employee.component';
 import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-work-experience',
@@ -82,14 +83,27 @@ populateEmployeeExperienceForm() {
 
   getProfileInformation() {
     const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < payload.workExperienceVMs.length; i++) {
-      console.log('asasaass', payload.workExperienceVMs[i]);
-      this.employeeWorkExperienceForm.patchValue({
-        WorkExperienceVMs: payload.workExperienceVMs
-      });
-    }
+
+    this.employeeWorkExperienceForm.setControl('WorkExperienceVMs', this.setExistingComponent(payload.workExperienceVMs));
+
   }
+
+  setExistingComponent(data: any) {
+    const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
+
+    const formArray = new FormArray([]);
+    for (const x of data) {
+      console.log(x);
+      formArray.push(this.fb.group({
+       workRole: x.workRole,
+       workCompanyName: x.workCompanyName,
+       startTime: moment(x.endDate).format('YYYY-MM-DD'),
+       endTime: moment(x.startDate).format('YYYY-MM-DD'),
+     }));
+   }
+
+    return formArray;
+ }
 
 
 }

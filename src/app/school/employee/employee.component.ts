@@ -41,6 +41,12 @@ export class EmployeeComponent implements OnInit {
   }
 
   back() {
+    sessionStorage.removeItem('employee-personal-data');
+    sessionStorage.removeItem('Employee-Data');
+    sessionStorage.removeItem('employee-contact-details');
+    sessionStorage.removeItem('employee-education');
+    sessionStorage.removeItem('employee-next-kin');
+    sessionStorage.removeItem('employee-experience');
     window.history.back();
   }
 

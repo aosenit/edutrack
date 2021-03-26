@@ -3,6 +3,7 @@ import { EmployeeComponent } from '../employee.component';
 import { countries } from '../../../../services/utils/country.json';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { ActivatedRoute, ActivationEnd, Params } from '@angular/router';
+import * as moment from 'moment';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class EducationComponent implements OnInit {
 
   @Output() sendChildName = new EventEmitter<string>();
   constructor(
-    private home: EmployeeComponent, 
+    private home: EmployeeComponent,
     private fb: FormBuilder,
     private route: ActivatedRoute) { }
 
@@ -83,14 +84,45 @@ export class EducationComponent implements OnInit {
 
   getProfileInformation() {
     const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
+
     // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < payload.educationExperienceVMs.length; i++) {
-      console.log('asasaass', payload.educationExperienceVMs[i]);
-    }
-    this.EmployeeEducationForm.patchValue({
-        EducationExperienceVMs: payload.educationExperienceVMs,
-    });
+    // for (let i = 0; i < payload.educationExperienceVMs.length; i++) {
+    //   console.log('asasaass', payload.educationExperienceVMs[i]);
+    //   const newData = this.EmployeeEducationForm.controls.EducationExperienceVMs.value;
+    //   // tslint:disable-next-line:prefer-for-of
+    //   for (let j = 0; j < newData.length; j++) {
+    //     newData[j].educationSchoolName = payload.educationExperienceVMs[i].educationSchoolName;
+    //     newData[j].educationSchoolQualification = payload.educationExperienceVMs[i].educationSchoolQualification;
+    //     newData[j].endDate = moment(payload.educationExperienceVMs[i].endDate).format('YYYY-MM-DD');
+    //     newData[j].startDate = moment(payload.educationExperienceVMs[i].startDate).format('YYYY-MM-DD');
+    //   }
+    //   console.log(newData);
+
+    //   // this.EmployeeEducationForm.patchValue({
+    //   //     EducationExperienceVMs: payload.educationExperienceVMs.educationSchoolName,
+    //   // });
+
+    // }
+    this.EmployeeEducationForm.setControl('EducationExperienceVMs', this.setExistingComponent(payload.educationExperienceVMs));
+
   }
+
+  setExistingComponent(data: any) {
+    const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
+
+    const formArray = new FormArray([]);
+    for (const x of data) {
+      console.log(x);
+      formArray.push(this.fb.group({
+       educationSchoolName: x.educationSchoolName,
+       educationSchoolQualification: x.educationSchoolQualification,
+       startDate: moment(x.endDate).format('YYYY-MM-DD'),
+       endDate: moment(x.startDate).format('YYYY-MM-DD'),
+     }));
+   }
+
+    return formArray;
+ }
 
 
 }

@@ -67,7 +67,7 @@ export class TeacherService {
     body.append('ContactDetails.State', form.State);
     body.append('ContactDetails.Town', form.Town);
     body.append('NextOfKin.NextKinAddress', form.NextKinAddress);
-    body.append('NextOfKin.NextKinCity', form.NextKinCity);
+    body.append('NextOfKin.NextKinTown', form.NextKinTown);
     body.append('NextOfKin.NextKinCountry', form.NextKinCountry);
     body.append('NextOfKin.NextKinFirstName', form.NextKinLastName);
     body.append('NextOfKin.NextKinLastName', form.NextKinLastName);
@@ -145,7 +145,7 @@ export class TeacherService {
    body.append('ContactDetails.State', form.State);
    body.append('ContactDetails.Town', form.Town);
    body.append('NextOfKin.NextKinAddress', form.NextKinAddress);
-   body.append('NextOfKin.NextKinCity', form.NextKinCity);
+   body.append('NextOfKin.NextKinTown', form.NextKinTown);
    body.append('NextOfKin.NextKinCountry', form.NextKinCountry);
    body.append('NextOfKin.NextKinFirstName', form.NextKinLastName);
    body.append('NextOfKin.NextKinLastName', form.NextKinLastName);
@@ -214,9 +214,7 @@ export class TeacherService {
   }
 
   attachTeacherToClass(result) {
-
     const url = `${this.baseUrl + routes.attachteachertoclass}`;
-
     return this.http.put(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }

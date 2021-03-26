@@ -22,10 +22,10 @@ export class MediaComponent implements OnInit {
   photo = [];
   mediaForm: FormGroup;
   DocumentTypes: number[] = [];
-  formBtn = {
-    type: 'create',
-    text: 'Create'
-  };
+  // formBtn = {
+  //   type: 'create',
+  //   text: 'Create'
+  // };
   id: any;
 
 
@@ -70,10 +70,6 @@ export class MediaComponent implements OnInit {
       signature: [null]
     });
 
-    this.formBtn = {
-      type: 'Update',
-      text: 'Update'
-    };
   }
 
   createEmployee() {
@@ -99,8 +95,6 @@ export class MediaComponent implements OnInit {
     console.log(result.StaffType);
     // creating employer and teacher
     if (result.StaffType === '1') {
-      if (this.formBtn.type === 'create') {
-        console.log('all teacher data', result);
         this.teacherService.addTeacher(result).subscribe((data: any) => {
           console.log('employee added', data);
           if (data.hasErrors === false) {
@@ -111,7 +105,7 @@ export class MediaComponent implements OnInit {
             sessionStorage.removeItem('employee-education');
             sessionStorage.removeItem('employee-next-kin');
             sessionStorage.removeItem('employee-experience');
-            this.router.navigateByUrl('/school/employees');
+            this.router.navigateByUrl('/school/teacher');
           } else {
 
             this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -120,31 +114,8 @@ export class MediaComponent implements OnInit {
           this.notifyService.publishMessages(error.errors, 'danger', 1);
 
         });
-      } else {
-        alert('na editing teacher');
-        this.teacherService.updateTeacher(this.id, result).subscribe((data: any) => {
-          console.log('updating teacher added', data);
-          if (data.hasErrors === false) {
-            this.notifyService.publishMessages(data.description, 'info', 1);
-            sessionStorage.removeItem('employee-personal-data');
-            sessionStorage.removeItem('Employee-Data');
-            sessionStorage.removeItem('employee-contact-details');
-            sessionStorage.removeItem('employee-education');
-            sessionStorage.removeItem('employee-next-kin');
-            sessionStorage.removeItem('employee-experience');
-            this.router.navigateByUrl('/school/employees');
-          } else {
-            this.notifyService.publishMessages(data.errors, 'danger', 1);
 
-          }
-        }, error => {
-          this.notifyService.publishMessages(error.errors, 'danger', 1);
-
-        });
-      }
-
-    } else if (result.StaffType !== '1') {
-      if (this.formBtn.type === 'create') {
+    } else {
         console.log('all employee data', result);
         this.staffService.addStaff(result).subscribe((data: any) => {
           console.log('employee added', data);
@@ -165,7 +136,55 @@ export class MediaComponent implements OnInit {
           this.notifyService.publishMessages(error.errors, 'danger', 1);
 
         });
-      } else {
+      }
+    }
+
+
+  updateEmployee() {
+
+    const profile = JSON.parse(sessionStorage.getItem('employee-personal-data'));
+    const details = JSON.parse(sessionStorage.getItem('Employee-Data'));
+    const contactperson = JSON.parse(sessionStorage.getItem('employee-contact-details'));
+    const education = JSON.parse(sessionStorage.getItem('employee-education'));
+    const nextKin = JSON.parse(sessionStorage.getItem('employee-next-kin'));
+    const experience = JSON.parse(sessionStorage.getItem('employee-experience'));
+    const finalstep = this.mediaForm.value;
+    console.log(finalstep);
+    const result = {
+      ...profile,
+      ...details,
+      ...contactperson,
+      ...education,
+      ...nextKin,
+      ...experience,
+      ...finalstep,
+      DocumentTypes: this.DocumentTypes
+    };
+    // const {StaffType} = details;
+    console.log(result.StaffType);
+    // creating employer and teacher
+    if (result.StaffType == '1') {
+
+        this.teacherService.updateTeacher(this.id, result).subscribe((data: any) => {
+          console.log('updating teacher added', data);
+          if (data.hasErrors === false) {
+            this.notifyService.publishMessages(data.description, 'info', 1);
+            sessionStorage.removeItem('employee-personal-data');
+            sessionStorage.removeItem('Employee-Data');
+            sessionStorage.removeItem('employee-contact-details');
+            sessionStorage.removeItem('employee-education');
+            sessionStorage.removeItem('employee-next-kin');
+            sessionStorage.removeItem('employee-experience');
+            this.router.navigateByUrl('/school/teacher');
+          } else {
+            this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+          }
+        }, error => {
+          this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+        });
+      } else if (result.StaffType == '2') {
         console.log('all employee data', result);
         this.staffService.updateStaff(this.id, result).subscribe((data: any) => {
           console.log('updating added', data);
@@ -188,9 +207,7 @@ export class MediaComponent implements OnInit {
         });
       }
 
-    }
   }
-
 
 
   handlePhotoUpload(event: any) {

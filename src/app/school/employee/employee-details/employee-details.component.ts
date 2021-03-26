@@ -3,7 +3,7 @@ import { EmployeeComponent } from '../employee.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DepartmentService } from 'src/services/data/department/department.service';
 import { ActivatedRoute, Params } from '@angular/router';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-employee-details',
   templateUrl: './employee-details.component.html',
@@ -105,7 +105,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
   getProfileInformation() {
     const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
-    console.log(payload.employeeDetails)
+    console.log(payload.employeeDetails);
     this.employeeForm.patchValue({
       StaffType: payload.employmentDetails.staffType,
       EmploymentStatus: payload.employmentDetails.employmentStatus,
@@ -113,8 +113,8 @@ export class EmployeeDetailsComponent implements OnInit {
       JobTitle: payload.employmentDetails.jobTitle,
       DepartmentId: payload.employmentDetails.departmentId,
       PayGrade: payload.employmentDetails.payGrade,
-      EmploymentDate: payload.employmentDetails.employmentDate,
-      ResumptionDate: payload.employmentDetails.resumptionDate
+      EmploymentDate: moment(payload.employmentDetails.employmentDate).format('YYYY-MM-DD'),
+      ResumptionDate: moment(payload.employmentDetails.resumptionDate).format('YYYY-MM-DD')
     });
   }
 
