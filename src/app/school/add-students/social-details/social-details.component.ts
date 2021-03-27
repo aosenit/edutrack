@@ -116,10 +116,10 @@ export class SocialDetailsComponent implements OnInit {
     console.log('na the paylod', payload);
     this.socialDetailsForm.patchValue({
       EntryType: payload.EntryType,
-    AdmissionDate: payload.admissionDate,
-    // SectionId : payload.section,
-    // ClassId : payload.class,
-    // StudentType: payload.studentType,
+    AdmissionDate: moment(payload.admissionDate).format('YYYY-MM-DD'),
+    SectionId : payload.SectionId,
+      ClassId : payload.ClassId,
+      StudentType: payload.StudentType,
     });
 
   }

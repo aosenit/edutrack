@@ -116,8 +116,8 @@ export class EducationComponent implements OnInit {
       formArray.push(this.fb.group({
        educationSchoolName: x.educationSchoolName,
        educationSchoolQualification: x.educationSchoolQualification,
-       startDate: moment(x.endDate).format('YYYY-MM-DD'),
-       endDate: moment(x.startDate).format('YYYY-MM-DD'),
+       startDate: moment(x.startDate).format('YYYY-MM-DD'),
+       endDate: moment(x.endDate).format('YYYY-MM-DD'),
      }));
    }
 

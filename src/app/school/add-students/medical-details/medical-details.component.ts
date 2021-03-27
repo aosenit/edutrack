@@ -1,6 +1,7 @@
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
+import * as moment from 'moment';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { StudentService } from 'src/services/data/student/student.service';
 import { AddStudentsComponent } from '../add-students.component';
@@ -107,6 +108,25 @@ export class MedicalDetailsComponent implements OnInit {
       // immunizationVms: payload.immunizationVms
     });
 
+    // this.medicalForm.setControl('immunizationVms', this.setExistingComponent(payload.immunizationVms));
+
+
   }
+
+  setExistingComponent(data: any) {
+    const payload = JSON.parse(sessionStorage.getItem('all-student-info'));
+
+    const formArray = new FormArray([]);
+    for (const x of data) {
+      console.log(x);
+      formArray.push(this.fb.group({
+       age: x.age,
+       date: moment(x.date).format('YYYY-MM-DD'),
+       vaccine: x.vaccine,
+     }));
+   }
+
+    return formArray;
+ }
 
 }

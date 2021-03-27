@@ -137,7 +137,7 @@ export class ParentsService {
     formData.append('Status', updateParentForm.Status);
     formData.append('Title', updateParentForm.Title);
     const url = `${this.baseUrl + routes.updateparentbyid}/${id}`;
-    return this.http.put(url, updateParentForm, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+    return this.http.put(url, formData, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
