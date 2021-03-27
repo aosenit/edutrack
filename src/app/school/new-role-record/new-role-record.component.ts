@@ -116,9 +116,12 @@ export class NewRoleRecordComponent implements OnInit {
     this.adminService.getAllPermissionForRoleById(this.roleId).subscribe((data: any) => {
       if (data.hasErrors === false) {
           console.log(data.payload);
+          this.roleData.name = data.payload.roleName;
+          // this.roleData.permissions = data.payload.permission;
+
           const tires = [];
 
-          from(data.payload)
+          from(this.allRoles)
           .pipe(
             groupBy(
               (person: any) => person.name.split('_')[0]
@@ -127,9 +130,16 @@ export class NewRoleRecordComponent implements OnInit {
           )
           .subscribe(xy => {
             console.log('levels', ...xy);
+
             tires.push(xy);
           });
-          this.newList = tires;
+          const newList2 = tires;
+          // console.log(newList2);
+          // tslint:disable-next-line:prefer-for-of
+          // for (let i = 0; i < newList2.length; i++) {
+          //   console.log(newList2[i][0]);
+          //   if (newList2[i][0] && newList2[i][1].id === )
+          // }
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
 
@@ -142,6 +152,24 @@ export class NewRoleRecordComponent implements OnInit {
 
   prefillpermissions() {
 
+  }
+
+  updateRoles() {
+    const {name, permissions} = this.roleData;
+    const  permissionIds = permissions.map((i) => Number(i));
+    console.log(permissionIds);
+    const result = {
+      name,
+      permissionIds
+    };
+    console.log(result);
+    // this.adminService.createRoles(result).subscribe((data: any) => {
+    //   // console.log(data);
+    //   this.notifyService.publishMessages('Roles created successfully', 'info', 1);
+    //   this.router.navigateByUrl('/school/account-settings');
+    // }, error => {
+    //   this.notifyService.publishMessages(error.errors, 'danger', 1);
+    // });
   }
 
 

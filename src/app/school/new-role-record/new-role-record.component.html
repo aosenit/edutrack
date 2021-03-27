@@ -97,13 +97,14 @@
 
             <div class="d-flex justify-content-center align-items-center">
               <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="createRoles()"> Create </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [hidden]="roleId"  (click)="createRoles()"> Create </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [hidden]="!roleId"  (click)="updateRoles()"> Update </button>
 
             </div>
           </div>
         </div>
         <div class="tab-pane fade" id="v-pills-schedule" role="tabpanel" aria-labelledby="v-pills-schedule-tab">
-          <div class="user__permission">
+          <div class="user__permission table-responsive">
             <table class="table table-borderless client-table">
               <thead>
                 <tr>

@@ -246,15 +246,15 @@
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="#" [routerLink]="['/school/finance-setting/bank-account']"  routerLinkActive="active"> Bank Account </a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
                         <a href="#" [routerLink]="['/school/finance-setting/vendors']"  routerLinkActive="active"> Vendors</a>
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
                         <a href="#" [routerLink]="['/school/finance-setting/discount']"  routerLinkActive="active"> Discount </a>
-                    </li>
-                    <li class="  text-white  d-flex justify-content-start align-items-center">
-                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/finance-setting/bank-account']"  routerLinkActive="active"> Bank Account </a>
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
@@ -432,15 +432,15 @@
     <div id="content">
         <header class="main-head sticky-top py-lg-2">
             <div class="container-fluid">
-                <div class="row lang">
-                    <div class="col-lg-8 hamburger d-flex align-items-center"  (click)="toggleSideBar()">
+                <div class="row d-flex justify-content-between lang">
+                    <div class=" hamburger d-flex align-items-center"  (click)="toggleSideBar()">
                         <img src="assets/images/svg/hamburger.svg" alt="new client" class="">
                         <p class="mb-0 fw-6 ml-4" style="font-size: 21px;"> {{schoolname | titlecase}}</p>
                     </div>
-                    <div class="col-lg-4  ">
+                    <div class="  ">
                         <div class="d-flex row align-center justify-content-center ">
-                            <img src="assets/images/svg/bell.svg" alt="new client" class="mr-5 notification">
-                            <span class="count">2</span>
+                            <!-- <img src="assets/images/svg/bell.svg" alt="new client" class="mr-5 notification">
+                            <span class="count">2</span> -->
 
                             <div class="profile mr-5">
                                 <div class="profile-intials"> <p> {{getInitials(adminDetails.given_name + ' ' + adminDetails.family_name )}} </p></div>

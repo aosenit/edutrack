@@ -135,16 +135,17 @@ export class NewFeeComponent implements OnInit {
 
 
   setExistingComponent(data: any): FormArray {
-    const fArray = new FormArray([]);
-    data.forEach(element => {
-      fArray.push(this.fb.group({
-        ComponentId: element.componentId,
-        amount: element.amount,
-        isCompulsory: element.isCompulsory,
+    const formArray = new FormArray([]);
+    for (const x of data) {
+      console.log(x);
+      formArray.push(this.fb.group({
+        ComponentId: x.componentId,
+        amount: x.amount,
+        isCompulsory: x.isCompulsory,
       }));
-    });
-    console.log(fArray);
-    return fArray;
+   }
+
+    return formArray;
   }
 
   addComponent() {
