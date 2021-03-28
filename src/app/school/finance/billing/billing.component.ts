@@ -5,7 +5,8 @@ import { AssessmentService } from 'src/services/data/assessment/assessment.servi
 import { ClassService } from 'src/services/data/class/class.service';
 import { FinanceService } from 'src/services/data/finance/finance.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
-
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-billing',
   templateUrl: './billing.component.html',
@@ -413,5 +414,25 @@ export class BillingComponent implements OnInit {
   //   this.notifyService.publishMessages(error.message, 'danger', 1);
   // });
   // }
+
+  print() {
+    const data = document.getElementById('invoice');
+    html2canvas(data).then(canvas => {
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imageWidth = canvas.width;
+      const imageHeight = canvas.height;
+      const ratio = imageWidth / imageHeight >= pageWidth / pageHeight ? pageWidth / imageWidth : pageHeight / imageHeight;
+      const position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imageWidth * ratio, imageHeight * ratio);
+      pdf.save(`Invoice ${this.studentInvoicePreview.invoiceNumber}.pdf`); // Generated PDF
+    });
+
+
+
+  }
 
 }

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { ParentsService } from 'src/services/data/parents/parents.service';
-
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-billing',
   templateUrl: './billing.component.html',
@@ -19,6 +20,11 @@ export class BillingComponent implements OnInit {
   totalMoneyPaid = 0;
   paymentCount: any;
   fileDetails: any;
+  studentInvoicePreview: any;
+  invData: any;
+  subTotal: number;
+  invoiceAmount = [];
+  schoolLogo: any;
   constructor(
     private fb: FormBuilder,
     private parent: ParentsService,
@@ -148,6 +154,43 @@ export class BillingComponent implements OnInit {
     });
   }
 
+  previewInvoice(id) {
+    this.parent.getInvoicesById(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+      console.log(data.payload);
+      this.studentInvoicePreview = data.payload;
+      this.invData = this.studentInvoicePreview.invoiceItems;
+       // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < this.invData.length; i++) {
+          this.invoiceAmount.push(this.invData[i].amount);
+          this.subTotal = this.invoiceAmount.reduce((a, b) => a + b, 0);
+      }
+      }
+  }, error => {
+    this.notifyService.publishMessages(error.message, 'danger', 1);
+  });
+  }
+
+
+  print() {
+    const data = document.getElementById('invoice');
+    html2canvas(data).then(canvas => {
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imageWidth = canvas.width;
+      const imageHeight = canvas.height;
+      const ratio = imageWidth / imageHeight >= pageWidth / pageHeight ? pageWidth / imageWidth : pageHeight / imageHeight;
+      const position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imageWidth * ratio, imageHeight * ratio);
+      pdf.save(`Invoice ${this.studentInvoicePreview.invoiceNumber}.pdf`); // Generated PDF
+    });
+
+
+
+  }
 
   // tslint:disable-next-line:variable-name
 addCommas(number: any) {
@@ -158,5 +201,7 @@ addCommas(number: any) {
 
   return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
+
+
 
 }

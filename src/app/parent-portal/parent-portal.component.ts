@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
@@ -12,6 +12,7 @@ import { ParentsService } from 'src/services/data/parents/parents.service';
 export class ParentPortalComponent implements OnInit {
   loggedInUser: any;
   schoolList: any;
+  childrenList: any;
 
   constructor(
     private router: Router,
@@ -37,8 +38,21 @@ export class ParentPortalComponent implements OnInit {
     });
   }
 
+  getChildInSelectedSchool() {
+    this.parentService.getChildInASchoolForParent().subscribe((data: any) => {
+      if (data.hasErrors === false ) {
+        console.log(data.payload);
+        this.childrenList = data.payload;
+      }
+    });
+  }
+
+
   getTenantId(id) {
     sessionStorage.setItem('tenant', id);
+    location.reload();
+    this.getChildInSelectedSchool();
+
 
   }
 
@@ -50,5 +64,9 @@ export class ParentPortalComponent implements OnInit {
 
     }, 2000);
   }
+
+//   ngOnDestroy() {
+//     this.childrenList.unsubscribe();
+// }
 
 }

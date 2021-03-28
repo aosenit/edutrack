@@ -5,7 +5,8 @@ import { AssessmentService } from 'src/services/data/assessment/assessment.servi
 import { ClassService } from 'src/services/data/class/class.service';
 import { ParentsService } from 'src/services/data/parents/parents.service';
 import { ResultService } from 'src/services/data/result/result.service';
-
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-report-card',
   templateUrl: './report-card.component.html',
@@ -44,6 +45,7 @@ wardRecord = false;
   classPercentage: number;
   wardDetails: any;
   studentName: any;
+  schoolProp: any;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -82,6 +84,7 @@ wardRecord = false;
     this.selectedTermId = event;
     this.selectStudent();
     this.getApprovedStudentResults();
+    this.getSchoolProperty();
   }
 
 
@@ -238,14 +241,39 @@ printCard() {
   const newStyle = document.createElement('panel');
   newStyle.setAttribute('type', 'text/css');
   newStyle.setAttribute('media', 'print');
-  newStyle.append(prtContent)
-  console.log(prtContent)
+  newStyle.append(prtContent);
+  console.log(prtContent);
   const WinPrint = window.open('', '');
   WinPrint.document.write(newStyle.innerHTML);
   WinPrint.document.close();
   WinPrint.focus();
   WinPrint.print();
   WinPrint.close();
+}
+
+getSchoolProperty() {
+  this.parentService.getSchoolLogo().subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      this.schoolProp = data.payload;
+    }
+  });
+}
+
+exportReport() {
+  const data = document.getElementById('reportCard');
+  html2canvas(data).then(canvas => {
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imageWidth = canvas.width;
+      const imageHeight = canvas.height;
+      const ratio = imageWidth / imageHeight >= pageWidth / pageHeight ? pageWidth / imageWidth : pageHeight / imageHeight;
+      const position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imageWidth * ratio, imageHeight * ratio);
+      pdf.save(`Report Card For ${this.reportSheetDetails.studentName}.pdf`); // Generated PDF
+    });
 }
 
 }

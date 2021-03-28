@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
@@ -13,7 +13,7 @@ import { Chart } from 'chart.js';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit  {
   loggedInUser: any;
   greet: string;
   schoolTenantId: any;
@@ -288,6 +288,8 @@ export class DashboardComponent implements OnInit {
     }
     );
   }
+
+
 
 
 

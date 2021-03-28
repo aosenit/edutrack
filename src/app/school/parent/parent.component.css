@@ -171,3 +171,16 @@ a {
   
 
 /* end of tabs */
+
+@media screen and (max-width: 820px) {
+    /* .form-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 2.5rem;
+    } */
+
+    .step-content {
+        background: #FDFEFF;
+        padding:  2rem 2rem;
+    }
+}
