@@ -134,7 +134,7 @@ export class PersonalInformationComponent implements OnInit {
       FirstName: payload.firstName,
     LastName: payload.lastName,
     OtherNames: payload.otherNames,
-    DateOfBirth: payload.dateOfBirth,
+    DateOfBirth: moment(payload.dateOfBirth).format('YYYY-MM-DD'),
     Sex: payload.sex,
     Nationality: payload.nationality,
     MaritalStatus: payload.maritalStatus,
