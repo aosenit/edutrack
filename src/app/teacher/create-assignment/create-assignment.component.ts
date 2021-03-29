@@ -23,6 +23,7 @@ export class CreateAssignmentComponent implements OnInit {
   textToConvert = { text: '' };
 
   assignmentFile = null;
+  data: string;
   constructor(
     private fb: FormBuilder,
     private subjectService: SubjectService,
@@ -94,7 +95,7 @@ export class CreateAssignmentComponent implements OnInit {
 
   onChange({ editor }: ChangeEvent) {
     const data = editor.getData();
-
+    this.data = data;
     console.log(data);
   }
 
@@ -137,9 +138,9 @@ export class CreateAssignmentComponent implements OnInit {
   }
 
 
-  convertFile(filename, text) {
+  convertFile(filename) {
     const element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(this.data));
     element.setAttribute('download', filename);
 
     element.style.display = 'none';

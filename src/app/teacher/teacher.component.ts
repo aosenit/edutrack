@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { SchoolService } from 'src/services/data/school/school.service';
 
 @Component({
   selector: 'app-teacher',
@@ -13,10 +14,13 @@ export class TeacherComponent implements OnInit {
 teacherslist: any;
   loggedInUser: any;
   hide = false;
+  schoolLogo: any;
+  schoolname: any;
 
   constructor(
     private teacherService: TeacherService,
     private notifyService: NotificationsService,
+    private school: SchoolService,
     private router: Router
   ) { }
 
@@ -29,6 +33,7 @@ teacherslist: any;
           } else {
             this.hide = false;
           }
+          this.getSchoolProperties();
   }
 
 
@@ -36,6 +41,19 @@ teacherslist: any;
     localStorage.removeItem('access_token');
     this.router.navigateByUrl('/');
   }
+
+
+  getSchoolProperties() {
+    this.school.getSchoolLogo(this.loggedInUser.TenantId).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.paylaod);
+        this.schoolLogo = data.payload.logo;
+        sessionStorage.setItem('prop', this.schoolLogo);
+        this.schoolname = data.payload.schoolName;
+      }
+    });
+  }
+  
 
   // getAllteachers() {
   //   this.teacherService.getAllTeachers().subscribe( (data: any) => {

@@ -2,8 +2,10 @@
     <div class="container-fluid">
         <div class="row lang d-flex justify-content-between align-items-center">
             <div class=" d-flex pl-4">
-                <img src="assets/images/svg/flask.svg" alt="new client" class="">
-                <p class="mb-0 ml-3">AMERICAN <br> INTERNATIONAL</p>
+                <img *ngIf="schoolLogo == null" src="assets/images/svg/logo.svg" alt=""> 
+                <img class="schoolLogo" *ngIf="schoolLogo" src="data:image/png;base64,{{schoolLogo}}" alt="schools log">
+                <p class="mb-0 ml-4"  style="font-size: 21px;">{{schoolname | titlecase}}</p>
+
                 
             </div>
             <div class="header-items">

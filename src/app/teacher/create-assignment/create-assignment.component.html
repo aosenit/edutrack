@@ -60,7 +60,7 @@
           <div class="row no-gutters bg-white text-editor">
               <div class="col-md-9">
   
-                  <ckeditor (change)="onChange($event)" name="text"  [editor]="Editor" formControlName="Document" data="<p>Hello, world!</p>"></ckeditor>
+                  <ckeditor [innerHTML]  (change)="onChange($event)" name="text"  [editor]="Editor" formControlName="Document" data="<p>Hello, world!</p>"></ckeditor>
               </div>
               <div class="col-md-3 attach-file pl-3 pr-4 pb-4">
                   <p class="pt-3 pb-4  fw-6">Attach File</p>
@@ -75,6 +75,7 @@
                   </form>
               </div>
               <div class="col-md-12 pl-3 py-2 text-editor-bottom">
+                  <button class="btn-upload-top bg-lblue" (click)="convertFile('assignment')">Convert File</button>
                   <button class="btn-upload-top bg-lblue" (click)="submitAssignment()">Create</button>
               </div>
           </div>

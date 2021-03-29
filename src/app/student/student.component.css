@@ -5,6 +5,11 @@
     box-shadow: 0px 1px 21px rgba(119, 119, 119, 0.21);
 
 }
+
+.schoolLogo {
+    height: 50px;
+}
+
 .hamburger {
     padding-left: 1.5rem;
 }
