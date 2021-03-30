@@ -14,6 +14,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./student-score-sheet.component.css']
 })
 export class StudentScoreSheetComponent implements OnInit {
+  noData = true;
+  displayData = false;
   classList: any;
   studentList: any;
   gradeSetup: any;
@@ -151,7 +153,9 @@ export class StudentScoreSheetComponent implements OnInit {
         console.log(data);
         this.studentRecord = data.payload.breakdowns;
         this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-        console.log(this.assessments);
+        // console.log(this.assessments);
+        this.noData = false;
+        this.displayData = true;
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

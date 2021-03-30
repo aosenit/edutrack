@@ -46,6 +46,9 @@ wardRecord = false;
   wardDetails: any;
   studentName: any;
   schoolProp: any;
+  schoolDetail: any;
+  totalExamScoreObtained: any;
+  totalCAScoreObtained: any;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -58,6 +61,7 @@ wardRecord = false;
   ngOnInit() {
    this.wardDetails = JSON.parse(sessionStorage.getItem('ward'));
    this.getSession();
+   this.getSchoolDetialsByID();
   }
 
 
@@ -164,16 +168,16 @@ wardRecord = false;
     if (data.hasErrors === false) {
       this.wardRecord = true;
       this.noData = false;
-      // console.log(data.payload);
       this.reportSheetDetails = data.payload;
       this.studentRecord = data.payload.breakdowns;
+      // console.log('student record', this.studentRecord);
       this.subjectoffered = data.payload.subjectOffered;
       // this.studentName = data.payload.studentName;
-      this.calculateTotalScoreObtained(this.studentRecord);
       this.getAllSubjectsInAClasses();
+      this.calculateTotalScoreObtained(this.studentRecord);
+      this.getAllAssessments();
       this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-      const caArray = [];
-      const examArray = [];
+
       // console.log(this.assessments);
     } else {
 
@@ -195,19 +199,54 @@ wardRecord = false;
     });
  }
 
+ getAllAssessments() {
+  this.parentService.getAllAssessmentSetup().subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      const result: any =  data.payload;
+      const caArray = [];
+      // console.log(this.subjectoffered);
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < result.length; i++) {
+        // console.log(result[i].maxScore);
+        if (result[i].name.toLowerCase().includes('xam')) {
+          // console.log('yes');
+          this.totalExam = result[i].maxScore * this.subjectoffered;
+        } else {
+          caArray.push(result[i].maxScore * this.subjectoffered);
+          this.totalCA = caArray.reduce((a, b) => a + b, 0);
+
+        }
+        this.totalSchoolScore = this.totalCA + this.totalExam;
+        this.getPercentage();
+        this.getRate();
+      }
+
+    }
+  });
+}
+
 calculateTotalScoreObtained(data) {
   const totalScore = [];
   const totalExamScore = [];
+  this.totalSchoolScore = this.totalCA + this.totalExam;
+  this.getTotalSchoolScoreForClass();
+
   // tslint:disable-next-line:prefer-for-of
   for ( let i = 0; i < data.length; i++) {
     totalScore.push(data[i].cummulativeScore);
     totalExamScore.push(data[i].cummulativeScore);
     this.totalScoreObtained = totalScore.reduce((a, b) => a + b, 0);
+
     this.averageScore = Math.round(((this.totalScoreObtained / this.subjectoffered) * 10) / 10);
-    this.getRate();
-    this.getTotalSchoolScoreForClass();
-    this.getPercentage();
+
   }
+}
+
+getPercentage() {
+
+  this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
+  // console.log('percentage', this.classPercentage);
+
 }
 
 getRate() {
@@ -218,21 +257,43 @@ getStatus() {
 
 }
 
-getTotalSchoolScoreForClass() {
 
-  const firstCA = 10 * 20;
-  console.log(firstCA);
-  const secondCA = (10 * 20);
-  const thirdCA = (10 * 20);
-  const exam = (10 * 40);
-  this.totalSchoolScore = firstCA + secondCA + thirdCA + exam;
-  this.totalCA = firstCA + secondCA + thirdCA;
-  this.totalExam = exam;
+
+getTotalSchoolScoreForClass() {
+  this.totalSchoolScore = this.totalCA + this.totalExam;
+  // console.log(this.totalSchoolScore);
+
+  this.getTotalExamScore( );
+  // console.log('ll scores', this.totalSchoolScore);
+
 }
 
 
-getPercentage() {
-   this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
+getTotalExamScore() {
+  const data: any = this.studentRecord;
+  const examArray = [];
+  const caArray = [];
+
+
+  // tslint:disable-next-line:prefer-for-of
+  for (let i = 0; i < data.length; i++) {
+    const iDonTire: any = data[i].assesmentAndScores;
+    // tslint:disable-next-line:prefer-for-of
+    for (let j = 0; j < iDonTire.length; j++) {
+    //  console.log(iDonTire[j]);
+     if (iDonTire[j].assessmentName.toLowerCase().includes('xam')) {
+      // console.log('yes');
+      examArray.push(iDonTire[j].studentScore);
+      this.totalExamScoreObtained = examArray.reduce((a, b) => a + b, 0);
+      // console.log(examArray);
+    } else {
+      caArray.push(iDonTire[j].studentScore);
+      this.totalCAScoreObtained = caArray.reduce((a, b) => a + b, 0);
+      // console.log(caArray);
+
+    }
+    }
+  }
 }
 
 
@@ -275,5 +336,14 @@ exportReport() {
       pdf.save(`Report Card For ${this.reportSheetDetails.studentName}.pdf`); // Generated PDF
     });
 }
+
+getSchoolDetialsByID() {
+  const id = sessionStorage.getItem('tenant');
+  this.parentService.getSchoolById(id).subscribe( (data: any) => {
+     if (data.hasErrors === false) {
+       this.schoolDetail = data.payload;
+     }
+   });
+ }
 
 }

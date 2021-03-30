@@ -38,6 +38,9 @@ export class ViewReportCardComponent implements OnInit {
   totalExam: number;
   classPercentage: number;
   studentdata: any;
+  schoolDetail: any;
+  totalExamScoreObtained: any;
+  totalCAScoreObtained: any;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -61,6 +64,7 @@ export class ViewReportCardComponent implements OnInit {
     this.getCurrentSesion();
     this.generateGradeSetup();
     this.getApprovedStudentResults();
+    this.getSchoolDetialsByID();
   }
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
@@ -170,20 +174,54 @@ export class ViewReportCardComponent implements OnInit {
      }
     });
  }
+ getAllAssessments() {
+  this.parent.getAllAssessmentSetup().subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      const result: any =  data.payload;
+      const caArray = [];
+      // console.log(this.subjectoffered);
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < result.length; i++) {
+        // console.log(result[i].maxScore);
+        if (result[i].name.toLowerCase().includes('xam')) {
+          // console.log('yes');
+          this.totalExam = result[i].maxScore * this.subjectoffered;
+        } else {
+          caArray.push(result[i].maxScore * this.subjectoffered);
+          this.totalCA = caArray.reduce((a, b) => a + b, 0);
+
+        }
+        this.totalSchoolScore = this.totalCA + this.totalExam;
+        this.getPercentage();
+        this.getRate();
+      }
+
+    }
+  });
+}
 
 calculateTotalScoreObtained(data) {
   const totalScore = [];
   const totalExamScore = [];
+  this.totalSchoolScore = this.totalCA + this.totalExam;
+  this.getTotalSchoolScoreForClass();
+
   // tslint:disable-next-line:prefer-for-of
   for ( let i = 0; i < data.length; i++) {
     totalScore.push(data[i].cummulativeScore);
     totalExamScore.push(data[i].cummulativeScore);
     this.totalScoreObtained = totalScore.reduce((a, b) => a + b, 0);
+
     this.averageScore = Math.round(((this.totalScoreObtained / this.subjectoffered) * 10) / 10);
-    this.getRate();
-    this.getTotalSchoolScoreForClass();
-    this.getPercentage();
+
   }
+}
+
+getPercentage() {
+
+  this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
+  // console.log('percentage', this.classPercentage);
+
 }
 
 getRate() {
@@ -194,25 +232,60 @@ getStatus() {
 
 }
 
-getTotalSchoolScoreForClass() {
 
-  const firstCA = 10 * 20;
-  console.log(firstCA);
-  const secondCA = (10 * 20);
-  const thirdCA = (10 * 20);
-  const exam = (10 * 40);
-  this.totalSchoolScore = firstCA + secondCA + thirdCA + exam;
-  this.totalCA = firstCA + secondCA + thirdCA;
-  this.totalExam = exam;
+
+getTotalSchoolScoreForClass() {
+  this.totalSchoolScore = this.totalCA + this.totalExam;
+  // console.log(this.totalSchoolScore);
+
+  this.getTotalExamScore( );
+  // console.log('ll scores', this.totalSchoolScore);
+
 }
 
 
-getPercentage() {
-   this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
+getTotalExamScore() {
+  const data: any = this.studentRecord;
+  const examArray = [];
+  const caArray = [];
+
+
+  // tslint:disable-next-line:prefer-for-of
+  for (let i = 0; i < data.length; i++) {
+    const iDonTire: any = data[i].assesmentAndScores;
+    // tslint:disable-next-line:prefer-for-of
+    for (let j = 0; j < iDonTire.length; j++) {
+    //  console.log(iDonTire[j]);
+     if (iDonTire[j].assessmentName.toLowerCase().includes('xam')) {
+      // console.log('yes');
+      examArray.push(iDonTire[j].studentScore);
+      this.totalExamScoreObtained = examArray.reduce((a, b) => a + b, 0);
+      // console.log(examArray);
+    } else {
+      caArray.push(iDonTire[j].studentScore);
+      this.totalCAScoreObtained = caArray.reduce((a, b) => a + b, 0);
+      // console.log(caArray);
+
+    }
+    }
+  }
 }
 
 printpage() {
   window.print();
 }
+
+
+
+getSchoolDetialsByID() {
+ const id = sessionStorage.getItem('tenant');
+
+ this.parent.getSchoolById(id).subscribe( (data: any) => {
+    if (data.hasErrors === false) {
+      this.schoolDetail = data.payload;
+    }
+  });
+}
+
 
 }

@@ -155,11 +155,12 @@
           <!-- <td> </td>  -->
           <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false" > {{scoreResult[student?.id].studentGrade}} </td>
           <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false">
-            <span class="fs-14 interpretation excellent" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Excellent ' ">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
+            <span class="fs-14 interpretation" >  {{ scoreResult[student?.id].gradeIntepretation}} </span>
+            <!-- <span class="fs-14 interpretation excellent" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Excellent ' ">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
             <span class="fs-14 interpretation very-good" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Very Good'"> {{ scoreResult[student?.id].gradeIntepretation}} </span>
           <span class="fs-14 interpretation good" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Good'">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
           <span class="fs-14 interpretation fail" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Fail'">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
-          <span class="fs-14 interpretation fair" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Fair'">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
+          <span class="fs-14 interpretation fair" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Fair'">  {{ scoreResult[student?.id].gradeIntepretation}} </span> -->
             
           </td>
         </tr>

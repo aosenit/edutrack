@@ -28,8 +28,15 @@
     
       </div>
     
-    
-      <div class="bg-white py-5 px-4">
+      <div class="bg-white py-5 px-4 d-flex justify-content-center align-items-center" *ngIf="noData">
+        <div class="d-flex flex-column text-center">
+          <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+          <p class="fw-6 fs-24" style="color:#BAB9C1;">Select class, term  and student name to display <br> information</p>
+        </div>
+      </div>
+
+
+      <div class="bg-white py-5 px-4" *ngIf="displayData">
         <div class="row mb-1">
             <div class="col-md-6 col-sm-12">
                 <table class="table">
@@ -119,11 +126,12 @@
                         <td> {{subject?.cummulativeScore}} </td>
                         <td> {{subject?.grade}} </td>
                         <td>
-                          <span class="fs-14 interpretation excellent" *ngIf="subject?.interpretation == 'Excellent '">  {{subject?.interpretation}} </span>
+                          <span class="fs-14 interpretation " >  {{subject?.interpretation}} </span>
+                          <!-- <span class="fs-14 interpretation excellent" *ngIf="subject?.interpretation == 'Excellent '">  {{subject?.interpretation}} </span>
                           <span class="fs-14 interpretation very-good" *ngIf="subject?.interpretation == 'Very Good'">  {{subject?.interpretation}} </span>
                           <span class="fs-14 interpretation good" *ngIf="subject?.interpretation == 'Good'">  {{subject?.interpretation}} </span>
                           <span class="fs-14 interpretation fail" *ngIf="subject?.interpretation == 'Fail'">  {{subject?.interpretation}} </span>
-                          <span class="fs-14 interpretation fair" *ngIf="subject?.interpretation == 'Fair'">  {{subject?.interpretation}} </span>
+                          <span class="fs-14 interpretation fair" *ngIf="subject?.interpretation == 'Fair'">  {{subject?.interpretation}} </span> -->
                 
                         </td>
                       </tr>

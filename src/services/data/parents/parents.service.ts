@@ -45,7 +45,12 @@ const routes = {
   viewfile: 'schtrack-finance/api/v1/Files/GetFile',
 
   getAllGradeSetup: 'schtrack-assessment/api/v1/GradeSetup/GetAllGradeForSchoolSetup',
-  viewSchoolproperty: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogo'
+  viewSchoolproperty: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogo',
+  getschoolbyid: 'schtrack-auth/api/v1/School/GetSchool',
+
+  getassessmentsetup: 'schtrack-assessment/api/v1/AssessmentSetup/GetAllAssessmentSetup',
+
+
 
 
 
@@ -320,5 +325,14 @@ getSchoolLogo() {
 }
 
 
+getSchoolById(id) {
+  const url = `${this.baseUrl + routes.getschoolbyid}/${id}`;
+  return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } } );
+}
+
+getAllAssessmentSetup() {
+  const url = `${this.baseUrl + routes.getassessmentsetup}`;
+  return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  }});
+}
 
 }

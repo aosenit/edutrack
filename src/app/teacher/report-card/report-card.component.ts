@@ -4,13 +4,16 @@ import { NotificationsService } from 'src/services/classes/notifications/notific
 import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 import { ClassService } from 'src/services/data/class/class.service';
 import { ResultService } from 'src/services/data/result/result.service';
-
+import { SchoolService } from 'src/services/data/school/school.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 @Component({
   selector: 'app-report-card',
   templateUrl: './report-card.component.html',
   styleUrls: ['./report-card.component.css']
 })
 export class ReportCardComponent implements OnInit {
+  noData = true;
+  displayData = false;
   classList: any;
   studentList: any;
   gradeSetup: any;
@@ -36,20 +39,29 @@ export class ReportCardComponent implements OnInit {
   totalCA: number;
   totalExam: number;
   classPercentage: number;
+  loggedInUser: any;
+  schoolDetail: any;
+  totalExamScoreObtained: any;
+  totalCAScoreObtained: any;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
     private resultService: ResultService,
+    private schoolService: SchoolService,
     private assessmentService: AssessmentService,
     private notifyService: NotificationsService,
   ) { }
 
   ngOnInit() {
+    const helper = new JwtHelperService();
+    this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
     this.getClassAndSubjectForTeacher();
     this.getCurrentSesion();
     this.generateGradeSetup();
+    this.getSchoolDetialsByID();
+
     // this.getApprovedStudentResults();
-    console.log('route', this.route);
+    // console.log('route', this.route);
 
 
   }
@@ -59,7 +71,7 @@ export class ReportCardComponent implements OnInit {
       if (data.hasErrors === false) {
         // console.log(data.payload);
         this.classList = data.payload;
-        console.log(this.classList);
+        // console.log(this.classList);
       }
     }
     );
@@ -73,9 +85,9 @@ export class ReportCardComponent implements OnInit {
 
     this.classService.getStudentsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // console.log(data.payload);
         this.studentList = data.payload;
-        console.log(this.classList);
+        // console.log(this.classList);
       }
     });
 
@@ -84,7 +96,7 @@ export class ReportCardComponent implements OnInit {
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('All school grade', data.payload);
+        // console.log('All school grade', data.payload);
         this.gradeSetup = data.payload;
       }
     });
@@ -118,7 +130,9 @@ export class ReportCardComponent implements OnInit {
     // tslint:disable-next-line:max-line-length
     this.resultService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.selectedClassId, this.selectedStudentID  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
-       console.log(data.payload);
+      //  console.log(data.payload);
+       this.noData = false;
+       this.displayData = true;
        this.studentBehaviour = data.payload.resultTypeAndValues;
        this.getApprovedStudentResults();
       //  this.studentRecord = data.payload.breakdowns;
@@ -136,16 +150,17 @@ export class ReportCardComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   this.resultService.getApprovedStudentResult(this.selectedStudentID, this.selectedClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
     if (data.hasErrors === false) {
-      console.log(data.payload);
+      // console.log(data.payload);
       this.reportSheetDetails = data.payload;
       this.studentRecord = data.payload.breakdowns;
       this.subjectoffered = data.payload.subjectOffered;
-      this.calculateTotalScoreObtained(this.studentRecord);
       this.getAllSubjectsInAClasses();
+      this.calculateTotalScoreObtained(this.studentRecord);
+      this.getAllAssessments();
+
       this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-      const caArray = [];
-      const examArray = [];
-      console.log(this.assessments);
+
+      // console.log(this.assessments);
     } else {
 
       this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -160,58 +175,116 @@ export class ReportCardComponent implements OnInit {
    this.classService.getAllSubjectsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
      if (data.hasErrors === false) {
        const classSubjectCount: any = data.payload;
-       console.log(classSubjectCount.length);
+      //  console.log(classSubjectCount.length);
        this.classSubjectCount = classSubjectCount.length;
      }
     });
  }
 
+
+
+
+getStatus() {
+
+}
+
+
+getAllAssessments() {
+  this.assessmentService.getAllAssessmentSetup().subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      const result: any =  data.payload;
+      const caArray = [];
+      // console.log(this.subjectoffered);
+      // tslint:disable-next-line:prefer-for-of
+      for (let i = 0; i < result.length; i++) {
+        // console.log(result[i].maxScore);
+        if (result[i].name.toLowerCase().includes('xam')) {
+          this.totalExam = result[i].maxScore * this.subjectoffered;
+        } else {
+          caArray.push(result[i].maxScore * this.subjectoffered);
+          this.totalCA = caArray.reduce((a, b) => a + b, 0);
+          // console.log(caArray);
+        }
+        this.totalSchoolScore = this.totalCA + this.totalExam;
+
+        this.getPercentage();
+        this.getRate();
+      }
+    }
+  });
+}
+
+
 calculateTotalScoreObtained(data) {
   const totalScore = [];
   const totalExamScore = [];
+  this.totalSchoolScore = this.totalCA + this.totalExam;
+
+  this.getTotalSchoolScoreForClass();
   // tslint:disable-next-line:prefer-for-of
   for ( let i = 0; i < data.length; i++) {
     totalScore.push(data[i].cummulativeScore);
     totalExamScore.push(data[i].cummulativeScore);
     this.totalScoreObtained = totalScore.reduce((a, b) => a + b, 0);
     this.averageScore = Math.round(((this.totalScoreObtained / this.subjectoffered) * 10) / 10);
-    this.getRate();
-    this.getTotalSchoolScoreForClass();
-    this.getPercentage();
   }
+}
+
+getPercentage() {
+  this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
+ //  console.log(this.classPercentage);
 }
 
 getRate() {
   this.performanceRate = (this.classPercentage / 100) * 5;
 }
 
-getStatus() {
-
-}
-
 getTotalSchoolScoreForClass() {
 
-  const firstCA = this.subjectoffered * 20;
-  const secondCA = (this.subjectoffered * 20);
-  const thirdCA = (this.subjectoffered * 20);
-  const exam = (this.subjectoffered * 40);
-  this.totalSchoolScore = firstCA + secondCA + thirdCA + exam;
-  this.totalCA = firstCA + secondCA + thirdCA;
-  this.totalExam = exam;
+  this.totalSchoolScore = this.totalCA + this.totalExam;
+
   this.getTotalExamScore( );
 }
 
 getTotalExamScore() {
   const data: any = this.studentRecord;
+  const examArray = [];
+  const caArray = [];
+
+
   // tslint:disable-next-line:prefer-for-of
   for (let i = 0; i < data.length; i++) {
-    console.log(data[i].assesmentAndScores);
+    const iDonTire: any = data[i].assesmentAndScores;
+    // tslint:disable-next-line:prefer-for-of
+    for (let j = 0; j < iDonTire.length; j++) {
+    //  console.log(iDonTire[j]);
+     if (iDonTire[j].assessmentName.toLowerCase().includes('xam')) {
+      // console.log('yes');
+      examArray.push(iDonTire[j].studentScore);
+      this.totalExamScoreObtained = examArray.reduce((a, b) => a + b, 0);
+      // console.log(examArray);
+    } else {
+      caArray.push(iDonTire[j].studentScore);
+      this.totalCAScoreObtained = caArray.reduce((a, b) => a + b, 0);
+      // console.log(caArray);
+
+    }
+    }
   }
 }
 
-getPercentage() {
-   this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
-   console.log(this.classPercentage);
+
+
+
+getSchoolDetialsByID() {
+  this.schoolService.getSchoolById(this.loggedInUser.TenantId).subscribe( (data: any) => {
+    if (data.hasErrors === false) {
+      this.schoolDetail = data.payload;
+    }
+  });
 }
+
+
+
 
 }

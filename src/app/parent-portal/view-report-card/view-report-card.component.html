@@ -226,11 +226,11 @@
       </div>
       <div class="col-md-4">
         <div class="d-flex flex-column ml-5 report-address">
-          <p class="mb-0">America International School</p>
-          <p class="mb-0">11-15, Kosoko Road, Ojodu Berger</p>
-          <p class="mb-0">Phone Number: 07096783512</p>
-          <p class="mb-0">Email: america@yopmail.com</p>
-          <p class="mb-0">Website: www.americaschool.com</p>
+          <p class="mb-0">{{schoolDetail?.name}}</p>
+                    <p class="mb-0">{{schoolDetail?.city + ',' + schoolDetail?.state}}</p>
+                    <p class="mb-0">Phone Number: {{schoolDetail?.contactPhone}}</p>
+                    <p class="mb-0">Email: {{schoolDetail?.contactEmail}}</p>
+                    <p class="mb-0">Website: {{schoolDetail?.websiteAddress}}</p>
         </div>
       </div>
     </div>
@@ -342,6 +342,12 @@
                   <td>{{ subject?.grade }}</td>
                   <td>
                     <span
+                      class="fs-14 interpretation"
+                      
+                    >
+                      {{ subject?.interpretation }}
+                    </span>
+                    <!-- <span
                       class="fs-14 interpretation excellent"
                       *ngIf="subject?.interpretation == 'Excellent '"
                     >
@@ -370,7 +376,7 @@
                       *ngIf="subject?.interpretation == 'Fair'"
                     >
                       {{ subject?.interpretation }}
-                    </span>
+                    </span> -->
                   </td>
                 </tr>
               </tbody>
@@ -408,9 +414,9 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>2000</td>
-                  <td>800</td>
-                  <td>{{ totalScoreObtained }}</td>
+                  <td>{{totalCAScoreObtained}}</td>
+                      <td>{{totalExamScoreObtained}}</td>
+                      <td>{{totalScoreObtained}}</td>
                 </tr>
               </tbody>
             </table>
@@ -434,16 +440,16 @@
                   <td>{{ averageScore }}</td>
                   <td>{{ performanceRate }}</td>
                   <td>
-                    <span class="fs-14" *ngIf="classPercentage >= 75">
+                    <span class="fs-14" *ngIf="classPercentage >= 75 ">
                       Excellent
                     </span>
-                    <span class="fs-14" *ngIf="classPercentage >= 60">
+                    <span class="fs-14" *ngIf="classPercentage >= 60 && classPercentage <= 74">
                       Very Good
                     </span>
-                    <span class="fs-14" *ngIf="classPercentage >= 55">
+                    <span class="fs-14" *ngIf="classPercentage >= 55 && classPercentage <= 59">
                       Good
                     </span>
-                    <span class="fs-14" *ngIf="classPercentage >= 50">
+                    <span class="fs-14" *ngIf="classPercentage >= 50 && classPercentage <= 54">
                       Fair
                     </span>
                     <span class="fs-14" *ngIf="classPercentage < 49">

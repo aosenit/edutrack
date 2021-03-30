@@ -261,16 +261,20 @@ export class ScoreSheetComponent implements OnInit {
 
 
   submitGrade(studentId, u) {
+    console.log('u', u);
     console.log(studentId);
     this.checkTableCellStatus();
 
     const check = this.newList[u];
     console.log(check);
     const { assessmentId, score } = this.addGradeForm.value;
-    console.log(assessmentId);
+    console.log('assessmentId', assessmentId);
+    console.log('assessment score', score);
+    console.log('checkId', check.id);
     // tslint:disable-next-line:triple-equals
-    if (check.id == studentId && u == assessmentId && score > this.AssessmentScore) {
+    if (check.id == studentId  && score > this.AssessmentScore) {
       this.notifyService.publishMessages('Score cannot be greater than max score', 'danger', 1);
+      console.log('ikoja aye');
       return;
     }
 
@@ -368,6 +372,7 @@ export class ScoreSheetComponent implements OnInit {
     console.log(this.AssessmentName);
     this.AssessmentSequence = this.assessmentList[event].sequenceNumber;
     this.AssessmentScore = this.assessmentList[event].maxScore;
+    console.log('assessment score', this.AssessmentScore)
     $(`#dropdownMenuLink${u}`).addClass('show-pop');
 
   }
