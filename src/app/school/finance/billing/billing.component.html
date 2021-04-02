@@ -683,7 +683,7 @@
 
             <div >
               <h5> Bill to: </h5>
-              <p class="fw-6">{{studentInvoicePreview?.studentName}}</p>
+              <p class="fw-6">{{studentInvoicePreview?.studentName | titlecase}}</p>
               <p class="invoice-p">Class: {{studentInvoicePreview?.class}}</p>
             </div>
 
@@ -691,6 +691,7 @@
               <p class="invoice-p mb-0"> Invoice Date: {{studentInvoicePreview?.creationDate | date: 'mediumDate' }} </p>
               <p class="invoice-p mb-0"> Invoice Due Date: {{studentInvoicePreview?.dueDate | date: 'mediumDate'}} </p>
               <p class="invoice-p mb-0"> Session: {{studentInvoicePreview?.session}} </p>
+              <p class="invoice-p mb-0"> Term: {{studentInvoicePreview?.termName}} </p>
             </div>
 
           </div>

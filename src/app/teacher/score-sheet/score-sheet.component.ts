@@ -109,7 +109,7 @@ export class ScoreSheetComponent implements OnInit {
     console.log('class id ', id);
     this.Classid = id;
     sessionStorage.setItem('class-id', this.Classid);
-    this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
+    this.classService.getSubjectForClass(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
         // console.log(this.subjectList.subject);

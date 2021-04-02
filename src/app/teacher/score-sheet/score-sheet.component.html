@@ -35,7 +35,7 @@
           <div class="col options">
             <select name="" id="" class="form-control" (change)="getSubjectsId($event.target.value)">
               <option value="">Select Subject</option>
-              <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.subject | titlecase}}</option>
+              <option [value]="subject.subjectId" *ngFor="let subject of subjectList">{{subject.subject | titlecase}}</option>
             </select>
           </div>
         </div>

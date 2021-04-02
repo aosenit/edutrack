@@ -54,7 +54,7 @@ style="height: 85vh; width: 100%;" *ngIf="noData">
 </div>
 </div>
 
-  <div *ngIf="displayData">
+  <div class="table-responsive" *ngIf="displayData">
     <table class="table table-striped table-hover">
       <thead>
         <tr>
@@ -82,7 +82,7 @@ style="height: 85vh; width: 100%;" *ngIf="noData">
             <div class="d-flex text-left">
               <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
               <div class="student-info">
-                <p class="mb-0 cursor-pointer" (click)="saveStudentDetails(i)" routerLink="/school/student-sheet/{{student.studentId}}"  >{{student?.studentName}}</p>
+                <p class="mb-0 cursor-pointer" (click)="saveStudentDetails(i)" routerLink="/school/student-sheet/{{student.studentId}}"  >{{student?.studentName | titlecase}}</p>
               </div>
             </div>
   

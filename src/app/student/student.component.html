@@ -12,7 +12,7 @@
                 <a href="" [routerLink]="['/student/dashboard']" [routerLinkActive]="['active']"> Dashboard</a>
                 <a href="" [routerLink]="['/student/assignment']" [routerLinkActive]="['active']"> Assignment</a>
                 <a href="" [routerLink]="['/student/schedule']" [routerLinkActive]="['active']"> Class Schedule</a>
-                <a href="" [routerLink]="['/student']"> Score Sheet</a>
+                <a href="" [routerLink]="['/student/report-sheet']" [routerLinkActive]="['active']"> Score Sheet</a>
                 <a href="" [routerLink]="['/student/file-manager']" [routerLinkActive]="['active']"> File Manager</a>
                 <a href="" [routerLink]="['/student/attendance']"> Attendance</a>
                 
@@ -21,7 +21,7 @@
                 <div class="d-flex row align-center justify-content-end align-items-center ">
                         <img src="assets/images/svg/student-img-nav.svg" alt="new client" class="mr-2">
                         <div class="info">
-                            <p class="mb-0">{{studentDetails?.given_name}} {{studentDetails?.family_name}}</p>
+                            <p class="mb-0">{{studentDetails?.given_name + ' '  + studentDetails?.family_name | titlecase}}</p>
                             <small>{{studentDetails?.name}}</small>
                         </div>
                         <img src="assets/images/svg/caret.svg" alt="country flag" class="ml-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

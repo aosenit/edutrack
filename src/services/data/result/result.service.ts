@@ -10,6 +10,7 @@ const routes = {
   uploadResultFromForm: 'schtrack-assessment/api/v1/Result/UploadAssessmentSetups',
   getclassbroadsheet: 'schtrack-assessment/api/v1/Result/GetClassBroadSheet',
   getstudentbroadsheet: 'schtrack-assessment/api/v1/Result/GetStudentBroadSheet',
+  getstudentResultFromTeacher: 'schtrack-assessment/api/v1/Result/GetClassBroadSheetApprovedByClassTeacher',
   createstudentbehaviour: 'schtrack-assessment/api/v1/Result/PostBehaviourResult',
   viewstudentbehaviour: 'schtrack-assessment/api/v1/Result/GetBehaviourResult',
   getapprovedResult: 'schtrack-assessment/api/v1/Result/GetApprovedStudentReportSheet',
@@ -75,6 +76,13 @@ export class ResultService {
 
   getStudentBroadSheet(studId, classId) {
     const url = `${this.baseUrl + routes.getstudentbroadsheet}?studId=${studId}&classId=${classId}`;
+    console.log(url);
+    // tslint:disable-next-line:max-line-length
+    return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getStudentBroadSheetApprovedByTEacher(classId) {
+    const url = `${this.baseUrl + routes.getstudentResultFromTeacher}/${classId}`;
     console.log(url);
     // tslint:disable-next-line:max-line-length
     return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});

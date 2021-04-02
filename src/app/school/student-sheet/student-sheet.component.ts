@@ -15,6 +15,7 @@ export class StudentSheetComponent implements OnInit {
   assessments: any;
   studentNameAndReg: any;
   teacherComment = {comment: ''};
+  classTeacherWord: any;
   studentBehaviour: any;
   gradeSetup: any;
   totalScoreObtained: number;
@@ -35,6 +36,7 @@ export class StudentSheetComponent implements OnInit {
     this.studentNameAndReg = JSON.parse(sessionStorage.getItem('student-details'));
     this.studentBehaviour = JSON.parse(sessionStorage.getItem('studentBehaviour'));
     console.log(this.studentNameAndReg);
+    this.getAllAssessments();
     this.getStudentScoreSheet();
     this.generateGradeSetup();
     const records = JSON.parse(sessionStorage.getItem('result-record'));
@@ -48,7 +50,9 @@ export class StudentSheetComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data);
         this.studentRecord = data.payload.breakdowns;
-        this.assessments = data.payload.breakdowns[0].assesmentAndScores;
+        this.classTeacherWord = data.payload.classTeacherComment;
+        console.log(this.classTeacherWord);
+        // this.assessments = data.payload.breakdowns[0].assesmentAndScores;
         this.calculateTotalScoreObtained(this.studentRecord);
 
         console.log(this.assessments);
@@ -115,6 +119,14 @@ export class StudentSheetComponent implements OnInit {
       // this.getTotalSchoolScoreForClass();
       // this.getPercentage();
     }
+  }
+
+  getAllAssessments() {
+    this.assessmentService.getAllAssessmentSetup().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+       this.assessments = data.payload;
+      }
+    });
   }
 
 

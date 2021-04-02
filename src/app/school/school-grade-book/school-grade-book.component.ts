@@ -131,7 +131,7 @@ export class SchoolGradeBookComponent implements OnInit {
    }
 
   getBroadSheet() {
-    this.resultService.getClassBroadSheet(this.Classid).subscribe((data: any) => {
+    this.resultService.getStudentBroadSheetApprovedByTEacher(this.Classid).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.studentData = data.payload;
         console.log(this.studentData);

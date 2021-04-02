@@ -18,6 +18,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SharedModule } from '../shared/shared.module';
 import { FileStorageComponent } from './file-storage/file-storage.component';
 import { StudentAttendanceComponent } from './student-attendance/student-attendance.component';
+import { StudentReportComponent } from './student-report/student-report.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { StudentAttendanceComponent } from './student-attendance/student-attenda
     NotificationPageComponent,
     TaskPreviewComponent,
     FileStorageComponent,
-    StudentAttendanceComponent],
+    StudentAttendanceComponent,
+    StudentReportComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

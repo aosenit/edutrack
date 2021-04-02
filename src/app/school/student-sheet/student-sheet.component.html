@@ -15,7 +15,7 @@
     </nav>
   <div class="d-flex justify-content-between  align-items-center mb-4">
     <div class="student-id">
-      <p class="mb-0 ">{{studentNameAndReg?.studentName}}</p>
+      <p class="mb-0 ">{{studentNameAndReg?.studentName | titlecase}}</p>
     </div>
 
     <div class="d-flex justify-content-between">
@@ -56,7 +56,7 @@
           <thead>
             <tr>
               <th class="w-40 pl-5">Subjects</th>
-              <th *ngFor="let assessment of assessments" >  {{assessment?.assessmentName}} </th>
+              <th *ngFor="let assessment of assessments" >  {{assessment?.name}} </th>
               <th>Cummulative Score</th>
               <th>Grade</th>
               <th>Interpretation</th>
@@ -69,8 +69,8 @@
         
               </td>
               <td *ngFor = "let assessment of studentRecord[i].assesmentAndScores"> {{assessment?.studentScore}} </td>
-              <td> {{subject?.cummulativeScore}} </td>
-              <td> {{subject?.grade}} </td>
+              <td> <span class="fs-14 interpretation">{{subject?.cummulativeScore}}</span> </td>
+              <td> <span class="fs-14 interpretation">{{subject?.grade}}</span> </td>
               <td>
                 <span class="fs-14 interpretation " >  {{subject?.interpretation}} </span>
                 <!-- <span class="fs-14 interpretation excellent" *ngIf="subject?.interpretation == 'Excellent '">  {{subject?.interpretation}} </span>
@@ -100,7 +100,7 @@
                 <td>1074</td>
                 <td> {{totalScoreObtained}} </td>
                 <td class="border-0"></td>
-                <td>90%</td>
+                <td>{{studentNameAndReg?.averageScore}}</td>
               </tr>
             </tbody>
           </table>
@@ -195,7 +195,7 @@
     <div class="col-md-6 ml-5 mb-5">
       <div class="form-group mb-4">
         <label for="" class="fw-6 fs-16">Class Teacher's Comment</label>
-        <input type="text " class="form-control class-teacher" placeholder="Enter comment" readonly>
+        <input type="text " class="form-control class-teacher" placeholder="Enter comment" [(ngModel)]="classTeacherWord" readonly>
       </div>
       <div class="form-group mb-4">
         <label for="" class="fw-6 fs-16">Head Teacher's Comment</label>

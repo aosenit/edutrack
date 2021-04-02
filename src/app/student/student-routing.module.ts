@@ -12,6 +12,7 @@ import { NotificationPageComponent } from './notification-page/notification-page
 import { SessionComponent } from './session/session.component';
 import { StudentAttendanceComponent } from './student-attendance/student-attendance.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
+import { StudentReportComponent } from './student-report/student-report.component';
 import { StudentComponent } from './student.component';
 import { TaskPreviewComponent } from './task-preview/task-preview.component';
 import { VirtualClassroomComponent } from './virtual-classroom/virtual-classroom.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
     {path: 'session', component: SessionComponent},
     {path: 'attendance', component: StudentAttendanceComponent},
     {path: 'assignment', component: AssignmentComponent},
+    {path: 'report-sheet', component: StudentReportComponent},
     {path: 'schedule', component: ClassScheduleComponent},
     {path: 'file-manager', component: FileManagerComponent},
     {path: 'files', component: FilesComponent},

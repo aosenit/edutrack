@@ -133,4 +133,10 @@ export class ClassService {
 
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
+
+  getSubjectForClass(classId) {
+    const url = `${this.baseUrl + routes.getallsubjectsforclass}?classId=${classId}`;
+
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
 }
