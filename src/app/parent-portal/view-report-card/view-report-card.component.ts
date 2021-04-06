@@ -5,7 +5,8 @@ import { AssessmentService } from 'src/services/data/assessment/assessment.servi
 import { ClassService } from 'src/services/data/class/class.service';
 import { ParentsService } from 'src/services/data/parents/parents.service';
 import { ResultService } from 'src/services/data/result/result.service';
-
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-view-report-card',
   templateUrl: './view-report-card.component.html',
@@ -41,6 +42,7 @@ export class ViewReportCardComponent implements OnInit {
   schoolDetail: any;
   totalExamScoreObtained: any;
   totalCAScoreObtained: any;
+  schoolProp: any;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -65,6 +67,8 @@ export class ViewReportCardComponent implements OnInit {
     this.generateGradeSetup();
     this.getApprovedStudentResults();
     this.getSchoolDetialsByID();
+    this.getSchoolProperty();
+
   }
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
@@ -152,8 +156,7 @@ export class ViewReportCardComponent implements OnInit {
       this.calculateTotalScoreObtained(this.studentRecord);
       this.getAllSubjectsInAClasses();
       this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-      const caArray = [];
-      const examArray = [];
+      this.getAllAssessments();
       console.log(this.assessments);
     } else {
 
@@ -186,6 +189,7 @@ export class ViewReportCardComponent implements OnInit {
         if (result[i].name.toLowerCase().includes('xam')) {
           // console.log('yes');
           this.totalExam = result[i].maxScore * this.subjectoffered;
+          console.log(this.totalExam);
         } else {
           caArray.push(result[i].maxScore * this.subjectoffered);
           this.totalCA = caArray.reduce((a, b) => a + b, 0);
@@ -271,8 +275,29 @@ getTotalExamScore() {
   }
 }
 
+getSchoolProperty() {
+  this.parent.getSchoolLogo().subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      this.schoolProp = data.payload;
+    }
+  });
+}
+
 printpage() {
-  window.print();
+  const data = document.getElementById('reportCard');
+  html2canvas(data).then(canvas => {
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imageWidth = canvas.width;
+      const imageHeight = canvas.height;
+      const ratio = imageWidth / imageHeight >= pageWidth / pageHeight ? pageWidth / imageWidth : pageHeight / imageHeight;
+      const position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imageWidth * ratio, imageHeight * ratio);
+      pdf.save(`Report Card For ${this.reportSheetDetails.studentName}.pdf`); // Generated PDF
+    });
 }
 
 

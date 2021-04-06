@@ -4,27 +4,26 @@
         <div class="d-flex justify-content-between  align-items-center mb-4">
           <div>
             <form>
-              <div class="row">
-                <div class="col options">
+              <div class="row mt-3">
+                <!-- <div class="col options">
                   <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)">
                     <option value="">Select Class</option>
-                    <!-- <option value={{class.classId}} *ngFor="let class of classList; let i = index">{{class.class}}</option> -->
                     <option value={{i}} *ngFor="let class of classList; let i = index">{{class.class}}</option>
                   </select>
-                </div>
+                </div> -->
                 <div class="col options">
                   <select name="" id="" class="form-control" (change)="selectedTerm($event.target.value)">
                     <option value="">Term</option>
                     <option [value]="t" *ngFor="let term of terms; let t = index"> {{term?.name}}</option>
                   </select>
                 </div>
-                <div class="col-5 options">
+                <!-- <div class="col-5 options">
                   <select name="" id="" class="form-control" (change)="selectStudent($event.target.value)">
                     <option value="">Select student name</option>
                     <option [value]="std" *ngFor="let student of studentList; let std = index">
                       {{student?.firstName + ' ' + student?.lastName}}</option>
                   </select>
-                </div>
+                </div> -->
               </div>
             </form>
           </div>

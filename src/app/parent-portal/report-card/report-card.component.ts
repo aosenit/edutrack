@@ -109,7 +109,7 @@ wardRecord = false;
   }
 
   generateGradeSetup() {
-    this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
+    this.parentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
         // console.log('All school grade', data.payload);
         this.gradeSetup = data.payload;
@@ -151,6 +151,8 @@ wardRecord = false;
       //  console.log(data.payload);
        this.studentBehaviour = data.payload.resultTypeAndValues;
        this.getApprovedStudentResults();
+       this.generateGradeSetup();
+       
       //  this.studentRecord = data.payload.breakdowns;
       //  this.assessments = data.payload.breakdowns[0].assesmentAndScores;
       //  console.log(this.assessments);

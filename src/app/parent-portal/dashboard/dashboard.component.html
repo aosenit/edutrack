@@ -45,7 +45,8 @@
         <p class="profile__ward_next">Select student to display information</p>
         <div class="d-flex ward-card p-3 mb-2 col-sm-12" *ngFor="let child of childrenList; let u = index"
           (click)="selectWard(child.id, u)">
-          <img src="assets/images/svg/student-img-nav.svg" alt="new client" class="">
+          <img *ngIf="child?.image == null" src="assets/images/svg/dummy_user.png" alt=""> 
+          <img class="image-rounded" *ngIf="child?.image" src="data:image/png;base64,{{child?.image}}" alt="schools log">
           <div class="ml-3">
             <p class="mb-0 fc-lblue fw-6">{{child?.fullName | titlecase}}</p>
             <p class="mb-0">{{child?.regNo}}</p>
