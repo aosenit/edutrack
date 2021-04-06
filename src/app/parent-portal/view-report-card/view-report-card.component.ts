@@ -61,11 +61,11 @@ export class ViewReportCardComponent implements OnInit {
     this.selectedStudentID = studId;
     this.selectedTermId = termSequenceNumber;
 
+    this.getApprovedStudentResults();
     this.selectStudent();
     this.getClassAndSubjectForTeacher();
     this.getCurrentSesion();
     this.generateGradeSetup();
-    this.getApprovedStudentResults();
     this.getSchoolDetialsByID();
     this.getSchoolProperty();
 

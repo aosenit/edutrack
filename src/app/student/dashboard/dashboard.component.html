@@ -7,7 +7,7 @@
                         <div class="d-flex mb-5">
                             <img src="assets/images/svg/dummy_user.png" alt="new client" class="mr-2 image-rounded" >
                             <div class="ml-3">
-                                <p class="mb-0 fw-6">{{studentDetails?.given_name}} {{studentDetails?.family_name}}</p>
+                                <p class="mb-0 fw-6">{{studentDetails?.given_name + ' ' + studentDetails?.family_name | titlecase}}</p>
                                 <p class="mb-0">AMT/2019/001</p>
                                 <p class="mb-0 fc-lblue">Student</p>
                             </div>
@@ -17,7 +17,7 @@
                     
                     <div class="profile__hero">
                         <div class="profile__hero--intro bg-white br-10 pt-4 pb-2 px-3 mb-3">
-                            <h5 class="fs-32 fc-lblue intro-text">Hello {{studentDetails?.given_name}}!</h5>
+                            <h5 class="fs-32 fc-lblue intro-text">Hello {{studentDetails?.given_name | titlecase}}!</h5>
                             <p>It’s good to see you again. You have <span class="pending fw-bold">{{activeAssignment?.length}}</span> pending assignments, <span class="overdue fw-bold">{{dueAssignment?.length}}</span> overdue <br> assigments and <span class="book fw-bold">1</span> book overdue for return to the library.</p>
                             <img src="assets/images/svg/student-hero.svg" alt="student hero welcomr image" class="student-hero">
                         </div>
