@@ -4,10 +4,11 @@
       <div class="profile mb-5">
         <div class="profile__teacher bg-white p-4">
           <div class="d-flex mb-5">
-            <img src="assets/images/svg/teacher-img.svg" alt="new client" class="">
+            <img src="assets/images/svg/dummy_user.png" alt="new client" class="mr-2 image-rounded" >
+
             <div class="ml-3">
               <p class="mb-0 fw-6">{{teacherDetails?.given_name}} <br> {{teacherDetails?.family_name }}</p>
-              <p class="mb-0">AMT/2019/001</p>
+              <p class="mb-0">{{teacherDetails?.name}}</p>
               <p class="mb-0 fc-lblue fw-6"> &nbsp; </p>
             </div>
           </div>
@@ -298,10 +299,10 @@
       </div>
     </div>
     <div class="col-md-3 bg-white notice-board " id="announcement">
-      <h5 class="fc-lblue mt-4 ">2nd term 2019/2020 Session</h5>
+      <h5 class="fc-lblue mt-4 ">&nbsp;</h5>
 
       <div class="mb-5">
-        <h6>Calender goes here</h6>
+        <ejs-calendar></ejs-calendar>
       </div>
 
       <div class="notice-board-card ml-2 mr-3 mt-5 p-3 br-10">

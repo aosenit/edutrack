@@ -50,6 +50,7 @@ export class ProfileInformationComponent implements OnInit {
       Name: ['', Validators.required],
       DomainName: ['', Validators.required],
       WebsiteAddress: ['', Validators.required],
+      Username: ['', Validators.required],
 
     });
   }
@@ -62,7 +63,8 @@ export class ProfileInformationComponent implements OnInit {
 
       Name: payload.name,
       DomainName: payload.domainName,
-      WebsiteAddress: payload.websiteAddress
+      WebsiteAddress: payload.websiteAddress,
+      Username: payload.userName
     });
   }
 
@@ -72,7 +74,8 @@ export class ProfileInformationComponent implements OnInit {
 
       Name: this.schoolProfile.name,
       DomainName: this.schoolProfile.domainName,
-      WebsiteAddress: this.schoolProfile.websiteAddress
+      WebsiteAddress: this.schoolProfile.websiteAddress,
+      Username: this.schoolProfile.userName
     });
   }
 
@@ -85,7 +88,9 @@ export class ProfileInformationComponent implements OnInit {
 
         Name: this.schoolProfile.Name,
         DomainName: this.schoolProfile.DomainName,
-        WebsiteAddress: this.schoolProfile.WebsiteAddress
+        WebsiteAddress: this.schoolProfile.WebsiteAddress,
+        Username: this.schoolProfile.Username
+
       });
     } else {
       console.log(`School profile not found`);

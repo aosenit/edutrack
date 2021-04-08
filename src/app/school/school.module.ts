@@ -25,17 +25,19 @@ import { TimeTableComponent } from './time-table/time-table.component';
 import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 import { SchoolManagerComponent } from './school-manager/school-manager.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { UsersComponent } from './users/users.component';
 import { SharedModule } from '../shared/shared.module';
 import { SchoolManagerSettingsComponent } from './school-manager-settings/school-manager-settings.component';
 import { PeriodComponent } from './period/period.component';
 import { SchoolGradeBookComponent } from './school-grade-book/school-grade-book.component';
 import { StudentSheetComponent } from './student-sheet/student-sheet.component';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { StudentResultSheetComponent } from './student-result-sheet/student-result-sheet.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -76,6 +78,8 @@ import { ComingSoonComponent } from './coming-soon/coming-soon.component';
     FormsModule,
     SharedModule,
     NgxPaginationModule,
+    CalendarModule,
+
     NgMultiSelectDropDownModule.forRoot(),
     SchoolRoutingModule,
 

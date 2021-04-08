@@ -28,8 +28,11 @@ export class SchoolService {
     formData.append('Name', schoolFinalStep.Name);
     formData.append('DomainName', schoolFinalStep.DomainName);
     formData.append('WebsiteAddress', schoolFinalStep.WebsiteAddress);
+    formData.append('Username', schoolFinalStep.Username);
     formData.append('Files', schoolFinalStep.logo);
     formData.append('Files', schoolFinalStep.icon);
+    formData.append('PrimaryColor', schoolFinalStep.PrimaryColor);
+    formData.append('SecondaryColor', schoolFinalStep.SecondaryColor);
     // formData.append('DocumentTypes', schoolFinalStep.DocumentTypes);
     schoolFinalStep.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
     formData.append('Country', schoolFinalStep.Country);
@@ -69,8 +72,11 @@ export class SchoolService {
     formData.append('Name', updateSchoolForm.Name);
     formData.append('DomainName', updateSchoolForm.DomainName);
     formData.append('WebsiteAddress', updateSchoolForm.WebsiteAddress);
+    formData.append('Username', updateSchoolForm.Username);
     formData.append('Files', updateSchoolForm.logo);
     formData.append('Files', updateSchoolForm.icon);
+    formData.append('PrimaryColor', updateSchoolForm.PrimaryColor);
+    formData.append('SecondaryColor', updateSchoolForm.SecondaryColor);
     // formData.append('DocumentTypes', updateSchoolForm.DocumentTypes);
     updateSchoolForm.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
     formData.append('Country', updateSchoolForm.Country);

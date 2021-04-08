@@ -47,7 +47,7 @@ export class BasicDetailsComponent implements OnInit {
     this.basicDetailsForm = this.fb.group({
       FirstName: ['', Validators.required],
       LastName: ['', Validators.required],
-      OtherNames: ['', Validators.required],
+      OtherNames: [''],
       MothersMaidenName: ['', Validators.required],
       Sex: [''],
       DateOfBirth: ['', Validators.required],
@@ -56,7 +56,7 @@ export class BasicDetailsComponent implements OnInit {
       parentId: ['', Validators.required],
       StateOfOrigin: ['', Validators.required],
       LocalGovt: [''],
-      TransportRoute: ['', Validators.required]
+      TransportRoute: ['']
     });
   }
   nextStep() {

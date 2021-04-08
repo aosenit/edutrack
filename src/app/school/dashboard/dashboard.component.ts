@@ -5,6 +5,8 @@ import { StaffService } from 'src/services/data/staff/staff.service';
 import { StudentService } from 'src/services/data/student/student.service';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { Chart } from 'chart.js';
+import { ClassService } from 'src/services/data/class/class.service';
+import { AttendanceService } from 'src/services/data/attendance/attendance.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,10 +26,17 @@ export class DashboardComponent implements OnInit {
   allFee = 0;
   allFee2: any;
   chart: any = [];
+  barChart: any = [];
   dashboardDatas = [];
 
   @ViewChild('lineChart', { static: true }) lineChartRef: ElementRef;
+  @ViewChild('barChart', { static: true }) barChartRef: ElementRef;
   totalRevenue: any;
+  classes: any;
+  attendanceList: any;
+  barDashboardDatas: string[];
+  barDashboardDataKeys: string[];
+
 
 
   constructor(
@@ -35,6 +44,8 @@ export class DashboardComponent implements OnInit {
     private teacherService: TeacherService,
     private staffService: StaffService,
     private finance: FinanceService,
+    private classService: ClassService,
+    private attendance: AttendanceService
 
 
 
@@ -49,6 +60,7 @@ export class DashboardComponent implements OnInit {
     this.getAllStudents();
     this.getAllEmployees();
     this.getAllPayment();
+    this.getAllClassesInSchool();
   }
 
   greeting() {
@@ -108,10 +120,56 @@ export class DashboardComponent implements OnInit {
         this.dashboardDatas.push(this.totalRevenue);
         this.dashboardDatas.push(this.allFee2);
         this.createLineChart(this.dashboardDatas);
+        // this.createBarChart(this.dashboardDatas);
       }
   });
   }
 
+
+  getAllClassesInSchool() {
+    this.classService.getAllClasses().subscribe((data: any) => {
+      if ( data.hasErrors === false) {
+        this.classes = data.payload;
+        console.log(data.payload[0]);
+        this.attendance.getClassAttendanceForTeacher(data.payload[0].id).subscribe((res: any) => {
+          if (res.hasErrors === false) {
+            this.attendanceList = data.payload;
+            const newData = {};
+            // tslint:disable-next-line:prefer-for-of
+            for (let i = 0; i < this.attendanceList.length; i++) {
+              const {attendanceDate, attendanceStatus } = this.attendanceList[i];
+              console.log(attendanceDate, attendanceStatus);
+              newData[attendanceStatus] = attendanceStatus;
+              console.log('new Data', newData);
+              this.barDashboardDatas = Object.values(newData);
+              this.barDashboardDataKeys = Object.keys(newData);
+              this.createBarChart(this.barDashboardDatas);
+            }
+          }
+        });
+      }
+    });
+  }
+
+  getClassAttendance(e) {
+    console.log(e);
+    this.attendance.getClassAttendanceForTeacher(e).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.attendanceList = data.payload;
+        const newData = {};
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < this.attendanceList.length; i++) {
+          const {attendanceDate, attendanceStatus } = this.attendanceList[i];
+          console.log(attendanceDate, attendanceStatus);
+          newData[attendanceStatus] = attendanceStatus;
+          console.log('new Data', newData);
+          this.barDashboardDatas = Object.values(newData);
+          this.barDashboardDataKeys = Object.keys(newData);
+          this.createBarChart(this.barDashboardDatas);
+        }
+      }
+    });
+  }
   createLineChart(dashboardData: any) {
 
     const classTopics = [
@@ -166,6 +224,83 @@ export class DashboardComponent implements OnInit {
               scaleLabel: {
                 display: true,
                 // labelString: 'No of active users',
+                fontColor: 'black',
+                fontFamily : 'Nunito',
+                fontSize : 16
+
+              },
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                beginAtZero: true
+              }
+            }
+          ]
+        }
+      }
+    }
+    );
+  }
+
+
+  createBarChart(dashboardData: any) {
+
+    const classTopics = [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+    ];
+    this.chart = new Chart(this.barChartRef.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: classTopics,
+        datasets: [
+          {
+            label: 'Attendance',
+            data: dashboardData,
+            // borderColor: ['#EA2604'],
+            backgroundColor: ['#4288DC'],
+            // backgroundColor: ['#e76f51', '#ffb638'],
+            // hoverBorderColor: '#4288DC',
+            // hoverBorderWidth: 3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        cutoutPercentage: 70,
+        legend: {
+          display: true,
+          labelString: 'Class Attendance',
+        },
+        scales: {
+          xAxes: [
+            {
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'Attendance Chart',
+                fontColor: 'black',
+                fontFamily : 'Nunito',
+                fontSize : 16
+
+
+              },
+
+              gridLines: {
+                display: true
+              }
+            }
+          ],
+          yAxes: [
+            {
+              display: true,
+              scaleLabel: {
+                display: true,
+                labelString: 'No of students',
                 fontColor: 'black',
                 fontFamily : 'Nunito',
                 fontSize : 16

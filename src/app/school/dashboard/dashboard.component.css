@@ -228,3 +228,17 @@ color: #243C67;
   object-fit: cover;
 
 }
+
+.e-calendar, .e-bigger.e-small .e-calendar {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: none;
+  margin: auto;
+  /* width: 100%; */
+}
+
+.e-calendar, .e-bigger.e-small .e-calendar {
+  max-width: 648px;
+  min-width: 240px;
+  padding: 0;
+}

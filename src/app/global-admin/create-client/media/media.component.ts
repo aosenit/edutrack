@@ -39,6 +39,7 @@ export class MediaComponent implements OnInit {
         this.createMediaForm();
       } else {
         this.updateMediaForm();
+        this.getProfileInformation();
       }
     });
   }
@@ -54,13 +55,17 @@ export class MediaComponent implements OnInit {
   createMediaForm() {
     this.mediaForm = this.fb.group({
       logo: [null],
-      icon: [null]
+      icon: [null],
+      PrimaryColor: [''],
+      SecondaryColor: ['']
     });
   }
   updateMediaForm() {
     this.mediaForm = this.fb.group({
       logo: [null],
-      icon: [null]
+      icon: [null],
+      PrimaryColor: [''],
+      SecondaryColor: ['']
     });
 
     this.formBtn = {
@@ -167,6 +172,17 @@ handleIconUpload(event: any) {
   //     }
   //   }
   // }
+
+
+  getProfileInformation() {
+    const payload = JSON.parse(sessionStorage.getItem('client-info'));
+    console.log('na the paylod', payload);
+    // this.populateEditProfileForm(payload);
+    this.mediaForm.patchValue({
+      PrimaryColor: payload.primaryColor,
+      SecondaryColor: payload.secondaryColor
+    });
+  }
 
   prevStep() {
     this.home.stepper(3);
