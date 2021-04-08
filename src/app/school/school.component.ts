@@ -15,6 +15,7 @@ export class SchoolComponent implements OnInit {
   schoolLogo: any;
   schoolname: any;
   year: Date = new Date();
+  schoolColor: any;
   constructor(
     private router: Router,
     private notifyService: NotificationsService,
@@ -53,6 +54,7 @@ getSchoolProperties() {
     if (data.hasErrors === false) {
       console.log(data.paylaod);
       this.schoolLogo = data.payload.logo;
+      this.schoolColor = data.payload;
       sessionStorage.setItem('prop', this.schoolLogo);
       this.schoolname = data.payload.schoolName;
     }

@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div id="sidebar">
+    <div id="sidebar" [ngStyle]="{'background-color': schoolColor?.primaryColor}">
         <div class="p-3">
             <p class="text-center">
                 <img *ngIf="schoolLogo == null" src="assets/images/svg/logo.svg" alt=""> 
@@ -430,7 +430,7 @@
         </ul>
     </div>
     <div id="content">
-        <header class="main-head sticky-top py-lg-2">
+        <header class="main-head sticky-top py-lg-2" [ngStyle]="{'background-color': schoolColor?.secondaryColor}">
             <div class="container-fluid">
                 <div class="row d-flex justify-content-between lang">
                     <div class=" hamburger d-flex align-items-center"  (click)="toggleSideBar()">
