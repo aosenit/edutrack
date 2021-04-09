@@ -45,7 +45,7 @@ export class PersonalInformationComponent implements OnInit {
     this.personalDetailsForm = this.fb.group({
       FirstName: ['', Validators.required],
       LastName: ['', Validators.required],
-      OtherNames: ['', Validators.required],
+      OtherNames: [''],
       DateOfBirth: ['', Validators.required],
       Sex: ['', Validators.required],
       Nationality: ['', Validators.required],
@@ -54,7 +54,7 @@ export class PersonalInformationComponent implements OnInit {
       Religion: ['', Validators.required],
       StateOfOrigin: ['', Validators.required],
       LocalGovernment: [''],
-      IsActive: ['', Validators.required]
+      IsActive: [false]
     });
   }
 

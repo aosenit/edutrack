@@ -147,7 +147,7 @@ export class StudentReportComponent implements OnInit {
    this.selectedTermId = this.terms[event].sequenceNumber;
 
    // tslint:disable-next-line:max-line-length
-   this.resultService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.selectedClassId, this.selectedStudentID  ).subscribe((data: any) => {
+   this.resultService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.studentDetails.StudentClassId, this.studentDetails.sub  ).subscribe((data: any) => {
     if (data.hasErrors === false) {
      //  console.log(data.payload);
       this.studentBehaviour = data.payload.resultTypeAndValues;
@@ -166,13 +166,13 @@ export class StudentReportComponent implements OnInit {
     this.selectedStudent = this.studentList[i];
     this.selectedStudentID = this.studentList[i].id;
     // tslint:disable-next-line:max-line-length
-   
+
  }
 
 
  getApprovedStudentResults() {
   // tslint:disable-next-line:max-line-length
-  this.resultService.getApprovedStudentResult(this.selectedStudentID, this.selectedClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
+  this.resultService.getApprovedStudentResult(this.studentDetails.sub, this.studentDetails.StudentClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
     if (data.hasErrors === false) {
       // console.log(data.payload);
       this.reportSheetDetails = data.payload;
@@ -196,7 +196,7 @@ export class StudentReportComponent implements OnInit {
  }
 
  getAllSubjectsInAClasses() {
-   this.classService.getAllSubjectsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
+   this.classService.getAllSubjectsInAClassByClassID(this.studentDetails.sub).subscribe((data: any) => {
      if (data.hasErrors === false) {
        const classSubjectCount: any = data.payload;
       //  console.log(classSubjectCount.length);
