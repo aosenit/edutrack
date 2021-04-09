@@ -1,4 +1,4 @@
-<div class="container-fluid mt-4">
+<div class="container-fluid mt-4 ">
   <div class="d-flex justify-content-between  align-items-center mb-4">
     <div>
       <form>
@@ -49,7 +49,7 @@
         </svg>
 
       </div>
-      <div class="mr-4 cursor-pointer align-items-center">
+      <div class="mr-4 cursor-pointer align-items-center" (click)="printPage()">
         <svg width="52" height="19" viewBox="0 0 52 19" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M14.3776 6.66667H4.46094C3.2851 6.66667 2.33594 7.61583 2.33594 8.79167V13.0417H5.16927V15.875H13.6693V13.0417H16.5026V8.79167C16.5026 7.61583 15.5534 6.66667 14.3776 6.66667ZM12.2526 14.4583H6.58594V10.9167H12.2526V14.4583ZM14.3776 9.5C13.988 9.5 13.6693 9.18125 13.6693 8.79167C13.6693 8.40208 13.988 8.08333 14.3776 8.08333C14.7672 8.08333 15.0859 8.40208 15.0859 8.79167C15.0859 9.18125 14.7672 9.5 14.3776 9.5ZM13.6693 3.125H5.16927V5.95833H13.6693V3.125Z"
@@ -65,7 +65,7 @@
   </div>
 
 
-  <div class="bg-white py-5 px-4" *ngIf="displayData">
+  <div class="bg-white py-5 px-4" *ngIf="displayData" id="app-results-print">
     <div class="row mb-4">
       <div class="col-md-4">
         <div class="d-flex">

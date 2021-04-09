@@ -9,7 +9,17 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 @Component({
   selector: 'app-report-card',
   templateUrl: './report-card.component.html',
-  styleUrls: ['./report-card.component.css']
+  styleUrls: ['./report-card.component.css', './print-report.component.css'],
+  styles: [
+    `
+    @media print {
+
+      #app-results-print {
+    display: block;
+  }
+}
+    `
+  ]
 })
 export class ReportCardComponent implements OnInit {
   noData = true;
@@ -282,8 +292,20 @@ getSchoolDetialsByID() {
       this.schoolDetail = data.payload;
     }
   });
+
 }
 
+printPage() {
+  const prtContent = document.getElementById('app-results-print');
+  const WinPrint = window.open('', '', 'left=0,top=0,height=900,toolbar=0,scrollbars=0,status=0');
+  WinPrint.document.write(prtContent.innerHTML);
+  WinPrint.document.write('<link rel="stylesheet" href="./print-report.component.css">');
+  WinPrint.document.close();
+  WinPrint.focus();
+  WinPrint.print();
+  WinPrint.close();
+  // window.print();
+}
 
 
 

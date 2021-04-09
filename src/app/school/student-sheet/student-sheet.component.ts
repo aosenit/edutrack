@@ -35,7 +35,6 @@ export class StudentSheetComponent implements OnInit {
     this.studId = this.route.snapshot.params.id;
     this.studentNameAndReg = JSON.parse(sessionStorage.getItem('student-details'));
     this.studentBehaviour = JSON.parse(sessionStorage.getItem('studentBehaviour'));
-    console.log(this.studentNameAndReg);
     this.getAllAssessments();
     this.getStudentScoreSheet();
     this.generateGradeSetup();
@@ -96,9 +95,12 @@ export class StudentSheetComponent implements OnInit {
 
     this.assessmentService.submitStudentResultForApproval(result).subscribe((data: any) => {
         if (data.hasErrors === false) {
-          console.log(data.payload);
-          this.notifyService.publishMessages(data.payload, 'success', 1);
-          this.router.navigateByUrl('/school/grade-book');
+          // console.log(data.payload);
+         sessionStorage.removeItem('student-details');
+         sessionStorage.removeItem('studentBehaviour');
+         sessionStorage.removeItem('result-record');
+         this.notifyService.publishMessages(data.payload, 'success', 1);
+         this.router.navigateByUrl('/school/grade-book');
         }
     }, error => {
       this.notifyService.publishMessages(error.payload, 'danger', 1);

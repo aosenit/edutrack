@@ -71,18 +71,15 @@ export class MailReportCardComponent implements OnInit {
   checked(event, i) {
     if (event.target.checked === true) {
       this.StudentIds.push(event.target.value);
-      console.log(this.StudentIds);
 
       document.getElementById('customtable' + `${i}`).style.borderLeft = '5px solid #FB7B04';
       this.boxChecked = true;
     } else {
       const index = this.StudentIds.indexOf(event.target.value);
-      console.log(index);
       if (index > -1) {
         this.StudentIds.splice(index, 1);
       }
       this.StudentIds.filter((item) => item !== i);
-      console.log(this.StudentIds);
       document.getElementById('customtable' + `${i}`).style.borderLeft = 'none';
     }
     if (this.StudentIds.length === 0) {
@@ -90,26 +87,37 @@ export class MailReportCardComponent implements OnInit {
     }
   }
 
-  selectAllBoxes() {
-    console.log(document.getElementsByClassName('boxes'));
+  selectAllBoxes(e) {
     const allBoxes: any = document.getElementsByName('boxes');
-    // tslint:disable-next-line:prefer-for-of
-    for (let index = 0; index < allBoxes.length; index++) {
-      console.log(allBoxes[index]);
-      if (allBoxes[index].type === 'checkbox') {
+    if (e.target.checked === true) {
+      // tslint:disable-next-line:prefer-for-of
+      for (let index = 0; index < allBoxes.length; index++) {
+        if (allBoxes[index].type === 'checkbox') {
+          allBoxes[index].checked = true;
+          document.getElementById('customtable' + `${index}`).style.borderLeft = '5px solid #FB7B04';
+          this.boxChecked = true;
+          this.StudentIds.push(allBoxes[index].value);
+        }
+      }
+    } else {
+      // tslint:disable-next-line:prefer-for-of
+      for (let index = 0; index < allBoxes.length; index++) {
+        if (allBoxes[index].type === 'checkbox') {
 
-        allBoxes[index].checked = true;
+          allBoxes[index].checked = false;
+          document.getElementById('customtable' + `${index}`).style.borderLeft = '0px';
+          this.boxChecked = false;
+          this.StudentIds = [];
+        }
       }
 
     }
-
   }
 
   getApprovedStudentResults() {
     // tslint:disable-next-line:max-line-length
     this.resultService.getStudentApprovedResults(this.classId, this.sessions.id, this.selectedTermId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
         this.studentList = data.payload;
       } else {
 
@@ -121,7 +129,7 @@ export class MailReportCardComponent implements OnInit {
     });
   }
 
-  
+
 
   postMaiToParent() {
     document.getElementById('exampleModalCenterEndClass').click();
@@ -138,7 +146,6 @@ export class MailReportCardComponent implements OnInit {
     console.log(result);
     this.resultService.mailReportSheetToParent(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
         this.notifyService.publishMessages('Email sent out', 'success', 1);
         document.getElementById('closeMailModal').click();
         location.reload();
