@@ -151,7 +151,7 @@ export class StudentReportComponent implements OnInit {
    this.termName = this.terms[event];
    this.selectedTermId = this.terms[event].sequenceNumber;
    // tslint:disable-next-line:max-line-length
-   this.resultService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.studentDetails.StudentClassId, this.studentDetails.sub  ).subscribe((data: any) => {
+   this.resultService.getBehaviourForStudent(this.sessionsId, this.selectedTermId, this.studentDetails.StudentClassId, this.studentDetails.sub  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
       this.noData = false;
       this.displayData = true;

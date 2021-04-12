@@ -100,6 +100,11 @@ export class ResultService {
   const url = `${this.baseUrl + routes.viewstudentbehaviour}?SessionId=${SessionId}&TermSequence=${TermSequence}&ClassId=${ClassId}&StudentId=${StudentId}`;
   return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
  }
+ getBehaviourForStudent(SessionId, TermSequence, ClassId, studUserId) {
+  // tslint:disable-next-line:max-line-length
+  const url = `${this.baseUrl + routes.viewstudentbehaviour}?SessionId=${SessionId}&TermSequence=${TermSequence}&ClassId=${ClassId}&studUserId=${studUserId}`;
+  return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+ }
 
  getApprovedStudentResult(studId, classId, sessionId, termSequenceNumber) {
   // tslint:disable-next-line:max-line-length
