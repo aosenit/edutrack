@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassService } from 'src/services/data/class/class.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { AttendanceService } from 'src/services/data/attendance/attendance.service';
 
 
 @Component({
@@ -23,7 +24,8 @@ export class AttendanceComponent implements OnInit {
   subjectAttandance = false;
   hide = false;
   constructor(
-    private classService: ClassService
+    private classService: ClassService,
+    private attendanceService: AttendanceService
   ) { }
 
   ngOnInit() {
@@ -77,6 +79,12 @@ export class AttendanceComponent implements OnInit {
     this.Subjectid = id;
     this.noClass = false;
     this.displayClass = true;
+
+    this.attendanceService.getClassAttendanceForTeacher(this.Classid).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+      }
+    });
   }
 
   switchAttendance(status: string) {

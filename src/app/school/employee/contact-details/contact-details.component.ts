@@ -46,7 +46,7 @@ populateContactDetailsForm() {
       Country: [''],
       Address: ['', Validators.required],
       State: ['', Validators.required],
-      Town: ['', Validators.required]
+      Town: ['']
     });
   }
   nextStep() {

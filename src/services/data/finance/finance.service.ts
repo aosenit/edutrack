@@ -228,6 +228,11 @@ export class FinanceService {
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
+  getAllCretedInvoicesWithPagination(p, perpage) {
+    const url = `${this.baseUrl + routes.getAllInvoices}?PageIndex=${p}&PageSize=${perpage}`;
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
   getInvoicePaymentHistory() {
     const url = `${this.baseUrl + routes.getInvoicepaymenthistory}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});

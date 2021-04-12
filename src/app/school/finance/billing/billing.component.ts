@@ -7,6 +7,8 @@ import { FinanceService } from 'src/services/data/finance/finance.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import html2pdf from 'html2pdf.js';
+// import * as html2pdf from 'h'
 @Component({
   selector: 'app-billing',
   templateUrl: './billing.component.html',
@@ -39,7 +41,12 @@ export class BillingComponent implements OnInit {
   invData: any;
   subTotal: number;
   invoiceAmount = [];
+  bulkInvoiceList = [];
   schoolLogo: any;
+  p = 1;
+  itemsPerPage = 10;
+  invoiceCount: number;
+
   constructor(
     private fb: FormBuilder,
     private finance: FinanceService,
@@ -86,7 +93,7 @@ export class BillingComponent implements OnInit {
       paymentReference: ['', Validators.required],
       paymentChannel: ['', Validators.required],
       description: ['', Validators.required],
-     Comment: ['', Validators.required]
+      Comment: ['', Validators.required]
     });
   }
   showStatus(status: string) {
@@ -145,11 +152,11 @@ export class BillingComponent implements OnInit {
 
   getClassBySectionId(id) {
     this.classService.getClassBySection(id).subscribe((data: any) => {
-        if (data.hasErrors === false) {
-          this.classes = data.payload;
+      if (data.hasErrors === false) {
+        this.classes = data.payload;
 
-        }
-      });
+      }
+    });
 
   }
 
@@ -167,7 +174,7 @@ export class BillingComponent implements OnInit {
 
   generateInvoice() {
     console.log(this.invoiceForm.value);
-    const {ClassId, FeegroupId, session, term, paymentDate} = this.invoiceForm.value;
+    const { ClassId, FeegroupId, session, term, paymentDate } = this.invoiceForm.value;
     const result = {
       classId: parseInt(ClassId),
       feeGroupId: parseInt(FeegroupId),
@@ -179,70 +186,122 @@ export class BillingComponent implements OnInit {
     console.log(result);
     this.finance.generteInvoices(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-      this.notifyService.publishMessages('Successful', 'success', 1);
-      document.getElementById('closeInvoiceModal').click();
-      this.invoiceForm.reset();
-      this.getAllInvoiceCreated();
+        this.notifyService.publishMessages('Successful', 'success', 1);
+        document.getElementById('closeInvoiceModal').click();
+        this.invoiceForm.reset();
+        this.getAllInvoiceCreated();
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
 
       }
-  }, error => {
-    this.notifyService.publishMessages(error.errors, 'danger', 1);
-  });
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+    });
   }
 
   getAllInvoiceCreated() {
-    this.finance.getAllCretedInvoices().subscribe((data: any) => {
+    this.finance.getAllCretedInvoicesWithPagination(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
-     console.log(data.payload);
-     this.invoiceList = data.payload;
-      // this.getAllComponent();
+        console.log(data.payload);
+        this.invoiceList = data.payload;
+        this.invoiceCount = data.totalCount;
+        // this.getAllComponent();
       }
-  }, error => {
-    this.notifyService.publishMessages(error.message, 'danger', 1);
-  });
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
+  }
+
+  getPage(page: number) {
+    console.log(page);
+    this.finance.getAllCretedInvoicesWithPagination(page, this.itemsPerPage).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.invoiceList = data.payload;
+        // // this.studentList = data.payload.reverse();
+        // console.log(this.studentList);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+    });
+  }
+
+
+  selectAllBoxes(e) {
+    const allBoxes: any = document.getElementsByName('boxes');
+    if (e.target.checked === true) {
+      // tslint:disable-next-line:prefer-for-of
+      for (let index = 0; index < allBoxes.length; index++) {
+        if (allBoxes[index].type === 'checkbox') {
+          allBoxes[index].checked = true;
+          this.bulkInvoiceList = this.invoiceList;
+        }
+      }
+    } else {
+      // tslint:disable-next-line:prefer-for-of
+      for (let index = 0; index < allBoxes.length; index++) {
+        if (allBoxes[index].type === 'checkbox') {
+
+          allBoxes[index].checked = false;
+          this.bulkInvoiceList = [];
+        }
+      }
+
+    }
+  }
+
+  removeFromBulkList(event, id) {
+    console.log(id);
+    if (event.target.checked === false) {
+      console.log(this.bulkInvoiceList[id]);
+      const index = this.bulkInvoiceList.indexOf(id);
+      console.log(index);
+      if (index > -1) {
+        this.bulkInvoiceList.splice(index, 1);
+      }
+      // array = [2, 9]
+      console.log(this.bulkInvoiceList);
+    }
   }
 
 
   getInvoiceByID(id) {
     this.finance.getInvoicesById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-      console.log(data.payload);
-      // this.getAllComponent();
+        // console.log(data.payload);
+        // this.getAllComponent();
       }
-  }, error => {
-    this.notifyService.publishMessages(error.message, 'danger', 1);
-  });
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
   }
 
   previewInvoice(id) {
     this.finance.getInvoicesById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-      console.log(data.payload);
-      this.studentInvoicePreview = data.payload;
-      this.invData = this.studentInvoicePreview.invoiceItems;
-       // tslint:disable-next-line:prefer-for-of
-      for (let i = 0; i < this.invData.length; i++) {
+        // console.log(data.payload);
+        this.studentInvoicePreview = data.payload;
+        this.invData = this.studentInvoicePreview.invoiceItems;
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < this.invData.length; i++) {
           this.invoiceAmount.push(this.invData[i].amount);
           this.subTotal = this.invoiceAmount.reduce((a, b) => a + b, 0);
+        }
       }
-      }
-  }, error => {
-    this.notifyService.publishMessages(error.message, 'danger', 1);
-  });
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
   }
 
   getAllPaymentInvoices() {
     this.finance.getAllTransactions().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPaymentList = data.payload;
-    //  console.log(data.payload);
-      // this.getAllComponent();
+        //  console.log(data.payload);
+        // this.getAllComponent();
       }
-  }, error => {
-    this.notifyService.publishMessages(error.message, 'danger', 1);
-  });
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
   }
 
 
@@ -250,12 +309,12 @@ export class BillingComponent implements OnInit {
     this.finance.getInvoicePaymentHistory().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPaymentHistoryList = data.payload;
-        console.log(data.payload);
-      // this.getAllComponent();
+        // console.log(data.payload);
+        // this.getAllComponent();
       }
-  }, error => {
-    this.notifyService.publishMessages(error.message, 'danger', 1);
-  });
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
   }
 
 
@@ -263,24 +322,24 @@ export class BillingComponent implements OnInit {
     this.finance.getPendingInvoicePayment().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPendingPaymentHistory = data.payload;
-        console.log(data.payload);
-      // this.getAllComponent();
+        // console.log(data.payload);
+        // this.getAllComponent();
       }
-  }, error => {
-    this.notifyService.publishMessages(error.message, 'danger', 1);
-  });
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
   }
 
   getPaymentAwwaitingApproval() {
     this.finance.getAllTransactionsAwaitingApproval().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPendingPaymentList = data.payload;
-        console.log(data.payload);
-      // this.getAllComponent();
+        // console.log(data.payload);
+        // this.getAllComponent();
       }
-  }, error => {
-    this.notifyService.publishMessages(error.message, 'danger', 1);
-  });
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
   }
 
   getTransactionDetails(id) {
@@ -288,7 +347,7 @@ export class BillingComponent implements OnInit {
       if (data.hasErrors === false) {
         // this.allPendingPaymentList = data.payload;
         this.TransactionId = data.payload.transactionId;
-        console.log(data.payload);
+        // console.log(data.payload);
         this.acceptRejectForm.patchValue({
           transactionId: data.payload.transactionNumber,
           invoice: data.payload.invoiceNumber,
@@ -297,11 +356,11 @@ export class BillingComponent implements OnInit {
           description: data.payload.description,
         });
         this.fileName = data.payload.fileId;
-      // this.getAllComponent();
+        // this.getAllComponent();
       }
-  }, error => {
-    this.notifyService.publishMessages(error.message, 'danger', 1);
-  });
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
   }
 
 
@@ -361,7 +420,7 @@ export class BillingComponent implements OnInit {
   }
 
   sendRejection() {
-    const {Comment} = this.acceptRejectForm.value;
+    const { Comment } = this.acceptRejectForm.value;
     const result = {
       transactionId: parseInt(this.TransactionId),
       approve: false,
@@ -369,7 +428,7 @@ export class BillingComponent implements OnInit {
     };
     console.log(result);
     this.finance.ApproveRejectTransactionReceipt(result).subscribe((data: any) => {
-      if (data.hasErrors === false ) {
+      if (data.hasErrors === false) {
         this.notifyService.publishMessages('Payment rejected', 'success', 1);
         document.getElementById('closeConfirmPaymentModal').click();
         this.getAllPaymentInvoices();
@@ -390,7 +449,7 @@ export class BillingComponent implements OnInit {
     };
     console.log(result);
     this.finance.ApproveRejectTransactionReceipt(result).subscribe((data: any) => {
-      if (data.hasErrors === false ) {
+      if (data.hasErrors === false) {
         this.notifyService.publishMessages('Payment confirmed', 'success', 1);
         document.getElementById('closeConfirmPaymentModal').click();
         this.getAllPaymentInvoices();
@@ -433,6 +492,29 @@ export class BillingComponent implements OnInit {
 
 
 
+  }
+
+  multPrintPDF() {
+    const element = document.getElementById('element-to-print');
+    const opt = {
+      margin: 1,
+      filename: 'Invoices.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    const pages = document.getElementsByClassName('toPdfPage');
+    let worker = html2pdf().set(opt).from(pages[0]).toPdf();
+    for (let i = 0; i < pages.length; i++) {
+      worker = worker.set(opt).from(pages[i]).toContainer().toCanvas().toPdf().get('pdf').then((pdf) => {
+        if (i < pages.length - 1) { // Bump cursor ahead to new page until on last page
+          pdf.addPage();
+        }
+        pdf.save();
+      });
+
+
+    }
   }
 
 }

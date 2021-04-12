@@ -87,7 +87,7 @@ table.client-table {
     border-spacing: 0 1em;
   }
   
-  .list .table thead {
+  .thead {
     color: #767676;
     font-weight: 600;
     background: #E7E7E7;

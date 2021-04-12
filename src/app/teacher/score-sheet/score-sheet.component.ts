@@ -261,20 +261,20 @@ export class ScoreSheetComponent implements OnInit {
 
 
   submitGrade(studentId, u) {
-    console.log('u', u);
-    console.log(studentId);
+    // console.log('u', u);
+    // console.log(studentId);
     this.checkTableCellStatus();
 
     const check = this.newList[u];
-    console.log(check);
+    // console.log(check);
     const { assessmentId, score } = this.addGradeForm.value;
-    console.log('assessmentId', assessmentId);
-    console.log('assessment score', score);
-    console.log('checkId', check.id);
+    // console.log('assessmentId', assessmentId);
+    // console.log('assessment score', score);
+    // console.log('checkId', check.id);
     // tslint:disable-next-line:triple-equals
     if (check.id == studentId  && score > this.AssessmentScore) {
       this.notifyService.publishMessages('Score cannot be greater than max score', 'danger', 1);
-      console.log('ikoja aye');
+      // console.log('ikoja aye');
       return;
     }
 
@@ -299,6 +299,7 @@ export class ScoreSheetComponent implements OnInit {
     this.scoreObject = this.scoreResult;
     if (this.scoreResult[studentId].cummulative > 100) {
       alert('Cummulative score can exceed 100');
+      this.scoreResult[studentId].cummulative = Number(prevCumulative) - Number(score);
     }
     console.log(this.scoreResult);
 
@@ -369,10 +370,10 @@ export class ScoreSheetComponent implements OnInit {
   getAssessmentName(event, u) {
     this.AssesmentId = this.assessmentList[event].id;
     this.AssessmentName = this.assessmentList[event].name;
-    console.log(this.AssessmentName);
+    // console.log(this.AssessmentName);
     this.AssessmentSequence = this.assessmentList[event].sequenceNumber;
     this.AssessmentScore = this.assessmentList[event].maxScore;
-    console.log('assessment score', this.AssessmentScore)
+    // console.log('assessment score', this.AssessmentScore)
     $(`#dropdownMenuLink${u}`).addClass('show-pop');
 
   }

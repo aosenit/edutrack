@@ -9,7 +9,13 @@
           <option value="1"> Academic Staff</option>
           <option value="2"> Non Academic Staff</option>
         </select>
+        <div *ngIf="employeeForm.controls.StaffType.touched && employeeForm.controls.StaffType.errors" class="error">
+          <small *ngIf="employeeForm.controls.StaffType.errors.required" class="text-danger">Field is required</small>
+          <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+        </div>
+
       </div>
+
       <div class=" ">
         <label for="status" class="fw-6">Employment Status <span class="text-danger">*</span></label>
         <select name="" id="status" class="form-control form-control-lg" formControlName="EmploymentStatus">
@@ -17,6 +23,10 @@
           <option value="full-time"> Full Time </option>
           <option value="part-time"> Part Time </option>
         </select>
+        <div *ngIf="employeeForm.controls.EmploymentStatus.touched && employeeForm.controls.EmploymentStatus.errors" class="error">
+          <small *ngIf="employeeForm.controls.EmploymentStatus.errors.required" class="text-danger">Field is required</small>
+          <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+        </div>
       </div>
 
     </div>
@@ -33,6 +43,10 @@
           <option value="HND" selected> HND </option>
           <option value="NCE" selected> NCE </option>
         </select>
+        <div *ngIf="employeeForm.controls.HighestQualification.touched && employeeForm.controls.HighestQualification.errors" class="error">
+          <small *ngIf="employeeForm.controls.HighestQualification.errors.required" class="text-danger">Field is required</small>
+          <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+        </div>
 
       </div>
 
@@ -40,6 +54,10 @@
         <label for="job-title" class="fw-6">Job Title <span class="text-danger">*</span></label>
         <input type="text" class="form-control form-control-lg" id="job-title" placeholder="Enter other names"
           formControlName="JobTitle" required>
+          <div *ngIf="employeeForm.controls.JobTitle.touched && employeeForm.controls.JobTitle.errors" class="error">
+            <small *ngIf="employeeForm.controls.JobTitle.errors.required" class="text-danger">Field is required</small>
+            <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+          </div>
       </div>
     </div>
 
@@ -54,6 +72,11 @@
           <!-- <option [value]="N/A" *ngIf = "department?.name === null"> Not Available </option> -->
 
         </select>
+
+        <div *ngIf="employeeForm.controls.DepartmentId.touched && employeeForm.controls.DepartmentId.errors" class="error">
+          <small *ngIf="employeeForm.controls.DepartmentId.errors.required" class="text-danger">Field is required</small>
+          <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+        </div>
       </div>
 
       <div class=" ">
@@ -64,6 +87,11 @@
           <option value="150,000"> 150,000</option>
           <option value="250,000"> 250,000</option>
         </select>
+
+        <div *ngIf="employeeForm.controls.PayGrade.touched && employeeForm.controls.PayGrade.errors" class="error">
+          <small *ngIf="employeeForm.controls.PayGrade.errors.required" class="text-danger">Field is required</small>
+          <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+        </div>
       </div>
     </div>
 
@@ -73,11 +101,17 @@
         <label for="empdate" class="fw-6">Employment Date <span class="text-danger">*</span></label>
 
         <input type="date" id="empdate" class="form-control form-control-lg" formControlName="EmploymentDate">
+        
       </div>
 
       <div class="  ">
         <label for="icon" class="fw-6">Resumption Date</label>
         <input type="date" id="empdate" class="form-control form-control-lg" formControlName="ResumptionDate">
+
+        <div *ngIf="employeeForm.controls.ResumptionDate.touched && employeeForm.controls.ResumptionDate.errors" class="error">
+          <small *ngIf="employeeForm.controls.ResumptionDate.errors.required" class="text-danger">Field is required</small>
+          <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+        </div>
 
       </div>
 

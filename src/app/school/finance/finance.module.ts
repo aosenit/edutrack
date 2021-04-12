@@ -5,6 +5,9 @@ import { FinanceRoutingModule } from './finance-routing.module';
 import { BillingComponent } from './billing/billing.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
 
 @NgModule({
   declarations: [BillingComponent],
@@ -12,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxPaginationModule,
     FinanceRoutingModule
   ]
 })

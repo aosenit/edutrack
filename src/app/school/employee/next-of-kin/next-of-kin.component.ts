@@ -40,7 +40,7 @@ export class NextOfKinComponent implements OnInit {
     this.nextOfKinForm = this.fb.group({
       NextKinFirstName: ['', Validators.required],
       NextKinLastName: ['', Validators.required],
-      NextKinOtherName: ['', Validators.required],
+      NextKinOtherName: [''],
       NextKinRelationship: ['', Validators.required],
       NextKinOccupation: [''],
       NextKinPhone: ['', Validators.required],
