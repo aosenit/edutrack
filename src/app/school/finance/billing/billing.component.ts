@@ -32,6 +32,7 @@ export class BillingComponent implements OnInit {
   reject = false;
   approve = true;
   reject2 = false;
+  activateBtn = false;
   TransactionId: any;
   pendingInvoicesList: any;
   allPendingPaymentHistory: any;
@@ -232,6 +233,7 @@ export class BillingComponent implements OnInit {
       // tslint:disable-next-line:prefer-for-of
       for (let index = 0; index < allBoxes.length; index++) {
         if (allBoxes[index].type === 'checkbox') {
+          this.activateBtn = true;
           allBoxes[index].checked = true;
           this.bulkInvoiceList = this.invoiceList;
         }
@@ -240,6 +242,7 @@ export class BillingComponent implements OnInit {
       // tslint:disable-next-line:prefer-for-of
       for (let index = 0; index < allBoxes.length; index++) {
         if (allBoxes[index].type === 'checkbox') {
+          this.activateBtn = false;
 
           allBoxes[index].checked = false;
           this.bulkInvoiceList = [];
