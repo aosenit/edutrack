@@ -53,7 +53,7 @@ export class MarkAttendanceComponent implements OnInit {
 
       this.populateAttendance();
       this.subjectClass = JSON.parse(sessionStorage.getItem('subject-class'));
-      console.log(this.subjectClass);
+      // console.log(this.subjectClass);
       this.getSubjectAttendance();
 
 
@@ -73,7 +73,7 @@ export class MarkAttendanceComponent implements OnInit {
       if (data.hasErrors === false) {
         // console.log(data.payload);
         this.classList = data.payload;
-        console.log(this.classList);
+        // console.log(this.classList);
       }
     }
     );
@@ -88,7 +88,7 @@ export class MarkAttendanceComponent implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.classList.length; i++) {
       if (this.classList[i].classId === id) {
-        console.log('assas', this.classList[i]);
+        // console.log('assas', this.classList[i]);
       }
     }
     this.classService.getStudentsInAClassByClassID(id).subscribe((data: any) => {
@@ -148,7 +148,7 @@ export class MarkAttendanceComponent implements OnInit {
       });
       const {Remark} = this.attendanceForm.value;
       this.studentModel[i].remark = Remark;
-      console.log(this.studentModel[i].remark);
+      // console.log(this.studentModel[i].remark);
     }
 
   }
@@ -206,7 +206,7 @@ export class MarkAttendanceComponent implements OnInit {
 
   getSubjectAttendance() {
     // this.attendance.getSubjectAttendance(this.subjectClass.classSubjectId).subscribe((data: any) => {
-    this.teacher.getSubjectAttendance(10013).subscribe((data: any) => {
+    this.teacher.getSubjectAttendance(this.subjectClass.subjectId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
 

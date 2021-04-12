@@ -27,11 +27,14 @@ export class ClassAttendanceComponent implements OnInit {
   studentModel = {};
   todayDate: Date = new Date();
   invalidate: true;
+  presentSummary = 0;
+  absentSummary = 0;
 
 
 
   attendanceStructure = {dates: '',  attendanceStatus: Boolean, absentRemark: '' };
   studentID: any;
+  TeacherClassId: any;
 
   constructor(
     private classService: ClassService,
@@ -44,6 +47,7 @@ export class ClassAttendanceComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.TeacherClassId = sessionStorage.getItem('class-id');
     // tslint:disable-next-line:only-arrow-functions
     $('#dropdownMenuLink').on('show.bs.dropdown', function() {
       $(`#dropdownMenuLink`).show();
@@ -51,7 +55,10 @@ export class ClassAttendanceComponent implements OnInit {
     });
 
     this.getClassAndSubjectForTeacher();
+    this.getSubjects();
     this.populateAttendance();
+    this.getClassAttendanceSummary();
+
   }
 
   populateAttendance() {
@@ -70,15 +77,9 @@ export class ClassAttendanceComponent implements OnInit {
     this.displayClass = true;
   }
 
-  getSubjects(id) {
-    this.classID = id;
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.classList.length; i++) {
-      if (this.classList[i].classId === id) {
-        console.log('assas', this.classList[i]);
-      }
-    }
-    this.classService.getStudentsInAClassByClassID(id).subscribe((data: any) => {
+  getSubjects() {
+
+    this.classService.getStudentsInAClassByClassID(this.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
         this.studentList = data.payload;
@@ -184,7 +185,7 @@ export class ClassAttendanceComponent implements OnInit {
     const { dates } = this.attendanceForm.value;
 
     const result = {
-      classId: parseInt(this.classID),
+      classId: parseInt(this.TeacherClassId),
       date: dates,
       studentAttendanceVMs: this.studentAttendanceVMs
     };
@@ -194,13 +195,44 @@ export class ClassAttendanceComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data.payload);
         this.notifyService.publishMessages('Attendance saved', 'success', 1);
-        location.reload();
+        this.getClassAttendanceSummary();
         // this.studentList = data.payload;
         // console.log(this.classList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
+    });
+  }
+
+  getClassAttendanceSummary() {
+    this.attendance.getClassAttendanceForTeacher(this.TeacherClassId).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        const attendee: any = data.payload;
+        const present = [];
+        const absent = [];
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < attendee.length; i++) {
+          const day = moment();
+          const today = day.format('YYYY-MM-DD');
+          attendee[i].attendanceClassVms.forEach(element => {
+                    // const todaysUsers = users.filter((status: any) => moment(status.createdAt).format('YYYY-MM-DD') ===  today);
+
+           console.log(element);
+           if (today === moment(element.attendanceDate).format('YYYY-MM-DD') && element.attendanceStatus === 1) {
+            present.push(element.attendanceStatus);
+            this.presentSummary = present.length;
+            // this.presentSummary = present.length;
+
+           } else if (today === moment(element.attendanceDate).format('YYYY-MM-DD') && element.attendanceStatus === 2) {
+            absent.push(element.attendanceStatus);
+            this.absentSummary = absent.length;
+            // this.absentSummary = absent.reduce((a, b) => a + b, 0);
+           }
+         });
+        }
+      }
     });
   }
 
