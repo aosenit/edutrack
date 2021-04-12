@@ -108,6 +108,13 @@ export class ResultService {
 
  }
 
+ getApprovedResultForStudent(studUserId, classId, sessionId, termSequenceNumber) {
+  // tslint:disable-next-line:max-line-length
+  const url = `${this.baseUrl + routes.getapprovedResult}?studUserId=${studUserId}&classId=${classId}&sessionId=${sessionId}&termSequenceNumber=${termSequenceNumber}`;
+  return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+ }
+
  getStudentApprovedResults(classId, sessionId, termSequenceNumber) {
   // tslint:disable-next-line:max-line-length
   const url = `${this.baseUrl + routes.getapprovedStudentResult}?classId=${classId}&sessionId=${sessionId}&termSequenceNumber=${termSequenceNumber}`;

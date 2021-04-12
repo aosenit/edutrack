@@ -39,7 +39,7 @@
             
                     Search
                   </div> -->
-            <div class="mr-4 cursor-pointer">
+            <!-- <div class="mr-4 cursor-pointer">
               <svg width="68" height="25" viewBox="0 0 68 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M26.0679 17V7.13H32.4799V8.292H27.4819V11.4H32.1999V12.576H27.4819V15.838H32.4799V17H26.0679ZM37.6034 13.486L40.4594 17H38.7654L36.7774 14.508L34.8034 17H33.1094L35.9654 13.486L33.2634 10.168H34.9714L36.7774 12.478L38.5974 10.168H40.2914L37.6034 13.486ZM45.1128 10C45.7008 10 46.2235 10.1493 46.6808 10.448C47.1475 10.7467 47.5068 11.1667 47.7588 11.708C48.0202 12.2493 48.1508 12.8747 48.1508 13.584C48.1508 14.284 48.0248 14.9 47.7728 15.432C47.5208 15.964 47.1615 16.3747 46.6948 16.664C46.2375 16.9533 45.7102 17.098 45.1128 17.098C44.5995 17.098 44.1468 16.9907 43.7548 16.776C43.3628 16.552 43.0642 16.2347 42.8588 15.824V19.52H41.4448V10.168H42.8588V11.288C43.0642 10.8773 43.3628 10.56 43.7548 10.336C44.1468 10.112 44.5995 10 45.1128 10ZM44.7768 15.978C45.3928 15.978 45.8688 15.7727 46.2048 15.362C46.5408 14.942 46.7088 14.3493 46.7088 13.584C46.7088 12.8093 46.5362 12.2073 46.1908 11.778C45.8548 11.3487 45.3835 11.134 44.7768 11.134C44.1608 11.134 43.6848 11.344 43.3488 11.764C43.0222 12.184 42.8588 12.7813 42.8588 13.556C42.8588 14.3307 43.0222 14.928 43.3488 15.348C43.6848 15.768 44.1608 15.978 44.7768 15.978ZM52.6843 17.098C52.0123 17.098 51.4197 16.9533 50.9063 16.664C50.4023 16.3747 50.0103 15.964 49.7303 15.432C49.4597 14.8907 49.3243 14.2653 49.3243 13.556C49.3243 12.8373 49.4597 12.212 49.7303 11.68C50.0103 11.1387 50.4023 10.7233 50.9063 10.434C51.4197 10.1447 52.0123 10 52.6843 10C53.3563 10 53.9443 10.1447 54.4483 10.434C54.9617 10.7233 55.3537 11.1387 55.6243 11.68C55.9043 12.212 56.0443 12.8373 56.0443 13.556C56.0443 14.2653 55.9043 14.8907 55.6243 15.432C55.3537 15.964 54.9617 16.3747 54.4483 16.664C53.9443 16.9533 53.3563 17.098 52.6843 17.098ZM52.6843 15.978C53.3097 15.978 53.7857 15.7727 54.1123 15.362C54.4483 14.9513 54.6163 14.3493 54.6163 13.556C54.6163 12.772 54.4483 12.1747 54.1123 11.764C53.7763 11.344 53.3003 11.134 52.6843 11.134C52.0683 11.134 51.5923 11.344 51.2563 11.764C50.9203 12.1747 50.7523 12.772 50.7523 13.556C50.7523 14.3493 50.9157 14.9513 51.2423 15.362C51.5783 15.7727 52.059 15.978 52.6843 15.978ZM61.7767 11.19L60.9227 11.274C60.2507 11.3393 59.7653 11.5447 59.4667 11.89C59.1773 12.2353 59.0327 12.674 59.0327 13.206V17H57.6187V10.168H58.9907V11.358C59.3547 10.5553 60.0967 10.112 61.2167 10.028L61.6787 10L61.7767 11.19ZM66.5675 16.006C66.7822 16.006 66.9922 15.992 67.1975 15.964L67.1275 17.042C66.8942 17.0793 66.6515 17.098 66.3995 17.098C65.5128 17.098 64.8502 16.8833 64.4115 16.454C63.9822 16.0153 63.7675 15.3853 63.7675 14.564V11.26H62.4375V10.168H63.7675V8.11H65.1815V10.168H67.0575V11.26H65.1815V14.508C65.1815 15.5067 65.6435 16.006 66.5675 16.006Z"
@@ -60,13 +60,26 @@
                   fill="#0A1128" />
               </svg>
       
-            </div>
+            </div> -->
           </div>
       
         </div>
       
       
-        <div class="bg-white py-5 px-4" >
+        <div class="bg-white py-5 px-4 d-flex justify-content-center align-items-center" *ngIf="noData">
+          <div class="d-flex flex-column text-center">
+            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+            <p class="fw-6 fs-24" style="color:#BAB9C1;">Select term  to display <br> information</p>
+          </div>
+        </div>
+        <div class="bg-white py-5 px-4 d-flex justify-content-center align-items-center" *ngIf="noresult">
+          <div class="d-flex flex-column text-center">
+            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+            <p class="fw-6 fs-24" style="color:#BAB9C1;">No result in the selected term, please select another term  <br> to display information</p>
+          </div>
+        </div>
+
+        <div class="bg-white py-5 px-4" *ngIf="displayData" >
           <div class="row mb-4">
             <div class="col-md-4">
               <div class="d-flex">
@@ -105,13 +118,13 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td> {{selectedStudent?.firstName + ' ' + selectedStudent?.lastName}} </td>
-                    <td>{{selectedStudent?.studentNumber}}</td>
+                    <td> {{reportSheetDetails?.studentName}} </td>
+                    <td>{{reportSheetDetails?.regNumber}}</td>
                     <td>
-                      <span *ngIf="selectedStudent?.sex === 'male' ">M</span>
-                      <span *ngIf="selectedStudent?.sex === 'female' ">F</span>
+                      <span *ngIf="reportSheetDetails?.sex === 'male' ">M</span>
+                      <span *ngIf="reportSheetDetails?.sex === 'female' ">F</span>
                     </td>
-                    <td>{{getAge(selectedStudent?.dateOfBirth)}} Years Old</td>
+                    <td>{{reportSheetDetails?.age}} Years Old</td>
                   </tr>
       
                 </tbody>
@@ -134,9 +147,9 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>{{selectedClass}}</td>
-                        <td>{{sessions?.name}}</td>
-                        <td>{{termName?.name}}</td>
+                        <td>{{reportSheetDetails?.class}}</td>
+                        <td>{{reportSheetDetails?.session}}</td>
+                        <td>{{reportSheetDetails?.term}}</td>
                       </tr>
       
                     </tbody>

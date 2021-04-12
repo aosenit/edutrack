@@ -14,6 +14,11 @@ import { SchoolService } from 'src/services/data/school/school.service';
 })
 export class StudentReportComponent implements OnInit {
   studentDetails: any;
+
+  noData = true;
+  displayData = false;
+  noresult = false;
+
   schoolLogo: any;
   schoolname: any;
 
@@ -145,19 +150,27 @@ export class StudentReportComponent implements OnInit {
   selectedTerm(event) {
    this.termName = this.terms[event];
    this.selectedTermId = this.terms[event].sequenceNumber;
-
    // tslint:disable-next-line:max-line-length
    this.resultService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.studentDetails.StudentClassId, this.studentDetails.sub  ).subscribe((data: any) => {
-    if (data.hasErrors === false) {
+     if (data.hasErrors === false) {
+      this.noData = false;
+      this.displayData = true;
      //  console.log(data.payload);
       this.studentBehaviour = data.payload.resultTypeAndValues;
       this.getApprovedStudentResults();
      //  this.studentRecord = data.payload.breakdowns;
      //  this.assessments = data.payload.breakdowns[0].assesmentAndScores;
      //  console.log(this.assessments);
+    } else {
+      this.noData = false;
+      this.noresult = true;
+      this.displayData = false;
     }
   }, error => {
     this.notifyService.publishMessages(error.errors, 'danger', 1);
+    this.noData = false;
+    this.noresult = true;
+    this.displayData = false;
 
   });
   }
@@ -172,8 +185,11 @@ export class StudentReportComponent implements OnInit {
 
  getApprovedStudentResults() {
   // tslint:disable-next-line:max-line-length
-  this.resultService.getApprovedStudentResult(this.studentDetails.sub, this.studentDetails.StudentClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
+  this.resultService.getApprovedResultForStudent(this.studentDetails.sub, this.studentDetails.StudentClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
     if (data.hasErrors === false) {
+      this.noData = false;
+      this.displayData = true;
+      this.noresult = false;
       // console.log(data.payload);
       this.reportSheetDetails = data.payload;
       this.studentRecord = data.payload.breakdowns;
@@ -188,6 +204,9 @@ export class StudentReportComponent implements OnInit {
     } else {
 
       this.notifyService.publishMessages(data.errors, 'danger', 1);
+      this.noData = false;
+      this.noresult = true;
+      this.displayData = false;
     }
   }, error => {
     this.notifyService.publishMessages(error.errors[0], 'danger', 1);
