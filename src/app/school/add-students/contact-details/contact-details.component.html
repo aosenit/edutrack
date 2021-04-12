@@ -13,7 +13,11 @@
                 <label for="email" class="fw-6">Email Address</label>
                 <input type="email" class="form-control form-control-lg"
                     placeholder="johnboye@gmail.com" id="email" formControlName="ContactEmail">
-                    <div *ngIf = "contactDetailsForm.controls.ContactEmail.errors?.email" class="text-danger">Invalid email pattern</div>
+                    <div *ngIf=" contactDetailsForm.controls.ContactEmail.touched && contactDetailsForm.controls.ContactEmail.errors" class="error">
+                        <small *ngIf = "contactDetailsForm.controls.ContactEmail.errors?.email" class="text-danger">Invalid email pattern</small>
+                        <small *ngIf="contactDetailsForm.controls.Nationality.errors.required" class="text-danger">Field is required</small>
+                        <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                      </div>
 
             </div>
         </div>
@@ -27,6 +31,10 @@
                     <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
 
                 </select>
+                <div *ngIf="contactDetailsForm.controls.ContactCountry.touched && contactDetailsForm.controls.ContactCountry.errors" class="error">
+                    <small *ngIf="contactDetailsForm.controls.ContactCountry.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
     
             </div>
     
@@ -35,6 +43,10 @@
                 </label>
                 <input type="text" class="form-control form-control-lg"
                     placeholder="10 Harvey Road" id="state" formControlName="ContactAddress">
+                    <div *ngIf="contactDetailsForm.controls.ContactAddress.touched && contactDetailsForm.controls.ContactAddress.errors" class="error">
+                        <small *ngIf="contactDetailsForm.controls.ContactAddress.errors.required" class="text-danger">Field is required</small>
+                        <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                      </div>
     
             </div>
         </div>
@@ -45,6 +57,10 @@
                         class="text-danger">*</span></label>
                 <input type="text" class="form-control form-control-lg" placeholder="First name"
                     id="town" formControlName="ContactTown">
+                    <div *ngIf="contactDetailsForm.controls.ContactTown.touched && contactDetailsForm.controls.ContactTown.errors" class="error">
+                        <small *ngIf="contactDetailsForm.controls.ContactTown.errors.required" class="text-danger">Field is required</small>
+                        <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                      </div>
             </div>
             <div class="col-md-6 ">
                 <label for="state" class="fw-6">State <span class="text-danger">*</span></label>
@@ -52,6 +68,10 @@
                     <option value="" selected>Select</option>
                     <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
                 </select>
+                <div *ngIf="contactDetailsForm.controls.ContactState.touched && contactDetailsForm.controls.ContactState.errors" class="error">
+                    <small *ngIf="contactDetailsForm.controls.ContactState.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
             </div>
     
     

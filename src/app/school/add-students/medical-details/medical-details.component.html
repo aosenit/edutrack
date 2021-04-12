@@ -19,6 +19,10 @@
                     <option value="AB-">AB-</option>
 
                 </select>
+                <div *ngIf=" medicalForm.controls.BloodGroup.touched && medicalForm.controls.BloodGroup.errors" class="error">
+                    <small *ngIf="medicalForm.controls.BloodGroup.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
     
             </div>
     
@@ -32,6 +36,11 @@
                     <option value="SS">SS</option>
                     <option value="SC">SC</option>
                 </select>
+                <div *ngIf=" medicalForm.controls.BloodGroup.touched && medicalForm.controls.BloodGroup.errors" class="error">
+                    <small *ngIf="medicalForm.controls.BloodGroup.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
+    
     
             </div>
         </div>
@@ -110,7 +119,7 @@
     </form>
             <div class=" d-flex justify-content-center mt-5">
                 <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="prevStep()"> Back </button>
-                <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="nextStep()" [disabled]="medicalForm.invalid" > Next
+                <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [disabled]="medicalForm.invalid" (click)="nextStep()" [disabled]="medicalForm.invalid" > Next
                 </button>
         
             </div>

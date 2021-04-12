@@ -102,9 +102,9 @@ export class SocialDetailsComponent implements OnInit {
       this.socialDetailsForm.patchValue({
         EntryType: this.socialDetails.EntryType,
       AdmissionDate: moment(this.socialDetails.admissionDate).format('YYYY-MM-DD'),
-      SectionId : this.socialDetails.SectionId,
-      ClassId : this.socialDetails.ClassId,
-      StudentType: this.socialDetails.StudentType,
+      sectionId : this.socialDetails.SectionId,
+      classId : this.socialDetails.ClassId,
+      studentType: this.socialDetails.StudentType,
       });
     } else {
       console.log(`Student social details not found`);

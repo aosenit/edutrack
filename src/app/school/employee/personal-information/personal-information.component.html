@@ -141,7 +141,7 @@
                <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
 
            </select>
-           <div *ngIf="personalDetailsForm.controls.Nationality.touched && personalDetailsForm.controls.Nationality.errors" class="error">
+           <div *ngIf=" personalDetailsForm.controls.Nationality.touched && personalDetailsForm.controls.Nationality.errors" class="error">
             <small *ngIf="personalDetailsForm.controls.Nationality.errors.required" class="text-danger">Field is required</small>
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>

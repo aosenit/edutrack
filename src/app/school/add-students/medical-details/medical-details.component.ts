@@ -65,9 +65,9 @@ export class MedicalDetailsComponent implements OnInit {
 
   createItem(): FormGroup {
     return this.fb.group({
-      age: [''],
-      date: [''],
-      vaccine: ['']
+      age: ['', Validators.required],
+      date: ['', Validators.required],
+      vaccine: ['', Validators.required]
     });
   }
 
