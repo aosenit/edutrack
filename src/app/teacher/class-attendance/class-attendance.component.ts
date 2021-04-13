@@ -52,7 +52,7 @@ export class ClassAttendanceComponent implements OnInit {
   ngOnInit() {
     const helper = new JwtHelperService();
     this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
-    console.log(this.loggedInUser.TeacherClassId);
+    // console.log(this.loggedInUser.TeacherClassId);
     // this.TeacherClassId = sessionStorage.getItem('class-id');
     // tslint:disable-next-line:only-arrow-functions
     $('#dropdownMenuLink').on('show.bs.dropdown', function() {

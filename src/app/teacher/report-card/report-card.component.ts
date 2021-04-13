@@ -66,6 +66,7 @@ export class ReportCardComponent implements OnInit {
     const helper = new JwtHelperService();
     this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
     this.getClassAndSubjectForTeacher();
+    this.getStudentList();
     this.getCurrentSesion();
     this.generateGradeSetup();
     this.getSchoolDetialsByID();
@@ -87,13 +88,13 @@ export class ReportCardComponent implements OnInit {
     );
   }
 
-  getSubjects(event) {
-    console.log(this.classList[event]);
-    this.selectedClassId = this.classList[event].classId;
-    this.selectedClass = this.classList[event].class;
+  getStudentList() {
+    // console.log(this.classList[event]);
+    // this.selectedClassId = this.classList[event].classId;
+    // this.selectedClass = this.classList[event].class;
     // tslint:disable-next-line:prefer-for-of
 
-    this.classService.getStudentsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
+    this.classService.getStudentsInAClassByClassID(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         // console.log(data.payload);
         this.studentList = data.payload;
@@ -134,11 +135,11 @@ export class ReportCardComponent implements OnInit {
    this.selectedTermId = this.terms[event].sequenceNumber;
   }
 
-  selectStudent(i) {
+  getStudentRecord(i) {
     this.selectedStudent = this.studentList[i];
     this.selectedStudentID = this.studentList[i].id;
     // tslint:disable-next-line:max-line-length
-    this.resultService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.selectedClassId, this.selectedStudentID  ).subscribe((data: any) => {
+    this.resultService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.loggedInUser.TeacherClassId, this.selectedStudentID  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
       //  console.log(data.payload);
        this.noData = false;
@@ -158,7 +159,7 @@ export class ReportCardComponent implements OnInit {
 
  getApprovedStudentResults() {
   // tslint:disable-next-line:max-line-length
-  this.resultService.getApprovedStudentResult(this.selectedStudentID, this.selectedClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
+  this.resultService.getApprovedStudentResult(this.selectedStudentID, this.loggedInUser.TeacherClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
     if (data.hasErrors === false) {
       // console.log(data.payload);
       this.reportSheetDetails = data.payload;
@@ -182,7 +183,7 @@ export class ReportCardComponent implements OnInit {
  }
 
  getAllSubjectsInAClasses() {
-   this.classService.getAllSubjectsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
+   this.classService.getAllSubjectsInAClassByClassID(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
      if (data.hasErrors === false) {
        const classSubjectCount: any = data.payload;
       //  console.log(classSubjectCount.length);

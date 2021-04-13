@@ -6,6 +6,8 @@ import { AssessmentService } from 'src/services/data/assessment/assessment.servi
 import { ResultService } from 'src/services/data/result/result.service';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { TeacherService } from 'src/services/data/teacher/teacher.service';
 
 
 @Component({
@@ -60,6 +62,7 @@ export class StudentScoreSheetComponent implements OnInit {
   selectedClass: any;
   selectedTermId: any;
   teacherComment = { comment: '' };
+  loggedInUser: any;
 
   constructor(
     private classService: ClassService,
@@ -68,23 +71,28 @@ export class StudentScoreSheetComponent implements OnInit {
     private assessmentService: AssessmentService,
     private notifyService: NotificationsService,
     private fb: FormBuilder,
+    private teacherService: TeacherService
 
 
 
   ) { }
 
   ngOnInit() {
+    const helper = new JwtHelperService();
+    this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
     // tslint:disable-next-line:only-arrow-functions
     $('#dropdownMenuLink').on('show.bs.dropdown', function() {
       $(`#dropdownMenuLink`).show();
 
     });
     this.getClassAndSubjectForTeacher();
+    this.getStudentList();
     this.generateGradeSetup();
     this.populteCognitiveForm();
     this.populteAffectiveForm();
     this.popultePsychomotorForm();
     this.getCurrentSesion();
+
   }
 
 
@@ -106,7 +114,7 @@ export class StudentScoreSheetComponent implements OnInit {
 
 
   getClassAndSubjectForTeacher() {
-    this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
+    this.teacherService.getTeacherAttachedToClass(this.loggedInUser.sub).subscribe((data: any) => {
       if (data.hasErrors === false) {
         // console.log(data.payload);
         this.classList = data.payload;
@@ -116,13 +124,13 @@ export class StudentScoreSheetComponent implements OnInit {
     );
   }
 
-  getSubjects(event) {
-    console.log(this.classList[event]);
-    this.selectedClassId = this.classList[event].classId;
-    this.selectedClass = this.classList[event].class;
+  getStudentList() {
+    // console.log(this.classList[event]);
+    // this.selectedClassId = this.classList[event].classId;
+    // this.selectedClass = this.classList[event].class;
     // tslint:disable-next-line:prefer-for-of
 
-    this.classService.getStudentsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
+    this.classService.getStudentsInAClassByClassID(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
         this.studentList = data.payload;
@@ -146,9 +154,9 @@ export class StudentScoreSheetComponent implements OnInit {
     this.selectedTermId = this.terms[event].sequenceNumber;
   }
 
-  selectStudent(i) {
+  getStudentRecord(i) {
     this.selectedStudent = this.studentList[i];
-    this.resultService.getStudentBroadSheet(this.selectedStudent.id, this.selectedClassId).subscribe((data: any) => {
+    this.resultService.getStudentBroadSheet(this.selectedStudent.id, this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
         this.studentRecord = data.payload.breakdowns;
@@ -188,7 +196,7 @@ export class StudentScoreSheetComponent implements OnInit {
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('All school grade', data.payload);
+        // console.log('All school grade', data.payload);
         this.gradeSetup = data.payload;
       }
     });
@@ -325,7 +333,7 @@ export class StudentScoreSheetComponent implements OnInit {
     const studentResult = {
       sessionId: this.sessions.id,
       termSequence: this.selectedTermId,
-      classId: this.selectedClassId,
+      classId: this.loggedInUser.TeacherClassId,
       studentId: this.selectedStudent.id,
       classTeacherComment: comment,
       classTeacherApprovalStatus: 1,
@@ -357,7 +365,7 @@ export class StudentScoreSheetComponent implements OnInit {
     const result = {
       sessionId: this.sessions.id,
       termSequence: this.selectedTermId,
-      classId: this.selectedClassId,
+      classId: this.loggedInUser.TeacherClassId,
       studentId: this.selectedStudent.id,
       resultTypeAndValues: resultTypeAndValue
     };

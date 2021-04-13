@@ -3,13 +3,12 @@
     <div>
       <form>
         <div class="row">
-          <div class="col options">
+          <!-- <div class="col options">
             <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)">
               <option value="">Select Class</option>
-              <!-- <option value={{class.classId}} *ngFor="let class of classList; let i = index">{{class.class}}</option> -->
               <option value={{i}} *ngFor="let class of classList; let i = index">{{class.class}}</option>
             </select>
-          </div>
+          </div> -->
           <div class="col options">
             <select name="" id="" class="form-control" (change)="selectedTerm($event.target.value)">
               <option value="">Term</option>
@@ -17,7 +16,7 @@
             </select>
           </div>
           <div class="col-5 options">
-            <select name="" id="" class="form-control" (change)="selectStudent($event.target.value)">
+            <select name="" id="" class="form-control" (change)="getStudentRecord($event.target.value)">
               <option value="">Select student name</option>
               <option [value]="std" *ngFor="let student of studentList; let std = index">
                 {{student?.firstName + ' ' + student?.lastName}}</option>
