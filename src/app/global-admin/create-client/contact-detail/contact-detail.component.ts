@@ -41,8 +41,8 @@ export class ContactDetailComponent implements OnInit {
     this.schooldetailsForm = this.fb.group({
       Country : ['', Validators.required],
       Address: ['', Validators.required],
-      State: [''],
-      City: ['']
+      State: ['', Validators.required],
+      City: ['', Validators.required]
     });
   }
   nextStep() {

@@ -5,6 +5,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import * as $ from 'jquery';
 import * as moment from 'moment';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 
 @Component({
@@ -35,6 +37,7 @@ export class ClassAttendanceComponent implements OnInit {
   attendanceStructure = {dates: '',  attendanceStatus: Boolean, absentRemark: '' };
   studentID: any;
   TeacherClassId: any;
+  loggedInUser: any;
 
   constructor(
     private classService: ClassService,
@@ -47,7 +50,10 @@ export class ClassAttendanceComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.TeacherClassId = sessionStorage.getItem('class-id');
+    const helper = new JwtHelperService();
+    this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
+    console.log(this.loggedInUser.TeacherClassId);
+    // this.TeacherClassId = sessionStorage.getItem('class-id');
     // tslint:disable-next-line:only-arrow-functions
     $('#dropdownMenuLink').on('show.bs.dropdown', function() {
       $(`#dropdownMenuLink`).show();
@@ -79,7 +85,7 @@ export class ClassAttendanceComponent implements OnInit {
 
   getSubjects() {
 
-    this.classService.getStudentsInAClassByClassID(this.TeacherClassId).subscribe((data: any) => {
+    this.classService.getStudentsInAClassByClassID(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
         this.studentList = data.payload;
@@ -185,7 +191,7 @@ export class ClassAttendanceComponent implements OnInit {
     const { dates } = this.attendanceForm.value;
 
     const result = {
-      classId: parseInt(this.TeacherClassId),
+      classId: parseInt(this.loggedInUser.TeacherClassId),
       date: dates,
       studentAttendanceVMs: this.studentAttendanceVMs
     };
@@ -206,7 +212,7 @@ export class ClassAttendanceComponent implements OnInit {
   }
 
   getClassAttendanceSummary() {
-    this.attendance.getClassAttendanceForTeacher(this.TeacherClassId).subscribe((data: any) => {
+    this.attendance.getClassAttendanceForTeacher(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
         const attendee: any = data.payload;

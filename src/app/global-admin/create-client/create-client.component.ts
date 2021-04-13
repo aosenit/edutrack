@@ -31,7 +31,7 @@ export class CreateClientComponent implements OnInit {
   }
 
   getChildName(data) {
-    console.log('data from child', data);
+    // console.log('data from child', data);
     this.message = data;
   }
 
