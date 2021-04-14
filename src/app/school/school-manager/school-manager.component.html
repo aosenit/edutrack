@@ -86,8 +86,14 @@
 
               {{schoolDetails?.schoolName}}
             </td>
-            <td>N/A</td>
-            <td>N/A</td>
+            <td>
+              <span *ngIf="sessionList?.name">{{sessionList?.name}}</span>
+              <span *ngIf="sessionList?.name === null">N/A</span>
+            </td>
+            <td>
+              <span *ngIf="currentTerm">{{currentTerm}}</span>
+              <span *ngIf="currentTerm === null">N/A</span>
+            </td>
 
             <td><span class="status_active">Active</span></td>
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
+import * as moment from 'moment';
 
 
 @Component({
@@ -12,8 +14,11 @@ export class SchoolManagerComponent implements OnInit {
   searchString: string;
   adminDetails: any;
   schoolDetails: any;
+  sessionList: any;
+  currentTerm: any;
   constructor(
-    private school: SchoolService
+    private school: SchoolService,
+    private assessmentService: AssessmentService
 
   ) { }
 
@@ -22,6 +27,7 @@ export class SchoolManagerComponent implements OnInit {
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
     // console.log(this.adminDetails);
     this.getSchoolProperties();
+    this.getSession();
   }
 
   getSchoolProperties() {
@@ -32,6 +38,23 @@ export class SchoolManagerComponent implements OnInit {
       }
     });
   }
-  
+
+  getSession() {
+    this.assessmentService.getCurrentSession().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data);
+        this.sessionList = data.payload;
+        const term: any = this.sessionList.terms;
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < term.length; i++) {
+          console.log(term[i]);
+          if (term[i].isCurrent) {
+            this.currentTerm  = term[i].name;
+
+        }
+      }}
+    });
+  }
+
 
 }
