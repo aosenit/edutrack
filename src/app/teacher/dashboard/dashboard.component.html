@@ -299,7 +299,10 @@
       </div>
     </div>
     <div class="col-md-3 bg-white notice-board " id="announcement">
-      <h5 class="fc-lblue mt-4 ">&nbsp;</h5>
+      <h5 class="fc-lblue mt-4 pb-1 "> 
+        <span *ngIf="sessionList?.name">{{sessionList?.name + ' ' + currentTerm}}</span>
+        <span *ngIf="sessionList?.name === null">N/A</span>
+       </h5>
 
       <div class="mb-5">
         <ejs-calendar></ejs-calendar>
