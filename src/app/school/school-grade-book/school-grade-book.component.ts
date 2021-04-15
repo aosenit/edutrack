@@ -5,6 +5,7 @@ import { ClassService } from 'src/services/data/class/class.service';
 import { ResultService } from 'src/services/data/result/result.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-school-grade-book',
   templateUrl: './school-grade-book.component.html',
@@ -40,7 +41,8 @@ export class SchoolGradeBookComponent implements OnInit {
     private classService: ClassService,
     private resultService: ResultService,
     private notifyService: NotificationsService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
 
 
 
@@ -219,6 +221,8 @@ export class SchoolGradeBookComponent implements OnInit {
       studentId: this.selectedStudentId
     };
     sessionStorage.setItem('result-record', JSON.stringify(records) );
+    this.router.navigateByUrl('/school/student-sheet/' + this.selectedStudentId);
+
 
 
     // tslint:disable-next-line:max-line-length
