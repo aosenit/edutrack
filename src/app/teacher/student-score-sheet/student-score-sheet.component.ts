@@ -333,7 +333,7 @@ export class StudentScoreSheetComponent implements OnInit {
     const studentResult = {
       sessionId: this.sessions.id,
       termSequence: this.selectedTermId,
-      classId: this.loggedInUser.TeacherClassId,
+      classId: parseInt(this.loggedInUser.TeacherClassId),
       studentId: this.selectedStudent.id,
       classTeacherComment: comment,
       classTeacherApprovalStatus: 1,
@@ -365,7 +365,7 @@ export class StudentScoreSheetComponent implements OnInit {
     const result = {
       sessionId: this.sessions.id,
       termSequence: this.selectedTermId,
-      classId: this.loggedInUser.TeacherClassId,
+      classId: parseInt(this.loggedInUser.TeacherClassId),
       studentId: this.selectedStudent.id,
       resultTypeAndValues: resultTypeAndValue
     };

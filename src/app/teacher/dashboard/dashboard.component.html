@@ -301,7 +301,7 @@
     <div class="col-md-3 bg-white notice-board " id="announcement">
       <h5 class="fc-lblue mt-4 pb-1 "> 
         <span *ngIf="sessionList?.name">{{sessionList?.name + ' ' + currentTerm}}</span>
-        <span *ngIf="sessionList?.name === null">N/A</span>
+        <span *ngIf="sessionList?.name === null">Session not found </span>
        </h5>
 
       <div class="mb-5">

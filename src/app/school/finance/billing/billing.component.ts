@@ -261,8 +261,7 @@ export class BillingComponent implements OnInit {
       if (index > -1) {
         this.bulkInvoiceList.splice(index, 1);
       }
-      // array = [2, 9]
-      console.log(this.bulkInvoiceList);
+      // console.log(this.bulkInvoiceList);
     }
   }
 

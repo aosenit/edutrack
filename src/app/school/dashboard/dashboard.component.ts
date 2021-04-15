@@ -159,6 +159,7 @@ export class DashboardComponent implements OnInit {
         const newData = {};
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.attendanceList.length; i++) {
+          console.log(this.attendanceList);
           const {attendanceDate, attendanceStatus } = this.attendanceList[i];
           console.log(attendanceDate, attendanceStatus);
           newData[attendanceStatus] = attendanceStatus;
@@ -170,6 +171,7 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+
   createLineChart(dashboardData: any) {
 
     const classTopics = [
@@ -279,6 +281,7 @@ export class DashboardComponent implements OnInit {
         scales: {
           xAxes: [
             {
+              stacked: true,
               display: true,
               scaleLabel: {
                 display: true,
@@ -297,6 +300,7 @@ export class DashboardComponent implements OnInit {
           ],
           yAxes: [
             {
+              stacked: true,
               display: true,
               scaleLabel: {
                 display: true,
