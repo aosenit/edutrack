@@ -333,10 +333,14 @@ export class StudentScoreSheetComponent implements OnInit {
     const studentResult = {
       sessionId: this.sessions.id,
       termSequence: this.selectedTermId,
+      // tslint:disable-next-line:radix
       classId: parseInt(this.loggedInUser.TeacherClassId),
       studentId: this.selectedStudent.id,
       classTeacherComment: comment,
       classTeacherApprovalStatus: 1,
+      headTeacherId: 0,
+      // tslint:disable-next-line:radix
+      classTeacherId: parseInt(this.loggedInUser.sub),
       headTeacherComment: '',
       adminApprovalStatus: 0,
       headTeacherApprovalStatus: 0

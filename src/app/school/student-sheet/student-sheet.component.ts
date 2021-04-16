@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 import { ResultService } from 'src/services/data/result/result.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { ClassService } from 'src/services/data/class/class.service';
+
 
 @Component({
   selector: 'app-student-sheet',
@@ -20,6 +23,7 @@ export class StudentSheetComponent implements OnInit {
   gradeSetup: any;
   totalScoreObtained: number;
   averageScore: number;
+  loggedInUser: any;
 
 
   constructor(
@@ -27,11 +31,14 @@ export class StudentSheetComponent implements OnInit {
     private resultService: ResultService,
     private notifyService: NotificationsService,
     private assessmentService: AssessmentService,
-    private router: Router
+    private router: Router,
 
   ) { }
 
   ngOnInit() {
+    const helper = new JwtHelperService();
+    this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
+    
     this.studId = this.route.snapshot.params.id;
     this.studentNameAndReg = JSON.parse(sessionStorage.getItem('student-details'));
     this.studentBehaviour = JSON.parse(sessionStorage.getItem('studentBehaviour'));
@@ -42,6 +49,8 @@ export class StudentSheetComponent implements OnInit {
     console.log(records);
 
   }
+
+ 
 
   getStudentScoreSheet() {
     const classId = sessionStorage.getItem('class-id');
@@ -84,8 +93,11 @@ export class StudentSheetComponent implements OnInit {
       sessionId: records.sessionId,
       classId,
       termSequence: records.termSequence,
-      classTeacherComment: '',
+      classTeacherComment: this.classTeacherWord,
       headTeacherComment: comment,
+      // tslint:disable-next-line:radix
+      headTeacherId: parseInt(this.loggedInUser.sub),
+      classTeacherId: 0,
       classTeacherApprovalStatus: 1,
       adminApprovalStatus: 1,
       headTeacherApprovalStatus: 1

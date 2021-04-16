@@ -6,6 +6,7 @@ import { ClassService } from 'src/services/data/class/class.service';
 import { ResultService } from 'src/services/data/result/result.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { StaffService } from 'src/services/data/staff/staff.service';
 @Component({
   selector: 'app-report-card',
   templateUrl: './report-card.component.html',
@@ -60,6 +61,7 @@ export class ReportCardComponent implements OnInit {
     private schoolService: SchoolService,
     private assessmentService: AssessmentService,
     private notifyService: NotificationsService,
+    private staffService: StaffService
   ) { }
 
   ngOnInit() {
@@ -166,6 +168,7 @@ export class ReportCardComponent implements OnInit {
       this.studentRecord = data.payload.breakdowns;
       this.subjectoffered = data.payload.subjectOffered;
       this.getAllSubjectsInAClasses();
+      // this.getStaffSignatureForReportCard();
       this.calculateTotalScoreObtained(this.studentRecord);
       this.getAllAssessments();
 
@@ -294,6 +297,14 @@ getSchoolDetialsByID() {
     }
   });
 
+}
+
+getStaffSignatureForReportCard() {
+  this.staffService.getStaffSignature(this.reportSheetDetails.headTeacherId).subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      console.log(data.payload);
+    }
+  });
 }
 
 printPage() {

@@ -7,7 +7,8 @@ const routes = {
   getallstaff: 'schtrack-auth/api/v1/Staff/GetAllStaffInSchool',
   getstaffbyid: 'schtrack-auth/api/v1/Staff/GetStaffById',
   updatestaffbyid: 'schtrack-auth/api/v1/Staff/UpdateStaff',
-  deletestaff: 'schtrack-auth/api/v1/Staff/DeleteStaff'
+  deletestaff: 'schtrack-auth/api/v1/Staff/DeleteStaff',
+  staffSignature: 'schtrack-auth/api/v1/Staff/GetStaffNameAndSignatureById'
 };
 
 
@@ -173,6 +174,14 @@ export class StaffService {
 
     const url = `${this.baseUrl + routes.deletestaff}/${id}`;
     return this.http.delete(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
+  }
+
+
+  getStaffSignature(staffId) {
+    const url = `${this.baseUrl + routes.staffSignature}/${staffId}`;
+
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
