@@ -54,6 +54,8 @@ export class ReportCardComponent implements OnInit {
   schoolDetail: any;
   totalExamScoreObtained: any;
   totalCAScoreObtained: any;
+  HeadTeacherDetails: any;
+  classTeacherDetials: any;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -168,7 +170,7 @@ export class ReportCardComponent implements OnInit {
       this.studentRecord = data.payload.breakdowns;
       this.subjectoffered = data.payload.subjectOffered;
       this.getAllSubjectsInAClasses();
-      // this.getStaffSignatureForReportCard();
+      this.getStaffSignatureForReportCard();
       this.calculateTotalScoreObtained(this.studentRecord);
       this.getAllAssessments();
 
@@ -303,6 +305,13 @@ getStaffSignatureForReportCard() {
   this.staffService.getStaffSignature(this.reportSheetDetails.headTeacherId).subscribe((data: any) => {
     if (data.hasErrors === false) {
       console.log(data.payload);
+      this.HeadTeacherDetails = data.payload;
+    }
+  });
+  this.staffService.getStaffSignature(this.loggedInUser.sub).subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      console.log(data.payload);
+      this.classTeacherDetials = data.payload;
     }
   });
 }

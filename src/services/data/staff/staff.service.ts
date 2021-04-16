@@ -8,7 +8,7 @@ const routes = {
   getstaffbyid: 'schtrack-auth/api/v1/Staff/GetStaffById',
   updatestaffbyid: 'schtrack-auth/api/v1/Staff/UpdateStaff',
   deletestaff: 'schtrack-auth/api/v1/Staff/DeleteStaff',
-  staffSignature: 'schtrack-auth/api/v1/Staff/GetStaffNameAndSignatureById'
+  staffSignature: 'schtrack-auth/api/v1/Staff/GetStaffNameAndSignatureByUserId'
 };
 
 
@@ -178,8 +178,8 @@ export class StaffService {
   }
 
 
-  getStaffSignature(staffId) {
-    const url = `${this.baseUrl + routes.staffSignature}/${staffId}`;
+  getStaffSignature(userId) {
+    const url = `${this.baseUrl + routes.staffSignature}/${userId}`;
 
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 

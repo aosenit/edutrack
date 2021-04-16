@@ -297,9 +297,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td> N/A </td>
+                  <td>{{classTeacherDetials?.firstName + ' ' + classTeacherDetials?.lastName | titlecase}} </td>
                   <td>{{reportSheetDetails?.classTeacherComment}}</td>
-                  <td>{{reportSheetDetails?.classTeacherSignature}}</td>
+                  <td>
+                    <img class="" *ngIf="classTeacherDetials" src="data:image/png;base64,{{classTeacherDetials?.signature}}" alt="schools log">
+
+                  </td>
                 </tr>
 
               </tbody>
@@ -321,9 +324,12 @@
               </thead>
               <tbody>
                 <tr>
-                  <td> N/A </td>
+                  <td> {{HeadTeacherDetails?.firstName + ' ' + HeadTeacherDetails?.lastName | titlecase}} </td>
                   <td>{{reportSheetDetails?.headTeacherComment}}</td>
-                  <td>{{reportSheetDetails?.headTeacherSignature}}</td>
+                  <td>
+                    <img class="" *ngIf="HeadTeacherDetails" src="data:image/png;base64,{{HeadTeacherDetails?.signature}}" alt="schools log">
+
+                  </td>
                 </tr>
 
               </tbody>
