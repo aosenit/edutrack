@@ -49,8 +49,12 @@ export class StudentAttendanceComponent implements OnInit {
   getClassAttendanceForStudent() {
     this.attendance.getClassAttendance(this.studentDetails.sub).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.classAttendanceList = data.payload;
-        console.log(data.payload);
+        const AttendanceList: any = data.payload;
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < AttendanceList.length; i++) {
+          console.log(AttendanceList[i]);
+          this.classAttendanceList = AttendanceList[i].attendanceClassVms;
+        }
       }
     });
   }

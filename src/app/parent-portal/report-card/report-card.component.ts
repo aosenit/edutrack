@@ -49,6 +49,8 @@ wardRecord = false;
   schoolDetail: any;
   totalExamScoreObtained: any;
   totalCAScoreObtained: any;
+  HeadTeacherDetails: any;
+  classTeacherDetials: any;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -152,7 +154,6 @@ wardRecord = false;
        this.studentBehaviour = data.payload.resultTypeAndValues;
        this.getApprovedStudentResults();
        this.generateGradeSetup();
-       
       //  this.studentRecord = data.payload.breakdowns;
       //  this.assessments = data.payload.breakdowns[0].assesmentAndScores;
       //  console.log(this.assessments);
@@ -176,6 +177,8 @@ wardRecord = false;
       this.subjectoffered = data.payload.subjectOffered;
       // this.studentName = data.payload.studentName;
       this.getAllSubjectsInAClasses();
+      this.getStaffSignatureForReportCard();
+
       this.calculateTotalScoreObtained(this.studentRecord);
       this.getAllAssessments();
       this.assessments = data.payload.breakdowns[0].assesmentAndScores;
@@ -347,5 +350,20 @@ getSchoolDetialsByID() {
      }
    });
  }
+
+ getStaffSignatureForReportCard() {
+  this.parentService.getStaffSignature(this.reportSheetDetails.headTeacherId).subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      console.log(data.payload);
+      this.HeadTeacherDetails = data.payload;
+    }
+  });
+  this.parentService.getStaffSignature(this.reportSheetDetails.classTeacherId).subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      console.log(data.payload);
+      this.classTeacherDetials = data.payload;
+    }
+  });
+}
 
 }

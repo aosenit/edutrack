@@ -92,7 +92,7 @@
           <div class="col-md-2 cells d-flex flex-column justify-content-center align-items-center" *ngFor="let classAttendance of classAttendanceList">
               <div class="d-flex" >
                 <p  class="mt-4"> {{classAttendance?.attendanceDate | date: 'd'}} </p>
-                <span *ngIf="classAttendance?.attendanceStatus === 2 " class="mt-1 ml-auto"  data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+                <span *ngIf="classAttendance?.attendanceStatus === 2 " class="mt-1 ml-auto"  data-toggle="tooltip" data-placement="right" title={{classAttendance?.reason}}>
                   <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.2676 2C6.74758 2 2.26758 6.48 2.26758 12C2.26758 17.52 6.74758 22 12.2676 22C17.7876 22 22.2676 17.52 22.2676 12C22.2676 6.48 17.7876 2 12.2676 2ZM11.2676 7V9H13.2676V7H11.2676ZM11.2676 11V17H13.2676V11H11.2676ZM4.26758 12C4.26758 16.41 7.85758 20 12.2676 20C16.6776 20 20.2676 16.41 20.2676 12C20.2676 7.59 16.6776 4 12.2676 4C7.85758 4 4.26758 7.59 4.26758 12Z" fill="#939393"/>
                     </svg>

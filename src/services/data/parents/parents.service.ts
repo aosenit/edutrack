@@ -50,6 +50,9 @@ const routes = {
 
   getassessmentsetup: 'schtrack-assessment/api/v1/AssessmentSetup/GetAllAssessmentSetup',
 
+  staffSignature: 'schtrack-auth/api/v1/Staff/GetStaffNameAndSignatureByUserId'
+
+
 
 
 
@@ -333,6 +336,13 @@ getSchoolById(id) {
 getAllAssessmentSetup() {
   const url = `${this.baseUrl + routes.getassessmentsetup}`;
   return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  }});
+}
+
+getStaffSignature(userId) {
+  const url = `${this.baseUrl + routes.staffSignature}/${userId}`;
+
+  return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  }});
+
 }
 
 }

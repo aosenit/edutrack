@@ -92,7 +92,12 @@ export class ChildAttendanceComponent implements OnInit {
   getClassAttendanceForStudent() {
     this.parentService.getClassAttendance(this.wardDetail.id, this.wardDetail.classID).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.classAttendanceList = data.payload;
+        const AttendanceList: any = data.payload;
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < AttendanceList.length; i++) {
+          console.log(AttendanceList[i]);
+          this.classAttendanceList = AttendanceList[i].attendanceClassVms;
+        }
       }
     });
   }
