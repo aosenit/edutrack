@@ -24,6 +24,7 @@ export class StudentSheetComponent implements OnInit {
   totalScoreObtained: number;
   averageScore: number;
   loggedInUser: any;
+  classTeacherId: any;
 
 
   constructor(
@@ -59,6 +60,7 @@ export class StudentSheetComponent implements OnInit {
         console.log(data);
         this.studentRecord = data.payload.breakdowns;
         this.classTeacherWord = data.payload.classTeacherComment;
+        this.classTeacherId = data.payload.classTeacherId;
         console.log(this.classTeacherWord);
         // this.assessments = data.payload.breakdowns[0].assesmentAndScores;
         this.calculateTotalScoreObtained(this.studentRecord);
@@ -97,7 +99,8 @@ export class StudentSheetComponent implements OnInit {
       headTeacherComment: comment,
       // tslint:disable-next-line:radix
       headTeacherId: parseInt(this.loggedInUser.sub),
-      classTeacherId: 0,
+      // tslint:disable-next-line:radix
+      classTeacherId: parseInt(this.classTeacherId),
       classTeacherApprovalStatus: 1,
       adminApprovalStatus: 1,
       headTeacherApprovalStatus: 1

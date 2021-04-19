@@ -5,6 +5,7 @@ import { AssessmentService } from 'src/services/data/assessment/assessment.servi
 import { ClassService } from 'src/services/data/class/class.service';
 import { ResultService } from 'src/services/data/result/result.service';
 import { SchoolService } from 'src/services/data/school/school.service';
+import { StaffService } from 'src/services/data/staff/staff.service';
 
 
 @Component({
@@ -51,6 +52,8 @@ export class StudentReportComponent implements OnInit {
   schoolDetail: any;
   totalExamScoreObtained: any;
   totalCAScoreObtained: any;
+  HeadTeacherDetails: any;
+  classTeacherDetials: any;
 
   constructor(
     private resultService: ResultService,
@@ -58,6 +61,8 @@ export class StudentReportComponent implements OnInit {
     private assessmentService: AssessmentService,
     private notifyService: NotificationsService,
     private classService: ClassService,
+    private staffService: StaffService
+
 
 
 
@@ -195,6 +200,7 @@ export class StudentReportComponent implements OnInit {
       this.studentRecord = data.payload.breakdowns;
       this.subjectoffered = data.payload.subjectOffered;
       this.getAllSubjectsInAClasses();
+      this.getStaffSignatureForReportCard();
       this.calculateTotalScoreObtained(this.studentRecord);
       this.getAllAssessments();
 
@@ -314,6 +320,22 @@ getTotalExamScore() {
     }
     }
   }
+}
+
+
+getStaffSignatureForReportCard() {
+  this.staffService.getStaffSignature(this.reportSheetDetails.headTeacherId).subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      console.log(data.payload);
+      this.HeadTeacherDetails = data.payload;
+    }
+  });
+  this.staffService.getStaffSignature(this.reportSheetDetails.classTeacherId).subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      console.log(data.payload);
+      this.classTeacherDetials = data.payload;
+    }
+  });
 }
 
 
