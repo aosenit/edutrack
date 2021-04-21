@@ -152,7 +152,7 @@
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
                 <!-- <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditArm"
                   (click)="getArmById(arm.id)">Edit Arm </a> -->
-                <a class="dropdown-item" (click)="deleteDepartment(department?.id)">Delete Arm</a>
+                <a class="dropdown-item" (click)="deleteDepartment(department?.id)">Delete</a>
               </div>
             </td>
           </tr>
@@ -672,8 +672,15 @@
           
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName = "isActive">
-              <label class="custom-control-label" for="customSwitch1">Active</label>
+              <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="getStatus($event.target.checked)" formControlName = "isActive">
+              <label class="custom-control-label" for="customSwitch1"
+                *ngIf="toggleState === false; then inactive; else active;"> {{toggleState}} </label>
+              <ng-template #active>
+                <label class="custom-control-label" for="customSwitch1">Active </label>
+              </ng-template>
+              <ng-template #inactive>
+                <label class="custom-control-label" for="customSwitch1"> Inactive </label>
+              </ng-template>
             </div>
           </div>
 
@@ -681,7 +688,7 @@
           <div class="d-flex justify-content-center mb-3">
             <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
             </button>
-            <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Department</button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="departmentForm.invalid"> Add Department</button>
           </div>
         </form>
       </div>

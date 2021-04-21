@@ -11,6 +11,8 @@ export class PersonalSettingsComponent implements OnInit {
 
   dept = true;
   job = false;
+  toggleState = false;
+
   employment = false;
   qualification = false;
   occupation = false;
@@ -81,8 +83,18 @@ export class PersonalSettingsComponent implements OnInit {
   populateDepartmentForm() {
     this.departmentForm = this.fb.group({
       name: ['', Validators.required],
-      isActive: ['']
+      isActive: [false]
     });
+  }
+
+  getStatus(event) {
+    if (event === true) {
+      this.toggleState = true;
+    } else {
+      this.toggleState = false;
+
+    }
+
   }
 
   createDepartment() {
@@ -91,6 +103,7 @@ export class PersonalSettingsComponent implements OnInit {
         this.notification.publishMessages('Department added successfully', 'info', 1);
         document.getElementById('closeModal').click();
         this.getAllDepartments();
+        this.departmentForm.reset();
       }
    }, error => {
     this.notification.publishMessages(error.errors, 'info', 1);

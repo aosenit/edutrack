@@ -220,13 +220,13 @@ h6 {
 
 .form-group .custom-control-label::before {
 
-    background: #09B78A;
+    /* background: #09B78A; */
     font-size: 16px;
 }
 
 .form-group .custom-control-label::after {
 
-    background: #ffffff;
+    /* background: #ffffff; */
 }
 
 
