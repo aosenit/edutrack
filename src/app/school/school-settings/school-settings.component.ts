@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { ClassArmService } from 'src/services/data/class-arm/class-arm.service';
 import { ClassService } from 'src/services/data/class/class.service';
@@ -12,7 +14,7 @@ import { SubjectService } from 'src/services/data/subject/subject.service';
   templateUrl: './school-settings.component.html',
   styleUrls: ['./school-settings.component.css']
 })
-export class SchoolSettingsComponent implements OnInit {
+export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
   level = true;
   class = false;
@@ -48,6 +50,8 @@ export class SchoolSettingsComponent implements OnInit {
   subjectCount: number;
   p = 1;
   itemsPerPage = 5;
+
+  private ngUnsubscribe = new Subject();
 
   constructor(
     private fb: FormBuilder,
@@ -195,7 +199,9 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getArmById(id) {
-    this.classArmService.getClassArmById(id).subscribe(
+    this.classArmService.getClassArmById(id)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(
       (res: any) => {
         this.theArm = res.payload;
       }
@@ -271,7 +277,9 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getSections() {
-    this.schoolSectionService.getSection().subscribe(
+    this.schoolSectionService.getSection()
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(
       (res: any) => {
         // tslint:disable-next-line:no-string-literal
         this.levels = res['payload'];
@@ -282,7 +290,9 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getSection(id) {
-    this.schoolSectionService.getSectionById(id).subscribe(
+    this.schoolSectionService.getSectionById(id)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(
       (res: any) => {
         this.theLevel = res.payload;
         console.log(this.theLevel);
@@ -354,7 +364,9 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getClassById(id) {
-    this.classService.getClassById(id).subscribe(
+    this.classService.getClassById(id)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(
       (res: any) => {
         this.theClass = res.payload;
 
@@ -378,7 +390,9 @@ export class SchoolSettingsComponent implements OnInit {
 
   getClassBySectionId(id) {
     console.log(id);
-    this.classService.getClassBySection(id).subscribe(
+    this.classService.getClassBySection(id)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(
       (res: any) => {
         if (res.hasErrors === false) {
           this.classBySectionList = res.payload;
@@ -401,7 +415,9 @@ export class SchoolSettingsComponent implements OnInit {
 
 
   getClasses() {
-    this.classService.getAllClassesWithPagination(this.p, this.itemsPerPage).subscribe(
+    this.classService.getAllClassesWithPagination(this.p, this.itemsPerPage)
+        .pipe(takeUntil(this.ngUnsubscribe))
+.subscribe(
       (res: any) => {
         this.classes = res.payload;
         console.log(this.classes);
@@ -412,7 +428,9 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getPage(page: number) {
-    this.classService.getAllClassesWithPagination(page, this.itemsPerPage).subscribe(
+    this.classService.getAllClassesWithPagination(page, this.itemsPerPage)
+        .pipe(takeUntil(this.ngUnsubscribe))
+.subscribe(
       (res: any) => {
         this.classes = res.payload;
         this.classCount = res.totalCount;
@@ -451,18 +469,18 @@ export class SchoolSettingsComponent implements OnInit {
         document.getElementById('mySubjectModal').click();
         this.newsubjectForm.reset();
         this.notification.publishMessages('You have succesfully created a subject', 'info', 0);
-        
         this.getAllSubjects();
       } else {
         this.notification.publishMessages(data.errors, 'info', 0);
-        
-      }
+     }
     });
 
   }
 
   getAllSubjects() {
-    this.subjectService.getPaginatedSubject(this.p, this.itemsPerPage).subscribe((data: any) => {
+    this.subjectService.getPaginatedSubject(this.p, this.itemsPerPage)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
         this.subjectCount = data.totalCount;
@@ -473,7 +491,9 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getSubjectPages(page: number) {
-    this.subjectService.getPaginatedSubject(page, this.itemsPerPage).subscribe(
+    this.subjectService.getPaginatedSubject(page, this.itemsPerPage)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(
       (res: any) => {
         this.subjectList = res.payload;
         this.subjectCount = res.totalCount;
@@ -483,5 +503,10 @@ export class SchoolSettingsComponent implements OnInit {
 
       });
   }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+}
 
 }

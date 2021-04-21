@@ -37,7 +37,7 @@ export class SchoolLoginComponent implements OnInit {
     });
   }
 
-  
+
 
   detectSchoolDomain() {
 
@@ -46,11 +46,12 @@ export class SchoolLoginComponent implements OnInit {
         console.log(data.payload);
         this.matchedSchoolDetail = data.payload;
       } else {
-        this.notifyService.publishMessages(data.message, 'danger', 1);
+        this.notifyService.publishMessages('School doesnt exist', 'danger', 1);
+        this.router.navigateByUrl('/');
 
       }
     }, error => {
-      this.notifyService.publishMessages(error.message, 'danger', 1);
+      this.notifyService.publishMessages('School doesnt exist', 'danger', 1);
 
     });
 

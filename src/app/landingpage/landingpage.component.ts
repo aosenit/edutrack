@@ -24,7 +24,6 @@ export class LandingpageComponent implements OnInit {
       this.subdomain = domain.split('.')[0];
       localStorage.setItem('sub-domain', this.subdomain);
     }
-    console.log('subdomain', this.subdomain);
-  }
+   }
 
 }

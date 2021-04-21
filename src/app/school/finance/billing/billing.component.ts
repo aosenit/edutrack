@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AssessmentService } from 'src/services/data/assessment/assessment.service';
@@ -8,13 +8,16 @@ import { SchoolSectionService } from 'src/services/data/school-section/school-se
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
 import html2pdf from 'html2pdf.js';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 // import * as html2pdf from 'h'
+
 @Component({
   selector: 'app-billing',
   templateUrl: './billing.component.html',
   styleUrls: ['./billing.component.css']
 })
-export class BillingComponent implements OnInit {
+export class BillingComponent implements OnInit, OnDestroy {
   normal = true;
   type = false;
   invoiceForm: FormGroup;
@@ -47,6 +50,8 @@ export class BillingComponent implements OnInit {
   p = 1;
   itemsPerPage = 10;
   invoiceCount: number;
+
+  private ngUnsubscribe = new Subject();
 
   constructor(
     private fb: FormBuilder,
@@ -119,7 +124,9 @@ export class BillingComponent implements OnInit {
   }
 
   getCurretSession() {
-    this.assessmentService.getCurrentSession().subscribe((data: any) => {
+    this.assessmentService.getCurrentSession()
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         const sessionList: any = data.payload;
         this.termList = this.sessionList.terms;
@@ -135,7 +142,9 @@ export class BillingComponent implements OnInit {
   }
 
   getSession() {
-    this.assessmentService.getSchoolSessions().subscribe((data: any) => {
+    this.assessmentService.getSchoolSessions()
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.sessionList = data.payload;
         // console.log(this.terms);
@@ -144,7 +153,9 @@ export class BillingComponent implements OnInit {
   }
 
   getAllSections() {
-    this.schoolSectionService.getSection().subscribe((data: any) => {
+    this.schoolSectionService.getSection()
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.sections = data.payload;
       }
@@ -152,7 +163,9 @@ export class BillingComponent implements OnInit {
   }
 
   getClassBySectionId(id) {
-    this.classService.getClassBySection(id).subscribe((data: any) => {
+    this.classService.getClassBySection(id)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classes = data.payload;
 
@@ -162,7 +175,9 @@ export class BillingComponent implements OnInit {
   }
 
   getAllFeeGroups() {
-    this.finance.getAllFeeGroup().subscribe((data: any) => {
+    this.finance.getAllFeeGroup()
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.feeGroupList = data.payload;
         // this.accountCount = data.totalCount;
@@ -201,7 +216,9 @@ export class BillingComponent implements OnInit {
   }
 
   getAllInvoiceCreated() {
-    this.finance.getAllCretedInvoicesWithPagination(this.p, this.itemsPerPage).subscribe((data: any) => {
+    this.finance.getAllCretedInvoicesWithPagination(this.p, this.itemsPerPage)
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
         this.invoiceList = data.payload;
@@ -215,7 +232,9 @@ export class BillingComponent implements OnInit {
 
   getPage(page: number) {
     console.log(page);
-    this.finance.getAllCretedInvoicesWithPagination(page, this.itemsPerPage).subscribe((data: any) => {
+    this.finance.getAllCretedInvoicesWithPagination(page, this.itemsPerPage)
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.invoiceList = data.payload;
         // // this.studentList = data.payload.reverse();
@@ -267,7 +286,9 @@ export class BillingComponent implements OnInit {
 
 
   getInvoiceByID(id) {
-    this.finance.getInvoicesById(id).subscribe((data: any) => {
+    this.finance.getInvoicesById(id)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         // console.log(data.payload);
         // this.getAllComponent();
@@ -278,7 +299,9 @@ export class BillingComponent implements OnInit {
   }
 
   previewInvoice(id) {
-    this.finance.getInvoicesById(id).subscribe((data: any) => {
+    this.finance.getInvoicesById(id)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         // console.log(data.payload);
         this.studentInvoicePreview = data.payload;
@@ -295,7 +318,9 @@ export class BillingComponent implements OnInit {
   }
 
   getAllPaymentInvoices() {
-    this.finance.getAllTransactions().subscribe((data: any) => {
+    this.finance.getAllTransactions()
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPaymentList = data.payload;
         //  console.log(data.payload);
@@ -308,7 +333,9 @@ export class BillingComponent implements OnInit {
 
 
   getPaymentHistory() {
-    this.finance.getInvoicePaymentHistory().subscribe((data: any) => {
+    this.finance.getInvoicePaymentHistory()
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPaymentHistoryList = data.payload;
         // console.log(data.payload);
@@ -321,7 +348,9 @@ export class BillingComponent implements OnInit {
 
 
   getPendingPayments() {
-    this.finance.getPendingInvoicePayment().subscribe((data: any) => {
+    this.finance.getPendingInvoicePayment()
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPendingPaymentHistory = data.payload;
         // console.log(data.payload);
@@ -333,7 +362,9 @@ export class BillingComponent implements OnInit {
   }
 
   getPaymentAwwaitingApproval() {
-    this.finance.getAllTransactionsAwaitingApproval().subscribe((data: any) => {
+    this.finance.getAllTransactionsAwaitingApproval()
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPendingPaymentList = data.payload;
         // console.log(data.payload);
@@ -345,7 +376,9 @@ export class BillingComponent implements OnInit {
   }
 
   getTransactionDetails(id) {
-    this.finance.getTransactionBYId(id).subscribe((data: any) => {
+    this.finance.getTransactionBYId(id)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         // this.allPendingPaymentList = data.payload;
         this.TransactionId = data.payload.transactionId;
@@ -518,5 +551,10 @@ export class BillingComponent implements OnInit {
 
     }
   }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+}
 
 }

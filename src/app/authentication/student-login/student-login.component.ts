@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AuthService } from 'src/services/data/auth/auth.service';
+import { SchoolService } from 'src/services/data/school/school.service';
 
 @Component({
   selector: 'app-student-login',
@@ -14,19 +15,44 @@ export class StudentLoginComponent implements OnInit {
   submitted = false;
   studentLoginForm: FormGroup;
   loggedInUser: any;
+  subdomain: string;
+  matchedSchoolDetail: any;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private notifyService: NotificationsService,
-    private authService: AuthService
+    private authService: AuthService,
+    private schoolService: SchoolService
+
   ) { }
 
   ngOnInit() {
+    this.subdomain = localStorage.getItem('sub-domain');
+    this.detectSchoolDomain();
+
     this.studentLoginForm = this.fb.group({
       username : ['', Validators.required],
       password: ['', [Validators.minLength(5), Validators.required]],
     });
+  }
+
+  detectSchoolDomain() {
+
+    this.schoolService.getSchoolDomainName(this.subdomain).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        this.matchedSchoolDetail = data.payload;
+      } else {
+        this.notifyService.publishMessages('School doesnt exist', 'danger', 1);
+        this.router.navigateByUrl('/');
+
+      }
+    }, error => {
+      this.notifyService.publishMessages('School not found', 'danger', 1);
+
+    });
+
   }
 
   submit() {
