@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student-settings.component.css']
 })
 export class StudentSettingsComponent implements OnInit {
-
+nodata = false;
   action = true;
   offence = false;
   item = false;

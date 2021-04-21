@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/services/data/auth/auth.service';
 import { NotificationsService } from './../../../services/classes/notifications/notifications.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { SchoolService } from 'src/services/data/school/school.service';
 
 
 @Component({
@@ -16,19 +17,43 @@ export class SchoolLoginComponent implements OnInit {
   submitted = false;
   schoolLoginForm: FormGroup;
   loggedInUser: any;
+  subdomain: string;
+  matchedSchoolDetail: any;
 
   constructor(
               private fb: FormBuilder,
               private router: Router,
               private notifyService: NotificationsService,
-              private authService: AuthService
+              private authService: AuthService,
+              private schoolService: SchoolService
               ) { }
 
     ngOnInit() {
+    this.subdomain = localStorage.getItem('sub-domain');
+    this.detectSchoolDomain();
     this.schoolLoginForm = this.fb.group({
       username : ['', Validators.required],
       password: ['', [Validators.minLength(5), Validators.required]],
     });
+  }
+
+  
+
+  detectSchoolDomain() {
+
+    this.schoolService.getSchoolDomainName(this.subdomain).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        this.matchedSchoolDetail = data.payload;
+      } else {
+        this.notifyService.publishMessages(data.message, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+
+    });
+
   }
 
   submit() {

@@ -10,7 +10,8 @@ const routes = {
   bulkUplaod: 'schtrack-auth/api/v1/School/BulkAddSchool',
   updateschoolbyid: 'schtrack-auth/api/v1/School/UpdateSchool',
   deleteschool: 'schtrack-auth/api/v1/School/DeleteSchool',
-  viewSchoolproperty: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogo'
+  viewSchoolproperty: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogo',
+  getSchoolDomain: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogoByDomain'
 };
 
 @Injectable({
@@ -101,5 +102,11 @@ export class SchoolService {
   getSchoolLogo(id) {
     const url = `${this.baseUrl + routes.viewSchoolproperty}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getSchoolDomainName(domain) {
+    const url = `${this.baseUrl + routes.getSchoolDomain}/${domain}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+
   }
 }
