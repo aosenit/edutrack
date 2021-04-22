@@ -137,7 +137,7 @@ export class BasicDetailsComponent implements OnInit {
       OtherNames: payload.otherNames,
       MothersMaidenName: payload.mothersMaidenName,
       Sex: payload.sex,
-      DateOfBirth: payload.dateOfBirth,
+      DateOfBirth: moment(payload.dateOfBirth).format('YYYY-MM-DD'),
       Religion: payload.religion,
       Nationality: payload.nationality,
       // ParentId: payload.parentName,

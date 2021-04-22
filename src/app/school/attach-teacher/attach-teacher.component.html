@@ -15,7 +15,9 @@
 
   <div class="activated mb-4 mt-2 d-flex justify-content-between align-items-center align-items-center">
     <div class="activated__image ">
-      <img src="assets/images/svg/teacher-attach.svg" class="mr-3 avatar" alt="..." />
+      <!-- <img src="assets/images/svg/teacher-attach.svg" class="mr-3 avatar" alt="..." /> -->
+      <img *ngIf="teacherDetails == null" src="assets/images/svg/dummy_user.png" class="mr-3 avatar school-logo" alt="..." />
+
       <div>
         <p class="activated__title fw-6 fc-lblue"> {{teacherDetails?.firstName + ' ' + teacherDetails?.lastName | titlecase}} </p>
         <p class="activated__code">{{teacherDetails?.regNumber}}</p>

@@ -502,6 +502,11 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       });
   }
 
+
+  getSubjectById(id) {
+    // this.subjectService
+  }
+
   ngOnDestroy() {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
