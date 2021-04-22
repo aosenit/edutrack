@@ -25,3 +25,9 @@
 .foot {
     height: 7vh;
 }
+
+
+.school-logo {
+    max-width: 150px;
+    max-height: 60px;
+}

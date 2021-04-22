@@ -10,8 +10,13 @@
                     <div class="whitediv d-flex justify-content-center align-items-center p-lg-5 p-3 mt-lg-5">
                         <div class="row">
                             <div class="col-lg-12 d-flex justify-content-center mb-5">
-                               
-                                <h6 class="fs-30 ">Teacher Login</h6>
+                                <div>
+                                    
+                                    <h6 class="fs-30 mb-2 ">{{matchedSchoolDetail?.schoolName}}</h6>
+    
+                                    <p class="fs-30 ">Teacher Login</p>
+                                    
+                                </div>
                             </div>
                             <div class="col-lg-12">
                                 <form [formGroup]= "teacherLoginForm" (ngSubmit)="submit()">
