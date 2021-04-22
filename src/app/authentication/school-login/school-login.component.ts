@@ -48,7 +48,6 @@ export class SchoolLoginComponent implements OnInit {
       } else {
         this.notifyService.publishMessages('School doesnt exist', 'danger', 1);
         this.router.navigateByUrl('/');
-
       }
     }, error => {
       this.notifyService.publishMessages('School doesnt exist', 'danger', 1);
