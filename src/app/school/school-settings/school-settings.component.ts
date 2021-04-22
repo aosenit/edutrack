@@ -391,7 +391,6 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   getClassBySectionId(id) {
     console.log(id);
     this.classService.getClassBySection(id)
-    .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(
       (res: any) => {
         if (res.hasErrors === false) {
@@ -416,7 +415,6 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
   getClasses() {
     this.classService.getAllClassesWithPagination(this.p, this.itemsPerPage)
-        .pipe(takeUntil(this.ngUnsubscribe))
 .subscribe(
       (res: any) => {
         this.classes = res.payload;

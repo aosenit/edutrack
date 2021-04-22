@@ -70,6 +70,7 @@ attachedSubjectlist: any;
     } else {
       if (event === 'no') {
         this.teacher = false;
+        document.getElementById('classteacherModal').click();
       }
     }
   }
@@ -127,7 +128,7 @@ attachedSubjectlist: any;
 
   getSubjects(id) {
     console.log(id);
-    this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
+    this.classService.getSubjectForClass(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
         const arr = [];
