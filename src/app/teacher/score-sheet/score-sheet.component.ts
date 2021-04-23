@@ -98,7 +98,7 @@ export class ScoreSheetComponent implements OnInit {
       if (data.hasErrors === false) {
         // console.log(data.payload);
         this.classList = data.payload;
-        console.log(this.classList);
+        // console.log(this.classList);
       }
     }
     );
@@ -106,7 +106,7 @@ export class ScoreSheetComponent implements OnInit {
 
   getSubjects(id) {
 
-    console.log('class id ', id);
+    // console.log('class id ', id);
     this.Classid = id;
     sessionStorage.setItem('class-id', this.Classid);
     this.classService.getSubjectForClass(id).subscribe((data: any) => {
@@ -119,7 +119,7 @@ export class ScoreSheetComponent implements OnInit {
 
     this.classService.getClassById(id).subscribe((data: any) => {
       this.className = data.payload;
-      console.log('Class Name', this.className.name);
+      // console.log('Class Name', this.className.name);
     });
 
     // this.resultService.getStudentandAssement(1).subscribe((data: any) => {
@@ -129,7 +129,7 @@ export class ScoreSheetComponent implements OnInit {
   }
 
   getSubjectsId(id) {
-    console.log('Subject ID here', id);
+    // console.log('Subject ID here', id);
     this.Subjectid = id;
     this.noClass = false;
     this.displayClass = true;
@@ -137,7 +137,7 @@ export class ScoreSheetComponent implements OnInit {
 
   generate() {
     this.resultService.generateReport(this.className.id, this.className.name).subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       if (data.hasErrors === false) {
         this.studentList = data.payload.students;
         this.assessmentList = data.payload.assessments;
@@ -168,7 +168,7 @@ export class ScoreSheetComponent implements OnInit {
 
 
     this.resultService.generateExcel(this.className.id, this.className.name).subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       if (data.hasErrors === false) {
         this.fileString = data.payload;
         this.convertBase64ToExcel();
@@ -215,7 +215,7 @@ export class ScoreSheetComponent implements OnInit {
   handleBulkUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log(file);
+      // console.log(file);
       this.filename = file.name;
       this.bulkUpload.get('bulkFile').setValue(file);
       // this.DocumentTypes.push(0);
@@ -241,7 +241,7 @@ export class ScoreSheetComponent implements OnInit {
     console.log(result);
 
     this.resultService.UploadExcelResult(result).subscribe((data: any) => {
-      console.log('bulk file', data);
+      // console.log('bulk file', data);
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result uploaded successfully', 'info', 1);
         document.getElementById('myModelClose').click();
@@ -302,6 +302,8 @@ export class ScoreSheetComponent implements OnInit {
       this.scoreResult[studentId].cummulative = Number(prevCumulative) - Number(score);
     }
     console.log(this.scoreResult);
+    console.log('checking indiviidiaul' , this.scoreResult[studentId][this.AssessmentName].assessmentId);
+
 
     const keyValue = (input) => Object.entries(input).forEach(([key, value]) => {
       const hold: any = value;
@@ -391,7 +393,7 @@ export class ScoreSheetComponent implements OnInit {
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('All school grade', data.payload);
+        // console.log('All school grade', data.payload);
         this.gradeSetup = data.payload;
       }
     });
