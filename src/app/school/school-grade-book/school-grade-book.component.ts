@@ -221,7 +221,10 @@ export class SchoolGradeBookComponent implements OnInit {
       studentId: this.selectedStudentId
     };
     sessionStorage.setItem('result-record', JSON.stringify(records) );
-    this.router.navigateByUrl('/school/student-sheet/' + this.selectedStudentId);
+    setTimeout(() => {
+
+      this.router.navigateByUrl('/school/student-sheet/' + this.selectedStudentId);
+    }, 2000);
 
 
 

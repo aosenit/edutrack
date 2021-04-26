@@ -25,6 +25,10 @@ export class StudentSheetComponent implements OnInit {
   averageScore: number;
   loggedInUser: any;
   classTeacherId: any;
+  subjectLenght: number;
+  totalSchoolScore: number;
+  totalCA: number;
+  totalExam: number;
 
 
   constructor(
@@ -57,13 +61,16 @@ export class StudentSheetComponent implements OnInit {
     const classId = sessionStorage.getItem('class-id');
     this.resultService.getStudentBroadSheet(this.studId, classId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
         this.studentRecord = data.payload.breakdowns;
+        console.log(this.studentRecord);
+        this.subjectLenght  = this.studentRecord.length;
+
         this.classTeacherWord = data.payload.classTeacherComment;
         this.classTeacherId = data.payload.classTeacherId;
         console.log(this.classTeacherWord);
-        // this.assessments = data.payload.breakdowns[0].assesmentAndScores;
+        this.assessments = data.payload.breakdowns[0].assesmentAndScores;
         this.calculateTotalScoreObtained(this.studentRecord);
+        this.getAllAssessments();
 
         console.log(this.assessments);
       }
@@ -141,10 +148,27 @@ export class StudentSheetComponent implements OnInit {
   getAllAssessments() {
     this.assessmentService.getAllAssessmentSetup().subscribe((data: any) => {
       if (data.hasErrors === false) {
-       this.assessments = data.payload;
-      }
+       
+
+       const assessmen: any =  data.payload;
+      //  console.log(assessments)
+       const caArray = [];
+      // console.log(this.subjectoffered);
+      // tslint:disable-next-line:prefer-for-of
+       for (let i = 0; i < assessmen.length; i++) {
+        console.log(assessmen[i].maxScore);
+        if (assessmen[i].name.toLowerCase().includes('xam')) {
+          this.totalExam = assessmen[i].maxScore * this.subjectLenght;
+        } else {
+          caArray.push(assessmen[i].maxScore * this.subjectLenght);
+          this.totalCA = caArray.reduce((a, b) => a + b, 0);
+          // console.log(caArray);
+        }
+        this.totalSchoolScore = this.totalCA + this.totalExam;
+      }}
     });
   }
+
 
 
   back() {
