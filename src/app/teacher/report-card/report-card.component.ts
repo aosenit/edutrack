@@ -40,7 +40,7 @@ export class ReportCardComponent implements OnInit {
   studentBehaviour: any;
   reportSheetDetails: any;
   totalScoreObtained: any;
-  performanceRate: number;
+  performanceRate: any;
   selectedStudentID: any;
   sessionsId: any;
   classSubjectCount: number;
@@ -252,7 +252,7 @@ getPercentage() {
 }
 
 getRate() {
-  this.performanceRate = (this.classPercentage / 100) * 5;
+  this.performanceRate = ((this.classPercentage / 100) * 5).toFixed(2);
 }
 
 getTotalSchoolScoreForClass() {

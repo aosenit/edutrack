@@ -53,7 +53,7 @@
                   <div class="d-flex align-items-center">
                    <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
                    <div>
-                     <p class="attendance__student_name  mb-0">{{student?.firstName + ' ' + student?.lastName}}</p>
+                     <p class="attendance__student_name  mb-0">{{student?.firstName + ' ' + student?.lastName | titlecase}}</p>
                      <p class="attendance__student_reg mb-0">
                          <span *ngIf="student?.studentNumber">{{student?.studentNumber}}</span>
                          <span *ngIf="student?.studentNumber === null"> N/A</span>
