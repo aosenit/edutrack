@@ -4,6 +4,8 @@ import { NotificationsService } from 'src/services/classes/notifications/notific
 import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 import { ClassService } from 'src/services/data/class/class.service';
 import { ResultService } from 'src/services/data/result/result.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Component({
   selector: 'app-mail-report-card',
@@ -19,6 +21,7 @@ export class MailReportCardComponent implements OnInit {
   classId: any;
   selectedTermId: any;
   StudentIds = [];
+  loggedInUser: any;
   constructor(
     private classService: ClassService,
     private assessmentService: AssessmentService,
@@ -32,6 +35,8 @@ export class MailReportCardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    const helper = new JwtHelperService();
+    this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
     this.getClassAndSubjectForTeacher();
     this.getCurrentSesion();
 
@@ -116,7 +121,7 @@ export class MailReportCardComponent implements OnInit {
 
   getApprovedStudentResults() {
     // tslint:disable-next-line:max-line-length
-    this.resultService.getStudentApprovedResults(this.classId, this.sessions.id, this.selectedTermId).subscribe((data: any) => {
+    this.resultService.getStudentApprovedResults(this.loggedInUser.TeacherClassId, this.sessions.id, this.selectedTermId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.studentList = data.payload;
       } else {
@@ -139,7 +144,7 @@ export class MailReportCardComponent implements OnInit {
     const result = {
       studentIds: studentId,
       resultPageURL: 'http://school-track-1.vercel.app/#/parent/parent-portal/view-report-card',
-      classId: parseInt(this.classId),
+      classId: parseInt(this.loggedInUser.TeacherClassId),
       curSessionId: this.sessions.id,
       termSequenceNumber: this.selectedTermId
     };

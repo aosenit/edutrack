@@ -95,9 +95,12 @@ export class MediaComponent implements OnInit {
             sessionStorage.removeItem('school-details');
             sessionStorage.removeItem('contact-person');
             this.router.navigateByUrl('/admin/clients');
+        } else {
+          console.log(data);
         }
       }, error => {
-        this.notifyService.publishMessages(error.errors, 'danger', 1);
+        console.log(error);
+        this.notifyService.publishMessages(error, 'danger', 1);
 
       });
     } else {
