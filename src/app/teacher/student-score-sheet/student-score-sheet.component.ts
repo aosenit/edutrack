@@ -114,11 +114,11 @@ export class StudentScoreSheetComponent implements OnInit {
 
 
   getClassAndSubjectForTeacher() {
-    this.teacherService.getTeacherAttachedToClass(this.loggedInUser.sub).subscribe((data: any) => {
+    this.classService.getClassById(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         // console.log(data.payload);
         this.classList = data.payload;
-        console.log(this.classList);
+        // console.log(this.classList);
       }
     }
     );
@@ -134,7 +134,7 @@ export class StudentScoreSheetComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data.payload);
         this.studentList = data.payload;
-        console.log(this.classList);
+        // console.log(this.classList);
       }
     });
 

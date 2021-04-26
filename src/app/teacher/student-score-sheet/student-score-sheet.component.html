@@ -49,7 +49,7 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td >  {{selectedStudent?.firstName + ' ' + selectedStudent?.lastName}} </td>
+                        <td >  {{selectedStudent?.firstName + ' ' + selectedStudent?.lastName  | titlecase}} </td>
                         <td>{{selectedStudent?.studentNumber}}</td>
                         <td>
                           <span *ngIf="selectedStudent?.sex === 'male' ">M</span>
@@ -74,7 +74,7 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td >{{selectedClass}}</td>
+                        <td >{{classList?.name | titlecase}}</td>
                         <td>{{sessions?.name}}</td>
                         <td>{{termName?.name}}</td>
                       </tr>
@@ -94,8 +94,8 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td >N/A</td>
-                        <td>N/A</td>
+                        <td >{{studentRecord?.length}}</td>
+                        <td>{{studentRecord?.length}}</td>
                         <td>{{studentList?.length}}</td>
                         <td></td>
                       </tr>

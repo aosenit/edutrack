@@ -126,3 +126,8 @@ align-items: center;
 
 color: #000000;
 }
+
+.signature,  .school-image {
+    max-height: 45px;
+    max-width: 70px;
+  }

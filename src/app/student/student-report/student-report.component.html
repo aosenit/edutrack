@@ -315,7 +315,7 @@
                         <td>{{classTeacherDetials?.firstName + ' ' + classTeacherDetials?.lastName | titlecase}} </td>
                         <td>{{reportSheetDetails?.classTeacherComment}}</td>
                         <td>
-                          <img class="" *ngIf="classTeacherDetials" src="data:image/png;base64,{{classTeacherDetials?.signature}}" alt="schools log">
+                          <img class="signature" *ngIf="classTeacherDetials" src="data:image/png;base64,{{classTeacherDetials?.signature}}" alt="schools log">
       
                         </td>
                       </tr>
@@ -342,7 +342,7 @@
                         <td> {{HeadTeacherDetails?.firstName + ' ' + HeadTeacherDetails?.lastName | titlecase}} </td>
                   <td>{{reportSheetDetails?.headTeacherComment}}</td>
                   <td>
-                    <img class="" *ngIf="HeadTeacherDetails" src="data:image/png;base64,{{HeadTeacherDetails?.signature}}" alt="schools log">
+                    <img class="signature" *ngIf="HeadTeacherDetails" src="data:image/png;base64,{{HeadTeacherDetails?.signature}}" alt="schools log">
 
                   </td>
                       </tr>
