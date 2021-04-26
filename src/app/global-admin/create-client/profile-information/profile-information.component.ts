@@ -3,6 +3,7 @@ import { CreateClientComponent } from '../create-client.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { NoSpaceValidator } from 'src/services/utils/noSpace';
 
 
 @Component({
@@ -48,7 +49,7 @@ export class ProfileInformationComponent implements OnInit {
     this.profileForm = this.fb.group({
 
       Name: ['', Validators.required],
-      DomainName: ['', Validators.required],
+      DomainName: ['', [Validators.required, NoSpaceValidator.cannotContainSpace]],
       WebsiteAddress: ['', Validators.required],
       Username: ['', Validators.required],
 

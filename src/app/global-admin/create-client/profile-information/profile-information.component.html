@@ -25,7 +25,7 @@
             formControlName="DomainName" required>
             <div *ngIf="profileForm.controls.DomainName.touched && profileForm.controls.DomainName.errors" class="error">
               <small *ngIf="profileForm.controls.DomainName.errors.required" class="text-danger">Field is required</small>
-              <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+              <small *ngIf="profileForm.controls.DomainName.errors.cannotContainSpace" class="text-danger">Domain name cannot contain space </small>
             </div>
           </div>
 
