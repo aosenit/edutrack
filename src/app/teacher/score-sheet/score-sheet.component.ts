@@ -292,17 +292,30 @@ export class ScoreSheetComponent implements OnInit {
       };
     }
 
-    const prevCumulative = this.scoreResult[studentId].cummulative || 0;
-    this.scoreResult[studentId].cummulative = Number(prevCumulative) + Number(score);
+    sessionStorage.setItem('tired', JSON.stringify(this.scoreResult[studentId]));
+    // const prevCumulative = this.scoreResult[studentId].cummulative || 0;
+    const newCumm = JSON.parse(sessionStorage.getItem('tired'));
+    let testScore = 0;
+    // tslint:disable-next-line:forin
+    for ( const key in newCumm) {
+      // console.log(newCumm[key]);
+      if (typeof(newCumm[key]) === 'object') {
+        testScore += newCumm[key].Score;
+        console.log(testScore);
+        this.scoreResult[studentId].cummulative = testScore;
+
+      }
+    }
+    // this.scoreResult[studentId].cummulative = Number(prevCumulative) + Number(score);
     // this.scoreResult[studentId].studentGrade = this.studentGrade;
     // this.scoreResult[studentId].gradeIntepretation = this.gradeIntepretation;
     this.scoreObject = this.scoreResult;
-    if (this.scoreResult[studentId].cummulative > 100) {
-      alert('Cummulative score can exceed 100');
-      this.scoreResult[studentId].cummulative = Number(prevCumulative) - Number(score);
-    }
-    console.log(this.scoreResult);
-    console.log('checking indiviidiaul' , this.scoreResult[studentId][this.AssessmentName].assessmentId);
+    // if (this.scoreResult[studentId].cummulative > 100) {
+    //   alert('Cummulative score can exceed 100');
+    //   this.scoreResult[studentId].cummulative = Number(prevCumulative) - Number(score);
+    // }
+    // console.log(this.scoreResult);
+    // console.log('checking indiviidiaul' , this.scoreResult[studentId][this.AssessmentName].assessmentId);
 
 
     const keyValue = (input) => Object.entries(input).forEach(([key, value]) => {
@@ -421,7 +434,7 @@ export class ScoreSheetComponent implements OnInit {
     const cellCheck = document.querySelectorAll('.scores');
 
     cellCheck.forEach((element: any) => {
-      // console.log(element.innerText);
+      console.log(element.innerText);
       if (element.innerText === '') {
         this.hideBtn = false;
       } else {

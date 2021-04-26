@@ -153,8 +153,26 @@
 .bullets{
     margin-left: -50px;
 }
-@media(max-width: 344px){
+
+
+@media screen and (max-width: 360px){
+    #landingpage {
+        margin-top: 0;
+    }
     #products, #faq{
         background: unset;
+    }
+
+    .hero-text {
+        margin-top: 8rem;
+    }
+
+    .hero-text p {
+        font-size: 32px;
+        line-height: 46px;
+    }
+
+    .w-m-100 {
+        width: 100% !important;
     }
 }

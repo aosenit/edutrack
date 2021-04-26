@@ -41,3 +41,7 @@ nav.navbar ul .nav-item a{
 .droppy {
     z-index: 99999;
 }
+
+.nav-bg {
+    background-color: #000 !important;
+}
