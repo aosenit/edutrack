@@ -48,7 +48,7 @@ export class SchoolLoginComponent implements OnInit {
       } else {
         this.notifyService.publishMessages('School doesnt exist', 'danger', 1);
         setTimeout(() => {
-          this.router.navigateByUrl('/');
+          // this.router.navigateByUrl('/');
 
         }, 2000);
       }

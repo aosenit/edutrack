@@ -34,6 +34,8 @@ toggleState = false;
     this.assessmentForm = this.fb.group({
       name: ['', Validators.required],
       maxScore: ['', Validators.required],
+      isExam: [false],
+
     });
     this.getAllAssessmentSetup();
     this.populateGradeForm();
@@ -87,18 +89,24 @@ toggleState = false;
   }
 
   addAssessment() {
-    console.log(this.assessmentForm.value);
-    const {name, maxScore} = this.assessmentForm.value;
+    const {name, maxScore, isExam} = this.assessmentForm.value;
     const sequenceNumber = this.sequenceCount++;
     const result = {
       name,
       maxScore,
+      isExam,
       sequenceNumber
     };
     this.assessmentForm.reset();
     this.allAssessment.push(result);
     console.log('All assessments', this.allAssessment);
     document.getElementById('assessmentModal').click();
+    this.assessmentForm.setValue({
+      isExam : false,
+      name: '',
+      maxScore: ''
+    });
+    console.log(this.assessmentForm.value);
   }
 
   publishAssessment() {
