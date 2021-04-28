@@ -50,6 +50,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   subjectCount: number;
   p = 1;
   itemsPerPage = 5;
+  testSubjectArray = [];
 
   private ngUnsubscribe = new Subject();
 
@@ -94,7 +95,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       itemsShowLimit: 5,
       allowSearchFilter: false
     };
-
+    
     this.dropdownSettings2 = {
       singleSelection: false,
       idField: 'id',
@@ -102,7 +103,8 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 5,
-      allowSearchFilter: false
+      allowSearchFilter: true,
+      enableCheckAll: false,
     };
   }
 
@@ -449,12 +451,43 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   }
 
 
+  onItemSelect(event) {
+    console.log(event);
+    this.testSubjectArray.push(event.id);
+    console.log('new subject list', this.testSubjectArray);
+
+  }
+
+  onSelectAll(event) {
+    console.log(event);
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < event.length; i++) {
+      this.testSubjectArray.push(event[i].id);
+    }
+    console.log('new subject list', this.testSubjectArray);
+
+  }
+  
+  onItemDeSelect(event) {
+    console.log(`${event.id}`);
+    
+    const index = this.testSubjectArray.indexOf(event.id);
+    console.log(index);
+    if (index > -1) {
+        this.testSubjectArray.splice(index, 1);
+      }
+    console.log('new subject list', this.testSubjectArray);
+
+  }
+
+ 
   createSubject() {
     console.log('arrays', this.newsubjectForm.value);
-    const { Name, IsActive, classSectionIds } = this.newsubjectForm.value;
-    const ClassIds = classSectionIds.map((ids: any) => {
-      return ids.id;
-    });
+    const { Name, IsActive } = this.newsubjectForm.value;
+    const ClassIds = this.testSubjectArray;
+    // const ClassIds = classSectionIds.map((ids: any) => {
+    //   return ids.id;
+    // });
     const result = {
       Name,
       ClassIds,

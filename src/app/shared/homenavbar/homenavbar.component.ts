@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./homenavbar.component.css']
 })
 export class HomenavbarComponent implements OnInit {
+  subdomain: string;
+  hideAdminLogin = false;
 
   constructor() { }
 
   ngOnInit() {
+    this.getSubdomain();
     const sticky = 20;
     const nav = document.querySelector('nav');
     document.addEventListener('scroll', () => {
@@ -22,6 +25,19 @@ export class HomenavbarComponent implements OnInit {
       }
     });
   }
+
+
+  getSubdomain() {
+    const domain = window.location.hostname;
+    if (domain.indexOf('.') < 0 ||
+      domain.split('.')[0] === 'example' || domain.split('.')[0] === 'lvh' || domain.split('.')[0] === 'www') {
+      this.subdomain = '';
+    } else {
+      this.subdomain = domain.split('.')[0];
+      localStorage.setItem('sub-domain', this.subdomain);
+      this.hideAdminLogin = true;
+    }
+   }
 
 
 

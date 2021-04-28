@@ -808,7 +808,7 @@
                     (click)="getClassBySectionId(level.id)">
                 </a>
               </div>
-              <div class="collapse mb-2" id="{{level?.name}}">
+              <div class="collapse mb-2" id="{{level?.name}}" >
                 <!-- <div formArrayName="ClassIds" *ngFor="let class of classBySectionList; let i = index;">
                   <div [formGroupName]="i">
                     <label for="a" class="class-label w-25"> {{class.name}}</label>
@@ -816,7 +816,11 @@
                   </div>
                   
                 </div> -->
-                <ng-multiselect-dropdown [placeholder]="' '" [data]="classBySectionDropdownList"
+                <ng-multiselect-dropdown [placeholder]="' '" [data]="classBySectionDropdownList" 
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                (onDeSelect)="onItemDeSelect($event)"
+                
                   formControlName="classSectionIds" [settings]="dropdownSettings2" required>
                 </ng-multiselect-dropdown>
 

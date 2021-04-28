@@ -213,7 +213,7 @@ wardRecord = false;
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < result.length; i++) {
         // console.log(result[i].maxScore);
-        if (result[i].name.toLowerCase().includes('xam')) {
+        if (result[i].name.toLowerCase().includes('xam') || result[i].isExam === true) {
           // console.log('yes');
           this.totalExam = result[i].maxScore * this.subjectoffered;
         } else {
@@ -286,7 +286,7 @@ getTotalExamScore() {
     // tslint:disable-next-line:prefer-for-of
     for (let j = 0; j < iDonTire.length; j++) {
     //  console.log(iDonTire[j]);
-     if (iDonTire[j].assessmentName.toLowerCase().includes('xam')) {
+     if (iDonTire[j].assessmentName.toLowerCase().includes('xam') || iDonTire[j].isExam === true) {
       // console.log('yes');
       examArray.push(iDonTire[j].studentScore);
       this.totalExamScoreObtained = examArray.reduce((a, b) => a + b, 0);
