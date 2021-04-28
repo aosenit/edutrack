@@ -140,7 +140,7 @@ export class BasicDetailsComponent implements OnInit {
       DateOfBirth: moment(payload.dateOfBirth).format('YYYY-MM-DD'),
       Religion: payload.religion,
       Nationality: payload.nationality,
-      // ParentId: payload.parentName,
+      parentId: payload.parentId,
       StateOfOrigin: payload.stateOfOrigin,
       // LocalGovt: [''],
       TransportRoute: payload.transportRoute

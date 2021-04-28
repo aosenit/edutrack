@@ -108,7 +108,7 @@ export class MedicalDetailsComponent implements OnInit {
       // immunizationVms: payload.immunizationVms
     });
 
-    // this.medicalForm.setControl('immunizationVms', this.setExistingComponent(payload.immunizationVms));
+    this.medicalForm.setControl('immunizationVms', this.setExistingComponent(payload.immunizationHistoryVMs));
 
 
   }
