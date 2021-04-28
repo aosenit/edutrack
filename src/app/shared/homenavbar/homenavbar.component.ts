@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomenavbarComponent implements OnInit {
   subdomain: string;
   hideAdminLogin = true;
+  displayOtherLogin = true;
 
   constructor() { }
 
@@ -21,7 +22,7 @@ export class HomenavbarComponent implements OnInit {
         nav.classList.add('nav-bg');
       } else {
         nav.classList.remove('nav-bg');
-        
+
       }
     });
   }
@@ -32,11 +33,13 @@ export class HomenavbarComponent implements OnInit {
     if (domain.indexOf('.') < 0 ||
       domain.split('.')[0] === 'example' || domain.split('.')[0] === 'lvh' || domain.split('.')[0] === 'www') {
       this.subdomain = '';
-      this.hideAdminLogin = false;
+      this.hideAdminLogin = true;
+      this.displayOtherLogin = false;
     } else {
       this.subdomain = domain.split('.')[0];
       localStorage.setItem('sub-domain', this.subdomain);
-      this.hideAdminLogin = true;
+      this.hideAdminLogin = false;
+      this.displayOtherLogin = true;
     }
    }
 
