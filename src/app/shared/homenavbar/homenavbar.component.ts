@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomenavbarComponent implements OnInit {
   subdomain: string;
-  hideAdminLogin = false;
+  hideAdminLogin = true;
 
   constructor() { }
 
@@ -32,6 +32,7 @@ export class HomenavbarComponent implements OnInit {
     if (domain.indexOf('.') < 0 ||
       domain.split('.')[0] === 'example' || domain.split('.')[0] === 'lvh' || domain.split('.')[0] === 'www') {
       this.subdomain = '';
+      this.hideAdminLogin = false;
     } else {
       this.subdomain = domain.split('.')[0];
       localStorage.setItem('sub-domain', this.subdomain);
