@@ -63,6 +63,7 @@ export class StudentScoreSheetComponent implements OnInit {
   selectedTermId: any;
   teacherComment = { comment: '' };
   loggedInUser: any;
+  totalSubjectCount: any;
 
   constructor(
     private classService: ClassService,
@@ -164,6 +165,7 @@ export class StudentScoreSheetComponent implements OnInit {
         // console.log(this.assessments);
         this.noData = false;
         this.displayData = true;
+        this.getTotalSubjectInAClass();
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -171,6 +173,15 @@ export class StudentScoreSheetComponent implements OnInit {
     });
   }
 
+
+  getTotalSubjectInAClass() {
+    this.classService.getAllSubjectsInAClassByClassID(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
+      console.log(data.payload);
+      if (data.hasErrors === false ) {
+        this.totalSubjectCount = data.payload.length;
+      }
+    });
+  }
   // getStudentScoreSheet() {
   //   const classId = sessionStorage.getItem('class-id');
   //   this.resultService.getStudentBroadSheet(this.studId, classId).subscribe((data: any) => {
