@@ -18,6 +18,7 @@ export class CreateAssignmentComponent implements OnInit {
   public Editor = ClassicEditor;
   createAssignmentmentForm: FormGroup;
   classList: any;
+  classList2: any;
   subjectList: any;
   filename = null;
   textToConvert = { text: '' };
@@ -62,8 +63,17 @@ export class CreateAssignmentComponent implements OnInit {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data.payload);
-        this.classList = data.payload;
+        const classList: any = data.payload;
+        this.classList2 = data.payload;
+        const newArr = [];
+
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < classList.length; i++) {
+          newArr.push(classList[i].class);
+        }
         // console.log(this.classList);
+        this.classList = Array.from(new Set(newArr));
+        console.log(this.classList);
       }
     }
     );
@@ -83,9 +93,9 @@ export class CreateAssignmentComponent implements OnInit {
     console.log(id);
     const selectedClass = [];
     // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.classList.length; i++) {
-      if (this.classList[i].class === id) {
-        selectedClass.push(this.classList[i]);
+    for (let i = 0; i < this.classList2.length; i++) {
+      if (this.classList2[i].class === id) {
+        selectedClass.push(this.classList2[i]);
       }
     }
     console.log(selectedClass);
