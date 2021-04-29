@@ -28,7 +28,7 @@
             <label for="subject">Class</label>
             <select id="class" class="form-control"  (change)="getSubjects($event.target.value)">
               <option selected>Select Class</option>
-              <option value={{class}} *ngFor="let class of classList">{{class}}</option>
+              <option value={{class}} *ngFor="let class of classList">{{class | uppercase}}</option>
   
             </select>
           </div>
@@ -36,7 +36,7 @@
             <label for="subject">Subject</label>
             <select id="subject" class="form-control" formControlName="subjectId">
               <option selected>Select</option>
-              <option [value]="subject.classSubjectId" *ngFor="let subject of subjectList">{{subject.subject | titlecase}}</option>
+              <option [value]="subject.classSubjectId" *ngFor="let subject of subjectList">{{subject.subject | uppercase}}</option>
   
             </select>
           </div>

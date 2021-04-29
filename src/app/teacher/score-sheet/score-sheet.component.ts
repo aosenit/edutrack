@@ -17,6 +17,7 @@ export class ScoreSheetComponent implements OnInit {
   noClass = true;
   displayClass = false;
   classList: any;
+  classList2: any;
   subjectList: any;
   className: any;
   studentList: any;
@@ -96,28 +97,49 @@ export class ScoreSheetComponent implements OnInit {
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
-        this.classList = data.payload;
+        console.log(data.payload);
+        const classList: any = data.payload;
+        this.classList2 = data.payload;
+        const newArr = [];
+
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < classList.length; i++) {
+          newArr.push(classList[i].class);
+        }
         // console.log(this.classList);
+        this.classList = Array.from(new Set(newArr));
+        console.log(this.classList);
       }
     }
     );
   }
 
-  getSubjects(id) {
+  getSubjects(selectedClass) {
+    const pickedClass = selectedClass;
+    let selectedClassId;
+    const selectedclass = [];
 
-    // console.log('class id ', id);
-    this.Classid = id;
-    sessionStorage.setItem('class-id', this.Classid);
-    this.classService.getSubjectForClass(id).subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.subjectList = data.payload;
-        // console.log(this.subjectList.subject);
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < this.classList2.length; i++) {
+      if (this.classList2[i].class === selectedClass) {
+        selectedClassId = this.classList2[i].classId;
+        selectedclass.push(this.classList2[i]);
       }
     }
-    );
+    console.log(selectedclass);
+    this.subjectList = selectedclass;
+    // console.log('class id ', id);
+    this.Classid = selectedClassId;
+    sessionStorage.setItem('class-id', this.Classid);
+    // this.classService.getAllSubjectsInAClassWithClassNotePreview(selectedClassId).subscribe((data: any) => {
+    //   if (data.hasErrors === false) {
+    //     this.subjectList = data.payload;
+    //     // console.log(this.subjectList.subject);
+    //   }
+    // }
+    // );
 
-    this.classService.getClassById(id).subscribe((data: any) => {
+    this.classService.getClassById(selectedClassId).subscribe((data: any) => {
       this.className = data.payload;
       // console.log('Class Name', this.className.name);
     });

@@ -29,13 +29,13 @@
           <div class="col options">
             <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)">
               <option value="" selected>Select Class</option>
-              <option [value]="class?.classId" *ngFor="let class of classList"> {{class.class}}</option>
+              <option [value]="class" *ngFor="let class of classList"> {{class | uppercase}}</option>
             </select>
           </div>
           <div class="col options">
             <select name="" id="" class="form-control" (change)="getSubjectsId($event.target.value)">
               <option value="">Select Subject</option>
-              <option [value]="subject.subjectId" *ngFor="let subject of subjectList">{{subject.subject | titlecase}}</option>
+              <option [value]="subject.subjectId" *ngFor="let subject of subjectList ">{{subject.subject | uppercase}}</option>
             </select>
           </div>
         </div>
