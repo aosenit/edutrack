@@ -87,7 +87,7 @@
                 <div class="mb-3">
                     <label for="nation" class="fw-6">Nationality <span
                             class="text-danger">*</span> </label>
-                    <select name="" id="nation" class="form-control form-control-lg" formControlName="Nationality" (load)="getState($event.target.value)">
+                    <select name="" id="nation" class="form-control form-control-lg" formControlName="Nationality" (change)="getState($event.target.value)">
                         <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
                     </select>
                     <div *ngIf="basicDetailsForm.controls.Nationality.touched && basicDetailsForm.controls.Nationality.errors" class="error">
@@ -105,7 +105,7 @@
             <div class="col-md-6  ">
                 <div class="mb-3">
                     <label for="parent" class="fw-6">Parent <span
-                            class="text-danger"></span></label>
+                            class="text-danger">*</span></label>
                             <select name="" id=""   class="form-control form-control-lg" id="parent" formControlName="parentId">
                                 <option [value]="parent?.id" *ngFor="let parent of parents">{{parent.fullName | titlecase}}</option>
                             </select >
@@ -128,7 +128,7 @@
                     <label for="state" class="fw-6">State of Origin <span
                             class="text-danger">*</span> </label>
                     <select name="" id="state" class="form-control form-control-lg" formControlName="StateOfOrigin">
-                        <!-- <option value="" selected>Please Select State</option> -->
+                        <option value="" selected>Please Select State</option>
                         <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
 
                     </select>
