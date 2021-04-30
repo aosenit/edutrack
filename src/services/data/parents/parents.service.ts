@@ -205,7 +205,7 @@ export class ParentsService {
 
   getAllSubjectsInAClassByClassID(id) {
     const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classid=${id}`;
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  } });
   }
 
 

@@ -103,7 +103,7 @@
           </thead>
           <tbody>
             <tr>
-              <td> {{selectedStudent?.firstName + ' ' + selectedStudent?.lastName}} </td>
+              <td> {{selectedStudent?.firstName + ' ' + selectedStudent?.lastName | titlecase}} </td>
               <td>{{selectedStudent?.studentNumber}}</td>
               <td>
                 <span *ngIf="selectedStudent?.sex === 'male' ">M</span>

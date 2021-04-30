@@ -221,7 +221,7 @@ export class StudentReportComponent implements OnInit {
  }
 
  getAllSubjectsInAClasses() {
-   this.classService.getAllSubjectsInAClassByClassID(this.studentDetails.sub).subscribe((data: any) => {
+   this.classService.getAllSubjectsInAClassWithAssignmentCountByClassID().subscribe((data: any) => {
      if (data.hasErrors === false) {
        const classSubjectCount: any = data.payload;
       //  console.log(classSubjectCount.length);

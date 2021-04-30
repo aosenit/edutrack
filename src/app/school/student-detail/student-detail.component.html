@@ -235,8 +235,9 @@
                         <div class="link">
                             <p class="mb-0">Immunization</p>
                             <p class="fw-6" *ngFor = "let immune of studentDetails?.immunizationHistoryVMs">
-                                <span> {{ immune?.age + ' ' + '' + immune?.vaccine | titlecase }} </span>
-                                <span> {{ immune?.dateImmunized  | date: 'dd/MM/y' +',' | titlecase }} </span>
+                                <span>Age: {{ immune?.age }} Years Old  </span> <br>
+                                <span>Vaccince:  {{ immune?.vaccine | titlecase }},  </span> <br>
+                                <span>Year:  {{ immune?.dateImmunized  | date: 'dd/MM/yyyy' +',' | titlecase }} </span>
                             </p>
                         </div>
                         
