@@ -17,6 +17,8 @@
     <div class="activated__image ">
       <!-- <img src="assets/images/svg/teacher-attach.svg" class="mr-3 avatar" alt="..." /> -->
       <img *ngIf="teacherDetails == null" src="assets/images/svg/dummy_user.png" class="mr-3 avatar school-logo" alt="..." />
+      <img *ngIf="teacherDetails?.image" [src]="' data:image/png;base64, ' + teacherDetails?.image | trustedUrl"
+      class="mr-3 school-logo" alt="..." />
 
       <div>
         <p class="activated__title fw-6 fc-lblue"> {{teacherDetails?.firstName + ' ' + teacherDetails?.lastName | titlecase}} </p>

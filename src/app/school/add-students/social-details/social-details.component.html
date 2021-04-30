@@ -31,7 +31,7 @@
     
         <div class="row mb-4">
             <div class="col-md-6 ">
-                <label for="date" class="fw-6">Section <span class="text-danger">*</span></label>
+                <label for="date" class="fw-6">Level <span class="text-danger">*</span></label>
                 <select name="" id="level" class="form-control form-control-lg" formControlName="sectionId" (change)="getClassesUnderSection($event.target.value)" >
                     <option value="" selected> Select Section</option>
                     <option *ngFor="let section of sections" [value]="section.id">{{section.name}}</option>

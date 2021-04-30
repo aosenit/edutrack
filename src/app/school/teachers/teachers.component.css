@@ -164,3 +164,11 @@ td {
     font-size: 32px;
     font-weight: 600;
 }
+
+.image-rounded {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}

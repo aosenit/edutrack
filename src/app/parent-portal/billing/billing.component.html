@@ -226,6 +226,7 @@
                       </td> -->
                       <td class="  border-bottom  ">
                         <span class=" status status_active" *ngIf="history?.status === 'Paid'">Paid</span>
+                        <span class=" status status_inactive" *ngIf="history?.status === 'Rejected'">Rejected</span>
                       </td>
                       <td class="border-bottom">
                         <button class="upload bg-lblue" (click)="viewFile(history?.fileId) " data-toggle="modal" data-target="#exampleModalCenter">View receipt</button>

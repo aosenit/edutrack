@@ -44,8 +44,8 @@
         <div class="row mb-4">
             <div class="col-md-6 ">
                 <label for="sex" class="fw-6">Sex <span class="text-danger">*</span> </label>
-                <select name="" class="form-control form-control-lg" formControlName="Sex">
-                    <!-- <option value="sex">Sex</option> -->
+                <select name="" id="sex" class="form-control form-control-lg" formControlName="Sex">
+                    <option value="" selected>Please select</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
@@ -73,9 +73,11 @@
                     <label for="religion" class="fw-6">Religion <span
                             class="text-danger">*</span> </label>
                     <select name="" id="religion" class="form-control form-control-lg" formControlName="Religion">
-                        <option value="muslim" selected>Muslim</option>
-                        <option value="hristianity" selected>Christianity</option>
-                        <option value="budhism" selected>Budhism</option>
+                        <option value="" selected>Please Select </option>
+                        <option value="Muslim" >Muslim</option>
+                        <option value="Christianity" >Christianity</option>
+                        <option value="Budhism" >Budhism</option>
+                        <option value="Others" >Others</option>
                     </select>
                     <div *ngIf="basicDetailsForm.controls.Religion.touched && basicDetailsForm.controls.Religion.errors" class="error">
                         <small *ngIf="basicDetailsForm.controls.Religion.errors.required" class="text-danger">Field is required</small>

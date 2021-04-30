@@ -88,8 +88,8 @@
                 <td class="user" >
                     
                     <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6 mb-0" >{{staff?.firstName}} {{staff?.lastName}} </h6>
+                        <img src="assets/images/svg/dummy_user.png" alt="schools log" class="mr-3  image-rounded" >
+                        <h6 class="fw-6 mb-0" >{{staff?.firstName + ' ' + staff?.lastName | titlecase}} </h6>
                     </div>
                 </td>
                 <td>{{staff?.staffNumber}}</td>

@@ -127,6 +127,29 @@ export class ViewBillingComponent implements OnInit {
 
   }
 
+ 
+
+  createTransaction() {
+    const result = {
+      invoiceId: parseInt(this.id),
+      componentSelections: this.invArray
+    };
+    console.log(result);
+    this.parent.updateSelectedInvoice(result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        document.getElementById('closeAssignmentModal').click();
+        this.createNewtransaction();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+
   createNewtransaction() {
     console.log(this.createTransactionForm.value);
     const { amount, description } = this.createTransactionForm.value;
@@ -141,26 +164,6 @@ export class ViewBillingComponent implements OnInit {
         // document.getElementById('closeAssignmentModal').click();
         this.router.navigateByUrl('/parent/parent-portal/billing');
 
-      } else {
-        this.notifyService.publishMessages(data.errors, 'danger', 1);
-
-      }
-    }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
-
-    });
-  }
-
-  createTransaction() {
-    const result = {
-      invoiceId: parseInt(this.id),
-      componentSelections: this.invArray
-    };
-    console.log(result);
-    this.parent.updateSelectedInvoice(result).subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        document.getElementById('closeAssignmentModal').click();
-        this.createNewtransaction();
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
 
@@ -193,6 +196,30 @@ export class ViewBillingComponent implements OnInit {
 
     });
   }
+
+  createTransaction3() {
+    // console.log(this.createTransactionForm.value);
+    const { amount, description } = this.createTransactionForm.value;
+    const result = {
+      invoiceId: parseInt(this.id),
+      amount,
+      description
+    };
+    this.parent.createNewTransaction(result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.notifyService.publishMessages('Payment Successful', 'success', 1);
+        document.getElementById('closeRejectedtrasactionModal').click();
+        this.router.navigateByUrl('/parent/parent-portal/billing');
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
 
 
   back() {

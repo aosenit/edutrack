@@ -49,7 +49,7 @@ export class BasicDetailsComponent implements OnInit {
       LastName: ['', Validators.required],
       OtherNames: [''],
       MothersMaidenName: ['', Validators.required],
-      Sex: [''],
+      Sex: ['', Validators.required],
       DateOfBirth: ['', Validators.required],
       Religion: ['', Validators.required],
       Nationality: ['', Validators.required],

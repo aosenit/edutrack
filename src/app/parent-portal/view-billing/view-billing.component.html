@@ -234,9 +234,19 @@
 
             <div class="d-flex align-items-center justify-content-start mt-5" >
                 <button class="btn-payment bill-btn mr-3" data-toggle="modal" 
-                data-target="#exampleModalCenter3" (click)="prefilData()" [hidden]="parentInvoice?.outstanding !== parentInvoice?.totalPayable"  >Make Payment</button>
-                <button class="btn-payment bill-btn mr-3" data-toggle="modal" [disabled]="parentInvoice?.totalPayable === parentInvoice?.totalPaid" [hidden]="parentInvoice?.outstanding === parentInvoice?.totalPayable" 
+                data-target="#exampleModalCenter3" (click)="prefilData()" [hidden]="parentInvoice?.componentSelected === true"  >Make Payment  </button>
+                <!-- <button class="btn-payment bill-btn mr-3" data-toggle="modal" 
+                data-target="#exampleModalCenter3" (click)="prefilData()" [hidden]="parentInvoice?.outstanding !== parentInvoice?.totalPayable"  >Make Payment</button> -->
+                
+                <button class="btn-payment bill-btn mr-3" data-toggle="modal"  [hidden]="parentInvoice?.componentSelected === true && parentInvoice?.outstanding !== parentInvoice?.totalPaid"  
                   data-target="#exampleModalCenter4" (click)="prefilData()">Balance Payment</button>
+
+                <button class="btn-payment bill-btn mr-3" data-toggle="modal" [disabled]="parentInvoice?.totalPayable === parentInvoice?.totalPaid" [hidden]="parentInvoice?.outstanding === parentInvoice?.totalPayable" 
+                  data-target="#exampleModalCenter4" (click)="prefilData()">Payment Complete</button>
+
+                <button class="btn-payment bill-btn mr-3" data-toggle="modal" [hidden]="parentInvoice?.outstanding !== parentInvoice?.totalPayable" 
+                  data-target="#exampleModalCenter5" (click)="prefilData()">Make Payment</button>
+
             </div>
         </div>
     </div>
@@ -289,6 +299,51 @@
 </div>
 <!-- end of file manager modal -->
 
+
+<!-- Make new payment for rejected transaction -->
+<div class="modal fade" id="exampleModalCenter5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter3Title"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length"  role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-2">
+        <div class=" mb-3"> 
+          <h6 class="modal-title">New Transaction</h6>
+
+        </div>
+        
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="createTransactionForm" (ngSubmit)="createTransaction3()">
+
+         
+
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Description </label>
+            <input type="text" placeholder="Account name" class="form-control form-control-lg " formControlName="description">
+          </div>
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Total Amount Payable </label>
+            <input type="number" placeholder="Account name" class="form-control form-control-lg " formControlName="totalAmount">
+          </div>
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Amount Payable </label>
+            <input type="number" placeholder="Account name" class="form-control form-control-lg " formControlName="amount">
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn-blue  mb-3 " [disabled]="createTransactionForm.invalid" >Create transaction </button>
+            <button type="button" class=" btn-blue actions ml-3 " data-dismiss="modal" aria-label="Close" id="closeRejectedtrasactionModal">Cancel </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of file manager modal -->
 
 
 <!-- continue transaction Modal -->
