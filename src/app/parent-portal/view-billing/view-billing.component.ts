@@ -73,6 +73,9 @@ export class ViewBillingComponent implements OnInit {
           if (this.invData[i].isCompulsory === true) {
             this.invoiceAmount.push(this.invData[i].amount);
             this.subTotal = this.invoiceAmount.reduce((a, b) => a + b, 0);
+          } else {
+            this.invoiceAmount.push(this.invData[i].amount);
+            this.subTotal = this.invoiceAmount.reduce((a, b) => a + b, 0);
           }
         }
       }

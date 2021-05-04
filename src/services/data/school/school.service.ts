@@ -46,26 +46,26 @@ export class SchoolService {
     formData.append('ContactEmail', schoolFinalStep.ContactEmail);
     const url = `${this.baseUrl + routes.addschool}`;
     // console.log('asasas', schoolFinalStep);
-    return this.http.post(url, formData);
+    return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   getAllSchools( p, perpage ) {
     // const url = `${this.baseUrl + routes.getallschool}`;
     const url = `${this.baseUrl + routes.getallschool}?PageIndex=${p}&PageSize=${perpage}`;
 
-    return this.http.get(url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   getSchoolById(id) {
     const url = `${this.baseUrl + routes.getschoolbyid}/${id}`;
-    return this.http.get(url, id);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   uploadBulkDocument(bulkUpload) {
     const formData = new FormData();
     formData.append('File', bulkUpload.bulkFile);
     const url = `${this.baseUrl + routes.bulkUplaod}`;
-    return this.http.post(url, formData);
+    return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   updateSchool(id, updateSchoolForm) {
@@ -89,13 +89,13 @@ export class SchoolService {
     formData.append('ContactPhoneNo', updateSchoolForm.ContactPhoneNo);
     formData.append('ContactEmail', updateSchoolForm.ContactEmail);
     const url = `${this.baseUrl + routes.updateschoolbyid}/${id}`;
-    return this.http.put(url, formData);
+    return this.http.put(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
 
   }
 
   deleteSchoolById(userid) {
     const url = `${this.baseUrl + routes.deleteschool}/${userid}`;
-    return this.http.delete(url);
+    return this.http.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
 
   }
 
