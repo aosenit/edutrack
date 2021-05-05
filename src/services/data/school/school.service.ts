@@ -106,7 +106,7 @@ export class SchoolService {
 
   getSchoolDomainName(domain) {
     const url = `${this.baseUrl + routes.getSchoolDomain}/${domain}`;
-    return this.http.get(url );
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
 
   }
 }
