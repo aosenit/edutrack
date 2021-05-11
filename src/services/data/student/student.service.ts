@@ -76,54 +76,97 @@ export class StudentService {
 
   updateStudent(id, updateStudentForm) {
     const { immunizationVms } = updateStudentForm;
-    const body = new FormData();
-    body.append('FirstName', updateStudentForm.FirstName);
-    body.append('LastName', updateStudentForm.LastName);
-    body.append('OtherNames', updateStudentForm.OtherNames);
-    body.append('MothersMaidenName', updateStudentForm.MothersMaidenName);
-    body.append('Sex', updateStudentForm.Sex);
-    body.append('DateOfBirth', updateStudentForm.DateOfBirth);
-    body.append('Religion', updateStudentForm.Religion);
-    body.append('Nationality', updateStudentForm.Nationality);
-    body.append('ParentId', updateStudentForm.ParentId);
-    body.append('StateOfOrigin', updateStudentForm.StateOfOrigin);
-    body.append('LocalGovt', updateStudentForm.LocalGovt);
-    body.append('TransportRoute', updateStudentForm.TransportRoute);
-    body.append('EntryType', updateStudentForm.EntryType);
-    body.append('AdmissionDate', updateStudentForm.AdmissionDate);
-    body.append('SectionId', updateStudentForm.SectionId);
-    body.append('ClassId', updateStudentForm.ClassId);
-    body.append('StudentType', updateStudentForm.StudentType);
-    body.append('ContactPhone', updateStudentForm.ContactPhone);
-    body.append('ContactCountry', updateStudentForm.ContactCountry);
-    body.append('ContactTown', updateStudentForm.ContactTown);
-    body.append('ContactEmail', updateStudentForm.ContactEmail);
-    body.append('ContactAddress', updateStudentForm.ContactAddress);
-    body.append('ContactState', updateStudentForm.ContactState);
-    body.append('BloodGroup', updateStudentForm.BloodGroup);
-    body.append('Genotype', updateStudentForm.Genotype);
-    body.append('Disability', updateStudentForm.Disability);
-    body.append('Allergies', updateStudentForm.Allergies);
-    body.append('ConfidentialNotes', updateStudentForm.ConfidentialNotes);
-    body.append('Files', updateStudentForm.profilePhoto);
-    updateStudentForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
-    for (let i = 0; i < immunizationVms.length; i++) {
+    if (updateStudentForm.profilePhoto !== null) {
+      // console.log('file not empty');
+      const body = new FormData();
+      body.append('FirstName', updateStudentForm.FirstName);
+      body.append('LastName', updateStudentForm.LastName);
+      body.append('OtherNames', updateStudentForm.OtherNames);
+      body.append('MothersMaidenName', updateStudentForm.MothersMaidenName);
+      body.append('Sex', updateStudentForm.Sex);
+      body.append('DateOfBirth', updateStudentForm.DateOfBirth);
+      body.append('Religion', updateStudentForm.Religion);
+      body.append('Nationality', updateStudentForm.Nationality);
+      body.append('ParentId', updateStudentForm.ParentId);
+      body.append('StateOfOrigin', updateStudentForm.StateOfOrigin);
+      body.append('LocalGovt', updateStudentForm.LocalGovt);
+      body.append('TransportRoute', updateStudentForm.TransportRoute);
+      body.append('EntryType', updateStudentForm.EntryType);
+      body.append('AdmissionDate', updateStudentForm.AdmissionDate);
+      body.append('SectionId', updateStudentForm.SectionId);
+      body.append('ClassId', updateStudentForm.ClassId);
+      body.append('StudentType', updateStudentForm.StudentType);
+      body.append('ContactPhone', updateStudentForm.ContactPhone);
+      body.append('ContactCountry', updateStudentForm.ContactCountry);
+      body.append('ContactTown', updateStudentForm.ContactTown);
+      body.append('ContactEmail', updateStudentForm.ContactEmail);
+      body.append('ContactAddress', updateStudentForm.ContactAddress);
+      body.append('ContactState', updateStudentForm.ContactState);
+      body.append('BloodGroup', updateStudentForm.BloodGroup);
+      body.append('Genotype', updateStudentForm.Genotype);
+      body.append('Disability', updateStudentForm.Disability);
+      body.append('Allergies', updateStudentForm.Allergies);
+      body.append('ConfidentialNotes', updateStudentForm.ConfidentialNotes);
+      body.append('Files', updateStudentForm.profilePhoto);
+      updateStudentForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
+      for (let i = 0; i < immunizationVms.length; i++) {
       body.append('immunizationVms[' + i + '].age', immunizationVms[i].age);
       body.append('immunizationVms[' + i + '].date', immunizationVms[i].date);
       body.append('immunizationVms[' + i + '].vaccine', immunizationVms[i].vaccine);
     }
-    const url = `${this.baseUrl + routes.updatestudentbyid}/${id}`;
-    return this.http.put(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+      const url = `${this.baseUrl + routes.updatestudentbyid}/${id}`;
+      return this.http.put(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  } else {
+      console.log('no file selected');
+      const body = new FormData();
+      body.append('FirstName', updateStudentForm.FirstName);
+      body.append('LastName', updateStudentForm.LastName);
+      body.append('OtherNames', updateStudentForm.OtherNames);
+      body.append('MothersMaidenName', updateStudentForm.MothersMaidenName);
+      body.append('Sex', updateStudentForm.Sex);
+      body.append('DateOfBirth', updateStudentForm.DateOfBirth);
+      body.append('Religion', updateStudentForm.Religion);
+      body.append('Nationality', updateStudentForm.Nationality);
+      body.append('ParentId', updateStudentForm.ParentId);
+      body.append('StateOfOrigin', updateStudentForm.StateOfOrigin);
+      body.append('LocalGovt', updateStudentForm.LocalGovt);
+      body.append('TransportRoute', updateStudentForm.TransportRoute);
+      body.append('EntryType', updateStudentForm.EntryType);
+      body.append('AdmissionDate', updateStudentForm.AdmissionDate);
+      body.append('SectionId', updateStudentForm.SectionId);
+      body.append('ClassId', updateStudentForm.ClassId);
+      body.append('StudentType', updateStudentForm.StudentType);
+      body.append('ContactPhone', updateStudentForm.ContactPhone);
+      body.append('ContactCountry', updateStudentForm.ContactCountry);
+      body.append('ContactTown', updateStudentForm.ContactTown);
+      body.append('ContactEmail', updateStudentForm.ContactEmail);
+      body.append('ContactAddress', updateStudentForm.ContactAddress);
+      body.append('ContactState', updateStudentForm.ContactState);
+      body.append('BloodGroup', updateStudentForm.BloodGroup);
+      body.append('Genotype', updateStudentForm.Genotype);
+      body.append('Disability', updateStudentForm.Disability);
+      body.append('Allergies', updateStudentForm.Allergies);
+      body.append('ConfidentialNotes', updateStudentForm.ConfidentialNotes);
+      for (let i = 0; i < immunizationVms.length; i++) {
+      body.append('immunizationVms[' + i + '].age', immunizationVms[i].age);
+      body.append('immunizationVms[' + i + '].date', immunizationVms[i].date);
+      body.append('immunizationVms[' + i + '].vaccine', immunizationVms[i].vaccine);
+    }
+      const url = `${this.baseUrl + routes.updatestudentbyid}/${id}`;
+      return this.http.put(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    }
+
 
   }
 
-  deleteStudentById(id) {
+    deleteStudentById(id) {
     const url = `${this.baseUrl + routes.deletestudent}/${id}`;
     return this.http.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 
-  getStudentProfile(id) {
+    getStudentProfile(id) {
     const url = `${this.baseUrl + routes.viewstudentdetails}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
