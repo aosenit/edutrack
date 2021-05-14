@@ -66,8 +66,8 @@ export class StaffService {
     body.append('NextOfKin.NextKinPhone', form.NextKinPhone);
     body.append('NextOfKin.NextKinRelationship', form.NextKinRelationship);
     body.append('NextOfKin.NextKinState', form.NextKinState);
-    body.append('Files', form.signature);
     body.append('Files', form.profile);
+    body.append('Files', form.signature);
     for (let i = 0; i < WorkExperienceVMs.length; i++) {
       body.append('WorkExperienceVMs[' + i + '].workRole', WorkExperienceVMs[i].workRole);
       body.append('WorkExperienceVMs[' + i + '].workCompanyName', WorkExperienceVMs[i].workCompanyName);
@@ -149,8 +149,8 @@ export class StaffService {
     body.append('NextOfKin.NextKinPhone', form.NextKinPhone);
     body.append('NextOfKin.NextKinRelationship', form.NextKinRelationship);
     body.append('NextOfKin.NextKinState', form.NextKinState);
-    body.append('Files', form.signature);
     body.append('Files', form.profile);
+    body.append('Files', form.signature);
     for (let i = 0; i < WorkExperienceVMs.length; i++) {
       body.append('WorkExperienceVMs[' + i + '].workRole', WorkExperienceVMs[i].workRole);
       body.append('WorkExperienceVMs[' + i + '].workCompanyName', WorkExperienceVMs[i].workCompanyName);
