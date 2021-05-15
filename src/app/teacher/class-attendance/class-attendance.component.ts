@@ -204,9 +204,11 @@ export class ClassAttendanceComponent implements OnInit {
         this.getClassAttendanceSummary();
         // this.studentList = data.payload;
         // console.log(this.classList);
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
 
     });
   }
@@ -238,6 +240,9 @@ export class ClassAttendanceComponent implements OnInit {
            }
          });
         }
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     });
   }
