@@ -18,7 +18,6 @@ export class HomenavbarComponent implements OnInit {
     const nav = document.querySelector('nav');
     document.addEventListener('scroll', () => {
       if (window.scrollY > sticky) {
-        console.log(window.scrollY);
         nav.classList.add('nav-bg');
       } else {
         nav.classList.remove('nav-bg');

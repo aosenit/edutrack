@@ -138,7 +138,7 @@ export class DashboardComponent implements OnInit {
             // tslint:disable-next-line:prefer-for-of
             for (let i = 0; i < this.attendanceList.length; i++) {
               const {attendanceDate, attendanceStatus } = this.attendanceList[i];
-              console.log(attendanceDate, attendanceStatus);
+              // console.log(attendanceDate, attendanceStatus);
               newData[attendanceStatus] = attendanceStatus;
               console.log('new Data', newData);
               this.barDashboardDatas = Object.values(newData);
@@ -159,11 +159,11 @@ export class DashboardComponent implements OnInit {
         const newData = {};
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.attendanceList.length; i++) {
-          console.log(this.attendanceList);
+          // console.log(this.attendanceList);
           const {attendanceDate, attendanceStatus } = this.attendanceList[i];
           console.log(attendanceDate, attendanceStatus);
           newData[attendanceStatus] = attendanceStatus;
-          console.log('new Data', newData);
+          // console.log('new Data', newData);
           this.barDashboardDatas = Object.values(newData);
           this.barDashboardDataKeys = Object.keys(newData);
           this.createBarChart(this.barDashboardDatas);
