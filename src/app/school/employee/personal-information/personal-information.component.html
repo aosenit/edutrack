@@ -152,7 +152,7 @@
 
            <select name="" id="origin" class="form-control form-control-lg" formControlName="StateOfOrigin">
                <option value="" selected> select </option>
-               <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
+               <option [value]="unit" *ngFor="let unit of states" >{{unit}}</option>
 
            </select>
            <div *ngIf="personalDetailsForm.controls.StateOfOrigin.touched && personalDetailsForm.controls.StateOfOrigin.errors" class="error">

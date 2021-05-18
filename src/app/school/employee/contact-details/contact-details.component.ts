@@ -90,6 +90,12 @@ populateContactDetailsForm() {
 
   getProfileInformation() {
     const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
+    for (const unit in countries) {
+      if (payload.contactDetails.country === countries[unit].country) {
+        const state = countries[unit].states;
+        this.states = state;
+      }
+    }
     this.contactForm.patchValue({
         PhoneNumber: payload.contactDetails.phoneNumber,
       AltPhoneNumber: payload.contactDetails.altPhoneNumber,

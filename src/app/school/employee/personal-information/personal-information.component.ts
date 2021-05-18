@@ -130,6 +130,12 @@ export class PersonalInformationComponent implements OnInit {
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('all-employee-info'));
+    for (const unit in countries) {
+      if (payload.nationality === countries[unit].country) {
+        const state = countries[unit].states;
+        this.states = state;
+      }
+    }
     this.personalDetailsForm.patchValue({
       FirstName: payload.firstName,
     LastName: payload.lastName,

@@ -130,7 +130,13 @@ export class BasicDetailsComponent implements OnInit {
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('all-student-info'));
-    console.log('na the paylod', payload);
+    for (const unit in countries) {
+      if (payload.nationality === countries[unit].country) {
+        const state = countries[unit].states;
+        this.states = state;
+        console.log(this.states)
+      }
+    }
     this.basicDetailsForm.patchValue({
       FirstName: payload.firstName,
       LastName: payload.lastName,

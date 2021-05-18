@@ -75,7 +75,7 @@
 
             <select name="" id="state" class="form-control form-control-lg" formControlName="State">
                 <option value="" selected> select </option>
-                <option [value]="" *ngFor="let state of states" >{{state}}</option>
+                <option [value]="state" *ngFor="let state of states" >{{state}}</option>
 
             </select>   
             <div *ngIf="contactForm.controls.State.touched && contactForm.controls.State.errors" class="error">

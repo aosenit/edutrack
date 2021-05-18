@@ -94,7 +94,12 @@ export class ContactDetailsComponent implements OnInit {
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('all-student-info'));
-    console.log('na the paylod', payload);
+    for (const unit in countries) {
+      if (payload.country === countries[unit].country) {
+        const state = countries[unit].states;
+        this.states = state;
+      }
+    }
     this.contactDetailsForm.patchValue({
       ContactPhone: payload.phoneNumber,
       ContactEmail: payload.emailAddress,

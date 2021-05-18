@@ -34,7 +34,7 @@
                 <label for="date" class="fw-6">Level <span class="text-danger">*</span></label>
                 <select name="" id="level" class="form-control form-control-lg" formControlName="sectionId" (change)="getClassesUnderSection($event.target.value)" >
                     <option value="" selected> Select Section</option>
-                    <option *ngFor="let section of sections" [value]="section.id">{{section.name}}</option>
+                    <option *ngFor="let section of sections" [value]="section.name">{{section.name}}</option>
                 </select>
                 <div *ngIf="socialDetailsForm.controls.sectionId.touched && socialDetailsForm.controls.sectionId.errors" class="error">
                     <small *ngIf="socialDetailsForm.controls.sectionId.errors.required" class="text-danger">Field is required</small>

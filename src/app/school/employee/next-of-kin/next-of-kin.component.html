@@ -111,7 +111,7 @@
 
             <select name="" id="state" class="form-control form-control-lg" formControlName="NextKinState">
                 <option value="" selected> select </option>
-                <option [value]="" *ngFor="let state of states" >{{state}}</option>
+                <option [value]="state" *ngFor="let state of states" >{{state}}</option>
 
             </select> 
             

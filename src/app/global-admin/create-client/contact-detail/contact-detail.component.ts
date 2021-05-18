@@ -71,6 +71,12 @@ export class ContactDetailComponent implements OnInit {
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('client-info'));
+    for (const unit in countries) {
+      if (payload.country === countries[unit].country) {
+        const state = countries[unit].states;
+        this.states = state;
+      }
+    }
     this.schooldetailsForm.patchValue({
           Country: payload.country,
           Address: payload.address,
@@ -85,6 +91,7 @@ export class ContactDetailComponent implements OnInit {
 
     if (sessionStorage.getItem('school-details') !== null) {
       console.log(`School details exists`);
+      
       this.schooldetailsForm.patchValue({
         Country: this.schoolDetails.Country,
         Address: this.schoolDetails.Address,

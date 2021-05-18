@@ -97,6 +97,13 @@ export class NextOfKinComponent implements OnInit {
 
   getProfileInformation() {
     const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
+    for (const unit in countries) {
+      if (payload.nextOfKin.nextKinCountry === countries[unit].country) {
+        const state = countries[unit].states;
+        this.states = state;
+        console.log(this.states)
+      }
+    }
     this.nextOfKinForm.patchValue({
       NextKinFirstName: payload.nextOfKin.nextKinFirstName,
       NextKinLastName: payload.nextOfKin.nextKinLastName,

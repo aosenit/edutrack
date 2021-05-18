@@ -83,13 +83,14 @@ export class MedicalDetailsComponent implements OnInit {
     if (sessionStorage.getItem('student-medical-details') !== null) {
       console.log(`Student medicals exists`);
       this.medicalForm.patchValue({
-        BloodGroup: this.medicalDetials.BloodGroup ,
+        BloodGroup: this.medicalDetials.BloodGroup,
         Genotype: this.medicalDetials.Genotype,
-        Disability: this.medicalDetials.Disability ,
+        Disability: this.medicalDetials.Disability,
         Allergies: this.medicalDetials.Allergies,
         ConfidentialNotes: this.medicalDetials.ConfidentialNotes ,
         // immunizationVms: this.medicalDetials.immunizationVms
       });
+      this.medicalForm.setControl('immunizationVms', this.setExistingComponent(this.medicalDetials.immunizationHistoryVMs));
     } else {
       console.log(`Student medicals not found`);
     }

@@ -27,7 +27,7 @@
                     <label for="domain" class="fw-6">State</label>
                     <select class="form-control form-control-lg" formControlName="State">
                         <option value="" selected>Select state</option>
-                        <option [value]="" *ngFor="let unit of states" >{{unit}}</option>
+                        <option [value]="unit" *ngFor="let unit of states" >{{unit}}</option>
                     </select>
                 </div>
                 <div class=" ">
