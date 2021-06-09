@@ -6,7 +6,8 @@
             <div class="col-md-6">
                 <label for="entry" class="fw-6">Phone Number </label>
                 <input type="tel" placeholder="814 567 6749" maxlength="11"
-                    class="form-control form-control-lg" formControlName="ContactPhone">
+                    class="form-control form-control-lg" formControlName="ContactPhone"
+                    (keypress)="allowNumbersOnly($event)">
                     <div *ngIf = "contactDetailsForm.controls.ContactPhone.errors?.pattern" class="text-danger">Invalid phone pattern</div>
             </div>
             <div class="col-md-6 ">
@@ -15,7 +16,7 @@
                     placeholder="johnboye@gmail.com" id="email" formControlName="ContactEmail">
                     <div *ngIf=" contactDetailsForm.controls.ContactEmail.touched && contactDetailsForm.controls.ContactEmail.errors" class="error">
                         <small *ngIf = "contactDetailsForm.controls.ContactEmail.errors?.email" class="text-danger">Invalid email pattern</small>
-                        <small *ngIf="contactDetailsForm.controls.Nationality.errors.required" class="text-danger">Field is required</small>
+                        <small *ngIf="contactDetailsForm.controls.ContactEmail.errors.required" class="text-danger">Field is required</small>
                         <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
                       </div>
 

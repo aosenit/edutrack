@@ -36,7 +36,7 @@ export class AccountPanelComponent implements OnInit {
     this.populatekAccountForm();
     this.getAllAccountClass();
     this.populateAccountTypeForm();
-    this.getAccountTypes();
+    // this.getAccountTypes();
     this.populateEditAccountForm();
     this.populateEditAccountTypeForm();
   }
@@ -83,12 +83,14 @@ export class AccountPanelComponent implements OnInit {
       case 'class':
         this.class = true;
         this.type = false;
+        this.getAllAccountClass();
         break;
 
 
       case 'type':
         this.class = false;
         this.type = true;
+        this.getAccountTypes();
         break;
 
 

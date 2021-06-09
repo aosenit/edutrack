@@ -140,7 +140,7 @@ export class DashboardComponent implements OnInit {
               const {attendanceDate, attendanceStatus } = this.attendanceList[i];
               // console.log(attendanceDate, attendanceStatus);
               newData[attendanceStatus] = attendanceStatus;
-              console.log('new Data', newData);
+              // console.log('new Data', newData);
               this.barDashboardDatas = Object.values(newData);
               this.barDashboardDataKeys = Object.keys(newData);
               this.createBarChart(this.barDashboardDatas);
@@ -152,7 +152,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getClassAttendance(e) {
-    console.log(e);
+    // console.log(e);
     this.attendance.getClassAttendanceForTeacher(e).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.attendanceList = data.payload;
@@ -161,7 +161,7 @@ export class DashboardComponent implements OnInit {
         for (let i = 0; i < this.attendanceList.length; i++) {
           // console.log(this.attendanceList);
           const {attendanceDate, attendanceStatus } = this.attendanceList[i];
-          console.log(attendanceDate, attendanceStatus);
+          // console.log(attendanceDate, attendanceStatus);
           newData[attendanceStatus] = attendanceStatus;
           // console.log('new Data', newData);
           this.barDashboardDatas = Object.values(newData);

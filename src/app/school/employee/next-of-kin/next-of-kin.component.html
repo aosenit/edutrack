@@ -53,7 +53,7 @@
       <div class="form-row mb-5 ">
         
         <div class="  ">
-          <label for="occupation" class="fw-6">Occupation  <span class="text-danger">*</span></label>
+          <label for="occupation" class="fw-6">Occupation  </label>
           <input type="text" id="occupation" class="form-control form-control-lg" placeholder="Enter occupation" formControlName="NextKinOccupation">
 
           <div *ngIf="nextOfKinForm.controls.NextKinOccupation.touched && nextOfKinForm.controls.NextKinOccupation.errors" class="error">
@@ -65,11 +65,13 @@
 
         <div class=" ">
             <label for="tel" class="fw-6">Phone Number  <span class="text-danger">*</span></label>
-          <input type="tel" id="tel" class="form-control form-control-lg" placeholder="Ener phone number" formControlName="NextKinPhone" required maxlength="11">
+          <input type="tel" id="tel" class="form-control form-control-lg" placeholder="Ener phone number" formControlName="NextKinPhone" 
+          required maxlength="11"
+          (keypress)="allowNumbersOnly($event)">
 
           <div *ngIf="nextOfKinForm.controls.NextKinPhone.touched && nextOfKinForm.controls.NextKinPhone.errors" class="error">
             <small *ngIf="nextOfKinForm.controls.NextKinPhone.errors.required" class="text-danger">Field is required</small>
-            <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+            <small *ngIf="nextOfKinForm.controls.NextKinPhone.errors.minlength" class="text-danger">Invalid phone number length</small>
           </div>
           </div>
 

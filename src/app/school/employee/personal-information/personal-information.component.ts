@@ -107,7 +107,13 @@ export class PersonalInformationComponent implements OnInit {
     this.personalDetails = JSON.parse( sessionStorage.getItem('employee-personal-data'));
 
     if (sessionStorage.getItem('employee-personal-data') !== null) {
-      console.log(`School person exists`);
+      // console.log(`School person exists`);
+      for (const unit in countries) {
+        if (this.personalDetails.Nationality === countries[unit].country) {
+          const state = countries[unit].states;
+          this.states = state;
+        }
+      }
       this.personalDetailsForm.patchValue({
         FirstName: this.personalDetails.FirstName,
       LastName: this.personalDetails.LastName,

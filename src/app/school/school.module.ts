@@ -78,7 +78,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     SharedModule,
     NgxPaginationModule,
-    CalendarModule,
+    // CalendarModule,
 
     NgMultiSelectDropDownModule.forRoot(),
     SchoolRoutingModule,

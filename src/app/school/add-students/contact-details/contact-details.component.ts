@@ -78,7 +78,13 @@ export class ContactDetailsComponent implements OnInit {
     this.contactDetails = JSON.parse( sessionStorage.getItem('Student-contact-details'));
 
     if (sessionStorage.getItem('Student-contact-details') !== null) {
-      console.log(`Student Contact details exists`);
+      // console.log(`Student Contact details exists`);
+      for (const unit in countries) {
+        if (this.contactDetails.ContactCountry === countries[unit].country) {
+          const state = countries[unit].states;
+          this.states = state;
+        }
+      }
       this.contactDetailsForm.patchValue({
         ContactPhone: this.contactDetails.ContactPhone,
         ContactEmail: this.contactDetails.ContactEmail,
@@ -110,5 +116,17 @@ export class ContactDetailsComponent implements OnInit {
     });
 
   }
+
+
+  
+ allowNumbersOnly(e) {
+  const ev = e || window.event;
+  const charcode = ev.which ? ev.which : ev.keycode;
+  if (charcode > 31 && (charcode < 48 || charcode > 57) && charcode !== 46) {
+    e.preventDefault()
+    return false;
+  }
+  return true;
+}
 
 }

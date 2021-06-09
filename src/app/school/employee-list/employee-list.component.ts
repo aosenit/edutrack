@@ -87,6 +87,7 @@ searchString: string;
     sessionStorage.removeItem('employee-education');
     sessionStorage.removeItem('employee-next-kin');
     sessionStorage.removeItem('employee-experience');
+    sessionStorage.removeItem('all-employee-info');
   }
 
 }

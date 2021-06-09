@@ -1,17 +1,17 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-parent',
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css']
 })
-export class ParentComponent implements OnInit {
+export class ParentComponent implements OnInit, OnDestroy {
 
   stage = 1;
   currentStep: any;
   active = '1';
-  constructor(private location:Location) { }
+  constructor(private location: Location) { }
 
   ngOnInit() {
   }
@@ -33,5 +33,10 @@ export class ParentComponent implements OnInit {
   back() {
     this.location.back()
     // window.history.back();
+  }
+
+  ngOnDestroy() {
+    sessionStorage.removeItem('parent-basic-details');
+    sessionStorage.removeItem('parent-social-details');
   }
 }

@@ -17,6 +17,7 @@ export class EmployeeDetailsComponent implements OnInit {
   employeeForm: FormGroup;
   departmentList: any;
   empDetails: any;
+  minDate: string;
   constructor(
     private home: EmployeeComponent,
     private fb: FormBuilder,
@@ -116,6 +117,10 @@ export class EmployeeDetailsComponent implements OnInit {
       EmploymentDate: moment(payload.employmentDetails.employmentDate).format('YYYY-MM-DD'),
       ResumptionDate: moment(payload.employmentDetails.resumptionDate).format('YYYY-MM-DD')
     });
+  }
+
+  getStartDate(e) {
+    this.minDate = moment(e).format('YYYY-MM-DD');
   }
 
 

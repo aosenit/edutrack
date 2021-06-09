@@ -22,7 +22,7 @@
           
           <div class="  ">
             <label for="from" class="fw-6">From <span class="text-danger">*</span></label>
-            <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="startTime">
+            <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="startTime" (input)="getStartDate($event.target.value)">
     
     
            
@@ -30,7 +30,7 @@
     
           <div class="  ">
             <label for="from" class="fw-6">To <span class="text-danger">*</span></label>
-            <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="endTime">
+            <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="endTime" [min]="minDate">
     
     
            

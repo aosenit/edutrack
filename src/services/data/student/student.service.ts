@@ -7,7 +7,8 @@ const routes = {
   viewstudentdetails: 'schtrack-auth/api/v1/Student/GetStudentProfile',
   getstudentbyid: 'schtrack-auth/api/v1/Student/GetStudentById',
   updatestudentbyid: 'schtrack-auth/api/v1/Student/UpdateStudent',
-  deletestudent: 'schtrack-auth/api/v1/Student/DeleteStudent'
+  deletestudent: 'schtrack-auth/api/v1/Student/DeleteStudent',
+  getBulkDdownload: 'schtrack-auth/api/v1/Student/GetStudentsExcelSheet'
 };
 
 @Injectable({
@@ -170,4 +171,11 @@ export class StudentService {
     const url = `${this.baseUrl + routes.viewstudentdetails}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
+
+
+    downloadSampleBulkSheet() {
+      const url = `${this.baseUrl + routes.getBulkDdownload}`;
+      return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  
+    }
 }

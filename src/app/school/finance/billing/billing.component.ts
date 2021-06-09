@@ -19,7 +19,7 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class BillingComponent implements OnInit, OnDestroy {
   normal = true;
-  type = false;
+  invoiceTab = false;
   invoiceForm: FormGroup;
   termList: any;
   classes: any;
@@ -68,13 +68,13 @@ export class BillingComponent implements OnInit, OnDestroy {
     this.getSession();
     this.getAllFeeGroups();
     this.getAllSections();
-    // this.getSession();
     this.getCurretSession();
-    this.getAllInvoiceCreated();
     this.getAllPaymentInvoices();
-    this.getPaymentHistory();
-    this.getPendingPayments();
     this.getPaymentAwwaitingApproval();
+    // this.getSession();
+    // this.getAllInvoiceCreated();
+    // this.getPendingPayments();
+    // this.getPaymentHistory();
 
     this.schoolLogo = sessionStorage.getItem('prop');
     // this.getPendingTransactions();
@@ -102,21 +102,31 @@ export class BillingComponent implements OnInit, OnDestroy {
       Comment: ['', Validators.required]
     });
   }
-  showStatus(status: string) {
+
+  showTab(status: string) {
     const newStatus = status;
     switch (newStatus) {
 
-      case 'normal':
+      case 'payment':
         this.normal = true;
-        this.type = false;
+        this.invoiceTab = false;
         break;
 
-
-      case 'type':
+      case 'history':
         this.normal = false;
-        this.type = true;
+        this.invoiceTab = true;
+        this.getPaymentHistory();
         break;
 
+      case 'invoiceTab':
+        this.normal = false;
+        this.invoiceTab = true;
+        this.getAllInvoiceCreated();
+        break;
+
+      case 'pending':
+        this.getPendingPayments();
+        break;
 
       default:
         this.normal = true;

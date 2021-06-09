@@ -64,14 +64,14 @@
             
             <div class="  ">
               <label for="email" class="fw-6">Start Date </label>
-              <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="startDate">
+              <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="startDate" (input)="getStartDate($event.target.value)">
     
     
              
             </div>
             <div class="  ">
               <label for="email" class="fw-6">End Date </label>
-              <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="endDate">
+              <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="endDate" [min]="minDate">
     
     
              

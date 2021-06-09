@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-add-students',
   templateUrl: './add-students.component.html',
   styleUrls: ['./add-students.component.css']
 })
-export class AddStudentsComponent implements OnInit {
+export class AddStudentsComponent implements OnInit, OnDestroy {
 
   stage = 1;
   currentStep: any;
@@ -31,6 +31,13 @@ export class AddStudentsComponent implements OnInit {
 
   back() {
     window.history.back();
+  }
+
+  ngOnDestroy() {
+    sessionStorage.removeItem('student-basic-details');
+    sessionStorage.removeItem('student-social-details');
+    sessionStorage.removeItem('Student-contact-details');
+    sessionStorage.removeItem('student-medical-details');
   }
 
 }

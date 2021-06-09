@@ -39,11 +39,11 @@ export class ContactDetailsComponent implements OnInit {
 
 populateContactDetailsForm() {
     this.contactForm = this.fb.group({
-      PhoneNumber: ['', Validators.required],
-      AltPhoneNumber: [''],
-      EmailAddress: ['', Validators.required],
-      AltEmailAddress: [''],
-      Country: [''],
+      PhoneNumber: ['', [Validators.required, Validators.minLength(11)]],
+      AltPhoneNumber: ['', Validators.minLength(11)],
+      EmailAddress: ['', [Validators.required, Validators.email]],
+      AltEmailAddress: ['', Validators.email],
+      Country: ['', Validators.required],
       Address: ['', Validators.required],
       State: ['', Validators.required],
       Town: ['']
@@ -74,6 +74,12 @@ populateContactDetailsForm() {
 
     if (sessionStorage.getItem('employee-contact-details') !== null) {
       // console.log(`School person exists`);
+      for (const unit in countries) {
+        if (this.contactDetails.Country === countries[unit].country) {
+          const state = countries[unit].states;
+          this.states = state;
+        }
+      }
       this.contactForm.patchValue({
         PhoneNumber: this.contactDetails.PhoneNumber,
       AltPhoneNumber: this.contactDetails.AltPhoneNumber,
@@ -106,6 +112,16 @@ populateContactDetailsForm() {
       State: payload.contactDetails.state,
       Town: payload.contactDetails.town
     });
+  }
+
+  allowNumbersOnly(e) {
+    const ev = e || window.event;
+    const charcode = ev.which ? ev.which : ev.keycode;
+    if (charcode > 31 && (charcode < 48 || charcode > 57) && charcode !== 46) {
+      e.preventDefault()
+      return false;
+    }
+    return true;
   }
 
 

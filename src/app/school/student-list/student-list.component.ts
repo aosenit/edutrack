@@ -35,6 +35,15 @@ export class StudentListComponent implements OnInit {
     this.getAllStudents();
   }
 
+
+  downloadStudentSampleFile() {
+    this.studentService.downloadSampleBulkSheet().subscribe((data: any) => {
+      if (data.hasErrors === false ) {
+        console.log(data.payload);
+      }
+    });
+  }
+
   createStudentBulkUpload() {
     // this.studentService.uploadBulkDocument(this.studentBulkUploadForm.value).subscribe((data: any) => {
     //   console.log('bulk file', data);

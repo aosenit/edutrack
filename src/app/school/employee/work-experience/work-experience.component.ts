@@ -14,6 +14,7 @@ export class WorkExperienceComponent implements OnInit {
 employeeWorkExperienceForm: FormGroup;
 items: any;
 workDetials: any;
+  minDate: string;
 
 
   constructor(
@@ -62,6 +63,10 @@ populateEmployeeExperienceForm() {
     });
   }
 
+  getStartDate(e) {
+    this.minDate = moment(e).format('YYYY-MM-DD');
+  }
+
   addExperience() {
     this.items = this.employeeWorkExperienceForm.get('WorkExperienceVMs') as FormArray;
     this.items.push(this.createItem());
@@ -93,7 +98,7 @@ populateEmployeeExperienceForm() {
 
     const formArray = new FormArray([]);
     for (const x of data) {
-      console.log(x);
+      // console.log(x);
       formArray.push(this.fb.group({
        workRole: x.workRole,
        workCompanyName: x.workCompanyName,

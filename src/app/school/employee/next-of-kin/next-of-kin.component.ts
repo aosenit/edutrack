@@ -43,7 +43,7 @@ export class NextOfKinComponent implements OnInit {
       NextKinOtherName: [''],
       NextKinRelationship: ['', Validators.required],
       NextKinOccupation: [''],
-      NextKinPhone: ['', Validators.required],
+      NextKinPhone: ['', [Validators.required, Validators.minLength(11)]],
       NextKinCountry: ['', Validators.required],
       NextKinAddress: ['', Validators.required],
       NextKinState: ['', Validators.required],
@@ -78,6 +78,12 @@ export class NextOfKinComponent implements OnInit {
 
     if (sessionStorage.getItem('employee-next-kin') !== null) {
       // console.log(`School person exists`);
+      for (const unit in countries) {
+        if ( this.nexKinDetails.NextKinCountry === countries[unit].country) {
+          const state = countries[unit].states;
+          this.states = state;
+        }
+      }
       this.nextOfKinForm.patchValue({
         NextKinFirstName: this.nexKinDetails.NextKinFirstName,
         NextKinLastName: this.nexKinDetails.NextKinLastName,
@@ -101,7 +107,6 @@ export class NextOfKinComponent implements OnInit {
       if (payload.nextOfKin.nextKinCountry === countries[unit].country) {
         const state = countries[unit].states;
         this.states = state;
-        console.log(this.states)
       }
     }
     this.nextOfKinForm.patchValue({
@@ -117,4 +122,16 @@ export class NextOfKinComponent implements OnInit {
       NextKinTown: payload.nextOfKin.nextKinTown
     });
   }
+
+
+  
+ allowNumbersOnly(e) {
+  const ev = e || window.event;
+  const charcode = ev.which ? ev.which : ev.keycode;
+  if (charcode > 31 && (charcode < 48 || charcode > 57) && charcode !== 46) {
+    e.preventDefault()
+    return false;
+  }
+  return true;
+}
 }

@@ -18,6 +18,7 @@ export class EducationComponent implements OnInit {
   EmployeeEducationForm: FormGroup;
 
   @Output() sendChildName = new EventEmitter<string>();
+  minDate: string;
   constructor(
     private home: EmployeeComponent,
     private fb: FormBuilder,
@@ -69,6 +70,11 @@ export class EducationComponent implements OnInit {
     });
   }
 
+
+  getStartDate(e) {
+    this.minDate = moment(e).format('YYYY-MM-DD');
+  }
+
   getAActiveTab() {
     this.educationalDetials = JSON.parse(sessionStorage.getItem('employee-education'));
 
@@ -112,7 +118,7 @@ export class EducationComponent implements OnInit {
 
     const formArray = new FormArray([]);
     for (const x of data) {
-      console.log(x);
+      // console.log(x);
       formArray.push(this.fb.group({
        educationSchoolName: x.educationSchoolName,
        educationSchoolQualification: x.educationSchoolQualification,

@@ -26,13 +26,25 @@ export class PeriodComponent implements OnInit {
       timeTo: '',
       isBreak: false
     });
-    const periods = JSON.parse(sessionStorage.getItem('periods'));
-    this.periodName = periods;
-    console.log('periods', this.periodName);
-
-    this.notify();
+    this.getAllPeriods();
+    
 
 
+  }
+
+
+  getAllPeriods() {
+    this.timetableService.getPeriods().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        sessionStorage.setItem('periods', JSON.stringify(data.payload));
+        const periods = JSON.parse(sessionStorage.getItem('periods'));
+        this.periodName = periods;
+        console.log('periods', this.periodName);
+
+        this.notify();
+        // console.log(this.periods);
+      }
+    });
   }
 
 
