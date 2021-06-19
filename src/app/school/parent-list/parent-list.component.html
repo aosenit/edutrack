@@ -2,11 +2,11 @@
     <img src="assets/images/svg/add-student.svg" alt="new student" class="">
     <p class="text-center fw-6 pt-5">It looks like you are yet to create a parent.You can do <br> that by clicking any of the buttons below.
         below.</p>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-parents']">
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-parents']" (click)="clearStorage()">
         Add New </button>
-    <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
+    <!-- <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
         data-target="#exampleModalCenterUpload">Bulk
-        Upload</button>
+        Upload</button> -->
 </section>
 
 <div *ngIf="parentList?.length !== 0">
@@ -16,7 +16,7 @@
             <h6 class="banner__text-primary fw-6 "> Parents </h6>
             <p class=""> Directory of all registered parents </p>
         </div>
-        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-parents"> Add New </button>
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-parents" (click)="clearStorage()"> Add New </button>
     
     </section>
     
@@ -32,7 +32,7 @@
     
     
     
-    <section class="list">
+    <section class="list table-responsive">
         <table class="table table-borderless client-table">
             <thead>
                 <tr>
@@ -42,46 +42,51 @@
                             <label class="custom-control-label" for="customCheckTh"></label>
                         </div>
                     </th>
-                    <th scope="col" class="text-center" >Full Name <img src="assets/images/svg/table-sort.svg"
+                    <th scope="col" class="text-center" >Full Name 
+                        <!-- <img src="assets/images/svg/table-sort.svg"
                             alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
                         <!-- ================ DROPDOWN ==================== -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item filter-title" href="#">FILTER BY: CLIENT</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item fc-orange" href="#">All </a>
                             <a class="dropdown-item" href="#">A - Z </a>
                             <a class="dropdown-item" href="#">Z - A </a>
-                        </div>
+                        </div> -->
                     </th>
                     <th scope="col">Parent ID </th>
                    
-                    <th scope="col">Phone Number <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                    <th scope="col">Phone Number 
+                        <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
                             class="dropdown-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                            aria-haspopup="true" aria-expanded="false"> -->
                         <!-- ================ DROPDOWN ==================== -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
                             <a class="dropdown-item filter-title" href="#">FILTER BY: LOCATION</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item fc-orange" href="#">All </a>
                             <a class="dropdown-item" href="#">Abuja </a>
                             <a class="dropdown-item" href="#">Lagos </a>
                             <a class="dropdown-item" href="#">Ogun </a>
-                        </div>
+                        </div> -->
                     </th>
-                    <th scope="col">Email <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
+                    <th scope="col">Email 
+                        <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
+                    </th>
     
-                    <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                    <th scope="col">Status 
+                        <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
                             class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                            aria-haspopup="true" aria-expanded="false"> -->
                         <!-- ================ DROPDOWN ==================== -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
                             <a class="dropdown-item filter-title" href="#">FILTER BY: STATUS</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item fc-orange" href="#">All </a>
                             <a class="dropdown-item" href="#">Active </a>
                             <a class="dropdown-item" href="#">Inactive </a>
-                        </div>
+                        </div> -->
                     </th>
                     <th scope="col">Action</th>
                 </tr>
@@ -100,7 +105,7 @@
                             <!-- <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3"> -->
                             <img class="" *ngIf="parent.image" src="data:image/png;base64,{{parent.image}}" alt="schools log"
                             class="mr-3 image-rounded" id="">
-                            <h6 class="fw-6 mb-0" >{{parent?.fullName}} </h6>
+                            <h6 class="fw-6 mb-0" >{{parent?.fullName | titlecase}} </h6>
                         </div>
                     </td>
                     <td>{{parent?.parentCode}}</td>
@@ -110,11 +115,13 @@
                         <span class="status_active" *ngIf = "parent.status == true">Active</span>
                         <span class="status_active" *ngIf = "parent.status == false">Inactive</span>
                     </td>
-                    <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                            alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <td class="rounded-right  "><img src="assets/images/svg/more-action.svg"
+                            alt="schools log" class="dropdown-toggle cursor-pointer mt-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#" [routerLink]="['/school/parent-detail', parent.id]">View</a>
+                                <a class="dropdown-item " [routerLink]="['/school/parent-detail', parent.id]">View</a>
+                                <a class="dropdown-item" (click)="editParent(parent.id)" >Edit</a>
+                                <a class="dropdown-item" (click)="deleteParent(parent.id)" >Delete</a>
                               </div>
                             
                             </td>

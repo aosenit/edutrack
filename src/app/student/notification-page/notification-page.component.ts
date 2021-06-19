@@ -18,6 +18,7 @@ export class NotificationPageComponent implements OnInit {
   mydate: any;
   uploadAssignmentForm: FormGroup;
   assignmentFile = null;
+  assignmentSubmission: any;
   constructor(
     private route: ActivatedRoute,
     private assignmentService: AssignmentService,
@@ -32,6 +33,7 @@ export class NotificationPageComponent implements OnInit {
     this.id = this.route.snapshot.params.id;
 
     this.getClassSubjectAssignments();
+    this.getStudentSubmissions();
   }
 
   populateAssignmentForm() {
@@ -56,6 +58,25 @@ export class NotificationPageComponent implements OnInit {
 
     });
   }
+
+  getStudentSubmissions() {
+    this.assignmentService.getStudentAssignmentSubmission().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+          this.assignmentSubmission = data.payload;
+          console.log(this.assignmentSubmission);
+      }
+      // this.mydate = this.assignments.map((date) => {
+      //   return moment(date.dueDate).fromNow();
+      // });
+      // console.log(test);
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+
+
 
 
   // calculateDiff(dateSent) {

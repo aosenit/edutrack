@@ -1,5 +1,8 @@
 <div class="">
     <div class="login">
+        <!-- <img src="assets/images/svg/school-login-logo.svg" alt="" class="school-logo"> -->
+        <img class="" *ngIf="matchedSchoolDetail" src="data:image/png;base64,{{matchedSchoolDetail.logo}}" alt="schools log" class="mr-3 school-logo" id="">
+
         <div class="container">
             <div class="row">
 
@@ -7,28 +10,45 @@
                     <div class="whitediv d-flex justify-content-center align-items-center p-lg-5 p-3 mt-lg-5">
                         <div class="row">
                             <div class="col-lg-12 d-flex justify-content-center mb-5">
-                                <img src="assets/images/svg/student-login-logo.svg" alt="">
+                                <div>
+                                    
+                                    <h6 class="fs-30 mb-2 text-center ">{{matchedSchoolDetail?.schoolName}}</h6>
+    
+                                    <p class="fs-30 text-center ">Teacher Login</p>
+                                    
+                                </div>
                             </div>
-                            <div class="col-lg-12 mb-3">
-                                <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Username </p>
-                                <small class="fs-12 ff-n fc-dark mb-3">Please enter your username in the box
-                                    below.</small>
-                                <input type="text" class="form-control reg-form">
-                            </div>
-                            <div class="col-lg-12 mb-3">
-                                <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Password</p>
-                                <small class="fs-12 ff-n fc-dark mb-3">Please enter your password in the box
-                                    below.</small>
-                                <input type="password" class="form-control reg-form mb-2">
-                                <p class="text-right">
-                                    <a routerLink="/forgotpassword" class="fc-lblue fs-14 fw-6 ff-n">Forgot
-                                        Password?</a>
-                                </p>
-                            </div>
-                            <div class="col-lg-12 mb-3">
-                                <button class="btn btn-blue w-100" [routerLink]="['/teacher/dashboard']">
-                                    Login
-                                </button>
+                            <div class="col-lg-12">
+                                <form [formGroup]= "teacherLoginForm" (ngSubmit)="submit()">
+                                    <div class="col-lg-12 mb-3">
+                                        <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Username </p>
+                                        <small class="fs-12 ff-n fc-dark mb-3">Please enter your username in the box
+                                            below.</small>
+                                        <input type="text" class="form-control reg-form" formControlName = "username">
+                                        <div *ngIf="submitted && teacherLoginForm.controls.username.errors" class="error">
+                                            <div *ngIf="teacherLoginForm.controls.username.errors.required" class="text-danger">Username is required</div>
+                                          </div>
+                                    </div>
+                                    <div class="col-lg-12 mb-3">
+                                        <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Password</p>
+                                        <small class="fs-12 ff-n fc-dark mb-3">Please enter your password in the box
+                                            below.</small>
+                                        <input type="password" class="form-control reg-form mb-2" formControlName = "password">
+                                        <div *ngIf="submitted && teacherLoginForm.controls.password.errors" class="error">
+                                            <div *ngIf="teacherLoginForm.controls.password.errors.required" class="text-danger">Password is required</div>
+                                            <div *ngIf="teacherLoginForm.controls.password.errors.minlength" class="text-danger">Password must be at least 5 characters</div>
+                                          </div>
+                                        <p class="text-right">
+                                            <a routerLink="/forgotpassword" class="fc-lblue fs-14 fw-6 ff-n">Forgot
+                                                Password?</a>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 mb-3">
+                                        <button class="btn btn-blue w-100" >
+                                            Login
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
 

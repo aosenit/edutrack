@@ -16,10 +16,10 @@
         <a class="nav-link active" id="pills-school-tab" data-toggle="pill" href="#pills-school" role="tab"
           aria-controls="pills-school" aria-selected="false">School</a>
       </li>
-      <li class="nav-item mr-5">
+      <!-- <li class="nav-item mr-5">
         <a class="nav-link" id="pills-info-tab" data-toggle="pill" href="#pills-info" role="tab"
           aria-controls="pills-info" aria-selected="false">School Information </a>
-      </li>
+      </li> -->
 
 
     </ul>
@@ -84,10 +84,16 @@
             </td>
             <td class="user">
 
-              School Name
+              {{schoolDetails?.schoolName}}
             </td>
-            <td>2019/2020</td>
-            <td>1st Term</td>
+            <td>
+              <span *ngIf="sessionList?.name">{{sessionList?.name}}</span>
+              <span *ngIf="sessionList?.name === null">Session not found</span>
+            </td>
+            <td>
+              <span *ngIf="currentTerm">{{currentTerm}}</span>
+              <span *ngIf="currentTerm === null">N/A</span>
+            </td>
 
             <td><span class="status_active">Active</span></td>
 

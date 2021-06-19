@@ -9,7 +9,9 @@ const routes = {
   getschoolbyid: 'schtrack-auth/api/v1/School/GetSchool',
   bulkUplaod: 'schtrack-auth/api/v1/School/BulkAddSchool',
   updateschoolbyid: 'schtrack-auth/api/v1/School/UpdateSchool',
-  deleteschool: 'schtrack-auth/api/v1/School/DeleteSchool'
+  deleteschool: 'schtrack-auth/api/v1/School/DeleteSchool',
+  viewSchoolproperty: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogo',
+  getSchoolDomain: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogoByDomain'
 };
 
 @Injectable({
@@ -27,8 +29,11 @@ export class SchoolService {
     formData.append('Name', schoolFinalStep.Name);
     formData.append('DomainName', schoolFinalStep.DomainName);
     formData.append('WebsiteAddress', schoolFinalStep.WebsiteAddress);
+    formData.append('Username', schoolFinalStep.Username);
     formData.append('Files', schoolFinalStep.logo);
     formData.append('Files', schoolFinalStep.icon);
+    formData.append('PrimaryColor', schoolFinalStep.PrimaryColor);
+    formData.append('SecondaryColor', schoolFinalStep.SecondaryColor);
     // formData.append('DocumentTypes', schoolFinalStep.DocumentTypes);
     schoolFinalStep.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
     formData.append('Country', schoolFinalStep.Country);
@@ -41,26 +46,26 @@ export class SchoolService {
     formData.append('ContactEmail', schoolFinalStep.ContactEmail);
     const url = `${this.baseUrl + routes.addschool}`;
     // console.log('asasas', schoolFinalStep);
-    return this.http.post(url, formData);
+    return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   getAllSchools( p, perpage ) {
     // const url = `${this.baseUrl + routes.getallschool}`;
     const url = `${this.baseUrl + routes.getallschool}?PageIndex=${p}&PageSize=${perpage}`;
 
-    return this.http.get(url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   getSchoolById(id) {
     const url = `${this.baseUrl + routes.getschoolbyid}/${id}`;
-    return this.http.get(url, id);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   uploadBulkDocument(bulkUpload) {
     const formData = new FormData();
     formData.append('File', bulkUpload.bulkFile);
     const url = `${this.baseUrl + routes.bulkUplaod}`;
-    return this.http.post(url, formData);
+    return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   updateSchool(id, updateSchoolForm) {
@@ -68,8 +73,11 @@ export class SchoolService {
     formData.append('Name', updateSchoolForm.Name);
     formData.append('DomainName', updateSchoolForm.DomainName);
     formData.append('WebsiteAddress', updateSchoolForm.WebsiteAddress);
+    formData.append('Username', updateSchoolForm.Username);
     formData.append('Files', updateSchoolForm.logo);
     formData.append('Files', updateSchoolForm.icon);
+    formData.append('PrimaryColor', updateSchoolForm.PrimaryColor);
+    formData.append('SecondaryColor', updateSchoolForm.SecondaryColor);
     // formData.append('DocumentTypes', updateSchoolForm.DocumentTypes);
     updateSchoolForm.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
     formData.append('Country', updateSchoolForm.Country);
@@ -81,13 +89,24 @@ export class SchoolService {
     formData.append('ContactPhoneNo', updateSchoolForm.ContactPhoneNo);
     formData.append('ContactEmail', updateSchoolForm.ContactEmail);
     const url = `${this.baseUrl + routes.updateschoolbyid}/${id}`;
-    return this.http.put(url, formData);
+    return this.http.put(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
 
   }
 
   deleteSchoolById(userid) {
     const url = `${this.baseUrl + routes.deleteschool}/${userid}`;
-    return this.http.delete(url);
+    return this.http.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+
+  }
+
+  getSchoolLogo(id) {
+    const url = `${this.baseUrl + routes.viewSchoolproperty}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getSchoolDomainName(domain) {
+    const url = `${this.baseUrl + routes.getSchoolDomain}/${domain}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
 
   }
 }

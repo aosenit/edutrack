@@ -9,6 +9,7 @@ const routes = {
   getallsubjectsforclass: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClass', // this endpoint get all subjects attached to a class
   // tslint:disable-next-line:max-line-length
   getallsubjectsWithAssignmentforclass: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClassWithAssignmentCount', // this endpoint get all subjects and assignment counts in each subject
+  // tslint:disable-next-line:max-line-length
   getallsubjectsWithFiles: 'schtrack-learning/api/v1/ClassSubject/GetSubjectsForClassWithFilesCount', // this endpoint get all subjects and assignment counts in each subject
   // tslint:disable-next-line:max-line-length
   getTeacherforSubject: 'schtrack-learning/api/v1/TeacherClassSubject/GetTeachersForClassSubject', // this endpoint get all subjects attached to a class
@@ -18,7 +19,11 @@ const routes = {
   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
   updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
-  deleteclass: 'schtrack-auth/api/v1/Class/DeleteClass'
+  deleteclass: 'schtrack-auth/api/v1/Class/DeleteClass',
+  getClassAndSubjectForATeahcer: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
+  getStudentInclass: 'schtrack-auth/api/v1/Student/GetStudentInClass',
+
+
 };
 
 
@@ -55,7 +60,7 @@ export class ClassService {
 
   assignTeachToClass(id: any, form) {
     const url = `${this.baseUrl + routes.assignTeacherToClass}/${id}`;
-    return this.http.post(url, form,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});  // (form) will be changes to when necessary
+    return this.http.post(url, form,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }}); 
   }
 
   getAllClasses() {
@@ -114,7 +119,24 @@ export class ClassService {
   }
   getTeacherTeachingSubject(id: any) {
     const url = `${this.baseUrl + routes.getTeacherforSubject}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getClassAndSubjectForTeacherByTeacherId() {
+    const url = `${this.baseUrl + routes.getClassAndSubjectForATeahcer}`;
     console.log('teacher for sucject', url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getStudentsInAClassByClassID(classId) {
+    const url = `${this.baseUrl + routes.getStudentInclass}/${classId}`;
+
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getSubjectForClass(classId) {
+    const url = `${this.baseUrl + routes.getallsubjectsforclass}?classId=${classId}`;
+
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

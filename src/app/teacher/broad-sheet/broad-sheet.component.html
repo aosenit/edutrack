@@ -45,6 +45,7 @@
                   <div class="col ">
                     <label for="section">Section</label>
                     <select name="" id="section" class="form-control" (change)="getClassBySectionId($event.target.value)" >
+                      <option value="" selected> Select Level </option>
                       <option [value]="level?.id" *ngFor="let level of levels">{{level?.name}}</option>
                     </select>
                   </div>
@@ -53,7 +54,7 @@
                     <label for="class">Class</label>
 
                     <select name="" id="" class="form-control" (change)="getSubjectsAndStudents($event.target.value)">
-                      <option value="">Select Class</option>
+                      <option value="" selected>Select Class</option>
                       <option [value]="class?.id" *ngFor="let class of classList"> {{class.name}}{{class?.classGroup}}</option>
                     </select>
                   </div>
@@ -89,7 +90,8 @@
                     <div class="d-flex text-left">
                       <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
                       <div class="student-info">
-                        <p class="mb-0 cursor-pointer" (click)="saveStudentDetails(i)" routerLink="/teacher/score-sheet-student/{{student.studentId}}" >{{student?.studentName}}</p>
+                        <!-- <p class="mb-0 cursor-pointer" (click)="saveStudentDetails(i)" routerLink="/teacher/score-sheet-student/{{student.studentId}}" >{{student?.studentName | titlecase}}</p> -->
+                        <p class="mb-0 cursor-pointer" (click)="saveStudentDetails(i)"  >{{student?.studentName | titlecase}}</p>
                       </div>
                     </div>
                    
@@ -140,7 +142,7 @@
               </tbody>
             </table>
             <div class="d-flex justify-content-center my-5">
-              <button class="btn-upload-top bg-lblue w-50" type="button" > Submit </button>
+              <!-- <button class="btn-upload-top bg-lblue w-50" type="button" > Submit </button> -->
             </div>
           </div>
       </div>

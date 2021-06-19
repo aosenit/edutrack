@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { ClassArmService } from 'src/services/data/class-arm/class-arm.service';
 import { ClassService } from 'src/services/data/class/class.service';
@@ -12,7 +14,7 @@ import { SubjectService } from 'src/services/data/subject/subject.service';
   templateUrl: './school-settings.component.html',
   styleUrls: ['./school-settings.component.css']
 })
-export class SchoolSettingsComponent implements OnInit {
+export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
   level = true;
   class = false;
@@ -48,6 +50,9 @@ export class SchoolSettingsComponent implements OnInit {
   subjectCount: number;
   p = 1;
   itemsPerPage = 5;
+  testSubjectArray = [];
+
+  private ngUnsubscribe = new Subject();
 
   constructor(
     private fb: FormBuilder,
@@ -90,7 +95,7 @@ export class SchoolSettingsComponent implements OnInit {
       itemsShowLimit: 5,
       allowSearchFilter: false
     };
-
+    
     this.dropdownSettings2 = {
       singleSelection: false,
       idField: 'id',
@@ -98,7 +103,8 @@ export class SchoolSettingsComponent implements OnInit {
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 5,
-      allowSearchFilter: false
+      allowSearchFilter: true,
+      enableCheckAll: false,
     };
   }
 
@@ -169,6 +175,7 @@ export class SchoolSettingsComponent implements OnInit {
       console.log(data);
       this.notification.publishMessages(data.description, 'info', 1);
       document.getElementById('myClassArmModal').click();
+      this.classArmform.reset();
       this.getClassArms();
       // location.reload();
     }, error => {
@@ -194,7 +201,9 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getArmById(id) {
-    this.classArmService.getClassArmById(id).subscribe(
+    this.classArmService.getClassArmById(id)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(
       (res: any) => {
         this.theArm = res.payload;
       }
@@ -263,13 +272,16 @@ export class SchoolSettingsComponent implements OnInit {
           console.log('level created', res);
           this.notification.publishMessages('You have successfully added a section', 'info', 0);
           this.getSections();
+          // this.section = ''
         }
       }
     );
   }
 
   getSections() {
-    this.schoolSectionService.getSection().subscribe(
+    this.schoolSectionService.getSection()
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(
       (res: any) => {
         // tslint:disable-next-line:no-string-literal
         this.levels = res['payload'];
@@ -280,7 +292,9 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getSection(id) {
-    this.schoolSectionService.getSectionById(id).subscribe(
+    this.schoolSectionService.getSectionById(id)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(
       (res: any) => {
         this.theLevel = res.payload;
         console.log(this.theLevel);
@@ -341,6 +355,7 @@ export class SchoolSettingsComponent implements OnInit {
       if (data.code === 1) {
         this.notification.publishMessages('Class Added Successfully', 'info', 1);
         document.getElementById('close').click();
+        this.addNewClassForm.reset();
         this.getClasses();
       }
     }, error => {
@@ -351,7 +366,9 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getClassById(id) {
-    this.classService.getClassById(id).subscribe(
+    this.classService.getClassById(id)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(
       (res: any) => {
         this.theClass = res.payload;
 
@@ -375,7 +392,8 @@ export class SchoolSettingsComponent implements OnInit {
 
   getClassBySectionId(id) {
     console.log(id);
-    this.classService.getClassBySection(id).subscribe(
+    this.classService.getClassBySection(id)
+    .subscribe(
       (res: any) => {
         if (res.hasErrors === false) {
           this.classBySectionList = res.payload;
@@ -398,7 +416,8 @@ export class SchoolSettingsComponent implements OnInit {
 
 
   getClasses() {
-    this.classService.getAllClassesWithPagination(this.p, this.itemsPerPage).subscribe(
+    this.classService.getAllClassesWithPagination(this.p, this.itemsPerPage)
+.subscribe(
       (res: any) => {
         this.classes = res.payload;
         console.log(this.classes);
@@ -409,7 +428,9 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getPage(page: number) {
-    this.classService.getAllClassesWithPagination(page, this.itemsPerPage).subscribe(
+    this.classService.getAllClassesWithPagination(page, this.itemsPerPage)
+        .pipe(takeUntil(this.ngUnsubscribe))
+.subscribe(
       (res: any) => {
         this.classes = res.payload;
         this.classCount = res.totalCount;
@@ -430,12 +451,43 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
 
+  onItemSelect(event) {
+    console.log(event);
+    this.testSubjectArray.push(event.id);
+    console.log('new subject list', this.testSubjectArray);
+
+  }
+
+  onSelectAll(event) {
+    console.log(event);
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < event.length; i++) {
+      this.testSubjectArray.push(event[i].id);
+    }
+    console.log('new subject list', this.testSubjectArray);
+
+  }
+  
+  onItemDeSelect(event) {
+    console.log(`${event.id}`);
+    
+    const index = this.testSubjectArray.indexOf(event.id);
+    console.log(index);
+    if (index > -1) {
+        this.testSubjectArray.splice(index, 1);
+      }
+    console.log('new subject list', this.testSubjectArray);
+
+  }
+
+ 
   createSubject() {
     console.log('arrays', this.newsubjectForm.value);
-    const { Name, IsActive, classSectionIds } = this.newsubjectForm.value;
-    const ClassIds = classSectionIds.map((ids: any) => {
-      return ids.id;
-    });
+    const { Name, IsActive } = this.newsubjectForm.value;
+    const ClassIds = this.testSubjectArray;
+    // const ClassIds = classSectionIds.map((ids: any) => {
+    //   return ids.id;
+    // });
     const result = {
       Name,
       ClassIds,
@@ -446,16 +498,20 @@ export class SchoolSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         console.log(data);
         document.getElementById('mySubjectModal').click();
+        this.newsubjectForm.reset();
         this.notification.publishMessages('You have succesfully created a subject', 'info', 0);
-
         this.getAllSubjects();
-      }
+      } else {
+        this.notification.publishMessages(data.errors, 'info', 0);
+     }
     });
 
   }
 
   getAllSubjects() {
-    this.subjectService.getPaginatedSubject(this.p, this.itemsPerPage).subscribe((data: any) => {
+    this.subjectService.getPaginatedSubject(this.p, this.itemsPerPage)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
         this.subjectCount = data.totalCount;
@@ -466,7 +522,9 @@ export class SchoolSettingsComponent implements OnInit {
   }
 
   getSubjectPages(page: number) {
-    this.subjectService.getPaginatedSubject(page, this.itemsPerPage).subscribe(
+    this.subjectService.getPaginatedSubject(page, this.itemsPerPage)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(
       (res: any) => {
         this.subjectList = res.payload;
         this.subjectCount = res.totalCount;
@@ -476,5 +534,15 @@ export class SchoolSettingsComponent implements OnInit {
 
       });
   }
+
+
+  getSubjectById(id) {
+    // this.subjectService
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+}
 
 }

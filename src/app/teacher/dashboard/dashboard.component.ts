@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { TimeTableService } from 'src/services/data/time-table/time-table.service';
 
@@ -15,10 +16,13 @@ export class DashboardComponent implements OnInit {
   teacherDetails: any;
   myDate = new Date();
   studentAssignmentList: any;
+  sessionList: any;
+  currentTerm: any;
 
   constructor(
     private timeTableService: TimeTableService,
     private teacherService: TeacherService,
+    private assessmentService: AssessmentService
 
   ) { }
 
@@ -27,6 +31,7 @@ export class DashboardComponent implements OnInit {
     this.teacherDetails = helper.decodeToken(localStorage.getItem('access_token'));
     this.getClassesForTeacherByDay();
     this.getNextClassesForTeacherByDay();
+    this.getSession();
   }
 
   showPop() {
@@ -126,4 +131,22 @@ export class DashboardComponent implements OnInit {
     //     console.log(error);
     //   });
     // }
+
+    getSession() {
+      this.assessmentService.getCurrentSession().subscribe((data: any) => {
+        if (data.hasErrors === false) {
+          console.log(data);
+          this.sessionList = data.payload;
+          const term: any = this.sessionList.terms;
+          // tslint:disable-next-line:prefer-for-of
+          for (let i = 0; i < term.length; i++) {
+            console.log(term[i]);
+            if (term[i].isCurrent) {
+              this.currentTerm  = term[i].name;
+  
+          }
+        }}
+      });
+    }
+  
 }

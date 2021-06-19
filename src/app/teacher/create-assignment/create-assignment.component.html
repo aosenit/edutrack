@@ -26,9 +26,9 @@
           </div>
           <div class="form-group col-md-1">
             <label for="subject">Class</label>
-            <select id="subject" class="form-control"  (change)="getSubjects($event.target.value)">
+            <select id="class" class="form-control"  (change)="getSubjects($event.target.value)">
               <option selected>Select Class</option>
-              <option [value]="class.id" *ngFor="let class of classList">{{class.name}}{{class?.classGroup}}</option>
+              <option value={{class}} *ngFor="let class of classList">{{class | uppercase}}</option>
   
             </select>
           </div>
@@ -36,7 +36,7 @@
             <label for="subject">Subject</label>
             <select id="subject" class="form-control" formControlName="subjectId">
               <option selected>Select</option>
-              <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.subject}}</option>
+              <option [value]="subject.classSubjectId" *ngFor="let subject of subjectList">{{subject.subject | uppercase}}</option>
   
             </select>
           </div>
@@ -60,20 +60,22 @@
           <div class="row no-gutters bg-white text-editor">
               <div class="col-md-9">
   
-                  <ckeditor  [editor]="Editor" formControlName="Document" data="<p>Hello, world!</p>"></ckeditor>
+                  <ckeditor [innerHTML]  (change)="onChange($event)" name="text"  [editor]="Editor" formControlName="Document" data="<p>Hello, world!</p>"></ckeditor>
               </div>
               <div class="col-md-3 attach-file pl-3 pr-4 pb-4">
                   <p class="pt-3 pb-4  fw-6">Attach File</p>
   
                   <form>
                       <div class="form-group file-upload mb-5">
-                          <label for="fileupload" class="fs-12">Drag files to upload or click</label>
+                          <label for="fileupload" class="fs-12"*ngIf="assignmentFile === null" >Drag files to upload or click</label>
+                          <label for="fileupload" class="fs-12"*ngIf="assignmentFile !== null" >{{assignmentFile}}</label>
                           <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)">
-                          <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                          <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
                       </div>
                   </form>
               </div>
               <div class="col-md-12 pl-3 py-2 text-editor-bottom">
+                  <button class="btn-upload-top bg-lblue mr-3" (click)="convertFile('assignment')">Convert File</button>
                   <button class="btn-upload-top bg-lblue" (click)="submitAssignment()">Create</button>
               </div>
           </div>

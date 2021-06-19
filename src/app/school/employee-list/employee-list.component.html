@@ -2,7 +2,7 @@
     <img src="assets/images/svg/add-student.svg" alt="new employee" class="">
     <p class="text-center fw-6 pt-5">It looks like you are yet to create an employee.You can do <br> that by clicking any of the buttons below.
         below.</p>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-employee']">
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-employee']" (click)="clearData()">
         Add New </button>
     <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
         data-target="#exampleModalCenterUpload">Bulk
@@ -17,9 +17,9 @@
         <p class=""> Directory of all registered employees </p>
     </div>
     <div class="d-flex">
-                    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
-            data-target="#exampleModalCenterUpload"> Bulk Upload </button>
-        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-employee"> Add New </button>
+                    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+            data-target="#exampleModalCenterUpload"> Bulk Upload </button> -->
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-employee" (click)="clearData()"> Add New </button>
     </div>
 
 </section>
@@ -29,14 +29,14 @@
         <span class="fa fa-search form-control-feedback"></span>
         <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
     </div>
-    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
 
 </section>
 
 
 
 
-<section class="list" *ngIf="employeeList?.length !== 0">
+<section class="list table-responsive" *ngIf="employeeList?.length !== 0">
     <table class="table table-borderless client-table">
         <thead>
             <tr>
@@ -46,29 +46,33 @@
                         <label class="custom-control-label" for="customCheckTh"></label>
                     </div>
                 </th>
-                <th scope="col" >Full Name <img src="assets/images/svg/table-sort.svg"
+                <th scope="col" >Full Name 
+                    <!-- <img src="assets/images/svg/table-sort.svg"
                         alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
                     <!-- ================ DROPDOWN ==================== -->
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item fc-orange" href="#">All </a>
                         <a class="dropdown-item" href="#">A - Z </a>
                         <a class="dropdown-item" href="#">Z - A </a>
-                    </div>
+                    </div> -->
                 </th>
-                <th scope="col">Staff Number <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
+                <th scope="col">Staff Number 
+                    <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
+                </th>
                 <th scope="col">Phone Number </th>
                 <th scope="col">Email </th>
-                <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                <th scope="col">Status 
+                    <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
                         class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                        aria-haspopup="true" aria-expanded="false"> -->
                     <!-- ================ DROPDOWN ==================== -->
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                    <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
                         
                         <a class="dropdown-item fc-orange" href="#">All </a>
                         <a class="dropdown-item" href="#">Active </a>
                         <a class="dropdown-item" href="#">Inactive </a>
-                    </div>
+                    </div> -->
                 </th>
                 <th scope="col">Action</th>
             </tr>
@@ -84,20 +88,21 @@
                 <td class="user" >
                     
                     <div class="d-flex align-items-center">
-                        <img src="assets/images/svg/user-image.svg" alt="schools log" class="mr-3">
-                        <h6 class="fw-6 mb-0" >{{staff?.firstName}} {{staff?.lastName}} </h6>
+                        <img src="assets/images/svg/dummy_user.png" alt="schools log" class="mr-3  image-rounded" >
+                        <h6 class="fw-6 mb-0" >{{staff?.firstName + ' ' + staff?.lastName | titlecase}} </h6>
                     </div>
                 </td>
-                <td>AMI/ST/2020/001</td>
-                <td>{{staff.phoneNumber}}</td>
-                <td>{{staff?.email}}</td>
+                <td>{{staff?.staffNumber}}</td>
+                <td> {{staff.phoneNumber}} </td>
+                <td> {{staff?.email}} </td>
                 
                 <td><span class="status_active">Active</span></td>
                 <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                        alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        alt="schools log" class="dropdown-toggle cursor-pointe mt-3 r" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" routerLink="/school/employee-detail/{{staff?.id}}">View</a>
-                            <a class="dropdown-item" href="#">Deactivate</a>
+                            <a class="dropdown-item" (click)="editEmployee(staff.id)"  >Edit</a>
+                            <a class="dropdown-item" (click)="deleteEmployee(staff.id)" >Delete</a>
                           </div>
                      </td>
             </tr>

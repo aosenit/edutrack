@@ -1,12 +1,12 @@
-<section class="add-student" *ngIf="studentList?.length === 0">
+<section class="add-student" *ngIf="studentList?.length == 0">
     <img src="assets/images/svg/add-student.svg" alt="new student" class="">
     <p class="text-center fw-6 pt-5">It looks like you are yet to create a student.You can do <br> that by clicking any of the buttons below.
         below.</p>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-student']">
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-student']" (click)="clearData()">
         Add New </button>
-    <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
+    <!-- <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
         data-target="#exampleModalCenterUpload">Bulk
-        Upload</button>
+        Upload</button> -->
 </section>
 
 
@@ -25,7 +25,7 @@
             <button class="btn btn-outline-orange  mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
                 data-target="#exampleModalCenterUpload">Bulk
                 Upload</button>
-            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student"> Add New </button>
+            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student" (click)="clearData()"> Add New </button>
         </div>
     
     </section>
@@ -35,14 +35,14 @@
             <span class="fa fa-search form-control-feedback"></span>
             <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
         </div>
-        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+        <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
     
     </section>
     
     
     
     
-    <section class="list">
+    <section class="list table-responsive mb-4">
         <table class="table table-borderless client-table">
             <thead>
                 <tr>
@@ -52,34 +52,36 @@
                             <label class="custom-control-label" for="customCheckTh"></label>
                         </div>
                     </th>
-                    <th scope="col" class="text-center" >Student Name <img src="assets/images/svg/table-sort.svg"
+                    <th scope="col" class="text-center" >Student Name 
+                        <!-- <img src="assets/images/svg/table-sort.svg"
                             alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
                         <!-- ================ DROPDOWN ==================== -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             
                             <a class="dropdown-item fc-orange" href="#">All </a>
                             <a class="dropdown-item" href="#">A - Z </a>
                             <a class="dropdown-item" href="#">Z - A </a>
-                        </div>
+                        </div> -->
                     </th>
                     <th scope="col">Student Number </th>
                    
-                    <th scope="col">Sex <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
-                    <th scope="col">Date of Birth <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
-                    <th scope="col">Level <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
-                    <th scope="col">Class <img src="assets/images/svg/table-sort.svg" alt="table sort icon"></th>
+                    <th scope="col">Sex</th>
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">Level</th>
+                    <th scope="col">Class</th>
     
-                    <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                    <th scope="col">Status 
+                        <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
                             class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                            aria-haspopup="true" aria-expanded="false"> -->
                         <!-- ================ DROPDOWN ==================== -->
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
                             
                             <a class="dropdown-item fc-orange" href="#">All </a>
                             <a class="dropdown-item" href="#">Active </a>
                             <a class="dropdown-item" href="#">Inactive </a>
-                        </div>
+                        </div> -->
                     </th>
                     <th scope="col">Action</th>
                 </tr>
@@ -96,7 +98,7 @@
                         
                         <div class="d-flex align-items-center">
                             <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
-                            <h6 class="fw-6 mb-0" >{{student?.firstName}} {{student?.lastName}} </h6>
+                            <h6 class="fw-6 mb-0" >{{student?.firstName + ' ' + student?.lastName | titlecase}} </h6>
                         </div>
                     </td>
                     <td>{{student?.studentNumber}}</td>
@@ -106,9 +108,11 @@
                     <td class="">{{student?.class}}</td>
                     <td><span class="status_active">Active</span></td>
                     <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                            alt="schools log" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                            alt="schools log" class="dropdown-toggle mt-3       " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#" [routerLink]="['/school', 'student-detail', student?.id]">View</a>
+                                <a class="dropdown-item" (click)="editStudent(student.id)" >Edit</a>
+                                <!-- <a class="dropdown-item" (click)="deleteStudent(student.id)" >Delete </a> -->
                                 <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenter3">Send SMS</a>
                                 <a class="dropdown-item"  >Send Email</a>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterPromote">Promote</a>
@@ -282,7 +286,7 @@
                                 more than 5000 records at a time, use a .csv file.</p>
                         </div>
 
-                        <a class="mb-5 download" href="" download="SchoolTrack Bulk Upload">Click
+                        <a class="mb-5 download" (click)="downloadStudentSampleFile()"  >Click
                             <span class="download fc-lblue">here</span> to download sample file</a>
 
                         <div class="modal-btn d-flex justify-content-end mb-5">

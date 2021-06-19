@@ -21,7 +21,7 @@
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link active mb-2" id="v-pills-record-tab" data-toggle="pill" href="#v-pills-record" role="tab"
           aria-controls="v-pills-record" aria-selected="true">Records</a>
-        <a class="nav-link mb-2" id="v-pills-schedule-tab" data-toggle="pill" href="#v-pills-schedule" role="tab"
+        <!-- <a class="nav-link mb-2" id="v-pills-schedule-tab" data-toggle="pill" href="#v-pills-schedule" role="tab"
           aria-controls="v-pills-schedule" aria-selected="false">Schedule</a>
         <a class="nav-link mb-2" id="v-pills-resource-tab" data-toggle="pill" href="#v-pills-resource" role="tab"
           aria-controls="v-pills-resource" aria-selected="false">Human Resources</a>
@@ -42,7 +42,7 @@
         <a class="nav-link mb-2" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
           aria-controls="v-pills-messages" aria-selected="false">Messages</a>
         <a class="nav-link mb-2" id="v-pills-academic-tab" data-toggle="pill" href="#v-pills-academic" role="tab"
-          aria-controls="v-pills-academic" aria-selected="false">Academic</a>
+          aria-controls="v-pills-academic" aria-selected="false">Academic</a> -->
       </div>
     </div>
     <div class="col-md-9">
@@ -77,7 +77,7 @@
                   </td>
                   <td class="" *ngFor="let permission of role[1]; let i = index">
                     <div class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input" id="customCheck{{permission.id}}" [value]="permission.id" (change)="getID($event.target.value)" >
+                      <input type="checkbox" class="custom-control-input" id="customCheck{{permission.id}}" [value]="permission.id" (change)="getID($event.target.checked, permission.id)" >
                       <label class="custom-control-label " for="customCheck{{permission.id}}"></label>
               </div>
                   </td>
@@ -97,13 +97,14 @@
 
             <div class="d-flex justify-content-center align-items-center">
               <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="createRoles()"> Create </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [hidden]="roleId"  (click)="createRoles()"> Create </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [hidden]="!roleId"  (click)="updateRoles()"> Update </button>
 
             </div>
           </div>
         </div>
         <div class="tab-pane fade" id="v-pills-schedule" role="tabpanel" aria-labelledby="v-pills-schedule-tab">
-          <div class="user__permission">
+          <div class="user__permission table-responsive">
             <table class="table table-borderless client-table">
               <thead>
                 <tr>

@@ -1,0 +1,24 @@
+<div class="main">
+    <div class="d-flex justify-content-end align-items-center mb-3">
+        <button class="parent-act-btn px-4 ">Send Message</button>
+    </div>
+    <section class="banner mb-4 p-5 justify-content-between">
+        <p class="banner__text-primary mb-0 ">Assignment </p>
+        <p class="text-white">{{wardDetail?.fullName | titlecase}} has <b class="text-danger">{{assignmentCount}}</b> pending assignment </p>
+        <div class="justify-content-end"> 
+            <!-- <p class="last-login pt-3 pr-5 fw-6">Last Login: </p> -->
+        </div>
+    </section>
+
+    <div class="file-cards mb-5" >
+        <div class="files px-3 pt-3 pb-4 " *ngFor = "let subject of subjectList"  >
+            <p class="mb-0 "  > {{subject?.subject | titlecase}}</p>
+            <p class="last"  *ngIf="subject?.assignmentCount === 0">No assignment(s) to view</p>
+            <p class="last cursor-pointer"  routerLink = "/parent/parent-portal/view-assignment/{{subject?.id}}" *ngIf="subject?.assignmentCount >= 1">Click to view assignment(s)</p>
+            <span class="notice-pane fw-6" *ngIf="subject?.assignmentCount >= 1">{{subject?.assignmentCount}}</span>
+        </div>
+       
+       
+        
+    </div>
+</div>

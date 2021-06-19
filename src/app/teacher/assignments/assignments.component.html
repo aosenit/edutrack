@@ -30,25 +30,29 @@
                   <label class="custom-control-label" for="customCheckTh"></label>
                 </div>
               </th>
-              <th scope="col">Title <img src="assets/images/svg/table-sort.svg" alt="table sort icon">
+              <th scope="col">Title 
+                <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
 
               </th>
-              <th scope="col">Subject <img src="assets/images/svg/table-sort.svg" alt="table sort icon">
+              <th scope="col">Subject 
+                <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
 
               </th>
-              <th scope="col">Class <img src="assets/images/svg/table-sort.svg" alt="table sort icon">
+              <th scope="col">Class 
+                <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
 
               </th>
-              <th scope="col">Date Created <img src="assets/images/svg/table-sort.svg" alt="table sort icon">
+              <th scope="col">Date Created 
+                <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
 
               </th>
               <th scope="col"> </th>
-              <th scope="col"> </th>
+              <!-- <th scope="col"> </th> -->
 
             </tr>
           </thead>
           <tbody>
-            <tr class="pb-2" *ngFor="let assignment of assignmentLists | tableSearch : 'name' : searchString | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: assignmentCount  }">
+            <tr class="pb-2" *ngFor="let assignment of assignmentLists | tableSearch : 'name' : searchString | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: assignmentCount  }; index as i ">
               <td scope="row" class="school-logo rounded-left">
                 <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
                 <div class="custom-control custom-checkbox">
@@ -57,16 +61,20 @@
                   <label class="custom-control-label" for="customCheck{{assignment?.id}}"></label>
                 </div>
               </td>
-              <td class=""> {{assignment?.name}} </td>
+              <td class=""> {{assignment?.name | titlecase }} </td>
               <td>{{assignment?.subjectName | titlecase}}</td>
               <td>{{assignment?.className}}</td>
               <td>{{assignment?.creationDate | date: 'dd/MM/y'}}</td>
-              <td (mouseenter)="changeText(assignment?.id)" (mouseleave)="reverseText(assignment?.id)">
-                <span class="status" *ngIf="changetext">{{assignment?.status}}</span>
-                <span class="status" [ngStyle]="{cursor: 'pointer'}" *ngIf="!changetext"
-                  routerLink="/teacher/assignment-submission/{{assignment?.id}}">Open</span>
+              <td >
+                <span class="status" 
+                [ngStyle]="{cursor: 'pointer'}"
+                 (mouseover)="changeText(i)" 
+                 (mouseleave)="reverseText(assignment?.status, i)"  
+                 routerLink="/teacher/assignment-submission/{{assignment?.id}}" >{{assignment?.status}}</span>
+                <!-- <span class="status" [ngStyle]="{cursor: 'pointer'}" *ngIf="!changetext"
+                  routerLink="/teacher/assignment-submission/{{assignment?.id}}">Open</span> -->
               </td>
-              <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
+              <!-- <td><img class="mt-3 cursor-pointer" src="assets/images/svg/more-action.svg" alt="schools log"></td> -->
 
             </tr>
 

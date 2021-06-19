@@ -60,8 +60,8 @@
     </thead>
     <tbody>
       <tr *ngFor = "let subject of studentRecord; let i = index">
-        <td class=" pl-5 d-flex justify-content-between dropright align-items-center ">
-          <p class="mb-0 cursor-pointer student-info"> {{subject?.subjectName | titlecase}} </p>
+        <td class=" pl-5 text-left student-info ">
+         {{subject?.subjectName | titlecase}} 
         
 
 
@@ -71,11 +71,12 @@
         <td> {{subject?.cummulativeScore}} </td>
         <td> {{subject?.grade}} </td>
         <td>
-          <span class="fs-14 interpretation excellent" *ngIf="subject?.interpretation == 'Excellent'">  {{subject?.interpretation}} </span>
+          <span class="fs-14 interpretation " >  {{subject?.interpretation}} </span>
+          <!-- <span class="fs-14 interpretation excellent" *ngIf="subject?.interpretation == 'Excellent '">  {{subject?.interpretation}} </span>
           <span class="fs-14 interpretation very-good" *ngIf="subject?.interpretation == 'Very Good'">  {{subject?.interpretation}} </span>
           <span class="fs-14 interpretation good" *ngIf="subject?.interpretation == 'Good'">  {{subject?.interpretation}} </span>
           <span class="fs-14 interpretation fail" *ngIf="subject?.interpretation == 'Fail'">  {{subject?.interpretation}} </span>
-          <span class="fs-14 interpretation fair" *ngIf="subject?.interpretation == 'Fair'">  {{subject?.interpretation}} </span>
+          <span class="fs-14 interpretation fair" *ngIf="subject?.interpretation == 'Fair'">  {{subject?.interpretation}} </span> -->
         </td>
       </tr>
     

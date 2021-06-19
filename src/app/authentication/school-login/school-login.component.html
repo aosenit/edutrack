@@ -1,6 +1,8 @@
 <div class="">
     <div class="login">
-        <img src="assets/images/svg/school-login-logo.svg" alt="" class="school-logo">
+        <!-- <img src="assets/images/svg/school-login-logo.svg" alt="" class="school-logo"> -->
+        <img class="" *ngIf="matchedSchoolDetail" src="data:image/png;base64,{{matchedSchoolDetail.logo}}" alt="schools log" class="mr-3 school-logo" id="">
+
         <div class="container">
             <div class="row">
 
@@ -8,8 +10,14 @@
                     <div class="whitediv d-flex justify-content-center align-items-center p-lg-5 p-3 mt-lg-5">
                         <div class="row">
                             <div class="col-lg-12 d-flex justify-content-center mb-5">
+
+                                <div>
+                                    
+                                    <h6 class="fs-30 mb-2 text-center ">{{matchedSchoolDetail?.schoolName}}</h6>
+                                    
+                                    <p class="fs-30 text-center ">School Admin</p>
+                                </div>
                                
-                                <h6 class="fs-30 ">School Admin</h6>
                             </div>
                             <div class="col-lg-12">
                                 <form [formGroup]= "schoolLoginForm" (ngSubmit)="submit()">

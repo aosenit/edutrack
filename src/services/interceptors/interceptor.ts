@@ -30,7 +30,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                 this.loaderService.hide();
                 if (error.status === 401) {
                     this.notification.publishMessages('Your Session has expired. Please Login', 'danger', 1)
-                    this.router.navigateByUrl("/login");
+                    this.router.navigateByUrl('/');
                 }
 
                 if (error.error instanceof ErrorEvent) {

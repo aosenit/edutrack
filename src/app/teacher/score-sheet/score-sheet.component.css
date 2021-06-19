@@ -1,6 +1,7 @@
 
 .banner {
     width: 100%;
+    background-image: url("../../../assets/images/svg/grade-banner.png");
     background-color: #0052B4;
     border-radius: 10px;
     display: flex;
@@ -240,3 +241,45 @@ tbody  td {
     text-align: center;
     font-size: 12px;
 }
+
+
+
+.interpretation {
+    
+    font-weight: 600;
+    width: 100px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 17px 40px; */
+}
+.excellent {
+    background: #ebfffa;
+    color: #09b78a;
+}
+
+
+.fail {
+    background :#F1DFE2;
+    color: #D80027;
+   
+}
+
+.very-good {
+ background :#E5F4D3;
+    color: #7EC02E;
+}
+.good {
+ background :#F1EFDF;
+    color: #C1AC00;
+}
+.fair {
+ background :#D9CE98;
+    color: #665500;
+}
+
+.scores {
+    position: relative;
+}
+

@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 const routes = {
   addsubject: 'schtrack-learning/api/v1/Subject/NewSubject',
   getallSubjects: 'schtrack-learning/api/v1/Subject/GetAllSubjects ',
+  // getsinglesubject: 'schtrack-learning/api/v1/Subject/GetAllSubjects ',
   getPaginatedSubject: 'schtrack-learning/api/v1/Subject/GetSubjects',
 
 };

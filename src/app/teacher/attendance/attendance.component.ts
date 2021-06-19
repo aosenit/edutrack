@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassService } from 'src/services/data/class/class.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { AttendanceService } from 'src/services/data/attendance/attendance.service';
+
 
 @Component({
   selector: 'app-attendance',
@@ -7,25 +10,39 @@ import { ClassService } from 'src/services/data/class/class.service';
   styleUrls: ['./attendance.component.css']
 })
 export class AttendanceComponent implements OnInit {
+  loggedInUser: any;
 
-  noClass = false;
+  noClass = true;
   classList: any;
   Classid: any;
   subjectList: any;
   className: any;
   Subjectid: any;
-  displayClass: boolean;
+  displayClass = false;
+  mainAttendance = true;
+  classAttendance = false;
+  subjectAttandance = false;
+  hide = false;
   constructor(
-    private classService: ClassService
+    private classService: ClassService,
+    private attendanceService: AttendanceService
   ) { }
 
   ngOnInit() {
-    this.getAllClasses();
+    this.getClassAndSubjectForTeacher();
+    const helper = new JwtHelperService();
+    this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
+    if ( this.loggedInUser.TeacherClassId === undefined || null) {
+            this.hide = true;
+          } else {
+            this.hide = false;
+          }
   }
 
-  getAllClasses() {
-    this.classService.getAllClasses().subscribe((data: any) => {
+  getClassAndSubjectForTeacher() {
+    this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
+        // console.log(data.payload);
         this.classList = data.payload;
         console.log(this.classList);
       }
@@ -62,6 +79,36 @@ export class AttendanceComponent implements OnInit {
     this.Subjectid = id;
     this.noClass = false;
     this.displayClass = true;
+
+    this.attendanceService.getClassAttendanceForTeacher(this.Classid).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+      }
+    });
   }
 
+  switchAttendance(status: string) {
+    const newAttendance = status;
+
+    switch (newAttendance) {
+
+      case 'class':
+        this.classAttendance = true;
+        this.subjectAttandance = false;
+        this.mainAttendance = false;
+        break;
+
+
+      case 'subject':
+        this.classAttendance = false;
+        this.subjectAttandance = true;
+        this.mainAttendance = false;
+        break;
+
+      default:
+        this.mainAttendance = true;
+
+    }
+
+  }
 }

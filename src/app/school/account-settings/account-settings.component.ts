@@ -5,6 +5,7 @@ import { NotificationsService } from 'src/services/classes/notifications/notific
 import { AdminService } from 'src/services/data/admin/admin.service';
 import { StaffService } from 'src/services/data/staff/staff.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TeacherService } from 'src/services/data/teacher/teacher.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AccountSettingsComponent implements OnInit {
   users = true;
-  roles = false;
+  roles = true;
   allRoles: any;
   allStaffs: any;
   newList: any;
@@ -23,11 +24,13 @@ export class AccountSettingsComponent implements OnInit {
   dropRoleList = [];
   dropStaffList = [];
   assignRoleForm: FormGroup;
+  allUsers = [];
 
   constructor(
     private adminService: AdminService,
     private notifyService: NotificationsService,
     private staffServie: StaffService,
+    private teacherService: TeacherService,
     private fb: FormBuilder
 
 
@@ -73,10 +76,10 @@ export class AccountSettingsComponent implements OnInit {
     this.roles = true;
   }
 
-  showUsers() {
-    this.users = true;
-    this.roles = false;
-  }
+  // showUsers() {
+  //   this.users = true;
+  //   this.roles = false;
+  // }
 
 
   getRolesPermissions() {
@@ -107,7 +110,7 @@ export class AccountSettingsComponent implements OnInit {
     this.adminService.getRoles().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allRoles = data.payload;
-        console.log(this.allRoles);
+        // console.log(this.allRoles);
         const arr = [];
         this.allRoles.forEach(item => {
           arr.push({
@@ -123,16 +126,41 @@ export class AccountSettingsComponent implements OnInit {
   }
 
   getStaffs() {
+    const arr = [];
+
+    this.teacherService.getAllTeachers().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        const allTeacher: any = data.payload;
+        console.log(allTeacher);
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < allTeacher.length; i++) {
+          this.allUsers.push(allTeacher[i]);
+        }
+        // allTeacher.forEach(item => {
+        //   arr.push({
+        //     // id: item.id,
+        //     userId: item.userId,
+        //     arm: item.firstName
+        //   });
+        // });
+
+        // console.log(arr);
+        // this.dropStaffList = arr;
+      }
+    });
     this.staffServie.getAllStaffInSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allStaffs = data.payload;
-        console.log(this.allStaffs);
-        const arr = [];
-        this.allStaffs.forEach(item => {
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < this.allStaffs.length; i++) {
+          this.allUsers.push(this.allStaffs[i]);
+        }
+        console.log(this.allUsers);
+        this.allUsers.forEach(item => {
           arr.push({
             // id: item.id,
             userId: item.userId,
-            arm: item.firstName
+            arm: item.firstName + ' ' + item.lastName
           });
         });
         this.dropStaffList = arr;
@@ -162,13 +190,45 @@ export class AccountSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('roles successfully assigned', 'info', 1);
         document.getElementById('close').click();
-        console.log(data);
+        // console.log(data);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
     });
   }
+
+  deleteRoleById(id) {
+    console.log(id);
+    this.adminService.deleteRoles(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.notifyService.publishMessages('roles successfully delete', 'info', 1);
+        this.getRoles();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+
+  // getRolePermissionsByRoleId(id) {
+  //   this.adminService.getAllPermissionForRoleById(id).subscribe((data: any) => {
+  //     if (data.hasErrors === false) {
+
+  //       console.log(data.payload);
+  //     } else {
+  //       this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+  //     }
+  //   }, error => {
+  //     this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+  //   });
+  // }
 
 
 }

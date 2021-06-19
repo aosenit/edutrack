@@ -1,4 +1,5 @@
 .main {
+  
 }
 
 .main .banner {
@@ -20,6 +21,13 @@
   color: #ffffff;
   font-size: 32px;
   font-weight: 400;
+}
+
+.last-login {
+  color: #ffffff;
+  font-size: 14px;
+  font-family: Nunito;
+
 }
 
 .cards {

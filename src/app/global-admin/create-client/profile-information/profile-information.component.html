@@ -10,6 +10,10 @@
             id="client" 
             placeholder="Enter Client Name"
             formControlName="Name" required>
+            <div *ngIf="profileForm.controls.Name.touched && profileForm.controls.Name.errors" class="error">
+              <small *ngIf="profileForm.controls.Name.errors.required" class="text-danger">Field is required</small>
+              <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+            </div>
           </div>
           <div class=" ">
             <label for="domain" class="fw-6">Domain Name <span class="text-danger">*</span></label>
@@ -19,6 +23,10 @@
             id="domain" 
             placeholder="Enter Domain Name"
             formControlName="DomainName" required>
+            <div *ngIf="profileForm.controls.DomainName.touched && profileForm.controls.DomainName.errors" class="error">
+              <small *ngIf="profileForm.controls.DomainName.errors.required" class="text-danger">Field is required</small>
+              <small *ngIf="profileForm.controls.DomainName.errors.cannotContainSpace" class="text-danger">Domain name cannot contain space </small>
+            </div>
           </div>
 
         </div>
@@ -31,6 +39,23 @@
             <input type="url" class="form-control form-control-lg" 
             id="website" 
             placeholder="Enter school wesbite" formControlName="WebsiteAddress" required>
+
+             <div *ngIf="profileForm.controls.WebsiteAddress.touched && profileForm.controls.WebsiteAddress.errors" class="error">
+              <small *ngIf="profileForm.controls.WebsiteAddress.errors.required" class="text-danger">Field is required</small>
+              <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+            </div>
+          </div>
+
+          <div class="  ">
+            <label for="website" class="fw-6">School username <span class="text-danger">*</span></label>
+
+            <input type="url" class="form-control form-control-lg" 
+            id="website" 
+            placeholder="Enter school username" formControlName="Username" required>
+             <div *ngIf="profileForm.controls.Username.touched && profileForm.controls.Username.errors" class="error">
+              <small *ngIf="profileForm.controls.Username.errors.required" class="text-danger">Field is required</small>
+              <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+            </div>
           </div>
 
           

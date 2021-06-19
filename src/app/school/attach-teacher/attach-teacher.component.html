@@ -15,10 +15,14 @@
 
   <div class="activated mb-4 mt-2 d-flex justify-content-between align-items-center align-items-center">
     <div class="activated__image ">
-      <img src="assets/images/svg/teacher-attach.svg" class="mr-3 avatar" alt="..." />
+      <!-- <img src="assets/images/svg/teacher-attach.svg" class="mr-3 avatar" alt="..." /> -->
+      <img *ngIf="teacherDetails == null" src="assets/images/svg/dummy_user.png" class="mr-3 avatar school-logo" alt="..." />
+      <img *ngIf="teacherDetails?.image" [src]="' data:image/png;base64, ' + teacherDetails?.image | trustedUrl"
+      class="mr-3 school-logo" alt="..." />
+
       <div>
-        <p class="activated__title fw-6 fc-lblue"> {{teacherDetails?.firstName}} {{teacherDetails?.lastName}} </p>
-        <p class="activated__code">AMI/SF/2016/012</p>
+        <p class="activated__title fw-6 fc-lblue"> {{teacherDetails?.firstName + ' ' + teacherDetails?.lastName | titlecase}} </p>
+        <p class="activated__code">{{teacherDetails?.regNumber}}</p>
       </div>
     </div>
     <div class="activated__date mr-5 text-right">
@@ -48,6 +52,13 @@
           below to attach teacher to a class.</p>
         <button class="btn btn-orange-two  px-5 mb-4 mt-3" data-toggle="modal" data-target="#exampleModalCenterClass">
           Attach </button>
+
+      </div>
+
+      <div class="d-flex flex-column justify-content-center align-items-center my-5"  *ngIf="classTeacherDetails?.className !== ' ' "   >
+      
+        <button class="btn btn-orange-two  px-5 mb-4 mt-3" data-toggle="modal" data-target="#exampleModalCenterClass">
+          Change Class </button>
 
       </div>
 
@@ -191,6 +202,7 @@
           <div class="form-group mb-3 mt-3 ">
             <label for="level" class="fw-6">Level </label>
             <select id="level" class="form-control" (change)="getClassBySectionId($event.target.value)">
+              <option value="" selected> Select</option>
               <option [value]="section.id" *ngFor = "let section of sections" > {{section.name}}</option>
 
             </select>

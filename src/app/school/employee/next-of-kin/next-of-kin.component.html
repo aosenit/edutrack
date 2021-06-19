@@ -3,12 +3,25 @@
     <form [formGroup]="nextOfKinForm" >
       <div class="form-row mb-5 ">
         <div class=" ">
-          <label for="fname" class="fw-6">First Name</label>
+          <label for="fname" class="fw-6">First Name <span class="text-danger">*</span></label>
           <input type="text" id="fname" class="form-control form-control-lg" placeholder="Enter first name" formControlName="NextKinFirstName" required>
+
+          <div *ngIf="nextOfKinForm.controls.NextKinFirstName.touched && nextOfKinForm.controls.NextKinFirstName.errors" class="error">
+            <small *ngIf="nextOfKinForm.controls.NextKinFirstName.errors.required" class="text-danger">Field is required</small>
+            <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+          </div>
+          
+
         </div>
+
         <div class=" "> 
-          <label for="lname" class="fw-6">Last Name </label>
+          <label for="lname" class="fw-6">Last Name <span class="text-danger">*</span> </label>
           <input type="text"  id="lname" class="form-control form-control-lg" placeholder="Enter last name" formControlName="NextKinLastName" required>
+
+          <div *ngIf="nextOfKinForm.controls.NextKinLastName.touched && nextOfKinForm.controls.NextKinLastName.errors" class="error">
+            <small *ngIf="nextOfKinForm.controls.NextKinLastName.errors.required" class="text-danger">Field is required</small>
+            <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+          </div>
 
         </div>
 
@@ -18,14 +31,21 @@
         
         <div class="  ">
           <label for="others" class="fw-6">Other Name </label>
-          <input type="text" id="others" class="form-control form-control-lg" placeholder="Enter other name" formControlName="NextKinOtherName" required>
+          <input type="text" id="others" class="form-control form-control-lg" placeholder="Enter other name" formControlName="NextKinOtherName" >
 
          
         </div>
 
         <div class=" ">
-            <label for="relationship" class="fw-6">Relationship </label>
+            <label for="relationship" class="fw-6">Relationship <span class="text-danger">*</span> </label>
           <input type="text" id="relationship" class="form-control form-control-lg" placeholder="Enter relationship" formControlName="NextKinRelationship">
+
+          <div *ngIf="nextOfKinForm.controls.NextKinRelationship.touched && nextOfKinForm.controls.NextKinRelationship.errors" class="error">
+            <small *ngIf="nextOfKinForm.controls.NextKinRelationship.errors.required" class="text-danger">Field is required</small>
+            <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+          </div>
+
+
           </div>
 
       </div>
@@ -33,15 +53,26 @@
       <div class="form-row mb-5 ">
         
         <div class="  ">
-          <label for="occupation" class="fw-6">Occupation </label>
+          <label for="occupation" class="fw-6">Occupation  </label>
           <input type="text" id="occupation" class="form-control form-control-lg" placeholder="Enter occupation" formControlName="NextKinOccupation">
 
+          <div *ngIf="nextOfKinForm.controls.NextKinOccupation.touched && nextOfKinForm.controls.NextKinOccupation.errors" class="error">
+            <small *ngIf="nextOfKinForm.controls.NextKinOccupation.errors.required" class="text-danger">Field is required</small>
+            <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+          </div>
          
         </div>
 
         <div class=" ">
-            <label for="tel" class="fw-6">Phone Number </label>
-          <input type="tel" id="tel" class="form-control form-control-lg" placeholder="Ener phone number" formControlName="NextKinPhone" required maxlength="11">
+            <label for="tel" class="fw-6">Phone Number  <span class="text-danger">*</span></label>
+          <input type="tel" id="tel" class="form-control form-control-lg" placeholder="Ener phone number" formControlName="NextKinPhone" 
+          required maxlength="11"
+          (keypress)="allowNumbersOnly($event)">
+
+          <div *ngIf="nextOfKinForm.controls.NextKinPhone.touched && nextOfKinForm.controls.NextKinPhone.errors" class="error">
+            <small *ngIf="nextOfKinForm.controls.NextKinPhone.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="nextOfKinForm.controls.NextKinPhone.errors.minlength" class="text-danger">Invalid phone number length</small>
+          </div>
           </div>
 
       </div>
@@ -49,18 +80,28 @@
       <div class="form-row mb-5 ">
         
         <div class="  ">
-          <label for="country" class="fw-6">Country </label>
+          <label for="country" class="fw-6">Country <span class="text-danger">*</span> </label>
 
           <select name="" id="country" class="form-control form-control-lg" (change)="getState($event.target.value)" formControlName="NextKinCountry">
             <option value="" selected> select </option>
             <option [value]="country.country" *ngFor = "let country of countries">{{country.country}}</option>
 
         </select>
+        <div *ngIf="nextOfKinForm.controls.NextKinCountry.touched && nextOfKinForm.controls.NextKinCountry.errors" class="error">
+          <small *ngIf="nextOfKinForm.controls.NextKinCountry.errors.required" class="text-danger">Field is required</small>
+          <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+        </div>
+
         </div>
 
         <div class=" ">
-            <label for="address" class="fw-6">Address </label>
+            <label for="address" class="fw-6">Address <span class="text-danger">*</span> </label>
             <input type="text" id="address" class="form-control form-control-lg" placeholder="Enter  address" formControlName="NextKinAddress">
+            <div *ngIf="nextOfKinForm.controls.NextKinAddress.touched && nextOfKinForm.controls.NextKinAddress.errors" class="error">
+              <small *ngIf="nextOfKinForm.controls.NextKinAddress.errors.required" class="text-danger">Field is required</small>
+              <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+            </div>
+    
 
         </div>
       </div>
@@ -68,18 +109,27 @@
       
       <div class="form-row mb-5">
         <div class=" ">
-            <label for="state" class="fw-6">State</label>
+            <label for="state" class="fw-6">State <span class="text-danger">*</span></label>
 
             <select name="" id="state" class="form-control form-control-lg" formControlName="NextKinState">
                 <option value="" selected> select </option>
-                <option [value]="" *ngFor="let state of states" >{{state}}</option>
+                <option [value]="state" *ngFor="let state of states" >{{state}}</option>
 
-            </select>        
+            </select> 
+            
+            <div *ngIf="nextOfKinForm.controls.NextKinState.touched && nextOfKinForm.controls.NextKinState.errors" class="error">
+              <small *ngIf="nextOfKinForm.controls.NextKinState.errors.required" class="text-danger">Field is required</small>
+              <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+            </div>
         </div>
 
         <div class="  ">
-          <label for="city" class="fw-6">Town/City</label>
+          <label for="city" class="fw-6">Town/City <span class="text-danger">*</span></label>
           <input type="text" id="city" class="form-control form-control-lg" formControlName="NextKinTown">
+          <div *ngIf="nextOfKinForm.controls.NextKinTown.touched && nextOfKinForm.controls.NextKinTown.errors" class="error">
+            <small *ngIf="nextOfKinForm.controls.NextKinTown.errors.required" class="text-danger">Field is required</small>
+            <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+          </div>
 
             </div>
 
@@ -92,7 +142,7 @@
 
 
     <div class=" d-flex justify-content-center mt-5 mb-5">
-      <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+      <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="prevStep()"> Back </button>
       <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' [disabled]="nextOfKinForm.invalid" > Next </button>
 
     </div>

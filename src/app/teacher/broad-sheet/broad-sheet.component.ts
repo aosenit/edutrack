@@ -73,12 +73,16 @@ export class BroadSheetComponent implements OnInit {
   }
 
   getBroadSheet() {
-    this.resultService.getClassBroadSheet(this.Classid).subscribe((data: any) => {
+    // this.resultService.get(this.Classid).subscribe((data: any) => {
+    this.resultService.getStudentBroadSheetApprovedByTEacher(this.Classid).subscribe((data: any) => {
       if (data.hasErrors === false) {
         console.log(data);
         this.studentData = data.payload;
         this.subject = this.studentData[0].assessmentAndScores;
         // console.log();
+      } else {
+
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

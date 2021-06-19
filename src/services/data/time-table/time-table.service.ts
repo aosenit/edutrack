@@ -30,17 +30,17 @@ export class TimeTableService {
   }
 
   createPeriod(periodForm) {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.uploadPeriod}`;
-    return this.http.post(url, periodForm, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.post(url, periodForm, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getPeriods() {
-    const tenantId = '1'; // just a temporary header till email services is ready
+    // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getPeriods}`;
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   AddTimeTableCell(result) {
@@ -87,10 +87,10 @@ export class TimeTableService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  getAllClassesForClassByDay( classId, day) {
+  getAllClassesForClassByDay( day) {
     const tenantId = '1'; // just a temporary header till email services is ready
 
-    const url = `${this.baseUrl + routes.getTableforClassByDay}?classId=${classId}&day=${day}`;
+    const url = `${this.baseUrl + routes.getTableforClassByDay}?day=${day}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

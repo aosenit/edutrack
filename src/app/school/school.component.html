@@ -1,28 +1,28 @@
 <div class="wrapper">
-    <div id="sidebar">
+    <div id="sidebar" [ngStyle]="{'background-color': schoolColor?.primaryColor}">
         <div class="p-3">
             <p class="text-center">
-                <img src="assets/images/svg/logo.svg" alt="">
+                <img *ngIf="schoolLogo == null" src="assets/images/svg/logo.svg" alt=""> 
+                <img class="" *ngIf="schoolLogo" src="data:image/png;base64,{{schoolLogo}}" alt="schools log"
+                class="mr-3 school-logo" id=""> 
             </p>
         </div>
         <p class="px-3 ff-s fc-grey1 fs-14">MAIN MENU</p>
         <ul class="list-unstyled components">
 
             <li class="nav-item mb-2">
-                <a href="#" class="nav-link" [routerLink]="['/school/dashboard']" [routerLinkActive]="['active']">
+                <a href="#" class="nav-link" [routerLink]="['/school']" [routerLinkActive]="['active']">
                     <span class="ico">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="Group d">
-                                <path id="Vector"
-                                    d="M0 8.88889H7.11111V0H0V8.88889ZM0 16H7.11111V10.6667H0V16ZM8.88889 16H16V7.11111H8.88889V16ZM8.88889 0V5.33333H16V0H8.88889Z" />
-                            </g>
-                        </svg>
+                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.4683 3.95396C12.7462 3.39278 11.7356 3.39278 11.0135 3.95397L4.4769 9.03458C4.23316 9.22403 4.09058 9.51543 4.09058 9.82413V20C4.09058 20.5523 4.53829 21 5.09058 21H8.69801C9.2503 21 9.69801 20.5523 9.69801 20V14.9581C9.69801 14.4058 10.1457 13.9581 10.698 13.9581H13.7838C14.3361 13.9581 14.7838 14.4058 14.7838 14.9581V20C14.7838 20.5523 15.2315 21 15.7838 21H19.3912C19.9435 21 20.3912 20.5523 20.3912 20V9.82413C20.3912 9.51543 20.2487 9.22403 20.0049 9.03458L13.4683 3.95396Z" fill="#011160"/>
+                            </svg>
+                            
                     </span>
                     Dashboard
                 </a>
             </li>
             <li class="nav-item mb-2">
-                <a href="#" class="nav-link" [routerLink]="['/school']" >
+                <a href="#" class="nav-link" [routerLink]="['/school', 'coming-soon']" >
                     <span class="ico" id="Vector">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path id="Vector" d="M9.68211 12.9106L9.35398 12.4354C9.23765 12.2668 9.08212 12.129 8.90076 12.0338C8.7194 11.9385 8.51763 11.8888 8.3128 11.8887C8.30736 11.8888 8.30201 11.8901 8.29724 11.8927C8.29247 11.8954 8.28843 11.8991 8.28548 11.9037C8.28253 11.9083 8.28077 11.9135 8.28037 11.9189C8.27996 11.9243 8.28091 11.9298 8.28314 11.9347L8.31477 12.0055C8.46872 12.3499 8.59294 12.7068 8.68608 13.0724L9.08317 14.6328C9.14467 14.8392 9.27141 15.0202 9.44439 15.1485C9.61737 15.2769 9.82728 15.3457 10.0427 15.3447H12.657C12.9229 15.3444 13.1778 15.2385 13.3657 15.0505C13.5537 14.8624 13.6594 14.6075 13.6597 14.3416V12.2253C13.6601 12.1809 13.6517 12.1368 13.635 12.0956C13.6183 12.0545 13.5936 12.017 13.5623 11.9854C13.5311 11.9539 13.4939 11.9288 13.4528 11.9117C13.4118 11.8946 13.3678 11.8858 13.3234 11.8858C13.279 11.8858 13.235 11.8946 13.194 11.9117C13.153 11.9288 13.1157 11.9539 13.0845 11.9854C13.0532 12.017 13.0285 12.0545 13.0118 12.0956C12.9951 12.1368 12.9867 12.1809 12.9871 12.2253V12.8619C12.9871 12.9033 12.9707 12.9431 12.9414 12.9724C12.9121 13.0017 12.8723 13.0181 12.8309 13.0181C12.7895 13.0181 12.7497 13.0017 12.7204 12.9724C12.6911 12.9431 12.6746 12.9033 12.6746 12.8619V11.9314C12.6747 11.8493 12.6444 11.77 12.5894 11.7089C12.5345 11.6478 12.4589 11.6092 12.3771 11.6006C12.2954 11.5921 12.2134 11.6141 12.147 11.6624C12.0805 11.7108 12.0344 11.782 12.0174 11.8624V12.6674C12.0174 12.6879 12.0134 12.7083 12.0055 12.7272C11.9977 12.7462 11.9862 12.7634 11.9717 12.7779C11.9571 12.7924 11.9399 12.8039 11.921 12.8118C11.902 12.8196 11.8817 12.8237 11.8612 12.8237C11.8599 12.8237 11.8588 12.8233 11.8575 12.8233C11.8563 12.8233 11.8551 12.8237 11.8539 12.8237C11.8124 12.8237 11.7727 12.8072 11.7434 12.7779C11.7141 12.7486 11.6976 12.7089 11.6976 12.6674V11.9314C11.6979 11.9007 11.7003 11.8701 11.7049 11.8397V11.6202C11.7049 11.5377 11.6722 11.4587 11.6139 11.4003C11.5555 11.342 11.4764 11.3093 11.394 11.3093C11.3115 11.3093 11.2324 11.342 11.1741 11.4003C11.1158 11.4587 11.083 11.5377 11.083 11.6202V12.6674C11.083 12.7089 11.0666 12.7486 11.0373 12.7779C11.008 12.8072 10.9682 12.8237 10.9268 12.8237C10.8854 12.8237 10.8456 12.8072 10.8163 12.7779C10.787 12.7486 10.7705 12.7089 10.7705 12.6674V11.896C10.7655 11.8809 10.7628 11.8651 10.7625 11.8491V8.52066C10.7625 8.41883 10.7221 8.32117 10.6501 8.24917C10.5781 8.17717 10.4804 8.13672 10.3786 8.13672C10.2768 8.13672 10.1791 8.17717 10.1071 8.24917C10.0351 8.32117 9.99467 8.41883 9.99467 8.52066V13.6166C9.99467 13.6581 9.97821 13.6978 9.94891 13.7271C9.9196 13.7564 9.87986 13.7729 9.83842 13.7729C9.79698 13.7729 9.75724 13.7564 9.72794 13.7271C9.69863 13.6978 9.68217 13.6581 9.68217 13.6166V12.9104L9.68211 12.9106Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -39,7 +39,7 @@
                 </a>
             </li>
             <li class="nav-item mb-2">
-                <a href="" [routerLink]="['/school/dashboard']" class="nav-link" [routerLink]="['/school/']" >
+                <a href="" [routerLink]="['/school', 'coming-soon']" class="nav-link" [routerLink]="['/school/']" >
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.333 1.33203H2.66634C1.93301 1.33203 1.33967 1.93203 1.33967 2.66536L1.33301 14.6654L3.99967 11.9987H13.333C14.0663 11.9987 14.6663 11.3987 14.6663 10.6654V2.66536C14.6663 1.93203 14.0663 1.33203 13.333 1.33203ZM11.9997 9.33203H3.99967V7.9987H11.9997V9.33203ZM11.9997 7.33203H3.99967V5.9987H11.9997V7.33203ZM11.9997 5.33203H3.99967V3.9987H11.9997V5.33203Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -122,7 +122,7 @@
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" > Class Promotion</a>
+                        <a href="#" [routerLink]="['/school', 'coming-soon']"  > Class Promotion</a>
                     </li>
                    
                     
@@ -159,7 +159,7 @@
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/calendar']"  routerLinkActive="active"> School Calendar</a>
+                        <a href="#" [routerLink]="['/school', 'coming-soon']"   routerLinkActive="active"> School Calendar</a>
                     </li>
                     
                 </ul>
@@ -192,11 +192,11 @@
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a  > Loan</a>
+                        <a [routerLink]="['/school', 'coming-soon']"  > Loan</a>
                     </li>
                     <li class="  text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a > Attendance Sheet</a>
+                        <a  [routerLink]="['/school', 'coming-soon']" > Attendance Sheet</a>
                     </li>
                    
                     
@@ -204,7 +204,7 @@
                 </ul>
             </li>
             <li class="nav-item mb-2">
-                <a href="" [routerLink]="['/school']" class="nav-link"  >
+                <a href="#finance-settings-submenu" class="nav-link"   data-toggle="collapse" aria-expanded="false"  >
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.333 3.9987H10.6663V2.66536C10.6663 1.92536 10.073 1.33203 9.33301 1.33203H6.66634C5.92634 1.33203 5.33301 1.92536 5.33301 2.66536V3.9987H2.66634C1.92634 3.9987 1.33967 4.59203 1.33967 5.33203L1.33301 12.6654C1.33301 13.4054 1.92634 13.9987 2.66634 13.9987H13.333C14.073 13.9987 14.6663 13.4054 14.6663 12.6654V5.33203C14.6663 4.59203 14.073 3.9987 13.333 3.9987ZM9.33301 3.9987H6.66634V2.66536H9.33301V3.9987Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -214,10 +214,63 @@
 
                     </span>
                     Finance Settings
+                    <span class="ml-auto mr-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>
+                            </svg>
+                            
+                    </span>
                 </a>
+                <ul class="collapse list-unstyled" id="finance-settings-submenu">
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="" [routerLink]="['/school/finance-setting/accounts']" routerLinkActive="active" class=""> Account Setting </a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="" [routerLink]="['/school/finance-setting/chart-of-account']" routerLinkActive="active" class=""> Chart of Account </a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="#" [routerLink]="['/school/finance-setting/fee-type']"  routerLinkActive="active"> Fee Type</a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="" [routerLink]="['/school/finance-setting/fee-component']"  routerLinkActive="active" class=""> Fee Component</a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="#" [routerLink]="['/school/finance-setting/fee']"  routerLinkActive="active"> Fee</a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="#" [routerLink]="['/school/finance-setting/bank-account']"  routerLinkActive="active"> Bank Account </a>
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="#" [routerLink]="['/school', 'coming-soon']"   routerLinkActive="active"> Vendors</a>
+                        <!-- <a href="#" [routerLink]="['/school/finance-setting/vendors']"  routerLinkActive="active"> Vendors</a> -->
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="#" [routerLink]="['/school', 'coming-soon']"   routerLinkActive="active"> Discount </a>
+                        <!-- <a href="#" [routerLink]="['/school/finance-setting/discount']"  routerLinkActive="active"> Discount </a> -->
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="#" [routerLink]="['/school', 'coming-soon']"   routerLinkActive="active"> Payroll Account </a>
+                        <!-- <a href="#" [routerLink]="['/school/finance-setting/payroll-account']"  routerLinkActive="active"> Payroll Account </a> -->
+                    </li>
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="#" [routerLink]="['/school', 'coming-soon']"   routerLinkActive="active"> Account Mapping </a>
+                        <!-- <a href="#" [routerLink]="['/school/finance-setting/acount-mapping']"  routerLinkActive="active"> Account Mapping </a> -->
+                    </li>
+                    
+                </ul>
             </li>
             <li class="nav-item mb-2">
-                <a href="" [routerLink]="['/school']" class="nav-link"  >
+                <a href="#finance-submenu" class="nav-link"   data-toggle="collapse" aria-expanded="false"  >
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.473 7.946C14.3911 7.946 15.946 7.06266 15.946 5.973C15.946 4.88334 14.3911 4 12.473 4C10.5549 4 9 4.88334 9 5.973C9 7.06266 10.5549 7.946 12.473 7.946Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -232,10 +285,24 @@
 
                     </span>
                     Finance
+                    <span class="ml-auto mr-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>
+                            </svg>
+                            
+                    </span>
                 </a>
+                <ul class="collapse list-unstyled" id="finance-submenu">
+                    <li class="  text-white  d-flex justify-content-start align-items-center">
+                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
+                        <a href="" [routerLink]="['/school/finance/billing']" routerLinkActive="active" class=""> Billing </a>
+                    </li>
+                  
+                    
+                </ul>
             </li>
             <li class="nav-item mb-2">
-                <a href="" [routerLink]="['/school']" class="nav-link"  >
+                <a href="" [routerLink]="['/school', 'coming-soon']" class="nav-link"  >
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0)">
@@ -266,7 +333,7 @@
                 </a>
             </li>
             <li class="nav-item mb-2">
-                <a href="#" class="nav-link" [routerLink]="['/school']" >
+                <a href="#" class="nav-link" [routerLink]="['/school', 'coming-soon']" >
                     <span class="ico">
                         <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g >
@@ -314,7 +381,8 @@
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/facility-settings']"  routerLinkActive="active"  class=""> Facility Settings</a>
+                        <a href="#" [routerLink]="['/school', 'coming-soon']"   routerLinkActive="active"  class=""> Facility Settings</a>
+                        <!-- <a href="#" [routerLink]="['/school/facility-settings']"  routerLinkActive="active"  class=""> Facility Settings</a> -->
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
@@ -330,14 +398,15 @@
                     </li>
                     <li class=" text-white  d-flex justify-content-start align-items-center">
                         <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>
-                        <a href="#" [routerLink]="['/school/payroll-settings']"  routerLinkActive="active" class=""> Payroll Settings</a>
+                        <a href="#" [routerLink]="['/school', 'coming-soon']"   routerLinkActive="active" class=""> Payroll Settings</a>
+                        <!-- <a href="#" [routerLink]="['/school/payroll-settings']"  routerLinkActive="active" class=""> Payroll Settings</a> -->
                     </li>
                     
 
                 </ul>
             </li>
             <li class="nav-item mb-2">
-                <a href="#" class="nav-link" [routerLink]="['/school']" >
+                <a href="#" class="nav-link" [routerLink]="['/school', 'coming-soon']" >
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M3.33301 6.13203H5.33301V12.6654H3.33301V6.13203ZM7.06634 3.33203H8.93301V12.6654H7.06634V3.33203ZM10.7997 8.66536H12.6663V12.6654H10.7997V8.66536Z" fill="#94B3D1" fill-opacity="0.4"/>
@@ -347,7 +416,7 @@
                     Report
                 </a>
             </li>
-            <li class="nav-item mb-2" (click)="logOut()">
+            <!-- <li class="nav-item mb-2" (click)="logOut()">
                 <a href="#" class="nav-link" [routerLink]="['/main/']" [routerLinkActive]="['active']">
                     <span class="ico">
                         <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -360,41 +429,48 @@
                     </span>
                     Sign out
                 </a>
-            </li>
+            </li> -->
 
         </ul>
     </div>
     <div id="content">
-        <header class="main-head sticky-top py-lg-2">
+        <header class="main-head sticky-top py-lg-2" [ngStyle]="{'background-color': schoolColor?.secondaryColor}">
             <div class="container-fluid">
-                <div class="row lang">
-                    <div class="col-lg-8 hamburger">
+                <div class="row d-flex justify-content-between lang">
+                    <div class=" hamburger d-flex align-items-center"  (click)="toggleSideBar()">
                         <img src="assets/images/svg/hamburger.svg" alt="new client" class="">
-
+                        <p class="mb-0 fw-6 ml-4" style="font-size: 21px;"> {{schoolname | titlecase}}</p>
                     </div>
-                    <div class="col-lg-4  ">
-                        <div class="d-flex row align-center justify-content-center ">
-                            <img src="assets/images/svg/bell.svg" alt="new client" class="mr-5 notification">
-                            <span class="count">2</span>
+                    <div class="  ">
+                        <div class="d-flex  align-center justify-content-center ">
+                            <!-- <img src="assets/images/svg/bell.svg" alt="new client" class="mr-5 notification">
+                            <span class="count">2</span> -->
 
                             <div class="profile mr-5">
-                                <div class="profile-intials"> <p> SO </p></div>
+                                <div class="profile-intials"> <p> {{getInitials(adminDetails.given_name + ' ' + adminDetails.family_name )}} </p></div>
                                 <div class="pl-3">
                                     <p class="mb-0">{{adminDetails.given_name}} {{adminDetails.family_name}}</p>
-                                    <small>School Owner</small>
+                                    <small *ngIf="adminDetails.role !== null ">{{ adminDetails.role | titlecase }}</small>
                                 </div>
                             </div>
 
-                                <img src="assets/images/svg/uk.svg" alt="country flag" >
+                                <span>
+                                    <svg _ngcontent-vxg-c3="" fill="none" height="18" viewBox="0 0 20 18" width="20" xmlns="http://www.w3.org/2000/svg"><path _ngcontent-vxg-c3="" d="M10.0052 10.8C12.9652 10.8 15.3852 8.38002 15.3852 5.40002C15.3852 2.42002 12.9652 1.95313e-05 10.0052 1.95313e-05C7.04518 1.95313e-05 4.62518 2.42002 4.62518 5.40002C4.62518 8.38002 7.04518 10.8 10.0052 10.8ZM10.0052 1.58C12.0852 1.58 13.7852 3.28 13.7852 5.38C13.7852 7.48 12.0852 9.18 10.0052 9.18C7.92518 9.18 6.22518 7.48 6.22518 5.38C6.22518 3.28 7.92518 1.58 10.0052 1.58ZM12.5052 11.32C12.2452 11.24 11.9452 11.3 11.7452 11.48L10.0052 12.96L8.26517 11.48C8.04517 11.3 7.76518 11.24 7.50518 11.32C6.38518 11.68 0.805176 13.6 0.805176 16.38C0.805176 16.82 1.16518 17.18 1.60518 17.18H18.4052C18.8452 17.18 19.2052 16.82 19.2052 16.38C19.2052 13.6 13.6252 11.68 12.5052 11.32ZM2.82518 15.58C3.70518 14.64 5.82517 13.6 7.58517 13L9.48518 14.62C9.78517 14.88 10.2252 14.88 10.5252 14.62L12.4252 13C14.1852 13.62 16.3052 14.66 17.1852 15.58H2.82518Z" fill="#0052B4" id="icon"></path></svg>
+                                </span>
                                 <img src="assets/images/svg/caret.svg" alt="country flag" class="ml-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             
                                 <!-- ================ DROPDOWN ==================== -->
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">SELECT A LANGAUGE</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><img src="assets/images/svg/uk.svg" alt="new client" class="pr-2 mb-2"> English </a>
+                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="" (click)="logOut()">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path id="icons" d="M6.82741 12.59L8.18519 14L13 9L8.18519 4L6.82741 5.41L9.31185 8H0V10H9.31185L6.82741 12.59Z" fill="#D72638"/>
+                                            <path id="icons" d="M16 0H2C0.89 0 0 0.9 0 2V6H2V2H16V16H2V12H0V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V2C18 0.9 17.1 0 16 0Z" fill="#D72638"/>
+                                            </svg>
+                                             Logout </a>
+                                <!-- <div class="dropdown-divider"></div> -->
+                                <!-- <a class="dropdown-item" href="#"><img src="assets/images/svg/uk.svg" alt="new client" class="pr-2 mb-2"> English </a>
                                 <a class="dropdown-item" href="#"><img src="assets/images/svg/french.svg" alt="new client" class="pr-2 mb-2"> French </a>
-                                <a class="dropdown-item" href="#"><img src="assets/images/svg/spain.svg" alt="new client" class="pr-2 mb-2"> Spanish     </a>
+                                <a class="dropdown-item" href="#"><img src="assets/images/svg/spain.svg" alt="new client" class="pr-2 mb-2"> Spanish     </a> --> 
                               </div>
 
                         </div>
@@ -407,6 +483,10 @@
             <router-outlet></router-outlet>
     
         </main>
+        <div class="foot bg-dark py-3 mt-3 footer">
+            <p class="fc-grey ff-a fs-12 m-0 text-center"> Powered by Infoworks Solution © {{getYear()}}. <span class="fw-6 ls-7">Schooltrack</span> - All rights
+                reserved </p>
+        </div>
     </div>
 
 </div>

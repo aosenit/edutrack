@@ -7,6 +7,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { TableSearchPipe } from './pipes/table-search.pipe';
 import { TrustedUrlPipe } from './pipes/trusted-url.pipe';
+import { NoRecordComponent } from './no-record/no-record.component';
 
 
 
@@ -17,7 +18,8 @@ import { TrustedUrlPipe } from './pipes/trusted-url.pipe';
     LoaderComponent,
     NotificationsComponent,
     TableSearchPipe,
-    TrustedUrlPipe
+    TrustedUrlPipe,
+    NoRecordComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { TrustedUrlPipe } from './pipes/trusted-url.pipe';
     HomenavbarComponent,
     FooterComponent,
     NotificationsComponent,
+    NoRecordComponent,
     LoaderComponent,
     TableSearchPipe,
     TrustedUrlPipe

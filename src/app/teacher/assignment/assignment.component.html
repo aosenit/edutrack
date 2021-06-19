@@ -73,7 +73,7 @@
       <tbody>
         
         
-        <tr class="pb-2" *ngFor="let assignment of studentAssignmentList">
+        <tr class="pb-2" *ngFor="let assignment of studentAssignmentList; let i = index">
           <td scope="row" class="school-logo rounded-left">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -82,7 +82,11 @@
           </td>
           <td class="">
             <div class="d-flex  align-items-center justify-content-start">
-              <img src="assets/images/svg/assignment-owner.svg" alt="schools log" class="mr-3">
+              <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3 image-rounded">
+              <!-- <img class="" *ngIf="assignment.file" src="data:image/png;base64,{{assignment.file}}" alt="schools log"
+              class="mr-3 image-rounded" id="">
+            <img class="" *ngIf="assignment.file == null" src="assets/images/svg/companyalt.svg" alt="schools log"
+              class="mr-3 image-rounded" id=""> -->
               <p class="mb-0">
                 {{assignment?.studentName}}
               </p>
@@ -93,13 +97,13 @@
           <td>{{assignment?.date | date : 'd/M/yyyy' }}</td>
           <td> {{assignment?.date | date : "shortTime"}} </td>
           <!-- <td><span class="status_pending">Pending</span></td> -->
-          <td><span class="status_graded" *ngIf="assignment?.score">Graded</span></td>
+          <td><span class="status_graded" *ngIf="assignment?.score > -1">Graded</span></td>
           <td>
-            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" *ngIf="assignment?.score == 0">Grade</button>
-            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" *ngIf="assignment?.score != 0">Regrade</button>
+            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" (click)="gradeAssignment(i)" *ngIf="assignment?.score < 0">Grade</button>
+            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" *ngIf="assignment?.score >= 0">Regrade</button>
           </td>
           <td>
-            <button class="btn grade" (click)="previewAssignment()" [hidden]="!assignment?.score" >Preview</button>
+            <button class="btn grade" (click)="previewAssignment(i)" [hidden]="!assignment?.score" >Preview</button>
             </td>
 
         </tr>

@@ -11,6 +11,7 @@ const routes = {
   updatecomment: 'schtrack-learning/api/v1/AssignmentAnswer/UpdateComment',
   updatescore: 'schtrack-learning/api/v1/AssignmentAnswer/UpdateScore',
   getAssignmentFiles: 'schtrack-learning/api/v1/Assignment/GetAssignmentsByClassSubject',
+  getstudentsubmissions: 'schtrack-learning/api/v1/AssignmentAnswer/GetAssignmentSubmissionForStudent',
 
 };
 
@@ -91,5 +92,12 @@ export class AssignmentService {
     const url = `${this.baseUrl + routes.getAssignmentFiles}/?classSubjectId=${id}`;
     console.log(url);
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+
+  getStudentAssignmentSubmission() {
+    const url = `${this.baseUrl + routes.getstudentsubmissions}`;
+    
+    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 }

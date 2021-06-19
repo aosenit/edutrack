@@ -13,11 +13,12 @@ const routes: Routes = [
   {path: 'aboutus', component: AboutComponent},
   {path: 'productfeatures', component: ProductsComponent},
   {path: 'FAQs', component: FaqsComponent},
-  {path: '', loadChildren: () => import('./authentication/authentication.module').then(m=>m.AuthenticationModule)},
+  {path: '', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule)},
   {path: 'admin', loadChildren: () => import('./global-admin/global-admin.module').then(m => m.GlobalAdminModule)},
-  {path: 'school', loadChildren: () => import('./school/school.module').then(m=>m.SchoolModule)},
-  {path: 'teacher', loadChildren: () => import('./teacher/teacher.module').then(m=>m.TeacherModule)},
-  {path: 'student', loadChildren: () => import('./student/student.module').then(m=>m.StudentModule)},
+  {path: 'school', loadChildren: () => import('./school/school.module').then(m => m.SchoolModule)},
+  {path: 'teacher', loadChildren: () => import('./teacher/teacher.module').then(m => m.TeacherModule)},
+  {path: 'student', loadChildren: () => import('./student/student.module').then(m => m.StudentModule)},
+  {path: 'parent', loadChildren: () => import('./parent-portal/parent-portal.module').then(m => m.ParentPortalModule)},
 ];
 
 @NgModule({

@@ -7,3 +7,4 @@
 [1208/152230.905:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
 [1217/060905.632:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
 [1220/084032.159:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[0126/091321.047:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

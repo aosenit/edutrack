@@ -6,6 +6,8 @@ import { SubjectService } from 'src/services/data/subject/subject.service';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { Router } from '@angular/router';
+import { ChangeEvent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
+
 
 @Component({
   selector: 'app-create-assignment',
@@ -16,8 +18,13 @@ export class CreateAssignmentComponent implements OnInit {
   public Editor = ClassicEditor;
   createAssignmentmentForm: FormGroup;
   classList: any;
+  classList2: any;
   subjectList: any;
+  filename = null;
+  textToConvert = { text: '' };
+
   assignmentFile = null;
+  data: string;
   constructor(
     private fb: FormBuilder,
     private subjectService: SubjectService,
@@ -38,7 +45,8 @@ export class CreateAssignmentComponent implements OnInit {
       Document: null,
     });
     // this.getAllsubjects();
-    this.getAllClasses();
+    // this.getAllClasses();
+    this.getClassAndSubjectForTeacher();
   }
 
 
@@ -50,6 +58,26 @@ export class CreateAssignmentComponent implements OnInit {
   //     }
   //   });
   // }
+
+  getClassAndSubjectForTeacher() {
+    this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data.payload);
+        const classList: any = data.payload;
+        this.classList2 = data.payload;
+        const newArr = [];
+
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < classList.length; i++) {
+          newArr.push(classList[i].class);
+        }
+        // console.log(this.classList);
+        this.classList = Array.from(new Set(newArr));
+        console.log(this.classList);
+      }
+    }
+    );
+  }
 
   getAllClasses() {
     this.classService.getAllClasses().subscribe((data: any) => {
@@ -63,13 +91,24 @@ export class CreateAssignmentComponent implements OnInit {
 
   getSubjects(id) {
     console.log(id);
-    this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.subjectList = data.payload;
+    const selectedClass = [];
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < this.classList2.length; i++) {
+      if (this.classList2[i].class === id) {
+        selectedClass.push(this.classList2[i]);
       }
     }
-    );
+    console.log(selectedClass);
+    this.subjectList = selectedClass;
+
   }
+
+  onChange({ editor }: ChangeEvent) {
+    const data = editor.getData();
+    this.data = data;
+    console.log(data);
+  }
+
 
   handleFileUpload(event: any) {
     const reader = new FileReader();
@@ -83,7 +122,7 @@ export class CreateAssignmentComponent implements OnInit {
   }
 
   submitAssignment() {
-    const {Title, subjectId, assDate, assTime, TotalScore, Document} = this.createAssignmentmentForm.value;
+    const { Title, subjectId, assDate, assTime, TotalScore, Document } = this.createAssignmentmentForm.value;
     const DueDate = assDate + ' ' + assTime;
     // tslint:disable-next-line:radix
     // const SubjectId = parseInt(subjectId);
@@ -109,9 +148,9 @@ export class CreateAssignmentComponent implements OnInit {
   }
 
 
-  convertFile(filename, text) {
+  convertFile(filename) {
     const element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(this.data));
     element.setAttribute('download', filename);
 
     element.style.display = 'none';

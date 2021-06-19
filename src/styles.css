@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Work+Sans&display=swap');
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-lists/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-calendars/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-angular-calendars/styles/material.css';
 @font-face {
     font-family: Avenir;
     src: url('assets/fonts/avenir/Avenir Roman.otf');
@@ -20,12 +29,19 @@
     color: #0A1128;
 }
 .fc-lblue{
-    color: #014D94;
+    color: #0052B4;
 }
 .bg-lblue {
     color: #FFFFFF ;
     background: #014D94;
 }
+
+.bg-lblue-2 {
+    color: #FFFFFF ;
+    background: #0052B4;
+}
+
+
 
 .bg-orange {
     background: #FB7B04;
@@ -206,7 +222,24 @@
     color: #FB882C;
 }
 
-
+.parent-act-btn {
+    background: #0052B4;
+border: 2px solid #024B8F;
+outline:none;
+box-sizing: border-box;
+border-radius: 5px;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 16px;
+display: flex;
+align-items: center;
+text-align: center;
+color: #FFFFFF;
+text-transform: uppercase;
+padding-top: 13px;
+padding-bottom: 13px;
+}
 
 /* forms  */
 .reg-form{
@@ -299,6 +332,14 @@ li.pagination-next:hover, li.pagination-previous:hover {
     cursor: default;
 }
 /* end of ngx-pagination style */
+
+
+
+
+
+.cursor-pointer {
+    cursor: pointer;
+}
 
 #zmmtg-root {
     height: 0% !important;

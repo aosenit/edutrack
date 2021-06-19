@@ -1,12 +1,12 @@
 import { ThrowStmt } from '@angular/compiler';
-import { AfterViewInit, Component, ContentChild, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ContentChild, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
 })
-export class EmployeeComponent implements OnInit {
+export class EmployeeComponent implements OnInit, OnDestroy {
   stage = 1;
   currentStep: any;
   progress = 350;
@@ -42,6 +42,17 @@ export class EmployeeComponent implements OnInit {
 
   back() {
     window.history.back();
+  }
+
+  ngOnDestroy() {
+    sessionStorage.removeItem('employee-personal-data');
+    sessionStorage.removeItem('Employee-Data');
+    sessionStorage.removeItem('employee-contact-details');
+    sessionStorage.removeItem('employee-education');
+    sessionStorage.removeItem('employee-next-kin');
+    sessionStorage.removeItem('employee-experience');
+    sessionStorage.removeItem('all-employee-info');
+    
   }
 
 

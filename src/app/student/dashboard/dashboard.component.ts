@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { from, zip, of } from 'rxjs';
 import { groupBy, mergeMap, toArray } from 'rxjs/operators';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 import { TimeTableService } from 'src/services/data/time-table/time-table.service';
 
@@ -18,10 +19,14 @@ export class DashboardComponent implements OnInit {
   studentDetails: any;
   myDate = new Date();
 days: any;
+  sessionList: any;
+  currentTerm: any;
 
   constructor(
     private timeTableService: TimeTableService,
-    private assignmentService: AssignmentService
+    private assignmentService: AssignmentService,
+    private assessmentService: AssessmentService
+
   ) { }
 
   ngOnInit() {
@@ -31,6 +36,8 @@ days: any;
 
     this.getAssignmentByClass();
     this.getTimeTableByClass();
+    this.getSession();
+
   }
 
   daysofWeek() {
@@ -50,7 +57,7 @@ days: any;
   }
 
   getTimeTableByClass() {
-    const classId = 22;
+    // const classId = 22;
     const weekday = [
       { id: 0, day: 'Monday' },
       { id: 1, day: 'Tuesday' },
@@ -60,7 +67,7 @@ days: any;
     ][new Date().getDay() - 1];
     const day = weekday.id;
 
-    this.timeTableService.getAllClassesForClassByDay(classId, day).subscribe((data: any) => {
+    this.timeTableService.getAllClassesForClassByDay(day).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
         console.log('dsds', this.subjectAndTime);
@@ -135,9 +142,9 @@ days: any;
 
   getNextClassesForAClass(event) {
     const day = event;
-    const classId = 22;
+    // const classId = 22;
 
-    this.timeTableService.getAllClassesForClassByDay(classId, day).subscribe((data: any) => {
+    this.timeTableService.getAllClassesForClassByDay(day).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
         console.log(this.subjectAndTime);
@@ -145,6 +152,23 @@ days: any;
       }
     }, error => {
       console.log(error);
+    });
+  }
+
+  getSession() {
+    this.assessmentService.getCurrentSession().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        console.log(data);
+        this.sessionList = data.payload;
+        const term: any = this.sessionList.terms;
+        // tslint:disable-next-line:prefer-for-of
+        for (let i = 0; i < term.length; i++) {
+          console.log(term[i]);
+          if (term[i].isCurrent) {
+            this.currentTerm  = term[i].name;
+
+        }
+      }}
     });
   }
 

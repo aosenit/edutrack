@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
+import { TeacherGuard } from 'src/services/guards/teacher.guard';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
@@ -32,37 +34,44 @@ import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
-    path: '', component: SchoolComponent,
+    path: '', component: SchoolComponent, canActivate: [AuthGuardGuard], canActivateChild: [TeacherGuard],
     children: [
-      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardGuard]},
-      { path: 'students', component: StudentListComponent},
-      { path: 'parents', component: ParentListComponent},
-      { path: 'parent-detail/:id', component: ParentDetailsComponent},
-      { path: 'student-detail/:id', component: StudentDetailComponent},
-      { path: 'account-settings', component: AccountSettingsComponent},
-      { path: 'school-settings', component: SchoolSettingsComponent},
-      { path: 'personal-settings', component: PersonalSettingsComponent},
-      { path: 'finance-settings', component: FinanceSettingsComponent},
-      { path: 'facility-settings', component: FacilitySettingsComponent},
-      { path: 'result-settings', component: ResultSettingsComponent},
-      { path: 'student-settings', component: StudentSettingsComponent},
-      { path: 'payroll-settings', component: PayrollSetttingsComponent},
-      { path: 'records', component: NewRoleRecordComponent},
-      { path: 'teacher', component: TeachersComponent},
-      { path: 'employees', component: EmployeeListComponent},
-      { path: 'employee-detail/:id', component: EmployeeDetailsComponent},
-      { path: 'time-table', component: TimeTableComponent},
-      { path: 'period', component: PeriodComponent},
-      { path: 'calendar', component: CalendarComponent},
-      { path: 'attach-teacher/:id', component: AttachTeacherComponent},
-      { path: 'school-manager', component: SchoolManagerComponent},
-      { path: 'school-manager-settings', component: SchoolManagerSettingsComponent},
-      { path: 'user', component: UsersComponent},
-      { path: 'grade-book', component: SchoolGradeBookComponent},
-      { path: 'student-sheet', component: StudentSheetComponent},
-      {path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule)},
-      {path: 'add-parents', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule)},
-      {path: 'add-employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule)},
+      { path: '', component: DashboardComponent },
+      { path: 'students', component: StudentListComponent },
+      { path: 'parents', component: ParentListComponent },
+      { path: 'parent-detail/:id', component: ParentDetailsComponent },
+      { path: 'student-detail/:id', component: StudentDetailComponent },
+      { path: 'account-settings', component: AccountSettingsComponent },
+      { path: 'school-settings', component: SchoolSettingsComponent },
+      { path: 'personal-settings', component: PersonalSettingsComponent },
+      { path: 'finance-settings', component: FinanceSettingsComponent },
+      { path: 'facility-settings', component: FacilitySettingsComponent },
+      { path: 'result-settings', component: ResultSettingsComponent },
+      { path: 'student-settings', component: StudentSettingsComponent },
+      { path: 'payroll-settings', component: PayrollSetttingsComponent },
+      { path: 'role-permissions', component: NewRoleRecordComponent },
+      { path: 'edit-role-permission/:id', component: NewRoleRecordComponent },
+      { path: 'teacher', component: TeachersComponent },
+      { path: 'employees', component: EmployeeListComponent },
+      { path: 'employee-detail/:id', component: EmployeeDetailsComponent },
+      { path: 'time-table', component: TimeTableComponent },
+      { path: 'period', component: PeriodComponent },
+      { path: 'calendar', component: CalendarComponent },
+      { path: 'attach-teacher/:id', component: AttachTeacherComponent },
+      { path: 'school-manager', component: SchoolManagerComponent },
+      { path: 'school-manager-settings', component: SchoolManagerSettingsComponent },
+      { path: 'user', component: UsersComponent },
+      { path: 'coming-soon', component: ComingSoonComponent },
+      { path: 'grade-book', component: SchoolGradeBookComponent },
+      { path: 'student-sheet/:id', component: StudentSheetComponent },
+      { path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },
+      { path: 'edit-student/:id', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },
+      { path: 'add-parents', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule) },
+      { path: 'edit-parent/:id', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule) },
+      { path: 'add-employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) },
+      { path: 'edit-employee/:id', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) },
+      { path: 'finance-setting', loadChildren: () => import('./finance-setting/finance-setting.module').then(m => m.FinanceSettingModule) },
+      { path: 'finance', loadChildren: () => import('./finance/finance.module').then(m => m.FinanceModule) },
 
 
 

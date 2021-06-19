@@ -4,13 +4,18 @@
     align-items: stretch;
 }
 
+
+.schoolLogo {
+    height: 50px;
+}
 #sidebar {
     width: 230px;
     position: fixed;
     top: 0;
     left: 0;
     height: 100vh;
-    background: #014D94;
+    /* background: #014D94; */
+    background: #0052B4;
     color: #EDF7F6;
     z-index: 9;
 }
@@ -19,7 +24,7 @@
     min-width: 80px;
     max-width: 80px;
     background: #014D94;
-    transition: width 1s ease-in-out !important;
+    /* transition: width 1s ease-in-out !important; */
     text-align: center;
 }
 
@@ -49,12 +54,14 @@
 #sidebar ul li a.nav-link {
     font-family: Nunito;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 16px;
     line-height: 22px;
     display: flex;
     align-items: center;
     color: #94B3D1;
+    color:  #8FA1B3;
+    color:  #ffffff;
     padding-left: 38px;
     padding-right: 15px;
     width: 100%;
@@ -71,7 +78,7 @@
 #sidebar ul li a.nav-link.active {
     font-family: Nunito;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 600;
     font-size: 16px;
     line-height: 22px;
     display: flex;
@@ -119,6 +126,7 @@
 svg g#icon {
     fill: #ffffff;
     transition: .3s ease-in-out;
+    font-weight: bold;
 }
 
 #sidebar ul li a.nav-link .ico {
@@ -231,11 +239,19 @@ svg g#icon {
 
 .row-sizing {
 
-    padding: 0rem 2rem 1rem 2rem;
+    padding: 0rem 2rem 1rem .7rem;
 }
 
 .ellipse {
-    width: 11px;
+    width: 13px;
     height: 9px;
     border-radius: 50%;
+}
+
+
+.image-rounded {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
 }

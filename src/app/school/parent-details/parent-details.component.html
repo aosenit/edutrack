@@ -16,7 +16,11 @@
     
         <section class="activated mb-4">
             <div class="activated__image ">
-                <!-- <img src="assets/images/svg/american-man.svg" class="mr-3 avatar" alt="..." /> -->
+                <!-- <img class="" *ngIf="parentDetails" src="data:image/png;base64,{{parentDetails?.image }}" alt="schools log"
+                class="mr-3 school-logo" id="">  -->
+    
+                <img  src="assets/images/svg/dummy_user.png" class="mr-3 avatar school-logo" alt="..." />
+    
                 <div>
                     <p class="activated__title fw-6 fc-lblue">{{ parentDetails?.title + ' ' + parentDetails?.firstName}} {{parentDetails?.lastName}}   </p>
                     <p class="activated__code">{{parentDetails?.identificationNumber}}</p>

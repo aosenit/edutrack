@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./finance-settings.component.css']
 })
 export class FinanceSettingsComponent implements OnInit {
-
+  nodata = false;
   constructor() { }
 
   ngOnInit() {

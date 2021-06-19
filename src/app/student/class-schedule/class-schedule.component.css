@@ -37,7 +37,8 @@ border-radius: 10px;
     position: absolute;
     top: 0;
     left: 0;
-    color: #A4A5A8;
+    color: #000000;
+    font-weight: bold;
     font-size: 12px;
 }
 
@@ -45,6 +46,7 @@ border-radius: 10px;
     position: absolute;
     bottom: 0;
     left: 0;
-    color: #A4A5A8;
+    color: #000000;
+    font-weight: bold;
     font-size: 12px;
 }

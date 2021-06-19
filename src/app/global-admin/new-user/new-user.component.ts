@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NotificationsService } from './../../../services/classes/notifications/notifications.service';
 import {AdminService} from '../../../services/data/admin/admin.service';
 
@@ -16,16 +16,22 @@ export class NewUserComponent implements OnInit {
   submitted = false;
   avatarname = null;
   DocumentTypes: number[] = [];
+  pageId: any;
+  newUser = true;
+  editUser = false;
+  edituserForm: FormGroup;
 
 
   constructor(
               private fb: FormBuilder,
               private router: Router,
               private notifyService: NotificationsService,
-              private adminService: AdminService
+              private adminService: AdminService,
+              private route: ActivatedRoute
               ) { }
 
   ngOnInit() {
+
     this.userForm = this.fb.group({
       firstName : ['', Validators.required],
       lastName : ['', Validators.required],
@@ -33,6 +39,28 @@ export class NewUserComponent implements OnInit {
       email: ['', [Validators.email, Validators.required]],
       image: [null],
       phoneNumber: ['', Validators.required],
+    });
+
+    this.edituserForm = this.fb.group({
+      firstName : ['', Validators.required],
+      lastName : ['', Validators.required],
+      userName: ['', Validators.required],
+      email: ['', [Validators.email, Validators.required]],
+      image: [null],
+      phoneNumber: ['', Validators.required],
+    });
+
+    this.pageId = this.route.snapshot.params.id;
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.newUser = true;
+      } else {
+        // this.getProfileInformation();
+        this.getUserById();
+        this.newUser = false;
+        this.editUser = true;
+
+      }
     });
   }
 
@@ -67,6 +95,40 @@ export class NewUserComponent implements OnInit {
 
       // this.iconname = this.icon.name;
     }
+  }
+
+  getUserById() {
+    this.adminService.getAdminByID(this.pageId).subscribe((data: any) => {
+      if (data.hasErrors === false ) {
+          console.log(data.payload);
+          this.edituserForm.patchValue({
+            firstName : data.payload.firstName,
+            lastName : data.payload.lastName,
+            // userName: data.payload,
+            email: data.payload.email,
+            // phoneNumber: data.payl,
+          });
+      }
+    });
+  }
+
+  editCreateuser() {
+
+   
+      // console.log(this.userForm.value);
+      const finalstep = this.userForm.value;
+      const result = { ...finalstep, DocumentTypes: this.DocumentTypes};
+      this.adminService.updateAdmin(this.pageId, result).subscribe( (data: any) => {
+        if (data.hasErrors === false) {
+          console.log('created admin data', data);
+          this.notifyService.publishMessages(data.description, 'info', 1);
+          this.router.navigateByUrl('/admin/users');
+        }
+      }, err => {
+        this.notifyService.publishMessages(err.errors, 'danger', 1);
+
+      });
+    
   }
 
   back() {

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 // import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { TeacherRoutingModule } from './teacher-routing.module';
@@ -26,6 +27,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { MarkAttendanceComponent } from './mark-attendance/mark-attendance.component';
+import { StudentScoreSheetComponent } from './student-score-sheet/student-score-sheet.component';
+import { MailReportCardComponent } from './mail-report-card/mail-report-card.component';
+import { ReportCardComponent } from './report-card/report-card.component';
+import { SubjecAttendanceComponent } from './subjec-attendance/subjec-attendance.component';
+import { ClassAttendanceComponent } from './class-attendance/class-attendance.component';
+import { ViewReportCardComponent } from './view-report-card/view-report-card.component';
 
 
 @NgModule({
@@ -46,10 +53,17 @@ import { MarkAttendanceComponent } from './mark-attendance/mark-attendance.compo
     ScoreSheetDetailsPageComponent,
     TimeTableComponent,
     AttendanceComponent,
-    MarkAttendanceComponent],
+    MarkAttendanceComponent,
+    StudentScoreSheetComponent,
+    MailReportCardComponent,
+    ReportCardComponent,
+    SubjecAttendanceComponent,
+    ClassAttendanceComponent,
+    ViewReportCardComponent],
   imports: [
     CommonModule,
     CKEditorModule,
+    CalendarModule,
     NgxPaginationModule,
     ReactiveFormsModule,
     FormsModule,

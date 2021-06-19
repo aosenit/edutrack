@@ -74,6 +74,18 @@ export class UsersComponent implements OnInit {
     console.log(this.bulkUpload.value);
   }
 
+  deleteAdmin(id) {
+    console.log(id);
+    this.adminService.deleteAdmin(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.notifyService.publishMessages('Admin deleted', 'success', 1);
+
+        console.log(data.payload);
+        this.showAllAdmin();
+      }
+    });
+  }
+
   // getRolesPermissions() {
   //   this.adminService.getAllPermissions().subscribe((data: any) => {
   //     if (data.hasErrors === false) {
