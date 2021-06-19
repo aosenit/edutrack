@@ -536,7 +536,6 @@ export class BillingComponent implements OnInit, OnDestroy {
     });
 
 
-
   }
 
   multPrintPDF() {
