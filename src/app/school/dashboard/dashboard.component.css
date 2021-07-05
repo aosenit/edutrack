@@ -242,3 +242,13 @@ color: #243C67;
   min-width: 240px;
   padding: 0;
 }
+
+
+@media screen and (max-width: 600px) {
+   
+.cards, .info {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+}

@@ -104,7 +104,7 @@
 #sidebar ul li ul#record-submenu, #sidebar ul li ul#setting-submenu,
 #sidebar ul li ul#academics-submenu, #sidebar ul li ul#human-submenu,
 #sidebar ul li ul#schedule-submenu, #sidebar ul li ul#finance-settings-submenu,
-#sidebar ul li ul#finance-submenu {
+#sidebar ul li ul#finance-submenu, #sidebar ul li ul#promotion-submenu {
     background: #013F7A;
     width: 100%;
     /* padding-left: 47px; */
@@ -117,7 +117,7 @@
 #sidebar ul li ul#record-submenu a, #sidebar ul li ul#setting-submenu a,
 #sidebar ul li ul#academics-submenu a, #sidebar ul li ul#human-submenu a,
 #sidebar ul li ul#schedule-submenu a, #sidebar ul li ul#finance-settings-submenu a,
-#sidebar ul li ul#finance-submenu a  {
+#sidebar ul li ul#finance-submenu a, #sidebar ul li ul#promotion-submenu a  {
     font-family: Nunito;
     font-style: normal;
     font-weight: normal;
@@ -137,7 +137,7 @@
 #sidebar ul li ul#record-submenu a.active, #sidebar ul li ul#setting-submenu a.active,
 #sidebar ul li ul#academics-submenu a.active, #sidebar ul li ul#human-submenu a.active,
 #sidebar ul li ul#schedule-submenu a.active, #sidebar ul li ul#finance-settings-submenu a.active,
-#sidebar ul li ul#finance-submenu a.active  {
+#sidebar ul li ul#finance-submenu a.active, #sidebar ul li ul#promotion-submenu a.active  {
     
     color: #ffffff;
     
@@ -291,4 +291,43 @@ svg #icons , svg g #icons {
     height: 65px;
     /* width: fit-content; */
 
+}
+
+
+@media screen and (max-width: 600px) {
+   
+    .row-sizing {
+        padding: 1.5rem 2rem;
+    }
+
+    #sidebar {
+        display: none;
+
+    }
+
+    #content {
+        margin-left: 0px;
+       
+    }
+
+    #sidebar ul li a.nav-link {
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        
+        letter-spacing: 0.01em;
+        
+        color: #011160;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+    
+        width: 10%;
+        /* padding-left: 47px; */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        transition: .3s ease-in-out;
+    }
 }

@@ -18,6 +18,7 @@ export class StudentListComponent implements OnInit {
   p = 1;
   itemsPerPage = 5;
   studentCount: number;
+  fileString: any;
 
 
   constructor(
@@ -40,8 +41,45 @@ export class StudentListComponent implements OnInit {
     this.studentService.downloadSampleBulkSheet().subscribe((data: any) => {
       if (data.hasErrors === false ) {
         console.log(data.payload);
+        this.fileString = data.payload;
+        this.convertBase64ToExcel();
       }
     });
+  }
+
+
+  convertBase64ToExcel() {
+
+    const contentType = 'application/vnd.ms-excel';
+    const blob1 = this.b64toBlob(this.fileString, contentType, 512);
+    const blobUrl1 = URL.createObjectURL(blob1);
+
+    window.open(blobUrl1);
+
+  }
+
+  b64toBlob(b64Data, contentType, sliceSize) {
+    contentType = contentType || 'application/vnd.ms-excel';
+    sliceSize = sliceSize || 512;
+
+    const byteCharacters = window.atob(b64Data);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      const byteNumbers = new Array(slice.length);
+      for (let i = 0; i < slice.length; i++) {
+        byteNumbers[i] = slice.charCodeAt(i);
+      }
+
+      const byteArray = new Uint8Array(byteNumbers);
+
+      byteArrays.push(byteArray);
+    }
+
+    const blob = new Blob(byteArrays, { type: contentType });
+    return blob;
   }
 
   createStudentBulkUpload() {
