@@ -9,7 +9,7 @@ import { WithdrawalListComponent } from './withdrawal-list/withdrawal-list.compo
 const routes: Routes = [
   {path: 'class-pool', component: ClassPoolComponent},
   {path: 'class-repeat', component: ClassRepeatComponent},
-  {path: 'promotion-dashbord', component: PromotionDashboardComponent},
+  {path: 'promotion-dashboard', component: PromotionDashboardComponent},
   {path: 'withdrawal-list', component: WithdrawalListComponent},
 ];
 
