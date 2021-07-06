@@ -170,7 +170,6 @@ export class ScoreSheetComponent implements OnInit {
           // console.log(newList[i]);
           newList[i].assessments = this.assessmentList;
           this.newList = newList;
-          // console.log(this.newList);
 
 
         }
@@ -359,7 +358,6 @@ export class ScoreSheetComponent implements OnInit {
     const arr = [];
 
     // this.displayStudentGradeInterpretation(studentId);
-
   }
 
 

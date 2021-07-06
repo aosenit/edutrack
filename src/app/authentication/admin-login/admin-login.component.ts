@@ -54,6 +54,9 @@ export class AdminLoginComponent implements OnInit {
             this.router.navigateByUrl('/');
 
           }
+        } else {
+
+          this.notifyService.publishMessages(data.errors, 'danger', 1);
         }
       },
         error => {

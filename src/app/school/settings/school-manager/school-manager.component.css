@@ -1,0 +1,267 @@
+.banner {
+    width: 100%;
+    background-image: url("../../../../assets/images/svg/user-role-bg.png");
+    background-color: #1d4e4d;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1.5rem;
+    color: #ffffff;
+
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    backdrop-filter: opacity(.4);
+}
+
+.banner__text-primary {
+    font-size: 36px;
+}
+
+
+/* tabs */
+
+.searchpills-bar {
+    position: relative;
+}
+
+.searchpills-bar::before {
+    content: '';
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background:rgba(251, 136, 44, 0.3);
+}
+.searchpills-bar .nav-link {
+     padding: .5rem .5rem;
+ }
+.searchpills-bar .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #000000;
+    font-weight: 600;
+  border-bottom: 3px solid  #EB6B04;;
+    background: transparent;
+    border-radius: 0;
+    padding: 7px 5px;
+    /* font-size: 13px; */
+    font-family: nunito;
+    z-index: 22;
+  }
+.searchpills-bar  .nav-pills .nav-link, .nav-pills .show>.nav-link {
+    color: #A4A5A8;
+    /* font-size: 13px; */
+    }
+   
+
+/* end of tabs */
+
+
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+input[type="text"] {
+    width: 125%;
+}
+
+/* ================= table ====================== */
+table.client-table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+.list .table thead {
+    color: #4c75bd;
+}
+
+.list .table thead tr th {
+    font-weight: 600;
+    padding-bottom: 0;
+}
+
+table tr,
+td {
+    padding: 15px;
+}
+.list .table thead .head {
+    /* display: flex;
+      align-items: center;
+      color: #0a1128;
+      font-weight: 600; */
+    padding-left: 3.5rem;
+}
+
+.list .table tbody .check {
+    padding-left: 1.5rem;
+    padding-left: 3.5rem;
+}
+
+
+
+
+
+.list .table tbody tr {
+    background: #ffffff;
+    box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
+    border-radius: 5px;
+}
+
+.list .table tbody td:not(:first-child) {
+    color: #0a1128;
+    /* opacity: 0.6; */
+}
+
+.list .table tbody .status_active {
+    background: #ebfffa;
+    border-radius: 10px;
+    color: #09b78a;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+.list .table tbody .status_inactive {
+    background: #fae5e7;
+    border-radius: 10px;
+    color: #d72638;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+
+
+.steps {
+    
+    background: rgba(245, 245, 245, 0.66);
+    }
+    .steps div:not(:last-child) {
+        /* margin-right: 7rem; */
+    }
+    
+    .steps span {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+    }
+    .steps .active span {
+        background: #FB882C;
+        font-weight: 600;
+    }
+    
+    .steps .active p {
+        color: #000000;
+        font-weight: 600;
+        line-height: 1;
+    }
+    .steps  p {
+        color: #707070;
+        line-height: 1;
+    }
+    
+    .steps span:not(.active) {
+        background: #B7C0CD;
+        color: #ffffff;
+    }
+    
+    
+    .step-content {
+        background: rgba(255, 255, 255, 0.5);
+    border: transparent solid #D7DFE8;
+        padding: 6rem;
+    /* opacity: 0.5; */
+    }
+    
+    form textarea {
+        height: 100px;
+    }
+    
+    form .form-control {
+        /* padding: 1.37rem .75rem; */
+        color: #000000;
+        font-size: 16px;
+        border: 1px solid #D1D9DF;
+    }
+    
+    /* tabs */
+
+
+ .nav-link {
+    padding: .5rem .5rem;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+   color: #000000;
+   font-weight: 600;
+   background: transparent;
+   border-radius: 0;
+   padding: 7px 5px;
+   font-family: nunito;
+   z-index: 22;
+ }
+ .nav-pills .nav-link, .nav-pills .show>.nav-link {
+   color: #A4A5A8;
+   }
+  
+
+/* end of tabs */
+
+
+
+.add-image {
+    position: relative;
+    /* background-image: url('../../../assets/images/svg/student-add-upload.svg'); */
+    background-repeat: no-repeat;
+    background-position: 270px 35px;
+    background: #FFFFFF;
+    border: 1px dashed #DDE0E9;
+    height: 25px;
+    
+}
+
+.add-image label {
+    position: absolute;
+    top: 0px;
+    right: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #0A1128;
+}
+
+.file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+}

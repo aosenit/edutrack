@@ -113,8 +113,8 @@ export class BillingComponent implements OnInit, OnDestroy {
         break;
 
       case 'history':
-        this.normal = false;
-        this.invoiceTab = true;
+        this.normal = true;
+        this.invoiceTab = false;
         this.getPaymentHistory();
         break;
 
@@ -125,6 +125,8 @@ export class BillingComponent implements OnInit, OnDestroy {
         break;
 
       case 'pending':
+        this.normal = true;
+        this.invoiceTab = false;
         this.getPendingPayments();
         break;
 
