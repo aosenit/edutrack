@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   productLogoLarge: 'assets/images/svg/logo.svg',
    // serverUrl: 'http://13.88.13.159:58100/',
-   serverUrl: 'http://38.17.49.29:58100/',
-  demourl: 'http://b9302a0df897.ngrok.io/'
+   serverUrl: 'https://backend.myschooltrack.com/',
+   demourl: 'http://533db88f5fb7.ngrok.io/'
 
 };
