@@ -39,12 +39,12 @@ export class UsersComponent implements OnInit {
       this.submitted = true;
       return;
     } else {
-      // console.log(this.userForm.value);
+      // // (this.userForm.value);
       const finalstep = this.userForm.value;
       const result = { ...finalstep, DocumentTypes: this.DocumentTypes};
       this.adminService.AddNewAdmin(result).subscribe( (data: any) => {
         if (data.hasErrors === false) {
-          console.log('created admin data', data);
+          // ('created admin data', data);
           this.notifyService.publishMessages(data.description, 'info', 1);
           this.router.navigateByUrl('/admin/users');
         }
@@ -58,7 +58,7 @@ export class UsersComponent implements OnInit {
   handleImgUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log('file', file);
+      // ('file', file);
       this.avatarname = file.name;
       this.userForm.get('image').setValue(file);
       this.DocumentTypes.push(2);

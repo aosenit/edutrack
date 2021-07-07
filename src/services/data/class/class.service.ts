@@ -39,7 +39,7 @@ export class ClassService {
 
   addClass(result) {
     const url = `${this.baseUrl + routes.addclass}`;
-    console.log(url);
+    
     return this.http.post(url, result,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
@@ -104,7 +104,7 @@ export class ClassService {
 
   getAllSubjectsInAClassWithAssignmentCountByClassID() {
     const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}`;
-    console.log(url);
+    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -124,7 +124,7 @@ export class ClassService {
 
   getClassAndSubjectForTeacherByTeacherId() {
     const url = `${this.baseUrl + routes.getClassAndSubjectForATeahcer}`;
-    console.log('teacher for sucject', url);
+    // ('teacher for sucject', url);
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

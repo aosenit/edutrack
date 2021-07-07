@@ -28,7 +28,7 @@ searchString: string;
     this.staffService.getAllStaffInSchool().subscribe( (data: any) => {
       if (data.hasErrors === false) {
         this.employeeList = data.payload;
-        console.log('all employees', this.employeeList);
+        // ('all employees', this.employeeList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -39,7 +39,7 @@ searchString: string;
   // getEmployeeById(id) {
   //   this.staffService.getStaffById(id).subscribe( (data: any) => {
   //     if (data.hasErros === false) {
-  //       console.log('all schools', data);
+  //       // ('all schools', data);
   //       this.employeeDetail = data.payload;
   //     }
   //   }, error => {
@@ -53,10 +53,10 @@ searchString: string;
   }
 
   editEmployee(id) {
-    console.log(id);
+    // (id);
     this.staffService.getStaffById(id).subscribe( (data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         sessionStorage.setItem('all-employee-info', JSON.stringify(data.payload));
         this.router.navigateByUrl('/school/edit-employee/' + id);
       }
@@ -68,7 +68,7 @@ searchString: string;
 
 
   deleteEmployee(id) {
-    console.log(id);
+    // (id);
     this.staffService.deleteStaffById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
       this.notifyService.publishMessages('Staff deleted', 'success', 1);

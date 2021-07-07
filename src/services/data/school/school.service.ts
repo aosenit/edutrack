@@ -45,7 +45,7 @@ export class SchoolService {
     formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
     formData.append('ContactEmail', schoolFinalStep.ContactEmail);
     const url = `${this.baseUrl + routes.addschool}`;
-    // console.log('asasas', schoolFinalStep);
+    // // ('asasas', schoolFinalStep);
     return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 

@@ -53,7 +53,7 @@ export class MarkAttendanceComponent implements OnInit {
 
       this.populateAttendance();
       this.subjectClass = JSON.parse(sessionStorage.getItem('subject-class'));
-      // console.log(this.subjectClass);
+      // // (this.subjectClass);
       this.getSubjectAttendance();
 
 
@@ -71,16 +71,16 @@ export class MarkAttendanceComponent implements OnInit {
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.classList = data.payload;
-        // console.log(this.classList);
+        // // (this.classList);
       }
     }
     );
   }
 
   getSubjectsId(id) {
-    console.log('Subject ID here', id);
+    // ('Subject ID here', id);
 
   }
 
@@ -88,12 +88,12 @@ export class MarkAttendanceComponent implements OnInit {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.classList.length; i++) {
       if (this.classList[i].classId === id) {
-        // console.log('assas', this.classList[i]);
+        // // ('assas', this.classList[i]);
       }
     }
     this.classService.getStudentsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.studentList = data.payload;
         const {Remark} = this.attendanceForm.value;
 
@@ -118,11 +118,11 @@ export class MarkAttendanceComponent implements OnInit {
   }
 
   getElementId(event) {
-    console.log(event);
+    // (event);
   }
 
   getStatus(event, id, i) {
-    console.log(event);
+    // (event);
     this.studentID = id;
     this.toggleState = 1;
     if (event.target.checked === true) {
@@ -148,7 +148,7 @@ export class MarkAttendanceComponent implements OnInit {
       });
       const {Remark} = this.attendanceForm.value;
       this.studentModel[i].remark = Remark;
-      // console.log(this.studentModel[i].remark);
+      // // (this.studentModel[i].remark);
     }
 
   }
@@ -167,7 +167,7 @@ export class MarkAttendanceComponent implements OnInit {
     $(`#dropdownMenuLink${u}`).removeClass('show-pop');
     const {Remark} = this.attendanceForm.value;
     this.studentModel[u].remark = Remark;
-    console.log(this.studentModel[u].remark);
+    // (this.studentModel[u].remark);
 
   }
 
@@ -190,13 +190,13 @@ export class MarkAttendanceComponent implements OnInit {
       studentAttendanceVMs: this.studentAttendanceVMs
     };
 
-    console.log(result);
+    // (result);
     this.attendance.createSubjectAttendance(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.notifyService.publishMessages('Attendance saved', 'success', 1);
         // this.studentList = data.payload;
-        // console.log(this.classList);
+        // // (this.classList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -208,10 +208,10 @@ export class MarkAttendanceComponent implements OnInit {
     // this.attendance.getSubjectAttendance(this.subjectClass.classSubjectId).subscribe((data: any) => {
     this.teacher.getSubjectAttendance(this.subjectClass.subjectId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
 
         // this.studentList = data.payload;
-        // console.log(this.classList);
+        // // (this.classList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'success', 1);

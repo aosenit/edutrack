@@ -16,7 +16,7 @@ export class FilesService {
 
  getFileUpload(id) {
   const url = `${this.baseUrl + routes.getFileUplaod}/${id}`;
-  console.log(url);
+  
   return this.http.get(url);
 
  }

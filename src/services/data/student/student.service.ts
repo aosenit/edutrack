@@ -64,13 +64,13 @@ export class StudentService {
 
   getAllStudents(p, perpage) {
     const url = `${this.baseUrl + routes.getallstudent}?PageIndex=${p}&PageSize=${perpage}`;
-    console.log(url);
+    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getStudentById(id: any) {
     const url = `${this.baseUrl + routes.getstudentbyid}/${id}`;
-    console.log(url);
+    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
@@ -78,7 +78,7 @@ export class StudentService {
   updateStudent(id, updateStudentForm) {
     const { immunizationVms } = updateStudentForm;
     if (updateStudentForm.profilePhoto !== null) {
-      // console.log('file not empty');
+      // // ('file not empty');
       const body = new FormData();
       body.append('FirstName', updateStudentForm.FirstName);
       body.append('LastName', updateStudentForm.LastName);
@@ -119,7 +119,7 @@ export class StudentService {
       return this.http.put(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   } else {
-      console.log('no file selected');
+      // ('no file selected');
       const body = new FormData();
       body.append('FirstName', updateStudentForm.FirstName);
       body.append('LastName', updateStudentForm.LastName);

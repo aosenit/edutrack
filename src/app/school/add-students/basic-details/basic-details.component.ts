@@ -97,7 +97,7 @@ export class BasicDetailsComponent implements OnInit {
       (res: any) => {
        if (res.hasErrors === false) {
         this.parents = res.payload;
-        // console.log(this.parents);
+        // // (this.parents);
        }
       }, error => {
         this.notifyService.publishMessages( error.errors, 'danger', 1);
@@ -108,12 +108,12 @@ export class BasicDetailsComponent implements OnInit {
   getActivetab() {
     this.basicDetails = JSON.parse(sessionStorage.getItem('student-basic-details'));
     if (sessionStorage.getItem('student-basic-details') !== null) {
-      // console.log(`student  exists`);
+      // // (`student  exists`);
       for (const unit in countries) {
         if (this.basicDetails.Nationality === countries[unit].country) {
           const state = countries[unit].states;
           this.states = state;
-          // console.log(this.states)
+          // // (this.states)
         }
       }
       this.basicDetailsForm.patchValue({
@@ -131,7 +131,7 @@ export class BasicDetailsComponent implements OnInit {
         TransportRoute: this.basicDetails.TransportRoute
       });
     } else {
-      // console.log(`student not found`);
+      // // (`student not found`);
     }
   }
 
@@ -141,7 +141,7 @@ export class BasicDetailsComponent implements OnInit {
       if (payload.nationality === countries[unit].country) {
         const state = countries[unit].states;
         this.states = state;
-        // console.log(this.states)
+        // // (this.states)
       }
     }
     this.basicDetailsForm.patchValue({

@@ -47,12 +47,12 @@ export class NotificationPageComponent implements OnInit {
     this.assignmentService.getAssignmentsByClassSubject(this.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
           this.assignments = data.payload;
-          console.log(this.assignments);
+          // (this.assignments);
       }
       this.mydate = this.assignments.map((date) => {
         return moment(date.dueDate).fromNow();
       });
-      // console.log(test);
+      // // (test);
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
@@ -63,12 +63,12 @@ export class NotificationPageComponent implements OnInit {
     this.assignmentService.getStudentAssignmentSubmission().subscribe((data: any) => {
       if (data.hasErrors === false) {
           this.assignmentSubmission = data.payload;
-          console.log(this.assignmentSubmission);
+          // (this.assignmentSubmission);
       }
       // this.mydate = this.assignments.map((date) => {
       //   return moment(date.dueDate).fromNow();
       // });
-      // console.log(test);
+      // // (test);
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
@@ -90,7 +90,7 @@ export class NotificationPageComponent implements OnInit {
 
   uploadAssignment(i, id) {
     this.assignmentDetails = this.assignments[i];
-    // console.log(this.assignmentDetails.id);
+    // // (this.assignmentDetails.id);
     // sessionStorage.setItem('student-assignment', JSON.stringify(this.assignments[i]));
 
   }
@@ -99,7 +99,7 @@ export class NotificationPageComponent implements OnInit {
     const reader = new FileReader();
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log('file', file);
+      // ('file', file);
       this.assignmentFile = file.name;
       this.uploadAssignmentForm.get('Document').setValue(file);
       // this.iconname = this.icon.name;
@@ -114,10 +114,10 @@ export class NotificationPageComponent implements OnInit {
       AssignmentId,
       Document
     };
-    console.log(result);
+    // (result);
     this.assignmentService.submitStudentAssignment(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.notifyService.publishMessages('Assignment submitted successfully', 'info', 1);
         document.getElementById('closeAssignmentModal').click();
 

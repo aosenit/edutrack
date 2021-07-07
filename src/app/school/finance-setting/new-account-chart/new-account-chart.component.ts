@@ -33,7 +33,7 @@ export class NewAccountChartComponent implements OnInit {
     this.populateChartOFAccountForm();
     this.populateEditChartOFAccountForm();
 
-    console.log(this.pageId);
+    // (this.pageId);
     this.getAccountClasses();
     this.route.params.subscribe((param: Params) => {
       if (!param.id) {
@@ -139,7 +139,7 @@ export class NewAccountChartComponent implements OnInit {
 
     this.finance.createNewChartAccount(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.notifyService.publishMessages('Account created successfully', 'success', 1);
         this.router.navigateByUrl('/school/finance-setting/chart-of-account');
         // this.getAllAccountClass();
@@ -156,7 +156,7 @@ export class NewAccountChartComponent implements OnInit {
   getChartAccountByItsId() {
     this.finance.getChartAccountByID(this.pageId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
 
         this.editChartAccountForm.patchValue({
           AccountTypeId: data.payload.accountTypeId,
@@ -195,7 +195,7 @@ export class NewAccountChartComponent implements OnInit {
 
     this.finance.updateChartAccountByID(this.pageId, result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.notifyService.publishMessages('Account updated successfully', 'success', 1);
         this.router.navigateByUrl('/school/finance-setting/chart-of-account');
         // this.getAllAccountClass();

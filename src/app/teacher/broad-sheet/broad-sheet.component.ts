@@ -40,13 +40,13 @@ export class BroadSheetComponent implements OnInit {
         // tslint:disable-next-line:no-string-literal
         this.levels = res['payload'];
         // this.levels = this.levels.reverse();
-        console.log('levels', this.levels);
+        // ('levels', this.levels);
       }
     );
   }
 
   getClassBySectionId(id) {
-    console.log(id);
+    // (id);
     this.classService.getClassBySection(id).subscribe((data: any) => {
         if (data.hasErrors === false) {
           this.classList = data.payload;
@@ -58,13 +58,13 @@ export class BroadSheetComponent implements OnInit {
 
 
   getSubjectsAndStudents(id) {
-    console.log('class id ', id);
+    // ('class id ', id);
     this.Classid = id;
     sessionStorage.setItem('class-id', this.Classid);
 
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.noData = false;
         this.displayData = true;
         this.getBroadSheet();
@@ -76,10 +76,10 @@ export class BroadSheetComponent implements OnInit {
     // this.resultService.get(this.Classid).subscribe((data: any) => {
     this.resultService.getStudentBroadSheetApprovedByTEacher(this.Classid).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.studentData = data.payload;
         this.subject = this.studentData[0].assessmentAndScores;
-        // console.log();
+        // // ();
       } else {
 
         this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -91,7 +91,7 @@ export class BroadSheetComponent implements OnInit {
   }
 
   saveStudentDetails(u) {
-    console.log(this.studentData[u]);
+    // (this.studentData[u]);
     sessionStorage.setItem('student-details', JSON.stringify(this.studentData[u]) );
   }
 

@@ -39,7 +39,7 @@ export class NewroleComponent implements OnInit {
     this.adminService.getAllPermissions().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allRoles = data.payload;
-        console.log('asasasas', this.allRoles);
+        // ('asasasas', this.allRoles);
         const tires = [];
 
         from(this.allRoles)
@@ -50,11 +50,11 @@ export class NewroleComponent implements OnInit {
             mergeMap(group => zip(of(group.key), group.pipe(toArray())))
           )
           .subscribe(xy => {
-            console.log('levels', ...xy);
+            // ('levels', ...xy);
             tires.push(xy);
           });
         this.newList = tires;
-        console.log('sasas', this.newList);
+        // ('sasas', this.newList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -69,14 +69,14 @@ export class NewroleComponent implements OnInit {
   createRoles() {
     const {name, permissions} = this.roleData;
     const  permissionIds = permissions.map((i) => Number(i));
-    console.log(permissionIds);
+    // (permissionIds);
     const result = {
       name,
       permissionIds
     };
-    console.log(this.roleData);
+    // (this.roleData);
     this.adminService.createRoles(result).subscribe((data: any) => {
-      console.log(data);
+      // (data);
       this.notifyService.publishMessages('Roles created successfully', 'info', 1);
       this.router.navigateByUrl('/admin/users');
     }, error => {

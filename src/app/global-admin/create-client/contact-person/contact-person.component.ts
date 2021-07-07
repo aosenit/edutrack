@@ -71,7 +71,7 @@ export class ContactPersonComponent implements OnInit {
     this.contactPerson = JSON.parse( sessionStorage.getItem('contact-person'));
 
     if (sessionStorage.getItem('contact-person') !== null) {
-      // console.log(`School person exists`);
+      // // (`School person exists`);
       this.contactPersonForm.patchValue({
         ContactFirstName: this.contactPerson.ContactFirstName,
         ContactLastName: this.contactPerson.ContactLastName,

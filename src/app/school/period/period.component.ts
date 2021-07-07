@@ -39,10 +39,10 @@ export class PeriodComponent implements OnInit {
         sessionStorage.setItem('periods', JSON.stringify(data.payload));
         const periods = JSON.parse(sessionStorage.getItem('periods'));
         this.periodName = periods;
-        console.log('periods', this.periodName);
+        // ('periods', this.periodName);
 
         this.notify();
-        // console.log(this.periods);
+        // // (this.periods);
       }
     });
   }
@@ -70,13 +70,13 @@ export class PeriodComponent implements OnInit {
     document.getElementById('myModal').click();
     this.periods.push(results);
     this.periodName = this.periods;
-    // console.log('periods', this.periodName);
+    // // ('periods', this.periodName);
     // this.addPeriodForm.reset();
   }
 
   publishPeriods() {
     this.timetableService.createPeriod(this.periods).subscribe((data: any) => {
-      // console.log(data);
+      // // (data);
       if ( data.hasErrors === false) {
         sessionStorage.setItem('periods', JSON.stringify(data.payload));
         this.notifyService.publishMessages('All period successfully published ', 'info', 1);

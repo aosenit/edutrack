@@ -77,7 +77,7 @@ export class NextOfKinComponent implements OnInit {
     this.nexKinDetails = JSON.parse(sessionStorage.getItem('employee-next-kin'));
 
     if (sessionStorage.getItem('employee-next-kin') !== null) {
-      // console.log(`School person exists`);
+      // // (`School person exists`);
       for (const unit in countries) {
         if ( this.nexKinDetails.NextKinCountry === countries[unit].country) {
           const state = countries[unit].states;

@@ -77,7 +77,7 @@ populateEmployeeExperienceForm() {
     this.workDetials = JSON.parse(sessionStorage.getItem('employee-experience'));
 
     if (sessionStorage.getItem('employee-next-kin') !== null) {
-      // console.log(`School person exists`);
+      // // (`School person exists`);
       this.employeeWorkExperienceForm.patchValue({
         WorkExperienceVMs: this.workDetials.WorkExperienceVMs,
       });
@@ -98,7 +98,7 @@ populateEmployeeExperienceForm() {
 
     const formArray = new FormArray([]);
     for (const x of data) {
-      // console.log(x);
+      // // (x);
       formArray.push(this.fb.group({
        workRole: x.workRole,
        workCompanyName: x.workCompanyName,

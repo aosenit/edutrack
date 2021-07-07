@@ -34,7 +34,7 @@ export class ClassScheduleComponent implements OnInit {
     { id: 3, day: 'Thursday' },
     { id: 4, day: 'Friday' },
     ];
-    console.log(this.daysInWeek);
+    // (this.daysInWeek);
   }
 
   getAllPeriods() {
@@ -51,7 +51,7 @@ export class ClassScheduleComponent implements OnInit {
     this.timeTableService.getTimeTableForClass().subscribe((data: any) => {
       if (data.hasErrors === false ) {
         this.timeTableCells = data.payload;
-        console.log(this.timeTableCells);
+        // (this.timeTableCells);
         const tables = [];
 
         from(this.timeTableCells)
@@ -62,11 +62,11 @@ export class ClassScheduleComponent implements OnInit {
            mergeMap(group => zip(of(group.key), group.pipe(toArray())))
          )
          .subscribe(xy => {
-           console.log('Periods', ...xy);
+           // ('Periods', ...xy);
            tables.push(xy);
           });
         this.timeTable = tables;
-        console.log('time table', this.timeTable);
+        // ('time table', this.timeTable);
       }
     });
   }

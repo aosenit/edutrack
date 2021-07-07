@@ -46,7 +46,7 @@ teacherslist: any;
   getSchoolProperties() {
     this.school.getSchoolLogo(this.loggedInUser.TenantId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.paylaod);
+        // (data.paylaod);
         this.schoolLogo = data.payload.logo;
         sessionStorage.setItem('prop', this.schoolLogo);
         this.schoolname = data.payload.schoolName;
@@ -58,7 +58,7 @@ teacherslist: any;
   // getAllteachers() {
   //   this.teacherService.getAllTeachers().subscribe( (data: any) => {
   //     if (data.hasErrors === false) {
-  //       console.log('all schools', data);
+  //       // ('all schools', data);
   //       this.teacherslist = data.payload;
   //     }
   //   }, error => {

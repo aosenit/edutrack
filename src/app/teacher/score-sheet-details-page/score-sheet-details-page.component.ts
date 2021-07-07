@@ -30,7 +30,7 @@ export class ScoreSheetDetailsPageComponent implements OnInit {
   ngOnInit() {
     this.studId = this.route.snapshot.params.id;
     this.studentNameAndReg = JSON.parse(sessionStorage.getItem('student-details'));
-    console.log(this.studentNameAndReg);
+    // (this.studentNameAndReg);
     this.getStudentScoreSheet();
 
     // this.studentResultForm = this.fb.group({
@@ -43,10 +43,10 @@ export class ScoreSheetDetailsPageComponent implements OnInit {
     const classId = sessionStorage.getItem('class-id');
     this.resultService.getStudentBroadSheet(this.studId, classId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.studentRecord = data.payload.breakdowns;
         this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-        console.log(this.assessments);
+        // (this.assessments);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'success', 1);
@@ -72,11 +72,11 @@ export class ScoreSheetDetailsPageComponent implements OnInit {
       headTeacherApprovalStatus: 0
     };
 
-    console.log(result);
+    // (result);
 
     this.assessmentService.submitStudentResultForApproval(result).subscribe((data: any) => {
         if (data.hasErrors === false) {
-          console.log(data.payload);
+          // (data.payload);
           this.notifyService.publishMessages(data.payload, 'success', 1);
         }
     }, error => {

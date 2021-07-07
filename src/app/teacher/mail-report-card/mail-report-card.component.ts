@@ -45,7 +45,7 @@ export class MailReportCardComponent implements OnInit {
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.classList = data.payload;
       }
     }
@@ -148,7 +148,7 @@ export class MailReportCardComponent implements OnInit {
       curSessionId: this.sessions.id,
       termSequenceNumber: this.selectedTermId
     };
-    console.log(result);
+    // (result);
     this.resultService.mailReportSheetToParent(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Email sent out', 'success', 1);

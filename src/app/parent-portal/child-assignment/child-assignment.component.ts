@@ -28,7 +28,7 @@ export class ChildAssignmentComponent implements OnInit {
     // const classId = 25;
     this.parentService.getAllSubjectsInAClassWithAssignmentCountByClassID(this.wardDetail.classID).subscribe((data: any) => {
       if (data.hasErrors === false ) {
-        console.log(data);
+        // (data);
         this.subjectList = data.payload;
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.subjectList.length; i++) {

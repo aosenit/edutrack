@@ -64,14 +64,14 @@ classes: any;
       { id: 3, day: 'Thursday' },
       { id: 4, day: 'Friday' },
     ];
-    console.log(this.daysInWeek);
+    // (this.daysInWeek);
   }
 
   getAllPeriods() {
     this.timeTableService.getPeriods().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.periods = data.payload;
-        console.log('peridos', this.periods);
+        // ('peridos', this.periods);
       }
     });
   }
@@ -81,10 +81,10 @@ classes: any;
     this.timeTableService.getTimeTableForTeacher().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
-        console.log(this.subjectAndTime);
+        // (this.subjectAndTime);
         const tables = [];
 
-        console.log(data);
+        // (data);
 
       //   this.sortDays(data.payload);
 
@@ -98,12 +98,12 @@ classes: any;
       //      mergeMap(group => zip(of(group.key), group.pipe(toArray())))
       //    )
       //    .subscribe(xy => {
-      //      console.log('Periods', ...xy);
+      //      // ('Periods', ...xy);
       //      tables.push(xy);
       //     });
       //   tables.sort((a, b) => a - b);
       //   this.timeTable = tables;
-      //   console.log('new', this.timeTable);
+      //   // ('new', this.timeTable);
 
       // }
     }
@@ -133,14 +133,14 @@ classes: any;
       }
     });
 
-    console.log(this.daysInWeek);
+    // (this.daysInWeek);
     const tables = [];
 
   }
 
   save(i) {
-    console.log(i);
-    console.log(this.daysInWeek[i].classes);
+    // (i);
+    // (this.daysInWeek[i].classes);
     sessionStorage.setItem('current-class', JSON.stringify(this.daysInWeek[i].classes[0]));
   }
  
@@ -149,7 +149,7 @@ classes: any;
     this.classService.getAllClasses().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classes = data.payload;
-        console.log(this.classes);
+        // (this.classes);
       }
     });
   }

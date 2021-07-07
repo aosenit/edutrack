@@ -42,9 +42,9 @@ export class AttendanceComponent implements OnInit {
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.classList = data.payload;
-        console.log(this.classList);
+        // (this.classList);
       }
     }
     );
@@ -52,37 +52,37 @@ export class AttendanceComponent implements OnInit {
 
   getSubjects(id) {
 
-    console.log('class id ', id);
+    // ('class id ', id);
     this.Classid = id;
     sessionStorage.setItem('class-id', this.Classid);
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
-        // console.log(this.subjectList.subject);
+        // // (this.subjectList.subject);
       }
     }
     );
 
     this.classService.getClassById(id).subscribe((data: any) => {
       this.className = data.payload;
-      console.log('Class Name', this.className.name);
+      // ('Class Name', this.className.name);
     });
 
     // this.resultService.getStudentandAssement(1).subscribe((data: any) => {
-    //   console.log('wahala', data);
+    //   // ('wahala', data);
     // });
 
   }
 
   getSubjectsId(id) {
-    console.log('Subject ID here', id);
+    // ('Subject ID here', id);
     this.Subjectid = id;
     this.noClass = false;
     this.displayClass = true;
 
     this.attendanceService.getClassAttendanceForTeacher(this.Classid).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
       }
     });
   }

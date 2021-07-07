@@ -10,7 +10,7 @@ export class NewClientComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('dsdds');
+    // ('dsdds');
   }
  
 

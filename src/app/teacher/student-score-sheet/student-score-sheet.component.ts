@@ -117,25 +117,25 @@ export class StudentScoreSheetComponent implements OnInit {
   getClassAndSubjectForTeacher() {
     this.classService.getClassById(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.classList = data.payload;
-        // console.log(this.classList);
+        // // (this.classList);
       }
     }
     );
   }
 
   getStudentList() {
-    // console.log(this.classList[event]);
+    // // (this.classList[event]);
     // this.selectedClassId = this.classList[event].classId;
     // this.selectedClass = this.classList[event].class;
     // tslint:disable-next-line:prefer-for-of
 
     this.classService.getStudentsInAClassByClassID(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.studentList = data.payload;
-        // console.log(this.classList);
+        // // (this.classList);
       }
     });
 
@@ -159,10 +159,10 @@ export class StudentScoreSheetComponent implements OnInit {
     this.selectedStudent = this.studentList[i];
     this.resultService.getStudentBroadSheet(this.selectedStudent.id, this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.studentRecord = data.payload.breakdowns;
         this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-        // console.log(this.assessments);
+        // // (this.assessments);
         this.noData = false;
         this.displayData = true;
         this.getTotalSubjectInAClass();
@@ -176,7 +176,7 @@ export class StudentScoreSheetComponent implements OnInit {
 
   getTotalSubjectInAClass() {
     this.classService.getAllSubjectsInAClassByClassID(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
-      console.log(data.payload);
+      // (data.payload);
       if (data.hasErrors === false ) {
         this.totalSubjectCount = data.payload.length;
       }
@@ -186,10 +186,10 @@ export class StudentScoreSheetComponent implements OnInit {
   //   const classId = sessionStorage.getItem('class-id');
   //   this.resultService.getStudentBroadSheet(this.studId, classId).subscribe((data: any) => {
   //     if (data.hasErrors === false) {
-  //       console.log(data);
+  //       // (data);
   //       this.studentRecord = data.payload.breakdowns;
   //       this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-  //       console.log(this.assessments);
+  //       // (this.assessments);
   //     }
   //   }, error => {
   //     this.notifyService.publishMessages(error.errors, 'success', 1);
@@ -207,7 +207,7 @@ export class StudentScoreSheetComponent implements OnInit {
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log('All school grade', data.payload);
+        // // ('All school grade', data.payload);
         this.gradeSetup = data.payload;
       }
     });
@@ -227,7 +227,7 @@ export class StudentScoreSheetComponent implements OnInit {
 
   close(i) {
     $(`#dropdownMenuLink${i}`).removeClass('show-pop');
-    console.log(this.cognitiveForm.value);
+    // (this.cognitiveForm.value);
     if (this.cognitive[i].name === this.name) {
       this.cognitive[i].value = this.cognitiveValue;
       this.cognitive[i].value = this.cognitiveValue;
@@ -246,7 +246,7 @@ export class StudentScoreSheetComponent implements OnInit {
         grade: this.cognitive[2].value
       }
     ];
-    console.log(this.CongitiveBehaviour);
+    // (this.CongitiveBehaviour);
   }
 
 
@@ -264,7 +264,7 @@ export class StudentScoreSheetComponent implements OnInit {
 
   closeFeeling(feel) {
     $(`#dropdownMenuLink2${feel}`).removeClass('show-pop');
-    console.log(this.affectiveForm.value);
+    // (this.affectiveForm.value);
     if (this.affective[feel].name === this.nameFeeling) {
       this.affective[feel].value = this.feelingValue;
     }
@@ -290,7 +290,7 @@ export class StudentScoreSheetComponent implements OnInit {
         grade: this.affective[4].value
       },
     ];
-    console.log(this.AffectiveBehaviour);
+    // (this.AffectiveBehaviour);
   }
 
 
@@ -308,7 +308,7 @@ export class StudentScoreSheetComponent implements OnInit {
 
   closePsychomotor(psycho) {
     $(`#dropdownMenuLink3${psycho}`).removeClass('show-pop');
-    console.log(this.psychomotorForm.value);
+    // (this.psychomotorForm.value);
     if (this.Psycomotor[psycho].name === this.kineticeName) {
       this.Psycomotor[psycho].value = this.psychoValue;
     }
@@ -334,7 +334,7 @@ export class StudentScoreSheetComponent implements OnInit {
         grade: this.Psycomotor[4].value
       }
     ];
-    console.log(this.PyschomotorBehaviour);
+    // (this.PyschomotorBehaviour);
   }
 
 
@@ -360,7 +360,7 @@ export class StudentScoreSheetComponent implements OnInit {
 
     this.assessmentService.submitStudentResultForApproval(studentResult).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.teacherComment.comment = '';
         this.notifyService.publishMessages('Result submmmited successfully', 'success', 1);
         location.reload();
@@ -385,11 +385,11 @@ export class StudentScoreSheetComponent implements OnInit {
       resultTypeAndValues: resultTypeAndValue
     };
 
-    console.log(result);
+    // (result);
     // Submit student result if student behviour is submitted
     this.resultService.createStudentBehaviour(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('behaviour', data.payload);
+        // ('behaviour', data.payload);
         this.SubmitStudentResults();
       } else {
         this.notifyService.publishMessages(data.payload, 'danger', 1);

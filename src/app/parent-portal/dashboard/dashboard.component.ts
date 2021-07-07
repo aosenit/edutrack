@@ -80,7 +80,7 @@ export class DashboardComponent implements OnInit  {
     { id: 3, day: 'Thur' },
     { id: 4, day: 'Fri' },
     ];
-    console.log('dasy', this.days);
+    // ('dasy', this.days);
 
     const day = new Date();
     this.today = day.getDay();
@@ -89,7 +89,7 @@ export class DashboardComponent implements OnInit  {
   getChildInSelectedSchool() {
     this.parentService.getChildInASchoolForParent().subscribe((data: any) => {
       if (data.hasErrors === false ) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.childrenList = data.payload;
       }
     });
@@ -103,7 +103,7 @@ export class DashboardComponent implements OnInit  {
     sessionStorage.setItem('ward', JSON.stringify(this.childrenList[u]));
     this.wardDetail = JSON.parse(sessionStorage.getItem('ward'));
 
-    // console.log(id);
+    // // (id);
       // const classId = 22;
     const weekday = [
         { id: 0, day: 'Monday' },
@@ -117,10 +117,10 @@ export class DashboardComponent implements OnInit  {
     this.parentService.getAllClassesForClassByDay(this.selectedWard.classID, day).subscribe((data: any) => {
         if (data.hasErrors === false) {
           this.subjectAndTime = data.payload;
-          // console.log('dsds', this.subjectAndTime);
+          // // ('dsds', this.subjectAndTime);
         }
       }, error => {
-        // console.log(error);
+        // // (error);
       });
 
     this.getAllSubjects();
@@ -136,11 +136,11 @@ export class DashboardComponent implements OnInit  {
     this.parentService.getAllClassesForClassByDay(this.selectedWard.classID, id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
-        console.log(this.subjectAndTime);
+        // (this.subjectAndTime);
 
       }
     }, error => {
-      // console.log(error);
+      // // (error);
     });
   }
 
@@ -159,11 +159,11 @@ export class DashboardComponent implements OnInit  {
     this.parentService.getAllClassesForClassByDay(this.selectedWard.classID, day).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
-        // console.log('dsds', this.subjectAndTime);
+        // // ('dsds', this.subjectAndTime);
 
       }
     }, error => {
-      // console.log(error);
+      // // (error);
     });
   }
 
@@ -171,12 +171,12 @@ export class DashboardComponent implements OnInit  {
     // const classId = 25;
     this.parentService.getAllSubjectsInAClassWithAssignmentCountByClassID(this.wardDetail.classID).subscribe((data: any) => {
       if (data.hasErrors === false ) {
-        console.log(data);
+        // (data);
         const subjectList = data.payload;
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < subjectList.length; i++) {
           this.assignmentCount += subjectList[i].assignmentCount;
-          console.log(this.assignmentCount);
+          // (this.assignmentCount);
         }
       }
     });
@@ -185,21 +185,21 @@ export class DashboardComponent implements OnInit  {
   getSubjectAttendance() {
     this.parentService.getSubjectAttendance(this.wardDetail.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.attendanceList = data.payload;
         const newData = {};
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.attendanceList.length; i++) {
           const {subjectName, noOfTimesAttended } = this.attendanceList[i];
-          console.log(subjectName, noOfTimesAttended);
+          // (subjectName, noOfTimesAttended);
           newData[subjectName] = noOfTimesAttended;
-          console.log('new Data', newData);
+          // ('new Data', newData);
           this.dashboardDatas = Object.values(newData);
           this.dashboardDataKeys = Object.keys(newData);
           this.createLineChart(this.dashboardDatas);
         }
-        // console.log(this.attendanceList);
-        // console.log(this.dashboardDatas);
+        // // (this.attendanceList);
+        // // (this.dashboardDatas);
 
 
       }

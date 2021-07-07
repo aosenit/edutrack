@@ -39,7 +39,7 @@ export class EmailVerifiedComponent implements OnInit {
   veryifyUserEmail() {
     this.authService.verifyUserEmail(this.userId, this.userCode).subscribe((data: any) => {
       if (data.hasErrors === false ) {
-        // console.log('emial verification good', data.payload);
+        // // ('emial verification good', data.payload);
         // this.messageDescription = data.description;
         sessionStorage.setItem('tk', data.payload);
         this.successMessage = true;
@@ -48,7 +48,7 @@ export class EmailVerifiedComponent implements OnInit {
           this.router.navigateByUrl('/reset-password');
         }, 2000);
       } else {
-        console.log(data);
+        // (data);
       }
     }, error => {
       this.notifyService.publishMessages(error.message, 'danger', 1);

@@ -33,7 +33,7 @@ export class MediaComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
-    console.log('page id', this.id);
+    // // ('page id', this.id);
     this.route.params.subscribe((param: Params) => {
       if (!param.id) {
         this.createMediaForm();
@@ -89,24 +89,24 @@ export class MediaComponent implements OnInit {
     if (this.formBtn.type === 'create') {
       this.schoolServies.addSchool(result).subscribe( (data: any) => {
         if ( data ) {
-            console.log('school create successfully', data);
+            // // ('school create successfully', data);
             this.notifyService.publishMessages(data.description, 'info', 1);
             sessionStorage.removeItem('profile-info');
             sessionStorage.removeItem('school-details');
             sessionStorage.removeItem('contact-person');
             this.router.navigateByUrl('/admin/clients');
         } else {
-          console.log(data);
+          // // (data);
         }
       }, error => {
-        console.log(error);
+        // // (error);
         this.notifyService.publishMessages(error, 'danger', 1);
 
       });
     } else {
       this.schoolServies.updateSchool(this.id, result).subscribe( (data: any) => {
         if ( data.hasErrors === false ) {
-            console.log('school edited successfully', data);
+            // // ('school edited successfully', data);
             this.notifyService.publishMessages(data.description, 'info', 1);
             sessionStorage.removeItem('profile-info');
             sessionStorage.removeItem('school-details');
@@ -125,7 +125,7 @@ export class MediaComponent implements OnInit {
 handleImgUpload(event: any) {
   if (event.target.files.length > 0) {
     const file = event.target.files[0];
-    console.log('file', file);
+    // // ('file', file);
     // this.iconname = this.icon.name;
     const size = event.target.files[0].size;
     if (size >=  1048576 ) {
@@ -142,7 +142,7 @@ handleImgUpload(event: any) {
 handleIconUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      // console.log('file', file);
+      // // ('file', file);
       const size = event.target.files[0].size;
       if (size >=  1048576 ) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
@@ -158,16 +158,16 @@ handleIconUpload(event: any) {
   // handleIconUpload(event: any) {
   //   if (event.target.files.length > 0) {
   //     const file = event.target.files[0];
-  //     // console.log('file', file);
+  //     // // ('file', file);
   //     this.iconname = file.name;
   //     this.mediaForm.get('icon').setValue(file);
-  //     console.log('init doc ', this.DocumentTypes);
+  //     // ('init doc ', this.DocumentTypes);
   //     const size = event.target.files[0].size;
   //     if (size >=  1048576 ) {
   //       this.notifyService.publishMessages('File size too large', 'danger', 1);
   //     } else {
   //       this.DocumentTypes.push(1);
-  //       console.log(this.DocumentTypes);
+  //       // (this.DocumentTypes);
 
   //     }
   //     if (this.DocumentTypes.length > 1) {
@@ -179,7 +179,7 @@ handleIconUpload(event: any) {
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('client-info'));
-    console.log('na the paylod', payload);
+    // // ('na the paylod', payload);
     // this.populateEditProfileForm(payload);
     this.mediaForm.patchValue({
       PrimaryColor: payload.primaryColor,

@@ -73,15 +73,15 @@ wardRecord = false;
     this.parentService.getSchoolSessions().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.sessionList = data.payload;
-        // console.log(this.terms);
+        // // (this.terms);
       }
     });
   }
 
   getTerms(i) {
-    console.log(this.sessionList[i]);
+    // (this.sessionList[i]);
     this.sessionId = this.sessionList[i].id;
-    // console.log(this.sessionId);
+    // // (this.sessionId);
     this.termList = this.sessionList[i].terms;
   }
 
@@ -95,16 +95,16 @@ wardRecord = false;
 
 
   getSubjects(event) {
-    console.log(this.classList[event]);
+    // (this.classList[event]);
     this.selectedClassId = this.classList[event].classId;
     this.selectedClass = this.classList[event].class;
     // tslint:disable-next-line:prefer-for-of
 
     this.classService.getStudentsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.studentList = data.payload;
-        // console.log(this.classList);
+        // // (this.classList);
       }
     });
 
@@ -113,7 +113,7 @@ wardRecord = false;
   generateGradeSetup() {
     this.parentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log('All school grade', data.payload);
+        // // ('All school grade', data.payload);
         this.gradeSetup = data.payload;
       }
     });
@@ -138,7 +138,7 @@ wardRecord = false;
   selectedTerm(event) {
    this.termName = this.terms[event];
    this.sessionsId = this.terms[event].id;
-  //  console.log(this.sessionId);
+  //  // (this.sessionId);
    this.selectedTermId = this.terms[event].sequenceNumber;
   }
 
@@ -146,17 +146,17 @@ wardRecord = false;
     // this.selectedStudent = this.studentList[i];
     // this.selectedStudentID = this.studentList[i].id;
     // tslint:disable-next-line:max-line-length
-    // console.log(this.sessionId);
+    // // (this.sessionId);
     // tslint:disable-next-line:max-line-length
     this.parentService.getStudentBehviour(this.sessionId, this.selectedTermId, this.wardDetails.classID, this.wardDetails.id  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
-      //  console.log(data.payload);
+      //  // (data.payload);
        this.studentBehaviour = data.payload.resultTypeAndValues;
        this.getApprovedStudentResults();
        this.generateGradeSetup();
       //  this.studentRecord = data.payload.breakdowns;
       //  this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-      //  console.log(this.assessments);
+      //  // (this.assessments);
      }
    }, error => {
      this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -173,7 +173,7 @@ wardRecord = false;
       this.noData = false;
       this.reportSheetDetails = data.payload;
       this.studentRecord = data.payload.breakdowns;
-      // console.log('student record', this.studentRecord);
+      // // ('student record', this.studentRecord);
       this.subjectoffered = data.payload.subjectOffered;
       // this.studentName = data.payload.studentName;
       this.getAllSubjectsInAClasses();
@@ -183,7 +183,7 @@ wardRecord = false;
       this.getAllAssessments();
       this.assessments = data.payload.breakdowns[0].assesmentAndScores;
 
-      // console.log(this.assessments);
+      // // (this.assessments);
     } else {
 
       this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -198,7 +198,7 @@ wardRecord = false;
    this.parentService.getAllSubjectsInAClassByClassID(this.wardDetails.classID).subscribe((data: any) => {
      if (data.hasErrors === false) {
        const classSubjectCount: any = data.payload;
-      //  console.log(classSubjectCount.length);
+      //  // (classSubjectCount.length);
        this.classSubjectCount = classSubjectCount.length;
      }
     });
@@ -209,12 +209,12 @@ wardRecord = false;
     if (data.hasErrors === false) {
       const result: any =  data.payload;
       const caArray = [];
-      // console.log(this.subjectoffered);
+      // // (this.subjectoffered);
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < result.length; i++) {
-        // console.log(result[i].maxScore);
+        // // (result[i].maxScore);
         if (result[i].name.toLowerCase().includes('xam') || result[i].isExam === true) {
-          // console.log('yes');
+          // // ('yes');
           this.totalExam = result[i].maxScore * this.subjectoffered;
         } else {
           caArray.push(result[i].maxScore * this.subjectoffered);
@@ -250,7 +250,7 @@ calculateTotalScoreObtained(data) {
 getPercentage() {
 
   this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
-  // console.log('percentage', this.classPercentage);
+  // // ('percentage', this.classPercentage);
 
 }
 
@@ -266,10 +266,10 @@ getStatus() {
 
 getTotalSchoolScoreForClass() {
   this.totalSchoolScore = this.totalCA + this.totalExam;
-  // console.log(this.totalSchoolScore);
+  // // (this.totalSchoolScore);
 
   this.getTotalExamScore( );
-  // console.log('ll scores', this.totalSchoolScore);
+  // // ('ll scores', this.totalSchoolScore);
 
 }
 
@@ -285,16 +285,16 @@ getTotalExamScore() {
     const iDonTire: any = data[i].assesmentAndScores;
     // tslint:disable-next-line:prefer-for-of
     for (let j = 0; j < iDonTire.length; j++) {
-    //  console.log(iDonTire[j]);
+    //  // (iDonTire[j]);
      if (iDonTire[j].assessmentName.toLowerCase().includes('xam') || iDonTire[j].isExam === true) {
-      // console.log('yes');
+      // // ('yes');
       examArray.push(iDonTire[j].studentScore);
       this.totalExamScoreObtained = examArray.reduce((a, b) => a + b, 0);
-      // console.log(examArray);
+      // // (examArray);
     } else {
       caArray.push(iDonTire[j].studentScore);
       this.totalCAScoreObtained = caArray.reduce((a, b) => a + b, 0);
-      // console.log(caArray);
+      // // (caArray);
 
     }
     }
@@ -308,7 +308,7 @@ printCard() {
   newStyle.setAttribute('type', 'text/css');
   newStyle.setAttribute('media', 'print');
   newStyle.append(prtContent);
-  console.log(prtContent);
+  // (prtContent);
   const WinPrint = window.open('', '');
   WinPrint.document.write(newStyle.innerHTML);
   WinPrint.document.close();
@@ -354,13 +354,13 @@ getSchoolDetialsByID() {
  getStaffSignatureForReportCard() {
   this.parentService.getStaffSignature(this.reportSheetDetails.headTeacherId).subscribe((data: any) => {
     if (data.hasErrors === false) {
-      console.log(data.payload);
+      // (data.payload);
       this.HeadTeacherDetails = data.payload;
     }
   });
   this.parentService.getStaffSignature(this.reportSheetDetails.classTeacherId).subscribe((data: any) => {
     if (data.hasErrors === false) {
-      console.log(data.payload);
+      // (data.payload);
       this.classTeacherDetials = data.payload;
     }
   });

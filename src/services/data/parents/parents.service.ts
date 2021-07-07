@@ -106,7 +106,7 @@ export class ParentsService {
 
   getAllParentsInASchool(p, perpage) {
     const url = `${this.baseUrl + routes.getallparentinASchool}?PageIndex=${p}&PageSize=${perpage}`;
-    console.log(url);
+    
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
   getAllParentsWithName() {
@@ -118,7 +118,7 @@ export class ParentsService {
   getParentById(id) {
 
     const url = `${this.baseUrl + routes.getparentbyid}/${id}`;
-    console.log(url);
+    
     return this.http.get(url,   {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
@@ -189,7 +189,7 @@ export class ParentsService {
     // const id = sessionStorage.getItem('tenant');
     // const tenantId = id;
     const url = `${this.baseUrl + routes.getTableforClassByClassId}?classId=${classId}`;
-    console.log(url);
+    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
@@ -213,7 +213,7 @@ export class ParentsService {
     // const id = sessionStorage.getItem('tenant');
     // const tenantId = id;
     const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classId=${classId}`;
-    console.log(url);
+    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
@@ -221,7 +221,7 @@ export class ParentsService {
     // const id = sessionStorage.getItem('tenant');
     // const tenantId = id;
     const url = `${this.baseUrl + routes.getAssignmentByClassSubject}?classSubjectId=${classSubjectId}`;
-    console.log(url);
+    
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 

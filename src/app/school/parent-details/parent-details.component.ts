@@ -17,7 +17,7 @@ parentDetails: any;
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
-    console.log(this.id);
+    // (this.id);
     this.getParentDetailsByID();
   }
 
@@ -28,10 +28,10 @@ parentDetails: any;
 
   getParentDetailsByID() {
     this.parentService.getParentById(this.id).subscribe((data: any) => {
-      console.log(data);
+      // (data);
       if (data.hasErrors === false) {
         this.parentDetails = data.payload;
-        console.log('assas', this.parentDetails);
+        // ('assas', this.parentDetails);
       }
     });
   }

@@ -78,7 +78,7 @@ export class ContactDetailsComponent implements OnInit {
     this.contactDetails = JSON.parse( sessionStorage.getItem('Student-contact-details'));
 
     if (sessionStorage.getItem('Student-contact-details') !== null) {
-      // console.log(`Student Contact details exists`);
+      // // (`Student Contact details exists`);
       for (const unit in countries) {
         if (this.contactDetails.ContactCountry === countries[unit].country) {
           const state = countries[unit].states;
@@ -94,7 +94,7 @@ export class ContactDetailsComponent implements OnInit {
       ContactState: this.contactDetails.ContactState,
       });
     } else {
-      console.log(`School contact details not found`);
+      // (`School contact details not found`);
     }
   }
 

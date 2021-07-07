@@ -88,7 +88,7 @@ export class SocialDetailsComponent implements OnInit {
     this.classService.getClassBySection(id).subscribe(
       (res: any) => {
         this.classes = res.payload;
-        console.log(this.classes);
+        // (this.classes);
       }
     );
   }
@@ -98,7 +98,7 @@ export class SocialDetailsComponent implements OnInit {
     this.socialDetails = JSON.parse( sessionStorage.getItem('student-social-details'));
 
     if (sessionStorage.getItem('student-social-details') !== null) {
-      console.log(`Student social details exists`);
+      // (`Student social details exists`);
       this.socialDetailsForm.patchValue({
         EntryType: this.socialDetails.EntryType,
       AdmissionDate: moment(this.socialDetails.admissionDate).format('YYYY-MM-DD'),
@@ -107,13 +107,13 @@ export class SocialDetailsComponent implements OnInit {
       studentType: this.socialDetails.StudentType,
       });
     } else {
-      console.log(`Student social details not found`);
+      // (`Student social details not found`);
     }
   }
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('all-student-info'));
-    console.log('na the paylod', payload);
+    // ('na the paylod', payload);
     this.socialDetailsForm.patchValue({
       EntryType: payload.EntryType,
     AdmissionDate: moment(payload.admissionDate).format('YYYY-MM-DD'),

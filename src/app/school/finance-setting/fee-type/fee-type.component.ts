@@ -64,7 +64,7 @@ export class FeeTypeComponent implements OnInit {
 
     this.finance.createFeeGroup(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.notifyService.publishMessages('Fee Group created successfully', 'success', 1);
         document.getElementById('CloseFeeGroupModal').click();
         this.feeGroupForm.reset();
@@ -78,10 +78,10 @@ export class FeeTypeComponent implements OnInit {
 
 
   getPage(page: number) {
-    // console.log(page);
+    // // (page);
     // this.parentService.getAllParents(page, this.itemsPerPage).subscribe((data: any) => {
     //   if (data.hasErrors === false) {
-    //     console.log(data);
+    //     // (data);
     //     this.parentList = data.payload;
     //     this.parentCount = data.totalCount;
     //   }
@@ -130,7 +130,7 @@ export class FeeTypeComponent implements OnInit {
 
     this.finance.UpdateFeeGroupByID(this.selectedFeeID, result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.notifyService.publishMessages('Fee Group updated successfully', 'success', 1);
         document.getElementById('CloseEditFeeGroupModal').click();
         this.EditfeeGroupForm.reset();

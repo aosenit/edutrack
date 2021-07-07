@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomenavbarComponent implements OnInit {
   subdomain: string;
-  hideAdminLogin = true;
+  displayAdminLogin = true;
   displayOtherLogin = true;
 
   constructor() { }
@@ -29,15 +29,17 @@ export class HomenavbarComponent implements OnInit {
 
   getSubdomain() {
     const domain = window.location.hostname;
+    // // (domain)
     if (domain.indexOf('.') < 0 ||
       domain.split('.')[0] === 'example' || domain.split('.')[0] === 'lvh' || domain.split('.')[0] === 'www') {
       this.subdomain = '';
-      this.hideAdminLogin = true;
+      this.displayAdminLogin = true;
       this.displayOtherLogin = false;
     } else {
       this.subdomain = domain.split('.')[0];
+      // // (this.subdomain)
       localStorage.setItem('sub-domain', this.subdomain);
-      this.hideAdminLogin = false;
+      this.displayAdminLogin = false;
       this.displayOtherLogin = true;
     }
    }

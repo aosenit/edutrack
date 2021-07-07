@@ -142,13 +142,13 @@ export class BillingComponent implements OnInit, OnDestroy {
       if (data.hasErrors === false) {
         const sessionList: any = data.payload;
         this.termList = this.sessionList.terms;
-        // console.log(this.terms);
+        // // (this.terms);
       }
     });
   }
 
   getTerms(i) {
-    console.log(this.sessionList[i]);
+    // (this.sessionList[i]);
     this.sessionId = this.sessionList[i].id;
     this.termList = this.sessionList[i].terms;
   }
@@ -159,7 +159,7 @@ export class BillingComponent implements OnInit, OnDestroy {
     .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.sessionList = data.payload;
-        // console.log(this.terms);
+        // // (this.terms);
       }
     });
   }
@@ -201,7 +201,7 @@ export class BillingComponent implements OnInit, OnDestroy {
   }
 
   generateInvoice() {
-    console.log(this.invoiceForm.value);
+    // (this.invoiceForm.value);
     const { ClassId, FeegroupId, session, term, paymentDate } = this.invoiceForm.value;
     const result = {
       classId: parseInt(ClassId),
@@ -211,7 +211,7 @@ export class BillingComponent implements OnInit, OnDestroy {
       paymentDate
 
     };
-    console.log(result);
+    // (result);
     this.finance.generteInvoices(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Successful', 'success', 1);
@@ -232,7 +232,7 @@ export class BillingComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.invoiceList = data.payload;
         this.invoiceCount = data.totalCount;
         // this.getAllComponent();
@@ -243,14 +243,14 @@ export class BillingComponent implements OnInit, OnDestroy {
   }
 
   getPage(page: number) {
-    console.log(page);
+    // (page);
     this.finance.getAllCretedInvoicesWithPagination(page, this.itemsPerPage)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.invoiceList = data.payload;
         // // this.studentList = data.payload.reverse();
-        // console.log(this.studentList);
+        // // (this.studentList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -284,15 +284,15 @@ export class BillingComponent implements OnInit, OnDestroy {
   }
 
   removeFromBulkList(event, id) {
-    console.log(id);
+    // (id);
     if (event.target.checked === false) {
-      console.log(this.bulkInvoiceList[id]);
+      // (this.bulkInvoiceList[id]);
       const index = this.bulkInvoiceList.indexOf(id);
-      console.log(index);
+      // (index);
       if (index > -1) {
         this.bulkInvoiceList.splice(index, 1);
       }
-      // console.log(this.bulkInvoiceList);
+      // // (this.bulkInvoiceList);
     }
   }
 
@@ -302,7 +302,7 @@ export class BillingComponent implements OnInit, OnDestroy {
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         // this.getAllComponent();
       }
     }, error => {
@@ -315,7 +315,7 @@ export class BillingComponent implements OnInit, OnDestroy {
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.studentInvoicePreview = data.payload;
         this.invData = this.studentInvoicePreview.invoiceItems;
         // tslint:disable-next-line:prefer-for-of
@@ -335,7 +335,7 @@ export class BillingComponent implements OnInit, OnDestroy {
     .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPaymentList = data.payload;
-        //  console.log(data.payload);
+        //  // (data.payload);
         // this.getAllComponent();
       }
     }, error => {
@@ -350,7 +350,7 @@ export class BillingComponent implements OnInit, OnDestroy {
     .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPaymentHistoryList = data.payload;
-        // console.log(data.payload);
+        // // (data.payload);
         // this.getAllComponent();
       }
     }, error => {
@@ -365,7 +365,7 @@ export class BillingComponent implements OnInit, OnDestroy {
     .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPendingPaymentHistory = data.payload;
-        // console.log(data.payload);
+        // // (data.payload);
         // this.getAllComponent();
       }
     }, error => {
@@ -379,7 +379,7 @@ export class BillingComponent implements OnInit, OnDestroy {
     .subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPendingPaymentList = data.payload;
-        // console.log(data.payload);
+        // // (data.payload);
         // this.getAllComponent();
       }
     }, error => {
@@ -394,7 +394,7 @@ export class BillingComponent implements OnInit, OnDestroy {
       if (data.hasErrors === false) {
         // this.allPendingPaymentList = data.payload;
         this.TransactionId = data.payload.transactionId;
-        // console.log(data.payload);
+        // // (data.payload);
         this.acceptRejectForm.patchValue({
           transactionId: data.payload.transactionNumber,
           invoice: data.payload.invoiceNumber,
@@ -463,7 +463,7 @@ export class BillingComponent implements OnInit, OnDestroy {
     this.reject = true;
     this.approve = false;
     this.reject2 = true;
-    console.log(status);
+    // (status);
   }
 
   sendRejection() {
@@ -473,7 +473,7 @@ export class BillingComponent implements OnInit, OnDestroy {
       approve: false,
       comment: Comment
     };
-    console.log(result);
+    // (result);
     this.finance.ApproveRejectTransactionReceipt(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Payment rejected', 'success', 1);
@@ -494,7 +494,7 @@ export class BillingComponent implements OnInit, OnDestroy {
       approve: true,
       comment: ''
     };
-    console.log(result);
+    // (result);
     this.finance.ApproveRejectTransactionReceipt(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Payment confirmed', 'success', 1);
@@ -513,7 +513,7 @@ export class BillingComponent implements OnInit, OnDestroy {
   //   this.finance.getPendingInvoicePayment().subscribe((data: any) => {
   //     if (data.hasErrors === false) {
   //       this.pendingInvoicesList = data.payload;
-  //   //  console.log(data.payload);
+  //   //  // (data.payload);
   //     // this.getAllComponent();
   //     }
   // }, error => {

@@ -29,7 +29,7 @@ employeeDetails: any;
     this.staffService.getStaffById(this.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.employeeDetails = data.payload;
-        console.log('asasasasas', this.employeeDetails);
+        // ('asasasasas', this.employeeDetails);
       }
     });
   }

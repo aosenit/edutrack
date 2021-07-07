@@ -69,7 +69,7 @@ export class PersonalInformationComponent implements OnInit {
   // handleIconUpload(event: any) {
   //   if (event.target.files.length > 0) {
   //     const file = event.target.files[0];
-  //     console.log('file', file);
+  //     // ('file', file);
   //     this.iconname = file.name;
   //     // this.profileForm.get('icon').setValue(file);
   //     // this.iconname = this.icon.name;
@@ -78,7 +78,7 @@ export class PersonalInformationComponent implements OnInit {
 
 
   submitPersonalDetails() {
-    console.log(this.personalDetailsForm.value);
+    // (this.personalDetailsForm.value);
     sessionStorage.setItem('employee-personal-data', JSON.stringify(this.personalDetailsForm.value));
   }
 
@@ -107,7 +107,7 @@ export class PersonalInformationComponent implements OnInit {
     this.personalDetails = JSON.parse( sessionStorage.getItem('employee-personal-data'));
 
     if (sessionStorage.getItem('employee-personal-data') !== null) {
-      // console.log(`School person exists`);
+      // // (`School person exists`);
       for (const unit in countries) {
         if (this.personalDetails.Nationality === countries[unit].country) {
           const state = countries[unit].states;
@@ -129,7 +129,7 @@ export class PersonalInformationComponent implements OnInit {
       IsActive: this.personalDetails.IsActive
       });
     } else {
-      console.log(`School person not found`);
+      // (`School person not found`);
     }
 
   }

@@ -54,7 +54,7 @@ export class ViewReportCardComponent implements OnInit {
 
   ngOnInit() {
     this.studentdata = this.route.snapshot.queryParams;
-    console.log(this.studentdata);
+    // (this.studentdata);
     const {classId, sessionId, studId, termSequenceNumber} = this.studentdata;
     this.selectedClassId = classId;
     this.sessionsId = sessionId,
@@ -73,25 +73,25 @@ export class ViewReportCardComponent implements OnInit {
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.classList = data.payload;
-        console.log(this.classList);
+        // (this.classList);
       }
     }
     );
   }
 
   getSubjects(event) {
-    console.log(this.classList[event]);
+    // (this.classList[event]);
     this.selectedClassId = this.classList[event].classId;
     this.selectedClass = this.classList[event].class;
     // tslint:disable-next-line:prefer-for-of
 
     this.classService.getStudentsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.studentList = data.payload;
-        console.log(this.classList);
+        // (this.classList);
       }
     });
 
@@ -100,7 +100,7 @@ export class ViewReportCardComponent implements OnInit {
   generateGradeSetup() {
     this.parent.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('All school grade', data.payload);
+        // ('All school grade', data.payload);
         this.gradeSetup = data.payload;
       }
     });
@@ -132,11 +132,11 @@ export class ViewReportCardComponent implements OnInit {
       // tslint:disable-next-line:max-line-length
     this.parent.getStudentBehviour(this.sessionsId, this.selectedTermId, this.selectedClassId, this.selectedStudentID  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
-       console.log(data.payload);
+       // (data.payload);
        this.studentBehaviour = data.payload.resultTypeAndValues;
       //  this.studentRecord = data.payload.breakdowns;
       //  this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-      //  console.log(this.assessments);
+      //  // (this.assessments);
      }
    }, error => {
      this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -149,7 +149,7 @@ export class ViewReportCardComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   this.parent.getApprovedStudentResult(this.selectedStudentID, this.selectedClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
     if (data.hasErrors === false) {
-      console.log(data.payload);
+      // (data.payload);
       this.reportSheetDetails = data.payload;
       this.studentRecord = data.payload.breakdowns;
       this.subjectoffered = data.payload.subjectOffered;
@@ -157,7 +157,7 @@ export class ViewReportCardComponent implements OnInit {
       this.getAllSubjectsInAClasses();
       this.assessments = data.payload.breakdowns[0].assesmentAndScores;
       this.getAllAssessments();
-      console.log(this.assessments);
+      // (this.assessments);
     } else {
 
       this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -172,7 +172,7 @@ export class ViewReportCardComponent implements OnInit {
    this.classService.getAllSubjectsInAClassByClassID(this.selectedClassId).subscribe((data: any) => {
      if (data.hasErrors === false) {
        const classSubjectCount: any = data.payload;
-       console.log(classSubjectCount.length);
+       // (classSubjectCount.length);
        this.classSubjectCount = classSubjectCount.length;
      }
     });
@@ -182,14 +182,14 @@ export class ViewReportCardComponent implements OnInit {
     if (data.hasErrors === false) {
       const result: any =  data.payload;
       const caArray = [];
-      // console.log(this.subjectoffered);
+      // // (this.subjectoffered);
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < result.length; i++) {
-        // console.log(result[i].maxScore);
+        // // (result[i].maxScore);
         if (result[i].name.toLowerCase().includes('xam') || result[i].isExam === true) {
-          // console.log('yes');
+          // // ('yes');
           this.totalExam = result[i].maxScore * this.subjectoffered;
-          console.log(this.totalExam);
+          // (this.totalExam);
         } else {
           caArray.push(result[i].maxScore * this.subjectoffered);
           this.totalCA = caArray.reduce((a, b) => a + b, 0);
@@ -224,7 +224,7 @@ calculateTotalScoreObtained(data) {
 getPercentage() {
 
   this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
-  // console.log('percentage', this.classPercentage);
+  // // ('percentage', this.classPercentage);
 
 }
 
@@ -240,10 +240,10 @@ getStatus() {
 
 getTotalSchoolScoreForClass() {
   this.totalSchoolScore = this.totalCA + this.totalExam;
-  // console.log(this.totalSchoolScore);
+  // // (this.totalSchoolScore);
 
   this.getTotalExamScore( );
-  // console.log('ll scores', this.totalSchoolScore);
+  // // ('ll scores', this.totalSchoolScore);
 
 }
 
@@ -259,16 +259,16 @@ getTotalExamScore() {
     const iDonTire: any = data[i].assesmentAndScores;
     // tslint:disable-next-line:prefer-for-of
     for (let j = 0; j < iDonTire.length; j++) {
-    //  console.log(iDonTire[j]);
+    //  // (iDonTire[j]);
      if (iDonTire[j].assessmentName.toLowerCase().includes('xam') || iDonTire[j].isExam === true) {
-      // console.log('yes');
+      // // ('yes');
       examArray.push(iDonTire[j].studentScore);
       this.totalExamScoreObtained = examArray.reduce((a, b) => a + b, 0);
-      // console.log(examArray);
+      // // (examArray);
     } else {
       caArray.push(iDonTire[j].studentScore);
       this.totalCAScoreObtained = caArray.reduce((a, b) => a + b, 0);
-      // console.log(caArray);
+      // // (caArray);
 
     }
     }

@@ -45,7 +45,7 @@ export class EmployeeDetailsComponent implements OnInit {
   nextStep() {
     this.home.stepper(3);
     sessionStorage.setItem('Employee-Data', JSON.stringify(this.employeeForm.value));
-    console.log(this.employeeForm.value);
+    // (this.employeeForm.value);
   }
 
   populateEmployeeDetailsForm() {
@@ -64,7 +64,7 @@ export class EmployeeDetailsComponent implements OnInit {
   getAllDepartments() {
     this.departmentService.getAllDepartment().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.departmentList = data.payload;
       }
     }, error => {
@@ -87,7 +87,7 @@ export class EmployeeDetailsComponent implements OnInit {
     this.empDetails = JSON.parse(sessionStorage.getItem('Employee-Data'));
 
     if (sessionStorage.getItem('Employee-Data') !== null) {
-      // console.log(`School person exists`);
+      // // (`School person exists`);
       this.employeeForm.patchValue({
         StaffType: this.empDetails.StaffType,
         EmploymentStatus: this.empDetails.EmploymentStatus,
@@ -106,7 +106,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
   getProfileInformation() {
     const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
-    console.log(payload.employeeDetails);
+    // (payload.employeeDetails);
     this.employeeForm.patchValue({
       StaffType: payload.employmentDetails.staffType,
       EmploymentStatus: payload.employmentDetails.employmentStatus,

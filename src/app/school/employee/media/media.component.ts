@@ -48,7 +48,7 @@ export class MediaComponent implements OnInit {
       signature: [null]
     });
     this.id = this.route.snapshot.params.id;
-    console.log('page id', this.id);
+    // ('page id', this.id);
     this.route.params.subscribe((param: Params) => {
       if (!param.id) {
         this.createMediaForm();
@@ -80,7 +80,7 @@ export class MediaComponent implements OnInit {
     const nextKin = JSON.parse(sessionStorage.getItem('employee-next-kin'));
     const experience = JSON.parse(sessionStorage.getItem('employee-experience'));
     const finalstep = this.mediaForm.value;
-    console.log(finalstep);
+    // (finalstep);
     const result = {
       ...profile,
       ...details,
@@ -92,11 +92,11 @@ export class MediaComponent implements OnInit {
       DocumentTypes: this.DocumentTypes
     };
     // const {StaffType} = details;
-    console.log(result.StaffType);
+    // (result.StaffType);
     // creating employer and teacher
     if (result.StaffType === '1') {
         this.teacherService.addTeacher(result).subscribe((data: any) => {
-          console.log('employee added', data);
+          // ('employee added', data);
           if (data.hasErrors === false) {
             this.notifyService.publishMessages(data.description, 'info', 1);
             sessionStorage.removeItem('employee-personal-data');
@@ -116,9 +116,9 @@ export class MediaComponent implements OnInit {
         });
 
     } else {
-        console.log('all employee data', result);
+        // ('all employee data', result);
         this.staffService.addStaff(result).subscribe((data: any) => {
-          console.log('employee added', data);
+          // ('employee added', data);
           if (data.hasErrors === false) {
             this.notifyService.publishMessages(data.description, 'info', 1);
             sessionStorage.removeItem('employee-personal-data');
@@ -149,7 +149,7 @@ export class MediaComponent implements OnInit {
     const nextKin = JSON.parse(sessionStorage.getItem('employee-next-kin'));
     const experience = JSON.parse(sessionStorage.getItem('employee-experience'));
     const finalstep = this.mediaForm.value;
-    console.log(finalstep);
+    // (finalstep);
     const result = {
       ...profile,
       ...details,
@@ -161,12 +161,12 @@ export class MediaComponent implements OnInit {
       DocumentTypes: this.DocumentTypes
     };
     // const {StaffType} = details;
-    console.log(result.StaffType);
+    // (result.StaffType);
     // creating employer and teacher
     if (result.StaffType == '1') {
 
         this.teacherService.updateTeacher(this.id, result).subscribe((data: any) => {
-          console.log('updating teacher added', data);
+          // ('updating teacher added', data);
           if (data.hasErrors === false) {
             this.notifyService.publishMessages(data.description, 'info', 1);
             sessionStorage.removeItem('employee-personal-data');
@@ -185,9 +185,9 @@ export class MediaComponent implements OnInit {
 
         });
       } else if (result.StaffType == '2') {
-        console.log('all employee data', result);
+        // ('all employee data', result);
         this.staffService.updateStaff(this.id, result).subscribe((data: any) => {
-          console.log('updating added', data);
+          // ('updating added', data);
           if (data.hasErrors === false) {
             this.notifyService.publishMessages(data.description, 'info', 1);
             sessionStorage.removeItem('employee-personal-data');
@@ -213,7 +213,7 @@ export class MediaComponent implements OnInit {
   handlePhotoUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log('file', file);
+      // ('file', file);
       this.profilephotoname = file.name;
       this.DocumentTypes[0] = 2;
 
@@ -225,7 +225,7 @@ export class MediaComponent implements OnInit {
         this.DocumentTypes[0] = 0;
       } else  {
         this.DocumentTypes[0] = 2;
-        console.log(this.DocumentTypes);
+        // (this.DocumentTypes);
       }
     }
   }
@@ -233,7 +233,7 @@ export class MediaComponent implements OnInit {
   handleSignatureUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log('file', file);
+      // ('file', file);
       this.signaturename = file.name;
       this.DocumentTypes[1] = 8;
 
@@ -244,7 +244,7 @@ export class MediaComponent implements OnInit {
         this.DocumentTypes[1] = 0;
       } else  {
         this.DocumentTypes[1] = 8;
-        console.log(this.DocumentTypes);
+        // (this.DocumentTypes);
       }
       // this.iconname = this.icon.name;
     }

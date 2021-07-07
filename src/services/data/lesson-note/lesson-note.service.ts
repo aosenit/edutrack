@@ -30,19 +30,19 @@ export class LessonNoteService {
 
   getLessonNotesByTeacher() {
     const url = `${this.baseUrl + routes.getlessonNoteByTeacher}`;
-    // console.log(url);
+    // 
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getSinglelessonNoteDetail(id: any) {
     const url = `${this.baseUrl + routes.getlessonNoteDetails}/?id=${id}`;
-    // console.log(url);
+    // 
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getlessonNoteFile(id: any) {
     const url = `${this.baseUrl + routes.getlessonNoteFiles}/?classSubjectId=${id}`;
-    console.log(url);
+    
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

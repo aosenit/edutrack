@@ -50,7 +50,7 @@ export class TimeTableComponent implements OnInit {
   }
 
   getClassBySectionId(id) {
-    console.log(id);
+    // (id);
     this.classService.getClassBySection(id).subscribe((data: any) => {
         if (data.hasErrors === false) {
           this.classes = data.payload;
@@ -65,13 +65,13 @@ export class TimeTableComponent implements OnInit {
   //   this.classService.getAllClasses().subscribe((data: any) => {
   //     if (data.hasErrors === false) {
   //       this.classes = data.payload;
-  //       console.log(this.classes);
+  //       // (this.classes);
   //     }
   //   });
   // }
 
   getSubjectsByClassId(id) {
-    console.log(id);
+    // (id);
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
@@ -83,7 +83,7 @@ export class TimeTableComponent implements OnInit {
     this.timeTableService.getTimeTableForClassWithQuery(id).subscribe((data: any) => {
       if (data.hasErrors === false ) {
         this.timeTableCells = data.payload;
-        console.log(this.timeTableCells);
+        // (this.timeTableCells);
         const tables = [];
 
         from(this.timeTableCells)
@@ -97,7 +97,7 @@ export class TimeTableComponent implements OnInit {
            tables.push(xy);
           });
         this.timeTable = tables;
-        console.log('time table', this.timeTable[0]);
+        // ('time table', this.timeTable[0]);
 
       }
     });
@@ -107,11 +107,11 @@ export class TimeTableComponent implements OnInit {
 
 
   getTeacherBySubjectId(id) {
-    console.log(id);
+    // (id);
     this.classService.getTeacherTeachingSubject(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.teachersList = data.payload;
-        console.log(data);
+        // (data);
       }
     }
     );
@@ -124,7 +124,7 @@ export class TimeTableComponent implements OnInit {
       if (data.hasErrors === false) {
         sessionStorage.setItem('periods', JSON.stringify(data.payload));
         this.periods = data.payload;
-        console.log(this.periods);
+        // (this.periods);
       }
     });
   }
@@ -140,8 +140,8 @@ export class TimeTableComponent implements OnInit {
   }
 
   getDay(id, periodid) {
-    console.log('id', id);
-    console.log('period', periodid);
+    // ('id', id);
+    // ('period', periodid);
     this.addCell.day = id;
     this.addCell.periodId = periodid;
     // this.hideImg = true;
@@ -151,7 +151,7 @@ export class TimeTableComponent implements OnInit {
   }
 
   addCellToTimeTable() {
-    console.log(this.addCell);
+    // (this.addCell);
     setTimeout(() => {
       document.getElementById('exampleModalCenterLevel').click();
     }, 1000);
@@ -172,10 +172,10 @@ export class TimeTableComponent implements OnInit {
       HasVirtual,
       // NoOfPeriod: 1
     };
-    console.log(result);
+    // (result);
     this.timeTableService.AddTimeTableCell(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         sessionStorage.setItem('table', JSON.stringify(data.payload));
         this.notifyService.publishMessages('Upload successfull', 'success', 1);
         location.reload();
@@ -193,7 +193,7 @@ export class TimeTableComponent implements OnInit {
 
   // deleteTableCell() {
   //   this.timeTableService.deleteTimeTableCell().subscribe((data: any) => {
-  //     console.log(data);
+  //     // (data);
   //   });
   // }
 

@@ -294,6 +294,13 @@ padding-bottom: 13px;
     }
 }
 
+/* ================= table ====================== */
+table.client-table {
+    border-collapse: separate;
+    border-spacing: 0 .5em !important;
+}
+
+
 /* ngpx-pagination styles */
 .ngx-pagination .disabled {
     padding: 0.1875rem 0.625rem;

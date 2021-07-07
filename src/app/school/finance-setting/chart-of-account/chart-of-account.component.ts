@@ -35,10 +35,10 @@ export class ChartOfAccountComponent implements OnInit {
   }
 
   getPage(page: number) {
-    // console.log(page);
+    // // (page);
     // this.parentService.getAllParents(page, this.itemsPerPage).subscribe((data: any) => {
     //   if (data.hasErrors === false) {
-    //     console.log(data);
+    //     // (data);
     //     this.parentList = data.payload;
     //     this.parentCount = data.totalCount;
     //   }

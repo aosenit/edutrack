@@ -97,7 +97,7 @@ export class ScoreSheetComponent implements OnInit {
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         const classList: any = data.payload;
         this.classList2 = data.payload;
         const newArr = [];
@@ -106,9 +106,9 @@ export class ScoreSheetComponent implements OnInit {
         for (let i = 0; i < classList.length; i++) {
           newArr.push(classList[i].class);
         }
-        // console.log(this.classList);
+        // // (this.classList);
         this.classList = Array.from(new Set(newArr));
-        console.log(this.classList);
+        // (this.classList);
       }
     }
     );
@@ -126,32 +126,32 @@ export class ScoreSheetComponent implements OnInit {
         selectedclass.push(this.classList2[i]);
       }
     }
-    console.log(selectedclass);
+    // (selectedclass);
     this.subjectList = selectedclass;
-    // console.log('class id ', id);
+    // // ('class id ', id);
     this.Classid = selectedClassId;
     sessionStorage.setItem('class-id', this.Classid);
     // this.classService.getAllSubjectsInAClassWithClassNotePreview(selectedClassId).subscribe((data: any) => {
     //   if (data.hasErrors === false) {
     //     this.subjectList = data.payload;
-    //     // console.log(this.subjectList.subject);
+    //     // // (this.subjectList.subject);
     //   }
     // }
     // );
 
     this.classService.getClassById(selectedClassId).subscribe((data: any) => {
       this.className = data.payload;
-      // console.log('Class Name', this.className.name);
+      // // ('Class Name', this.className.name);
     });
 
     // this.resultService.getStudentandAssement(1).subscribe((data: any) => {
-    //   console.log('wahala', data);
+    //   // ('wahala', data);
     // });
 
   }
 
   getSubjectsId(id) {
-    // console.log('Subject ID here', id);
+    // // ('Subject ID here', id);
     this.Subjectid = id;
     this.noClass = false;
     this.displayClass = true;
@@ -159,7 +159,7 @@ export class ScoreSheetComponent implements OnInit {
 
   generate() {
     this.resultService.generateReport(this.className.id, this.className.name).subscribe((data: any) => {
-      // console.log(data);
+      // // (data);
       if (data.hasErrors === false) {
         this.studentList = data.payload.students;
         this.assessmentList = data.payload.assessments;
@@ -167,13 +167,13 @@ export class ScoreSheetComponent implements OnInit {
         // tslint:disable-next-line:forin
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < newList.length; i++) {
-          // console.log(newList[i]);
+          // // (newList[i]);
           newList[i].assessments = this.assessmentList;
           this.newList = newList;
 
 
         }
-        //  console.log('assessment', this.assessmentList);
+        //  // ('assessment', this.assessmentList);
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
 
@@ -189,7 +189,7 @@ export class ScoreSheetComponent implements OnInit {
 
 
     this.resultService.generateExcel(this.className.id, this.className.name).subscribe((data: any) => {
-      // console.log(data);
+      // // (data);
       if (data.hasErrors === false) {
         this.fileString = data.payload;
         this.convertBase64ToExcel();
@@ -236,7 +236,7 @@ export class ScoreSheetComponent implements OnInit {
   handleBulkUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      // console.log(file);
+      // // (file);
       this.filename = file.name;
       this.bulkUpload.get('bulkFile').setValue(file);
       // this.DocumentTypes.push(0);
@@ -259,10 +259,10 @@ export class ScoreSheetComponent implements OnInit {
       ExcelFile
     };
 
-    console.log(result);
+    // (result);
 
     this.resultService.UploadExcelResult(result).subscribe((data: any) => {
-      // console.log('bulk file', data);
+      // // ('bulk file', data);
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result uploaded successfully', 'info', 1);
         document.getElementById('myModelClose').click();
@@ -282,20 +282,20 @@ export class ScoreSheetComponent implements OnInit {
 
 
   submitGrade(studentId, u) {
-    // console.log('u', u);
-    // console.log(studentId);
+    // // ('u', u);
+    // // (studentId);
     this.checkTableCellStatus();
 
     const check = this.newList[u];
-    // console.log(check);
+    // // (check);
     const { assessmentId, score } = this.addGradeForm.value;
-    // console.log('assessmentId', assessmentId);
-    // console.log('assessment score', score);
-    // console.log('checkId', check.id);
+    // // ('assessmentId', assessmentId);
+    // // ('assessment score', score);
+    // // ('checkId', check.id);
     // tslint:disable-next-line:triple-equals
     if (check.id == studentId  && score > this.AssessmentScore) {
       this.notifyService.publishMessages('Score cannot be greater than max score', 'danger', 1);
-      // console.log('ikoja aye');
+      // // ('ikoja aye');
       return;
     }
 
@@ -319,10 +319,10 @@ export class ScoreSheetComponent implements OnInit {
     let testScore = 0;
     // tslint:disable-next-line:forin
     for ( const key in newCumm) {
-      // console.log(newCumm[key]);
+      // // (newCumm[key]);
       if (typeof(newCumm[key]) === 'object') {
         testScore += newCumm[key].Score;
-        console.log(testScore);
+        // (testScore);
         this.scoreResult[studentId].cummulative = testScore;
 
       }
@@ -335,18 +335,18 @@ export class ScoreSheetComponent implements OnInit {
     //   alert('Cummulative score can exceed 100');
     //   this.scoreResult[studentId].cummulative = Number(prevCumulative) - Number(score);
     // }
-    // console.log(this.scoreResult);
-    // console.log('checking indiviidiaul' , this.scoreResult[studentId][this.AssessmentName].assessmentId);
+    // // (this.scoreResult);
+    // // ('checking indiviidiaul' , this.scoreResult[studentId][this.AssessmentName].assessmentId);
 
 
     const keyValue = (input) => Object.entries(input).forEach(([key, value]) => {
       const hold: any = value;
-      // console.log(hold);
+      // // (hold);
       if (this.scoreResult[studentId].cummulative >= hold.lowerBound) {
         this.scoreResult[studentId].gradeIntepretation = hold.interpretation;
         this.scoreResult[studentId].studentGrade = hold.grade;
         // tslint:disable-next-line:no-string-literal
-        console.log(key['interpretation'].interpretation);
+        // (key['interpretation'].interpretation);
       } else {
         return;
       }
@@ -390,7 +390,7 @@ export class ScoreSheetComponent implements OnInit {
     this.resultService.UploadAssessmentSetup(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result successfully published', 'success', 1);
-        console.log(data);
+        // (data);
         location.reload();
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -405,10 +405,10 @@ export class ScoreSheetComponent implements OnInit {
   getAssessmentName(event, u) {
     this.AssesmentId = this.assessmentList[event].id;
     this.AssessmentName = this.assessmentList[event].name;
-    // console.log(this.AssessmentName);
+    // // (this.AssessmentName);
     this.AssessmentSequence = this.assessmentList[event].sequenceNumber;
     this.AssessmentScore = this.assessmentList[event].maxScore;
-    // console.log('assessment score', this.AssessmentScore)
+    // // ('assessment score', this.AssessmentScore)
     $(`#dropdownMenuLink${u}`).addClass('show-pop');
 
   }
@@ -419,14 +419,14 @@ export class ScoreSheetComponent implements OnInit {
   }
 
   saveStudentDetails(u) {
-    console.log(this.studentList[u]);
+    // (this.studentList[u]);
     sessionStorage.setItem('student-details', JSON.stringify(this.studentList[u]));
   }
 
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log('All school grade', data.payload);
+        // // ('All school grade', data.payload);
         this.gradeSetup = data.payload;
       }
     });
@@ -436,14 +436,14 @@ export class ScoreSheetComponent implements OnInit {
   // displayStudentGradeInterpretation(studentId) {
   //   const keyValue = (input) => Object.entries(input).forEach(([key , value]) => {
   //     const hold: any = value;
-  //     // console.log('na me hold dem', value);
+  //     // // ('na me hold dem', value);
   //     if ( this.scoreResult[studentId].cummulative >= hold.lowerBound) {
-  //       console.log('matching key', key);
+  //       // ('matching key', key);
   //       // this.interpretation = key['interpretation'].interpretation;
   //       this.studentGrade = hold.grade;
   //       this.gradeIntepretation = hold.interpretation;
   //       // tslint:disable-next-line:no-string-literal
-  //       // console.log(key['interpretation'].interpretation);
+  //       // // (key['interpretation'].interpretation);
   //      }
 
   //   });
@@ -454,7 +454,7 @@ export class ScoreSheetComponent implements OnInit {
     const cellCheck = document.querySelectorAll('.scores');
 
     cellCheck.forEach((element: any) => {
-      console.log(element.innerText);
+      // (element.innerText);
       if (element.innerText === '') {
         this.hideBtn = false;
       } else {

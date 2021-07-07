@@ -54,7 +54,7 @@ export class CreateAssignmentComponent implements OnInit {
   //   this.subjectService.getAllSubjects().subscribe((data: any) => {
   //     if (data.hasErrors === false) {
   //       this.subjectList = data.payload;
-  //       console.log(this.subjectList);
+  //       // (this.subjectList);
   //     }
   //   });
   // }
@@ -62,7 +62,7 @@ export class CreateAssignmentComponent implements OnInit {
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         const classList: any = data.payload;
         this.classList2 = data.payload;
         const newArr = [];
@@ -71,9 +71,9 @@ export class CreateAssignmentComponent implements OnInit {
         for (let i = 0; i < classList.length; i++) {
           newArr.push(classList[i].class);
         }
-        // console.log(this.classList);
+        // // (this.classList);
         this.classList = Array.from(new Set(newArr));
-        console.log(this.classList);
+        // (this.classList);
       }
     }
     );
@@ -83,14 +83,14 @@ export class CreateAssignmentComponent implements OnInit {
     this.classService.getAllClasses().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classList = data.payload;
-        // console.log(this.classList);
+        // // (this.classList);
       }
     }
     );
   }
 
   getSubjects(id) {
-    console.log(id);
+    // (id);
     const selectedClass = [];
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.classList2.length; i++) {
@@ -98,7 +98,7 @@ export class CreateAssignmentComponent implements OnInit {
         selectedClass.push(this.classList2[i]);
       }
     }
-    console.log(selectedClass);
+    // (selectedClass);
     this.subjectList = selectedClass;
 
   }
@@ -106,7 +106,7 @@ export class CreateAssignmentComponent implements OnInit {
   onChange({ editor }: ChangeEvent) {
     const data = editor.getData();
     this.data = data;
-    console.log(data);
+    // (data);
   }
 
 
@@ -114,7 +114,7 @@ export class CreateAssignmentComponent implements OnInit {
     const reader = new FileReader();
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log('file', file);
+      // ('file', file);
       this.assignmentFile = file.name;
       this.createAssignmentmentForm.get('Document').setValue(file);
       // this.iconname = this.icon.name;
@@ -139,7 +139,7 @@ export class CreateAssignmentComponent implements OnInit {
 
     this.assignmentService.addAssignment(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.notifyService.publishMessages('Assignment created successfully', 'info', 1);
         this.router.navigateByUrl('/teacher/assignments');
       }

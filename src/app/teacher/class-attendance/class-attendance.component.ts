@@ -52,7 +52,7 @@ export class ClassAttendanceComponent implements OnInit {
   ngOnInit() {
     const helper = new JwtHelperService();
     this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
-    // console.log(this.loggedInUser.TeacherClassId);
+    // // (this.loggedInUser.TeacherClassId);
     // this.TeacherClassId = sessionStorage.getItem('class-id');
     // tslint:disable-next-line:only-arrow-functions
     $('#dropdownMenuLink').on('show.bs.dropdown', function() {
@@ -77,7 +77,7 @@ export class ClassAttendanceComponent implements OnInit {
   }
 
   getSubjectsId(id) {
-    console.log('Subject ID here', id);
+    // ('Subject ID here', id);
     // this.Subjectid = id;
     this.noClass = false;
     this.displayClass = true;
@@ -87,9 +87,9 @@ export class ClassAttendanceComponent implements OnInit {
 
     this.classService.getStudentsInAClassByClassID(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.studentList = data.payload;
-        console.log(this.classList);
+        // (this.classList);
         const {Remark} = this.attendanceForm.value;
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.studentList.length; i++) {
@@ -109,9 +109,9 @@ export class ClassAttendanceComponent implements OnInit {
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.classList = data.payload;
-        console.log(this.classList);
+        // (this.classList);
       }
     }
     );
@@ -121,16 +121,16 @@ export class ClassAttendanceComponent implements OnInit {
   getAttendanceForClass() {
     this.attendance.getAssignmentByTeacher().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.classList = data.payload;
-        console.log(this.classList);
+        // (this.classList);
       }
     });
   }
 
 
   getStatus(event, id, i) {
-    console.log(event);
+    // (event);
     this.studentID = id;
     this.toggleState = 1;
     if (event.target.checked === true) {
@@ -196,14 +196,14 @@ export class ClassAttendanceComponent implements OnInit {
       studentAttendanceVMs: this.studentAttendanceVMs
     };
 
-    console.log(result);
+    // (result);
     this.attendance.createClassAttendance(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.notifyService.publishMessages('Attendance saved', 'success', 1);
         this.getClassAttendanceSummary();
         // this.studentList = data.payload;
-        // console.log(this.classList);
+        // // (this.classList);
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
 
@@ -216,7 +216,7 @@ export class ClassAttendanceComponent implements OnInit {
   getClassAttendanceSummary() {
     this.attendance.getClassAttendanceForTeacher(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         const attendee: any = data.payload;
         const present = [];
         const absent = [];
@@ -227,7 +227,7 @@ export class ClassAttendanceComponent implements OnInit {
           attendee[i].attendanceClassVms.forEach(element => {
                     // const todaysUsers = users.filter((status: any) => moment(status.createdAt).format('YYYY-MM-DD') ===  today);
 
-           console.log(element);
+           // (element);
            if (today === moment(element.attendanceDate).format('YYYY-MM-DD') && element.attendanceStatus === 1) {
             present.push(element.attendanceStatus);
             this.presentSummary = present.length;

@@ -21,7 +21,7 @@ savedDetails: any;
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
-    console.log(this.id);
+    // (this.id);
     this.getAssignmentDetails();
   }
 
@@ -29,7 +29,7 @@ savedDetails: any;
     this.assignmentService.getAssignmentDetails(this.id).subscribe(
       (data: any) => {
         if (data.hasErrors === false) {
-          console.log('assignment Notes', data);
+          // ('assignment Notes', data);
           this.fileDetails = data.payload;
           this.savedDetails = JSON.parse(sessionStorage.getItem('student-assignment'));
 

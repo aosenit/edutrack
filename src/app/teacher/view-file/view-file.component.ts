@@ -23,7 +23,7 @@ export class ViewFileComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
-    console.log(this.id);
+    // (this.id);
     this.getFileDetails();
   }
 
@@ -37,7 +37,7 @@ export class ViewFileComponent implements OnInit {
       this.lessonNoteService.getSinglelessonNoteDetail(this.id).subscribe(
         (data: any) => {
           if (data.hasErrors === false) {
-            console.log('lesson Notes', data);
+            // ('lesson Notes', data);
             this.fileDetails = data.payload;
           }
         },
@@ -49,7 +49,7 @@ export class ViewFileComponent implements OnInit {
       this.assignmentService.getAssignmentDetails(this.id).subscribe(
         (data: any) => {
           if (data.hasErrors === false) {
-            console.log('assignment Notes', data);
+            // ('assignment Notes', data);
             this.fileDetails = data.payload;
           }
         },
@@ -61,7 +61,7 @@ export class ViewFileComponent implements OnInit {
       this.classWorkService.getClassWorkDetails(this.id).subscribe(
         (data: any) => {
           if (data.hasErrors === false) {
-            console.log('class work', data);
+            // ('class work', data);
             this.fileDetails = data.payload;
           }
         },

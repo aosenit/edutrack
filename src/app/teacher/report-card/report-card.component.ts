@@ -76,7 +76,7 @@ export class ReportCardComponent implements OnInit {
     this.getSchoolDetialsByID();
 
     // this.getApprovedStudentResults();
-    // console.log('route', this.route);
+    // // ('route', this.route);
 
 
   }
@@ -84,25 +84,25 @@ export class ReportCardComponent implements OnInit {
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.classList = data.payload;
-        // console.log(this.classList);
+        // // (this.classList);
       }
     }
     );
   }
 
   getStudentList() {
-    // console.log(this.classList[event]);
+    // // (this.classList[event]);
     // this.selectedClassId = this.classList[event].classId;
     // this.selectedClass = this.classList[event].class;
     // tslint:disable-next-line:prefer-for-of
 
     this.classService.getStudentsInAClassByClassID(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.studentList = data.payload;
-        // console.log(this.classList);
+        // // (this.classList);
       }
     });
 
@@ -111,7 +111,7 @@ export class ReportCardComponent implements OnInit {
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log('All school grade', data.payload);
+        // // ('All school grade', data.payload);
         this.gradeSetup = data.payload;
       }
     });
@@ -145,14 +145,14 @@ export class ReportCardComponent implements OnInit {
     // tslint:disable-next-line:max-line-length
     this.resultService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.loggedInUser.TeacherClassId, this.selectedStudentID  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
-      //  console.log(data.payload);
+      //  // (data.payload);
        this.noData = false;
        this.displayData = true;
        this.studentBehaviour = data.payload.resultTypeAndValues;
        this.getApprovedStudentResults();
       //  this.studentRecord = data.payload.breakdowns;
       //  this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-      //  console.log(this.assessments);
+      //  // (this.assessments);
      }
    }, error => {
      this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -165,7 +165,7 @@ export class ReportCardComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   this.resultService.getApprovedStudentResult(this.selectedStudentID, this.loggedInUser.TeacherClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
     if (data.hasErrors === false) {
-      // console.log(data.payload);
+      // // (data.payload);
       this.reportSheetDetails = data.payload;
       this.studentRecord = data.payload.breakdowns;
       this.subjectoffered = data.payload.subjectOffered;
@@ -176,7 +176,7 @@ export class ReportCardComponent implements OnInit {
 
       this.assessments = data.payload.breakdowns[0].assesmentAndScores;
 
-      // console.log(this.assessments);
+      // // (this.assessments);
     } else {
 
       this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -191,7 +191,7 @@ export class ReportCardComponent implements OnInit {
    this.classService.getAllSubjectsInAClassByClassID(this.loggedInUser.TeacherClassId).subscribe((data: any) => {
      if (data.hasErrors === false) {
        const classSubjectCount: any = data.payload;
-      //  console.log(classSubjectCount.length);
+      //  // (classSubjectCount.length);
        this.classSubjectCount = classSubjectCount.length;
      }
     });
@@ -210,16 +210,16 @@ getAllAssessments() {
     if (data.hasErrors === false) {
       const result: any =  data.payload;
       const caArray = [];
-      // console.log(this.subjectoffered);
+      // // (this.subjectoffered);
       // tslint:disable-next-line:prefer-for-of
       for (let i = 0; i < result.length; i++) {
-        // console.log(result[i].maxScore);
+        // // (result[i].maxScore);
         if (result[i].name.toLowerCase().includes('xam') || result[i].isExam === true) {
           this.totalExam = result[i].maxScore * this.subjectoffered;
         } else {
           caArray.push(result[i].maxScore * this.subjectoffered);
           this.totalCA = caArray.reduce((a, b) => a + b, 0);
-          // console.log(caArray);
+          // // (caArray);
         }
         this.totalSchoolScore = this.totalCA + this.totalExam;
 
@@ -248,7 +248,7 @@ calculateTotalScoreObtained(data) {
 
 getPercentage() {
   this.classPercentage  = Math.round((this.totalScoreObtained / this.totalSchoolScore ) * 100) ;
- //  console.log(this.classPercentage);
+ //  // (this.classPercentage);
 }
 
 getRate() {
@@ -273,16 +273,16 @@ getTotalExamScore() {
     const iDonTire: any = data[i].assesmentAndScores;
     // tslint:disable-next-line:prefer-for-of
     for (let j = 0; j < iDonTire.length; j++) {
-    //  console.log(iDonTire[j]);
+    //  // (iDonTire[j]);
      if (iDonTire[j].assessmentName.toLowerCase().includes('xam') || iDonTire[j].isExam === true) {
-      // console.log('yes');
+      // // ('yes');
       examArray.push(iDonTire[j].studentScore);
       this.totalExamScoreObtained = examArray.reduce((a, b) => a + b, 0);
-      // console.log(examArray);
+      // // (examArray);
     } else {
       caArray.push(iDonTire[j].studentScore);
       this.totalCAScoreObtained = caArray.reduce((a, b) => a + b, 0);
-      // console.log(caArray);
+      // // (caArray);
 
     }
     }
@@ -304,13 +304,13 @@ getSchoolDetialsByID() {
 getStaffSignatureForReportCard() {
   this.staffService.getStaffSignature(this.reportSheetDetails.headTeacherId).subscribe((data: any) => {
     if (data.hasErrors === false) {
-      console.log(data.payload);
+      // (data.payload);
       this.HeadTeacherDetails = data.payload;
     }
   });
   this.staffService.getStaffSignature(this.loggedInUser.sub).subscribe((data: any) => {
     if (data.hasErrors === false) {
-      console.log(data.payload);
+      // (data.payload);
       this.classTeacherDetials = data.payload;
     }
   });

@@ -68,7 +68,7 @@ export class TimeTableService {
     // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getTableforClassByClassId}`;
-    console.log(url);
+    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -76,7 +76,7 @@ export class TimeTableService {
     // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getTableforClassByClassId}?classId=${id}`;
-    console.log(url);
+    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -98,7 +98,7 @@ export class TimeTableService {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getNextClassesforTeacherByDay}?teacherId=${teacherId}&day=${day}`;
-    console.log(url);
+    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -106,7 +106,7 @@ export class TimeTableService {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getNextClassesforClassByDay}?classid=${classid}&day=${day}`;
-    console.log(url);
+    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

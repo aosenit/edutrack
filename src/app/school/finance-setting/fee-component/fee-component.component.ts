@@ -62,10 +62,10 @@ export class FeeComponentComponent implements OnInit {
   getSession() {
     this.assessmentService.getCurrentSession().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.sessionList  = data.payload;
         this.termList = this.sessionList.terms;
-        console.log(this.terms);
+        // (this.terms);
       }
     });
   }
@@ -94,7 +94,7 @@ export class FeeComponentComponent implements OnInit {
   getTerms(event, sequence) {
     if (event.target.checked === true) {
       this.terms.push(event.target.value);
-      console.log(this.terms)
+      // (this.terms)
     } else {
       const index = this.terms.indexOf(`${sequence}`);
       if (index > -1) {
@@ -102,7 +102,7 @@ export class FeeComponentComponent implements OnInit {
 
       }
       this.terms.filter((item) => item !== sequence);
-      console.log(this.terms);
+      // (this.terms);
     }
   }
 
@@ -122,7 +122,7 @@ export class FeeComponentComponent implements OnInit {
       sequenceNumber,
       isActive: this.toggleState
     };
-    console.log(result);
+    // (result);
     this.finance.createNewComponent(result).subscribe((data: any) => {
         if (data.hasErrors === false) {
         this.notifyService.publishMessages('Successful', 'success', 1);
@@ -148,10 +148,10 @@ export class FeeComponentComponent implements OnInit {
 
 
   getPage(page: number) {
-    // console.log(page);
+    // // (page);
     // this.parentService.getAllParents(page, this.itemsPerPage).subscribe((data: any) => {
     //   if (data.hasErrors === false) {
-    //     console.log(data);
+    //     // (data);
     //     this.parentList = data.payload;
     //     this.parentCount = data.totalCount;
     //   }
@@ -173,14 +173,14 @@ export class FeeComponentComponent implements OnInit {
         splitTerms.forEach(v => {
           // tslint:disable-next-line:prefer-for-of
           for (let i = 0; i < this.sessionList.terms.length; i++) {
-            console.log(this.sessionList.terms[i]);
+            // (this.sessionList.terms[i]);
             if (this.sessionList.terms[i].sequenceNumber == v) {
-              console.log('yes');
+              // ('yes');
               this.sessionList.terms[i].checked = true;
               this.terms.push(v);
-              console.log(this.terms)
-              // console.log(this.hobbiesArray);
-              // console.log(this.allHobbyList);
+              // (this.terms)
+              // // (this.hobbiesArray);
+              // // (this.allHobbyList);
               // tslint:disable-next-line:no-unused-expression
 
             }
@@ -215,7 +215,7 @@ export class FeeComponentComponent implements OnInit {
       sequenceNumber,
       isActive: this.toggleState
     };
-    console.log(result);
+    // (result);
     this.finance.updateComponentById( this.componentID , result).subscribe((data: any) => {
         if (data.hasErrors === false) {
         this.notifyService.publishMessages('Successful', 'success', 1);

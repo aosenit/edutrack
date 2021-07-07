@@ -33,7 +33,7 @@ export class AssignmentsComponent implements OnInit {
   }
 
   reverseText(status, i) {
-    console.log(status, i);
+    // (status, i);
     // this.assignmentLists[i].status = status;
 
   }
@@ -41,28 +41,28 @@ export class AssignmentsComponent implements OnInit {
 
   getAssignmentByTeacher() {
     this.assignmentService.getAssignmentByTeacher(this.p, this.itemsPerPage).subscribe((data: any) => {
-      console.log(data);
+      // (data);
       if (data.hasErrors === false) {
-        console.log('asasasa', data);
+        // ('asasasa', data);
         this.assignmentLists = data.payload;
         this.assignmentCount = data.totalCount;
       }
     }, error => {
-      console.log(error);
+      // (error);
     });
   }
 
   getPage(page: number) {
-    console.log(page);
+    // (page);
     this.assignmentService.getAssignmentByTeacher(page, this.itemsPerPage).subscribe((data: any) => {
-      console.log(data);
+      // (data);
       if (data.hasErrors === false) {
-        console.log('asasasa', data);
+        // ('asasasa', data);
         this.assignmentLists = data.payload;
         this.assignmentCount = data.totalCount;
       }
     }, error => {
-      console.log(error);
+      // (error);
     });
   }
 
@@ -77,7 +77,7 @@ export class AssignmentsComponent implements OnInit {
   }
 
   getElementId(event) {
-    console.log(event);
+    // (event);
   }
 
 }

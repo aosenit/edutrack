@@ -25,7 +25,7 @@ export class ContactDetailComponent implements OnInit {
 
     ngOnInit() {
       this.id = this.route.snapshot.params.id;
-      // console.log('page id', this.id);
+      // // ('page id', this.id);
       this.populateSchoolDetails();
       this.route.params.subscribe((param: Params) => {
         if (!param.id) {
@@ -54,7 +54,7 @@ export class ContactDetailComponent implements OnInit {
   prevStep() {
     this.home.stepper(1);
     this.currentStep = document.getElementById('step-' + `${1 + 1}`);
-    console.log('previos step ', this.currentStep);
+    // // ('previos step ', this.currentStep);
     this.currentStep.classList.remove('active');
 
 }
@@ -90,7 +90,7 @@ export class ContactDetailComponent implements OnInit {
     this.schoolDetails = JSON.parse( sessionStorage.getItem('school-details'));
 
     if (sessionStorage.getItem('school-details') !== null) {
-      console.log(`School details exists`);
+      // // (`School details exists`);
       
       this.schooldetailsForm.patchValue({
         Country: this.schoolDetails.Country,
@@ -99,7 +99,7 @@ export class ContactDetailComponent implements OnInit {
         City: this.schoolDetails.City
       });
     } else {
-      console.log(`School details not found`);
+      // // (`School details not found`);
     }
 
   }

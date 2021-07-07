@@ -58,7 +58,7 @@ timeTableCells: any;
     { id: 3, day: 'Thursday' },
     { id: 4, day: 'Friday' },
     ];
-    console.log(this.daysInWeek);
+    // (this.daysInWeek);
   }
 
   getAllPeriods() {
@@ -75,7 +75,7 @@ timeTableCells: any;
     this.parentService.getTimeTableForClass(this.wardDetail.classID).subscribe((data: any) => {
       if (data.hasErrors === false ) {
         this.timeTableCells = data.payload;
-        console.log(this.timeTableCells);
+        // (this.timeTableCells);
 
       }
     });
