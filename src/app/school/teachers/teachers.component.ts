@@ -27,7 +27,7 @@ searchString: string;
     this.teacherService.getAllTeachers().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.teachersList = data.payload;
-        console.log(this.teachersList);
+        // (this.teachersList);
       }
     });
   }
@@ -38,7 +38,7 @@ searchString: string;
     this.teacherService.getTeacherById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         sessionStorage.setItem('all-employee-info', JSON.stringify(data.payload));
-        console.log(this.teachersList);
+        // (this.teachersList);
         this.router.navigateByUrl('/school/edit-employee/' + id);
 
       }
@@ -51,7 +51,7 @@ searchString: string;
     // this.teacherService.getTeacherById(id).subscribe((data: any) => {
     //   if (data.hasErrors === false) {
     //     sessionStorage.setItem('all-teacher-info', JSON.stringify(data.payload));
-    //     console.log(this.teachersList);
+    //     // (this.teachersList);
     //   }
     // });
   }

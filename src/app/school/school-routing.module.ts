@@ -20,18 +20,6 @@ import { TeachersComponent } from './teachers/teachers.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { UsersComponent } from './users/users.component';
 
-import { FacilitySettingsComponent } from './settings/facility-settings/facility-settings.component';
-import { StudentSettingsComponent } from './settings/student-settings/student-settings.component';
-import { ResultSettingsComponent } from './settings/result-settings/result-settings.component';
-import { SchoolManagerComponent } from './settings/school-manager/school-manager.component';
-import { SchoolSettingsComponent } from './settings/school-settings/school-settings.component';
-import { PayrollSetttingsComponent } from './settings/payroll-setttings/payroll-setttings.component';
-import { PersonalSettingsComponent } from './settings/personal-settings/personal-settings.component';
-import { FinanceSettingsComponent } from './settings/finance-settings/finance-settings.component';
-import { NewRoleRecordComponent } from './settings/new-role-record/new-role-record.component';
-import { AccountSettingsComponent } from './settings/account-settings/account-settings.component';
-import { SchoolManagerSettingsComponent } from './settings/school-manager-settings/school-manager-settings.component';
-
 const routes: Routes = [
   {
     path: '', component: SchoolComponent, canActivate: [AuthGuardGuard], canActivateChild: [TeacherGuard],
@@ -63,23 +51,11 @@ const routes: Routes = [
       { path: 'promotion', loadChildren: () => import('./promotion/promotion.module').then(m => m.PromotionModule) },
       { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
 
-      // { path: 'account-settings', component: AccountSettingsComponent },
-      // { path: 'school-settings', component: SchoolSettingsComponent },
-      // { path: 'personal-settings', component: PersonalSettingsComponent },
-      // { path: 'finance-settings', component: FinanceSettingsComponent },
-      // { path: 'facility-settings', component: FacilitySettingsComponent },
-      // { path: 'result-settings', component: ResultSettingsComponent },
-      // { path: 'student-settings', component: StudentSettingsComponent },
-      // { path: 'payroll-settings', component: PayrollSetttingsComponent },
-      // { path: 'role-permissions', component: NewRoleRecordComponent },
-      // { path: 'edit-role-permission/:id', component: NewRoleRecordComponent },
-      // { path: 'school-manager', component: SchoolManagerComponent },
-      // { path: 'school-manager-settings', component: SchoolManagerSettingsComponent },
-
 
 
     ]
   },
+  {path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule)},
 ];
 
 @NgModule({

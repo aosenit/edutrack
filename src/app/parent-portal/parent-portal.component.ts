@@ -29,7 +29,7 @@ export class ParentPortalComponent implements OnInit {
   getStudentSchools() {
     this.parentService.getStudentSchools().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.schoolList = data.payload;
       }
     }, error => {
@@ -41,7 +41,7 @@ export class ParentPortalComponent implements OnInit {
   getChildInSelectedSchool() {
     this.parentService.getChildInASchoolForParent().subscribe((data: any) => {
       if (data.hasErrors === false ) {
-        console.log(data.payload);
+        // (data.payload);
         this.childrenList = data.payload;
       }
     });

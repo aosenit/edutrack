@@ -97,7 +97,7 @@ export class SchoolManagerSettingsComponent implements OnInit {
 
     this.propertyService.addProperty(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.notifyService.publishMessages('School Property saved successfully', 'success', 1);
         this.getSession();
       }
@@ -111,7 +111,7 @@ export class SchoolManagerSettingsComponent implements OnInit {
   getProperty() {
     this.propertyService.getProperty().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.fillProperty = data.payload;
         this.schoolPropertyForm.setValue({
           prefix: this.fillProperty.prefix,
@@ -129,11 +129,11 @@ export class SchoolManagerSettingsComponent implements OnInit {
   }
 
   createSession() {
-    console.log(this.sessionForm);
+    // (this.sessionForm);
     this.assessmentService.addProperty(this.sessionForm.value).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Term & Session created successfully', 'success', 1);
-        console.log(data);
+        // (data);
         document.getElementById('mySessionModal').click();
         this.getSession();
       }
@@ -145,22 +145,22 @@ export class SchoolManagerSettingsComponent implements OnInit {
   getSession() {
     this.assessmentService.getSchoolSessions().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.sessionList = data.payload;
       }
     });
   }
 
   validateStartDate(value) {
-    console.log(value);
+    // (value);
     this.date1 = value;
   }
   validateEndDate(value) {
-    console.log(value);
+    // (value);
     this.date2 = value;
     if (moment(this.date2).isBefore(this.date1)) {
       this.dateCheck = true;
-      console.log('ko possinle na');
+      // ('ko possinle na');
     }
   }
 

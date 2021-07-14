@@ -54,16 +54,16 @@ export class BillingComponent implements OnInit {
 
 
   handleFileUpload(event: any) {
-    console.log(event);
+    // (event);
     const upld = event.target.value.split('.').pop();
     if (upld !== 'pdf') {
       this.notifyService.publishMessages('Please upload evidence in form of pdf', 'danger', 1);
     } else {
-      console.log(upld);
+      // (upld);
       const reader = new FileReader();
       if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log('file', file);
+      // ('file', file);
       this.assignmentFile = file.name;
       this.uploadReceiptForm.get('Document').setValue(file);
       // this.iconname = this.icon.name;
@@ -75,12 +75,12 @@ export class BillingComponent implements OnInit {
     this.parent.getInvoices(this.wardDetail.classID, this.wardDetail.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
           this.parentInvoice = data.payload;
-          console.log(this.parentInvoice);
+          // (this.parentInvoice);
       }
       // this.mydate = this.assignments.map((date) => {
       //   return moment(date.dueDate).fromNow();
       // });
-      // console.log(test);
+      // // (test);
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
@@ -91,7 +91,7 @@ export class BillingComponent implements OnInit {
     this.parent.getAllPendingTransactions(this.wardDetail.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allPendingPaymentList = data.payload;
-        console.log(data.payload);
+        // (data.payload);
       // this.getAllComponent();
       }
   }, error => {
@@ -113,7 +113,7 @@ export class BillingComponent implements OnInit {
     };
     this.parent.updateTransactionReceipt(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         document.getElementById('closeReceiptModal').click();
         this.notifyService.publishMessages('Evidence uploaded successfully', 'success', 1);
         this.getinvoice();
@@ -145,7 +145,7 @@ export class BillingComponent implements OnInit {
   viewFile(id) {
     this.parent.getFiles(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.fileDetails = data.payload;
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -157,7 +157,7 @@ export class BillingComponent implements OnInit {
   previewInvoice(id) {
     this.parent.getInvoicesById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-      console.log(data.payload);
+      // (data.payload);
       this.studentInvoicePreview = data.payload;
       this.invData = this.studentInvoicePreview.invoiceItems;
        // tslint:disable-next-line:prefer-for-of

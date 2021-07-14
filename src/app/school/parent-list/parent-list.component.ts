@@ -29,7 +29,7 @@ export class ParentListComponent implements OnInit {
   getAllParents() {
     this.parentService.getAllParentsInASchool(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.parentList = data.payload;
         this.parentCount = data.totalCount;
       }
@@ -40,10 +40,10 @@ export class ParentListComponent implements OnInit {
   }
 
   getPage(page: number) {
-    console.log(page);
+    // (page);
     this.parentService.getAllParents(page, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.parentList = data.payload;
         this.parentCount = data.totalCount;
       }
@@ -55,10 +55,10 @@ export class ParentListComponent implements OnInit {
   }
 
   editParent(id) {
-    console.log(id);
+    // (id);
     this.parentService.getParentById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         sessionStorage.setItem('all-parent-info', JSON.stringify(data.payload));
         this.router.navigateByUrl('/school/edit-parent/' + id);
       }
@@ -69,7 +69,7 @@ export class ParentListComponent implements OnInit {
     this.notifyService.publishMessages('Service currently down', 'danger', 1);
     // this.parentService.deleteParentById(id).subscribe((data: any) => {
     //   if (data.hasErrors === false) {
-    //     console.log(data.payload);
+    //     // (data.payload);
     //     this.notifyService.publishMessages('Parent deleted successfully', 'success', 1);
 
     //   }

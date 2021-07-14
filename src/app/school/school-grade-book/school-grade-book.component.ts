@@ -6,6 +6,10 @@ import { ResultService } from 'src/services/data/result/result.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+// import * as $ from 'jquery';
+declare var $: any;
+
+
 @Component({
   selector: 'app-school-grade-book',
   templateUrl: './school-grade-book.component.html',
@@ -51,6 +55,9 @@ export class SchoolGradeBookComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+   
+
     this.getCurrentSesion();
     this.generateGradeSetup();
     this.getSections();
@@ -64,10 +71,16 @@ export class SchoolGradeBookComponent implements OnInit {
     });
   }
 
+  showToolTip() {
+    $('[data-toggle=tooltip]').tooltip('show');
+    // $('[data-toggle="tooltip"]').tooltip({placement: 'top'});
+
+  }
+
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('All school grade', data.payload);
+        // ('All school grade', data.payload);
         this.gradeSetup = data.payload;
       }
     });
@@ -92,17 +105,17 @@ export class SchoolGradeBookComponent implements OnInit {
         // tslint:disable-next-line:no-string-literal
         this.levels = res['payload'];
         // this.levels = this.levels.reverse();
-        console.log('levels', this.levels);
+        // ('levels', this.levels);
       }
     );
   }
 
   getClassBySectionId(id) {
-    console.log(id);
+    // (id);
     this.classService.getClassBySection(id).subscribe((data: any) => {
         if (data.hasErrors === false) {
           this.classList = data.payload;
-          console.log(this.classList);
+          // (this.classList);
 
         }
       });
@@ -110,7 +123,7 @@ export class SchoolGradeBookComponent implements OnInit {
   }
 
   getSubjectsAndStudents(id) {
-    console.log('class id ');
+    // ('class id ');
     this.Classid = id;
     sessionStorage.setItem('class-id', this.Classid);
 
@@ -136,9 +149,9 @@ export class SchoolGradeBookComponent implements OnInit {
     this.resultService.getStudentBroadSheetApprovedByTEacher(this.Classid).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.studentData = data.payload;
-        console.log(this.studentData);
+        // (this.studentData);
         this.subject = this.studentData[0].assessmentAndScores;
-        console.log('subjects', this.subject);
+        // ('subjects', this.subject);
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.studentData.length; i++) {
           const arr = [];
@@ -148,7 +161,7 @@ export class SchoolGradeBookComponent implements OnInit {
             this.studentData[i].cummulative = this.cummlativeScore;
           });
         }
-        // console.log();
+        // // ();
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -171,9 +184,9 @@ export class SchoolGradeBookComponent implements OnInit {
       headTeacherApprovalStatus: 1
     };
 
-    console.log(result);
+    // (result);
     this.assessmentService.approveClassResult(result).subscribe((data: any) => {
-      console.log(data);
+      // (data);
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result approved', 'success', 1);
 
@@ -198,9 +211,9 @@ export class SchoolGradeBookComponent implements OnInit {
       headTeacherApprovalStatus: 2
     };
 
-    console.log(result);
+    // (result);
     this.assessmentService.approveClassResult(result).subscribe((data: any) => {
-      console.log(data);
+      // (data);
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result rejected', 'success', 1);
 
@@ -211,7 +224,7 @@ export class SchoolGradeBookComponent implements OnInit {
   }
 
   saveStudentDetails(u) {
-    console.log(this.studentData[u]);
+    // (this.studentData[u]);
     this.selectedStudentId = this.studentData[u].studentId;
     sessionStorage.setItem('student-details', JSON.stringify(this.studentData[u]) );
     const records = {
@@ -231,12 +244,12 @@ export class SchoolGradeBookComponent implements OnInit {
     // tslint:disable-next-line:max-line-length
     this.resultService.getStudentBehviour(this.sessions.id, this.selectedTermId, this.Classid, this.selectedStudentId ).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.studentBehaviour = data.payload.resultTypeAndValues;
         sessionStorage.setItem('studentBehaviour', JSON.stringify(this.studentBehaviour));
        //  this.studentRecord = data.payload.breakdowns;
        //  this.assessments = data.payload.breakdowns[0].assesmentAndScores;
-       //  console.log(this.assessments);
+       //  // (this.assessments);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

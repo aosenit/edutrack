@@ -35,7 +35,7 @@ export class StudentAttendanceComponent implements OnInit {
     { id: 3, day: 'Thursday' },
     { id: 4, day: 'Friday' },
     ];
-    console.log(this.daysInWeek);
+    // (this.daysInWeek);
   }
 
   getSubjectAttendanceForStudent() {
@@ -52,7 +52,7 @@ export class StudentAttendanceComponent implements OnInit {
         const AttendanceList: any = data.payload;
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < AttendanceList.length; i++) {
-          console.log(AttendanceList[i]);
+          // (AttendanceList[i]);
           this.classAttendanceList = AttendanceList[i].attendanceClassVms;
         }
       }

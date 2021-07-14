@@ -51,7 +51,7 @@ export class StudentSheetComponent implements OnInit {
     this.getStudentScoreSheet();
     this.generateGradeSetup();
     const records = JSON.parse(sessionStorage.getItem('result-record'));
-    console.log(records);
+    // (records);
 
   }
 
@@ -62,17 +62,17 @@ export class StudentSheetComponent implements OnInit {
     this.resultService.getStudentBroadSheet(this.studId, classId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.studentRecord = data.payload.breakdowns;
-        console.log(this.studentRecord);
+        // (this.studentRecord);
         this.subjectLenght  = this.studentRecord.length;
 
         this.classTeacherWord = data.payload.classTeacherComment;
         this.classTeacherId = data.payload.classTeacherId;
-        console.log(this.classTeacherWord);
+        // (this.classTeacherWord);
         this.assessments = data.payload.breakdowns[0].assesmentAndScores;
         this.calculateTotalScoreObtained(this.studentRecord);
         this.getAllAssessments();
 
-        console.log(this.assessments);
+        // (this.assessments);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'success', 1);
@@ -83,7 +83,7 @@ export class StudentSheetComponent implements OnInit {
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log('All school grade', data.payload);
+        // ('All school grade', data.payload);
         this.gradeSetup = data.payload;
       }
     });
@@ -92,7 +92,7 @@ export class StudentSheetComponent implements OnInit {
   submitStudentResult() {
     const ClassId = sessionStorage.getItem('class-id');
     const records: any = JSON.parse(sessionStorage.getItem('result-record'));
-    console.log(records);
+    // (records);
     // tslint:disable-next-line:radix
     const classId = parseInt(ClassId);
     const {comment} = this.teacherComment;
@@ -113,11 +113,11 @@ export class StudentSheetComponent implements OnInit {
       headTeacherApprovalStatus: 1
     };
 
-    console.log(result);
+    // (result);
 
     this.assessmentService.submitStudentResultForApproval(result).subscribe((data: any) => {
         if (data.hasErrors === false) {
-          // console.log(data.payload);
+          // // (data.payload);
          sessionStorage.removeItem('student-details');
          sessionStorage.removeItem('studentBehaviour');
          sessionStorage.removeItem('result-record');
@@ -151,18 +151,18 @@ export class StudentSheetComponent implements OnInit {
        
 
        const assessmen: any =  data.payload;
-      //  console.log(assessments)
+      //  // (assessments)
        const caArray = [];
-      // console.log(this.subjectoffered);
+      // // (this.subjectoffered);
       // tslint:disable-next-line:prefer-for-of
        for (let i = 0; i < assessmen.length; i++) {
-        console.log(assessmen[i].maxScore);
+        // (assessmen[i].maxScore);
         if (assessmen[i].name.toLowerCase().includes('xam')) {
           this.totalExam = assessmen[i].maxScore * this.subjectLenght;
         } else {
           caArray.push(assessmen[i].maxScore * this.subjectLenght);
           this.totalCA = caArray.reduce((a, b) => a + b, 0);
-          // console.log(caArray);
+          // // (caArray);
         }
         this.totalSchoolScore = this.totalCA + this.totalExam;
       }}

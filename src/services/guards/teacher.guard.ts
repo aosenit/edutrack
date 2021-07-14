@@ -20,7 +20,7 @@ export class TeacherGuard implements CanActivateChild {
       } else {
         this.notifyService.publishMessages('You are not authorized to access this route.', 'danger', 1);
         this.router.navigateByUrl('/');
-        // console.log('na lie');
+        // // ('na lie');
       }
   }
 

@@ -33,20 +33,19 @@ export class ClassWorkService {
   getClassWorkByTeacher() {
     const tenantId = '1';
     const url = `${this.baseUrl + routes.getClassWorkByTeacher}`;
-    console.log(url);
+    
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
   getClassWorkDetails(id: any) {
     const tenantId = '1';
     const url = `${this.baseUrl + routes.getClassWorkDetails}?id=${id}`;
-    console.log(url);
+    
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
   getClassWorkFiles(id: any) {
     const url = `${this.baseUrl + routes.getClassWorFiles}/?classSubjectId=${id}`;
-    console.log(url);
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 }

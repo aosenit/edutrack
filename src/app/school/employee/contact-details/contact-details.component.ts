@@ -73,7 +73,7 @@ populateContactDetailsForm() {
     this.contactDetails = JSON.parse( sessionStorage.getItem('employee-contact-details'));
 
     if (sessionStorage.getItem('employee-contact-details') !== null) {
-      // console.log(`School person exists`);
+      // // (`School person exists`);
       for (const unit in countries) {
         if (this.contactDetails.Country === countries[unit].country) {
           const state = countries[unit].states;

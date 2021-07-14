@@ -63,7 +63,7 @@ import { ViewReportCardComponent } from './view-report-card/view-report-card.com
   imports: [
     CommonModule,
     CKEditorModule,
-    CalendarModule,
+    // CalendarModule,
     NgxPaginationModule,
     ReactiveFormsModule,
     FormsModule,

@@ -97,7 +97,7 @@ attachedSubjectlist: any;
   }
 
   getClassBySectionId(id) {
-    console.log(id);
+    // (id);
     this.classService.getClassBySection(id).subscribe((data: any) => {
         if (data.hasErrors === false) {
           this.classes = data.payload;
@@ -111,7 +111,7 @@ attachedSubjectlist: any;
     this.classService.getAllClasses().subscribe((data: any) => {
       if (data.hasErrors === false) {
         // this.classes = data.payload;
-        // console.log(this.classes);
+        // // (this.classes);
       }
     });
   }
@@ -120,14 +120,14 @@ attachedSubjectlist: any;
     this.teacherService.getTeacherById(this.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.teacherDetails = data.payload;
-        console.log(this.teacherDetails);
+        // console.log(this.teacherDetails);
       }
     });
   }
 
 
   getSubjects(id) {
-    console.log(id);
+    // console.log(id);
     this.classService.getSubjectForClass(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
@@ -146,7 +146,7 @@ attachedSubjectlist: any;
   }
 
   attachSubject() {
-    console.log(this.attachSubjectForm.value);
+    // console.log(this.attachSubjectForm.value);
     const {subjectIds} = this.attachSubjectForm.value;
     const  ClassSubjectIds = subjectIds.map((ids: any) => {
       return ids.id;
@@ -159,10 +159,10 @@ attachedSubjectlist: any;
       TeacherId,
       ClassSubjectIds
     };
-    console.log(result);
+    // console.log(result);
     this.teacherService.attachTeacherToSubject(result).subscribe((data: any) => {
       if (data.hasErrors === false ) {
-        console.log(data);
+        // console.log(data);
         document.getElementById('myModal').click();
         this.getAttachedSubject();
         this.notifyService.publishMessages('Subject successfully attached to teacher ', 'info', 1);
@@ -174,11 +174,11 @@ attachedSubjectlist: any;
   }
 
   getAttachedSubject() {
-    console.log(this.id);
+    // console.log(this.id);
     this.teacherService.getAttachedSubjects(this.id).subscribe((data: any) => {
-      // console.log(data);
+      // // (data);
       this.attachedSubjectlist = data.payload;
-      console.log('sasaassasasasasasas', this.attachedSubjectlist);
+      // console.log('sasaassasasasasasas', this.attachedSubjectlist);
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
@@ -196,7 +196,7 @@ attachedSubjectlist: any;
       teacherId
     };
     this.teacherService.attachTeacherToClass(result).subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       if (data.hasErrors === false ) {
         document.getElementById('classteacherModal').click();
         this.getAttachedTeacher();
@@ -210,7 +210,7 @@ attachedSubjectlist: any;
 
   getAttachedTeacher() {
     this.teacherService.getTeacherAttachedToClass(this.id).subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       if (data.hasErrors === false ) {
         this.classTeacherDetails = data.payload;
       }

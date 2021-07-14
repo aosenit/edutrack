@@ -79,7 +79,7 @@ export class EducationComponent implements OnInit {
     this.educationalDetials = JSON.parse(sessionStorage.getItem('employee-education'));
 
     if (sessionStorage.getItem('employee-next-kin') !== null) {
-      // console.log(`School person exists`);
+      // // (`School person exists`);
       this.EmployeeEducationForm.patchValue({
         EducationExperienceVMs: this.educationalDetials.educationExperienceVMs,
       });
@@ -93,7 +93,7 @@ export class EducationComponent implements OnInit {
 
     // tslint:disable-next-line:prefer-for-of
     // for (let i = 0; i < payload.educationExperienceVMs.length; i++) {
-    //   console.log('asasaass', payload.educationExperienceVMs[i]);
+    //   // ('asasaass', payload.educationExperienceVMs[i]);
     //   const newData = this.EmployeeEducationForm.controls.EducationExperienceVMs.value;
     //   // tslint:disable-next-line:prefer-for-of
     //   for (let j = 0; j < newData.length; j++) {
@@ -102,7 +102,7 @@ export class EducationComponent implements OnInit {
     //     newData[j].endDate = moment(payload.educationExperienceVMs[i].endDate).format('YYYY-MM-DD');
     //     newData[j].startDate = moment(payload.educationExperienceVMs[i].startDate).format('YYYY-MM-DD');
     //   }
-    //   console.log(newData);
+    //   // (newData);
 
     //   // this.EmployeeEducationForm.patchValue({
     //   //     EducationExperienceVMs: payload.educationExperienceVMs.educationSchoolName,
@@ -118,7 +118,7 @@ export class EducationComponent implements OnInit {
 
     const formArray = new FormArray([]);
     for (const x of data) {
-      // console.log(x);
+      // // (x);
       formArray.push(this.fb.group({
        educationSchoolName: x.educationSchoolName,
        educationSchoolQualification: x.educationSchoolQualification,

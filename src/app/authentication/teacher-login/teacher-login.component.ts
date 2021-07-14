@@ -42,12 +42,12 @@ export class TeacherLoginComponent implements OnInit {
 
     this.schoolService.getSchoolDomainName(this.subdomain).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // // (data.payload);
         this.matchedSchoolDetail = data.payload;
       } else {
         this.notifyService.publishMessages('School doesnt exist', 'danger', 1);
         setTimeout(() => {
-          this.router.navigateByUrl('/');
+          // this.router.navigateByUrl('/');
 
         }, 2000);
       }

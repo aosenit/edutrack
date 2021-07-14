@@ -44,7 +44,7 @@ export class ClientsComponent implements OnInit {
   getAllSchools() {
     this.schoolServices.getAllSchools(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data) {
-        console.log('all schools', data);
+        // // ('all schools', data);
         this.clientList = data.payload;
         this.clientCount = data.totalCount;
         // this.clientList.reverse();
@@ -58,7 +58,7 @@ export class ClientsComponent implements OnInit {
   getPage(page: number) {
     this.schoolServices.getAllSchools(page, this.itemsPerPage).subscribe((data: any) => {
       if (data) {
-        console.log('all schools', data);
+        // // ('all schools', data);
         this.clientList = data.payload;
         this.clientCount = data.totalCount;
         // this.clientList.reverse();
@@ -70,12 +70,12 @@ export class ClientsComponent implements OnInit {
   }
 
   getImageID(id) {
-    // console.log('logo id', id);
+    // // ('logo id', id);
     this.logoId = id;
     this.fileService.getFileUpload(this.logoId).subscribe((data: any) => {
       if (data) {
         this.imagesrc = data.payload;
-        console.log('school logo gotten here', this.imagesrc);
+        // // ('school logo gotten here', this.imagesrc);
       }
     });
   }
@@ -83,7 +83,7 @@ export class ClientsComponent implements OnInit {
   handleBulkUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log(file);
+      // // (file);
       this.filename = file.name;
       this.bulkUpload.get('bulkFile').setValue(file);
       // this.DocumentTypes.push(0);
@@ -92,9 +92,9 @@ export class ClientsComponent implements OnInit {
 
   UploadBulkFile() {
     this.schoolServices.uploadBulkDocument(this.bulkUpload.value).subscribe((data: any) => {
-      console.log('bulk file', data);
+      // // ('bulk file', data);
       if (data.hasErrors === false) {
-        console.log('file successfully uplaoded', data.payload);
+        // // ('file successfully uplaoded', data.payload);
         this.notifyService.publishMessages(data.description, 'success', 1);
         document.getElementById('closeModal').click();
         this.getAllSchools();
@@ -109,7 +109,7 @@ export class ClientsComponent implements OnInit {
 
   deleteClient(id) {
     this.schoolServices.deleteSchoolById(id).subscribe((data: any) => {
-      console.log(data);
+      // // (data);
       if (data.hasErrors === false) {
         this.getAllSchools();
         this.notifyService.publishMessages(data.description, 'success', 1);
@@ -126,7 +126,7 @@ export class ClientsComponent implements OnInit {
     this.schoolServices.getSchoolById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.profileInfo = data.payload;
-        console.log('assa', this.profileInfo);
+        // // ('assa', this.profileInfo);
         sessionStorage.setItem('client-info', JSON.stringify(this.profileInfo));
         this.router.navigateByUrl('/admin/edit-client/' + id);
         this.getAllSchools();

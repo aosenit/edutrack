@@ -27,7 +27,7 @@ export class LandingScreenComponent implements OnInit {
   getStudentSchools() {
     this.parentService.getStudentSchools().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.schoolList = data.payload;
       }
     }, error => {

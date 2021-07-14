@@ -25,7 +25,7 @@ export class GradingComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
     this.filePreview = JSON.parse(sessionStorage.getItem('preview-assignment'));
-    // console.log(this.id);
+    // // (this.id);
     this.extraCommentForm = this.fb.group({
       comment: ['', Validators.required]
     });
@@ -43,9 +43,9 @@ export class GradingComponent implements OnInit {
       assignmentAnswerId,
       comment
     };
-    console.log(result);
+    // (result);
     this.assignmentservice.updateComment(result).subscribe((data: any) => {
-      // console.log(data);
+      // // (data);
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Comment successful', 'success', 1);
 
@@ -67,7 +67,7 @@ export class GradingComponent implements OnInit {
     };
     this.assignmentservice.updateScore(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.notifyService.publishMessages('score submitted successfully', 'success', 1);
 
       }
@@ -76,7 +76,7 @@ export class GradingComponent implements OnInit {
 
   getAssignmentPreview() {
     const currentpath = this.route.snapshot.url[0].path; // get current path to know which endpoint to use
-    // console.log(currentpath);
+    // // (currentpath);
     if (currentpath === 'preview-assignment') {
       this.hideSide = true;
       this.gradeAssignment = false;

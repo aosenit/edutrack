@@ -23,23 +23,23 @@ export class SubjecAttendanceComponent implements OnInit {
   getClassAndSubjectForTeacher() {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data.payload);
+        // // (data.payload);
         this.classList = data.payload;
-        console.log(this.classList);
+        // (this.classList);
       }
     }
     );
   }
 
   getSubjectsId(id) {
-    console.log('Subject ID here', id);
+    // ('Subject ID here', id);
     // this.Subjectid = id;
   }
 
   getSubjects(id) {
     this.noClass = false;
     this.displayClass = true;
-    console.log(id);
+    // (id);
     const selectedClass = [];
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.classList.length; i++) {
@@ -47,7 +47,7 @@ export class SubjecAttendanceComponent implements OnInit {
         selectedClass.push(this.classList[i]);
       }
     }
-    console.log(selectedClass);
+    // (selectedClass);
     this.subjectList = selectedClass;
 
   }

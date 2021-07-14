@@ -110,7 +110,7 @@ export class AccountSettingsComponent implements OnInit {
     this.adminService.getRoles().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allRoles = data.payload;
-        // console.log(this.allRoles);
+        // // (this.allRoles);
         const arr = [];
         this.allRoles.forEach(item => {
           arr.push({
@@ -131,7 +131,7 @@ export class AccountSettingsComponent implements OnInit {
     this.teacherService.getAllTeachers().subscribe((data: any) => {
       if (data.hasErrors === false) {
         const allTeacher: any = data.payload;
-        console.log(allTeacher);
+        // (allTeacher);
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < allTeacher.length; i++) {
           this.allUsers.push(allTeacher[i]);
@@ -144,7 +144,7 @@ export class AccountSettingsComponent implements OnInit {
         //   });
         // });
 
-        // console.log(arr);
+        // // (arr);
         // this.dropStaffList = arr;
       }
     });
@@ -155,7 +155,7 @@ export class AccountSettingsComponent implements OnInit {
         for (let i = 0; i < this.allStaffs.length; i++) {
           this.allUsers.push(this.allStaffs[i]);
         }
-        console.log(this.allUsers);
+        // (this.allUsers);
         this.allUsers.forEach(item => {
           arr.push({
             // id: item.id,
@@ -173,7 +173,7 @@ export class AccountSettingsComponent implements OnInit {
     const newUSerId = userid.map((ids: any) => {
       return ids.userId;
     });
-    console.log(newUSerId);
+    // (newUSerId);
     const roleIds = roleid.map((ids: any) => {
       return ids.id;
     });
@@ -185,12 +185,12 @@ export class AccountSettingsComponent implements OnInit {
       userId,
       roleIds
     };
-    console.log(result);
+    // (result);
     this.adminService.assignRolesToUsers(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('roles successfully assigned', 'info', 1);
         document.getElementById('close').click();
-        // console.log(data);
+        // // (data);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -199,7 +199,7 @@ export class AccountSettingsComponent implements OnInit {
   }
 
   deleteRoleById(id) {
-    console.log(id);
+    // (id);
     this.adminService.deleteRoles(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('roles successfully delete', 'info', 1);
@@ -219,7 +219,7 @@ export class AccountSettingsComponent implements OnInit {
   //   this.adminService.getAllPermissionForRoleById(id).subscribe((data: any) => {
   //     if (data.hasErrors === false) {
 
-  //       console.log(data.payload);
+  //       // (data.payload);
   //     } else {
   //       this.notifyService.publishMessages(data.errors, 'danger', 1);
 

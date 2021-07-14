@@ -42,7 +42,7 @@ export class ChildAttendanceComponent implements OnInit {
     { id: 3, day: 'Thursday' },
     { id: 4, day: 'Friday' },
     ];
-    console.log(this.daysInWeek);
+    // (this.daysInWeek);
   }
 
   getAllPeriods() {
@@ -59,7 +59,7 @@ export class ChildAttendanceComponent implements OnInit {
     this.timeTableService.getTimeTableForClass().subscribe((data: any) => {
       if (data.hasErrors === false ) {
         this.timeTableCells = data.payload;
-        console.log(this.timeTableCells);
+        // (this.timeTableCells);
         const tables = [];
 
         from(this.timeTableCells)
@@ -70,11 +70,11 @@ export class ChildAttendanceComponent implements OnInit {
            mergeMap(group => zip(of(group.key), group.pipe(toArray())))
          )
          .subscribe(xy => {
-           console.log('Periods', ...xy);
+           // ('Periods', ...xy);
            tables.push(xy);
           });
         this.timeTable = tables;
-        console.log('time table', this.timeTable);
+        // ('time table', this.timeTable);
       }
     });
   }
@@ -82,7 +82,7 @@ export class ChildAttendanceComponent implements OnInit {
   getSubjectAttendance() {
     this.parentService.getSubjectAttendance(this.wardDetail.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.attendanceList = data.payload;
 
       }
@@ -95,7 +95,7 @@ export class ChildAttendanceComponent implements OnInit {
         const AttendanceList: any = data.payload;
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < AttendanceList.length; i++) {
-          console.log(AttendanceList[i]);
+          // (AttendanceList[i]);
           this.classAttendanceList = AttendanceList[i].attendanceClassVms;
         }
       }

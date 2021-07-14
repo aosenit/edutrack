@@ -48,7 +48,7 @@ days: any;
     { id: 3, day: 'Thursday' },
     { id: 4, day: 'Friday' },
     ];
-    console.log('dasy', this.days);
+    // ('dasy', this.days);
   }
 
   showPop() {
@@ -70,7 +70,7 @@ days: any;
     this.timeTableService.getAllClassesForClassByDay(day).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
-        console.log('dsds', this.subjectAndTime);
+        // ('dsds', this.subjectAndTime);
         // this.timeTableCells = data.payload;
         // const tables = [];
 
@@ -82,20 +82,20 @@ days: any;
         //    mergeMap(group => zip(of(group.key), group.pipe(toArray())))
         //  )
         //  .subscribe(xy => {
-        //    console.log('Periods', ...xy);
+        //    // ('Periods', ...xy);
         //    tables.push(xy);
         //   });
         // this.timeTable = tables;
-        // console.log('time table', this.timeTable);
+        // // ('time table', this.timeTable);
       }
     }, error => {
-      console.log(error);
+      // (error);
     });
   }
 
   save(i) {
-    console.log(i);
-    console.log(this.subjectAndTime[i]);
+    // (i);
+    // (this.subjectAndTime[i]);
     sessionStorage.setItem('current-class', JSON.stringify(this.subjectAndTime[i]));
   }
 
@@ -103,10 +103,10 @@ days: any;
     // const classId = 25;
 
     this.assignmentService.getAssignmentByClass().subscribe((data: any) => {
-      console.log('sasasasas', data);
+      // ('sasasasas', data);
       if (data.hasErrors === false) {
         this.assignments = data.payload;
-        console.log('assignment', this.assignments);
+        // ('assignment', this.assignments);
         const assignment = [];
         from(this.assignments)
           .pipe(
@@ -116,13 +116,13 @@ days: any;
             mergeMap(group => zip(of(group.key), group.pipe(toArray())))
           )
           .subscribe(list => {
-             console.log('Assignments', ...list);
+             // ('Assignments', ...list);
              assignment.push(list);
           });
         this.dueAssignment = assignment[0][1];
-        console.log(this.activeAssignment);
+        // (this.activeAssignment);
         this.activeAssignment  = assignment[1][1];
-        console.log(this.dueAssignment);
+        // (this.dueAssignment);
       }
     });
   }
@@ -147,23 +147,23 @@ days: any;
     this.timeTableService.getAllClassesForClassByDay(day).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
-        console.log(this.subjectAndTime);
+        // (this.subjectAndTime);
 
       }
     }, error => {
-      console.log(error);
+      // (error);
     });
   }
 
   getSession() {
     this.assessmentService.getCurrentSession().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.sessionList = data.payload;
         const term: any = this.sessionList.terms;
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < term.length; i++) {
-          console.log(term[i]);
+          // (term[i]);
           if (term[i].isCurrent) {
             this.currentTerm  = term[i].name;
 

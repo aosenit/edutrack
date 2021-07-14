@@ -40,7 +40,7 @@ export class ForgotPasswordComponent implements OnInit {
         if ( data.hasErrors === true) {
          this.notifyService.publishMessages(data.errors, 'danger', 1);
         } else {
-          console.log(data);
+          // (data);
           this.notSent = false;
           this.sent = true;
        }

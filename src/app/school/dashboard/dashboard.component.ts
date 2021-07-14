@@ -130,7 +130,7 @@ export class DashboardComponent implements OnInit {
     this.classService.getAllClasses().subscribe((data: any) => {
       if ( data.hasErrors === false) {
         this.classes = data.payload;
-        console.log(data.payload[0]);
+        // console.log(data.payload[0]);
         this.attendance.getClassAttendanceForTeacher(data.payload[0].id).subscribe((res: any) => {
           if (res.hasErrors === false) {
             this.attendanceList = data.payload;
@@ -138,9 +138,9 @@ export class DashboardComponent implements OnInit {
             // tslint:disable-next-line:prefer-for-of
             for (let i = 0; i < this.attendanceList.length; i++) {
               const {attendanceDate, attendanceStatus } = this.attendanceList[i];
-              // console.log(attendanceDate, attendanceStatus);
+              // // (attendanceDate, attendanceStatus);
               newData[attendanceStatus] = attendanceStatus;
-              // console.log('new Data', newData);
+              // // ('new Data', newData);
               this.barDashboardDatas = Object.values(newData);
               this.barDashboardDataKeys = Object.keys(newData);
               this.createBarChart(this.barDashboardDatas);
@@ -152,18 +152,18 @@ export class DashboardComponent implements OnInit {
   }
 
   getClassAttendance(e) {
-    // console.log(e);
+    // // (e);
     this.attendance.getClassAttendanceForTeacher(e).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.attendanceList = data.payload;
         const newData = {};
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.attendanceList.length; i++) {
-          // console.log(this.attendanceList);
+          // // (this.attendanceList);
           const {attendanceDate, attendanceStatus } = this.attendanceList[i];
-          // console.log(attendanceDate, attendanceStatus);
+          // // (attendanceDate, attendanceStatus);
           newData[attendanceStatus] = attendanceStatus;
-          // console.log('new Data', newData);
+          // // ('new Data', newData);
           this.barDashboardDatas = Object.values(newData);
           this.barDashboardDataKeys = Object.keys(newData);
           this.createBarChart(this.barDashboardDatas);

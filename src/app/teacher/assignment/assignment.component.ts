@@ -27,20 +27,20 @@ export class AssignmentComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
-    console.log(this.id);
+    // (this.id);
     this.getAssignmentSubmission();
   }
 
 
   getAssignmentSubmission() {
     this.teacherService.getAllAssignmentSubmissionForASubject(this.id).subscribe((data: any) => {
-      console.log(data);
+      // (data);
       if (data.hasErrors === false) {
-        console.log('asasasa', data);
+        // ('asasasa', data);
         this.studentAssignmentList = data.payload;
       }
     }, error => {
-      console.log(error);
+      // (error);
     });
   }
 
@@ -51,7 +51,7 @@ export class AssignmentComponent implements OnInit {
   }
 
   previewAssignment(i) {
-    // console.log(this.route.snapshot);
+    // // (this.route.snapshot);
     // routerLink = ""
     sessionStorage.setItem('preview-assignment', JSON.stringify(this.studentAssignmentList[i]));
     this.router.navigateByUrl('/teacher/preview-assignment/' + this.id);

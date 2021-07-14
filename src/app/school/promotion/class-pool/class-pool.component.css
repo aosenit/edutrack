@@ -68,7 +68,7 @@ input[type="text"] {
 /* ================= table ====================== */
 table.client-table {
     border-collapse: separate;
-    border-spacing: 0 1em;
+    border-spacing: 0 .5em;
 }
 
 .list .table thead {

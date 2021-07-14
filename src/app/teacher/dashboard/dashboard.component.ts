@@ -46,8 +46,8 @@ export class DashboardComponent implements OnInit {
   }
 
   save(i) {
-    console.log(i);
-    console.log(this.subjectAndTime[i]);
+    // (i);
+    // (this.subjectAndTime[i]);
     sessionStorage.setItem('current-class', JSON.stringify(this.subjectAndTime[i]));
   }
 
@@ -57,10 +57,10 @@ export class DashboardComponent implements OnInit {
   //     this.timeTableService.getTimeTableForTeacher().subscribe((data: any) => {
   //       if (data.hasErrors === false) {
   //         this.subjectAndTime = data.payload;
-  //         console.log(this.subjectAndTime);
+  //         // (this.subjectAndTime);
   //      }
   //   }, error => {
-  //     console.log(error);
+  //     // (error);
   //   });
   // }
 
@@ -78,10 +78,10 @@ export class DashboardComponent implements OnInit {
     this.timeTableService.getAllClassesForTeacherByDay( day).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectAndTime = data.payload;
-        console.log(this.subjectAndTime);
+        // (this.subjectAndTime);
       }
     }, error => {
-      console.log(error);
+      // (error);
     });
   }
 
@@ -95,15 +95,15 @@ export class DashboardComponent implements OnInit {
     //   { id: 4, day: 'Friday' },
     // ][new Date().getDay() + 1];
     // const day = weekday.id;
-    // console.log(day);
+    // // (day);
 
 
     // this.timeTableService.getNextClassessForTeacherByDay(teacherId, 4).subscribe((data: any) => {
     //   if (data.hasErrors === false) {
-    //   //  console.log(data);
+    //   //  // (data);
     //   }
     // }, error => {
-    //   console.log(error);
+    //   // (error);
     // });
   }
 
@@ -122,25 +122,25 @@ export class DashboardComponent implements OnInit {
 
     // getAssignmentSubmission() {
     //   this.teacherService.getAllAssignmentSubmissionForASubject(this.id).subscribe((data: any) => {
-    //     console.log(data);
+    //     // (data);
     //     if (data.hasErrors === false) {
-    //       console.log('asasasa', data);
+    //       // ('asasasa', data);
     //       this.studentAssignmentList = data.payload;
     //     }
     //   }, error => {
-    //     console.log(error);
+    //     // (error);
     //   });
     // }
 
     getSession() {
       this.assessmentService.getCurrentSession().subscribe((data: any) => {
         if (data.hasErrors === false) {
-          console.log(data);
+          // (data);
           this.sessionList = data.payload;
           const term: any = this.sessionList.terms;
           // tslint:disable-next-line:prefer-for-of
           for (let i = 0; i < term.length; i++) {
-            console.log(term[i]);
+            // (term[i]);
             if (term[i].isCurrent) {
               this.currentTerm  = term[i].name;
   

@@ -74,7 +74,7 @@ export class BasicDetailsComponent implements OnInit {
   getActiveTab() {
     this.parentBasicDetail = JSON.parse(sessionStorage.getItem('parent-basic-details'));
     if (sessionStorage.getItem('parent-basic-details') !== null) {
-      console.log(`Parent Basic details exists`);
+      // (`Parent Basic details exists`);
       this.basicDetailsForm.patchValue({
         Title: this.parentBasicDetail.Title,
         FirstName: this.parentBasicDetail.FirstName,
@@ -87,14 +87,14 @@ export class BasicDetailsComponent implements OnInit {
         IdentificationNumber: this.parentBasicDetail.IdentificationNumber,
       });
     } else {
-      console.log(`Parent Basic details not found`);
+      // (`Parent Basic details not found`);
     }
   }
 
   getParentByID() {
     this.parentService.getParentById(this.parentId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         sessionStorage.setItem('all-parent-info', JSON.stringify(data.payload));
       }
     });

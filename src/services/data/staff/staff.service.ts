@@ -82,8 +82,8 @@ export class StaffService {
       body.append('EducationExperienceVMs[' + i + '].endDate', EducationExperienceVMs[i].endDate);
     }
     const url = `${this.baseUrl + routes.addstaff}`;
-    console.log(url);
-    console.log(body);
+    
+    // (body);
     return this.http.post(url, body, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 

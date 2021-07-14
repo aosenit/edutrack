@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TableSearchPipe implements PipeTransform {
 
-  transform(items: any[], field: string, value: string): any[] {
+  transform(items: any, field: string, value: string): any[] {
     if (!items) {
       return [];
     }

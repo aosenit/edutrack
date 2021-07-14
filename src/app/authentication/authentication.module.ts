@@ -16,7 +16,16 @@ import { ParentLoginComponent } from './parent-login/parent-login.component';
 
 
 @NgModule({
-  declarations: [ForgotPasswordComponent, AdminLoginComponent, TeacherLoginComponent, StudentLoginComponent, SchoolLoginComponent, EmailVerifiedComponent, ResetPasswordComponent, ParentLoginComponent],
+  declarations: [
+    ForgotPasswordComponent,
+    AdminLoginComponent,
+    TeacherLoginComponent,
+    StudentLoginComponent,
+    SchoolLoginComponent,
+    EmailVerifiedComponent,
+    ResetPasswordComponent,
+    ParentLoginComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,

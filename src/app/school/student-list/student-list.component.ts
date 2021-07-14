@@ -40,7 +40,7 @@ export class StudentListComponent implements OnInit {
   downloadStudentSampleFile() {
     this.studentService.downloadSampleBulkSheet().subscribe((data: any) => {
       if (data.hasErrors === false ) {
-        console.log(data.payload);
+        // console.log(data.payload);
         this.fileString = data.payload;
         this.convertBase64ToExcel();
       }
@@ -83,18 +83,18 @@ export class StudentListComponent implements OnInit {
   }
 
   createStudentBulkUpload() {
-    // this.studentService.uploadBulkDocument(this.studentBulkUploadForm.value).subscribe((data: any) => {
-    //   console.log('bulk file', data);
-    //   if (data.hasError === false) {
-    //     console.log('file successfully uplaoded', data.payload);
-    //     this.notifyService.publishMessages(data.description, 'info', 1);
-    //     document.getElementById('close').click();
-    //     this.router.navigateByUrl('/admin/students');
-    //   }
-    // }, error => {
-    //   this.notifyService.publishMessages(error.errors, 'danger', 1);
+    this.studentService.uploadBulkDocument(this.studentBulkUploadForm.value).subscribe((data: any) => {
+      console.log('bulk file', data);
+      if (data.hasError === false) {
+        console.log('file successfully uplaoded', data.payload);
+        this.notifyService.publishMessages(data.description, 'info', 1);
+        document.getElementById('close').click();
+        this.router.navigateByUrl('/admin/students');
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-    // });
+    });
 
 
   }
@@ -102,7 +102,7 @@ export class StudentListComponent implements OnInit {
   handleBulkUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log(file);
+      // console.log(file);
       this.filename = file.name;
       this.studentBulkUploadForm.get('Document').setValue(file);
       // this.DocumentTypes.push(0);
@@ -114,7 +114,7 @@ export class StudentListComponent implements OnInit {
       if (data.hasErrors === false) {
         this.studentList = data.payload;
         this.studentCount = data.totalCount;
-        console.log('student list', this.studentList);
+        // console.log('student list', this.studentList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -122,12 +122,12 @@ export class StudentListComponent implements OnInit {
   }
 
   getPage(page: number) {
-    console.log(page);
+    // console.log(page);
     this.studentService.getAllStudents(page, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.studentList = data.payload;
         // this.studentList = data.payload.reverse();
-        console.log(this.studentList);
+        // console.log(this.studentList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -137,7 +137,7 @@ export class StudentListComponent implements OnInit {
   editStudent(id) {
     this.studentService.getStudentById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // console.log(data.payload);
         sessionStorage.setItem('all-student-info', JSON.stringify(data.payload));
         this.router.navigateByUrl('/school/edit-student/' + id);
       }
@@ -147,7 +147,7 @@ export class StudentListComponent implements OnInit {
   deleteStudent(id) {
     this.studentService.deleteStudentById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // console.log(data.payload);
         this.notifyService.publishMessages('Student deleted successfully', 'success', 1);
         this.getAllStudents();
       }

@@ -229,3 +229,13 @@ color: #243C67;
   object-fit: cover;
 
 }
+
+
+@media screen and (max-width: 600px) {
+   
+  .cards, .info {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  }

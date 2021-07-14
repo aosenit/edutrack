@@ -32,7 +32,7 @@ classWorks: any;
 
   getLessNotes() {
     this.lessonNoteService.getlessonNoteFile(this.id).subscribe((data: any) => {
-          // console.log('lesson notes', data);
+          // // ('lesson notes', data);
         if (data.hasErrors === false) {
           this.allLessonNote = data.payload;
         }
@@ -41,7 +41,7 @@ classWorks: any;
 
   getClassWork() {
     this.classWorkService.getClassWorkFiles(this.id).subscribe((data: any) => {
-        // console.log('class work notes', data);
+        // // ('class work notes', data);
       if (data.hasErrors === false) {
         this.classWorks = data.payload;
       }
@@ -49,7 +49,7 @@ classWorks: any;
   }
   getAssignments() {
     this.assignmentServie.getAssignmentFiles(this.id).subscribe((data: any) => {
-        // console.log('assignments', data);
+        // // ('assignments', data);
       if (data.hasErrors === false) {
         this.assignmentlist = data.payload;
       }
@@ -57,9 +57,9 @@ classWorks: any;
   }
 
   downloadClassWork(fileId) {
-    console.log(fileId);
+    // (fileId);
     this.fileService.getFileUpload(fileId).subscribe((data: any) => {
-      console.log(data);
+      // (data);
     });
   }
 

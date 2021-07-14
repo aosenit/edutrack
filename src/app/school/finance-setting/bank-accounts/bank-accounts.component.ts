@@ -70,10 +70,10 @@ export class BankAccountsComponent implements OnInit {
       isActive: this.toggleState
     };
 
-    // console.log('bank account', result);
+    // // ('bank account', result);
     this.finance.createNewBankAccount(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.notifyService.publishMessages('Account created successfully', 'success', 1);
         document.getElementById('myAccountModal').click();
         this.getAllBankAccounts();
@@ -99,7 +99,7 @@ export class BankAccountsComponent implements OnInit {
 
 
   getPage(page: number) {
-    console.log(page);
+    // (page);
     this.finance.getAllBankAccount(page, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.bankAccountList = data.payload;
@@ -115,7 +115,7 @@ export class BankAccountsComponent implements OnInit {
     this.selectedAccountId = id;
     this.finance.getBankAccountById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-       console.log(data.payload);
+       // (data.payload);
        this.editBankAccountForm.patchValue({
          bank: data.payload.bank,
          accountName: data.payload.accountName,
@@ -138,10 +138,10 @@ export class BankAccountsComponent implements OnInit {
       isActive: this.toggleState
     };
 
-    console.log('bank account', result);
+    // ('bank account', result);
     this.finance.updateBankAccountById(this.selectedAccountId, result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.notifyService.publishMessages('Account created successfully', 'success', 1);
         document.getElementById('editAccountModal').click();
         this.getAllBankAccounts();

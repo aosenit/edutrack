@@ -150,12 +150,12 @@ style="height: 85vh; width: 100%;" *ngIf="noData">
 
 </div>
 
-<div>
+<div class="mb-5"> 
 
   <div>
     <p>Submitted Broadsheets</p>
   </div>
-    <div class="row mb-4">
+    <div class="row mb-5">
 
       <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
         <div class="p-3 class__grade">
@@ -247,7 +247,10 @@ style="height: 85vh; width: 100%;" *ngIf="noData">
       
     </div>
 
-    <div class="d-flex justify-content-center"> </div>
+    <div class="d-flex justify-content-center">
+       <button (mouseenter)="showToolTip()" class="btn btn-outline-orange    mx-2 mx-lg-3" type="button"  data-toggle="tooltip" data-placement="top" title="Broadsheet are not complete. This button will be active once they are complete">Apply for promotion
+        Upload</button>
+       </div>
 </div>
 
 

@@ -28,12 +28,12 @@ export class ResetPasswordComponent implements OnInit {
     this.verificationUrl = this.route.snapshot.queryParams;
     const {code} = this.verificationUrl;
 
-    // console.log(this.validationToken);
-//     console.log(code);
+    // // (this.validationToken);
+//     // (code);
     if (this.validationToken === null ) {
       sessionStorage.setItem('tk', code);
       this.validationToken = sessionStorage.getItem('tk');
-      // console.log('no token use uRL');
+      // // ('no token use uRL');
     } else {
       this.validationToken = sessionStorage.getItem('tk');
     }
@@ -52,15 +52,15 @@ export class ResetPasswordComponent implements OnInit {
       token: this.validationToken,
       newPassword : password
     };
-    console.log(result);
+    // // (result);
     this.auth.requestPasswordReset(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // (data.payload);
         this.notifyService.publishMessages(data.description, 'success', 1);
         this.router.navigateByUrl('/');
       }
     }, error => {
-      console.log(error);
+      // // (error);
     });
 }
 

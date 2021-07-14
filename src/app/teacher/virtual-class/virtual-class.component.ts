@@ -58,7 +58,7 @@ export class VirtualClassComponent implements OnInit {
 //   }
 
 //   handleError(error) {
-//     console.log('Error: ', error);
+//     // ('Error: ', error);
 // }
 
   back() {
@@ -80,7 +80,7 @@ export class VirtualClassComponent implements OnInit {
 
   openSomething(id) {
     window.open('https://zoom.us/j/' + id , '_blank');
-    console.log(id);
+    // (id);
     // window.open(id , '_blank');
   }
 
@@ -91,13 +91,13 @@ export class VirtualClassComponent implements OnInit {
   //     role: this.role
   //   }).toPromise().then((data: any) => {
   //     if (data.signature) {
-  //       console.log(data.signature);
+  //       // (data.signature);
   //       this.startMeeting(data.signature);
   //     } else {
-  //       console.log(data);
+  //       // (data);
   //     }
   //   }).catch((error) => {
-  //     console.log(error);
+  //     // (error);
   //   });
   // }
 
@@ -109,7 +109,7 @@ export class VirtualClassComponent implements OnInit {
   //     leaveUrl: this.leaveUrl,
   //     isSupportAV: true,
   //     success: (success) => {
-  //       console.log(success);
+  //       // (success);
 
   //       ZoomMtg.join({
   //         signature,
@@ -119,16 +119,16 @@ export class VirtualClassComponent implements OnInit {
   //         userEmail: this.userEmail,
   //         passWord: this.passWord,
   //         success: (success) => {
-  //           console.log(success);
+  //           // (success);
   //         },
   //         error: (error) => {
-  //           console.log(error);
+  //           // (error);
   //         }
   //       });
 
   //     },
   //     error: (error) => {
-  //       console.log(error);
+  //       // (error);
   //     }
   //   });
   // }

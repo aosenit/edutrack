@@ -43,7 +43,7 @@ export class SchoolLoginComponent implements OnInit {
 
     this.schoolService.getSchoolDomainName(this.subdomain).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.payload);
+        // // (data.payload);
         this.matchedSchoolDetail = data.payload;
       } else {
         this.notifyService.publishMessages('School doesnt exist', 'danger', 1);

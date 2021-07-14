@@ -27,7 +27,7 @@ export class DepartmentService {
     // const body = new FormData();
     // body.append('name', departmentForm.name);
     // body.append('isActive', departmentForm.isActive);
-    // console.log(body);
+    // // (body);
     const url = `${this.baseUrl + routes.adddepartment}`;
     return this.http.post(url, departmentForm,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }

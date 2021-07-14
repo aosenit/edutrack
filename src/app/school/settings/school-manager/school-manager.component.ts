@@ -25,7 +25,7 @@ export class SchoolManagerComponent implements OnInit {
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
-    // console.log(this.adminDetails);
+    // // (this.adminDetails);
     this.getSchoolProperties();
     this.getSession();
   }
@@ -33,7 +33,7 @@ export class SchoolManagerComponent implements OnInit {
   getSchoolProperties() {
     this.school.getSchoolLogo(this.adminDetails.TenantId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.paylaod);
+        // (data.paylaod);
         this.schoolDetails = data.payload;
       }
     });
@@ -42,12 +42,12 @@ export class SchoolManagerComponent implements OnInit {
   getSession() {
     this.assessmentService.getCurrentSession().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.sessionList = data.payload;
         const term: any = this.sessionList.terms;
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < term.length; i++) {
-          console.log(term[i]);
+          // (term[i]);
           if (term[i].isCurrent) {
             this.currentTerm  = term[i].name;
 

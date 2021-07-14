@@ -37,7 +37,7 @@ export class ViewAssignmentComponent implements OnInit {
     this.parentService.getAssignmentsByClassSubject(this.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
           this.assignments = data.payload;
-          console.log(this.assignments);
+          // (this.assignments);
           const pending: any = this.assignments.filter((status: any) => status.status === 'Active');
 
           // tslint:disable-next-line:prefer-for-of
@@ -50,7 +50,7 @@ export class ViewAssignmentComponent implements OnInit {
       this.mydate = this.assignments.map((date) => {
         return moment(date.dueDate).fromNow();
       });
-      // console.log(test);
+      // // (test);
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
@@ -61,12 +61,12 @@ export class ViewAssignmentComponent implements OnInit {
     this.parentService.getStudentAssignmentSubmission(this.wardDetail.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
           this.assignmentSubmission = data.payload;
-          console.log(this.assignmentSubmission);
+          // (this.assignmentSubmission);
       }
       // this.mydate = this.assignments.map((date) => {
       //   return moment(date.dueDate).fromNow();
       // });
-      // console.log(test);
+      // // (test);
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 

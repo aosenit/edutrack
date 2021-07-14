@@ -114,7 +114,7 @@ export class PersonalSettingsComponent implements OnInit {
   getAllDepartments() {
     this.departmentService.getAllDepartment().subscribe( (data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.departmentList = data.payload;
       }
    }, error => {
@@ -126,7 +126,7 @@ export class PersonalSettingsComponent implements OnInit {
   deleteDepartment(id) {
     this.departmentService.deleteDepartment(id).subscribe( (data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.notification.publishMessages('You have successfully deleted a department', 'info', 0);
         this.getAllDepartments();
       }

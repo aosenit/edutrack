@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/uploads/', express.static(path.join(__dirname, '/uploads/')));
 
-console.log(__dirname);
+// (__dirname);
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
@@ -67,4 +67,4 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+server.listen(port, () => // (`API running on localhost:${port}`));

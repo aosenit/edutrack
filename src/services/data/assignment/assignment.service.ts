@@ -38,7 +38,7 @@ export class AssignmentService {
 
   getAssignmentByTeacher(p, perpage) {
     const url = `${this.baseUrl + routes.getAssignmentByTeacher}?PageIndex=${p}&PageSize=${perpage}`;
-    console.log(url)
+    // (url)
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
@@ -46,7 +46,7 @@ export class AssignmentService {
   getAssignmentByClass() {
 
     const url = `${this.baseUrl + routes.getAssignmentByClass}`;
-    console.log(url);
+    
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
@@ -54,7 +54,7 @@ export class AssignmentService {
   getAssignmentDetails(id: any) {
 
     const url = `${this.baseUrl + routes.getAssignmentDetails}?id=${id}`;
-    console.log(url);
+    
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
@@ -62,7 +62,7 @@ export class AssignmentService {
   getAssignmentsByClassSubject(classSubjectId: number) {
 
     const url = `${this.baseUrl + routes.getAssignmentByClassSubject}?classSubjectId=${classSubjectId}`;
-    console.log(url);
+    
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -90,7 +90,7 @@ export class AssignmentService {
 
   getAssignmentFiles(id: any) {
     const url = `${this.baseUrl + routes.getAssignmentFiles}/?classSubjectId=${id}`;
-    console.log(url);
+    
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

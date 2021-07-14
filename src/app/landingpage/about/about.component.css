@@ -1,6 +1,6 @@
 #top {
     margin-top: -73px;
-    background: url('../../assets/images/aboutus.png');
+    background: url('../../../assets/images/aboutus.png');
     height: 30vh;
     padding-bottom: 5vh;
     background-size: cover;
@@ -16,17 +16,17 @@
 }
 
 #choose {
-    background: url('../../assets/images/achoose.png');
+    background: url('../../../assets/images/achoose.png');
     min-height: 30vh;
 }
 .girl {
-    background: url('../../assets/images/girl.png');
+    background: url('../../../assets/images/girl.png');
     height: 600px;
     background-size: contain;
     margin-bottom: -40px;
 }
 #guarantee .text{
-    background: url('../../assets/images/svg/orangebox.svg');
+    background: url('../../../assets/images/svg/orangebox.svg');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top left;

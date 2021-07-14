@@ -29,20 +29,20 @@ export class ResultService {
 
   getStudentandAssement( id) {
     const url = `${this.baseUrl + routes.getstudentandassessment}?classId=${id}`;
-    console.log(url);
+    
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   generateReport(classId, className) {
     const url = `${this.baseUrl + routes.generateReport}?classId=${classId}&className=${className}`;
-    console.log(url);
+    
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 
   generateExcel(classId, className) {
     const url = `${this.baseUrl + routes.generateExcel}?classId=${classId}&?className=${className}`;
-    console.log(url);
+    
     // tslint:disable-next-line:max-line-length
     return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
@@ -55,7 +55,7 @@ export class ResultService {
     body.append('ExcelFile', excelDataForm.ExcelFile);
 
     const url = `${this.baseUrl + routes.uploadexcelresult}`;
-    console.log(url);
+    
     // tslint:disable-next-line:max-line-length
     return this.http.post(url, body, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
@@ -64,7 +64,7 @@ export class ResultService {
   UploadAssessmentSetup(result) {
 
     const url = `${this.baseUrl + routes.uploadResultFromForm}`;
-    console.log(url);
+    
     // tslint:disable-next-line:max-line-length
     return this.http.post(url, result, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
@@ -76,14 +76,14 @@ export class ResultService {
 
   getStudentBroadSheet(studId, classId) {
     const url = `${this.baseUrl + routes.getstudentbroadsheet}?studId=${studId}&classId=${classId}`;
-    console.log(url);
+    
     // tslint:disable-next-line:max-line-length
     return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getStudentBroadSheetApprovedByTEacher(classId) {
     const url = `${this.baseUrl + routes.getstudentResultFromTeacher}/${classId}`;
-    console.log(url);
+    
     // tslint:disable-next-line:max-line-length
     return this.http.get(url, {  headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }

@@ -68,7 +68,7 @@ export class SocialDetailsComponent implements OnInit {
     this.socialDetails = JSON.parse(sessionStorage.getItem('parent-social-details'));
 
     if (sessionStorage.getItem('parent-social-details') !== null) {
-      console.log(`Social details exists`);
+      // (`Social details exists`);
       this.socialDetailsForm.patchValue({
         PhoneNumber: this.socialDetails.PhoneNumber,
         SecondaryPhoneNumber: this.socialDetails.SecondaryPhoneNumber,
@@ -78,13 +78,13 @@ export class SocialDetailsComponent implements OnInit {
         OfficeAddress: this.socialDetails.OfficeAddress,
       });
     } else {
-      console.log(`School details not found`);
+      // (`School details not found`);
     }
   }
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('all-parent-info'));
-    console.log('na the paylod', payload);
+    // ('na the paylod', payload);
     this.socialDetailsForm.patchValue({
       PhoneNumber: payload.contactNumber,
         SecondaryPhoneNumber: payload.secondaryPhoneNumber,

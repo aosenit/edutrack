@@ -5,7 +5,7 @@
                 School login
             </button>
             <div class="dropdown-menu droppy" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" routerLink="/login" *ngIf="hideAdminLogin"> 
+                <a class="dropdown-item" routerLink="/login" *ngIf="displayAdminLogin"> 
                     <span class="mr-2">
                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1.91664 2.59484C2.0778 2.67632 3.1626 3.14717 3.68669 3.3739C3.68874 3.55666 3.69324 3.87269 3.70015 3.87806C3.75791 4.33061 3.85706 4.83338 3.88578 4.97536C3.83813 4.99909 3.59322 5.14298 3.59322 5.59052C3.59344 5.59305 3.59369 5.59537 3.5939 5.59793C3.59354 5.60967 3.59322 5.6215 3.59322 5.63366C3.69863 6.87759 4.24928 6.34149 4.36282 6.88636C4.5517 7.7923 5.44453 8.44775 6.00028 8.67403C6.32149 8.80476 6.65206 8.87143 6.99947 8.87783C7.34688 8.87146 7.67744 8.80476 7.99865 8.67403C8.5544 8.44775 9.44724 7.79227 9.63611 6.88636C9.74966 6.34146 10.3003 6.87759 10.4057 5.63366C10.4057 5.62147 10.4054 5.60967 10.405 5.59793C10.4052 5.59541 10.4055 5.59308 10.4057 5.59052C10.4057 5.14295 10.1608 4.99909 10.1132 4.97536C10.1419 4.83338 10.2411 4.33064 10.2988 3.87806C10.3057 3.87269 10.3102 3.55669 10.3122 3.3739C10.6001 3.24935 11.0569 3.05124 11.4371 2.88439V4.08688C11.3315 4.14288 11.2573 4.24173 11.2573 4.35958C11.2573 4.46393 11.3163 4.55233 11.4022 4.61076C11.4022 4.61076 11.2494 5.3821 11.2 5.60895C11.1507 5.83575 12.071 5.79025 12.0296 5.60895C11.9882 5.42759 11.8276 4.61076 11.8276 4.61076C11.9135 4.55233 11.9725 4.46393 11.9725 4.35958C11.9725 4.24169 11.8985 4.14291 11.793 4.08688V2.72728C11.9347 2.66413 12.0402 2.61611 12.0823 2.59484C12.1963 2.53718 12.2577 2.46343 12.2448 2.3868C12.2603 2.3069 12.196 2.22102 12.0235 2.1451C10.7918 1.60343 7.65174 0.222849 7.34126 0.0897927C7.2058 0.0317524 7.0943 0.0061112 6.99947 0C6.90463 0.0061112 6.79314 0.0317524 6.65767 0.0897927C6.34719 0.222849 3.20716 1.60346 1.97552 2.1451C1.80288 2.22102 1.7386 2.3069 1.75422 2.3868C1.74119 2.46343 1.80262 2.53718 1.91664 2.59484Z" fill="black"/>
@@ -36,7 +36,7 @@
                         </svg>
                         
                    </span> Teacher</a>
-                <a class="dropdown-item" routerLink="/parent/login" *ngIf="hideAdminLogin">
+                <a class="dropdown-item" routerLink="/parent/login" *ngIf="displayAdminLogin">
                    <span class="mr-2">
                     <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M7.00087 4.15453C8.42538 3.10354 8.94511 2.25667 8.94511 1.53606C8.94511 0.81404 8.44837 0.228745 7.83563 0.228745C7.50269 0.228745 7.20424 0.401801 7.00087 0.675447C6.79751 0.401801 6.49906 0.228745 6.16612 0.228745C5.55338 0.228745 5.05664 0.81404 5.05664 1.53606C5.05667 2.25667 5.57637 3.10354 7.00087 4.15453V4.15453Z" fill="black"/>
@@ -85,10 +85,10 @@
                     <a class="nav-link quicklink" [routerLink]="['/']" routerLinkActive="active" href="#">Home</a>
                 </li>
                 <li class="nav-item mx-2 mt-lg-2">
-                    <a class="nav-link quicklink" [routerLink]="['/aboutus']" routerLinkActive="active" href="#">About Us</a>
+                    <a class="nav-link quicklink" [routerLink]="['/about-us']" routerLinkActive="active" href="#">About Us</a>
                 </li>
                 <li class="nav-item mx-2 mt-lg-2">
-                    <a class="nav-link quicklink" [routerLink]="['/productfeatures']" routerLinkActive="active" href="#">Product features</a>
+                    <a class="nav-link quicklink" [routerLink]="['/product-features']" routerLinkActive="active" href="#">Product features</a>
                 </li>
                 <li class="nav-item mx-2 mt-lg-2">
                     <a class="nav-link quicklink" [routerLink]="['/FAQs']" routerLinkActive="active" href="#">FAQs</a>

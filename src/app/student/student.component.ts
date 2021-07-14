@@ -33,7 +33,7 @@ studentDetails: any;
   getSchoolProperties() {
     this.school.getSchoolLogo(this.studentDetails.TenantId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data.paylaod);
+        // (data.paylaod);
         this.schoolLogo = data.payload.logo;
         sessionStorage.setItem('prop', this.schoolLogo);
         this.schoolname = data.payload.schoolName;

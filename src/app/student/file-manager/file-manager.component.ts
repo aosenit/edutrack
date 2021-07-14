@@ -23,7 +23,7 @@ export class FileManagerComponent implements OnInit {
     // const classId = 25;
     this.classService.getAllSubjectsInAClassWithClassNotePreview().subscribe((data: any) => {
       if (data.hasErrors === false ) {
-        console.log(data);
+        // (data);
         this.subjectList = data.payload;
       }
     });

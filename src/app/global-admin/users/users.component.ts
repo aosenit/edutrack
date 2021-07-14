@@ -52,7 +52,7 @@ export class UsersComponent implements OnInit {
       if (data.hasErrors === false) {
         this.adminList = data.payload;
         this.adminList = this.adminList.reverse();
-        // console.log(this.adminList);
+        // // (this.adminList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -63,7 +63,7 @@ export class UsersComponent implements OnInit {
   handleBulkUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      // console.log('file', file);
+      // // ('file', file);
       this.filename = file.name;
       this.bulkUpload.get('avatar').setValue(file);
       // this.iconname = this.icon.name;
@@ -71,16 +71,16 @@ export class UsersComponent implements OnInit {
   }
 
   UploadBulkFile() {
-    console.log(this.bulkUpload.value);
+    // (this.bulkUpload.value);
   }
 
   deleteAdmin(id) {
-    console.log(id);
+    // (id);
     this.adminService.deleteAdmin(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Admin deleted', 'success', 1);
 
-        console.log(data.payload);
+        // (data.payload);
         this.showAllAdmin();
       }
     });
@@ -98,7 +98,7 @@ export class UsersComponent implements OnInit {
   //           ),
   //           mergeMap(group => zip(of(group.key), group.pipe(toArray())))
   //         )
-  //         .subscribe(console.log);
+  //         .subscribe(// );
   //     }
   //   }, error => {
   //     this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -110,7 +110,7 @@ export class UsersComponent implements OnInit {
   //   this.adminService.getRoles().subscribe((data: any) => {
   //     if (data.hasErrors === false) {
   //       this.allRoles = data.payload;
-  //       console.log(this.allRoles);
+  //       // (this.allRoles);
   //     }
   //   }, error => {
   //     this.notifyService.publishMessages(error.errors, 'danger', 1);

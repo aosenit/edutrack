@@ -94,18 +94,18 @@ export class FileManagerComponent implements OnInit {
     this.classService.getAllClasses().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classList = data.payload;
-        console.log(this.classList);
+        // (this.classList);
       }
     }
     );
   }
 
   getSubjects(id) {
-    console.log(id);
+    // (id);
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectsInClass = data.payload;
-        console.log(this.subjectsInClass);
+        // (this.subjectsInClass);
       }
     }
     );
@@ -115,7 +115,7 @@ export class FileManagerComponent implements OnInit {
     const reader = new FileReader();
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log('file', file);
+      // ('file', file);
       this.assignmentFile = file.name;
       this.uploadClassNoteForm.get('FileObj').setValue(file);
       // this.iconname = this.icon.name;
@@ -125,7 +125,7 @@ export class FileManagerComponent implements OnInit {
     const reader = new FileReader();
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log('file', file);
+      // ('file', file);
       this.assignmentFile = file.name;
       this.uploadClassWorkForm.get('FileObj').setValue(file);
       // this.iconname = this.icon.name;
@@ -135,7 +135,7 @@ export class FileManagerComponent implements OnInit {
     const reader = new FileReader();
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log('file', file);
+      // ('file', file);
       this.assignmentFile = file.name;
       this.uploadAssignmentForm.get('Document').setValue(file);
       // this.iconname = this.icon.name;
@@ -222,7 +222,7 @@ export class FileManagerComponent implements OnInit {
   getAllLessonNotesByTeacher() {
     this.lessonNoteService.getLessonNotesByTeacher().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log('lesson Notes', data);
+        // // ('lesson Notes', data);
         this.allLessonNote = data.payload;
       }
     }, error => {
@@ -235,9 +235,9 @@ export class FileManagerComponent implements OnInit {
   getAllClassWorkByTeacher() {
     this.classWorkService.getClassWorkByTeacher().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log('class work', data);
+        // // ('class work', data);
         this.classworkList = data.payload;
-        console.log(this.classworkList);
+        // (this.classworkList);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -249,7 +249,7 @@ export class FileManagerComponent implements OnInit {
   getAllAssignmentsByTeacher() {
     this.assignmentService.getAssignmentByTeacher(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log('Assignment', data);
+        // // ('Assignment', data);
         this.assignmentlist = data.payload;
         this.assignmentCount = data.totalCount;
       }
@@ -261,16 +261,16 @@ export class FileManagerComponent implements OnInit {
   }
 
   getPage(page: number) {
-    console.log(page);
+    // (page);
     this.assignmentService.getAssignmentByTeacher(page, this.itemsPerPage).subscribe((data: any) => {
-      console.log(data);
+      // (data);
       if (data.hasErrors === false) {
-        console.log('asasasa', data);
+        // ('asasasa', data);
         this.assignmentlist = data.payload;
         this.assignmentCount = data.totalCount;
       }
     }, error => {
-      console.log(error);
+      // (error);
     });
   }
 

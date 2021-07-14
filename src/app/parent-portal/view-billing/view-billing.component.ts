@@ -60,7 +60,7 @@ export class ViewBillingComponent implements OnInit {
     this.parent.getInvoicesById(this.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.parentInvoice = data.payload;
-        console.log(this.parentInvoice.invoiceItems);
+        // (this.parentInvoice.invoiceItems);
         this.invData = this.parentInvoice.invoiceItems;
 
         // tslint:disable-next-line:prefer-for-of
@@ -117,15 +117,15 @@ export class ViewBillingComponent implements OnInit {
   checkInvoice(event, i, id) {
     if (event.target.checked === true) {
       this.subTotal += this.invData[i].amount;
-      console.log(i);
+      // (i);
       this.invArray[i].isSelected = true;
-      console.log(this.invArray);
+      // (this.invArray);
 
     } else {
 
       this.subTotal -= this.invData[i].amount;
       this.invArray[i].isSelected = false;
-      console.log(this.invArray);
+      // (this.invArray);
       }
 
   }
@@ -137,7 +137,7 @@ export class ViewBillingComponent implements OnInit {
       invoiceId: parseInt(this.id),
       componentSelections: this.invArray
     };
-    console.log(result);
+    // (result);
     this.parent.updateSelectedInvoice(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         document.getElementById('closeAssignmentModal').click();
@@ -154,7 +154,7 @@ export class ViewBillingComponent implements OnInit {
 
 
   createNewtransaction() {
-    console.log(this.createTransactionForm.value);
+    // (this.createTransactionForm.value);
     const { amount, description } = this.createTransactionForm.value;
     const result = {
       invoiceId: parseInt(this.id),
@@ -178,7 +178,7 @@ export class ViewBillingComponent implements OnInit {
   }
 
   createTransaction2() {
-    console.log(this.balanceTransactionForm.value);
+    // (this.balanceTransactionForm.value);
     const { amount, description } = this.balanceTransactionForm.value;
     const result = {
       invoiceId: parseInt(this.id),
@@ -201,7 +201,7 @@ export class ViewBillingComponent implements OnInit {
   }
 
   createTransaction3() {
-    // console.log(this.createTransactionForm.value);
+    // // (this.createTransactionForm.value);
     const { amount, description } = this.createTransactionForm.value;
     const result = {
       invoiceId: parseInt(this.id),

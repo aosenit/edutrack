@@ -25,7 +25,7 @@ export class SchoolComponent implements OnInit {
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
-    // console.log(this.adminDetails);
+    // // (this.adminDetails);
     this.getSchoolProperties();
 
   }
@@ -52,7 +52,7 @@ export class SchoolComponent implements OnInit {
 getSchoolProperties() {
   this.school.getSchoolLogo(this.adminDetails.TenantId).subscribe((data: any) => {
     if (data.hasErrors === false) {
-      console.log(data.paylaod);
+      // (data.paylaod);
       this.schoolLogo = data.payload.logo;
       this.schoolColor = data.payload;
       sessionStorage.setItem('prop', this.schoolLogo);
@@ -63,7 +63,7 @@ getSchoolProperties() {
 
 
 toggleSideBar() {
-  console.log('admin');
+  // ('admin');
   const sidebar = document.querySelector('#sidebar');
   const content = document.querySelector('#content');
   sidebar.classList.toggle('sidebar');

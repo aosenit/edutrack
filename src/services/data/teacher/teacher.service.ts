@@ -92,7 +92,7 @@ export class TeacherService {
       body.append('EducationExperienceVMs[' + i + '].endDate', EducationExperienceVMs[i].endDate);
     }
     const url = `${this.baseUrl + routes.addteacher}`;
-    console.log(url);
+    
     return this.http.post(url, body, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
@@ -111,7 +111,7 @@ export class TeacherService {
   }
 
   updateTeacher(userid, form) {
-   console.log(form);
+   // (form);
    if (form.profile !== null && form.signature !== null) {
     const { EducationExperienceVMs, WorkExperienceVMs } = form;
     const body = new FormData();
@@ -272,7 +272,7 @@ export class TeacherService {
   getAllAssignmentSubmissionForASubject(id) {
     // const tenantId = '1'; // just a temporary header till email services is ready
     const url = `${this.baseUrl + routes.getAllassignmentSubmission}?assignmentId=${id}`;
-    console.log(url);
+    
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }

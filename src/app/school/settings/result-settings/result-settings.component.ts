@@ -99,20 +99,20 @@ toggleState = false;
     };
     this.assessmentForm.reset();
     this.allAssessment.push(result);
-    console.log('All assessments', this.allAssessment);
+    // ('All assessments', this.allAssessment);
     document.getElementById('assessmentModal').click();
     this.assessmentForm.setValue({
       isExam : false,
       name: '',
       maxScore: ''
     });
-    console.log(this.assessmentForm.value);
+    // (this.assessmentForm.value);
   }
 
   publishAssessment() {
     this.assessmentService.setUpAssessment(this.allAssessment).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // console.log(data);
+        // // (data);
         this.notifyService.publishMessages('Assessment setup successfully', 'success', 1);
         location.reload();
       }
@@ -126,7 +126,7 @@ toggleState = false;
     this.allAssessment.pop();
     this.assessmentService.getAllAssessmentSetup().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.allAssessment = data.payload;
         this.assessments = data.payload;
         this.assessmentCount = data.totalCount;
@@ -144,7 +144,7 @@ toggleState = false;
   }
 
   submitGrade() {
-      console.log(this.gradeForm.value);
+      // (this.gradeForm.value);
       const sequenceNumber = this.sequenceCount++;
       const {grade, interpretation, lowerBound, upperBound, isActive} = this.gradeForm.value;
       if (lowerBound > upperBound) {
@@ -162,7 +162,7 @@ toggleState = false;
       };
       document.getElementById('myGradeModal').click();
       this.grades.push(result);
-      console.log(this.grades);
+      // (this.grades);
       this.gradeForm.reset();
     
   }
@@ -170,7 +170,7 @@ toggleState = false;
   publishGrade() {
     this.gradeService.addGrade(this.grades).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // (data);
         this.notifyService.publishMessages('Grade setup successfully', 'success', 1);
         this.getAllGrade();
       }
@@ -182,11 +182,11 @@ toggleState = false;
   getAllGrade() {
     this.gradeService.getAllGrades().subscribe((data: any) => {
       if (data.hasErrors === false ) {
-        console.log(data);
+        // (data);
         this.grades = data.payload;
       }
       // this.grades.forEach(element => {
-      //   console.log(element.lowerBound);
+      //   // (element.lowerBound);
       // });
     });
   }

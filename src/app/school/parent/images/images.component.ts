@@ -76,7 +76,7 @@ export class ImagesComponent implements OnInit {
     if (this.formBtn.type === 'create') {
       this.parentService.addParent(result).subscribe((data: any) => {
         if (data.code === 1) {
-          console.log(data);
+          // (data);
           this.notifyService.publishMessages(data.description, 'success', 1);
           sessionStorage.removeItem('parent-basic-details');
           sessionStorage.removeItem('parent-social-details');
@@ -89,7 +89,7 @@ export class ImagesComponent implements OnInit {
     } else {
       this.parentService.updateParent( this.paarentId, result).subscribe((data: any) => {
         if (data.code === 1) {
-          console.log(data);
+          // (data);
           this.notifyService.publishMessages(data.description, 'success', 1);
           sessionStorage.removeItem('parent-basic-details');
           sessionStorage.removeItem('parent-social-details');
@@ -109,7 +109,7 @@ export class ImagesComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       reader.readAsDataURL(file);
-      console.log('file', file);
+      // ('file', file);
       reader.onload = () => {
         this.imageSrc = reader.result as string;
         this.finalStepForm.patchValue({
@@ -126,7 +126,7 @@ export class ImagesComponent implements OnInit {
         this.DocumentTypes.pop();
       } else if (this.DocumentTypes.length > 1) {
         this.DocumentTypes.shift();
-        console.log(this.DocumentTypes);
+        // (this.DocumentTypes);
       }
       // this.iconname = this.icon.name;
     }

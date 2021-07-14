@@ -31,8 +31,8 @@ permissions: any;
         const users = this.allRoles.filter((element: any) => {
          return element.name.includes('USER');
         });
-        console.log(users);
-        console.log(this.allRoles);
+        // (users);
+        // (this.allRoles);
         this.permissions = {
           create : users[0].name,
           create_id: users[0].id,
@@ -44,7 +44,7 @@ permissions: any;
           delete_id: users[3].id,
 
         };
-        console.log(this.permissions);
+        // (this.permissions);
        }
      }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -52,7 +52,7 @@ permissions: any;
   }
 
   getValue(event) {
-    console.log(event);
+    // (event);
   }
 
 }

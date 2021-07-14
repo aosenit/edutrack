@@ -27,7 +27,7 @@ export class ProfileInformationComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
-    // console.log('page id', this.id);
+    // // ('page id', this.id);
     this.createProfileForm();
     this.route.params.subscribe((param: Params) => {
       if (!param.id) {
@@ -58,7 +58,7 @@ export class ProfileInformationComponent implements OnInit {
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('client-info'));
-    console.log('na the paylod', payload);
+    // console.log('na the paylod', payload);
     // this.populateEditProfileForm(payload);
     this.profileForm.patchValue({
 
@@ -84,7 +84,7 @@ export class ProfileInformationComponent implements OnInit {
     this.schoolProfile = JSON.parse(sessionStorage.getItem('profile-info'));
 
     if (sessionStorage.getItem('profile-info') !== null) {
-      console.log(`School profile exists`);
+      // console.log(`School profile exists`);
       this.profileForm.patchValue({
 
         Name: this.schoolProfile.Name,
@@ -94,7 +94,7 @@ export class ProfileInformationComponent implements OnInit {
 
       });
     } else {
-      console.log(`School profile not found`);
+      // console.log(`School profile not found`);
     }
 
   }

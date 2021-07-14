@@ -32,7 +32,7 @@ export class ClassArmService {
     // const body = new FormData();
     // body.append('name', addclassForm.name);
     // body.append('status', addclassForm.status);
-    // console.log(body);
+    // // (body);
     const url = `${this.baseUrl + routes.addclassarm}`;
     return this.http.post(url, classArmform, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
