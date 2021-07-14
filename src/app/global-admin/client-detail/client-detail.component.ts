@@ -22,7 +22,11 @@ iconSrc: any;
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
+<<<<<<< HEAD
     // // (this.id);
+=======
+    // console.log(this.id);
+>>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     this.getSchoolDetialsByID();
   }
 
@@ -30,11 +34,14 @@ iconSrc: any;
     this.schoolServices.getSchoolById(this.id).subscribe( (data: any) => {
       if (data.hasErrors === false) {
         this.schoolDetail = data.payload;
+<<<<<<< HEAD
         // // (this.schoolDetail);
+=======
+        // console.log(this.schoolDetail);
+>>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
       }
     });
   }
-
 
 
   back() {

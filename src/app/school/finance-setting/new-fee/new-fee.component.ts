@@ -103,15 +103,15 @@ export class NewFeeComponent implements OnInit {
         splitTerms.forEach(v => {
           // tslint:disable-next-line:prefer-for-of
           for (let i = 0; i < this.termList.length; i++) {
-            // (this.termList[i]);
+            // console.log(this.termList[i]);
             // tslint:disable-next-line:triple-equals
             if (this.termList[i].sequenceNumber == v) {
-              // ('yes');
+              // console.log('yes');
               this.termList[i].checked = true;
               this.terms.push(v);
-              // (this.terms);
-              // // (this.hobbiesArray);
-              // // (this.allHobbyList);
+              // console.log(this.terms);
+              // console.log(this.hobbiesArray);
+              // console.log(this.allHobbyList);
               // tslint:disable-next-line:no-unused-expression
 
             }
@@ -137,7 +137,7 @@ export class NewFeeComponent implements OnInit {
   setExistingComponent(data: any): FormArray {
     const formArray = new FormArray([]);
     for (const x of data) {
-      // (x);
+      // console.log(x);
       formArray.push(this.fb.group({
         ComponentId: x.componentId,
         amount: x.amount,
@@ -165,10 +165,10 @@ export class NewFeeComponent implements OnInit {
   getSession() {
     this.assessmentService.getCurrentSession().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // (data);
+        // console.log(data);
         const sessionList: any = data.payload;
         this.termList = sessionList.terms;
-        // (this.terms);
+        // console.log(this.terms);
       }
     });
   }
@@ -176,12 +176,12 @@ export class NewFeeComponent implements OnInit {
   getTerms(event, sequence) {
     if (event.target.checked === true) {
       this.terms.push(event.target.value);
-      // (this.terms);
+      // console.log(this.terms);
     } else {
       const index = this.terms.indexOf(`${sequence}`);
       if (index > -1) {
         this.terms.splice(index, 1);
-        // (this.terms);
+        // console.log(this.terms);
       }
       this.terms.filter((item) => item !== sequence);
     }
@@ -189,7 +189,7 @@ export class NewFeeComponent implements OnInit {
 
 
   getClassBySectionId(id) {
-    // (id);
+    // console.log(id);
     this.classService.getClassBySection(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classes = data.payload;
@@ -240,11 +240,11 @@ export class NewFeeComponent implements OnInit {
   }
 
   createNewFee() {
-    // (this.feeForm.value);
+    // console.log(this.feeForm.value);
     const { name, SchoolClassId, FeeGroupId, terms, feeComponents } = this.feeForm.value;
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < feeComponents.length; i++) {
-      // (feeComponents[i]);
+      // console.log(feeComponents[i]);
       const { amount, ComponentId, isCompulsory } = feeComponents[i];
       const result2 = {
         amount,
@@ -271,7 +271,7 @@ export class NewFeeComponent implements OnInit {
 
 
     };
-    // (result);
+    // console.log(result);
     this.finance.createFee(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Successful', 'success', 1);
@@ -289,11 +289,11 @@ export class NewFeeComponent implements OnInit {
   }
 
   editCreatedFee() {
-    // (this.feeForm.value);
+    // console.log(this.feeForm.value);
     const { name, SchoolClassId, FeeGroupId, terms, feeComponents } = this.editFeeForm.value;
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < feeComponents.length; i++) {
-      // (feeComponents[i]);
+      // console.log(feeComponents[i]);
       const { amount, ComponentId, isCompulsory } = feeComponents[i];
       const result2 = {
         amount,
@@ -320,7 +320,7 @@ export class NewFeeComponent implements OnInit {
 
 
     };
-    // (result);
+    // console.log(result);
   }
 
   back() {

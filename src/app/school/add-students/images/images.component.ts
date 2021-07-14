@@ -71,11 +71,11 @@ DocumentTypes: number[] = [];
       ...finals,
       DocumentTypes: this.DocumentTypes
     };
-    // ('VERIFY PARENT ID', result.ParentId);
+    // console.log('VERIFY PARENT ID', result.ParentId);
     this.studentService.addStudent(result).subscribe((data: any) => {
-        // ('student created', data);
+        // console.log('student created', data);
         if ( data.hasErrors === false) {
-          // (data);
+          // console.log(data);
           this.notifyService.publishMessages( data.description, 'success', 1);
           sessionStorage.removeItem('student-basic-details');
           sessionStorage.removeItem('student-social-details');
@@ -105,12 +105,12 @@ DocumentTypes: number[] = [];
       ...finals,
       DocumentTypes: this.DocumentTypes
     };
-    // ('VERIFY PARENT ID', result.ParentId);
-    // ('result', result);
+    // console.log('VERIFY PARENT ID', result.ParentId);
+    // console.log('result', result);
     this.studentService.updateStudent(this.studentid, result).subscribe((data: any) => {
-        // ('student updated', data);
+        // console.log('student updated', data);
         if ( data.hasErrors === false) {
-          // (data);
+          // console.log(data);
           this.notifyService.publishMessages( data.description, 'success', 1);
           sessionStorage.removeItem('student-basic-details');
           sessionStorage.removeItem('student-social-details');
@@ -134,7 +134,7 @@ DocumentTypes: number[] = [];
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       reader.readAsDataURL(file);
-      // ('file', file);
+      // console.log('file', file);
       reader.onload = () => {
         this.imageSrc = reader.result as string;
         this.finalStepForm.patchValue({
@@ -143,7 +143,7 @@ DocumentTypes: number[] = [];
       };
       this.profileImageName = file.name;
       this.DocumentTypes.push(2);
-      // (this.DocumentTypes);
+      // console.log(this.DocumentTypes);
 
       this.finalStepForm.get('profilePhoto').setValue(file);
 
@@ -153,7 +153,7 @@ DocumentTypes: number[] = [];
         this.DocumentTypes.pop();
       } else if (this.DocumentTypes.length > 1) {
         this.DocumentTypes.shift();
-        // (this.DocumentTypes);
+        // console.log(this.DocumentTypes);
       }
       // this.iconname = this.icon.name;
     }

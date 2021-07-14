@@ -8,7 +8,8 @@ const routes = {
   getstudentbyid: 'schtrack-auth/api/v1/Student/GetStudentById',
   updatestudentbyid: 'schtrack-auth/api/v1/Student/UpdateStudent',
   deletestudent: 'schtrack-auth/api/v1/Student/DeleteStudent',
-  getBulkDdownload: 'schtrack-auth/api/v1/Student/GetStudentsExcelSheet'
+  getBulkDdownload: 'schtrack-auth/api/v1/Student/GetStudentsExcelSheet',
+  bulkUpload: 'schtrack-auth/api/v1/Student/BulkAddSchool'
 };
 
 @Injectable({
@@ -64,13 +65,13 @@ export class StudentService {
 
   getAllStudents(p, perpage) {
     const url = `${this.baseUrl + routes.getallstudent}?PageIndex=${p}&PageSize=${perpage}`;
-    
+    // console.log(url);
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getStudentById(id: any) {
     const url = `${this.baseUrl + routes.getstudentbyid}/${id}`;
-    
+    // console.log(url);
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
@@ -119,7 +120,7 @@ export class StudentService {
       return this.http.put(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   } else {
-      // ('no file selected');
+      // console.log('no file selected');
       const body = new FormData();
       body.append('FirstName', updateStudentForm.FirstName);
       body.append('LastName', updateStudentForm.LastName);
@@ -177,5 +178,14 @@ export class StudentService {
       const url = `${this.baseUrl + routes.getBulkDdownload}`;
       return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   
+    }
+
+    uploadBulkDocument(payload) {
+      const body = new FormData();
+      body.append('Files', payload.Document);
+
+      const url = `${this.baseUrl + routes.bulkUpload}`;
+      return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+   
     }
 }

@@ -17,7 +17,7 @@ studentDetails: any;
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
-    // (this.id);
+    // console.log(this.id);
     this.getStudentByID();
   }
 
@@ -27,12 +27,12 @@ studentDetails: any;
 
   getStudentByID() {
     this.studentService.getStudentById(this.id).subscribe((data: any) => {
-      // ('ssasasa', data);
+      // console.log('ssasasa', data);
       if (data.hasErrors === false ) {
         this.studentDetails = data.payload;
       }
     }, error => {
-      // (error);
+      // console.log(error);
     });
   }
 

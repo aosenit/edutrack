@@ -113,3 +113,40 @@ h6 {
     font-weight: bold;
     font-weight: 600;
 }
+
+.class__grade {
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.class__grade--date {
+    color: #a4a5a8;
+    font-size: 13px;
+}
+
+.class__grade--status {
+    font-size: 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 35px;
+}
+
+.class__grade .pending {
+    background: #fff9e6;
+    color: #513f01;
+}
+
+.class__grade .approved {
+    background: #ebfffa;
+    color: #09b78a;
+}
+
+.class__grade .rejected {
+    color: #611013;
+    background: #fae0e1;
+}

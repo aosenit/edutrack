@@ -120,14 +120,22 @@ attachedSubjectlist: any;
     this.teacherService.getTeacherById(this.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.teacherDetails = data.payload;
+<<<<<<< HEAD
         // (this.teacherDetails);
+=======
+        // console.log(this.teacherDetails);
+>>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
       }
     });
   }
 
 
   getSubjects(id) {
+<<<<<<< HEAD
     // (id);
+=======
+    // console.log(id);
+>>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     this.classService.getSubjectForClass(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
@@ -146,7 +154,11 @@ attachedSubjectlist: any;
   }
 
   attachSubject() {
+<<<<<<< HEAD
     // (this.attachSubjectForm.value);
+=======
+    // console.log(this.attachSubjectForm.value);
+>>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     const {subjectIds} = this.attachSubjectForm.value;
     const  ClassSubjectIds = subjectIds.map((ids: any) => {
       return ids.id;
@@ -159,10 +171,17 @@ attachedSubjectlist: any;
       TeacherId,
       ClassSubjectIds
     };
+<<<<<<< HEAD
     // (result);
     this.teacherService.attachTeacherToSubject(result).subscribe((data: any) => {
       if (data.hasErrors === false ) {
         // (data);
+=======
+    // console.log(result);
+    this.teacherService.attachTeacherToSubject(result).subscribe((data: any) => {
+      if (data.hasErrors === false ) {
+        // console.log(data);
+>>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
         document.getElementById('myModal').click();
         this.getAttachedSubject();
         this.notifyService.publishMessages('Subject successfully attached to teacher ', 'info', 1);
@@ -174,11 +193,19 @@ attachedSubjectlist: any;
   }
 
   getAttachedSubject() {
+<<<<<<< HEAD
     // (this.id);
+=======
+    // console.log(this.id);
+>>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     this.teacherService.getAttachedSubjects(this.id).subscribe((data: any) => {
       // // (data);
       this.attachedSubjectlist = data.payload;
+<<<<<<< HEAD
       // ('sasaassasasasasasas', this.attachedSubjectlist);
+=======
+      // console.log('sasaassasasasasasas', this.attachedSubjectlist);
+>>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
@@ -196,7 +223,11 @@ attachedSubjectlist: any;
       teacherId
     };
     this.teacherService.attachTeacherToClass(result).subscribe((data: any) => {
+<<<<<<< HEAD
       // (data);
+=======
+      // console.log(data);
+>>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
       if (data.hasErrors === false ) {
         document.getElementById('classteacherModal').click();
         this.getAttachedTeacher();
@@ -210,7 +241,11 @@ attachedSubjectlist: any;
 
   getAttachedTeacher() {
     this.teacherService.getTeacherAttachedToClass(this.id).subscribe((data: any) => {
+<<<<<<< HEAD
       // (data);
+=======
+      // console.log(data);
+>>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
       if (data.hasErrors === false ) {
         this.classTeacherDetails = data.payload;
       }
