@@ -229,3 +229,14 @@ a {
     font-size: 18px;
     font-weight: bold;
 }
+
+@media screen and (max-width: 900px) {
+    .cards, .contact {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .activated__date {
+        margin-right: 0 !important;
+    }
+}

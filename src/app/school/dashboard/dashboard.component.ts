@@ -130,7 +130,7 @@ export class DashboardComponent implements OnInit {
     this.classService.getAllClasses().subscribe((data: any) => {
       if ( data.hasErrors === false) {
         this.classes = data.payload;
-        console.log(data.payload[0]);
+        // console.log(data.payload[0]);
         this.attendance.getClassAttendanceForTeacher(data.payload[0].id).subscribe((res: any) => {
           if (res.hasErrors === false) {
             this.attendanceList = data.payload;

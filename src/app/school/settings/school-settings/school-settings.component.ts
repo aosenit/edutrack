@@ -170,9 +170,9 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   }
 
   createClassArm() {
-    console.log('class arm create', this.classArmform.value);
+    // console.log('class arm create', this.classArmform.value);
     this.classArmService.addClassArm(this.classArmform.value).subscribe((data: any) => {
-      console.log(data);
+      // console.log(data);
       this.notification.publishMessages(data.description, 'info', 1);
       document.getElementById('myClassArmModal').click();
       this.classArmform.reset();
@@ -217,7 +217,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     };
     this.classArmService.updateClassArm(id, result).subscribe(
       (res: any) => {
-        console.log(res);
+        // console.log(res);
         if (res.code === 1) {
           this.notification.publishMessages('You have successfully updated this class arm', 'info', 0);
           this.getClassArms();
@@ -233,7 +233,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   deleteArm(id) {
     this.classArmService.deleteClassArm(id).subscribe((data: any) => {
       if (data.code === 1) {
-        console.log(data);
+        // console.log(data);
         this.notification.publishMessages('You have succesfully deleted a class arm', 'info', 0);
         this.getClassArms();
       }
@@ -245,7 +245,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
 
   getState(event) {
-    console.log('status', event);
+    // console.log('status', event);
 
 
   }
@@ -269,7 +269,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     this.schoolSectionService.addSection(result).subscribe(
       (res: any) => {
         if (res.hasErrors === false) {
-          console.log('level created', res);
+          // console.log('level created', res);
           this.notification.publishMessages('You have successfully added a section', 'info', 0);
           this.getSections();
           // this.section = ''
@@ -297,9 +297,9 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     .subscribe(
       (res: any) => {
         this.theLevel = res.payload;
-        console.log(this.theLevel);
+        // console.log(this.theLevel);
       }, error => {
-        console.log(error);
+        // console.log(error);
       }
     );
   }
@@ -311,9 +311,9 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     };
     // console.log(id);
     this.schoolSectionService.updateSection(result).subscribe((res: any) => {
-      console.log(res);
+      // console.log(res);
       if (res.hasErrors === false) {
-        console.log(res);
+        // console.log(res);
         this.notification.publishMessages('You have successfully edited this section', 'info', 0);
         document.getElementById('editSectionModal').click();
         this.getSections();
@@ -351,7 +351,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       status
     };
     this.classService.addClass(result).subscribe((data: any) => {
-      console.log('class create', data);
+      // console.log('class create', data);
       if (data.code === 1) {
         this.notification.publishMessages('Class Added Successfully', 'info', 1);
         document.getElementById('close').click();
@@ -391,13 +391,13 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
 
   getClassBySectionId(id) {
-    console.log(id);
+    // console.log(id);
     this.classService.getClassBySection(id)
     .subscribe(
       (res: any) => {
         if (res.hasErrors === false) {
           this.classBySectionList = res.payload;
-          console.log(this.classBySectionList);
+          // console.log(this.classBySectionList);
           const arr = [];
           this.classBySectionList.forEach(item => {
             const className = item.name;
@@ -420,9 +420,9 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 .subscribe(
       (res: any) => {
         this.classes = res.payload;
-        console.log(this.classes);
+        // console.log(this.classes);
         this.classCount = res.totalCount;
-        console.log('classes', this.classCount);
+        // console.log('classes', this.classCount);
       }
     );
   }
@@ -434,7 +434,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       (res: any) => {
         this.classes = res.payload;
         this.classCount = res.totalCount;
-        console.log('classes', res);
+        // console.log('classes', res);
       }, error => {
         this.notifyService.publishMessages(error.errors, 'danger', 1);
 
@@ -452,37 +452,37 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
 
   onItemSelect(event) {
-    console.log(event);
+    // console.log(event);
     this.testSubjectArray.push(event.id);
-    console.log('new subject list', this.testSubjectArray);
+    // console.log('new subject list', this.testSubjectArray);
 
   }
 
   onSelectAll(event) {
-    console.log(event);
+    // console.log(event);
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < event.length; i++) {
       this.testSubjectArray.push(event[i].id);
     }
-    console.log('new subject list', this.testSubjectArray);
+    // console.log('new subject list', this.testSubjectArray);
 
   }
 
   onItemDeSelect(event) {
-    console.log(`${event.id}`);
+    // console.log(`${event.id}`);
 
     const index = this.testSubjectArray.indexOf(event.id);
-    console.log(index);
+    // console.log(index);
     if (index > -1) {
         this.testSubjectArray.splice(index, 1);
       }
-    console.log('new subject list', this.testSubjectArray);
+    // console.log('new subject list', this.testSubjectArray);
 
   }
 
 
   createSubject() {
-    console.log('arrays', this.newsubjectForm.value);
+    // console.log('arrays', this.newsubjectForm.value);
     const { Name, IsActive } = this.newsubjectForm.value;
     const ClassIds = this.testSubjectArray;
     // const ClassIds = classSectionIds.map((ids: any) => {
@@ -496,7 +496,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     // console.log('subjects to be created', result);
     this.subjectService.addNewSubject(result).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        console.log(data);
+        // console.log(data);
         document.getElementById('mySubjectModal').click();
         this.newsubjectForm.reset();
         this.notification.publishMessages('You have succesfully created a subject', 'info', 0);
@@ -516,7 +516,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         this.subjectList = data.payload;
         this.subjectCount = data.totalCount;
 
-        console.log(this.subjectList);
+        // console.log(this.subjectList);
       }
     });
   }
@@ -528,7 +528,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       (res: any) => {
         this.subjectList = res.payload;
         this.subjectCount = res.totalCount;
-        console.log('classes', res);
+        // console.log('classes', res);
       }, error => {
         this.notifyService.publishMessages(error.errors, 'danger', 1);
 

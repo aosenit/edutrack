@@ -38,7 +38,7 @@ export class ContactPersonComponent implements OnInit {
     this.contactPersonForm = this.fb.group({
       ContactFirstName : ['', Validators.required],
       ContactLastName: ['', Validators.required],
-      ContactPhoneNo: ['', [Validators.required, Validators.pattern('^[0-9]{0,11}$')]],
+      ContactPhoneNo: ['', [Validators.required, Validators.minLength(11), Validators.pattern('^[0-9]{0,11}$')]],
       ContactEmail: ['', [Validators.email, Validators.required]]
     });
   }
@@ -81,6 +81,16 @@ export class ContactPersonComponent implements OnInit {
     } else {
     }
 
+  }
+
+  allowNumbersOnly(e) {
+    const ev = e || window.event;
+    const charcode = ev.which ? ev.which : ev.keycode;
+    if (charcode > 31 && (charcode < 48 || charcode > 57) && charcode !== 46) {
+      e.preventDefault()
+      return false;
+    }
+    return true;
   }
 
 }

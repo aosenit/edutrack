@@ -22,10 +22,18 @@ adminDetails: any;
   }
 
   toggleSideBar() {
-    console.log('admin');
+    // console.log('admin');
     const sidebar = document.querySelector('#sidebar');
     const content = document.querySelector('#content');
     sidebar.classList.toggle('sidebar');
     content.classList.toggle('content');
+  }
+
+  toggleMobileSideBar() {
+    // console.log('na me')
+    const sidebar = document.querySelector('#sidebar');
+    const content = document.querySelector('#content');
+    sidebar.classList.toggle('removeSidebar');
+    content.classList.toggle('mcontent');
   }
 }

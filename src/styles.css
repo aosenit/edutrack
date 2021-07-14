@@ -378,3 +378,13 @@ li.pagination-next:hover, li.pagination-previous:hover {
     background: rgba(38, 40, 42, 0.95);
     width: 70% !important;
 }  */
+
+
+
+
+.tooltip-inner {
+    max-width: max-content;
+    padding: 10px;
+    background: #ffffff;
+    border-color: 1px solid bisque;
+}

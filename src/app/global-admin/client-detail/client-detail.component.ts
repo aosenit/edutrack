@@ -22,7 +22,7 @@ iconSrc: any;
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
-    console.log(this.id);
+    // console.log(this.id);
     this.getSchoolDetialsByID();
   }
 
@@ -30,11 +30,10 @@ iconSrc: any;
     this.schoolServices.getSchoolById(this.id).subscribe( (data: any) => {
       if (data.hasErrors === false) {
         this.schoolDetail = data.payload;
-        console.log(this.schoolDetail);
+        // console.log(this.schoolDetail);
       }
     });
   }
-
 
 
   back() {

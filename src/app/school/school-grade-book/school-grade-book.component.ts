@@ -6,6 +6,10 @@ import { ResultService } from 'src/services/data/result/result.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+// import * as $ from 'jquery';
+declare var $: any;
+
+
 @Component({
   selector: 'app-school-grade-book',
   templateUrl: './school-grade-book.component.html',
@@ -51,6 +55,9 @@ export class SchoolGradeBookComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+   
+
     this.getCurrentSesion();
     this.generateGradeSetup();
     this.getSections();
@@ -62,6 +69,12 @@ export class SchoolGradeBookComponent implements OnInit {
     this.rejectionForm = this.fb.group({
       headTeacherRejectionComment: ['', Validators.required]
     });
+  }
+
+  showToolTip() {
+    $('[data-toggle=tooltip]').tooltip('show');
+    // $('[data-toggle="tooltip"]').tooltip({placement: 'top'});
+
   }
 
   generateGradeSetup() {

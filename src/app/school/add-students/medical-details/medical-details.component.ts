@@ -81,7 +81,7 @@ export class MedicalDetailsComponent implements OnInit {
     this.medicalDetials = JSON.parse( sessionStorage.getItem('student-medical-details'));
 
     if (sessionStorage.getItem('student-medical-details') !== null) {
-      console.log(`Student medicals exists`);
+      // console.log(`Student medicals exists`);
       this.medicalForm.patchValue({
         BloodGroup: this.medicalDetials.BloodGroup,
         Genotype: this.medicalDetials.Genotype,
@@ -92,14 +92,14 @@ export class MedicalDetailsComponent implements OnInit {
       });
       this.medicalForm.setControl('immunizationVms', this.setExistingComponent(this.medicalDetials.immunizationHistoryVMs));
     } else {
-      console.log(`Student medicals not found`);
+      // console.log(`Student medicals not found`);
     }
 
   }
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('all-student-info'));
-    console.log('na the paylod', payload);
+    // console.log('na the paylod', payload);
     this.medicalForm.patchValue({
       BloodGroup: payload.bloodGroup,
       Genotype: payload.genotype,
@@ -119,7 +119,7 @@ export class MedicalDetailsComponent implements OnInit {
 
     const formArray = new FormArray([]);
     for (const x of data) {
-      console.log(x);
+      // console.log(x);
       formArray.push(this.fb.group({
        age: x.age,
        date: moment(x.date).format('YYYY-MM-DD'),
