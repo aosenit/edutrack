@@ -54,11 +54,7 @@ export class ContactDetailComponent implements OnInit {
   prevStep() {
     this.home.stepper(1);
     this.currentStep = document.getElementById('step-' + `${1 + 1}`);
-<<<<<<< HEAD
-    // // ('previos step ', this.currentStep);
-=======
     // console.log('previos step ', this.currentStep);
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     this.currentStep.classList.remove('active');
 
 }
@@ -94,9 +90,6 @@ export class ContactDetailComponent implements OnInit {
     this.schoolDetails = JSON.parse( sessionStorage.getItem('school-details'));
 
     if (sessionStorage.getItem('school-details') !== null) {
-<<<<<<< HEAD
-      // // (`School details exists`);
-=======
       // console.log(`School details exists`);
       for (const unit in countries) {
         if (this.schoolDetails.Country === countries[unit].country) {
@@ -104,7 +97,6 @@ export class ContactDetailComponent implements OnInit {
           this.states = state;
         }
       }
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
       
       this.schooldetailsForm.patchValue({
         Country: this.schoolDetails.Country,
@@ -113,11 +105,7 @@ export class ContactDetailComponent implements OnInit {
         City: this.schoolDetails.City
       });
     } else {
-<<<<<<< HEAD
-      // // (`School details not found`);
-=======
       // console.log(`School details not found`);
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     }
 
   }

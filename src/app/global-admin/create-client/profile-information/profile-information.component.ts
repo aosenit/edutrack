@@ -58,11 +58,7 @@ export class ProfileInformationComponent implements OnInit {
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('client-info'));
-<<<<<<< HEAD
-    // ('na the paylod', payload);
-=======
     // console.log('na the paylod', payload);
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     // this.populateEditProfileForm(payload);
     this.profileForm.patchValue({
 
@@ -88,11 +84,7 @@ export class ProfileInformationComponent implements OnInit {
     this.schoolProfile = JSON.parse(sessionStorage.getItem('profile-info'));
 
     if (sessionStorage.getItem('profile-info') !== null) {
-<<<<<<< HEAD
-      // (`School profile exists`);
-=======
       // console.log(`School profile exists`);
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
       this.profileForm.patchValue({
 
         Name: this.schoolProfile.Name,
@@ -102,11 +94,7 @@ export class ProfileInformationComponent implements OnInit {
 
       });
     } else {
-<<<<<<< HEAD
-      // (`School profile not found`);
-=======
       // console.log(`School profile not found`);
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     }
 
   }

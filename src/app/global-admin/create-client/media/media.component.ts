@@ -88,42 +88,26 @@ export class MediaComponent implements OnInit {
 
     if (this.formBtn.type === 'create') {
       this.schoolServies.addSchool(result).subscribe( (data: any) => {
-<<<<<<< HEAD
-        if ( data ) {
-            // // ('school create successfully', data);
-=======
         if ( data.hasErrors === false ) {
-            // cons ole.log('school create successfully', data);
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
+            // console.log('school create successfully', data);
             this.notifyService.publishMessages(data.description, 'info', 1);
             sessionStorage.removeItem('profile-info');
             sessionStorage.removeItem('school-details');
             sessionStorage.removeItem('contact-person');
             this.router.navigateByUrl('/admin/clients');
         } else {
-<<<<<<< HEAD
-          // // (data);
-        }
-      }, error => {
-        // // (error);
-=======
           // console.log(data);
           this.notifyService.publishMessages(data.errors, 'danger', 1);
         }
       }, error => {
         // console.log(error);
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
         this.notifyService.publishMessages(error, 'danger', 1);
 
       });
     } else {
       this.schoolServies.updateSchool(this.id, result).subscribe( (data: any) => {
         if ( data.hasErrors === false ) {
-<<<<<<< HEAD
-            // // ('school edited successfully', data);
-=======
             // console.log('school edited successfully', data);
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
             this.notifyService.publishMessages(data.description, 'info', 1);
             sessionStorage.removeItem('profile-info');
             sessionStorage.removeItem('school-details');
@@ -142,11 +126,7 @@ export class MediaComponent implements OnInit {
 handleImgUpload(event: any) {
   if (event.target.files.length > 0) {
     const file = event.target.files[0];
-<<<<<<< HEAD
-    // // ('file', file);
-=======
     // console.log('file', file);
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     // this.iconname = this.icon.name;
     const size = event.target.files[0].size;
     if (size >=  1048576 ) {
@@ -200,11 +180,7 @@ handleIconUpload(event: any) {
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('client-info'));
-<<<<<<< HEAD
-    // // ('na the paylod', payload);
-=======
     // console.log('na the paylod', payload);
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     // this.populateEditProfileForm(payload);
     this.mediaForm.patchValue({
       PrimaryColor: payload.primaryColor,

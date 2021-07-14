@@ -22,11 +22,7 @@ adminDetails: any;
   }
 
   toggleSideBar() {
-<<<<<<< HEAD
-    // // ('admin');
-=======
     // console.log('admin');
->>>>>>> 8a6e4fd6618da5915d2b88889c7fad458574265c
     const sidebar = document.querySelector('#sidebar');
     const content = document.querySelector('#content');
     sidebar.classList.toggle('sidebar');
