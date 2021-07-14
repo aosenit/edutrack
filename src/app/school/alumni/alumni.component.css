@@ -36,18 +36,12 @@ header {
     height: 50vh;
     position: fixed;
 
-
-    
 }
 
 .main {
     margin-left: auto;
     width: calc(100% - 280px);
     transition: margin-left 0.3s !important;
-    /* width: calc(100% - 250px); */
-    /* margin-left: auto; */
-    /* padding: 30px 50px 100px; */
-    /* background: red; */
 }
 
 .user-avatar {
