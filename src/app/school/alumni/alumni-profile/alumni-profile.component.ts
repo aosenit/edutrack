@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./alumni-profile.component.css']
 })
 export class AlumniProfileComponent implements OnInit {
-
+  studentDetails: any;
   constructor() { }
 
   ngOnInit() {

@@ -113,8 +113,8 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       name: ['', Validators.required],
       sectionid: [Validators.required],
       classArm: ['', Validators.required],
-      sequenceid: [Validators.required],
-      status: []
+      sequenceid: ['', Validators.required],
+      status: [false]
     });
   }
 

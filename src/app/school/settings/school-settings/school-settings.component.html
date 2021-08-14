@@ -493,7 +493,7 @@
           <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
           </button>
           <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="createSection()" data-dismiss="modal"> Add
-            Section</button>
+            Level</button>
         </div>
       </div>
 
@@ -639,7 +639,7 @@
           <div class="form-group mb-5">
             <label for="sequence" class="">Sequence</label>
             <select name="" id="sequence" class="form-control" formControlName="sequenceid">
-              <option value="">Select</option>
+              <option value="" selected>Select</option>
               <option value="1">1</option>
               <option value="2">2</option>
             </select>
@@ -657,7 +657,7 @@
             <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
               data-dismiss="modal">Cancel
             </button>
-            <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Class</button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="addNewClassForm.invalid"> Add Class</button>
           </div>
         </form>
       </div>
@@ -714,7 +714,7 @@
             <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
               data-dismiss="modal">Cancel
             </button>
-            <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Class Arm</button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="classArmform.invalid"> Add Class Arm</button>
           </div>
         </form>
       </div>
@@ -844,7 +844,7 @@
             <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
               data-dismiss="modal">Cancel
             </button>
-            <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Subject</button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="newsubjectForm.invalid"> Add Subject</button>
           </div>
         </form>
       </div>
