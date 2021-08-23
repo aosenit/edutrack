@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
-import { CreateClientComponent } from '../create-client.component';
+import { GroupedSchoolsComponent } from '../grouped-schools.component';
 
 @Component({
-  selector: 'app-contact-person',
-  templateUrl: './contact-person.component.html',
-  styleUrls: ['./contact-person.component.css']
+  selector: 'app-school-contact-person',
+  templateUrl: './school-contact-person.component.html',
+  styleUrls: ['./school-contact-person.component.css']
 })
-export class ContactPersonComponent implements OnInit {
+export class SchoolContactPersonComponent implements OnInit {
 
   contactPersonForm: FormGroup;
   currentStep: any;
@@ -16,10 +16,10 @@ export class ContactPersonComponent implements OnInit {
   contactPerson: any;
 
   constructor(
-              private fb: FormBuilder,
-              private home: CreateClientComponent,
-              private route: ActivatedRoute
-              ) { }
+    private fb: FormBuilder,
+    private home: GroupedSchoolsComponent,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.populateContactPerson();
@@ -45,14 +45,14 @@ export class ContactPersonComponent implements OnInit {
 
 
   nextStep() {
-    this.home.stepper(4);
-    sessionStorage.setItem('contact-person', JSON.stringify(this.contactPersonForm.value));
+    this.home.stepper(3);
+    sessionStorage.setItem('grouped-contact-person', JSON.stringify(this.contactPersonForm.value));
 
   }
 
   prevStep() {
-    this.home.stepper(2);
-    this.currentStep = document.getElementById('step-' + `${2 + 1}`);
+    this.home.stepper(1);
+    this.currentStep = document.getElementById('step-' + `${1 + 1}`);
     this.currentStep.classList.remove('active');
   }
 
@@ -68,9 +68,9 @@ export class ContactPersonComponent implements OnInit {
 
 
   getAActiveTab() {
-    this.contactPerson = JSON.parse( sessionStorage.getItem('contact-person'));
+    this.contactPerson = JSON.parse( sessionStorage.getItem('grouped-contact-person'));
 
-    if (sessionStorage.getItem('contact-person') !== null) {
+    if (sessionStorage.getItem('grouped-contact-person') !== null) {
       // // (`School person exists`);
       this.contactPersonForm.patchValue({
         ContactFirstName: this.contactPerson.ContactFirstName,

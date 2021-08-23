@@ -1,30 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { CreateClientComponent } from '../create-client.component';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { GroupedSchoolsComponent } from '../grouped-schools.component';
 import { NoSpaceValidator } from 'src/services/utils/noSpace';
 
 
 @Component({
-  selector: 'app-profile-information',
-  templateUrl: './profile-information.component.html',
-  styleUrls: ['./profile-information.component.css']
+  selector: 'app-school-information',
+  templateUrl: './school-information.component.html',
+  styleUrls: ['./school-information.component.css']
 })
-export class ProfileInformationComponent implements OnInit {
+export class SchoolInformationComponent implements OnInit {
+
   profileForm: FormGroup;
   profileInfo: any;
   id: any;
   schoolProfile: any;
   url = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
-
-
   constructor(
-    private home: CreateClientComponent,
+    private home: GroupedSchoolsComponent,
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
-    private schoolServices: SchoolService,
   ) { }
 
   ngOnInit() {
@@ -39,12 +37,12 @@ export class ProfileInformationComponent implements OnInit {
       }
     });
     this.getAActiveTab();
-
   }
+
 
   nextStep() {
     this.home.stepper(2);
-    sessionStorage.setItem('profile-info', JSON.stringify(this.profileForm.value));
+    sessionStorage.setItem('grouped-profile-info', JSON.stringify(this.profileForm.value));
   }
 
   createProfileForm() {
@@ -53,10 +51,11 @@ export class ProfileInformationComponent implements OnInit {
       Name: ['', Validators.required],
       DomainName: ['', [Validators.required, NoSpaceValidator.cannotContainSpace]],
       WebsiteAddress: ['', [Validators.required, Validators.pattern(this.url)]],
-      Username: ['', Validators.required],
+      // Username: ['', Validators.required],
 
     });
   }
+
 
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('client-info'));
@@ -67,32 +66,22 @@ export class ProfileInformationComponent implements OnInit {
       Name: payload.name,
       DomainName: payload.domainName,
       WebsiteAddress: payload.websiteAddress,
-      Username: payload.userName
+      // Username: payload.userName
     });
   }
 
-  populateEditProfileForm() {
-    this.schoolProfile = JSON.parse(sessionStorage.getItem('client-info'));
-    this.profileForm.patchValue({
-
-      Name: this.schoolProfile.name,
-      DomainName: this.schoolProfile.domainName,
-      WebsiteAddress: this.schoolProfile.websiteAddress,
-      Username: this.schoolProfile.userName
-    });
-  }
 
   getAActiveTab() {
-    this.schoolProfile = JSON.parse(sessionStorage.getItem('profile-info'));
+    this.schoolProfile = JSON.parse(sessionStorage.getItem('grouped-profile-info'));
 
-    if (sessionStorage.getItem('profile-info') !== null) {
+    if (sessionStorage.getItem('grouped-profile-info') !== null) {
       // console.log(`School profile exists`);
       this.profileForm.patchValue({
 
         Name: this.schoolProfile.Name,
         DomainName: this.schoolProfile.DomainName,
         WebsiteAddress: this.schoolProfile.WebsiteAddress,
-        Username: this.schoolProfile.Username
+        // Username: this.schoolProfile.Username
 
       });
     } else {
@@ -101,8 +90,8 @@ export class ProfileInformationComponent implements OnInit {
 
   }
 
-
   back() {
     window.history.back();
   }
+
 }

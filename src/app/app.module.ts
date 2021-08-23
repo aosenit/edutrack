@@ -6,12 +6,14 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from 'src/services/interceptors/interceptor';
+import { SchoolManagerComponent } from './school-manager/school-manager.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SchoolManagerComponent
   ],
   imports: [
     BrowserModule,

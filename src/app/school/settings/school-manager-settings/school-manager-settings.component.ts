@@ -24,6 +24,7 @@ export class SchoolManagerSettingsComponent implements OnInit {
   dateCheck: any;
   date1: any;
   date2: any;
+  schoolPropertyButton = 'Create';
   constructor(
     private fb: FormBuilder,
     private propertyService: PropertyService,
@@ -99,7 +100,7 @@ export class SchoolManagerSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         // (data);
         this.notifyService.publishMessages('School Property saved successfully', 'success', 1);
-        this.getSession();
+        this.getProperty();
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -120,6 +121,7 @@ export class SchoolManagerSettingsComponent implements OnInit {
           numberOfTerms: this.fillProperty.numberOfTerms,
           ClassDays: this.fillProperty.classDays
         });
+        this.schoolPropertyButton = 'Update';
         this.termCount = this.fillProperty.numberOfTerms - 1;
         this.addTerm();
       }

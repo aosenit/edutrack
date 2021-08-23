@@ -23,6 +23,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   mail = false;
   id = 1;
   classArms: any;
+  levelform: FormGroup;
   classArmform: FormGroup;
   createNewClassForm: FormGroup;
   addNewClassForm: FormGroup;
@@ -65,6 +66,9 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.levelform = this.fb.group({
+      section: ['', Validators.required],
+    });
     this.classArmform = this.fb.group({
       Name: ['', Validators.required],
       Status: ['']
@@ -263,13 +267,15 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
 
   createSection() {
+    const {section} = this.levelform.value;
     const result = {
-      name: this.section,
+      name: section,
     };
     this.schoolSectionService.addSection(result).subscribe(
       (res: any) => {
         if (res.hasErrors === false) {
           // console.log('level created', res);
+          document.getElementById('closeCreateLevelModal').click();
           this.notification.publishMessages('You have successfully added a section', 'info', 0);
           this.getSections();
           // this.section = ''

@@ -465,36 +465,38 @@
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Add New Level</h6>
           <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
-            class="close">
+            class="close" id="closeCreateLevelModal">
 
         </div>
 
       </div>
       <div class="modal-body client-modal">
-        <div class="form-group mb-4">
-          <label for="level" class="">Level</label>
-          <input type="text" id="level" class="form-control" placeholder="Enter level" [(ngModel)]="section">
-        </div>
-        <!-- <div class="form-group mb-5">
-          <label for="sequence" class="">Sequence</label>
-          <select name="" id="sequence" class="form-control">
-            <option value="">Select</option>
-          </select>
-        </div> -->
-        <div class="form-group mb-5">
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch111"
-              (change)="getStatus($event.target.checked)" formControlName="Status">
-              <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === false">Inactive</label>
-              <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === true">Active</label>
+        <form [formGroup]="levelform" (ngSubmit)="createSection()">
+          <div class="form-group mb-4">
+            <label for="level" class="">Level</label>
+            <input type="text" id="level" class="form-control" placeholder="Enter level" formControlName="section">
           </div>
-        </div>
-        <div class="d-flex justify-content-center mb-3">
-          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
-          </button>
-          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="createSection()" data-dismiss="modal"> Add
-            Level</button>
-        </div>
+          <!-- <div class="form-group mb-5">
+            <label for="sequence" class="">Sequence</label>
+            <select name="" id="sequence" class="form-control">
+              <option value="">Select</option>
+            </select>
+          </div> -->
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch111"
+                (change)="getStatus($event.target.checked)" formControlName="Status">
+                <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === false">Inactive</label>
+                <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === true">Active</label>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="levelform.invalid" > Add
+              Level</button>
+          </div>
+        </form>
       </div>
 
     </div>

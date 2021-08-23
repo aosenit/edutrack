@@ -4,13 +4,12 @@ import { FilesService } from 'src/services/data/files/files.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-clients',
-  templateUrl: './clients.component.html',
-  styleUrls: ['./clients.component.css']
+  selector: 'app-school-manager-branch',
+  templateUrl: './school-manager-branch.component.html',
+  styleUrls: ['./school-manager-branch.component.css']
 })
-export class ClientsComponent implements OnInit {
+export class SchoolManagerBranchComponent implements OnInit {
   emptyRecord: false;
   emptyList: any;
   clientList: any;
@@ -25,7 +24,6 @@ export class ClientsComponent implements OnInit {
   searchString: string;
   p = 1;
   itemsPerPage = 5;
-  // DocumentTypes: number[] = [];
 
   constructor(
     private schoolServices: SchoolService,

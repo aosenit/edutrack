@@ -30,6 +30,7 @@ const routes: Routes = [
       {path: 'edit-user', component: EditUserComponent},
       {path: 'coming-soon', component: LaterThingsComponent},
       {path: 'create-client', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
+      {path: 'group-of-schools', loadChildren: () => import('./grouped-schools/grouped-schools.module').then(m => m.GroupedSchoolsModule)},
       {path: 'edit-client/:id', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
 
 
