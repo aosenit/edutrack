@@ -4,7 +4,9 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   addschool: 'schtrack-auth/api/v1/School/AddSchool ',
+  addGroupedSchools: 'schtrack-auth/api/v1/SchoolGroup/AddSchoolGroup ',
   getallschool: 'schtrack-auth/api/v1/School/GetSchools',
+  getGroupSchools: 'schtrack-auth/api/v1/SchoolGroup/GetAllSchoolsInGroup',
   // getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
   getschoolbyid: 'schtrack-auth/api/v1/School/GetSchool',
   bulkUplaod: 'schtrack-auth/api/v1/School/BulkAddSchool',
@@ -25,6 +27,7 @@ export class SchoolService {
 
 
   addSchool(schoolFinalStep) {
+
     const formData = new FormData();
     formData.append('Name', schoolFinalStep.Name);
     formData.append('DomainName', schoolFinalStep.DomainName);
@@ -44,6 +47,12 @@ export class SchoolService {
     formData.append('ContactLastName', schoolFinalStep.ContactLastName);
     formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
     formData.append('ContactEmail', schoolFinalStep.ContactEmail);
+    formData.append('IsActive', schoolFinalStep.isActive);
+
+
+
+
+   
     const url = `${this.baseUrl + routes.addschool}`;
     // // ('asasas', schoolFinalStep);
     return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
@@ -108,5 +117,30 @@ export class SchoolService {
     const url = `${this.baseUrl + routes.getSchoolDomain}/${domain}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
 
+  }
+
+
+  addSchoolGroup(schoolFinalStep) {
+    const formData = new FormData();
+    formData.append('Name', schoolFinalStep.Name);
+    formData.append('WebsiteAddress', schoolFinalStep.WebsiteAddress);
+    formData.append('Files', schoolFinalStep.logo);
+    formData.append('Files', schoolFinalStep.icon);
+    formData.append('PrimaryColor', schoolFinalStep.PrimaryColor);
+    formData.append('SecondaryColor', schoolFinalStep.SecondaryColor);
+    // formData.append('DocumentTypes', schoolFinalStep.DocumentTypes);
+    schoolFinalStep.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
+    formData.append('ContactFirstName', schoolFinalStep.ContactFirstName);
+    formData.append('ContactLastName', schoolFinalStep.ContactLastName);
+    formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
+    formData.append('ContactEmail', schoolFinalStep.ContactEmail);
+    formData.append('IsActive', schoolFinalStep.isActive);
+    const url = `${this.baseUrl + routes.addGroupedSchools}`;
+    return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getAllGroupSchools( p, perpage, groupId ) {
+    const url = `${this.baseUrl + routes.getGroupSchools}?PageIndex=${p}&PageSize=${perpage}&groupId=${groupId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 }

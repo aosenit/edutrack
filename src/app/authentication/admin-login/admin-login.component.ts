@@ -47,6 +47,8 @@ export class AdminLoginComponent implements OnInit {
 
           if (this.loggedInUser.email === 'root@myschooltrack.com' || this.loggedInUser.email === 'tester@gmail.com') {
             this.router.navigateByUrl('/admin');
+          } else if (this.loggedInUser.UserType === 'SchoolGroupManager') {
+            this.router.navigateByUrl('/school-manager');
           } else {
             localStorage.removeItem('access_token');
 

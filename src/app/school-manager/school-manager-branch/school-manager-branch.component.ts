@@ -4,6 +4,8 @@ import { FilesService } from 'src/services/data/files/files.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 @Component({
   selector: 'app-school-manager-branch',
   templateUrl: './school-manager-branch.component.html',
@@ -24,6 +26,7 @@ export class SchoolManagerBranchComponent implements OnInit {
   searchString: string;
   p = 1;
   itemsPerPage = 5;
+  adminDetails: any;
 
   constructor(
     private schoolServices: SchoolService,
@@ -34,6 +37,10 @@ export class SchoolManagerBranchComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    const helper = new JwtHelperService();
+    this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
+
     this.bulkUpload = this.fb.group({
       bulkFile: []
     });
@@ -44,7 +51,7 @@ export class SchoolManagerBranchComponent implements OnInit {
   }
 
   getAllSchools() {
-    this.schoolServices.getAllSchools(this.p, this.itemsPerPage).subscribe((data: any) => {
+    this.schoolServices.getAllGroupSchools(this.p, this.itemsPerPage, this.adminDetails.SchGroupId).subscribe((data: any) => {
       if (data) {
         this.clientList = data.payload;
         this.clientCount = data.totalCount;

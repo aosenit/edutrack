@@ -15,7 +15,23 @@
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
         </div>
-        <div class=" ">
+
+
+        <div class="  ">
+          <label for="website" class="fw-6">Official Website <span class="text-danger">*</span></label>
+
+          <input type="url" class="form-control form-control-lg" 
+          id="website" 
+          placeholder="Enter school wesbite" formControlName="WebsiteAddress" required>
+
+           <div *ngIf="profileForm.controls.WebsiteAddress.touched && profileForm.controls.WebsiteAddress.errors" class="error">
+            <small *ngIf="profileForm.controls.WebsiteAddress.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="profileForm.controls.WebsiteAddress.errors.pattern" class="text-danger">Invalid url</small>
+          </div>
+        </div>
+
+
+        <!-- <div class=" ">
           <label for="domain" class="fw-6">Domain Name <span class="text-danger">*</span></label>
           <input 
           type="text" 
@@ -27,11 +43,11 @@
             <small *ngIf="profileForm.controls.DomainName.errors.required" class="text-danger">Field is required</small>
             <small *ngIf="profileForm.controls.DomainName.errors.cannotContainSpace" class="text-danger">Domain name cannot contain space </small>
           </div>
-        </div>
+        </div> -->
 
       </div>
 
-      <div class="form-row my-5 ">
+      <!-- <div class="form-row my-5 ">
         
         <div class="  ">
           <label for="website" class="fw-6">Official Website <span class="text-danger">*</span></label>
@@ -49,7 +65,7 @@
         
 
         
-      </div>
+      </div> -->
 
       
 

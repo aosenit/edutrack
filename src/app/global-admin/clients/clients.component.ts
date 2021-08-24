@@ -148,7 +148,6 @@ export class ClientsComponent implements OnInit {
     } else {
       document.getElementById('close').click();
       this.router.navigateByUrl('/admin/group-of-schools');
- 
     }
   }
 

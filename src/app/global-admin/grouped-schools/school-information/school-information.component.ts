@@ -49,7 +49,7 @@ export class SchoolInformationComponent implements OnInit {
     this.profileForm = this.fb.group({
 
       Name: ['', Validators.required],
-      DomainName: ['', [Validators.required, NoSpaceValidator.cannotContainSpace]],
+      // DomainName: ['', [Validators.required, NoSpaceValidator.cannotContainSpace]],
       WebsiteAddress: ['', [Validators.required, Validators.pattern(this.url)]],
       // Username: ['', Validators.required],
 

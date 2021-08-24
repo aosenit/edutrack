@@ -89,6 +89,8 @@
             <a class="dropdown-item" href="#">Ogun </a>
           </div> -->
         </th>
+        <th scope="col">Type <img src="assets/images/svg/table-sort.svg" alt="table sort icon" >
+        </th>
         <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle"
             type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <!-- ================ DROPDOWN ==================== -->
@@ -142,6 +144,7 @@
               *ngIf="client?.clientCode == null">NA</span></td>
           <td>{{client?.usersCount}}</td>
           <td>{{client?.state}}</td>
+          <td>{{client?.schoolGroupId === null ? 'Single' : 'Group'}}</td>
           <td>
             <span *ngIf="client.status === false; then inactive; else active">{{client?.status}}</span>
             <ng-template #inactive>
