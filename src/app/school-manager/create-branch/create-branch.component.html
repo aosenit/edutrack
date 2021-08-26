@@ -1,0 +1,75 @@
+<div class="container px-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" (click)="back()">
+            <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+            <li class="breadcrumb-item a1 " aria-current="page">
+                <a>Back</a>
+            </li>
+        </ol>
+
+
+    </nav>
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <p class="fw-6">Add New Branch</p>
+        </div>
+
+        <div class="col-md-12">
+            
+
+            <div class="steps d-flex justify-content-center align-items-center p-3">
+                    
+                            <div class="d-flex align-items-center justify-content-center mr-5 active" id="step-1">
+                                <div class="mr-2">
+                                    <span class="bg-orange">1</span>
+                                </div>
+                                <div>
+                                    Branch <br> Information
+                                </div>
+                            </div>
+                    
+                                    <div class="d-flex align-items-center justify-content-center mr-5" id="step-2">
+                                        <div class="mr-2">
+                                            <span class="">2</span>
+                                        </div>
+                                        <div>
+                                            Location <br> Details
+                                        </div>
+                                    </div>
+                    
+                                    <div class="d-flex align-items-center justify-content-center mr-5" id="step-3">
+                                        <div class="mr-2">
+                                            <span class="">3</span>
+                                        </div>
+                                        <div>
+                                            Contact <br> Person
+                                        </div>
+                                    </div>
+                                  
+                    
+
+
+            </div>
+
+            <div class="step-content justify-content-center pt-5 pb-3">
+                
+                <app-branch-information *ngIf="stage === 1" id="step-1" ></app-branch-information>
+
+                <app-branch-location *ngIf="stage === 2" id="step-2" ></app-branch-location>
+
+                <app-branch-contact-person *ngIf="stage === 3" id="step-3"></app-branch-contact-person>
+                
+                <!-- <app-profile-information *ngIf="stage === 1" id="step-1" ></app-profile-information>
+                <app-contact-detail *ngIf="stage === 2" id="step-2"></app-contact-detail>
+                <app-contact-person *ngIf="stage === 3 " id="step-3"></app-contact-person>
+                <app-media *ngIf="stage === 4" id="step-4"></app-media> -->
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
