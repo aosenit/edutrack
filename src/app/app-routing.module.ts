@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'teacher', loadChildren: () => import('./teacher/teacher.module').then(m => m.TeacherModule)},
   {path: 'student', loadChildren: () => import('./student/student.module').then(m => m.StudentModule)},
   {path: 'parent', loadChildren: () => import('./parent-portal/parent-portal.module').then(m => m.ParentPortalModule)},
-  {path: 'school-manager', loadChildren: () => import('./school-manager/school-manager.module').then(m => m.SchoolManagerModule)},
+  {path: 'school-manager', loadChildren: () => import('./school-manager/school-manager.module').then(m => m.SchoolBranchManagerModule)},
 ];
 
 @NgModule({

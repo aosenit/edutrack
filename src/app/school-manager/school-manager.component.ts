@@ -8,7 +8,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   templateUrl: './school-manager.component.html',
   styleUrls: ['./school-manager.component.css']
 })
-export class SchoolManagerComponent implements OnInit {
+export class SchoolBranchManagerComponent implements OnInit {
   adminDetails: any;
 
   constructor(
@@ -21,7 +21,7 @@ export class SchoolManagerComponent implements OnInit {
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
   }
 
-  
+
   toggleSideBar() {
     // console.log('admin');
     const sidebar = document.querySelector('#sidebar');

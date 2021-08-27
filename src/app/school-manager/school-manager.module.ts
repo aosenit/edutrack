@@ -8,11 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from '../shared/shared.module';
 import { BranchDetailComponent } from './branch-detail/branch-detail.component';
-import { SchoolManagerComponent } from '../school/settings/school-manager/school-manager.component';
+import { SchoolBranchManagerComponent } from './school-manager.component';
 
 @NgModule({
   declarations: [
-    SchoolManagerComponent,
+    SchoolBranchManagerComponent,
     SchoolManagerDashboardComponent,
     SchoolManagerBranchComponent,
     BranchDetailComponent
@@ -26,4 +26,4 @@ import { SchoolManagerComponent } from '../school/settings/school-manager/school
     SchoolManagerRoutingModule
   ]
 })
-export class SchoolManagerModule { }
+export class SchoolBranchManagerModule { }

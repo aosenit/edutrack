@@ -5,12 +5,12 @@ import { CreateClientComponent } from '../global-admin/create-client/create-clie
 import { BranchDetailComponent } from './branch-detail/branch-detail.component';
 import { SchoolManagerBranchComponent } from './school-manager-branch/school-manager-branch.component';
 import { SchoolManagerDashboardComponent } from './school-manager-dashboard/school-manager-dashboard.component';
-import { SchoolManagerComponent } from './school-manager.component';
+import { SchoolBranchManagerComponent } from './school-manager.component';
 
 
 const routes: Routes = [
   {
-    path: '', component: SchoolManagerComponent,
+    path: '', component: SchoolBranchManagerComponent,
     children: [
       { path: '', component: SchoolManagerDashboardComponent },
       { path: 'branches', component: SchoolManagerBranchComponent },
