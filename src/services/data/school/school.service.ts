@@ -64,7 +64,6 @@ export class SchoolService {
   getAllSchools( p, perpage ) {
     // const url = `${this.baseUrl + routes.getallschool}`;
     const url = `${this.baseUrl + routes.getallschool}?PageIndex=${p}&PageSize=${perpage}`;
-
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
@@ -102,7 +101,6 @@ export class SchoolService {
     formData.append('ContactEmail', updateSchoolForm.ContactEmail);
     const url = `${this.baseUrl + routes.updateschoolbyid}/${id}`;
     return this.http.put(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
-
   }
 
   deleteSchoolById(userid) {
