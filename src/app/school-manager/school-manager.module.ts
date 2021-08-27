@@ -10,7 +10,6 @@ import { SharedModule } from '../shared/shared.module';
 import { BranchDetailComponent } from './branch-detail/branch-detail.component';
 import { SchoolManagerComponent } from '../school/settings/school-manager/school-manager.component';
 
-
 @NgModule({
   declarations: [
     SchoolManagerComponent,
