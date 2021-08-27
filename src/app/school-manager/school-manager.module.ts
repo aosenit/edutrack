@@ -7,10 +7,11 @@ import { SchoolManagerBranchComponent } from './school-manager-branch/school-man
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SharedModule } from '../shared/shared.module';
+import { BranchDetailComponent } from './branch-detail/branch-detail.component';
 
 
 @NgModule({
-  declarations: [SchoolManagerDashboardComponent, SchoolManagerBranchComponent],
+  declarations: [SchoolManagerDashboardComponent, SchoolManagerBranchComponent, BranchDetailComponent],
   imports: [
     CommonModule,
     FormsModule,

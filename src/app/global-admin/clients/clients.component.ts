@@ -24,7 +24,7 @@ export class ClientsComponent implements OnInit {
   profileInfo: any;
   searchString: string;
   p = 1;
-  itemsPerPage = 5;
+  itemsPerPage = 10;
   // DocumentTypes: number[] = [];
 
   constructor(

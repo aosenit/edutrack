@@ -27,6 +27,7 @@ export class SchoolManagerBranchComponent implements OnInit {
   p = 1;
   itemsPerPage = 5;
   adminDetails: any;
+  currentSchoolManager: any;
 
   constructor(
     private schoolServices: SchoolService,
@@ -45,17 +46,31 @@ export class SchoolManagerBranchComponent implements OnInit {
       bulkFile: []
     });
     this.getAllSchools();
+    this.getCurrentSchoolManager();
     this.schoolSelection = this.fb.group({
       school: ['', Validators.required]
     });
   }
 
   getAllSchools() {
-    this.schoolServices.getAllGroupSchools(this.p, this.itemsPerPage, this.adminDetails.SchGroupId).subscribe((data: any) => {
+    this.schoolServices.getAllGroupsInASchool(this.p, this.itemsPerPage, this.adminDetails.SchGroupId).subscribe((data: any) => {
       if (data) {
         this.clientList = data.payload;
         this.clientCount = data.totalCount;
         // this.clientList.reverse();
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+  getCurrentSchoolManager() {
+    this.schoolServices.getAllGroupSchools().subscribe((data: any) => {
+      if (data) {
+        const currentSchoolManager: any = data.payload;
+        // tslint:disable-next-line:radix
+        this.currentSchoolManager = currentSchoolManager.filter((schoolId: any) => schoolId.id === parseInt(this.adminDetails.SchGroupId));
+        sessionStorage.setItem('branch', JSON.stringify(this.currentSchoolManager));
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -144,18 +159,6 @@ export class SchoolManagerBranchComponent implements OnInit {
   }
 
 
-  selectSchool() {
-    console.log(this.schoolSelection.value);
-    const {school} = this.schoolSelection.value;
-    if ( school === 1) {
-      document.getElementById('close').click();
-      this.router.navigateByUrl('/admin/create-client');
-    } else {
-      document.getElementById('close').click();
-      this.router.navigateByUrl('/admin/group-of-schools');
- 
-    }
-  }
 
   clearData() {
     sessionStorage.removeItem('profile-info');

@@ -4,11 +4,18 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   addschool: 'schtrack-auth/api/v1/School/AddSchool ',
-  addGroupedSchools: 'schtrack-auth/api/v1/SchoolGroup/AddSchoolGroup ',
-  getallschool: 'schtrack-auth/api/v1/School/GetSchools',
-  getGroupSchools: 'schtrack-auth/api/v1/SchoolGroup/GetAllSchoolsInGroup',
-  // getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
   getschoolbyid: 'schtrack-auth/api/v1/School/GetSchool',
+  getallschool: 'schtrack-auth/api/v1/School/GetSchools',
+  // getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
+  
+  //  grouped schools
+  addGroupedSchools: 'schtrack-auth/api/v1/SchoolGroup/AddSchoolGroup ',
+  getGroupSchools: 'schtrack-auth/api/v1/SchoolGroup/GetAllSchoolsInGroup',
+  getAllGroupSchools: 'schtrack-auth/api/v1/SchoolGroup/GetSchoolGroups',
+  getSchoolGroupById: 'schtrack-auth/api/v1/SchoolGroup/GetSchoolGroupsById',
+
+
+  // others
   bulkUplaod: 'schtrack-auth/api/v1/School/BulkAddSchool',
   updateschoolbyid: 'schtrack-auth/api/v1/School/UpdateSchool',
   deleteschool: 'schtrack-auth/api/v1/School/DeleteSchool',
@@ -48,6 +55,7 @@ export class SchoolService {
     formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
     formData.append('ContactEmail', schoolFinalStep.ContactEmail);
     formData.append('IsActive', schoolFinalStep.isActive);
+    formData.append('GroupId', schoolFinalStep.GroupId);
 
 
 
@@ -139,8 +147,18 @@ export class SchoolService {
     return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
-  getAllGroupSchools( p, perpage, groupId ) {
+  getAllGroupsInASchool( p, perpage, groupId ) {
     const url = `${this.baseUrl + routes.getGroupSchools}?PageIndex=${p}&PageSize=${perpage}&groupId=${groupId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getSchoolGroupByItsId(groupId ) {
+    const url = `${this.baseUrl + routes.getSchoolGroupById}/${groupId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getAllGroupSchools() {
+    const url = `${this.baseUrl + routes.getAllGroupSchools}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 }

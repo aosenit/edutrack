@@ -16,9 +16,9 @@ import { SubjectService } from 'src/services/data/subject/subject.service';
 })
 export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
-  level = true;
+  arm = true;
+  level = false;
   class = false;
-  arm = false;
   subject = false;
   mail = false;
   id = 1;
@@ -71,7 +71,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     });
     this.classArmform = this.fb.group({
       Name: ['', Validators.required],
-      Status: ['']
+      Status: [false, Validators.required]
     });
     this.createNewClassForm = this.fb.group({
       name: ['', Validators.required],

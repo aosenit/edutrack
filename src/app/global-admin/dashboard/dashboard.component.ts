@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
 
     this.greeting();
     this.getAllSchool();
-    this.getAllStudents();
+    // this.getAllStudents();
   }
 
   getAllSchool() {
@@ -35,7 +35,6 @@ export class DashboardComponent implements OnInit {
       if (data) {
         this.registeredSchools = data.payload;
         this.schoolCount = data.totalCount;
-        // (this.registeredSchools);
       }
     });
   }
@@ -44,7 +43,6 @@ export class DashboardComponent implements OnInit {
     this.studentservice.getAllStudents(this.p, this.itemsPerPage).subscribe(
       (res: any) => {
         this.studentCount = res.totalCount;
-        // (this.studentCount);
       }
     );
   }

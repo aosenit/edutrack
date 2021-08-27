@@ -39,7 +39,7 @@ export class ResetPasswordComponent implements OnInit {
     }
     // this.validationToken = sessionStorage.getItem('tk');
     this.resetPasswordForm = this.fb.group({
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required]
     }, {
       validator: MustMatch('password', 'confirmPassword')
