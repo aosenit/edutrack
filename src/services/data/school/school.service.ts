@@ -56,11 +56,6 @@ export class SchoolService {
     formData.append('ContactEmail', schoolFinalStep.ContactEmail);
     formData.append('IsActive', schoolFinalStep.isActive);
     formData.append('GroupId', schoolFinalStep.GroupId);
-
-
-
-
-   
     const url = `${this.baseUrl + routes.addschool}`;
     // // ('asasas', schoolFinalStep);
     return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
