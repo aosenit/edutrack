@@ -16,6 +16,7 @@ import { UsersComponent } from './users/users.component';
 import { GlobalAdminComponent } from './global-admin.component';
 import { NewroleComponent } from './newrole/newrole.component';
 import { LaterThingsComponent } from './later-things/later-things.component';
+import { SubscriptionPageComponent } from './subscription-page/subscription-page.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { LaterThingsComponent } from './later-things/later-things.component';
     UsersComponent,
     GlobalAdminComponent,
     NewroleComponent,
-    LaterThingsComponent],
+    LaterThingsComponent,
+    SubscriptionPageComponent],
   imports: [
     CommonModule,
     FormsModule,

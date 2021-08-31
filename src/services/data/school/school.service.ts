@@ -13,6 +13,7 @@ const routes = {
   getGroupSchools: 'schtrack-auth/api/v1/SchoolGroup/GetAllSchoolsInGroup',
   getAllGroupSchools: 'schtrack-auth/api/v1/SchoolGroup/GetSchoolGroups',
   getSchoolGroupById: 'schtrack-auth/api/v1/SchoolGroup/GetSchoolGroupsById',
+  getSchoolGroupAnalytics: 'schtrack-auth/api/v1/SchoolGroup/GetSchoolGroupAnalytics',
 
 
   // others
@@ -145,13 +146,18 @@ export class SchoolService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
-  getSchoolGroupByItsId(groupId ) {
-    const url = `${this.baseUrl + routes.getSchoolGroupById}/${groupId}`;
+  getSchoolGroupByItsId(id ) {
+    const url = `${this.baseUrl + routes.getSchoolGroupById}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   getAllGroupSchools() {
     const url = `${this.baseUrl + routes.getAllGroupSchools}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getSchoolGroupAnalytics(id) {
+    const url = `${this.baseUrl + routes.getSchoolGroupAnalytics}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 }

@@ -1,0 +1,43 @@
+.client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.client h6 {
+    color: #0A1128;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+  .banner {
+    width: 100%;
+    background-image: url("../../../assets/images/svg/billing-bg.png");
+    background-repeat: no-repeat;
+    background-color: #1d4e4d;
+
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1.5rem;
+    color: #ffffff;
+    position: relative;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    backdrop-filter: opacity(.4);
+}
+
+
+
+.banner__text-primary {
+    font-size: 36px;
+}
+
+form {
+    padding: 0 3rem;
+}

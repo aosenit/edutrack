@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { StudentService } from 'src/services/data/student/student.service';
 
@@ -20,7 +21,8 @@ export class SchoolManagerDashboardComponent implements OnInit {
 
   constructor(
     private schoolService: SchoolService,
-    private studentservice: StudentService
+    private studentservice: StudentService,
+    private notifyService: NotificationsService
     ) { }
 
   ngOnInit() {
@@ -30,28 +32,46 @@ export class SchoolManagerDashboardComponent implements OnInit {
 
     this.greeting();
     this.getAllSchool();
-    this.getAllStudents();
   }
 
   getAllSchool() {
-    this.schoolService.getAllSchools(this.p, this.itemsPerPage).subscribe((data: any) => {
+    this.schoolService.getAllGroupsInASchool(this.p, this.itemsPerPage, this.adminDetails.SchGroupId).subscribe((data: any) => {
       if (data) {
         this.registeredSchools = data.payload;
-        this.schoolCount = data.totalCount;
-        // (this.registeredSchools);
+        // this.clientList.reverse();
       }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
     });
   }
 
-  getAllStudents() {
-    this.studentservice.getAllStudents(this.p, this.itemsPerPage).subscribe(
-      (res: any) => {
-        this.studentCount = res.totalCount;
-        // (this.studentCount);
+  switchSwitch(id) {
+    this.schoolService.getSchoolGroupAnalytics(id).subscribe( (data: any) => {
+      if (data) {
+        this.schoolCount = data.payload.studentsCount;
+        // this.clientList.reverse();
       }
-    );
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
   }
 
+  getSelectedSchoolInfo() {
+    this.schoolService.getAllGroupsInASchool(this.p, this.itemsPerPage, this.adminDetails.SchGroupId).subscribe((data: any) => {
+      if (data) {
+        this.registeredSchools = data.payload;
+        this.schoolCount = data.totalCount;
+        // this.clientList.reverse();
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
+ 
   greeting() {
     const myDate = new Date();
     const hrs = myDate.getHours();
@@ -66,4 +86,7 @@ export class SchoolManagerDashboardComponent implements OnInit {
     }
   }
 
+
+
+  // getSchoolGroupByItsId
 }
