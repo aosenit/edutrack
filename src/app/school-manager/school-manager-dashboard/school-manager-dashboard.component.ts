@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { StudentService } from 'src/services/data/student/student.service';
+import { Chart } from 'chart.js';
+
 
 @Component({
   selector: 'app-school-manager-dashboard',
@@ -18,6 +20,14 @@ export class SchoolManagerDashboardComponent implements OnInit {
   p = 1;
   itemsPerPage = 5;
   loginDate: string;
+  chart: any = [];
+  barChart: any = [];
+  barDashboardDatas: string[];
+
+
+
+  @ViewChild('barChart', { static: true }) barChartRef: ElementRef;
+
 
   constructor(
     private schoolService: SchoolService,
@@ -32,6 +42,7 @@ export class SchoolManagerDashboardComponent implements OnInit {
 
     this.greeting();
     this.getAllSchool();
+
   }
 
   getAllSchool() {
@@ -47,10 +58,12 @@ export class SchoolManagerDashboardComponent implements OnInit {
   }
 
   switchSwitch(id) {
+    this.createBarChart();
     this.schoolService.getSchoolGroupAnalytics(id).subscribe( (data: any) => {
-      if (data) {
+      if (data.hasErrors === false) {
         this.schoolCount = data.payload.studentsCount;
         // this.clientList.reverse();
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -71,7 +84,93 @@ export class SchoolManagerDashboardComponent implements OnInit {
     });
   }
 
- 
+
+  createBarChart() {
+
+    const classTopics = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+    ];
+    this.chart = new Chart(this.barChartRef.nativeElement, {
+      type: 'bar',
+      data: {
+        labels: classTopics,
+        datasets: [
+          {
+            label: 'Fee',
+            data: [12, 34, 56, 78, 80, 12, 2, 5, 6, 7, 6.9, 56],
+            // borderColor: ['#EA2604'],
+            backgroundColor: ['#17C7BF'],
+            // backgroundColor: ['#e76f51', '#ffb638'],
+            // hoverBorderColor: '#4288DC',
+            // hoverBorderWidth: 3
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        // cutoutPercentage: 70,
+        legend: {
+          display: true,
+          labelString: 'Class Attendance',
+        },
+        scales: {
+          xAxes: [
+            {
+              stacked: true,
+              display: true,
+              scaleLabel: {
+                display: false,
+                labelString: 'Fee Chart',
+                fontColor: 'black',
+                fontFamily : 'Nunito',
+                fontSize : 16
+
+
+              },
+
+              gridLines: {
+                display: false
+              }
+            }
+          ],
+          yAxes: [
+            {
+              stacked: true,
+              display: true,
+              scaleLabel: {
+                display: false,
+                labelString: 'No of students',
+                fontColor: 'black',
+                fontFamily : 'Nunito',
+                fontSize : 16
+
+              },
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                beginAtZero: true
+              }
+            }
+          ]
+        }
+      }
+    }
+    );
+  }
+
+
   greeting() {
     const myDate = new Date();
     const hrs = myDate.getHours();

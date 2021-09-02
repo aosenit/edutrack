@@ -94,12 +94,26 @@ line-height: 44px;
 
 }
 
-.info > div {
+.info > div:first-child {
     background: #FFFFFF;
 box-shadow: 0px 20px 40px rgba(211, 220, 231, 0.4);
 border-radius: 10px;
 font-family: Nunito;
 
+}
+
+
+.def {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 1rem;
+}
+
+.def > div {
+  background: #FFFFFF;
+  box-shadow: 0px 20px 40px rgba(211, 220, 231, 0.4);
+  border-radius: 10px;
+  font-family: Nunito;
 }
 
 .info__school .info__school-info, .info__chart .info__chart-info {
@@ -236,6 +250,25 @@ color: #243C67;
   background: #243c67;
   color: #ffffff;
   font-size: 12px;
+}
+
+.reports    {
+  border-radius: 8px;
+  
+}
+
+.present {
+  background: #E7FEF8;
+}
+
+.absent {
+  background: #F8E2E4;
+  
+}
+
+.leave {
+  background: #FBEAD0;
+  
 }
 
 
