@@ -39,7 +39,6 @@ export class SchoolManagerDashboardComponent implements OnInit {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
     this.loginDate =  this.adminDetails.last_login_time + ' ' + 'UTC';
-
     this.greeting();
     this.getAllSchool();
 
