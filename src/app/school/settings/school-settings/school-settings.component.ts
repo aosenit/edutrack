@@ -391,6 +391,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         } else {
           this.notification.publishMessages(res.description, 'warning', 0);
         }
+      
       }
     );
   }

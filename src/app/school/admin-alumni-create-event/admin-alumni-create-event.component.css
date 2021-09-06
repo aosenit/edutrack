@@ -1,0 +1,30 @@
+form {
+    padding: 0 3rem;
+}
+
+
+.file-upload {
+
+    border: 2px dotted red;
+}
+
+.attach-file .file-upload {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: 110px 75px;
+    background-color: rgba(148, 177, 209, 0.31);
+    border: 2px dashed #ABC3DF;
+    border-radius: 5px;
+    height: 90px;
+}
+
+
+.attach-file  .file-upload label {
+    position: absolute;
+    top:110px;
+    right: 65px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    
+}

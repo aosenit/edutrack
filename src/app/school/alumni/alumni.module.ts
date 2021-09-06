@@ -13,7 +13,16 @@ import { AlumniEventDetailComponent } from './alumni-event-detail/alumni-event-d
 
 
 @NgModule({
-  declarations: [AlumniComponent, AlumniProfileComponent, AlumniHomeComponent, AlumniRecordsComponent, AlumniEventsComponent, AlumniTranscriptComponent, AlumniAlumniComponent, AlumniEventDetailComponent],
+  declarations: [
+    AlumniComponent,
+    AlumniProfileComponent,
+    AlumniHomeComponent,
+    AlumniRecordsComponent,
+    AlumniEventsComponent,
+    AlumniTranscriptComponent,
+    AlumniAlumniComponent,
+    AlumniEventDetailComponent,
+    ],
   imports: [
     CommonModule,
     AlumniRoutingModule
