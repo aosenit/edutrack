@@ -12,4 +12,8 @@ export class AdminAlumniCreateEventComponent implements OnInit {
   ngOnInit() {
   }
 
+  back() {
+    window.history.back();
+  }
+
 }

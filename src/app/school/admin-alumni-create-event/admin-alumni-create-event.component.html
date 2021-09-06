@@ -1,3 +1,16 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb" (click) = "back()">
+      <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+      <li class="breadcrumb-item a1 " aria-current="page">
+          <a>Back</a>
+      </li>
+
+
+  </ol>
+
+
+</nav>
+
 <div class=" bg-white">
 
   <form class="pt-5">
@@ -49,7 +62,7 @@
         <input type="date" class="form-control" placeholder="Enter amount" id="amount">
       </div>
     </div>
-    <div class="row mb-4">
+    <div class="row mb-5">
       <div class="col-md-6">
         <label for="domain" class="fw-6">Start Time </label>
         <input type="time" class="form-control" placeholder="Enter amount" id="amount">
@@ -58,14 +71,16 @@
       </div>
       <div class="col-md-6">
         <label for="amount" class="fw-6">Tags </label>
-        <input type="date" class="form-control" placeholder="Enter amount" id="amount">
+        <input type="text" class="form-control" placeholder="Enter tags" id="amount">
       </div>
     </div>
 
 
-    <div class="row mb-4">
+    <div class="row mb-4 px-3">
         <div class="col-md-12 attach-file">
-            <label for="amount" class="fw-6">Upload Image </label>
+            <label for="amount" class="fw-6">Upload Image
+
+            </label>
             <input type="file" class="form-control file-upload" placeholder="Enter amount" id="amount">
           </div>
 
@@ -73,7 +88,8 @@
 
 
     <div class=" d-flex justify-content-start mt-5">
-      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Create Event </button>
+      <button class="btn btn-orange-two px-5 mb-4 mt-3"> Create Event </button>
+      <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Create Event </button> -->
 
     </div>
   </form>
