@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-const routes = {
+  import { Injectable } from '@angular/core';
+  import { HttpClient } from '@angular/common/http';
+  import { environment } from 'src/environments/environment';
+  const routes = {
   addstudent: 'schtrack-auth/api/v1/Student/AddStudent',
   getallstudent: 'schtrack-auth/api/v1/Student/GetAllStudent',
   viewstudentdetails: 'schtrack-auth/api/v1/Student/GetStudentProfile',
@@ -9,10 +9,10 @@ const routes = {
   updatestudentbyid: 'schtrack-auth/api/v1/Student/UpdateStudent',
   deletestudent: 'schtrack-auth/api/v1/Student/DeleteStudent',
   getBulkDdownload: 'schtrack-auth/api/v1/Student/GetStudentsExcelSheet',
-  bulkUpload: 'schtrack-auth/api/v1/Student/BulkAddSchool'
+  bulkUpload: 'schtrack-auth/api/v1/Student/AddBulkStudent'
 };
 
-@Injectable({
+  @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
@@ -186,6 +186,6 @@ export class StudentService {
 
       const url = `${this.baseUrl + routes.bulkUpload}`;
       return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
-   
+
     }
 }

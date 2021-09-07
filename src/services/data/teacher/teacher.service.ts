@@ -10,7 +10,10 @@ const routes = {
   deleteteacher: 'schtrack-auth/api/v1/Teacher/DeleteTeacher',
   attachteachertoclass: 'schtrack-auth/api/v1/Teacher/SetClassTeacher',
   getClassTeacher: 'schtrack-auth/api/v1/Teacher/GetTeacherClass',
+  getBulkDdownload: 'schtrack-auth/api/v1/Teacher/GetTeachersExcelSheet',
+  bulkUpload: 'schtrack-auth/api/v1/Teacher/BulkAddTeacher',
 
+  
 
   getAllassignmentSubmission: 'schtrack-learning/api/v1/AssignmentAnswer/GetAllAssignmentAnswers',
 
@@ -297,6 +300,21 @@ export class TeacherService {
   getSubjectAttendance(SubjectId) {
     const url = `${this.baseUrl + routes.getsubjectAttendance}?SubjectId=${SubjectId}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  downloadSampleBulkSheet() {
+    const url = `${this.baseUrl + routes.getBulkDdownload}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  uploadBulkDocument(payload) {
+    const body = new FormData();
+    body.append('Files', payload.Document);
+
+    const url = `${this.baseUrl + routes.bulkUpload}`;
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
   }
 
 }

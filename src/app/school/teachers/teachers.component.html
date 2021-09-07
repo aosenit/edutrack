@@ -2,11 +2,11 @@
     <img src="assets/images/svg/add-student.svg" alt="new employee" class="">
     <p class="text-center fw-6 pt-5">It looks like you are yet to create a teacher. You can do <br> that by clicking any of the buttons below.
         below.</p>
+        <!-- <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
+            data-target="#exampleModalCenterUpload">Bulk
+            Upload</button> -->
     <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-employee']">
         Add New </button>
-    <!-- <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
-        data-target="#exampleModalCenterUpload">Bulk
-        Upload</button> -->
 </section>
 
 
@@ -17,8 +17,11 @@
     </div>
     
     <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student"> Add New </button> -->
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-employee']">
-        Add New </button>
+    <div class="d-flex">
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+data-target="#exampleModalCenterUpload"> Bulk Upload </button>
+<button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-employee" (click)="clearData()"> Add New </button>
+</div>
 
 </section>
 <div *ngIf="teachersList?.length !== 0" >
@@ -122,3 +125,47 @@
     
     </section>
 </div>
+
+
+ <!-- Bulk uplaod Modal -->
+ <div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
+ aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+     <div class="modal-content">
+
+         <div class="modal-head ">
+             <div class="d-flex justify-content-between mb-3">
+                 <h6 class="modal-title mr-auto">Upload Files</h6>
+                 <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+
+             </div>
+             
+         </div>
+         <div class="modal-body client-modal">
+             <form [formGroup]="teacherBulkUpload" (ngSubmit)="createTeacherBulkUpload()">
+                 <div class="form-group file-upload mt-4 mb-3">
+                     <label for="fileupload">Drag files to upload or click</label>
+                     <input type="file" class="file-input" id="fileupload"
+                           accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                           (change)="handleBulkUpload($event)">
+                     <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                     <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
+                         file. To import
+                         more than 5000 records at a time, use a .csv file.</p>
+                 </div>
+
+                 <p class="mb-5 download" (click)="downloadAdminSampleFile()"  >Click <span class="fc-lblue">here</span> to download sample file</p>
+
+                 <div class="modal-btn d-flex justify-content-end mb-5">
+                     <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
+                     <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add New </button>
+                 </div>
+
+             </form>
+         </div>
+
+     </div>
+ </div>
+</div>
+
+<!-- end of Bulk uplaod modal -->

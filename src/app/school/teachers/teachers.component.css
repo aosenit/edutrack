@@ -18,6 +18,20 @@
     backdrop-filter: opacity(.4);
 }
 
+.btn-outline-orange {
+    border: 1px solid #FB882C;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FB882C;
+    padding: 0rem 2.7rem;
+
+}
 
 
 .banner__text-primary {
@@ -171,4 +185,89 @@ td {
     border-radius: 50%;
     object-fit: cover;
 
+}
+
+
+
+
+.modal-content1 .client-modal {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+
+}
+
+.modal-content .modal-head {
+    background: #EBF0F5;
+    padding: 20px 40px;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+.file-upload {
+    position: relative;
+    background-image: url('../../../assets/images/svg/drop.svg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-color: #F6F9FE;
+    border: 1px dashed #2A3851;
+    height: 280px;
+
+}
+
+.file-upload label {
+    position: absolute;
+    top: 70px;
+    right: 200px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    
+}
+
+
+.file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.file-input:focus {
+    outline: none;
+}
+
+.file-upload .caption {
+    position: absolute;
+    top: 82%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.btn-upload {
+    position: absolute;
+    top: 125px;
+    right: 200px;
+    border: none;
+    outline: none;
+    padding: 11px 50px;
+    border-radius: 2.5px;
+    background: #0052B4;
+    color: #fff;
+    /* font-weight: 600; */
+    border-radius: 10px;
+}
+
+.file-upload .caption {
+    position: absolute;
+    /* top: 82%; */
+    text-align: center;
+    font-size: 12px;
+}
+
+.download, .close { 
+    cursor: pointer;
 }

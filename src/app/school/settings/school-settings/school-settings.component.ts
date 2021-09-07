@@ -206,12 +206,12 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
   getArmById(id) {
     this.classArmService.getClassArmById(id)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(
-      (res: any) => {
-        this.theArm = res.payload;
-      }
-    );
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (res: any) => {
+          this.theArm = res.payload;
+        }
+      );
   }
 
   editArm(id) {
@@ -267,7 +267,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
 
   createSection() {
-    const {section} = this.levelform.value;
+    const { section } = this.levelform.value;
     const result = {
       name: section,
     };
@@ -286,28 +286,28 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
   getSections() {
     this.schoolSectionService.getSection()
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(
-      (res: any) => {
-        // tslint:disable-next-line:no-string-literal
-        this.levels = res['payload'];
-        this.levels = this.levels.reverse();
-        // // ('levels', this.levels);
-      }
-    );
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (res: any) => {
+          // tslint:disable-next-line:no-string-literal
+          this.levels = res['payload'];
+          this.levels = this.levels.reverse();
+          // // ('levels', this.levels);
+        }
+      );
   }
 
   getSection(id) {
     this.schoolSectionService.getSectionById(id)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(
-      (res: any) => {
-        this.theLevel = res.payload;
-        // console.log(this.theLevel);
-      }, error => {
-        // console.log(error);
-      }
-    );
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (res: any) => {
+          this.theLevel = res.payload;
+          // console.log(this.theLevel);
+        }, error => {
+          // console.log(error);
+        }
+      );
   }
 
   editSection() {
@@ -373,13 +373,13 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
   getClassById(id) {
     this.classService.getClassById(id)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(
-      (res: any) => {
-        this.theClass = res.payload;
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (res: any) => {
+          this.theClass = res.payload;
 
-      }
-    );
+        }
+      );
   }
 
   editClass() {
@@ -391,7 +391,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         } else {
           this.notification.publishMessages(res.description, 'warning', 0);
         }
-      
+
       }
     );
   }
@@ -400,52 +400,52 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   getClassBySectionId(id) {
     // console.log(id);
     this.classService.getClassBySection(id)
-    .subscribe(
-      (res: any) => {
-        if (res.hasErrors === false) {
-          this.classBySectionList = res.payload;
-          // console.log(this.classBySectionList);
-          const arr = [];
-          this.classBySectionList.forEach(item => {
-            const className = item.name;
-            const classAndSection = className.concat(item.classGroup);
-            arr.push({
-              id: item.id,
-              classandSection: classAndSection
+      .subscribe(
+        (res: any) => {
+          if (res.hasErrors === false) {
+            this.classBySectionList = res.payload;
+            // console.log(this.classBySectionList);
+            const arr = [];
+            this.classBySectionList.forEach(item => {
+              const className = item.name;
+              const classAndSection = className.concat(item.classGroup);
+              arr.push({
+                id: item.id,
+                classandSection: classAndSection
+              });
             });
-          });
-          this.classBySectionDropdownList = arr;
+            this.classBySectionDropdownList = arr;
+          }
         }
-      }
-    );
+      );
   }
 
 
 
   getClasses() {
     this.classService.getAllClassesWithPagination(this.p, this.itemsPerPage)
-.subscribe(
-      (res: any) => {
-        this.classes = res.payload;
-        // console.log(this.classes);
-        this.classCount = res.totalCount;
-        // console.log('classes', this.classCount);
-      }
-    );
+      .subscribe(
+        (res: any) => {
+          this.classes = res.payload;
+          // console.log(this.classes);
+          this.classCount = res.totalCount;
+          // console.log('classes', this.classCount);
+        }
+      );
   }
 
   getPage(page: number) {
     this.classService.getAllClassesWithPagination(page, this.itemsPerPage)
-        .pipe(takeUntil(this.ngUnsubscribe))
-.subscribe(
-      (res: any) => {
-        this.classes = res.payload;
-        this.classCount = res.totalCount;
-        // console.log('classes', res);
-      }, error => {
-        this.notifyService.publishMessages(error.errors, 'danger', 1);
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (res: any) => {
+          this.classes = res.payload;
+          this.classCount = res.totalCount;
+          // console.log('classes', res);
+        }, error => {
+          this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-      });
+        });
   }
 
   deleteClass(id) {
@@ -481,8 +481,8 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     const index = this.testSubjectArray.indexOf(event.id);
     // console.log(index);
     if (index > -1) {
-        this.testSubjectArray.splice(index, 1);
-      }
+      this.testSubjectArray.splice(index, 1);
+    }
     // console.log('new subject list', this.testSubjectArray);
 
   }
@@ -510,36 +510,36 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         this.getAllSubjects();
       } else {
         this.notification.publishMessages(data.errors, 'info', 0);
-     }
+      }
     });
 
   }
 
   getAllSubjects() {
     this.subjectService.getPaginatedSubject(this.p, this.itemsPerPage)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.subjectList = data.payload;
-        this.subjectCount = data.totalCount;
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((data: any) => {
+        if (data.hasErrors === false) {
+          this.subjectList = data.payload;
+          this.subjectCount = data.totalCount;
 
-        // console.log(this.subjectList);
-      }
-    });
+          // console.log(this.subjectList);
+        }
+      });
   }
 
   getSubjectPages(page: number) {
     this.subjectService.getPaginatedSubject(page, this.itemsPerPage)
-    .pipe(takeUntil(this.ngUnsubscribe))
-    .subscribe(
-      (res: any) => {
-        this.subjectList = res.payload;
-        this.subjectCount = res.totalCount;
-        // console.log('classes', res);
-      }, error => {
-        this.notifyService.publishMessages(error.errors, 'danger', 1);
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (res: any) => {
+          this.subjectList = res.payload;
+          this.subjectCount = res.totalCount;
+          // console.log('classes', res);
+        }, error => {
+          this.notifyService.publishMessages(error.errors, 'danger', 1);
 
-      });
+        });
   }
 
 
@@ -550,6 +550,6 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
-}
+  }
 
 }
