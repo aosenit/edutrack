@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  addteacher: 'schtrack-auth/api/v1/Teacher/AddTeacher ',
+  addteacher: 'schtrack-auth/api/v1/Teacher/AddTeacher',
   getallteacher: 'schtrack-auth/api/v1/Teacher/GetTeachers',
   getteacherbyid: 'schtrack-auth/api/v1/Teacher/GetTeachers',
   updateteacherbyid: 'schtrack-auth/api/v1/Teacher/UpdateTeacher',
@@ -12,8 +12,6 @@ const routes = {
   getClassTeacher: 'schtrack-auth/api/v1/Teacher/GetTeacherClass',
   getBulkDdownload: 'schtrack-auth/api/v1/Teacher/GetTeachersExcelSheet',
   bulkUpload: 'schtrack-auth/api/v1/Teacher/BulkAddTeacher',
-
-  
 
   getAllassignmentSubmission: 'schtrack-learning/api/v1/AssignmentAnswer/GetAllAssignmentAnswers',
 

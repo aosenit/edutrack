@@ -13,19 +13,19 @@
 
 <div class=" bg-white">
 
-  <form class="pt-5">
+  <form class="pt-5" [formGroup]="newAlumniform" (ngSubmit)="createEvent()">
 
     <div class="row mb-4">
       <div class="col-md-6">
         <label for="domain" class="fw-6">Event Name </label>
-        <input type="text" class="form-control" placeholder="Event name" id="amount">
+        <input type="text" class="form-control" placeholder="Event name" id="amount" formControlName="name">
 
 
       </div>
       <div class="col-md-6">
         <label for="amount" class="fw-6">Event Type </label>
         <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="customSwitch1">
+          <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="type">
           <label class="custom-control-label" for="customSwitch1">Virtual</label>
         </div>
       </div>
@@ -34,7 +34,7 @@
     <div class="row mb-4">
       <div class="col-md-12">
         <label for="domain" class="fw-6">Location </label>
-        <input type="text" class="form-control" placeholder="Enter location" id="amount">
+        <input type="text" class="form-control" placeholder="Enter location" id="amount" formControlName="location">
 
 
       </div>
@@ -43,7 +43,7 @@
     <div class="row mb-4">
       <div class="col-md-12">
         <label for="domain" class="fw-6">Event Description </label>
-        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Enter Description"></textarea>
+        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Enter Description" formControlName="description"></textarea>
 
 
       </div>
@@ -53,25 +53,24 @@
     <div class="row mb-4">
       <div class="col-md-6">
         <label for="domain" class="fw-6">Start Date </label>
-        <input type="date" class="form-control" placeholder="Enter amount" id="amount">
+        <input type="date" class="form-control"  id="amount" formControlName="startDate">
 
 
       </div>
       <div class="col-md-6">
         <label for="amount" class="fw-6">End Date </label>
-        <input type="date" class="form-control" placeholder="Enter amount" id="amount">
+        <input type="date" class="form-control"  id="amount" formControlName="endDate">
       </div>
     </div>
     <div class="row mb-5">
+     
       <div class="col-md-6">
-        <label for="domain" class="fw-6">Start Time </label>
-        <input type="time" class="form-control" placeholder="Enter amount" id="amount">
-
-
+        <label for="amount" class="fw-6">End Date </label>
+        <input type="time" class="form-control"  id="amount" formControlName="startTime">
       </div>
       <div class="col-md-6">
         <label for="amount" class="fw-6">Tags </label>
-        <input type="text" class="form-control" placeholder="Enter tags" id="amount">
+        <input type="text" class="form-control" placeholder="Enter tags" id="amount" formControlName="tags">
       </div>
     </div>
 
