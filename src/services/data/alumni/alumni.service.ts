@@ -40,6 +40,7 @@ export class AlumniService {
     body.append('Type', payload.type);
     body.append('StartDate', payload.startDate);
     body.append('EndDate', payload.endDate);
+    body.append('Location', payload.location);
     body.append('Description', payload.description);
     body.append('Status', payload.status);
     body.append('EventTags', payload.tags);
@@ -59,7 +60,18 @@ export class AlumniService {
   }
 
   updateEvent(id, payload) {
-    const url = `${this.baseUrl + routes.getAlumnWithId}/${id}`;
-    return this.http.put(url, payload, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+    const body = new FormData();
+    body.append('Name', payload.name);
+    body.append('Type', payload.type);
+    body.append('StartDate', payload.startDate);
+    body.append('EndDate', payload.endDate);
+    body.append('Location', payload.location);
+
+    body.append('Description', payload.description);
+    body.append('Status', payload.status);
+    body.append('EventTags', payload.tags);
+    body.append('file', payload.eventImg);
+    const url = `${this.baseUrl + routes.updateEvent}/${id}`;
+    return this.http.put(url, body, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 }

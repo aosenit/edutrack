@@ -18,6 +18,7 @@ profileImageName = null;
 newEvent = true;
 editEvent = false;
   pageId: any;
+  editAlumniform: FormGroup;
 
   constructor(
     private alumni: AlumniService,
@@ -40,8 +41,9 @@ editEvent = false;
       endDate: ['', Validators.required],
       description: ['', Validators.required],
       tags: ['', Validators.required],
-      eventImg: [null, Validators.required]
+      eventImg: null
     });
+
 
     this.pageId = this.route.snapshot.params.id;
 
@@ -55,6 +57,17 @@ editEvent = false;
         this.newEvent = false;
         this.editEvent = true;
 
+        this.editAlumniform = this.fb.group({
+          name: [''],
+          type: [''],
+          location: [''],
+          startDate: [''],
+          status: true,
+          endDate: [''],
+          description: [''],
+          tags: [''],
+          eventImg: [null]
+        });
       }
     });
   }
@@ -130,10 +143,55 @@ editEvent = false;
     this.alumni.getAllAlumniEventId(this.pageId).subscribe((res: any) => {
       if (res.hasErrors === false) {
         console.log(res);
+        this.populateEditForm(res.payload);
       }
     });
   }
 
+  populateEditForm(payload) {
+    this.editAlumniform.patchValue({
+      name: payload.name,
+          type: payload.type,
+          location: payload.location,
+          // startDate: ,
+          // status: true,
+          // endDate: ,
+          description: payload.description,
+          tags: payload.tags,
+          eventImg: null
+    });
+  }
+
+
+  updateEvent() {
+    const {name, type, location, startDate, status, endDate, description, tags, eventImg} = this.editAlumniform.value;
+    // const time = startDate + ' ' + startTime;
+    const tag = tags.split(',');
+
+    // console.log()
+    const payload = {
+      name,
+      type: this.eventType,
+      location,
+      startDate,
+      status,
+      endDate,
+      description,
+      tags: tag,
+      eventImg
+    };
+    console.log(payload);
+    this.alumni.updateEvent(this.pageId, payload).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        console.log(res);
+        this.notifyService.publishMessages(res.description, 'success', 1);
+        this.router.navigateByUrl('/school/alumni-events');
+      } else {
+        this.notifyService.publishMessages(res.description, 'danger', 1);
+
+      }
+    });
+  }
 
 
 
