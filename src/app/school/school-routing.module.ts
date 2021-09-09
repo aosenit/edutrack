@@ -44,6 +44,7 @@ const routes: Routes = [
       { path: 'grade-book', component: SchoolGradeBookComponent },
       { path: 'student-sheet/:id', component: StudentSheetComponent },
       {path: 'create-event', component: AdminAlumniCreateEventComponent},
+      {path: 'edit-event/:id', component: AdminAlumniCreateEventComponent},
     {path: 'alumni-list', component: AdminAlumniListComponent},
     {path: 'alumni-events', component: AdminAlumniEventsComponent},
       { path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },

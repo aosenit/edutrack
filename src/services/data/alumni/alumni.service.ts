@@ -53,8 +53,8 @@ export class AlumniService {
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
-  getAllAlumniEventId() {
-    const url = `${this.baseUrl + routes.getAlumnisEventWithId}`;
+  getAllAlumniEventId(id) {
+    const url = `${this.baseUrl + routes.getAlumnisEventWithId}/${id}`;
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 

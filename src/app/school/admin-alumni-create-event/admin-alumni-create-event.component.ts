@@ -1,7 +1,7 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AlumniService } from 'src/services/data/alumni/alumni.service';
 
@@ -15,13 +15,17 @@ newAlumniform: FormGroup;
 imageSrc: any;
 profileImageName = null;
   eventType: string;
-
+newEvent = true;
+editEvent = false;
+  pageId: any;
 
   constructor(
     private alumni: AlumniService,
     private fb: FormBuilder,
     private notifyService: NotificationsService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
+
 
   ) { }
 
@@ -37,6 +41,21 @@ profileImageName = null;
       description: ['', Validators.required],
       tags: ['', Validators.required],
       eventImg: [null, Validators.required]
+    });
+
+    this.pageId = this.route.snapshot.params.id;
+
+
+    this.route.params.subscribe((param: Params) => {
+      if (!param.id) {
+        this.newEvent = true;
+      } else {
+        // this.getProfileInformation();
+        this.getEventByid();
+        this.newEvent = false;
+        this.editEvent = true;
+
+      }
     });
   }
 
@@ -103,6 +122,14 @@ profileImageName = null;
       } else {
         this.notifyService.publishMessages(res.description, 'danger', 1);
 
+      }
+    });
+  }
+
+  getEventByid() {
+    this.alumni.getAllAlumniEventId(this.pageId).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        console.log(res);
       }
     });
   }

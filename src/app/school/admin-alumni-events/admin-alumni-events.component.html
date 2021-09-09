@@ -50,7 +50,6 @@
                     </th>
                     <th scope="col">Event Type </th>
     
-                    <th scope="col">Sex</th>
                     <th scope="col">Start Date</th>
     
                     <th scope="col">Description
@@ -63,7 +62,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="pb-1" >
+                <tr class="pb-1" *ngFor="let event of eventLists" >
                     <td scope="row" class="check rounded-left">
                         <div class="custom-control custom-checkbox" >
                             <input type="checkbox" class="custom-control-input" id="id1">
@@ -74,54 +73,27 @@
     
                         <div class="d-flex align-items-center">
                             <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
-                            <h6 class="fw-6 mb-0" >Wisdom Wedding  </h6>
+                            <h6 class="fw-6 mb-0"> {{event.name}}  </h6>
                         </div>
                     </td>
-                    <td> Virtual </td>
-                    <td> Aug 31st, 2021  </td>
+                    <td> {{event.type ? event.type : 'N/A'}} </td>
+                    <td> {{event.startDate | date : 'MMM d, y'}}  </td>
                     <td class=""> Obinna's wedding omo .... </td>
     
-                    <td><span class="status_active">Upcoming</span></td>
+                    <td>
+                        <span class="status_active" *ngIf="event.status === true"> Ongoing </span>
+                        <span class="status_inctive" *ngIf="event.status === false">Completed</span>
+                    </td>
                     <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
                             alt="schools log" class="dropdown-toggle mt-3       " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#" [routerLink]="['/school', 'student-detail',2]">View</a>
+                                <a class="dropdown-item" href="#" [routerLink]="['/school', 'edit-event', event.id]">Edit</a>
                                 <!-- <a class="dropdown-item" (click)="editStudent(student.id)" >Edit</a> -->
     
                               </div>
                         </td>
                 </tr>
-                <tr class="pb-1" >
-                    <td scope="row" class="check rounded-left">
-                        <div class="custom-control custom-checkbox" >
-                            <input type="checkbox" class="custom-control-input" id="id1">
-                            <label class="custom-control-label" for="id1}}"></label>
-                        </div>
-                    </td>
-                    <td class="user" >
-    
-                        <div class="d-flex align-items-center">
-                            <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
-                            <h6 class="fw-6 mb-0" >Wisdom Wedding  </h6>
-                        </div>
-                    </td>
-                    <td> Virtual </td>
-                    <td> Aug 31st, 2021  </td>
-                    <td class=""> Obinna's wedding omo .... </td>
-    
-                    <td><span class="status_inactive">Completed</span></td>
-                    <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                            alt="schools log" class="dropdown-toggle mt-3       " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#" [routerLink]="['/school', 'student-detail',2]">View</a>
-                                <!-- <a class="dropdown-item" (click)="editStudent(student.id)" >Edit</a> -->
-    
-                              </div>
-                        </td>
-                </tr>
-    
-    
-    
+               
     
     
             </tbody>
