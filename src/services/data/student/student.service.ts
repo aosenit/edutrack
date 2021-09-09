@@ -182,7 +182,7 @@ export class StudentService {
 
     uploadBulkDocument(payload) {
       const body = new FormData();
-      body.append('Files', payload.Document);
+      body.append('File', payload.Document);
 
       const url = `${this.baseUrl + routes.bulkUpload}`;
       return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
