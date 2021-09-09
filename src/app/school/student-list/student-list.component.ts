@@ -90,6 +90,9 @@ export class StudentListComponent implements OnInit {
         this.notifyService.publishMessages(data.description, 'info', 1);
         document.getElementById('close').click();
         this.router.navigateByUrl('/admin/students');
+      } else {
+        this.notifyService.publishMessages(data.description, 'info', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
