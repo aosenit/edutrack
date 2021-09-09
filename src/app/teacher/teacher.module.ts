@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 // import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { TeacherRoutingModule } from './teacher-routing.module';

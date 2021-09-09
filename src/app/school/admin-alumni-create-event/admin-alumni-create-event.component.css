@@ -64,3 +64,10 @@ form {
     cursor: pointer;
     opacity: 0;
 }
+
+
+.imgPreview{
+    max-width: 250px;
+    max-height: 250px;
+    object-fit: cover;
+}

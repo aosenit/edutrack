@@ -8,6 +8,7 @@ import { AlumniService } from 'src/services/data/alumni/alumni.service';
 })
 export class AdminAlumniListComponent implements OnInit {
   searchString: string;
+  alumniList: any;
 
   constructor(
     private alumni: AlumniService
@@ -24,7 +25,7 @@ export class AdminAlumniListComponent implements OnInit {
   getAllSchoolAlumnis() {
     this.alumni.getAllAlumnis().subscribe((res: any) => {
       if (res.hasErrors === false ) {
-        console.log(res);
+        this.alumniList = res.payload;
       }
     }, error => {
       console.log(error);

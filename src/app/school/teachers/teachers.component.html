@@ -1,10 +1,9 @@
 <section class="add-employee" *ngIf="teachersList?.length === 0" >
     <img src="assets/images/svg/add-student.svg" alt="new employee" class="">
     <p class="text-center fw-6 pt-5">It looks like you are yet to create a teacher. You can do <br> that by clicking any of the buttons below.
-        below.</p>
-        <!-- <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
-            data-target="#exampleModalCenterUpload">Bulk
-            Upload</button> -->
+        </p>
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+        data-target="#exampleModalCenterUpload"> Bulk Upload </button>
     <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-employee']">
         Add New </button>
 </section>

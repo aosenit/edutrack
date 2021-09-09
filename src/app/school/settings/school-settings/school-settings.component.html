@@ -111,6 +111,68 @@
 </div>
 
 <div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade " id="pills-arm" role="tabpanel" aria-labelledby="pills-arm-tab">
+    <div class="empty-state" *ngIf="classArms?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any Class Arm
+      </p>
+    </div>
+    <section class="list table-responsive  mb-4" *ngIf="classArms?.length > 0">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <!-- <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th> -->
+            <th scope="col" class="w-60">Class Arm <img src="assets/images/svg/table-sort.svg"> </th>
+            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1" *ngFor="let arm of classArms">
+            <!-- <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td> -->
+            <td class="user">
+              <h6 class="fw-6 mb-0">{{arm.name}}</h6>
+            </td>
+            <td><span *ngIf="arm.status == true" class="status_active">Active</span>
+              <span *ngIf="arm.status == false" class="status_inactive">Inactive</span></td>
+            <td class="rounded-right ">
+              <!-- <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle" type="button"
+                id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+              <!-- ================ DROPDOWN ==================== -->
+              <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditArm"
+                  (click)="getArmById(arm.id)">Edit Arm </a>
+                <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete Arm</a>
+              </div> -->
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+              data-toggle="modal" data-target="#exampleModalEditArm"
+                  (click)="getArmById(arm.id)"> Edit Arm</button>
+                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                (click)="deleteArm(arm.id)"> Delete Arm </button>
+            </td>
+          </tr>
+
+
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+  
   <div class="tab-pane fade show active" id="pills-level" role="tabpanel" aria-labelledby="pills-level-tab">
     <div class="empty-state" *ngIf="levels?.length == 0">
       <p class="text-center fs-24 ff-a">
@@ -283,67 +345,7 @@
     </section>
   </div>
 
-  <div class="tab-pane fade " id="pills-arm" role="tabpanel" aria-labelledby="pills-arm-tab">
-    <div class="empty-state" *ngIf="classArms?.length == 0">
-      <p class="text-center fs-24 ff-a">
-        You have not added any Class Arm
-      </p>
-    </div>
-    <section class="list table-responsive  mb-4" *ngIf="classArms?.length > 0">
-      <table class="table table-borderless client-table">
-        <thead>
-          <tr>
-            <!-- <th scope="col" class="head ">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                <label class="custom-control-label" for="customCheckTh"></label>
-              </div>
-            </th> -->
-            <th scope="col" class="w-60">Class Arm <img src="assets/images/svg/table-sort.svg"> </th>
-            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="pb-1" *ngFor="let arm of classArms">
-            <!-- <td scope="row" class="check rounded-left">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td> -->
-            <td class="user">
-              <h6 class="fw-6 mb-0">{{arm.name}}</h6>
-            </td>
-            <td><span *ngIf="arm.status == true" class="status_active">Active</span>
-              <span *ngIf="arm.status == false" class="status_inactive">Inactive</span></td>
-            <td class="rounded-right ">
-              <!-- <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle" type="button"
-                id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-              <!-- ================ DROPDOWN ==================== -->
-              <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-                <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditArm"
-                  (click)="getArmById(arm.id)">Edit Arm </a>
-                <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete Arm</a>
-              </div> -->
-              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
-              data-toggle="modal" data-target="#exampleModalEditArm"
-                  (click)="getArmById(arm.id)"> Edit Arm</button>
-                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
-                (click)="deleteArm(arm.id)"> Delete Arm </button>
-            </td>
-          </tr>
-
-
-
-
-
-
-        </tbody>
-      </table>
-
-    </section>
-  </div>
+ 
 
 
   <div class="tab-pane fade " id="pills-subject" role="tabpanel" aria-labelledby="pills-subject-tab">

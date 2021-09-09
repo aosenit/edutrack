@@ -53,15 +53,6 @@ const routes = {
   staffSignature: 'schtrack-auth/api/v1/Staff/GetStaffNameAndSignatureByUserId'
 
 
-
-
-
-
-
-
-
-
-
 };
 
 const tenantId = sessionStorage.getItem('tenant');
@@ -106,7 +97,6 @@ export class ParentsService {
 
   getAllParentsInASchool(p, perpage) {
     const url = `${this.baseUrl + routes.getallparentinASchool}?PageIndex=${p}&PageSize=${perpage}`;
-    
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
   getAllParentsWithName() {
@@ -118,7 +108,6 @@ export class ParentsService {
   getParentById(id) {
 
     const url = `${this.baseUrl + routes.getparentbyid}/${id}`;
-    
     return this.http.get(url,   {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
@@ -189,7 +178,6 @@ export class ParentsService {
     // const id = sessionStorage.getItem('tenant');
     // const tenantId = id;
     const url = `${this.baseUrl + routes.getTableforClassByClassId}?classId=${classId}`;
-    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
@@ -213,7 +201,6 @@ export class ParentsService {
     // const id = sessionStorage.getItem('tenant');
     // const tenantId = id;
     const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classId=${classId}`;
-    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
@@ -221,7 +208,6 @@ export class ParentsService {
     // const id = sessionStorage.getItem('tenant');
     // const tenantId = id;
     const url = `${this.baseUrl + routes.getAssignmentByClassSubject}?classSubjectId=${classSubjectId}`;
-    
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 

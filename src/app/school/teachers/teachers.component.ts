@@ -136,4 +136,8 @@ fileString: any;
 
   }
 
+  clearData() {
+    
+  }
+
 }

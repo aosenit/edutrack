@@ -35,8 +35,17 @@ export class AlumniService {
   }
 
   createEvent(payload) {
+    const body = new FormData();
+    body.append('Name', payload.name);
+    body.append('Type', payload.type);
+    body.append('StartDate', payload.startDate);
+    body.append('EndDate', payload.endDate);
+    body.append('Description', payload.description);
+    body.append('Status', payload.status);
+    body.append('EventTags', payload.tags);
+    body.append('file', payload.eventImg);
     const url = `${this.baseUrl + routes.createEvent}`;
-    return this.http.post(url, payload, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+    return this.http.post(url, body, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getAllEvents() {

@@ -50,7 +50,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   classCount: number;
   subjectCount: number;
   p = 1;
-  itemsPerPage = 5;
+  itemsPerPage = 10;
   testSubjectArray = [];
 
   private ngUnsubscribe = new Subject();
@@ -71,7 +71,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     });
     this.classArmform = this.fb.group({
       Name: ['', Validators.required],
-      Status: [false, Validators.required]
+      // Status: [false, Validators.required]
     });
     this.createNewClassForm = this.fb.group({
       name: ['', Validators.required],
