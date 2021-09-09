@@ -85,9 +85,9 @@ export class StudentListComponent implements OnInit {
   createStudentBulkUpload() {
     this.studentService.uploadBulkDocument(this.studentBulkUploadForm.value).subscribe((data: any) => {
       console.log('bulk file', data);
-      if (data.hasError === false) {
+      if (data.hasErrors === false) {
         console.log('file successfully uplaoded', data.payload);
-        this.notifyService.publishMessages(data.description, 'info', 1);
+        this.notifyService.publishMessages(data.description, 'success', 1);
         document.getElementById('close').click();
         this.router.navigateByUrl('/admin/students');
       } else {
