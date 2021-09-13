@@ -32,6 +32,9 @@ export class ParentListComponent implements OnInit {
         // (data);
         this.parentList = data.payload;
         this.parentCount = data.totalCount;
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     },
       error => {

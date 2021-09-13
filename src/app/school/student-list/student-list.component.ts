@@ -118,6 +118,9 @@ export class StudentListComponent implements OnInit {
         this.studentList = data.payload;
         this.studentCount = data.totalCount;
         // console.log('student list', this.studentList);
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
