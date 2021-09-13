@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
-import { NotificationsService } from '../classes/notifications/notifications.service';
-
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TeacherGuard implements CanActivateChild {
+
+
+export class StudentGuard implements CanActivateChild {
   loggedInUser: any;
   constructor(
     private router: Router,
@@ -21,7 +22,8 @@ export class TeacherGuard implements CanActivateChild {
 
       this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
 
-      if (localStorage.getItem('access_token') && this.loggedInUser.UserType === 'TeachingStaff') {
+      // tslint:disable-next-line:max-line-length
+      if (localStorage.getItem('access_token') && this.loggedInUser.UserType === 'Student' ) {
         return true;
       } else {
         this.notifyService.publishMessages('You are not authorized to access this route.', 'danger', 1);
@@ -31,3 +33,4 @@ export class TeacherGuard implements CanActivateChild {
   }
 
 }
+

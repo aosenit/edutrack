@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
+import { SchoolGuard } from 'src/services/guards/school/school.guard';
 import { TeacherGuard } from 'src/services/guards/teacher.guard';
 import { AdminAlumniCreateEventComponent } from './admin-alumni-create-event/admin-alumni-create-event.component';
 import { AdminAlumniEventsComponent } from './admin-alumni-events/admin-alumni-events.component';
@@ -25,7 +26,7 @@ import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
-    path: '', component: SchoolComponent, canActivate: [AuthGuardGuard], canActivateChild: [TeacherGuard],
+    path: '', component: SchoolComponent, canActivate: [AuthGuardGuard], canActivateChild: [SchoolGuard],
     children: [
       { path: '', component: DashboardComponent },
       { path: 'students', component: StudentListComponent },

@@ -146,11 +146,14 @@ fileString: any;
   createStafftBulkUpload() {
     this.staffService.uploadBulkDocument(this.staffUploadForm.value).subscribe((data: any) => {
       console.log('bulk file', data);
-      if (data.hasError === false) {
+      if (data.hasErrors === false) {
         console.log('file successfully uploaded', data.payload);
         this.notifyService.publishMessages(data.description, 'info', 1);
         document.getElementById('close').click();
-        this.router.navigateByUrl('/admin/students');
+        this.router.navigateByUrl('/admin/employees');
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

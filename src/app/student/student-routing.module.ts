@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
+import { StudentGuard } from 'src/services/guards/student/student.guard';
 import { TeacherGuard } from 'src/services/guards/teacher.guard';
 import { AssignmentComponent } from './assignment/assignment.component';
 import { ClassScheduleComponent } from './class-schedule/class-schedule.component';
@@ -19,7 +20,7 @@ import { VirtualClassroomComponent } from './virtual-classroom/virtual-classroom
 
 
 const routes: Routes = [
-  {path: '', component: StudentComponent, canActivate: [AuthGuardGuard], canActivateChild: [TeacherGuard],
+  {path: '', component: StudentComponent, canActivate: [AuthGuardGuard], canActivateChild: [StudentGuard],
    children: [
     {path: '', pathMatch: 'full', redirectTo: 'dashboard'},
     {path: 'dashboard', component: DashboardComponent },
