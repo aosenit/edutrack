@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
+import { BranchGuard } from 'src/services/guards/branch/branch.guard';
 import { ClientDetailComponent } from '../global-admin/client-detail/client-detail.component';
 import { CreateClientComponent } from '../global-admin/create-client/create-client.component';
 import { BranchDetailComponent } from './branch-detail/branch-detail.component';
@@ -10,7 +12,7 @@ import { SchoolBranchManagerComponent } from './school-manager.component';
 
 const routes: Routes = [
   {
-    path: '', component: SchoolBranchManagerComponent,
+    path: '', component: SchoolBranchManagerComponent, canActivate: [AuthGuardGuard], canActivateChild: [BranchGuard],
     children: [
       { path: '', component: SchoolManagerDashboardComponent },
       { path: 'branches', component: SchoolManagerBranchComponent },
