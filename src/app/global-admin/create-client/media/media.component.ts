@@ -93,7 +93,7 @@ export class MediaComponent implements OnInit {
     // const formData = new FormData();
     // this.DocumentTypes.forEach((item: any) => formData.append('DocumentTypes', item));
 
-    const result = {...profile, ...details, ...contactperson, isActive, GroupId, ...finalstep, DocumentTypes: this.DocumentTypes};
+    const result = {...profile, ...details, ...contactperson, isActive, GroupId: null, ...finalstep, DocumentTypes: this.DocumentTypes};
 
     if (this.formBtn.type === 'create') {
       this.schoolServies.addSchool(result).subscribe( (data: any) => {
