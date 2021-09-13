@@ -149,7 +149,10 @@ export class PromotionSettingsComponent implements OnInit {
    });
    this.promotion.updateTerminalClassSetup(this.terminalClasses).subscribe((res: any) => {
      if (res.hasErrors === false) {
-       console.log(res)
+      this.notification.publishMessages(res.description, 'success', 1);
+     } else {
+      this.notification.publishMessages(res.error, 'danger', 1);
+
      }
    })
   }
