@@ -54,7 +54,7 @@ export class EmployeeDetailsComponent implements OnInit {
       EmploymentStatus: ['', Validators.required],
       HighestQualification: ['', Validators.required],
       JobTitle: ['', Validators.required],
-      DepartmentId: [''],
+      DepartmentId: ['', Validators.required],
       PayGrade: ['', Validators.required],
       EmploymentDate: ['', Validators.required],
       ResumptionDate: ['', Validators.required]
