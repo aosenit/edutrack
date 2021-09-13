@@ -152,47 +152,22 @@ style="height: 85vh; width: 100%;" *ngIf="noData">
 
 <div class="mb-5"> 
 
-  <div>
+  <div class="my-3">
     <p>Submitted Broadsheets</p>
   </div>
     <div class="row mb-5">
 
-      <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
+      <div class="col-xl-3 col-md-3 col-sm-12 mb-3 " *ngFor="let result of allResultStatus">
         <div class="p-3 class__grade">
-          <p class="class__grade--class fw-6 mb-0 pb-1">JSS1A Broadsheet</p>
-          <p class="class__grade--date mb-0 pb-2">Submitted: 24th March, 2021</p>
-          <span class="class__grade--status approved"> Approved</span>
+          <p class="class__grade--class fw-6 mb-0 pb-1">{{ result?.className + ' ' + 'Broadsheet' }} </p>
+          <p class="class__grade--date mb-0 pb-2">Submitted: {{result?.dateCreated  | date: 'mediumDate' }}</p>
+          <span class="class__grade--status " 
+          [ngClass]="{'approved' : result.isApproved == true, 'pending': result.isApproved == false}">
+           {{result.isApproved === true ? 'Approved' : result.isApproved === false ? 'Pending' : 'Rejected'}}
+          </span>
         </div>
       </div>
-      <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
-        <div class="p-3 class__grade">
-          <p class="class__grade--class fw-6 mb-0 pb-1">JSS1A Broadsheet</p>
-          <p class="class__grade--date mb-0 pb-2">Submitted: 24th March, 2021</p>
-          <span class="class__grade--status approved"> Approved</span>
-        </div>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
-        <div class="p-3 class__grade">
-          <p class="class__grade--class fw-6 mb-0 pb-1">JSS1A Broadsheet</p>
-          <p class="class__grade--date mb-0 pb-2">Submitted: 24th March, 2021</p>
-          <span class="class__grade--status pending"> Pending</span>
-        </div>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
-        <div class="p-3 class__grade">
-          <p class="class__grade--class fw-6 mb-0 pb-1">JSS1A Broadsheet</p>
-          <p class="class__grade--date mb-0 pb-2">Submitted: 24th March, 2021</p>
-          <span class="class__grade--status rejected"> Rejected</span>
-        </div>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
-        <div class="p-3 class__grade">
-          <p class="class__grade--class fw-6 mb-0 pb-1">JSS1A Broadsheet</p>
-          <p class="class__grade--date mb-0 pb-2">Submitted: 24th March, 2021</p>
-          <span class="class__grade--status approved"> Approved</span>
-        </div>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
+      <!-- <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
         <div class="p-3 class__grade">
           <p class="class__grade--class fw-6 mb-0 pb-1">JSS1A Broadsheet</p>
           <p class="class__grade--date mb-0 pb-2">Submitted: 24th March, 2021</p>
@@ -241,6 +216,34 @@ style="height: 85vh; width: 100%;" *ngIf="noData">
           <span class="class__grade--status rejected"> Rejected</span>
         </div>
       </div>
+      <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
+        <div class="p-3 class__grade">
+          <p class="class__grade--class fw-6 mb-0 pb-1">JSS1A Broadsheet</p>
+          <p class="class__grade--date mb-0 pb-2">Submitted: 24th March, 2021</p>
+          <span class="class__grade--status approved"> Approved</span>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
+        <div class="p-3 class__grade">
+          <p class="class__grade--class fw-6 mb-0 pb-1">JSS1A Broadsheet</p>
+          <p class="class__grade--date mb-0 pb-2">Submitted: 24th March, 2021</p>
+          <span class="class__grade--status approved"> Approved</span>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
+        <div class="p-3 class__grade">
+          <p class="class__grade--class fw-6 mb-0 pb-1">JSS1A Broadsheet</p>
+          <p class="class__grade--date mb-0 pb-2">Submitted: 24th March, 2021</p>
+          <span class="class__grade--status pending"> Pending</span>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-3 col-sm-12 mb-3 ">
+        <div class="p-3 class__grade">
+          <p class="class__grade--class fw-6 mb-0 pb-1">JSS1A Broadsheet</p>
+          <p class="class__grade--date mb-0 pb-2">Submitted: 24th March, 2021</p>
+          <span class="class__grade--status rejected"> Rejected</span>
+        </div>
+      </div> -->
 
 
 
@@ -248,7 +251,10 @@ style="height: 85vh; width: 100%;" *ngIf="noData">
     </div>
 
     <div class="d-flex justify-content-center">
-       <button (mouseenter)="showToolTip()" class="btn btn-outline-orange    mx-2 mx-lg-3" type="button"  data-toggle="tooltip" data-placement="top" title="Broadsheet are not complete. This button will be active once they are complete">Apply for promotion
+       <button 
+       (mouseenter)="showToolTip()" 
+       
+       class="btn btn-outline-orange    mx-2 mx-lg-3" type="button"  data-toggle="tooltip" data-placement="top" title="Broadsheet are not complete. This button will be active once they are complete">Apply for promotion
         Upload</button>
        </div>
 </div>

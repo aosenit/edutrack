@@ -388,6 +388,7 @@ li.pagination-next:hover, li.pagination-previous:hover {
     padding: 10px;
     background: #ffffff;
     border-color: 1px solid bisque;
+    color: black;
 }
 /* html, body { height: 100%; } */
 /* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

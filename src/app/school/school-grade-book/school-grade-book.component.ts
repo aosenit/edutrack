@@ -36,6 +36,7 @@ export class SchoolGradeBookComponent implements OnInit {
   selectedTermId: any;
   studentBehaviour: any;
   selectedStudentId: any;
+  allResultStatus: any;
 
 
 
@@ -56,7 +57,7 @@ export class SchoolGradeBookComponent implements OnInit {
 
   ngOnInit() {
 
-   
+
 
     this.getCurrentSesion();
     this.generateGradeSetup();
@@ -69,11 +70,13 @@ export class SchoolGradeBookComponent implements OnInit {
     this.rejectionForm = this.fb.group({
       headTeacherRejectionComment: ['', Validators.required]
     });
+
+    this.getAllClassesResultWithApprovalStatus();
   }
 
   showToolTip() {
     $('[data-toggle=tooltip]').tooltip('show');
-    // $('[data-toggle="tooltip"]').tooltip({placement: 'top'});
+    $('[data-toggle="tooltip"]').tooltip({placement: 'top'});
 
   }
 
@@ -238,9 +241,6 @@ export class SchoolGradeBookComponent implements OnInit {
 
       this.router.navigateByUrl('/school/student-sheet/' + this.selectedStudentId);
     }, 2000);
-
-
-
     // tslint:disable-next-line:max-line-length
     this.resultService.getStudentBehviour(this.sessions.id, this.selectedTermId, this.Classid, this.selectedStudentId ).subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -254,6 +254,15 @@ export class SchoolGradeBookComponent implements OnInit {
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
+    });
+  }
+
+  getAllClassesResultWithApprovalStatus() {
+    this.resultService.GetAllClassResultApprovalStatus().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        console.log(res);
+        this.allResultStatus = res.payload;
+      }
     });
   }
 
