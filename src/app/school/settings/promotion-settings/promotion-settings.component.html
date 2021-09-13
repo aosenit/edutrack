@@ -133,7 +133,7 @@
         <tbody cdkDropList (cdkDropListDropped)="drop($event)">
           <tr class="pb-1 drag" *ngFor="let class of terminalClasses; let i = index" cdkDrag cdkDragLockAxis="y">
             <td>
-              <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
                 <svg class="bi bi-list handle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd"
@@ -141,7 +141,7 @@
                     clip-rule="evenodd" />
                 </svg>
 
-                <span>{{i + 1}}</span>
+                <span class="ml-3">{{i + 1}}</span>
               </div>
             </td>
             <td class="user">
