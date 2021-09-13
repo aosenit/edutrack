@@ -2,6 +2,7 @@ import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import * as moment from 'moment';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AlumniService } from 'src/services/data/alumni/alumni.service';
 
@@ -19,6 +20,7 @@ newEvent = true;
 editEvent = false;
   pageId: any;
   editAlumniform: FormGroup;
+  checkEventType = false;
 
   constructor(
     private alumni: AlumniService,
@@ -149,13 +151,16 @@ editEvent = false;
   }
 
   populateEditForm(payload) {
+    if (payload.type === 'Virtual') {
+      this.checkEventType = true;
+    } else {
+      this.checkEventType = false;
+    }
     this.editAlumniform.patchValue({
       name: payload.name,
-          type: payload.type,
           location: payload.location,
-          // startDate: ,
-          // status: true,
-          // endDate: ,
+          startDate: moment(payload.startDate).format('YYYY-MM-DDThh:mm') ,
+          endDate: moment(payload.endDate).format('YYYY-MM-DD'),
           description: payload.description,
           tags: payload.tags,
           eventImg: null

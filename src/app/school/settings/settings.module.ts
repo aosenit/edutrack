@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { FacilitySettingsComponent } from './facility-settings/facility-settings.component';
@@ -40,6 +40,7 @@ import { PromotionSettingsComponent } from './promotion-settings/promotion-setti
     ReactiveFormsModule,
     FormsModule,
     SharedModule,
+    DragDropModule,
     NgxPaginationModule,
     NgMultiSelectDropDownModule.forRoot(),
     SettingsRoutingModule

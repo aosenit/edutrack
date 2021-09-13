@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { PromotionService } from 'src/services/data/promotion/promotion.service';
@@ -83,7 +84,7 @@ export class PromotionSettingsComponent implements OnInit {
   }
 
   creationPromotionSetup() {
-    const {promotionmethod, promotiontype, promotionscore} = this.promotionForm.value;
+    const { promotionmethod, promotiontype, promotionscore } = this.promotionForm.value;
     const payload = {
       promotionMethod: parseInt(promotionmethod),
       // tslint:disable-next-line:radix
@@ -100,16 +101,16 @@ export class PromotionSettingsComponent implements OnInit {
       }
     });
   }
-  
+
 
   createWithdrawalMethod() {
-    const {maxrepeat} = this.withdrawalForm.value;
-    
+    const { maxrepeat } = this.withdrawalForm.value;
+
     const payload = {
       // tslint:disable-next-line:radix
-      maxRepeat : parseInt(maxrepeat)
+      maxRepeat: parseInt(maxrepeat)
     };
-    
+
     this.promotion.updateWithdrawalSetup(payload).subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.notification.publishMessages(res.description, 'success', 1);
@@ -131,21 +132,26 @@ export class PromotionSettingsComponent implements OnInit {
     return true;
   }
 
-  dragRow(e, index) {
-    e.preventDefault();
-    console.log(e, index);
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.terminalClasses, event.previousIndex, event.currentIndex);
+    this.terminalClasses[1].sequence = event.currentIndex;
+    }
+
+  setTerminal(e, i) {
+    this.terminalClasses[i].isTerminal = e;
+    console.log(e, this.terminalClasses[i]);
+    
   }
 
-
-  sortOrder(e) {
-    e.preventDefault();
-    console.log(e);
-
+  saveArrangement() {
+   this.terminalClasses.forEach((element, index) => {
+     element.sequence = index + 1;
+   });
+   this.promotion.updateTerminalClassSetup(this.terminalClasses).subscribe((res: any) => {
+     if (res.hasErrors === false) {
+       console.log(res)
+     }
+   })
   }
-  lastBustop(e) {
-    e.preventDefault();
-    const data = e.dataTransfer.getData('text');
-    console.log('e, e', data, e);
 
-  }
 }

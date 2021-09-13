@@ -10,7 +10,7 @@ const routes = {
   withdrawalSetup: 'schtrack-assessment/api/v1/PromotionSetup/GetWithdrawalSetup',
   editPromotionSetup: 'schtrack-assessment/api/v1/PromotionSetup/AddOrUpdatePromotionSetup',
   editWithdrawalSetup: 'schtrack-assessment/api/v1/PromotionSetup/AddOrUpdateWithdrawalSetup',
-
+  editTerminalclasses: 'schtrack-auth/api/v1/Class/UpdateClassSequenceAndTerminal'
 };
 
 
@@ -55,6 +55,11 @@ export class PromotionService {
   updateWithdrawalSetup(payload) {
     const url = `${this.baseUrl + routes.editWithdrawalSetup}`;
     return this.http.post(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  updateTerminalClassSetup(payload) {
+    const url = `${this.baseUrl + routes.editTerminalclasses}`;
+    return this.http.put(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
 }

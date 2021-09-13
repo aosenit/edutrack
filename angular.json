@@ -28,11 +28,11 @@
                 "output": "./node_modules/@zoomus/websdk/dist/lib/"
               }
             ],
-            "styles": [ 
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": [
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -155,6 +155,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "schooltrack"
 }

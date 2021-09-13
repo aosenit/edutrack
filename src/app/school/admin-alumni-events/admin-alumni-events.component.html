@@ -39,20 +39,20 @@
         <table class="table table-borderless client-table">
             <thead>
                 <tr>
-                    <th scope="col" class="head ">
+                    <th scope="col" >
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="customCheckTh">
                             <label class="custom-control-label" for="customCheckTh"></label>
                         </div>
                     </th>
-                    <th scope="col" class="text-center" >Event Name
+                    <th scope="col" class="" >Event Name
     
                     </th>
                     <th scope="col">Event Type </th>
     
                     <th scope="col">Start Date</th>
     
-                    <th scope="col">Description
+                    <th scope="col" class="w-25">Description
     
                     </th>
                     <th scope="col">Status
@@ -63,10 +63,10 @@
             </thead>
             <tbody>
                 <tr class="pb-1" *ngFor="let event of eventLists" >
-                    <td scope="row" class="check rounded-left">
+                    <td scope="row" class=" rounded-left">
                         <div class="custom-control custom-checkbox" >
-                            <input type="checkbox" class="custom-control-input" id="id1">
-                            <label class="custom-control-label" for="id1}}"></label>
+                            <input type="checkbox" class="custom-control-input" id="{{event.id}}">
+                            <label class="custom-control-label" for="{{event.id}}"></label>
                         </div>
                     </td>
                     <td class="user" >
@@ -78,7 +78,7 @@
                     </td>
                     <td> {{event.type ? event.type : 'N/A'}} </td>
                     <td> {{event.startDate | date : 'MMM d, y'}}  </td>
-                    <td class=""> Obinna's wedding omo .... </td>
+                    <td class=""> {{event.description | slice:0:25}} </td>
     
                     <td>
                         <span class="status_active" *ngIf="event.status === true"> Ongoing </span>

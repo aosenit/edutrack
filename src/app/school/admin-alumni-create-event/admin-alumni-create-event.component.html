@@ -122,7 +122,7 @@
       <div class="col-md-6">
         <label for="amount" class="fw-6">Event Type </label>
         <div class="custom-control custom-switch">
-          <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="type" (change)="getEventType($event.target.checked)">
+          <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="type" (change)="getEventType($event.target.checked)" [checked]="checkEventType === true">
           <label class="custom-control-label" for="customSwitch1">Virtual</label>
         </div>
       </div>

@@ -120,7 +120,7 @@
         <thead>
           <tr>
             <th scope="col">Sequence </th>
-            <th scope="col" class="text-center"> Name
+            <th scope="col" class=""> Name
 
             </th>
             <th scope="col">Level </th>
@@ -131,10 +131,21 @@
 
           </tr>
         </thead>
-        <tbody (drop)="sortOrder($event)" (dragover)="lastBustop($event)">
-          <tr class="pb-1 drag" *ngFor="let class of terminalClasses; let i = index" (dragstart)="dragRow($event, i)"
-            draggable="true">
-            <td> {{class.sequence}}</td>
+        <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+          <tr class="pb-1 drag" *ngFor="let class of terminalClasses; let i = index" cdkDrag cdkDragLockAxis="y"
+           >
+            <td> 
+              <div class="d-flex justify-content-between align-items-center">
+                <svg class="bi bi-list handle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+		xmlns="http://www.w3.org/2000/svg">
+		<path fill-rule="evenodd"
+			d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z"
+			clip-rule="evenodd" />
+	</svg>
+
+                <span>{{i + 1}}</span>
+              </div>
+            </td>
             <td class="user">
 
               <div class="d-flex align-items-center">
@@ -144,7 +155,7 @@
             <td>{{class.section}}</td>
             <td scope="row" class=" rounded-left">
               <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" value="class.isTerminal" id="{{i}}">
+                <input type="checkbox" class="custom-control-input" value="class.isTerminal" id="{{i}}" (change)="setTerminal($event.target.checked, i)">
                 <label class="custom-control-label" for="{{i}}"></label>
               </div>
             </td>
@@ -160,6 +171,11 @@
         </tbody>
       </table>
 
+
+      <div class="d-flex justify-content-end align-items-center">
+        <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="saveArrangement()"> Save  </button>
+
+      </div>
 
     </section>
   </div>
