@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
+import { GlobalAdminGuard } from 'src/services/guards/global/global-admin.guard';
 import { TeacherGuard } from 'src/services/guards/teacher.guard';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientsComponent } from './clients/clients.component';
@@ -17,7 +18,7 @@ import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
-    path: '', component: GlobalAdminComponent, canActivate: [AuthGuardGuard], canActivateChild: [TeacherGuard],
+    path: '', component: GlobalAdminComponent, canActivate: [AuthGuardGuard], canActivateChild: [GlobalAdminGuard],
     children: [
       { path: '', component: DashboardComponent },
       { path: 'newclient', component: NewClientComponent },
