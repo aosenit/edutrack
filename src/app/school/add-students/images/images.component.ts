@@ -83,6 +83,9 @@ DocumentTypes: number[] = [];
           sessionStorage.removeItem('student-medical-details');
           this.router.navigateByUrl('/school/students');
 
+        } else {
+          this.notifyService.publishMessages( data.errors, 'success', 1);
+
         }
       }, error => {
         this.notifyService.publishMessages( error.errors, 'success', 1);

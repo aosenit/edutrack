@@ -9,15 +9,14 @@
   
     <div class="col-md-12">
         <div class="row">
-            <div class="col-md-4 mb-3">
+            <div class="col-md-4 mb-3" *ngFor="let event of eventLists">
                 <div class="alumni-cards">   
-                    <img src="assets/images/svg/event.jpg" alt="" class=" cursor-pointer alumni-user" routerLink="/school/alumni/event-detail" routerLinkActive="active">
+                    <img src="assets/images/svg/event.jpg" alt="" class=" cursor-pointer alumni-user" routerLink="/school/alumni/event-detail/{{event.id}}" routerLinkActive="active">
                     <div class="bg-white alumni__card-content px-3 pb-3 pt-3">
-                        <p class="mb-0 fw-7 card-name pb-1">THU, JAN 28 -JAN 29</p>
-                        <p class="mb-0 fw-7 card-name cursor-pointer" routerLink="/school/alumni/event-detail" routerLinkActive="active">Microsoft Excel and Data Analysis Office Hour</p>
-                        <p class="mb-0 fw-4 my-2 card-course">Mfonobong Bella Umodia</p>
-                        <!-- <p class="mb-0 card-job mb-3 ">Stamm, Weissnat and Schneider</p> -->
-                        <div class="d-flex justify-content-between align-items-center my-3">
+                        <p class="mb-0 fw-7 card-name pb-1">{{event.startDate | date: 'EEE' + ','}} {{event.startDate | date : 'mediumDate' }} - {{event.endDate | date: 'mediumDate' }} </p>
+                        <p class="mb-0 fw-7 card-name cursor-pointer" routerLink="/school/alumni/event-detail/{{event.id}}" routerLinkActive="active">{{event.name}}</p>
+                        <!-- <p class="mb-0 fw-4 my-2 card-course">Mfonobong Bella Umodia</p> -->
+                        <!-- <div class="d-flex justify-content-between align-items-center my-3">
                             <div class="d-flex">
                                 <span class="mr-3">
                                     <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,19 +34,13 @@
                                 <p class="mb-0 card-count">56 people are attending</p>
                                 
                             </div>
-                            <div class="d-flex images ">
-                                <img src="assets/images/svg/student.svg" alt="" class="student-img img-width">
-                                <img src="assets/images/svg/student2.svg" alt="" class="student-img2 img-width">
-                                <img src="assets/images/svg/student3.svg" alt="" class="student-img3 img-width">
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <button class="btn btn-alumni w-75">
-                                Interested
+                           
+                        </div> -->
+                        <div class="d-flex justify-content-between align-items-center my-3">
+                            <button class="btn btn-alumni w-100" routerLink="/school/alumni/event-detail/{{event.id}}">
+                                View Event
                             </button>
-                            <button class="btn btn-share ">
-                                Int
-                            </button>
+                            
                         </div>
                     </div>
                 </div>

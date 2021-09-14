@@ -18,7 +18,7 @@ const routes: Routes = [
     {path: 'events', component: AlumniEventsComponent},
     {path: 'transcript', component: AlumniTranscriptComponent},
     {path: 'records', component: AlumniRecordsComponent},
-    {path: 'event-detail', component: AlumniEventDetailComponent}
+    {path: 'event-detail/:id', component: AlumniEventDetailComponent}
 
   ]},
 ];
