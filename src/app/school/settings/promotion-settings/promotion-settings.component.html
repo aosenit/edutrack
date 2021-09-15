@@ -48,7 +48,9 @@
           <div class="custom-control custom-radio custom-control-inline"
             *ngFor="let method of promotionMethods; let i = index">
             <input type="radio" class="custom-control-input" id="customControlValidation{{i}}" name="promotionmethod"
-              [value]="method.val" formControlName="promotionmethod" required>
+              [value]="method.val"
+              [checked]="method.val"
+               formControlName="promotionmethod" required>
             <label class="custom-control-label" for="customControlValidation{{i}}">{{method.name}}</label>
           </div>
 
@@ -59,7 +61,9 @@
           <div class="custom-control custom-radio custom-control-inline"
             *ngFor="let types of promotionTypes; let i = index">
             <input type="radio" class="custom-control-input" id="customControlValidations{{i}}" name="promotiontype"
-              [value]="types.val" formControlName="promotiontype" required>
+              [value]="types.val"
+              [checked]="types.val"
+               formControlName="promotiontype" required>
 
             <label class="custom-control-label" for="customControlValidations{{i}}">{{types.name}}</label>
           </div>

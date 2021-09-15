@@ -125,7 +125,7 @@ export class PromotionSettingsComponent implements OnInit {
   }
 
   populateWithdrawalSetup(payload) {
-    this.promotionForm.patchValue({
+    this.withdrawalForm.patchValue({
       maxrepeat: payload.maxRepeat
     });
   }
