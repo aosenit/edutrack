@@ -38,21 +38,11 @@ export class PromotionSettingsComponent implements OnInit {
 
   }
 
-
-  getTerminalClass() {
-    this.promotion.getAllTerminalClasses().subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        console.log(res.payload);
-        this.terminalClasses = res.payload;
-      }
-    });
-  }
-
-  getPromotionSetups() {
-    this.promotion.getPromotionSetup().subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        console.log(res.payload);
-        this.terminalClasses = res.payload;
+  getPromotionTypes() {
+    this.promotion.getPromotionType().subscribe((res: any) => {
+      if (res) {
+        console.log(res);
+        this.promotionTypes = res;
       }
     });
   }
@@ -65,23 +55,8 @@ export class PromotionSettingsComponent implements OnInit {
       }
     });
   }
-  getPromotionTypes() {
-    this.promotion.getPromotionType().subscribe((res: any) => {
-      if (res) {
-        console.log(res);
-        this.promotionTypes = res;
-      }
-    });
-  }
 
-  getWithdrawalSetups() {
-    this.promotion.getWithdrawalSetup().subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        console.log(res.payload);
-        this.terminalClasses = res.payload;
-      }
-    });
-  }
+
 
   creationPromotionSetup() {
     const { promotionmethod, promotiontype, promotionscore } = this.promotionForm.value;
@@ -102,6 +77,33 @@ export class PromotionSettingsComponent implements OnInit {
     });
   }
 
+  getPromotionSetups() {
+    this.promotion.getPromotionSetup().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        console.log(res.payload);
+        this.pupulatePromotionSetup(res.payload);
+        // this.terminalClasses = res.payload;
+      }
+    });
+  }
+
+  pupulatePromotionSetup(payload) {
+    this.promotionForm.patchValue({
+      promotionmethod: payload.promotionMethod,
+      promotiontype: payload.promotionType,
+      promotionscore: payload.promotionScore
+    });
+  }
+
+  getWithdrawalSetups() {
+    this.promotion.getWithdrawalSetup().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        console.log(res.payload);
+        this.populateWithdrawalSetup(res.payload);
+      }
+    });
+  }
+
 
   createWithdrawalMethod() {
     const { maxrepeat } = this.withdrawalForm.value;
@@ -118,9 +120,27 @@ export class PromotionSettingsComponent implements OnInit {
         this.getWithdrawalSetups();
 
       }
-    })
+    });
 
   }
+
+  populateWithdrawalSetup(payload) {
+    this.promotionForm.patchValue({
+      maxrepeat: payload.maxRepeat
+    });
+  }
+
+
+
+  getTerminalClass() {
+    this.promotion.getAllTerminalClasses().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.terminalClasses = res.payload;
+      }
+    });
+  }
+
+
 
   allowNumbersOnly(e) {
     const ev = e || window.event;
@@ -135,26 +155,26 @@ export class PromotionSettingsComponent implements OnInit {
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.terminalClasses, event.previousIndex, event.currentIndex);
     this.terminalClasses[1].sequence = event.currentIndex;
-    }
+  }
 
   setTerminal(e, i) {
     this.terminalClasses[i].isTerminal = e;
     console.log(e, this.terminalClasses[i]);
-    
+
   }
 
   saveArrangement() {
-   this.terminalClasses.forEach((element, index) => {
-     element.sequence = index + 1;
-   });
-   this.promotion.updateTerminalClassSetup(this.terminalClasses).subscribe((res: any) => {
-     if (res.hasErrors === false) {
-      this.notification.publishMessages(res.description, 'success', 1);
-     } else {
-      this.notification.publishMessages(res.error, 'danger', 1);
+    this.terminalClasses.forEach((element, index) => {
+      element.sequence = index + 1;
+    });
+    this.promotion.updateTerminalClassSetup(this.terminalClasses).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.notification.publishMessages(res.description, 'success', 1);
+      } else {
+        this.notification.publishMessages(res.error, 'danger', 1);
 
-     }
-   })
+      }
+    });
   }
 
 }
