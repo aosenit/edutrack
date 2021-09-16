@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { PromotionService } from 'src/services/data/promotion/promotion.service';
 
 @Component({
   selector: 'app-class-repeat',
@@ -11,13 +13,18 @@ export class ClassRepeatComponent implements OnInit {
   continue = false;
   promoteOntrialForm: FormGroup;
   withdrawalForm: FormGroup;
+  repeatList: any;
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private promotionService: PromotionService,
+    private notificationService: NotificationsService
+
   ) { }
 
   ngOnInit() {
     this.initPromoteOntrialForm();
     this.initWithdrawalForm();
+    this.getRepeatList();
 
   }
 
@@ -32,6 +39,16 @@ export class ClassRepeatComponent implements OnInit {
       reason: ['', Validators.required]
     });
   }
- 
+
+  getRepeatList() {
+    this.promotionService.getRepeatersList(2).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.repeatList = res.payload;
+      } else {
+        this.notificationService.publishMessages(res.errors, 'danger', 1);
+      }
+    });
+  }
+
 }
 

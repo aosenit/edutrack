@@ -71,7 +71,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     });
     this.classArmform = this.fb.group({
       Name: ['', Validators.required],
-      // Status: [false, Validators.required]
+      status: [false, Validators.required]
     });
     this.createNewClassForm = this.fb.group({
       name: ['', Validators.required],
@@ -127,6 +127,14 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     const newStatus = status;
     switch (newStatus) {
 
+      case 'arm':
+        this.arm = true;
+        this.level = false;
+        this.class = false;
+        this.subject = false;
+        this.mail = false;
+        break;
+
       case 'level':
         this.level = true;
         this.class = false;
@@ -140,14 +148,6 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         this.level = false;
         this.class = true;
         this.arm = false;
-        this.subject = false;
-        this.mail = false;
-        break;
-
-      case 'arm':
-        this.level = false;
-        this.class = false;
-        this.arm = true;
         this.subject = false;
         this.mail = false;
         break;
@@ -174,14 +174,19 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   }
 
   createClassArm() {
-    // console.log('class arm create', this.classArmform.value);
-    this.classArmService.addClassArm(this.classArmform.value).subscribe((data: any) => {
-      // console.log(data);
-      this.notification.publishMessages(data.description, 'info', 1);
-      document.getElementById('myClassArmModal').click();
-      this.classArmform.reset();
-      this.getClassArms();
-      // location.reload();
+    console.log('class arm create', this.classArmform.value);
+    const {Name, status} = this.classArmform.value;
+    const result = {
+      Name,
+      status: this.toggleState
+    };
+    this.classArmService.addClassArm(result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.notification.publishMessages(data.description, 'info', 1);
+        document.getElementById('myClassArmModal').click();
+        this.classArmform.reset();
+        this.getClassArms();
+      }
     }, error => {
       this.notification.publishMessages(error.errors, 'danger', 1);
     });

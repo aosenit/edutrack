@@ -10,7 +10,12 @@ const routes = {
   withdrawalSetup: 'schtrack-assessment/api/v1/PromotionSetup/GetWithdrawalSetup',
   editPromotionSetup: 'schtrack-assessment/api/v1/PromotionSetup/AddOrUpdatePromotionSetup',
   editWithdrawalSetup: 'schtrack-assessment/api/v1/PromotionSetup/AddOrUpdateWithdrawalSetup',
-  editTerminalclasses: 'schtrack-auth/api/v1/Class/UpdateClassSequenceAndTerminal'
+  editTerminalclasses: 'schtrack-auth/api/v1/Class/UpdateClassSequenceAndTerminal',
+
+  classPool: 'schtrack-auth/api/v1/Promotion/GetClassPool',
+  repeatList: 'schtrack-auth/api/v1/Promotion/GetRepeatList',
+  withdrawnList: 'schtrack-auth/api/v1/Promotion/GetWithdrawnList',
+  promotionHighlight: 'schtrack-auth/api/v1/Promotion/GetPromotionHighlight',
 };
 
 
@@ -60,6 +65,26 @@ export class PromotionService {
   updateTerminalClassSetup(payload) {
     const url = `${this.baseUrl + routes.editTerminalclasses}`;
     return this.http.put(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getClassPool(sessionId) {
+    const url = `${this.baseUrl + routes.classPool}/${sessionId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getRepeatersList(sessionId) {
+    const url = `${this.baseUrl + routes.repeatList}/${sessionId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getWithDrawnList(sessionId) {
+    const url = `${this.baseUrl + routes.withdrawnList}/${sessionId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getPromotionHighlight(sessionId) {
+    const url = `${this.baseUrl + routes.promotionHighlight}/${sessionId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
 }

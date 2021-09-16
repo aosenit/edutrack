@@ -12,7 +12,7 @@ export class PromotionDashboardComponent implements OnInit {
   chart: any = [];
   deviationChrt: any = [];
 
-  
+
   constructor() { }
 
   ngOnInit() {
@@ -20,14 +20,14 @@ export class PromotionDashboardComponent implements OnInit {
     this.createDeviationChart();
   }
 
-  
+
   createDistributionChart() {
 
     const DATA_COUNT = 12;
     const label = [];
     for (let i = 0; i < DATA_COUNT; i++) {
-  label.push(i.toString());
-}
+      label.push(i.toString());
+    }
     const dataPoints = [0, 20, 20, 60, 60, 120, 80, 180, 120, 125, 105, 110, 170];
 
     this.chart = new Chart(this.distributionChartRef.nativeElement, {
@@ -62,8 +62,8 @@ export class PromotionDashboardComponent implements OnInit {
                 display: true,
                 // labelString: 'Attendance Chart',
                 fontColor: 'black',
-                fontFamily : 'Nunito',
-                fontSize : 16
+                fontFamily: 'Nunito',
+                fontSize: 16
 
 
               },
@@ -81,8 +81,8 @@ export class PromotionDashboardComponent implements OnInit {
                 display: true,
                 // labelString: 'No of students',
                 fontColor: 'black',
-                fontFamily : 'Nunito',
-                fontSize : 16
+                fontFamily: 'Nunito',
+                fontSize: 16
 
               },
               gridLines: {
@@ -104,8 +104,8 @@ export class PromotionDashboardComponent implements OnInit {
     const DATA_COUNT = 12;
     const label = [];
     for (let i = 0; i < DATA_COUNT; i++) {
-  label.push(i.toString());
-}
+      label.push(i.toString());
+    }
     const dataPoints = [0, 20, 20, 60, 60, 120, 80, 180, 120, 125, 105, 110, 170];
 
     this.deviationChrt = new Chart(this.deviationChartRef.nativeElement, {
@@ -139,8 +139,8 @@ export class PromotionDashboardComponent implements OnInit {
               scaleLabel: {
                 display: true,
                 fontColor: 'black',
-                fontFamily : 'Nunito',
-                fontSize : 16
+                fontFamily: 'Nunito',
+                fontSize: 16
 
 
               },
@@ -157,8 +157,8 @@ export class PromotionDashboardComponent implements OnInit {
               scaleLabel: {
                 display: true,
                 fontColor: 'black',
-                fontFamily : 'Nunito',
-                fontSize : 16
+                fontFamily: 'Nunito',
+                fontSize: 16
 
               },
               gridLines: {
