@@ -59,7 +59,7 @@ export class ResetPasswordComponent implements OnInit {
         this.notifyService.publishMessages(data.description, 'success', 1);
         this.router.navigateByUrl('/');
       } else {
-        this.notifyService.publishMessages(data.errors, 'success', 1);
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       // // (error);
