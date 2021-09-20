@@ -1,3 +1,17 @@
+.client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.client h6 {
+    color: #0A1128;
+    font-size: 32px;
+    font-weight: 600;
+}
+
 .banner {
     width: 100%;
     background-image: url("../../../../assets/images/svg/client-banner.svg");

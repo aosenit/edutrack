@@ -16,6 +16,7 @@ const routes = {
   repeatList: 'schtrack-auth/api/v1/Promotion/GetRepeatList',
   withdrawnList: 'schtrack-auth/api/v1/Promotion/GetWithdrawnList',
   promotionHighlight: 'schtrack-auth/api/v1/Promotion/GetPromotionHighlight',
+  submitReasons: 'schtrack-auth/api/v1/Promotion/PostClassPool',
 };
 
 
@@ -67,24 +68,29 @@ export class PromotionService {
     return this.http.put(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  getClassPool(sessionId) {
-    const url = `${this.baseUrl + routes.classPool}/${sessionId}`;
+  getClassPool(sessionId, classId?: any) {
+    const url = `${this.baseUrl + routes.classPool}/${sessionId}?classId=${classId}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  getRepeatersList(sessionId) {
-    const url = `${this.baseUrl + routes.repeatList}/${sessionId}`;
+  getRepeatersList(sessionId,  classId?: any) {
+    const url = `${this.baseUrl + routes.repeatList}/${sessionId}?classId=${classId}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  getWithDrawnList(sessionId) {
-    const url = `${this.baseUrl + routes.withdrawnList}/${sessionId}`;
+  getWithDrawnList(sessionId,  classId?: any) {
+    const url = `${this.baseUrl + routes.withdrawnList}/${sessionId}?classId=${classId}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getPromotionHighlight(sessionId) {
     const url = `${this.baseUrl + routes.promotionHighlight}/${sessionId}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  postReasons(payload) {
+    const url = `${this.baseUrl + routes.submitReasons}`;
+    return this.http.post(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
 }

@@ -1,11 +1,13 @@
-<!-- <section class="add-student" >
-    <img src="assets/images/svg/add-student.svg" alt="new student" class="">
-    <p class="text-center fw-6 pt-5">It looks like you are yet to create a student.You can do <br> that by clicking any of the buttons below.
-        below.</p>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-student']" >
-        Add New </button>
-   
-</section> -->
+<section class="client" *ngIf="repeatList?.length === 0 || null">
+  <img src="assets/images/svg/institution.svg" alt="new client" class="">
+  <h6 class="pt-5">View class repeat</h6>
+  <p class="text-center pt-1">It looks like you dont have any record here</p>
+  <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school-manager/create-school"  >
+    Add New </button> -->
+  <!-- <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal" data-target="#exampleModalCenterUpload">Bulk
+    Upload</button> -->
+</section>
+
 
 
 
@@ -36,16 +38,16 @@
               
               <div class="col ">
                 <label for="class" class="fs-12 fw-6">Term</label>
-                <select name="" id="" class="form-control" >
+                <select name="" id="" class="form-control" (change)="getClasseInLevel($event.target.value)">
                   <option value="">Level</option>
-                  <option value="Secondary"> Secondary</option>
+                  <option [value]="level.id" *ngFor="let level of levels"> {{level.name}}</option>
                 </select>
               </div>
               <div class="col ">
                 <label for="class" class="fs-12 fw-6">From</label>
-                <select name="" id="" class="form-control"  >
+                <select name="" id="" class="form-control" (change)="sortByClass($event.target.value)"  >
                   <option value="">Select class</option>
-                  <option value="SS1">SS1</option>
+                  <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
     
     
                 </select>

@@ -35,17 +35,17 @@
             <div class="row">
               
               <div class="col ">
-                <label for="class" class="fs-12 fw-6">Term</label>
-                <select name="" id="" class="form-control" >
+                <label for="class" class="fs-12 fw-6">Level</label>
+                <select name="" id="" class="form-control" (change)="getClasseInLevel($event.target.value)">
                   <option value="">Level</option>
-                  <option value="Secondary"> Secondary</option>
+                  <option [value]="level.id" *ngFor="let level of levels"> {{level.name}}</option>
                 </select>
               </div>
               <div class="col ">
                 <label for="class" class="fs-12 fw-6">From</label>
-                <select name="" id="" class="form-control"  >
+                <select name="" id="" class="form-control" (change)="sortByClass($event.target.value)"  >
                   <option value="">Select class</option>
-                  <option value="SS1">SS1</option>
+                  <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
     
     
                 </select>
@@ -194,19 +194,27 @@ aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
       <form class="" [formGroup]="withdrawalForm">
         <div class="form-group mb-3 mt-3 " *ngIf="previous">
           <label for="level" class="fw-6">Reason </label>
-          <select id="level" class="form-control" formControlName="reason" >
-            <option value="" selected> Select Reason</option>
-            <option value="j" > Jagidijagan </option>
-
-          </select>
+          <input type="text" name="" id="" class="form-control" formControlName="reason" >
+          
         </div>
         <div class="form-group mb-3 mt-3 " *ngIf="continue">
-          <label for="level" class="fw-6">Class </label>
-          <select id="level" class="form-control" >
-            <option value="" selected> Select class</option>
-            <option value="jss2" > JSS2A </option>
+          <div class="form-group mb-3">
+            <label for="class" class="fs-12 fw-6">Level</label>
+                <select name="" id="" class="form-control" (change)="getClasseInLevel($event.target.value)" formControlName="level">
+                  <option value="">Level</option>
+                  <option [value]="level.id" *ngFor="let level of levels"> {{level.name}}</option>
+                </select>
+          </div>
+          <div class="form-group mb-3">
+            <label for="level" class="fw-6">Class </label>
+            <select name="" id="" class="form-control"  formControlName="Class"  >
+              <option value="">Select class</option>
+              <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
 
-          </select>
+
+            </select>
+          </div>
+         
         </div>
 
         
@@ -221,8 +229,8 @@ aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
       <button class="btn btn-orange-two  px-5 mb-4 mt-3" (click)="next('yes')" [disabled]="withdrawalForm.invalid">Continue </button>
     </div>
     <div class="d-flex align-items-center justify-content-center mb-5" *ngIf="continue">  
-      <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
-      <button class="btn btn-orange-two  px-5 mb-4 mt-3">Continue </button>
+      <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" (click)="next('no')"> Back </button>
+      <button class="btn btn-orange-two  px-5 mb-4 mt-3" (click)="submitReason()">Continue </button>
     </div>
     </div>
 

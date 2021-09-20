@@ -90,6 +90,7 @@ export class DashboardComponent implements OnInit  {
     this.parentService.getChildInASchoolForParent().subscribe((data: any) => {
       if (data.hasErrors === false ) {
         // // (data.payload);
+        console.log('children list', data.payload);
         this.childrenList = data.payload;
       }
     });
