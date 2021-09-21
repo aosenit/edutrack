@@ -111,11 +111,12 @@ export class WithdrawalListComponent implements OnInit {
       id: '',
       studentName: '',
       regNumber: '',
+      level: parseInt(level),
       previousClass: '',
       average: '',
       withdrawalReason: '',
-      level: parseInt(level),
       toClass: parseInt(Class),
+      status: 4,
       reInstateReason: reason
     };
     console.log('withdrawal reason', result);

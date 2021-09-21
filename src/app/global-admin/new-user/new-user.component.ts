@@ -77,6 +77,9 @@ export class NewUserComponent implements OnInit {
           // ('created admin data', data);
           this.notifyService.publishMessages(data.description, 'info', 1);
           this.router.navigateByUrl('/admin/users');
+        } else {
+          this.notifyService.publishMessages(data.errors, 'danger', 1);
+
         }
       }, err => {
         this.notifyService.publishMessages(err.errors, 'danger', 1);

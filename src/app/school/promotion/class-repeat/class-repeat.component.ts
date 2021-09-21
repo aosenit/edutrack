@@ -40,7 +40,8 @@ export class ClassRepeatComponent implements OnInit {
 
   initPromoteOntrialForm() {
     this.promoteOntrialForm = this.fb.group({
-      reason: ['', Validators.required]
+      level: ['', Validators.required],
+      Class: ['', Validators.required]
     });
   }
 
@@ -101,6 +102,42 @@ export class ClassRepeatComponent implements OnInit {
         this.notificationService.publishMessages(res.errors, 'danger', 1);
       }
     });
+  }
+
+
+  submitPromotionOnTrialReason() {
+    const { level, Class} = this.promoteOntrialForm.value;
+    const result = {
+      id: '',
+      studentName: '',
+      regNumber: '',
+      level: parseInt(level),
+      previousClass: '',
+      average: '',
+      withdrawalReason: '',
+      toClass: parseInt(Class),
+      status: 0,
+      reInstateReason: ''
+    };
+    console.log('promotion on trial reason', result);
+  }
+
+
+  submitWithDrawalReason() {
+    const { reason} = this.withdrawalForm.value;
+    const result = {
+      id: '',
+      studentName: '',
+      regNumber: '',
+      level: '',
+      previousClass: '',
+      average: '',
+      withdrawalReason: reason,
+      toClass: '',
+      status: 2,
+      reInstateReason: ''
+    };
+    console.log('withdrawal reason', result);
   }
 
 }

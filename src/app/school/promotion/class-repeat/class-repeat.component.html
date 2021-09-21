@@ -195,17 +195,24 @@ aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
         <p>
             Please give a reason for promoting the student
         </p>
-      <form class="" [formGroup]="promoteOntrialForm">
-        <div class="form-group mb-3 mt-3 " >
-          <label for="level" class="fw-6">Reason </label>
-          <!-- <select id="level" class="form-control" formControlName="reason" >
-            <option value="" selected> Select Reason</option>
-            <option value="j" > Jagidijagan </option>
-
-          </select> -->
-          <input type="text" class="form-control" placeholder="Enter reason" formControlName="reason" >
+      <form class="" [formGroup]="promoteOntrialForm" (ngSubmit)="submitPromotionOnTrialReason()">
+        <div class="form-group mb-3">
+          <label for="class" class="fs-12 fw-6">Level</label>
+          <select name="" id="" class="form-control" (change)="getClasseInLevel($event.target.value)"
+            formControlName="level">
+            <option value="">Level</option>
+            <option [value]="level.id" *ngFor="let level of levels"> {{level.name}}</option>
+          </select>
         </div>
-       
+        <div class="form-group mb-3">
+          <label for="level" class="fw-6">Class </label>
+          <select name="" id="" class="form-control" formControlName="Class">
+            <option value="">Select class</option>
+            <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
+
+
+          </select>
+        </div>
         <div class="d-flex align-items-center justify-content-center mb-5" >
           <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
           <button class="btn btn-orange-two  px-5 mb-4 mt-3"[disabled]="promoteOntrialForm.invalid">Promote </button>
@@ -236,14 +243,10 @@ aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
           <p>
             Please give a reason for withdrawaing the student         
          </p>
-        <form class="" [formGroup]="withdrawalForm">
+        <form class="" [formGroup]="withdrawalForm" (ngSubmit)="submitWithDrawalReason()">
           <div class="form-group mb-3 mt-3 " >
             <label for="level" class="fw-6">Reason </label>
-            <select id="level" class="form-control" formControlName="reason" >
-              <option value="" selected> Select Reason</option>
-              <option value="j" > Jagidijagan </option>
-  
-            </select>
+           <input type="text" class="form-control" formControlName="reason">
           </div>
          
           <div class="d-flex align-items-center justify-content-center mb-5" >
