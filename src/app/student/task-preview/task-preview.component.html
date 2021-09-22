@@ -50,8 +50,6 @@
     </div>
     <div class="col-md-9 mt-3 p-4">
 
-
-
       <div class="col-md-12" *ngIf="fileDetails?.fileType === 'image/png'">
         <iframe class="file-viewer p-3 bg-white w-100 "
           [src]="' data:image/png;base64,' + fileDetails?.file | trustedUrl" style="height: 85vh; width: 100%;">
