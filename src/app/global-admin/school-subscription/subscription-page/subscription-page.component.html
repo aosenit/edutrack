@@ -1,0 +1,71 @@
+<section class="banner mb-4 pb-3">
+    <div class="pt-5 pl-3 content ">
+      <h6 class="banner__text-primary fw-6 "> Subscriptions </h6>
+      <p class=""> Setup all subscription standards for SchoolTrack </p>
+    </div>
+    
+
+  </section>
+
+
+  <div class="h-75 bg-white">
+
+    <form [formGroup]="subscriptionForm" (ngSubmit)="createSubscription()" class="pt-5">
+
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+              <label for="startDate" class="fw-6">Start Date <span class="text-danger">*</span></label>
+              <input type="date" name="" id="startDate" class="form-control" formControlName="startDate">
+              
+            
+          </div>
+          <div class="col-md-6">
+            <label for="endDate" class="fw-6">End Date <span class="text-danger">*</span></label>
+            <input type="date" name="" id="endDate" class="form-control" formControlName="endDate">
+        </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+            
+            <label for="amount" class="fw-6">Price Per User (N)  <span class="text-danger">*</span> </label>
+            <input type="text" class="form-control" placeholder="Enter amount" id="amount" formControlName="price" (keypress)="allowNumbersOnly($event)" >
+              
+            
+          </div>
+          <div class="col-md-6">
+            <label for="number" class="fw-6">Expected Number of Students <span class="text-danger">*</span> </label>
+            <input type="text" class="form-control" placeholder="Enter Number" id="number" formControlName="studentCount" (keypress)="allowNumbersOnly($event)" >
+          </div>
+        </div>
+        
+        <div class="row mb-4">
+          <div class="col-md-6">
+            
+            <label for="amount" class="fw-6">School  <span class="text-danger">*</span> </label>
+            <ng-multiselect-dropdown [placeholder]="' '" [data]="dropdownList" formControlName="schoolID"
+              [settings]="dropdownSettings" required>
+            </ng-multiselect-dropdown>
+            
+          </div>
+         
+        </div>
+        
+
+        <div class="row mb-4">
+
+         
+        </div>
+
+
+        <div class=" d-flex justify-content-center mt-5">
+          <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="goBack()"> Cancel </button>
+          <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.invalid"> Save </button>
+          <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.valid"> Update </button> -->
+          <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [disabled]="subscriptionForm.invalid" > Save </button>
+
+        </div>
+    </form>
+
+  </div>

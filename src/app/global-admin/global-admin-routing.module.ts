@@ -12,7 +12,6 @@ import { LaterThingsComponent } from './later-things/later-things.component';
 import { NewClientComponent } from './new-client/new-client.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { NewroleComponent } from './newrole/newrole.component';
-import { SubscriptionPageComponent } from './subscription-page/subscription-page.component';
 import { UsersComponent } from './users/users.component';
 
 
@@ -31,7 +30,9 @@ const routes: Routes = [
       { path: 'new-role', component: NewroleComponent },
       {path: 'edit-user', component: EditUserComponent},
       {path: 'coming-soon', component: LaterThingsComponent},
-      {path: 'subscription', component: SubscriptionPageComponent},
+      // {path: 'subscription', component: SubscriptionPageComponent},
+      // tslint:disable-next-line:max-line-length
+      {path: 'subscription', loadChildren: () => import('./school-subscription/school-subscription.module').then(m => m.SchoolSubscriptionModule)},
       {path: 'create-client', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
       {path: 'group-of-schools', loadChildren: () => import('./grouped-schools/grouped-schools.module').then(m => m.GroupedSchoolsModule)},
       {path: 'edit-client/:id', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
