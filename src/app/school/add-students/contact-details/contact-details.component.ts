@@ -41,9 +41,10 @@ export class ContactDetailsComponent implements OnInit {
     this.getActiveTab();
   }
 
+  
   populateContactDetailsForm() {
     this.contactDetailsForm = this.fb.group({
-      ContactPhone: ['', [Validators.required, Validators.pattern('^([0-9][0-9]*)$')]],
+      ContactPhone: ['', [Validators.required, Validators.pattern('(0[7-9][0-1][0-9]{8})|(0[1-4][0-9]{7})+$')]],
       ContactEmail: ['', [Validators.required, Validators.email]],
       ContactCountry: ['', Validators.required],
       ContactAddress: ['', Validators.required],

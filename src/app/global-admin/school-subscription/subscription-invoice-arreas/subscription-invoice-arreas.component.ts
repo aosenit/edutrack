@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { SubscriptionsService } from 'src/services/data/subscriptions/subscriptions.service';
 
 @Component({
-  selector: 'app-subscription-invoice',
-  templateUrl: './subscription-invoice.component.html',
-  styleUrls: ['./subscription-invoice.component.css']
+  selector: 'app-subscription-invoice-arreas',
+  templateUrl: './subscription-invoice-arreas.component.html',
+  styleUrls: ['./subscription-invoice-arreas.component.css']
 })
-export class SubscriptionInvoiceComponent implements OnInit {
-subscriptionInvoiceForm: FormGroup;
+export class SubscriptionInvoiceArreasComponent implements OnInit {
+
+  subscriptionInvoiceForm: FormGroup;
   schoolId: any;
   constructor(
     private fb: FormBuilder,
@@ -38,7 +39,7 @@ subscriptionInvoiceForm: FormGroup;
   }
 
   getNextInvoice() {
-    this.subscriptionServie.getNextSubscriptions(this.schoolId).subscribe((res: any) => {
+    this.subscriptionServie.getArrearSubscriptions(this.schoolId).subscribe((res: any) => {
       if (res.hasErrors === false) {
         console.log(res.payload);
         this.patchData(res.payload);
@@ -67,7 +68,7 @@ subscriptionInvoiceForm: FormGroup;
       schoolName: school
     };
     console.log(result);
-    this.subscriptionServie.createNextSubscription(result).subscribe((res: any) => {
+    this.subscriptionServie.createArrearsSubscription(result).subscribe((res: any) => {
       if (res.hasErrors === false ) {
         console.log(res.payload);
         this.notifyService.publishMessages(res.description, 'success', 1);

@@ -37,7 +37,7 @@ export class SocialDetailsComponent implements OnInit {
 
   populateSocialDetailsForm() {
     this.socialDetailsForm = this.fb.group({
-      PhoneNumber: ['', Validators.required],
+      PhoneNumber: ['', [Validators.required, Validators.pattern('(0[7-9][0-1][0-9]{8})|(0[1-4][0-9]{7})+$')]],
       SecondaryPhoneNumber: [''],
       EmailAddress: ['', [Validators.required, Validators.email]],
       SecondaryEmailAddress: [''],

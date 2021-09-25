@@ -72,6 +72,7 @@
           <div *ngIf="nextOfKinForm.controls.NextKinPhone.touched && nextOfKinForm.controls.NextKinPhone.errors" class="error">
             <small *ngIf="nextOfKinForm.controls.NextKinPhone.errors.required" class="text-danger">Field is required</small>
             <small *ngIf="nextOfKinForm.controls.NextKinPhone.errors.minlength" class="text-danger">Invalid phone number length</small>
+            <small *ngIf="nextOfKinForm.controls.NextKinPhone.errors.patter" class="text-danger">Invalid phone number pattern</small>
           </div>
           </div>
 

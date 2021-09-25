@@ -68,6 +68,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.levelform = this.fb.group({
       section: ['', Validators.required],
+      status: [false]
     });
     this.classArmform = this.fb.group({
       Name: ['', Validators.required],
@@ -282,6 +283,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
           // console.log('level created', res);
           document.getElementById('closeCreateLevelModal').click();
           this.notification.publishMessages('You have successfully added a section', 'info', 0);
+          this.levelform.reset();
           this.getSections();
           // this.section = ''
         }
@@ -514,7 +516,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         this.notification.publishMessages('You have succesfully created a subject', 'info', 0);
         this.getAllSubjects();
       } else {
-        this.notification.publishMessages(data.errors, 'info', 0);
+        this.notification.publishMessages(data.errors, 'danger', 0);
       }
     });
 

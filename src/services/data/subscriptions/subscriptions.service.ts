@@ -6,7 +6,9 @@ const routes = {
   getSubscriptions: 'schtrack-auth/api/v1/Subscription/GetSubscription',
   addSubscriptions: 'schtrack-auth/api/v1/Subscription/AddSubscription',
   nextSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/GetNextSubsciptionInvoice',
-  updatenextSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice​/PostNextSubsciptionInvoice',
+  updatenextSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/PostNextSubsciptionInvoice',
+  arrearsSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/GetArrearsSubsciptionInvoice',
+  updatearrearsSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice​/PostNextSubsciptionInvoice',
 };
 
 @Injectable({
@@ -36,7 +38,18 @@ export class SubscriptionsService {
 
 
   createNextSubscription(payload) {
-    const url = `${this.baseUrl + routes.addSubscriptions}`;
+    const url = `${this.baseUrl + routes.updatenextSubscriptions}`;
+    return this.http.post(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getArrearSubscriptions(schoolId) {
+    const url = `${this.baseUrl + routes.arrearsSubscriptions}/${schoolId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+
+  createArrearsSubscription(payload) {
+    const url = `${this.baseUrl + routes.updatearrearsSubscriptions}`;
     return this.http.post(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

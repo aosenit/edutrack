@@ -55,9 +55,9 @@
                   </div>
             </div>
             <div class="col-md-6  ">
-                <label for="date" class="fw-6">Date of Birth</label>
-                <input type="date" class="form-control form-control-lg" placeholder="Dojah"
-                    id="maiden" formControlName="DateOfBirth">
+                <label for="date" class="fw-6">Date of Birth</label> 
+                <input type="date" class="form-control form-control-lg" placeholder="Dojah" (change)="get($event.target.value)"
+                    id="maiden" formControlName="DateOfBirth" [max]="currentYear">
                     <div *ngIf="basicDetailsForm.controls.DateOfBirth.touched && basicDetailsForm.controls.DateOfBirth.errors" class="error">
                         <small *ngIf="basicDetailsForm.controls.DateOfBirth.errors.required" class="text-danger">Field is required</small>
                         <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->

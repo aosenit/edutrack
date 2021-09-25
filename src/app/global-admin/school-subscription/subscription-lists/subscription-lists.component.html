@@ -56,14 +56,7 @@
         <th scope="col" class="head">School
           <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle" type="button"
             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <!-- ================ DROPDOWN ==================== -->
-          <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item filter-title" href="#">FILTER BY: CLIENT</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item fc-orange" href="#">All </a>
-              <a class="dropdown-item" href="#">A - Z </a>
-              <a class="dropdown-item" href="#">Z - A </a>
-            </div> -->
+         
         </th>
         <th scope="col">Start Date </th>
         <th scope="col">End Date
@@ -72,7 +65,8 @@
         </th>
         <th scope="col">No of Student
         </th>
-        <th scope="col">Action</th>
+        <th scope="col">Status</th>
+        <th scope="col">Invoices</th>
 
       </thead>
       <tbody>
@@ -95,13 +89,20 @@
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="customSwitch1"
                     (change)="ActivateDeactivate($event.target.checked)"
-                     [checked]="client?.status === true">
+                     [checked]="client?.isActive === true">
                     <label class="custom-control-label" for="customSwitch1" ></label>
                 </div>
-                <!-- <p class="activated__date-title">{{client?.status === true ? 'Activated' : 'Deactivated'}}</p> -->
-                <p class="cursor-pointer" routerLink="/admin/subscription/invoice">Generate Invoice</p>
-                <p class="cursor-pointer ml-2" routerLink="/admin/subscription/invoice">Arears Invoice</p>
+                <p class="activated__date-title">{{client?.isActive === true ? 'Activated' : 'Deactivated'}}</p>
             </div>
+          </td>
+          <td class="rounded-right ">
+            
+              <div class="d-flex">
+                <button class="btn btn-outline-orange  px-5 " routerLink="/admin/subscription/invoice/{{client.schoolId}}"  > Generate  </button>
+  
+                <button class="btn btn-outline-orange  px-5  ml-3" routerLink="/admin/subscription/invoice-arrears/{{client.schoolId}}"   > Arrears  </button>
+  
+              </div>
           </td>
         </tr>
 

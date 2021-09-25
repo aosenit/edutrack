@@ -15,6 +15,7 @@ export class PromotionSettingsComponent implements OnInit {
   promotionTypes: any;
   promotionForm: FormGroup;
   withdrawalForm: FormGroup;
+  currentPromotionSetup: any;
 
   constructor(
     private promotion: PromotionService,
@@ -73,6 +74,9 @@ export class PromotionSettingsComponent implements OnInit {
         this.notification.publishMessages(res.description, 'success', 1);
         this.promotionForm.reset();
         this.getPromotionSetups();
+      } else {
+        this.notification.publishMessages(res.errors, 'danger', 1);
+
       }
     });
   }
@@ -81,6 +85,7 @@ export class PromotionSettingsComponent implements OnInit {
     this.promotion.getPromotionSetup().subscribe((res: any) => {
       if (res.hasErrors === false) {
         console.log(res.payload);
+        this.currentPromotionSetup = res.payload;
         this.pupulatePromotionSetup(res.payload);
         // this.terminalClasses = res.payload;
       }
@@ -176,5 +181,12 @@ export class PromotionSettingsComponent implements OnInit {
       }
     });
   }
+
+  // prepareSubmissionButton() {
+  //   for (let index = 0; index < this.terminalClasses.length; index++) {
+  //     if (this.terminalClasses[index].isTerminal)
+      
+  //   }
+  // }
 
 }

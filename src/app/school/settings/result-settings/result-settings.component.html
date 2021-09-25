@@ -359,7 +359,7 @@ aria-labelledby="exampleModalCenterGradeTitle" aria-hidden="true">
         <div class="d-flex justify-content-center mb-3">
           <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
           </button>
-          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Grade</button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="gradeForm.invalid"> Add Grade</button>
         </div>
       </form>
     </div>

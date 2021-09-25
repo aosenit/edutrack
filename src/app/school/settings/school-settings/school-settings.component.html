@@ -495,8 +495,8 @@
           </div> -->
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch111"
-                (change)="getStatus($event.target.checked)" formControlName="Status">
+              <input type="checkbox" class="custom-control-input" id="customSwitch111" 
+                (change)="getStatus($event.target.checked)" formControlName="status">
                 <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === false">Inactive</label>
                 <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === true">Active</label>
             </div>
@@ -632,6 +632,7 @@
           <div class="form-group mb-4">
             <label for="level" class="">Level <span class="text-danger">*</span></label>
             <select name="" id="level" class="form-control" formControlName="sectionid" required>
+              <option value="" selected>Select</option>
               <option *ngFor="let level of levels" [value]="level.id">{{level.name}}</option>
             </select>
           </div>

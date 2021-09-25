@@ -62,8 +62,8 @@ export class MediaComponent implements OnInit {
 
   createMediaForm() {
     this.mediaForm = this.fb.group({
-      logo: [null],
-      icon: [null],
+      logo: [null, Validators.required],
+      icon: [null, Validators.required],
       PrimaryColor: [''],
       SecondaryColor: ['']
     });

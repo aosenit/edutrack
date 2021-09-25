@@ -1,0 +1,95 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+      <li class="breadcrumb-item a1 " aria-current="page" (click)="back()">
+        <a>Back</a>
+      </li>
+    </ol>
+  
+  
+  </nav>
+  
+  
+  <div class="h-75  bg-white">
+  
+    <div class="row">
+      <div class="col-md-6">
+  
+        <form class="" [formGroup]="subscriptionInvoiceForm" (ngSubmit)="createSubscriptionInvoice()" class="pt-5">
+          <div class="form-group">
+            <label for="name" class="fw-6">School Name <span class="text-danger">*</span></label>
+            <input type="text" name="" id="name" class="form-control" #school formControlName="school" readonly>
+  
+  
+          </div>
+          <div class="form-group">
+            <label for="endDate" class="fw-6">End Date <span class="text-danger">*</span></label>
+            <input type="date" name="" id="endDate" class="form-control" #endDate formControlName="endDate">
+          </div>
+  
+          <div class="form-group">
+  
+            <label for="amount" class="fw-6">Price Per User (N) <span class="text-danger">*</span> </label>
+            <input type="text" class="form-control" placeholder="Enter amount" #amount id="amount" formControlName="price"
+              (keypress)="allowNumbersOnly($event)">
+  
+  
+          </div>
+          <div class="form-group">
+            <label for="number" class="fw-6">Expected Number of Students <span class="text-danger">*</span> </label>
+            <input type="text" class="form-control" placeholder="Enter Number" #student id="number" formControlName="studentCount"
+              (keypress)="allowNumbersOnly($event)">
+          </div>
+          <div class="mt-5">
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="subscriptionInvoiceForm.invalid"> Generate </button>
+  
+          </div>
+  
+        </form>
+      </div>
+  
+      <div class="col-md-6 mt-5 pr-5">
+  
+        <div class="m-3 invoice p-4">
+  
+          <div class="row">
+            <div class="col-md-6">
+              <div class="d-flex mb-3 ">
+                <p class="fw-6" > School Name </p>
+              </div>
+              <div class="d-flex mb-3 ">
+                <p class="fw-6" > End Date </p>
+              </div>
+              <div class="d-flex mb-3 ">
+                <p class="fw-6" > Price Per User </p>
+              </div>
+              <div class="d-flex mb-3 ">
+                <p class="fw-6" > Expected Number of user </p>
+              </div>
+            </div>
+  
+            <div class="col-md-6">
+  
+              <div class="d-flex mb-3 ">
+                <p> {{school.value}} </p>
+              </div>
+              <div class="d-flex mb-3 ">
+                <p> {{endDate.value | date : 'medium'}} </p>
+              </div>
+              <div class="d-flex mb-3 ">
+                <p> {{'NGN' + amount.value}} </p>
+              </div>
+              <div class="d-flex mb-3 ">
+                <p> {{student.value}} </p>
+              </div>
+            </div>
+          </div>
+          <div></div>
+          
+  
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  

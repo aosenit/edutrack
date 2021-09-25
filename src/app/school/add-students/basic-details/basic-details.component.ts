@@ -19,6 +19,7 @@ export class BasicDetailsComponent implements OnInit {
   parents: any;
   basicDetails: any;
   studentid: any;
+  currentYear: string;
 
   constructor(
     private home: AddStudentsComponent,
@@ -28,6 +29,8 @@ export class BasicDetailsComponent implements OnInit {
     private notifyService: NotificationsService) { }
 
   ngOnInit() {
+    const cyear = new Date(new Date().getFullYear() - 1, 0, 1);
+    this.currentYear = moment(cyear).format('YYYY-MM-DD');
     this.studentid = this.route.snapshot.params.id;
     this.createStudentData();
     this.route.params.subscribe((param: Params) => {
@@ -41,6 +44,10 @@ export class BasicDetailsComponent implements OnInit {
 
     this.getAllParents();
     this.getActivetab();
+  }
+
+  get(e) {
+    console.log(e)
   }
 
   createStudentData() {

@@ -39,7 +39,7 @@
                 <div *ngIf="contactPersonForm.controls.ContactPhoneNo.touched && contactPersonForm.controls.ContactPhoneNo.errors" class="error">
                     <small *ngIf="contactPersonForm.controls.ContactPhoneNo.errors.required" class="text-danger">Field is required</small>
                     <small *ngIf="contactPersonForm.controls.ContactPhoneNo.errors.minlength" class="text-danger">Invalid number length (must be 11 digit)</small>
-                    <small *ngIf="contactPersonForm.controls.ContactPhoneNo.errors.pattern" class="text-danger">Invalid number character</small>
+                    <small *ngIf="contactPersonForm.controls.ContactPhoneNo.errors.pattern" class="text-danger">Invalid number pattern</small>
                 </div>
             </div>
             <div class=" ">

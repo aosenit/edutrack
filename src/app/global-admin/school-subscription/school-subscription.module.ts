@@ -8,10 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SubscriptionInvoiceComponent } from './subscription-invoice/subscription-invoice.component';
+import { SubscriptionInvoiceArreasComponent } from './subscription-invoice-arreas/subscription-invoice-arreas.component';
 
 
 @NgModule({
-  declarations: [SubscriptionPageComponent, SubscriptionListsComponent, SubscriptionInvoiceComponent],
+  declarations: [SubscriptionPageComponent, SubscriptionListsComponent, SubscriptionInvoiceComponent, SubscriptionInvoiceArreasComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -10,6 +10,7 @@
           <div *ngIf=" socialDetailsForm.controls.PhoneNumber.touched && socialDetailsForm.controls.PhoneNumber.errors" class="error">
             <small *ngIf="socialDetailsForm.controls.PhoneNumber.errors.required" class="text-danger">Field is required</small>
             <small *ngIf="socialDetailsForm.controls.PhoneNumber.errors.maxlength" class="text-danger">Invalid number length</small>
+            <small *ngIf="socialDetailsForm.controls.PhoneNumber.errors.pattern" class="text-danger">Invalid number format</small>
           </div>
       </div>
       <div class="col-md-6">

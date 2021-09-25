@@ -82,7 +82,7 @@ export class NewUserComponent implements OnInit {
 
         }
       }, err => {
-        this.notifyService.publishMessages(err.errors, 'danger', 1);
+        this.notifyService.publishMessages(err, 'danger', 1);
 
       });
     }
