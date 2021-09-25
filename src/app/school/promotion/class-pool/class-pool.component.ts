@@ -15,7 +15,8 @@ export class ClassPoolComponent implements OnInit {
   currentSesion: any;
   levels: any;
   classList: any;
-
+  noData = true;
+  showData = false;
   constructor(
     private promotionService: PromotionService,
     private notificationService: NotificationsService,
@@ -76,6 +77,8 @@ export class ClassPoolComponent implements OnInit {
   sortPoolByClass(event) {
     this.promotionService.getClassPool(this.currentSesion, event).subscribe((res: any) => {
       if (res.hasErrors === false ) {
+        this.noData = false;
+        this.showData = true;
         this.classPoolList = res.payload;
       } else {
         this.notificationService.publishMessages(res.errors, 'danger', 1);

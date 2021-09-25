@@ -8,6 +8,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { TableSearchPipe } from './pipes/table-search.pipe';
 import { TrustedUrlPipe } from './pipes/trusted-url.pipe';
 import { NoRecordComponent } from './no-record/no-record.component';
+import { TrustedHtmlPipe } from './pipes/trusted-html.pipe';
 
 
 
@@ -19,7 +20,8 @@ import { NoRecordComponent } from './no-record/no-record.component';
     NotificationsComponent,
     TableSearchPipe,
     TrustedUrlPipe,
-    NoRecordComponent
+    NoRecordComponent,
+    TrustedHtmlPipe
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { NoRecordComponent } from './no-record/no-record.component';
     NoRecordComponent,
     LoaderComponent,
     TableSearchPipe,
-    TrustedUrlPipe
+    TrustedUrlPipe,
+    TrustedHtmlPipe
   ]
 })
 export class SharedModule { }

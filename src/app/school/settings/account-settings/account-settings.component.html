@@ -83,7 +83,11 @@
       </div> -->
 
       <div class="tab-pane fade show active " id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-        <section class="list table-responsive">
+        <div class="empty-state" *ngIf="allRoles?.length == 0">
+          <p class="text-center fs-24 ff-a">
+            You have not added any Role          </p>
+        </div>
+        <section class="list table-responsive" *ngIf="allRoles?.length > 0">
           <table class="table table-borderless client-table mb-4">
             <thead>
               <tr>

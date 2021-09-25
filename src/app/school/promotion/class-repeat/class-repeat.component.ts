@@ -20,6 +20,8 @@ export class ClassRepeatComponent implements OnInit {
   levels: any;
   currentSesion: any;
   classList: any;
+  noData = true;
+  showData = false;
   constructor(
     private fb: FormBuilder,
     private promotionService: PromotionService,
@@ -97,6 +99,8 @@ export class ClassRepeatComponent implements OnInit {
   sortByClass(event) {
     this.promotionService.getRepeatersList(this.currentSesion, event).subscribe((res: any) => {
       if (res.hasErrors === false ) {
+        this.noData = false;
+        this.showData = true;
         this.repeatList = res.payload;
       } else {
         this.notificationService.publishMessages(res.errors, 'danger', 1);

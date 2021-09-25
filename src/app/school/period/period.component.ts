@@ -21,9 +21,9 @@ export class PeriodComponent implements OnInit {
 
   ngOnInit() {
     this.addPeriodForm = this.fb.group({
-      name: [''],
-      timeFrom: '',
-      timeTo: '',
+      name: ['', Validators.required],
+      timeFrom: ['', Validators.required],
+      timeTo: ['', Validators.required],
       isBreak: false
     });
     this.getAllPeriods();
@@ -71,7 +71,8 @@ export class PeriodComponent implements OnInit {
     this.periods.push(results);
     this.periodName = this.periods;
     // // ('periods', this.periodName);
-    // this.addPeriodForm.reset();
+    this.addPeriodForm.reset();
+    this.addPeriodForm.controls.isBreak.setValue(false);
   }
 
   publishPeriods() {

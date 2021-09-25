@@ -25,6 +25,7 @@ export class TimeTableComponent implements OnInit {
   timetable2: any;
   addCell = { periodId: '', day: '', teacherClassSubjectId: '', HasVirtual: false };
   hideImg = false;
+  checkPushlishStatus: any;
   constructor(
     private schoolSectionService: SchoolSectionService,
     private classService: ClassService,
@@ -37,6 +38,9 @@ export class TimeTableComponent implements OnInit {
     // this.getClasses();
     this.getAllPeriods();
     this.daysofWeek();
+    this.checkPushlishStatus = sessionStorage.getItem('publish');
+    console.log(this.checkPushlishStatus)
+
     // this.deleteTableCell();
 
   }
@@ -152,9 +156,14 @@ export class TimeTableComponent implements OnInit {
 
   addCellToTimeTable() {
     // (this.addCell);
+    console.log(this.addCell)
+    sessionStorage.setItem('publish', JSON.stringify(this.addCell));
     setTimeout(() => {
+      this.checkPushlishStatus = JSON.parse(sessionStorage.getItem('publish'));
+
       document.getElementById('exampleModalCenterLevel').click();
     }, 1000);
+    // sessionStorage.removeItem('publish');
   }
 
   createTimeTableCell() {
@@ -178,7 +187,9 @@ export class TimeTableComponent implements OnInit {
         // (data);
         sessionStorage.setItem('table', JSON.stringify(data.payload));
         this.notifyService.publishMessages('Upload successfull', 'success', 1);
+        sessionStorage.removeItem('publish');
         location.reload();
+
         this.addCell = { periodId: '', day: '', teacherClassSubjectId: '', HasVirtual: false };
 
 

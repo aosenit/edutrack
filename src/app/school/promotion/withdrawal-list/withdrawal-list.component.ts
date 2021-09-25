@@ -18,6 +18,8 @@ export class WithdrawalListComponent implements OnInit {
   levels: any;
   currentSesion: any;
   classList: any;
+  noData = true;
+  showData = false;
   constructor(
     private fb: FormBuilder,
     private promotionService: PromotionService,
@@ -98,6 +100,8 @@ export class WithdrawalListComponent implements OnInit {
   sortByClass(event) {
     this.promotionService.getWithDrawnList(this.currentSesion, event).subscribe((res: any) => {
       if (res.hasErrors === false) {
+        this.noData = false;
+        this.showData = true;
         this.withdrawalList = res.payload;
       } else {
         this.notificationService.publishMessages(res.errors, 'danger', 1);

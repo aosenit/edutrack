@@ -341,7 +341,12 @@ li.pagination-next:hover, li.pagination-previous:hover {
 /* end of ngx-pagination style */
 
 
-
+.empty-state{
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .cursor-pointer {

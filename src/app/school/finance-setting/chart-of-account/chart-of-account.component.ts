@@ -29,7 +29,7 @@ export class ChartOfAccountComponent implements OnInit {
         this.accountCount = data.totalCount;
       }
     }, error => {
-      this.notifyService.publishMessages('Bank Account creation failed', 'danger', 1);
+      this.notifyService.publishMessages('Failed', 'danger', 1);
 
     });
   }

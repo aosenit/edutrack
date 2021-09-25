@@ -26,7 +26,7 @@
             </div>
         </form>
       </div>
-    <button class="btn btn-orange-two  px-5 " (click)="createTimeTableCell()"> Publish </button>
+    <button class="btn btn-orange-two  px-5 " (click)="createTimeTableCell()" [disabled]="checkPushlishStatus == null"> Publish </button>
     
     
 </div>
@@ -127,7 +127,7 @@
             <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
               data-dismiss="modal">Cancel
             </button>
-            <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="addCellToTimeTable()"> Add Class</button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="addCellToTimeTable()" [disabled]="addCell.teacherClassSubjectId == '' "> Add Class</button>
           </div>
         </form>
       </div>

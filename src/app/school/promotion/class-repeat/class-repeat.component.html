@@ -37,14 +37,14 @@
             <div class="row">
               
               <div class="col ">
-                <label for="class" class="fs-12 fw-6">Term</label>
+                <label for="class" class="fs-12 fw-6">Level</label>
                 <select name="" id="" class="form-control" (change)="getClasseInLevel($event.target.value)">
                   <option value="">Level</option>
                   <option [value]="level.id" *ngFor="let level of levels"> {{level.name}}</option>
                 </select>
               </div>
               <div class="col ">
-                <label for="class" class="fs-12 fw-6">From</label>
+                <label for="class" class="fs-12 fw-6">Class</label>
                 <select name="" id="" class="form-control" (change)="sortByClass($event.target.value)"  >
                   <option value="">Select class</option>
                   <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
@@ -61,8 +61,15 @@
       </div>
     
     
+      <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "
+      style="height: 85vh; width: 100%;" *ngIf="noData">
+      <div class="d-flex flex-column text-center">
+        <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+        <p class="fw-6 fs-24" style="color:#BAB9C1;">Select level and class to display <br> information</p>
+      </div>
+      </div>
     
-    <section class="list table-responsive mb-4">
+    <section class="list table-responsive mb-4" *ngIf="showData">
         <table class="table table-borderless client-table">
             <thead>
                 <tr>
@@ -73,16 +80,6 @@
                         </div>
                     </th>
                     <th scope="col" class="" >Student Name 
-                        <!-- <img src="assets/images/svg/table-sort.svg"
-                            alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-                        <!-- ================ DROPDOWN ==================== -->
-                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            
-                            <a class="dropdown-item fc-orange" href="#">All </a>
-                            <a class="dropdown-item" href="#">A - Z </a>
-                            <a class="dropdown-item" href="#">Z - A </a>
-                        </div> -->
                     </th>
                     <th scope="col">Student Number </th>
                    
