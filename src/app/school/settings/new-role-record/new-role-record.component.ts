@@ -18,6 +18,7 @@ export class NewRoleRecordComponent implements OnInit {
     permissions: [],
 
   };
+  prefillPermission: any;
 
 
   constructor(
@@ -117,9 +118,10 @@ export class NewRoleRecordComponent implements OnInit {
       if (data.hasErrors === false) {
           // (data.payload);
           this.roleData.name = data.payload.roleName;
+          this.prefillPermission = data.payload.permissions;
           // this.roleData.permissions = data.payload.permission;
 
-          const tires = [];
+          const roleList = [];
 
           from(this.allRoles)
           .pipe(
@@ -131,15 +133,15 @@ export class NewRoleRecordComponent implements OnInit {
           .subscribe(xy => {
             // ('levels', ...xy);
 
-            tires.push(xy);
+            roleList.push(xy);
           });
-          const newList2 = tires;
+          const newList2 = roleList;
           // // (newList2);
           // tslint:disable-next-line:prefer-for-of
-          // for (let i = 0; i < newList2.length; i++) {
-          //   // (newList2[i][0]);
-          //   if (newList2[i][0] && newList2[i][1].id === )
-          // }
+          for (let i = 0; i < newList2.length; i++) {
+            console.log(newList2[i][1]);
+            // if (newList2[i][0] && newList2[i][1].id === ) { }
+          }
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
 

@@ -111,8 +111,8 @@
                 <td class="rounded-right action cursor-pointer" data-toggle="modal" data-target="#exampleModalCenter">
                   <i class="fa fa-tasks mr-3" aria-hidden="true"></i>
                   Assign User </td>
-                  <td class="rounded-right action"><img src="assets/images/svg/edit-role.svg" alt="schools log"
-                      class="mr-3" routerLink="/school/edit-role-permission/{{role?.id}}"> Edit Role </td>
+                  <td class="rounded-right action cursor-pointer" routerLink="/school/settings/edit-role-permission/{{role?.id}}"><img src="assets/images/svg/edit-role.svg" alt="schools log"
+                      class="mr-3 " > Edit Role </td>
                   <td class="rounded-right action cursor-pointer" (click)="deleteRoleById(role?.id)" ><img src="assets/images/svg/delete-role.svg" alt="schools log"
                     class="mr-3"> Delete Role </td>
               </tr>

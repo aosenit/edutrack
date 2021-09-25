@@ -44,10 +44,10 @@ const routes: Routes = [
       { path: 'coming-soon', component: ComingSoonComponent },
       { path: 'grade-book', component: SchoolGradeBookComponent },
       { path: 'student-sheet/:id', component: StudentSheetComponent },
-      {path: 'create-event', component: AdminAlumniCreateEventComponent},
-      {path: 'edit-event/:id', component: AdminAlumniCreateEventComponent},
-    {path: 'alumni-list', component: AdminAlumniListComponent},
-    {path: 'alumni-events', component: AdminAlumniEventsComponent},
+      { path: 'create-event', component: AdminAlumniCreateEventComponent },
+      { path: 'edit-event/:id', component: AdminAlumniCreateEventComponent },
+      { path: 'alumni-list', component: AdminAlumniListComponent },
+      { path: 'alumni-events', component: AdminAlumniEventsComponent },
       { path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },
       { path: 'edit-student/:id', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },
       { path: 'add-parents', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule) },
@@ -63,7 +63,7 @@ const routes: Routes = [
 
     ]
   },
-  {path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule)},
+  { path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule) },
 ];
 
 @NgModule({
