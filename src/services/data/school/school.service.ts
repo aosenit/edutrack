@@ -21,7 +21,10 @@ const routes = {
   updateschoolbyid: 'schtrack-auth/api/v1/School/UpdateSchool',
   deleteschool: 'schtrack-auth/api/v1/School/DeleteSchool',
   viewSchoolproperty: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogo',
-  getSchoolDomain: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogoByDomain'
+  getSchoolDomain: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogoByDomain',
+
+  activateschool: 'schtrack-auth/api/v1/School/EnableSchool',
+  deactivateschool: 'schtrack-auth/api/v1/School/DisableSchool'
 };
 
 @Injectable({
@@ -158,6 +161,15 @@ export class SchoolService {
 
   getSchoolGroupAnalytics(id) {
     const url = `${this.baseUrl + routes.getSchoolGroupAnalytics}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  activateSchool(id) {
+    const url = `${this.baseUrl + routes.activateschool}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+  deactivateSchool(id) {
+    const url = `${this.baseUrl + routes.deactivateschool}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 }

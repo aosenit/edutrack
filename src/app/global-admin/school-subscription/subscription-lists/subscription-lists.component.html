@@ -70,7 +70,7 @@
 
       </thead>
       <tbody>
-        <tr class="pb-2" *ngFor="let client of subscriptionList">
+        <tr class="pb-2" *ngFor="let client of subscriptionList; let i = index">
           <td scope="row" class="school-logo rounded-left fc-lblue">
             {{client.school}}
 
@@ -87,10 +87,10 @@
           <td class="rounded-right ">
             <div class="activated__date-switch">
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1"
-                    (change)="ActivateDeactivate($event.target.checked)"
+                    <input type="checkbox" class="custom-control-input" id="{{i}}"
+                    (change)="ActivateDeactivate($event.target.checked, client?.schoolId)"
                      [checked]="client?.isActive === true">
-                    <label class="custom-control-label" for="customSwitch1" ></label>
+                    <label class="custom-control-label" for="{{i}}" ></label>
                 </div>
                 <p class="activated__date-title">{{client?.isActive === true ? 'Activated' : 'Deactivated'}}</p>
             </div>

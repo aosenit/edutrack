@@ -104,7 +104,7 @@ export class SocialDetailsComponent implements OnInit {
     }
     return true;
   }
-  
+
   allowNumbersOnly2(e) {
     const ev = e || window.event;
     const charcode = ev.which ? ev.which : ev.keycode;
