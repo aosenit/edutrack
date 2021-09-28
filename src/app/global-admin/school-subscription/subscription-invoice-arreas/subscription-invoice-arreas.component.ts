@@ -63,6 +63,7 @@ export class SubscriptionInvoiceArreasComponent implements OnInit {
     const result = {
       dueDate: endDate,
       amountPerStudent: price,
+      // tslint:disable-next-line:radix
       numberOfStudent: parseInt(studentCount),
       schoolId,
       schoolName: school

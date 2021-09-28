@@ -9,7 +9,10 @@ const routes = {
   updatenextSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/PostNextSubsciptionInvoice',
   arrearsSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/GetArrearsSubsciptionInvoice',
   updatearrearsSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice​/PostNextSubsciptionInvoice',
+  unpaidInvoice: 'schtrack-auth/api/v1/SubscriptionInvoice/GetUnpaidSubsciptionInvoice',
+  payInvoice: 'schtrack-auth/api/v1/SubscriptionInvoice/MarkInvoiceAsPaid',
 };
+
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +56,14 @@ export class SubscriptionsService {
     return this.http.post(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
+  getUnpaidUnvoice(schoolId) {
+    const url = `${this.baseUrl + routes.unpaidInvoice}/${schoolId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  markInvoiceAsPaid(payload) {
+    const url = `${this.baseUrl + routes.payInvoice}`;
+    return this.http.put(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
 
 }

@@ -388,9 +388,14 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         }
       );
   }
+  
 
   editClass() {
-    this.classService.editClass(this.theClass.id, this.theClass.name).subscribe(
+    const payload = {
+      id: parseInt(this.theClass.id),
+      name: this.theClass.name
+    };
+    this.classService.editClass(payload).subscribe(
       (res: any) => {
         if (res.code === 1) {
           this.notification.publishMessages('You have successfully updated this class!', 'info', 0);

@@ -91,8 +91,8 @@ export class ClassService {
 
   }
 
-  editClass(id, payload) {
-    const url = `${this.baseUrl + routes.updateclassbyid}/${id}`;
+  editClass(payload) {
+    const url = `${this.baseUrl + routes.updateclassbyid}`;
 
     // tslint:disable-next-line:max-line-length
     return this.http.put(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
