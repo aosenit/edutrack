@@ -31,19 +31,21 @@ export class UnpaidSubscriptionsComponent implements OnInit {
     this.subscriptionService.getUnpaidUnvoice(this.schoolId).subscribe((res: any) => {
       if (res.hasErrors === false) {
         console.log('ds', res.payload);
-        this.unpaidInvoice = res.payload;
+        this.unpaidInvoice = res.payload[0];
       }
     });
   }
 
   markPaid() {
     const payload = {
-      invoiceId: 0,
-      expiryDate: '2021-09-28T10:39:17.270Z'
+      // tslint:disable-next-line:radix
+      invoiceId: parseInt(this.unpaidInvoice.invoiceId),
+      expiryDate: this.unpaidInvoice.dueDate
     };
-    this.subscriptionService.MarkInvoiceAsPaid(payload).subscribe((res: any) => {
+    this.subscriptionService.markInvoiceAsPaid(payload).subscribe((res: any) => {
       if (res.hasErrors === false) {
         document.getElementById('close').click();
+        this.getAllSubscriptionCreated();
         // console.log(res.payload);
         this.notifyService.publishMessages(res.description, 'success', 1);
       } else {

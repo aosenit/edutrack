@@ -33,12 +33,11 @@
         <div class="d-flex justify-content-between px-4">
           <div>
             <h5> Invoice to: </h5>
-            <p class="fw-6">studentInvoicePreview?.studentName}}</p>
-            <p class="invoice-p">Class: studentInvoicePreview?.class}}</p>
+            <p class="fw-6"> {{unpaidInvoice?.schoolName}}</p>
           </div>
           <div>
-            <p class="invoice-p mb-0"> Invoice Date: studentInvoicePreview?.creationDate | date: 'mediumDate'}} </p>
-            <p class="invoice-p mb-0"> Invoice Due Date: studentInvoicePreview?.dueDate | date: 'mediumDate'}} </p>
+            <p class="invoice-p mb-0"> Invoice Date: {{unpaidInvoice?.dueDate | date: 'medium'}} </p>
+            <p class="invoice-p mb-0"> Invoice Due Date:{{unpaidInvoice?.dueDate | date: 'medium'}} </p>
             <!-- <p class="invoice-p mb-0"> Session: studentInvoicePreview?.session}} </p> -->
           </div>
         </div>
@@ -54,22 +53,22 @@
             </thead>
             <tbody>
               <tr>
-                <td> list?.name}}</td>
-                <td> list?.amount}}</td>
-                <td> list?.amount}}</td>
-                <td class="text-right"> list?.amount}}</td>
+                <td> {{unpaidInvoice?.schoolName}}</td>
+                <td> {{unpaidInvoice?.dueDate | date: 'medium'}}</td>
+                <td> {{unpaidInvoice?.numberOfStudent}}</td>
+                <td class="text-right"> {{unpaidInvoice?.amountPerStudent}}</td>
               </tr>
               <tr class="totals">
                 <td class="border-top">&nbsp;</td>
                 <td class="border-top">&nbsp;</td>
                 <td class="border-top">Subtotal</td>
-                <td class="border-top text-right"> subTotal}}</td>
+                <td class="border-top text-right"> {{unpaidInvoice?.amountToBePaid}}</td>
               </tr>
               <tr class="totals">
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td class="subtotal">Total</td>
-                <td class="subtotal text-right"> subTotal}} </td>
+                <td class="subtotal text-right"> {{unpaidInvoice?.amountToBePaid}} </td>
               </tr>
             </tbody>
           </table>
@@ -80,7 +79,7 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-              <button class="btn btn-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal" data-target="#selectionModal"  > Mark as Paid </button>
+              <button class="btn btn-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal" data-target="#selectionModal" [disabled]="unpaidInvoice?.paid === true"  > Mark as Paid </button>
 
     </div>
 
