@@ -1,0 +1,116 @@
+invoice {
+    padding: 0 3rem;
+}
+
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+a {
+    color: #1b5bac;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #1b5bac;
+    content: ">";
+    font-size: 10px;
+    display: none;
+}
+
+.invoice {
+    background: #EBF0F5;
+
+}
+
+
+.invoice .table tbody tr {
+    font-family: Fira Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 13px;
+    /* identical to box height */
+    
+    
+    color: #111118;
+
+  }
+
+.invoice-p {
+    font-family: Fira Mono;
+font-style: normal;
+font-weight: 500;
+font-size: 11px;
+
+
+display: flex;
+align-items: center;
+text-align: right;
+
+color: #000000;
+}
+
+.totals {
+    font-family: Fira Mono;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 14px;
+
+
+/* Text */
+
+color: #0052B4;
+}
+
+
+.subtotal {
+    margin-top: 2rem;
+    font-family: Fira Mono;
+font-style: normal;
+font-size: 16px;
+line-height: 19px;
+font-weight: bolder;
+
+
+/* Text */
+
+color: #0052B4;
+}
+
+.invoice-title {
+    
+font-family: Work Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+line-height: 35px;
+display: flex;
+align-items: center;
+
+color: #111118;
+}
+
+
+.invoice-footer, .invoice-line {
+    background: #014D94;
+    color: #ffffff;
+}
+
+
+.invoice-line {
+    height: 5px;
+}

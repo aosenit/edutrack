@@ -49,7 +49,7 @@ export class SubscriptionInvoiceArreasComponent implements OnInit {
 
   patchData(payload) {
     this.subscriptionInvoiceForm.patchValue({
-      endDate: moment(payload.endDate).format('YYYY-MM-DD'),
+      endDate: moment(payload.dueDate).format('YYYY-MM-DD'),
       price: payload.amountPerStudent,
       studentCount: payload.numberOfStudent,
       school: payload.schoolName,

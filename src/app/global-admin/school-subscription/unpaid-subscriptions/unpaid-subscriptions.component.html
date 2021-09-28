@@ -1,0 +1,90 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+    <li class="breadcrumb-item a1 " aria-current="page" (click)="back()">
+      <a>Back</a>
+    </li>
+  </ol>
+
+
+</nav>
+
+
+<div class=" ">
+
+  <div class="invoice bg-white">
+
+    <div class="p-5">
+        <div class="d-flex justify-content-between align-items-center mb-2 px-4">
+            <div>
+                <img src="assets/images/svg/logo.svg" alt="">
+                <div>
+                  <p>
+                    www.myschooltrack.com
+                    <br>
+                    info@myschooltrack.com
+                  </p>
+                </div>
+            </div>
+            <h4 class="fw-6 invoice-title">School Invoice</h4>
+        </div>
+        <div class="invoice-line mb-4">&nbsp;</div>
+        
+        <div class="d-flex justify-content-between px-4">
+          <div>
+            <h5> Invoice to: </h5>
+            <p class="fw-6">studentInvoicePreview?.studentName}}</p>
+            <p class="invoice-p">Class: studentInvoicePreview?.class}}</p>
+          </div>
+          <div>
+            <p class="invoice-p mb-0"> Invoice Date: studentInvoicePreview?.creationDate | date: 'mediumDate'}} </p>
+            <p class="invoice-p mb-0"> Invoice Due Date: studentInvoicePreview?.dueDate | date: 'mediumDate'}} </p>
+            <!-- <p class="invoice-p mb-0"> Session: studentInvoicePreview?.session}} </p> -->
+          </div>
+        </div>
+        <div class="invoice table-responsive px-2 mt-2">
+          <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th class="border-bottom" scope="col">School Name</th>
+                <th class="border-bottom" scope="col">End Date</th>
+                <th class="border-bottom " scope="col">Expected No. Students</th>
+                <th class="border-bottom text-right" scope="col">Price Per User</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> list?.name}}</td>
+                <td> list?.amount}}</td>
+                <td> list?.amount}}</td>
+                <td class="text-right"> list?.amount}}</td>
+              </tr>
+              <tr class="totals">
+                <td class="border-top">&nbsp;</td>
+                <td class="border-top">&nbsp;</td>
+                <td class="border-top">Subtotal</td>
+                <td class="border-top text-right"> subTotal}}</td>
+              </tr>
+              <tr class="totals">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td class="subtotal">Total</td>
+                <td class="subtotal text-right"> subTotal}} </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="d-flex justify-content-center align-items-center py-4 invoice-footer">
+            <p> <span class="fw-6">Need Help?</span> info@myschooltrack.com </p>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" > Mark as Paid </button>
+
+    </div>
+
+
+  </div>
+
+</div>
