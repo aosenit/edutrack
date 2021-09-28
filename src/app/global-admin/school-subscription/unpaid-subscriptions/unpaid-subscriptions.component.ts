@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
-import { SchoolService } from 'src/services/data/school/school.service';
 import { SubscriptionsService } from 'src/services/data/subscriptions/subscriptions.service';
 
 @Component({
@@ -17,7 +16,6 @@ export class UnpaidSubscriptionsComponent implements OnInit {
 
   constructor(
     private subscriptionService: SubscriptionsService,
-    private schoolServie: SchoolService,
     private notifyService: NotificationsService,
     private route: ActivatedRoute
     ) { }
