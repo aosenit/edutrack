@@ -80,7 +80,7 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center">
-              <button class="btn btn-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" > Mark as Paid </button>
+              <button class="btn btn-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal" data-target="#selectionModal"  > Mark as Paid </button>
 
     </div>
 
@@ -88,3 +88,37 @@
   </div>
 
 </div>
+
+
+<!-- school selection Modal -->
+<div class="modal fade" id="selectionModal" tabindex="-1" role="dialog"
+  aria-labelledby="selectionModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Mark Invoice as Paid</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <p>Are you sure you want to mark this invoice as paid? </p>
+       
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+            data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="markPaid()" > Yes, continue</button>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+<!-- end of time table modal -->

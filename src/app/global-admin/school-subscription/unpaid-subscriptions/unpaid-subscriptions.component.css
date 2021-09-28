@@ -114,3 +114,40 @@ color: #111118;
 .invoice-line {
     height: 5px;
 }
+
+.client-modal {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 40px;
+
+}
+
+.modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+    background: #FFFFFF;
+    width: 100%;
+
+}
+
+
+.modal-content .modal-head {
+    background: #EBF0F5;
+    padding: 20px 40px;
+    
+}
+
+.modal-head {
+    background: #EBF0F5;
+    padding: 20px 40px;
+}
+
+
+.modal-content1 .client-modal {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+
+}

@@ -36,6 +36,23 @@ export class UnpaidSubscriptionsComponent implements OnInit {
     });
   }
 
+  markPaid() {
+    const payload = {
+      invoiceId: 0,
+      expiryDate: '2021-09-28T10:39:17.270Z'
+    };
+    this.subscriptionService.MarkInvoiceAsPaid('d', payload).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        document.getElementById('close').click();
+        // console.log(res.payload);
+        this.notifyService.publishMessages(res.description, 'success', 1);
+      } else {
+        this.notifyService.publishMessages(res.errors, 'success', 1);
+
+      }
+    });
+  }
+
   back() {
     window.history.back();
   }
