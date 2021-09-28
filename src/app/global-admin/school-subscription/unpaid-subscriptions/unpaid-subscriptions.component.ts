@@ -41,7 +41,7 @@ export class UnpaidSubscriptionsComponent implements OnInit {
       invoiceId: 0,
       expiryDate: '2021-09-28T10:39:17.270Z'
     };
-    this.subscriptionService.MarkInvoiceAsPaid('d', payload).subscribe((res: any) => {
+    this.subscriptionService.MarkInvoiceAsPaid(payload).subscribe((res: any) => {
       if (res.hasErrors === false) {
         document.getElementById('close').click();
         // console.log(res.payload);
