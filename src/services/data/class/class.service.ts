@@ -18,11 +18,12 @@ const routes = {
   getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses',
   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
-  updateclassbyid: 'schtrack-auth/api/v1/Parent/UpdateParent ',
   deleteclass: 'schtrack-auth/api/v1/Class/DeleteClass',
   getClassAndSubjectForATeahcer: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
   getStudentInclass: 'schtrack-auth/api/v1/Student/GetStudentInClass',
-
+  updateclassbyid: 'schtrack-auth/api/v1/Class/UpdateClass',
+  
+  updateparentbyid: 'schtrack-auth/api/v1/Parent/UpdateParent',
 
 };
 
@@ -85,17 +86,16 @@ export class ClassService {
   }
 
   updateParent(id, updateParentForm) {
-    const url = `${this.baseUrl + routes.updateclassbyid}/${id}`;
+    const url = `${this.baseUrl + routes.updateparentbyid}/${id}`;
     return this.http.put(url, updateParentForm, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 
-  editClass(id, name) {
-    const body = new FormData();
-    body.append('Id', id);
-    body.append('Name', name);
+  editClass(id, payload) {
+    const url = `${this.baseUrl + routes.updateclassbyid}/${id}`;
+
     // tslint:disable-next-line:max-line-length
-    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/Class/UpdateClass', body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    return this.http.put(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
   deleteClassById(id) {
     const url = `${this.baseUrl + routes.deleteclass}/${id}`;
