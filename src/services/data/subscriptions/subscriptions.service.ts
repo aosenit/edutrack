@@ -8,7 +8,7 @@ const routes = {
   nextSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/GetNextSubsciptionInvoice',
   updatenextSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/PostNextSubsciptionInvoice',
   arrearsSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/GetArrearsSubsciptionInvoice',
-  updatearrearsSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice​/PostNextSubsciptionInvoice',
+  updatearrearsSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/PostNextSubsciptionInvoice',
   unpaidInvoice: 'schtrack-auth/api/v1/SubscriptionInvoice/GetUnpaidSubsciptionInvoice',
   payInvoice: 'schtrack-auth/api/v1/SubscriptionInvoice/MarkInvoiceAsPaid',
 };
