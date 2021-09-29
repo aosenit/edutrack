@@ -567,7 +567,6 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     this.selectedSubjectdata = this.subjectList[id];
     this.editsubjectForm.patchValue({
       name: this.selectedSubjectdata.name,
-      isActive: this.selectedSubjectdata.isActive,
     });
     this.subjectStatus = this.selectedSubjectdata.isActive;
 
