@@ -69,6 +69,9 @@ export class FeeTypeComponent implements OnInit {
         document.getElementById('CloseFeeGroupModal').click();
         this.feeGroupForm.reset();
         this.getAllFeeGroups();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages('Fee group creation failed', 'danger', 1);

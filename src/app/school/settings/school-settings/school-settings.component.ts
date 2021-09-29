@@ -195,6 +195,9 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         document.getElementById('myClassArmModal').click();
         this.classArmform.reset();
         this.getClassArms();
+      } else {
+
+        this.notification.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       this.notification.publishMessages(error.errors, 'danger', 1);
@@ -293,7 +296,10 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
           this.notification.publishMessages('You have successfully added a level', 'info', 0);
           this.levelform.reset();
           this.getSections();
-          // this.section = ''
+          // this.section = '' 
+        } else {
+          this.notification.publishMessages(res.errors, 'danger', 0);
+
         }
       }
     );
@@ -380,6 +386,9 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         document.getElementById('close').click();
         this.addNewClassForm.reset();
         this.getClasses();
+      } else {
+        
+        this.notification.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       this.notification.publishMessages(error.errors, 'danger', 1);

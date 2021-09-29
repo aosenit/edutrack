@@ -191,6 +191,8 @@ export class AccountSettingsComponent implements OnInit {
         this.notifyService.publishMessages('roles successfully assigned', 'info', 1);
         document.getElementById('close').click();
         // // (data);
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

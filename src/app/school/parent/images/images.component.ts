@@ -81,6 +81,9 @@ export class ImagesComponent implements OnInit {
           sessionStorage.removeItem('parent-basic-details');
           sessionStorage.removeItem('parent-social-details');
           this.location.back();
+        } else {
+          this.notifyService.publishMessages(data.errors, 'danger', 1);
+
         }
       },
         error => {
@@ -94,6 +97,8 @@ export class ImagesComponent implements OnInit {
           sessionStorage.removeItem('parent-basic-details');
           sessionStorage.removeItem('parent-social-details');
           this.location.back();
+        } else {
+          this.notifyService.publishMessages(data.errors, 'danger', 1);
         }
       },
         error => {

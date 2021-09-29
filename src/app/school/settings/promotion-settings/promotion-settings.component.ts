@@ -123,7 +123,8 @@ export class PromotionSettingsComponent implements OnInit {
         this.notification.publishMessages(res.description, 'success', 1);
         this.withdrawalForm.reset();
         this.getWithdrawalSetups();
-
+      } else {
+        this.notification.publishMessages(res.errors, 'danger', 1);
       }
     });
 

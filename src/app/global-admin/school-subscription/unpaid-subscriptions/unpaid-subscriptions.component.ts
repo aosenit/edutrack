@@ -31,6 +31,8 @@ export class UnpaidSubscriptionsComponent implements OnInit {
     this.subscriptionService.getUnpaidUnvoice(this.schoolId).subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.unpaidInvoice = res.payload;
+      } else {
+        this.notifyService.publishMessages(res.errors, 'danger', 1);
       }
     });
   }
@@ -60,7 +62,7 @@ export class UnpaidSubscriptionsComponent implements OnInit {
         // console.log(res.payload);
         this.notifyService.publishMessages(res.description, 'success', 1);
       } else {
-        this.notifyService.publishMessages(res.errors, 'success', 1);
+        this.notifyService.publishMessages(res.errors, 'danger', 1);
 
       }
     });

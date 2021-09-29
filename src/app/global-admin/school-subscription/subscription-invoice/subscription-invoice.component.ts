@@ -73,6 +73,9 @@ subscriptionInvoiceForm: FormGroup;
         console.log(res.payload);
         this.notifyService.publishMessages(res.description, 'success', 1);
         this.router.navigateByUrl('/admin/subscription');
+      } else {
+        this.notifyService.publishMessages(res.errors, 'danger', 1);
+
       }
     });
 

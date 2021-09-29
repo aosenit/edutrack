@@ -61,7 +61,7 @@ export class SubscriptionListsComponent implements OnInit {
 
   markAsPaid(index) {
     const selectedSchool = this.subscriptionList[index];
-    console.log(selectedSchool)
+    console.log(selectedSchool);
   }
 
 }

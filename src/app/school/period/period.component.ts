@@ -81,6 +81,9 @@ export class PeriodComponent implements OnInit {
       if ( data.hasErrors === false) {
         sessionStorage.setItem('periods', JSON.stringify(data.payload));
         this.notifyService.publishMessages('All period successfully published ', 'info', 1);
+      } else {
+
+        this.notifyService.publishMessages( data.errors, 'danger', 1);
       }
     }, error => {
       this.notifyService.publishMessages( error.errors, 'danger', 1);

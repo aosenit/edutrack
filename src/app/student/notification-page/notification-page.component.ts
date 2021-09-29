@@ -120,6 +120,9 @@ export class NotificationPageComponent implements OnInit {
         // (data);
         this.notifyService.publishMessages('Assignment submitted successfully', 'info', 1);
         document.getElementById('closeAssignmentModal').click();
+        
+      } else {
+        this.notifyService.publishMessages(data.errors, 'info', 1);
 
       }
     });

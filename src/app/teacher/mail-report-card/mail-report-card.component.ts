@@ -155,7 +155,7 @@ export class MailReportCardComponent implements OnInit {
         document.getElementById('closeMailModal').click();
         location.reload();
       } else {
-        this.notifyService.publishMessages('Email processing failed', 'danger', 1);
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
 
       }
     }, error => {

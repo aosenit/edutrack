@@ -101,6 +101,9 @@ export class SchoolManagerSettingsComponent implements OnInit {
         // (data);
         this.notifyService.publishMessages('School Property saved successfully', 'success', 1);
         this.getProperty();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -138,6 +141,9 @@ export class SchoolManagerSettingsComponent implements OnInit {
         // (data);
         document.getElementById('mySessionModal').click();
         this.getSession();
+      } else {
+
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

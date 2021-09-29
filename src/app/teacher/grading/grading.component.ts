@@ -48,6 +48,9 @@ export class GradingComponent implements OnInit {
       // // (data);
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Comment successful', 'success', 1);
+        
+      } else {
+        this.notifyService.publishMessages(data.errors, 'success', 1);
 
       }
     }, error => {
@@ -69,7 +72,10 @@ export class GradingComponent implements OnInit {
       if (data.hasErrors === false) {
         // (data);
         this.notifyService.publishMessages('score submitted successfully', 'success', 1);
-
+        
+      } else {
+        
+        this.notifyService.publishMessages(data.errors, 'success', 1);
       }
     });
   }
