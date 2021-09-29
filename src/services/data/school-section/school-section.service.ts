@@ -47,4 +47,5 @@ export class SchoolSectionService {
   //   return this.http.get(url, { headers: { tenantId } });
 
   // }
+  
 }
