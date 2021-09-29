@@ -385,8 +385,9 @@
               <span class="status_active" *ngIf="subject.isActive == false">Inactive</span>
             </td>
             <td class="rounded-right ">
-              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
-              (click)="getSubjectById(subject?.id)"
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3"
+              data-toggle="modal" data-target="#exampleModalCenterSubjectEdit" 
+              (click)="getSubjectById(s)"
                   > Edit Subject</button>
                 <button type="button" disabled class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
                 > Delete Subject </button>
@@ -870,63 +871,38 @@
 
 
 <!-- edit Subject Modal -->
-<div class="modal fade" id="exampleModalCenterSubject" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalCenterSubjectEdit" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterSubjectEditTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-length" role="document">
     <div class="modal-content">
 
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
-          <h6 class="modal-title fc-lblue">Add New Subject</h6>
-          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="mySubjectModal" data-dismiss="modal"
+          <h6 class="modal-title fc-lblue">Edit New Subject</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="mySubjectModalClose" data-dismiss="modal"
             aria-label="Close" class="close">
 
         </div>
 
       </div>
       <div class="modal-body client-modal">
-        <form [formGroup]="newsubjectForm" (ngSubmit)="createSubject()">
+        <form [formGroup]="editsubjectForm" (ngSubmit)="updateSubject()">
 
 
           <div class="form-group mb-4">
             <label for="class" class="">Subject <span class="text-danger">*</span> </label>
-            <input type="text" id="class" class="form-control" placeholder="Enter class" formControlName="Name">
+            <input type="text" id="class" class="form-control" placeholder="Update Subject" formControlName="name">
           </div>
 
-          <div class="form-group mb-4">
-            <div *ngFor="let level of levels">
-              <div class="w-100 bg-info mb-1 px-2 mb-3 d-flex justify-content-between">
-                <p class="mb-0">{{level.name}}</p>
-                <a href="#{{level?.name}}" class="ml-auto" data-toggle="collapse"
-                 role="button" aria-expanded="false" aria-controls="collapseExample">
-                  <img src="assets/images/svg/subject-drop.svg" alt="" 
-                    (click)="getClassBySectionId(level.id)">
-                </a>
-              </div>
-              <div class="collapse mb-2" id="{{level?.name}}">
-                <!-- <div formArrayName="ClassIds" *ngFor="let class of classBySectionList; let i = index;">
-                  <div [formGroupName]="i">
-                    <label for="a" class="class-label w-25"> {{class.name}}</label>
-                    <input type="checkbox" id="a" name="class" [value]="class.id" formControlName="classSectionIds" (change)="getState($event.target.value)" >
-                  </div>
-                  
-                </div> -->
-                <ng-multiselect-dropdown [placeholder]="' '" [data]="classBySectionDropdownList"
-                  formControlName="classSectionIds" [settings]="dropdownSettings2" required>
-                </ng-multiselect-dropdown>
-
-              </div>
-            </div>
-
-
-          </div>
-
+        
 
           <div class="form-group custom mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch4" formControlName="IsActive" (change)="getStatus($event.target.checked)">
-              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === false">Inactive</label>
-              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === true">Active</label>
+              <input type="checkbox" class="custom-control-input" id="customSwitch4g" formControlName="isActive" 
+              [value]="subjectStatus"
+              [checked]="subjectStatus === true"  (change)="toggleSubjectUpdate($event.target.checked)">
+              <label class="custom-control-label" for="customSwitch4g" *ngIf="subjectStatus === false ">Inactive</label>
+              <label class="custom-control-label" for="customSwitch4g" *ngIf="subjectStatus === true">Active</label>
             </div>
           </div>
 
@@ -935,7 +911,7 @@
             <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
               data-dismiss="modal">Cancel
             </button>
-            <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Subject</button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="editsubjectForm.invalid"> Update Subject</button>
           </div>
         </form>
       </div>

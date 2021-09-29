@@ -54,6 +54,10 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   testSubjectArray = [];
 
   private ngUnsubscribe = new Subject();
+  editsubjectForm: FormGroup;
+  subjectStatus: any;
+  selectedSubjectdata: any;
+  subjecttoggleUpdate: any;
 
   constructor(
     private fb: FormBuilder,
@@ -81,8 +85,12 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     });
     this.newsubjectForm = this.fb.group({
       Name: ['', Validators.required],
-      IsActive: [],
+      IsActive: [false],
       classSectionIds: []
+    });
+    this.editsubjectForm = this.fb.group({
+      name: ['', Validators.required],
+      IsActive: [false],
     });
     this.populateNewClassForm();
     this.getClassArms();
@@ -388,7 +396,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         }
       );
   }
-  
+
 
   editClass() {
     const payload = {
@@ -556,7 +564,37 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
 
   getSubjectById(id) {
-    // this.subjectService
+    this.selectedSubjectdata = this.subjectList[id];
+    this.editsubjectForm.patchValue({
+      name: this.selectedSubjectdata.name,
+      isActive: this.selectedSubjectdata.isActive,
+    });
+    this.subjectStatus = this.selectedSubjectdata.isActive;
+
+  }
+
+  toggleSubjectUpdate(e) {
+    this.subjectStatus = e;
+  }
+  updateSubject() {
+    const {name} = this.editsubjectForm.value;
+    const result = {
+      // tslint:disable-next-line:radix
+      id: parseInt(this.selectedSubjectdata.id),
+      name,
+      isActive: this.subjectStatus
+    };
+    console.log(result);
+    this.subjectService.updateSubjects(result).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.notification.publishMessages(res.description, 'info', 0);
+        document.getElementById('mySubjectModalClose').click();
+        this.getAllSubjects();
+      } else {
+        this.notification.publishMessages(res.errors, 'danger', 0);
+      }
+    });
+
   }
 
   ngOnDestroy() {

@@ -70,7 +70,7 @@
               <div class="activated__date-switch">
                   <div class="custom-control custom-switch">
                       <input type="checkbox" class="custom-control-input" id="{{i}}"
-                      (change)="confirmToPay($event.target.checked)"
+                      (change)="confirmToPay($event.target.checked, i)"
                        [checked]="client?.paid === true">
                       <label class="custom-control-label" for="{{i}}" ></label>
                   </div>

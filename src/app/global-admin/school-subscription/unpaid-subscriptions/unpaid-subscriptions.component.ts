@@ -14,6 +14,7 @@ export class UnpaidSubscriptionsComponent implements OnInit {
   schoolId: any;
   unpaidInvoice: any;
   selectedInvoice: any;
+  selectMarkedInvoice: any;
 
   constructor(
     private subscriptionService: SubscriptionsService,
@@ -29,14 +30,13 @@ export class UnpaidSubscriptionsComponent implements OnInit {
   getAllSubscriptionCreated() {
     this.subscriptionService.getUnpaidUnvoice(this.schoolId).subscribe((res: any) => {
       if (res.hasErrors === false) {
-        console.log('ds', res.payload);
         this.unpaidInvoice = res.payload;
       }
     });
   }
 
-  confirmToPay(e) {
-    console.log(e)
+  confirmToPay(e, i) {
+    this.selectMarkedInvoice = this.unpaidInvoice[i];
     if (e === true) {
       document.getElementById('popupBtn').click();
       console.log( document.getElementById('selectionModal'))
@@ -50,8 +50,8 @@ export class UnpaidSubscriptionsComponent implements OnInit {
   markPaid() {
     const payload = {
       // tslint:disable-next-line:radix
-      invoiceId: parseInt(this.unpaidInvoice.invoiceId),
-      expiryDate: this.unpaidInvoice.dueDate
+      invoiceId: parseInt(this.selectMarkedInvoice.invoiceId),
+      expiryDate: this.selectMarkedInvoice.dueDate
     };
     this.subscriptionService.markInvoiceAsPaid(payload).subscribe((res: any) => {
       if (res.hasErrors === false) {

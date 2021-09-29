@@ -9,7 +9,7 @@ const routes = {
   updatenextSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/PostNextSubsciptionInvoice',
   arrearsSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/GetArrearsSubsciptionInvoice',
   updatearrearsSubscriptions: 'schtrack-auth/api/v1/SubscriptionInvoice/PostNextSubsciptionInvoice',
-  unpaidInvoice: 'schtrack-auth/api/v1/SubscriptionInvoice/GetUnpaidSubsciptionInvoice',
+  unpaidInvoice: 'schtrack-auth/api/v1/SubscriptionInvoice/GetSchoolSubsciptionInvoice',
   payInvoice: 'schtrack-auth/api/v1/SubscriptionInvoice/MarkInvoiceAsPaid',
 };
 

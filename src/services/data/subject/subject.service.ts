@@ -4,10 +4,10 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   addsubject: 'schtrack-learning/api/v1/Subject/NewSubject',
-  getallSubjects: 'schtrack-learning/api/v1/Subject/GetAllSubjects ',
+  getallSubjects: 'schtrack-learning/api/v1/Subject/GetAllSubjects',
   // getsinglesubject: 'schtrack-learning/api/v1/Subject/GetAllSubjects ',
   getPaginatedSubject: 'schtrack-learning/api/v1/Subject/GetSubjects',
-
+  editsubject: 'schtrack-learning/api/v1/Subject/UpdateSubject'
 };
 
 @Injectable({
@@ -40,6 +40,13 @@ export class SubjectService {
   getPaginatedSubject(p, perpage) {
     const url = `${this.baseUrl + routes.getPaginatedSubject}?PageIndex=${p}&PageSize=${perpage}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+
+  updateSubjects(payload) {
+    const url = `${this.baseUrl + routes.editsubject}`;
+    return this.http.put(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 }
