@@ -290,7 +290,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         if (res.hasErrors === false) {
           // console.log('level created', res);
           document.getElementById('closeCreateLevelModal').click();
-          this.notification.publishMessages('You have successfully added a section', 'info', 0);
+          this.notification.publishMessages('You have successfully added a level', 'info', 0);
           this.levelform.reset();
           this.getSections();
           // this.section = ''
@@ -327,17 +327,19 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
   editSection() {
     const result = {
-      id: this.theLevel.id,
       name: this.theLevel.name,
     };
     // // (id);
-    this.schoolSectionService.updateSection(result).subscribe((res: any) => {
+    this.schoolSectionService.updateSection( this.theLevel.id, result).subscribe((res: any) => {
       // console.log(res);
       if (res.hasErrors === false) {
         // console.log(res);
-        this.notification.publishMessages('You have successfully edited this section', 'info', 0);
+        this.notification.publishMessages('You have successfully updated this level', 'info', 0);
         document.getElementById('editSectionModal').click();
         this.getSections();
+      } else {
+
+        this.notification.publishMessages(res.errors, 'danger', 0);
       }
     }, error => {
       this.notification.publishMessages(error.error, 'warning', 0);
