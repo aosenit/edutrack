@@ -174,7 +174,7 @@
 
           <div class="d-flex align-items-center justify-content-center mb-5">
             <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
-            <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Save </button>
+            <button class="btn btn-orange-two  px-5 mb-4 mt-3" [disabled]="classTeacherForm.invalid"> Save </button>
           </div>
 
         </form>
@@ -231,7 +231,7 @@
 
           <div class="d-flex align-items-center justify-content-center mb-5">
             <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
-            <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Save </button>
+            <button class="btn btn-orange-two  px-5 mb-4 mt-3" [disabled]="attachSubjectForm.invalid"> Save </button>
           </div>
         </form>
       </div>
