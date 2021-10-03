@@ -49,12 +49,12 @@
                             <img src="assets/images/svg/file-tab-4.svg" alt="new client" class="mr-3">
                             Class work</a>
                     </li>
-                    <li class="nav-item d-flex">
+                    <!-- <li class="nav-item d-flex">
                         <a class="nav-link" id="pills-media-tab" data-toggle="pill" href="#pills-media" role="tab"
                             aria-controls="pills-media" aria-selected="false">
                             <img src="assets/images/svg/file-tab-3.svg" alt="new client" class="mr-3">
                             Media</a>
-                    </li>
+                    </li> -->
 
                 </ul>
 
@@ -556,7 +556,7 @@
                         </button>
                     </div>
                     <div class="line">
-                        <p class="pb-3">Uplaod Class Note</p>
+                        <p class="pb-3">Upload Class Note</p>
                     </div>
                 </div>
                 <div class="modal-body client-modal">
@@ -593,9 +593,10 @@
                         </div>
 
                         <div class="form-group file-upload mb-5">
-                            <label for="fileupload">Drag files to upload or click</label>
-                            <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)">
-                            <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                            <label for="fileupload" class="fs-12"*ngIf="assignmentFile === null" >Drag files to upload or click</label>
+                            <label for="fileupload" class="fs-12"*ngIf="assignmentFile !== null" >{{assignmentFile}}</label>
+                              <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)" accept="application/pdf">
+                            <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
                         </div>
 
                         <div class="form-group mb-3">
@@ -604,7 +605,7 @@
                         </div>
 
                         <div class="d-flex justify-content-end mb-3">
-                            <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+                            <button type="button " class="btn-blue  mb-3 " [disabled]="uploadClassNoteForm.invalid">Upload Files </button>
                         </div>
 
                     </form>
@@ -659,9 +660,10 @@
                  </div>
 
                  <div class="form-group file-upload mb-5">
-                     <label for="fileupload">Drag files to upload or click</label>
-                     <input type="file" class="file-input" id="fileupload" (change)="handleClassWorkUpload($event)">
-                     <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                    <label for="fileupload" class="fs-12"*ngIf="assignmentFile === null" >Drag files to upload or click</label>
+                    <label for="fileupload" class="fs-12"*ngIf="assignmentFile !== null" >{{assignmentFile}}</label>
+               <input type="file" class="file-input" id="fileupload" (change)="handleClassWorkUpload($event)" accept="application/pdf">
+                     <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
                  </div>
 
                  <div class="form-group mb-3">
@@ -670,7 +672,7 @@
                  </div>
 
                  <div class="d-flex justify-content-end mb-3">
-                     <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+                     <button type="button " class="btn-blue  mb-3 " [disabled]="uploadClassWorkForm.invalid">Upload Files </button>
                  </div>
 
              </form>
@@ -706,7 +708,7 @@
                                 <div class="form-row">
             
                                     <div class="form-group col-md-3">
-                                        <select class="form-control" formControlName="classId" (change)="getSubjects($event.target.value)" >
+                                        <select class="form-control" formControlName="classId" (change)="getSubjects($event.target.value) " accept="application/pdf" >
                                             <option selected>Select Class</option>
                                             <option [value]="class.id" *ngFor="let class of classList">{{class?.name}}{{class?.classGroup}}</option>
                                             
@@ -733,8 +735,9 @@
                         </div>
                         
                         <div class="form-group file-upload mb-5">
-                            <label for="fileupload">Drag files to upload or click</label>
-                            <input type="file" class="file-input" id="fileupload" (change)="handleAssignmentUpload($event)">
+                            <label for="fileupload" class="fs-12"*ngIf="assignmentFile === null" >Drag files to upload or click</label>
+                            <label for="fileupload" class="fs-12"*ngIf="assignmentFile !== null" >{{assignmentFile}}</label>
+                              <input type="file" class="file-input" id="fileupload" (change)="handleAssignmentUpload($event)">
                             <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
                         </div>
 
@@ -744,7 +747,7 @@
                         </div>
 
                         <div class="d-flex justify-content-end mb-3">
-                            <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+                            <button type="button " class="btn-blue  mb-3 " [disabled]="uploadAssignmentForm.invalid">Upload Files </button>
                         </div>
 
                     </form>

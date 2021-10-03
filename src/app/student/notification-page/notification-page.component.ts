@@ -39,7 +39,7 @@ export class NotificationPageComponent implements OnInit {
   populateAssignmentForm() {
     this.uploadAssignmentForm = this.fb.group({
       assimentId: [''],
-      Document: ['']
+      Document: ['', Validators.required]
     });
   }
 
@@ -99,10 +99,15 @@ export class NotificationPageComponent implements OnInit {
     const reader = new FileReader();
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      // ('file', file);
-      this.assignmentFile = file.name;
-      this.uploadAssignmentForm.get('Document').setValue(file);
-      // this.iconname = this.icon.name;
+      // console.log(file);
+      if (file.type !== 'application/pdf') {
+        this.notifyService.publishMessages('File must be a pdf', 'danger', 1);
+        return;
+      } else {
+        this.assignmentFile = file.name;
+        this.uploadAssignmentForm.get('Document').setValue(file);
+        // this.iconname = this.icon.name;
+      }
     }
   }
 
@@ -120,7 +125,7 @@ export class NotificationPageComponent implements OnInit {
         // (data);
         this.notifyService.publishMessages('Assignment submitted successfully', 'info', 1);
         document.getElementById('closeAssignmentModal').click();
-        
+
       } else {
         this.notifyService.publishMessages(data.errors, 'info', 1);
 

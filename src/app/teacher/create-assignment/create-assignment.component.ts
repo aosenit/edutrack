@@ -143,7 +143,7 @@ export class CreateAssignmentComponent implements OnInit {
         this.notifyService.publishMessages('Assignment created successfully', 'info', 1);
         this.router.navigateByUrl('/teacher/assignments');
       } else {
-        this.notifyService.publishMessages(data.errors, 'info', 1);
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
 
       }
     }

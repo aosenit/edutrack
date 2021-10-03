@@ -57,7 +57,7 @@
                 <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="customCheck{{assignment?.id}}"
-                    [value]="assignment?.id" (change)="getElementId($event.target.value)">
+                    [value]="assignment?.id" (change)="getElementId($event.target.checked, i)">
                   <label class="custom-control-label" for="customCheck{{assignment?.id}}"></label>
                 </div>
               </td>
@@ -95,13 +95,13 @@
         <p class="mb-0 fc-lblue">Info</p>
       </div>
       <div class="d-flex flex-column justify-content-center align-items-center mt-5 h-75">
-        <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-column justify-content-center align-items-center" *ngIf="clipnote">
           <img src="assets/images/svg/info-file.svg" alt="table sort icon" class="mr-3">
           <p class="text-center pt-2">Select an assignment to display overview</p>
         </div>
-        <div class="information">
-          <p class="mb-0">10 students submitted</p>
-          <p class="mb-0">5 pending submission</p>
+        <div class="information" *ngIf="view">
+          <!-- <p class="mb-0">5 pending submission</p> -->
+          <p class="mb-0">{{selectedSubject.numberOfStudentsSubmitted}} student(s) submitted</p>
         </div>
       </div>
     </div>
