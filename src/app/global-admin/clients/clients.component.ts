@@ -87,8 +87,13 @@ export class ClientsComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       // // (file);
-      this.filename = file.name;
-      this.bulkUpload.get('bulkFile').setValue(file);
+      if (file.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ) {
+        this.notifyService.publishMessages('Invalid format! Please select only excel file', 'danger', 1);
+        return;
+      } else {
+        this.filename = file.name;
+        this.bulkUpload.get('bulkFile').setValue(file);
+      }
       // this.DocumentTypes.push(0);
     }
   }
