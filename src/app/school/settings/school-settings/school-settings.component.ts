@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { parse } from 'querystring';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
@@ -39,10 +40,12 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   notifyService: any;
   toggleState = false;
   dropdownSettings = {};
+  dropdownSettingsSubject = {};
   dropdownSettings2 = {};
   dropdownList = [];
   classBySectionList: any;
   classBySectionDropdownList = [];
+  subjectsForClassDropDownList = [];
   theLevel: any;
   theClass: any;
   theArm: any;
@@ -59,6 +62,8 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   selectedSubjectdata: any;
   subjecttoggleUpdate: any;
   editClassForm: FormGroup;
+  newsubjectToClassForm: FormGroup;
+  subjectsForCLass: any;
 
   constructor(
     private fb: FormBuilder,
@@ -93,6 +98,11 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       IsActive: [false],
       classSectionIds: []
     });
+    this.newsubjectToClassForm = this.fb.group({
+      Name: ['', Validators.required],
+      id: ['', Validators.required],
+      subjectIds: ['', Validators.required]
+    });
     this.editsubjectForm = this.fb.group({
       name: ['', Validators.required],
       IsActive: [false],
@@ -102,6 +112,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     this.getClasses();
     this.getSections();
     this.getAllSubjects();
+    this.getAllSubjectsNoPage();
 
 
     this.dropdownSettings = {
@@ -118,6 +129,16 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       singleSelection: false,
       idField: 'id',
       textField: 'classandSection',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 5,
+      allowSearchFilter: true,
+      enableCheckAll: false,
+    };
+    this.dropdownSettingsSubject = {
+      singleSelection: false,
+      idField: 'id',
+      textField: 'name',
       selectAllText: 'Select All',
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 5,
@@ -410,12 +431,28 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
           this.theClass = res.payload;
           console.log(res.payload);
           this.editClassForm.patchValue({
-            name: res.payload.name,
+            name: res.payload.className,
             id: res.payload.id
           });
           console.log(this.editClassForm.value);
         }
       );
+  }
+
+  getSubjectForClassById(id) {
+    this.classService.getClassById(id)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe(
+        (res: any) => {
+          this.theClass = res.payload;
+          this.newsubjectToClassForm.patchValue({
+            Name: res.payload.name,
+            id: res.payload.id,
+          });
+        }
+      );
+   
+
   }
 
 
@@ -507,6 +544,12 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     // console.log('new subject list', this.testSubjectArray);
 
   }
+  onItemSelectSubject(event) {
+    // console.log(event);
+    this.testSubjectArray.push(event.id);
+    // console.log('new subject list', this.testSubjectArray);
+
+  }
 
   onSelectAll(event) {
     // console.log(event);
@@ -558,6 +601,32 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
   }
 
+  createNewSubjectClass() {
+    const { id, subjectIds } = this.newsubjectToClassForm.value;
+    const subjects = subjectIds.map((item: any) => {
+      return item.id;
+    });
+    // const ClassIds = classSectionIds.map((ids: any) => {
+    //   return ids.id;
+    // });
+    const result = {
+      classId: parseInt(id),
+      subjectIds: subjects
+    };
+    // // ('subjects to be created', result);
+    this.subjectService.addNewSubjectToClass(result).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        // console.log(data);
+        this.notification.publishMessages('You have succesfully added subject(s)', 'info', 0);
+        this.newsubjectToClassForm.reset();
+        document.getElementById('moreSubjectModal').click();
+        this.getClasses();
+      } else {
+        this.notification.publishMessages(data.errors, 'danger', 0);
+      }
+    });
+  }
+
   getAllSubjects() {
     this.subjectService.getPaginatedSubject(this.p, this.itemsPerPage)
       .pipe(takeUntil(this.ngUnsubscribe))
@@ -565,6 +634,23 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         if (data.hasErrors === false) {
           this.subjectList = data.payload;
           this.subjectCount = data.totalCount;
+        }
+      });
+  }
+  getAllSubjectsNoPage() {
+    this.subjectService.getAllSubjectsNoPagination()
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe((data: any) => {
+        if (data.hasErrors === false) {
+          this.subjectsForCLass = data.payload;
+          const arr = [];
+          this.subjectsForCLass.forEach(item => {
+            arr.push({
+              id: item.id,
+              name: item.name
+            });
+          });
+          this.subjectsForClassDropDownList = arr;
 
           // console.log(this.subjectList);
         }
@@ -595,6 +681,8 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
   }
 
+  
+
   toggleSubjectUpdate(e) {
     this.subjectStatus = e;
   }
@@ -610,7 +698,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     this.subjectService.updateSubjects(result).subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.notification.publishMessages(res.description, 'info', 0);
-        document.getElementById('mySubjectModalClose').click();
+        document.getElementById('editSubjectModalClose').click();
         this.getAllSubjects();
       } else {
         this.notification.publishMessages(res.errors, 'danger', 0);

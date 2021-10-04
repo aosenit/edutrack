@@ -281,7 +281,7 @@
             </th> -->
             <th scope="col">Class <img src="assets/images/svg/table-sort.svg"> </th>
             <th scope="col">Class Arm<img src="assets/images/svg/table-sort.svg"> </th>
-            <th scope="col" class="w-25">Section <img src="assets/images/svg/table-sort.svg"> </th>
+            <th scope="col" class="">Section <img src="assets/images/svg/table-sort.svg"> </th>
             <th scope="col">Sequence <img src="assets/images/svg/table-sort.svg"> </th>
             <!-- <th scope="col" class="text-center">Arm <img src="assets/images/svg/table-sort.svg"> </th> -->
 
@@ -326,6 +326,10 @@
 
                 </div> -->
               <!-- </div> -->
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3"
+              data-toggle="modal" data-target="#exampleModalCenterAddMoreClassSubjectEdit" 
+              (click)="getSubjectForClassById(class.id)"
+                  > Link Subject</button>
               <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
               data-toggle="modal" data-target="#exampleModalCenterEditClass"
               (click)="getClassById(class.id)"> Edit Class</button>
@@ -389,6 +393,7 @@
               data-toggle="modal" data-target="#exampleModalCenterSubjectEdit" 
               (click)="getSubjectById(s)"
                   > Edit Subject</button>
+              
                 <button type="button" disabled class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
                 > Delete Subject </button>
             </td>
@@ -850,6 +855,8 @@
 <!-- end of Subject modal -->
 
 
+
+
 <!-- edit Subject Modal -->
 <div class="modal fade" id="exampleModalCenterSubjectEdit" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalCenterSubjectEditTitle" aria-hidden="true">
@@ -858,8 +865,8 @@
 
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
-          <h6 class="modal-title fc-lblue">Edit New Subject</h6>
-          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="mySubjectModalClose" data-dismiss="modal"
+          <h6 class="modal-title fc-lblue">Edit Subject</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="editSubjectModalClose" data-dismiss="modal"
             aria-label="Close" class="close">
 
         </div>
@@ -900,3 +907,51 @@
   </div>
 </div>
 <!-- end of Subject modal -->
+
+
+<!-- More Subject Modal -->
+<div class="modal fade" id="exampleModalCenterAddMoreClassSubjectEdit" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add Subject to Class</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="moreSubjectModal" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="newsubjectToClassForm" (ngSubmit)="createNewSubjectClass()">
+
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Class <span class="text-danger">*</span> </label>
+            <input type="text" id="class" class="form-control" placeholder="Enter subject" formControlName="Name" readonly>
+          </div>
+
+          <div class="form-group mb-4">
+            <ng-multiselect-dropdown [placeholder]="' '" [data]="subjectsForClassDropDownList" 
+            (onSelect)="onItemSelectSubject($event)"
+              formControlName="subjectIds" [settings]="dropdownSettingsSubject" required>
+            </ng-multiselect-dropdown>
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="newsubjectToClassForm.invalid"> Add Subject</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Subject modal -->
+
