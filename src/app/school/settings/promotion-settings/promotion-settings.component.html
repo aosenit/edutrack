@@ -158,7 +158,9 @@
             <td scope="row" class=" rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" value="class.isTerminal" id="{{i}}"
-                  (change)="setTerminal($event.target.checked, i)">
+                  (change)="setTerminal($event.target.checked, i)"
+                  [checked]="class.isTerminal === true"
+                  >
                 <label class="custom-control-label" for="{{i}}"></label>
               </div>
             </td>
