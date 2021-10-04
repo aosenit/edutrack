@@ -560,34 +560,25 @@
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Edit Class</h6>
           <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
-            class="close">
+          id="closeEditClassForm"  
+          class="close">
 
         </div>
 
       </div>
       <div class="modal-body client-modal">
-        <div class="form-group mb-4">
-          <label for="level" class="">Class Name</label>
-          <input type="text" id="level" class="form-control" [(ngModel)]="theClass.name">
-        </div>
-        <!-- <div class="form-group mb-5">
-          <label for="sequence" class="">Sequence</label>
-          <select name="" id="sequence" class="form-control">
-            <option value="">Select</option>
-          </select>
-        </div> -->
-        <!-- <div class="form-group mb-5">
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitch1">
-            <label class="custom-control-label" for="customSwitch1">Active</label>
+        <form [formGroup]="editClassForm" (ngSubmit)="editClass()">
+          <div class="form-group mb-4">
+            <label for="level" class="">Class Name</label>
+            <input type="text" id="level" class="form-control" formControlName="name">
           </div>
-        </div> -->
-        <div class="d-flex justify-content-center mb-3">
-          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
-          </button>
-          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editClass()" data-dismiss="modal"> Update
-            Class</button>
-        </div>
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="editClassForm.invalid" > Update
+              Class</button>
+          </div>
+        </form>
       </div>
 
     </div>

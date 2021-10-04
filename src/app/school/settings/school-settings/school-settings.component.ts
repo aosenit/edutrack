@@ -58,6 +58,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   subjectStatus: any;
   selectedSubjectdata: any;
   subjecttoggleUpdate: any;
+  editClassForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -82,6 +83,10 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       name: ['', Validators.required],
       sectionId: [''],
       classGroupId: ['']
+    });
+    this.editClassForm = this.fb.group({
+      name: ['', Validators.required],
+      id: [''],
     });
     this.newsubjectForm = this.fb.group({
       Name: ['', Validators.required],
@@ -296,7 +301,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
           this.notification.publishMessages('You have successfully added a level', 'info', 0);
           this.levelform.reset();
           this.getSections();
-          // this.section = '' 
+          // this.section = ''
         } else {
           this.notification.publishMessages(res.errors, 'danger', 0);
 
@@ -348,7 +353,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         this.notification.publishMessages(res.errors, 'danger', 0);
       }
     }, error => {
-      this.notification.publishMessages(error.error, 'warning', 0);
+      this.notification.publishMessages(error.error, 'danger', 0);
     });
   }
 
@@ -387,7 +392,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         this.addNewClassForm.reset();
         this.getClasses();
       } else {
-        
+
         this.notification.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
@@ -403,24 +408,31 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       .subscribe(
         (res: any) => {
           this.theClass = res.payload;
-
+          console.log(res.payload);
+          this.editClassForm.patchValue({
+            name: res.payload.name,
+            id: res.payload.id
+          });
+          console.log(this.editClassForm.value);
         }
       );
   }
 
 
   editClass() {
+    const {name, id} = this.editClassForm.value;
     const payload = {
-      id: parseInt(this.theClass.id),
-      name: this.theClass.name
+      id: parseInt(id),
+      name
     };
     this.classService.editClass(payload).subscribe(
       (res: any) => {
         if (res.code === 1) {
           this.notification.publishMessages('You have successfully updated this class!', 'info', 0);
+          document.getElementById('closeEditClassForm').click();
           this.getClasses();
         } else {
-          this.notification.publishMessages(res.description, 'warning', 0);
+          this.notification.publishMessages(res.description, 'danger', 0);
         }
 
       }
