@@ -128,7 +128,7 @@ export class SocialDetailsComponent implements OnInit {
     AdmissionDate: moment(payload.admissionDate).format('YYYY-MM-DD'),
     SectionId : payload.SectionId,
       ClassId : payload.ClassId,
-      StudentType: 1,
+      studentType: this.newStudentType,
     });
     this.getClassesUnderSection(payload.SectionId);
 
