@@ -148,4 +148,5 @@ export class MedicalDetailsComponent implements OnInit {
  }
 
 
+ 
 }
