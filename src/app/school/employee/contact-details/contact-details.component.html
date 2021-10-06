@@ -10,7 +10,7 @@
           <div *ngIf="contactForm.controls.PhoneNumber.touched && contactForm.controls.PhoneNumber.errors" class="error">
             <small *ngIf="contactForm.controls.PhoneNumber.errors.required" class="text-danger">Field is required</small>
             <small *ngIf="contactForm.controls.PhoneNumber.errors.minlength" class="text-danger">Invalid phone number length</small>
-            <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+            <small *ngIf="contactForm.controls.PhoneNumber.errors.pattern" class="text-danger">Invalid number pattern</small>
           </div>
 
         </div>
@@ -21,7 +21,7 @@
           (keypress)="allowNumbersOnly($event)">
           <div *ngIf="contactForm.controls.AltPhoneNumber.touched && contactForm.controls.AltPhoneNumber.errors" class="error">
             <small *ngIf="contactForm.controls.AltPhoneNumber.errors.minlength" class="text-danger">Invalid phone number length</small>
-            <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+            <small *ngIf="contactForm.controls.AltPhoneNumber.errors.pattern" class="text-danger">Invalid number pattern</small>
           </div>
           
         </div>
