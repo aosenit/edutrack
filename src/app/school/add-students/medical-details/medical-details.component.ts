@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit, ɵConsole } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -71,6 +72,22 @@ export class MedicalDetailsComponent implements OnInit {
     });
   }
 
+  getAge(e, i) {
+    const year = moment(e).format('DD-MMM-YYYY');
+    const age = moment().diff(year, 'years');
+    this.patchValues(age, i);
+
+  }
+
+  patchValues(nAge, i) {
+    const x = (this.medicalForm.get('immunizationVms') as FormArray).at(i);
+    console.log(x);
+    x.patchValue({
+      age: nAge
+    });
+ }
+
+
   prevStep() {
     this.home.stepper(3);
     this.currentStep = document.getElementById('step-' + `${3 + 1}`);
@@ -90,7 +107,7 @@ export class MedicalDetailsComponent implements OnInit {
         ConfidentialNotes: this.medicalDetials.ConfidentialNotes ,
         // immunizationVms: this.medicalDetials.immunizationVms
       });
-      this.medicalForm.setControl('immunizationVms', this.setExistingComponent(this.medicalDetials.immunizationHistoryVMs));
+      this.medicalForm.setControl('immunizationVms', this.setExistingComponent(this.medicalDetials.immunizationVms));
     } else {
       // console.log(`Student medicals not found`);
     }
@@ -115,7 +132,7 @@ export class MedicalDetailsComponent implements OnInit {
   }
 
   setExistingComponent(data: any) {
-    const payload = JSON.parse(sessionStorage.getItem('all-student-info'));
+    // const payload = JSON.parse(sessionStorage.getItem('all-student-info'));
 
     const formArray = new FormArray([]);
     for (const x of data) {
@@ -129,5 +146,6 @@ export class MedicalDetailsComponent implements OnInit {
 
     return formArray;
  }
+
 
 }

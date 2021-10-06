@@ -35,13 +35,13 @@
             <div class="step-content justify-content-center  pb-3">
                
                 
-                <app-personal-information *ngIf="stage === 1" (sendChildName)="getChildName($event)" ></app-personal-information>
-                <app-employee-details *ngIf="stage === 2" (sendChildName)="getChildName($event)" ></app-employee-details>
-                <app-contact-details *ngIf="stage === 3" (sendChildName)="getChildName($event)"></app-contact-details>
-                <app-next-of-kin *ngIf="stage === 4" (sendChildName)="getChildName($event)"></app-next-of-kin>
-                <app-education *ngIf="stage === 5" (sendChildName)="getChildName($event)"></app-education>
-                <app-work-experience *ngIf="stage === 6" (sendChildName)="getChildName($event)"></app-work-experience>
-                <app-media *ngIf="stage === 7" (sendChildName)="getChildName($event)"></app-media>
+                <app-personal-information *ngIf="stage === 1"  ></app-personal-information>
+                <app-employee-details *ngIf="stage === 2"  ></app-employee-details>
+                <app-contact-details *ngIf="stage === 3" ></app-contact-details>
+                <app-next-of-kin *ngIf="stage === 4" ></app-next-of-kin>
+                <app-education *ngIf="stage === 5" ></app-education>
+                <app-work-experience *ngIf="stage === 6" ></app-work-experience>
+                <app-media *ngIf="stage === 7" ></app-media>
 
             </div>
         </div>

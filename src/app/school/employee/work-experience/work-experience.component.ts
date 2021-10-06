@@ -23,16 +23,15 @@ workDetials: any;
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.sendChildName.emit('Work experience');
     this.populateEmployeeExperienceForm();
     this.route.params.subscribe((param: Params) => {
       if (!param.id) {
         this.populateEmployeeExperienceForm();
       } else {
         this.getProfileInformation();
-
       }
     });
+    this.getAActiveTab();
   }
 
 populateEmployeeExperienceForm() {
@@ -76,11 +75,13 @@ populateEmployeeExperienceForm() {
   getAActiveTab() {
     this.workDetials = JSON.parse(sessionStorage.getItem('employee-experience'));
 
-    if (sessionStorage.getItem('employee-next-kin') !== null) {
+    if (sessionStorage.getItem('employee-experience') !== null) {
       // // (`School person exists`);
-      this.employeeWorkExperienceForm.patchValue({
-        WorkExperienceVMs: this.workDetials.WorkExperienceVMs,
-      });
+      // this.employeeWorkExperienceForm.patchValue({
+      //   WorkExperienceVMs: this.workDetials.WorkExperienceVMs,
+      // });
+      this.employeeWorkExperienceForm.setControl('WorkExperienceVMs', this.setExistingComponent(this.workDetials.WorkExperienceVMs));
+
     } else {
     }
 
