@@ -120,7 +120,7 @@ export class MedicalDetailsComponent implements OnInit {
     this.medicalForm.patchValue({
       BloodGroup: payload.bloodGroup,
       Genotype: payload.genotype,
-      Disability: payload.Disability ,
+      Disability: payload.disability ,
       Allergies: payload.allergies,
       ConfidentialNotes: payload.confidentialNote ,
       // immunizationVms: payload.immunizationVms
