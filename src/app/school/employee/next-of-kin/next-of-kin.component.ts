@@ -29,6 +29,7 @@ export class NextOfKinComponent implements OnInit {
       if (!param.id) {
         this.populateNextofKinForm();
       } else {
+        this.sendChildName.emit('Next Of Kin Information');
         this.getProfileInformation();
 
       }

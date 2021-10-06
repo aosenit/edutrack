@@ -33,6 +33,7 @@ export class EmployeeDetailsComponent implements OnInit {
       if (!param.id) {
         this.populateEmployeeDetailsForm();
       } else {
+        this.sendChildName.emit('Employee Details');
         this.getProfileInformation();
 
       }

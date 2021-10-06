@@ -19,6 +19,7 @@ export class SocialDetailsComponent implements OnInit {
   step: any;
   socialDetails: any;
   studentid: any;
+  newStudentType: number;
 
   constructor(
     private home: AddStudentsComponent,
@@ -99,6 +100,7 @@ export class SocialDetailsComponent implements OnInit {
 
     if (sessionStorage.getItem('student-social-details') !== null) {
       // console.log(`Student social details exists`);
+
       this.socialDetailsForm.patchValue({
         EntryType: this.socialDetails.EntryType,
       AdmissionDate: moment(this.socialDetails.admissionDate).format('YYYY-MM-DD'),
@@ -106,6 +108,7 @@ export class SocialDetailsComponent implements OnInit {
       classId : this.socialDetails.ClassId,
       studentType: this.socialDetails.StudentType,
       });
+      this.getClassesUnderSection(this.socialDetails.SectionId);
     } else {
       // console.log(`Student social details not found`);
     }
@@ -114,13 +117,21 @@ export class SocialDetailsComponent implements OnInit {
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('all-student-info'));
     // console.log('na the paylod', payload);
+    if (payload.studentType === 'DayStudent') {
+      this.newStudentType = 1;
+    } else {
+      this.newStudentType = 2;
+
+    }
     this.socialDetailsForm.patchValue({
-      EntryType: payload.EntryType,
+      EntryType: payload.entryType,
     AdmissionDate: moment(payload.admissionDate).format('YYYY-MM-DD'),
-    SectionId : payload.SectionId,
-      ClassId : payload.ClassId,
-      StudentType: payload.StudentType,
+    sectionId : payload.sectionId,
+      classId : payload.classId,
+      studentType: this.newStudentType,
     });
+    this.getClassesUnderSection(payload.sectionId);
+
 
   }
 

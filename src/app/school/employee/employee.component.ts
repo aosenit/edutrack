@@ -12,23 +12,37 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   progress = 350;
   active = '1';
 
-  message: any;
+  message = 'Personal Information';
 
   constructor() { }
 
 
 
   ngOnInit() {
+   
   }
 
-  getChildName(data) {
-    this.message = data;
-  }
 
   stepper(step: any) {
     this.stage = step;
     this.currentStep = document.getElementById('step-' + step);
     const progress = document.getElementById('progress');
+    if (this.stage === 2) {
+      this.message = 'Employee Details';
+    } else if (this.stage === 3) {
+      this.message = 'Contact Details';
+    } else if (this.stage === 4) {
+      this.message = 'Next Of Kin Information';
+    } else if (this.stage === 5) {
+      this.message = 'Education';
+    } else if (this.stage === 6) {
+      this.message = 'Work Experience';
+    } else if (this.stage === 7) {
+      this.message = 'Images';
+    } else {
+      this.message = 'Personal Information';
+
+    }
     // this.currentStep.classList.add('active');
 
     for (let index = 1; index < 9; index++) {
@@ -52,7 +66,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     sessionStorage.removeItem('employee-next-kin');
     sessionStorage.removeItem('employee-experience');
     sessionStorage.removeItem('all-employee-info');
-    
+
   }
 
 
