@@ -119,6 +119,7 @@ export class SocialDetailsComponent implements OnInit {
     // console.log('na the paylod', payload);
     if (payload.studentType === 'DayStudent') {
       this.newStudentType = 1;
+      console.log(this.newStudentType);
     } else {
       this.newStudentType = 2;
 
