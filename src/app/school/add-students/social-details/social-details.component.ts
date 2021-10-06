@@ -100,7 +100,7 @@ export class SocialDetailsComponent implements OnInit {
 
     if (sessionStorage.getItem('student-social-details') !== null) {
       // console.log(`Student social details exists`);
-      
+
       this.socialDetailsForm.patchValue({
         EntryType: this.socialDetails.EntryType,
       AdmissionDate: moment(this.socialDetails.admissionDate).format('YYYY-MM-DD'),
@@ -108,7 +108,7 @@ export class SocialDetailsComponent implements OnInit {
       classId : this.socialDetails.ClassId,
       studentType: this.socialDetails.StudentType,
       });
-      this.getClassesUnderSection(this.socialDetails.SectionId)
+      this.getClassesUnderSection(this.socialDetails.SectionId);
     } else {
       // console.log(`Student social details not found`);
     }
@@ -117,7 +117,7 @@ export class SocialDetailsComponent implements OnInit {
   getProfileInformation() {
     const payload = JSON.parse(sessionStorage.getItem('all-student-info'));
     // console.log('na the paylod', payload);
-    if (payload.StudentType === 'DayStudent') {
+    if (payload.studentType === 'DayStudent') {
       this.newStudentType = 1;
     } else {
       this.newStudentType = 2;
