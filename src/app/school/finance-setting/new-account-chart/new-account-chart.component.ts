@@ -66,7 +66,7 @@ export class NewAccountChartComponent implements OnInit {
       name: ['', Validators.required],
       description: ['', Validators.required],
       AccountNumber: ['', [Validators.required, Validators.minLength(1)]],
-      OpeningBalance: ['', Validators.required],
+      // OpeningBalance: ['', Validators.required],
       cashPostable: false,
       isActive: false
     });
@@ -123,7 +123,7 @@ export class NewAccountChartComponent implements OnInit {
   }
 
   createChartOfAccount() {
-    const {AccountNumber, AccountTypeId, cashPostable, description, isActive, name, OpeningBalance  } = this.chartAccountForm.value;
+    const {AccountNumber, AccountTypeId, cashPostable, description, isActive, name  } = this.chartAccountForm.value;
     const result = {
       // tslint:disable-next-line:radix
       accountNumber: parseInt(AccountNumber),
@@ -134,7 +134,7 @@ export class NewAccountChartComponent implements OnInit {
       isActive: this.toggleState,
       name,
       // tslint:disable-next-line:radix
-      openingBalance: parseInt(OpeningBalance)
+      // openingBalance: parseInt(OpeningBalance)
     };
 
     this.finance.createNewChartAccount(result).subscribe((data: any) => {
