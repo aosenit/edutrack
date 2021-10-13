@@ -143,7 +143,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       unSelectAllText: 'UnSelect All',
       itemsShowLimit: 5,
       allowSearchFilter: true,
-      enableCheckAll: false,
+      enableCheckAll: true,
     };
   }
 
