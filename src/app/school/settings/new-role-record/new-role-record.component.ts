@@ -19,6 +19,7 @@ export class NewRoleRecordComponent implements OnInit {
 
   };
   prefillPermission: any;
+  checkBox = false;
 
 
   constructor(
@@ -79,7 +80,6 @@ export class NewRoleRecordComponent implements OnInit {
     // (event, id);
     if (event === true) {
       this.roleData.permissions.push(id);
-      // (this.roleData.permissions);
     } else {
       const index = this.roleData.permissions.indexOf(id);
       if (index > -1) {
@@ -87,12 +87,6 @@ export class NewRoleRecordComponent implements OnInit {
         // (this.roleData.permissions);
       }
     }
-    this.route.params.subscribe((param: Params) => {
-      if (!param.id) {
-      } else {
-
-      }
-    });
   }
 
   createRoles() {
@@ -119,8 +113,6 @@ export class NewRoleRecordComponent implements OnInit {
           // (data.payload);
           this.roleData.name = data.payload.roleName;
           this.prefillPermission = data.payload.permissions;
-          // this.roleData.permissions = data.payload.permission;
-
           const roleList = [];
 
           from(this.allRoles)
@@ -131,16 +123,26 @@ export class NewRoleRecordComponent implements OnInit {
             mergeMap(group => zip(of(group.key), group.pipe(toArray())))
           )
           .subscribe(xy => {
-            // ('levels', ...xy);
 
             roleList.push(xy);
           });
           const newList2 = roleList;
-          // // (newList2);
           // tslint:disable-next-line:prefer-for-of
           for (let i = 0; i < newList2.length; i++) {
-            console.log(newList2[i][1]);
-            // if (newList2[i][0] && newList2[i][1].id === ) { }
+              const nextiteration = newList2[i][1];
+              // tslint:disable-next-line:prefer-for-of
+              for (let index = 0; index < nextiteration.length; index++) {
+              // tslint:disable-next-line:forin
+              for (const key in this.prefillPermission) {
+                if (this.newList[i][1][index].id === this.prefillPermission[key].id) {
+
+                  this.newList[i][1][index].checked = true;
+                  this.roleData.permissions.push(this.prefillPermission[key].id);
+
+                 }
+              }
+
+            }
           }
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -164,14 +166,20 @@ export class NewRoleRecordComponent implements OnInit {
       name,
       permissionIds
     };
-    // (result);
-    // this.adminService.createRoles(result).subscribe((data: any) => {
-    //   // // (data);
-    //   this.notifyService.publishMessages('Roles created successfully', 'info', 1);
-    //   this.router.navigateByUrl('/school/account-settings');
-    // }, error => {
-    //   this.notifyService.publishMessages(error.errors, 'danger', 1);
-    // });
+    console.log(result)
+    this.adminService.updateRoles(result).subscribe((data: any) => {
+      // // (data);
+      if (data.hasErrors === false) {
+        this.notifyService.publishMessages('Roles created successfully', 'info', 1);
+        this.router.navigateByUrl('/school/account-settings');
+
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+    });
   }
 
 

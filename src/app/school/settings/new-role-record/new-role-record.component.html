@@ -122,7 +122,8 @@
                     <div class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input" id="customCheck{{permission.id}}" 
                       [value]="permission.id" 
-                      (change)="getID($event.target.checked, permission.id)" >
+                      (change)="getID($event.target.checked, permission.id)"
+                      [checked]="permission.checked === true" >
                       <label class="custom-control-label " for="customCheck{{permission.id}}"></label>
               </div>
                   </td>
