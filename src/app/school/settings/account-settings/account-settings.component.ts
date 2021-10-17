@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { from, zip, of } from 'rxjs';
+import { from, zip, of, forkJoin } from 'rxjs';
 import { groupBy, mergeMap, toArray } from 'rxjs/operators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AdminService } from 'src/services/data/admin/admin.service';
@@ -127,7 +127,11 @@ export class AccountSettingsComponent implements OnInit {
 
   getStaffs() {
     const arr = [];
-
+    // const teacher$ = this.teacherService.getAllTeachers();
+    // const staff$ = this.staffServie.getAllStaffInSchool();
+    // forkJoin(teacher$, staff$).subscribe((teacher, staff) => {
+    //   console.log(teacher, staff);
+    // });
     this.teacherService.getAllTeachers().subscribe((data: any) => {
       if (data.hasErrors === false) {
         const allTeacher: any = data.payload;
