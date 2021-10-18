@@ -163,10 +163,10 @@ export class NewRoleRecordComponent implements OnInit {
     const  permissionIds = permissions.map((i) => Number(i));
     // (permissionIds);
     const result = {
-      name,
+      roleId: this.roleId,
       permissionIds
     };
-    console.log(result)
+    // console.log(result);
     this.adminService.updateRoles(result).subscribe((data: any) => {
       // // (data);
       if (data.hasErrors === false) {
