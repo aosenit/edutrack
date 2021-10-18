@@ -7,7 +7,7 @@ const routes = {
   getschoolbyid: 'schtrack-auth/api/v1/School/GetSchool',
   getallschool: 'schtrack-auth/api/v1/School/GetSchools',
   // getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
-  
+
   //  grouped schools
   addGroupedSchools: 'schtrack-auth/api/v1/SchoolGroup/AddSchoolGroup ',
   getGroupSchools: 'schtrack-auth/api/v1/SchoolGroup/GetAllSchoolsInGroup',
@@ -38,31 +38,59 @@ export class SchoolService {
 
 
   addSchool(schoolFinalStep) {
+    const {GroupId} = schoolFinalStep;
+    if (schoolFinalStep.GroupId !== null || undefined) {
+      const formData = new FormData();
+      formData.append('Name', schoolFinalStep.Name);
+      formData.append('DomainName', schoolFinalStep.DomainName);
+      formData.append('WebsiteAddress', schoolFinalStep.WebsiteAddress);
+      formData.append('Username', schoolFinalStep.Username);
+      formData.append('Files', schoolFinalStep.logo);
+      formData.append('Files', schoolFinalStep.icon);
+      formData.append('PrimaryColor', schoolFinalStep.PrimaryColor);
+      formData.append('SecondaryColor', schoolFinalStep.SecondaryColor);
+      // formData.append('DocumentTypes', schoolFinalStep.DocumentTypes);
+      schoolFinalStep.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
+      formData.append('Country', schoolFinalStep.Country);
+      formData.append('Address', schoolFinalStep.Address);
+      formData.append('State', schoolFinalStep.State);
+      formData.append('City', schoolFinalStep.City);
+      formData.append('ContactFirstName', schoolFinalStep.ContactFirstName);
+      formData.append('ContactLastName', schoolFinalStep.ContactLastName);
+      formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
+      formData.append('ContactEmail', schoolFinalStep.ContactEmail);
+      formData.append('IsActive', schoolFinalStep.isActive);
+      formData.append('GroupId', schoolFinalStep.GroupId);
+      const url = `${this.baseUrl + routes.addschool}`;
+      // // ('asasas', schoolFinalStep);
+      return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+    } else {
+      const formData = new FormData();
+      formData.append('Name', schoolFinalStep.Name);
+      formData.append('DomainName', schoolFinalStep.DomainName);
+      formData.append('WebsiteAddress', schoolFinalStep.WebsiteAddress);
+      formData.append('Username', schoolFinalStep.Username);
+      formData.append('Files', schoolFinalStep.logo);
+      formData.append('Files', schoolFinalStep.icon);
+      formData.append('PrimaryColor', schoolFinalStep.PrimaryColor);
+      formData.append('SecondaryColor', schoolFinalStep.SecondaryColor);
+      // formData.append('DocumentTypes', schoolFinalStep.DocumentTypes);
+      schoolFinalStep.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
+      formData.append('Country', schoolFinalStep.Country);
+      formData.append('Address', schoolFinalStep.Address);
+      formData.append('State', schoolFinalStep.State);
+      formData.append('City', schoolFinalStep.City);
+      formData.append('ContactFirstName', schoolFinalStep.ContactFirstName);
+      formData.append('ContactLastName', schoolFinalStep.ContactLastName);
+      formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
+      formData.append('ContactEmail', schoolFinalStep.ContactEmail);
+      formData.append('IsActive', schoolFinalStep.isActive);
+      // formData.append('GroupId', schoolFinalStep.GroupId);
+      const url = `${this.baseUrl + routes.addschool}`;
+      // // ('asasas', schoolFinalStep);
+      return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
 
-    const formData = new FormData();
-    formData.append('Name', schoolFinalStep.Name);
-    formData.append('DomainName', schoolFinalStep.DomainName);
-    formData.append('WebsiteAddress', schoolFinalStep.WebsiteAddress);
-    formData.append('Username', schoolFinalStep.Username);
-    formData.append('Files', schoolFinalStep.logo);
-    formData.append('Files', schoolFinalStep.icon);
-    formData.append('PrimaryColor', schoolFinalStep.PrimaryColor);
-    formData.append('SecondaryColor', schoolFinalStep.SecondaryColor);
-    // formData.append('DocumentTypes', schoolFinalStep.DocumentTypes);
-    schoolFinalStep.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
-    formData.append('Country', schoolFinalStep.Country);
-    formData.append('Address', schoolFinalStep.Address);
-    formData.append('State', schoolFinalStep.State);
-    formData.append('City', schoolFinalStep.City);
-    formData.append('ContactFirstName', schoolFinalStep.ContactFirstName);
-    formData.append('ContactLastName', schoolFinalStep.ContactLastName);
-    formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
-    formData.append('ContactEmail', schoolFinalStep.ContactEmail);
-    formData.append('IsActive', schoolFinalStep.isActive);
-    formData.append('GroupId', schoolFinalStep.GroupId);
-    const url = `${this.baseUrl + routes.addschool}`;
-    // // ('asasas', schoolFinalStep);
-    return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+    }
   }
 
   getAllSchools( p, perpage ) {
