@@ -163,7 +163,7 @@ export class NewRoleRecordComponent implements OnInit {
     const  permissionIds = permissions.map((i) => Number(i));
     // (permissionIds);
     const result = {
-      roleId: this.roleId,
+      roleId: parseInt(this.roleId),
       permissionIds
     };
     // console.log(result);
