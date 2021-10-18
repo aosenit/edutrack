@@ -60,7 +60,7 @@ export class BranchContactPersonComponent implements OnInit {
     this.contactPersonForm = this.fb.group({
       ContactFirstName : ['', Validators.required],
       ContactLastName: ['', Validators.required],
-      ContactPhoneNo: ['', [Validators.required, Validators.minLength(11), Validators.pattern('^[0-9]{0,11}$')]],
+      ContactPhoneNo: ['', [Validators.required, Validators.minLength(11), Validators.pattern('(0[7-9][0-1][0-9]{8})|(0[1-4][0-9]{7})+$')]],
       ContactEmail: ['', [Validators.email, Validators.required]]
     });
   }
