@@ -100,7 +100,7 @@ export class NewRoleRecordComponent implements OnInit {
     // // (this.roleData);
     this.adminService.createRoles(result).subscribe((data: any) => {
       // // (data);
-      this.notifyService.publishMessages('Roles created successfully', 'info', 1);
+      this.notifyService.publishMessages('Role created successfully', 'info', 1);
       this.router.navigateByUrl('/school/settings/account-settings');
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -170,7 +170,7 @@ export class NewRoleRecordComponent implements OnInit {
     this.adminService.updateRoles(result).subscribe((data: any) => {
       // // (data);
       if (data.hasErrors === false) {
-        this.notifyService.publishMessages('Roles created updated', 'info', 1);
+        this.notifyService.publishMessages('Role successfully updated', 'info', 1);
         this.router.navigateByUrl('/school/settings/account-settings');
 
       } else {
