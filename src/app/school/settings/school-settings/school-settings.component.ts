@@ -185,6 +185,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         this.arm = false;
         this.subject = false;
         this.mail = false;
+        this.getAllSubjectsNoPage();
         break;
 
       case 'subject':
@@ -451,7 +452,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
           });
         }
       );
-   
+
 
   }
 
@@ -681,7 +682,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
 
   }
 
-  
+
 
   toggleSubjectUpdate(e) {
     this.subjectStatus = e;

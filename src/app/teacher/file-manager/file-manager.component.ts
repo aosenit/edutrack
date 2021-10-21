@@ -55,8 +55,8 @@ export class FileManagerComponent implements OnInit {
 
     this.getAllClasses();
     this.getAllLessonNotesByTeacher();
-    this.getAllClassWorkByTeacher();
-    this.getAllAssignmentsByTeacher();
+    // this.getAllClassWorkByTeacher();
+    // this.getAllAssignmentsByTeacher();
   }
 
   populateClassNoteForm() {

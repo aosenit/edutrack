@@ -105,10 +105,10 @@
                 <td scope="row" class="user rounded-left">
                   {{role?.name}}
                 </td>
-                <td class="">STA1092076</td>
+                <td class="">{{role.id}}</td>
                 <td>{{role?.usersCount}}</td>
                 <td>17/03/2020</td>
-                <td class="rounded-right action cursor-pointer" data-toggle="modal" data-target="#exampleModalCenter">
+                <td class="rounded-right action cursor-pointer" data-toggle="modal" data-target="#exampleModalCenter" (click)="getStaffs()">
                   <i class="fa fa-tasks mr-3" aria-hidden="true"></i>
                   Assign User </td>
                   <td class="rounded-right action cursor-pointer" routerLink="/school/settings/edit-role-permission/{{role?.id}}"><img src="assets/images/svg/edit-role.svg" alt="schools log"

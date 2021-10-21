@@ -1,5 +1,6 @@
 import { getLocaleFirstDayOfWeek, JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { from, zip, of } from 'rxjs';
 import { groupBy, mergeMap, toArray } from 'rxjs/operators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
@@ -26,11 +27,16 @@ export class TimeTableComponent implements OnInit {
   addCell = { periodId: '', day: '', teacherClassSubjectId: '', HasVirtual: false };
   hideImg = false;
   checkPushlishStatus: any;
+  tableCells = [];
+  mirrowTableCells = [];
+  selectedTeacher: any;
+  timetableCellForm: FormGroup;
   constructor(
     private schoolSectionService: SchoolSectionService,
     private classService: ClassService,
     private timeTableService: TimeTableService,
-    private notifyService: NotificationsService
+    private notifyService: NotificationsService,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -38,11 +44,22 @@ export class TimeTableComponent implements OnInit {
     // this.getClasses();
     this.getAllPeriods();
     this.daysofWeek();
-    this.checkPushlishStatus = sessionStorage.getItem('publish');
-    console.log(this.checkPushlishStatus)
-
+    console.log(this.checkPushlishStatus);
+    this.initTimeTableCellForm();
     // this.deleteTableCell();
 
+  }
+
+  initTimeTableCellForm() {
+    this.timetableCellForm = this.fb.group({
+      periodId: ['', Validators.required],
+      day: ['', Validators.required],
+      teacherClassSubjectId: ['', Validators.required],
+      subjectName: [''],
+      teacherName: [''],
+      periodName: [''],
+      hasVirtual: false
+    });
   }
 
   getSchoolSection() {
@@ -56,11 +73,11 @@ export class TimeTableComponent implements OnInit {
   getClassBySectionId(id) {
     // (id);
     this.classService.getClassBySection(id).subscribe((data: any) => {
-        if (data.hasErrors === false) {
-          this.classes = data.payload;
+      if (data.hasErrors === false) {
+        this.classes = data.payload;
 
-        }
-      });
+      }
+    });
 
   }
 
@@ -85,23 +102,23 @@ export class TimeTableComponent implements OnInit {
     );
 
     this.timeTableService.getTimeTableForClassWithQuery(id).subscribe((data: any) => {
-      if (data.hasErrors === false ) {
+      if (data.hasErrors === false) {
         this.timeTableCells = data.payload;
-        // (this.timeTableCells);
-        const tables = [];
+        // // (this.timeTableCells);
+        // const tables = [];
 
-        from(this.timeTableCells)
-         .pipe(
-           groupBy(
-             (result: any) => result.periodName.split('_')[0]
-           ),
-           mergeMap(group => zip(of(group.key), group.pipe(toArray())))
-         )
-         .subscribe(xy => {
-           tables.push(xy);
-          });
-        this.timeTable = tables;
-        // ('time table', this.timeTable[0]);
+        // from(this.timeTableCells)
+        //   .pipe(
+        //     groupBy(
+        //       (result: any) => result.periodName.split('_')[0]
+        //     ),
+        //     mergeMap(group => zip(of(group.key), group.pipe(toArray())))
+        //   )
+        //   .subscribe(xy => {
+        //     tables.push(xy);
+        //   });
+        // this.timeTable = tables;
+        // // ('time table', this.timeTable[0]);  teacherClassSubjectId
 
       }
     });
@@ -110,7 +127,10 @@ export class TimeTableComponent implements OnInit {
 
 
 
-  getTeacherBySubjectId(id) {
+  getTeacherBySubjectId(e) {
+
+    this.timetableCellForm.controls.subjectName.setValue(this.subjectList[e].subject);
+    const id = this.subjectList[e].id;
     // (id);
     this.classService.getTeacherTeachingSubject(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -122,6 +142,12 @@ export class TimeTableComponent implements OnInit {
 
   }
 
+
+  setTeacherData(e) {
+    this.timetableCellForm.controls.teacherClassSubjectId.setValue(this.teachersList[e].id);
+    this.timetableCellForm.controls.teacherName.setValue(this.teachersList[e].teacher);
+
+  }
 
   getAllPeriods() {
     this.timeTableService.getPeriods().subscribe((data: any) => {
@@ -143,9 +169,11 @@ export class TimeTableComponent implements OnInit {
     ];
   }
 
-  getDay(id, periodid) {
-    // ('id', id);
-    // ('period', periodid);
+  getDay(id, periodid, name) {
+
+    this.timetableCellForm.controls.periodId.setValue(periodid);
+    this.timetableCellForm.controls.day.setValue(id);
+    this.timetableCellForm.controls.periodName.setValue(name);
     this.addCell.day = id;
     this.addCell.periodId = periodid;
     // this.hideImg = true;
@@ -154,35 +182,48 @@ export class TimeTableComponent implements OnInit {
 
   }
 
+  // getTeacherDetails(e) {
+  //   this.selectedTeacher = this.teachersList[e].id;
+  // }
+
   addCellToTimeTable() {
-    // (this.addCell);
-    console.log(this.addCell)
+    
+    const { periodId, day, teacherClassSubjectId, hasVirtual } = this.timetableCellForm.value;
+    const result = {
+      periodId,
+      day,
+      teacherClassSubjectId: parseInt(teacherClassSubjectId),
+      HasVirtual: hasVirtual
+    };
+    this.tableCells.push(result);
+    console.log(this.tableCells)
+    this.timetableCellForm.controls.teacherClassSubjectId.setValue('');
+    this.timetableCellForm.controls.hasVirtual.setValue(false);
     sessionStorage.setItem('publish', JSON.stringify(this.addCell));
+    sessionStorage.setItem('saveTableCell', JSON.stringify(this.timetableCellForm.value));
     setTimeout(() => {
       this.checkPushlishStatus = JSON.parse(sessionStorage.getItem('publish'));
 
       document.getElementById('exampleModalCenterLevel').click();
     }, 1000);
+    const idontire = JSON.parse(sessionStorage.getItem('saveTableCell'))
+    this.timeTableCells.push(idontire);
     // sessionStorage.removeItem('publish');
   }
 
   createTimeTableCell() {
-    const { periodId, day, teacherClassSubjectId, HasVirtual } = this.addCell;
-    // tslint:disable-next-line:radix
-    const TeacherClassSubjectId = parseInt(teacherClassSubjectId);
-    // tslint:disable-next-line:radix
-    const PeriodId = parseInt(periodId);
-    // tslint:disable-next-line:radix
-    const Day = parseInt(day);
-    const result = {
-      PeriodId,
-      Day,
-      TeacherClassSubjectId,
-      HasVirtual,
-      // NoOfPeriod: 1
-    };
-    // (result);
-    this.timeTableService.AddTimeTableCell(result).subscribe((data: any) => {
+    // const { periodId, day, teacherClassSubjectId, HasVirtual } = this.addCell;
+    // const TeacherClassSubjectId = parseInt(teacherClassSubjectId);
+    // const PeriodId = parseInt(periodId);
+    // const Day = parseInt(day);
+    // const result = {
+    //   PeriodId,
+    //   Day,
+    //   TeacherClassSubjectId,
+    //   HasVirtual,
+    //   // NoOfPeriod: 1
+    // };
+    this.timeTableService.AddTimeTableCellBulk(this.tableCells).subscribe((data: any) => {
       if (data.hasErrors === false) {
         // (data);
         sessionStorage.setItem('table', JSON.stringify(data.payload));

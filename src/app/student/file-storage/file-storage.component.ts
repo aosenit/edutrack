@@ -30,8 +30,8 @@ classWorks: any;
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
     this.getLessNotes();
-    this.getClassWork();
-    this.getAssignments();
+    // this.getClassWork();
+    // this.getAssignments();
   }
 
   getLessNotes() {
