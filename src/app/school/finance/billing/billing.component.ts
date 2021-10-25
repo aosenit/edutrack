@@ -521,7 +521,7 @@ export class BillingComponent implements OnInit, OnDestroy {
   // });
   // }
 
-  print() {
+  downlaodTemplate() {
     const data = document.getElementById('invoice');
     html2canvas(data).then(canvas => {
 
@@ -538,6 +538,11 @@ export class BillingComponent implements OnInit, OnDestroy {
     });
 
 
+  }
+
+
+  print() {
+    
   }
 
   multPrintPDF() {
