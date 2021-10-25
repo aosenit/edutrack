@@ -40,7 +40,7 @@ export class AccountSettingsComponent implements OnInit {
     this.populateAssignRoleForm();
     this.getRolesPermissions();
     this.getRoles();
-    this.getStaffs();
+    // this.getStaffs();
 
     this.dropdownSettings = {
       singleSelection: false,

@@ -134,8 +134,8 @@ export class ResultService {
     return this.http.post(url, mailData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  GetAllClassResultApprovalStatus() {
-    const url = `${this.baseUrl + routes.viewAllClassApprovalStatus}`;
+  GetAllClassResultApprovalStatus(curSessionId, termSequenceNumber) {
+    const url = `${this.baseUrl + routes.viewAllClassApprovalStatus}?curSessionId=${curSessionId}&termSequenceNumber=${termSequenceNumber}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }

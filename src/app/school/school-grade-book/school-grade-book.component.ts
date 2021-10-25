@@ -37,6 +37,7 @@ export class SchoolGradeBookComponent implements OnInit {
   studentBehaviour: any;
   selectedStudentId: any;
   allResultStatus: any;
+  curSessionId: any;
 
 
 
@@ -71,7 +72,6 @@ export class SchoolGradeBookComponent implements OnInit {
       headTeacherRejectionComment: ['', Validators.required]
     });
 
-    this.getAllClassesResultWithApprovalStatus();
   }
 
   showToolTip() {
@@ -93,6 +93,7 @@ export class SchoolGradeBookComponent implements OnInit {
     this.assessmentService.getCurrentSession().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.sessions = data.payload;
+        this.curSessionId = data.payload.id;
         this.terms = data.payload.terms;
       }
     });
@@ -144,6 +145,7 @@ export class SchoolGradeBookComponent implements OnInit {
   selectedTerm(event) {
     this.termName = this.terms[event];
     this.selectedTermId = this.terms[event].sequenceNumber;
+    this.getAllClassesResultWithApprovalStatus();
 
 
    }
@@ -258,7 +260,7 @@ export class SchoolGradeBookComponent implements OnInit {
   }
 
   getAllClassesResultWithApprovalStatus() {
-    this.resultService.GetAllClassResultApprovalStatus().subscribe((res: any) => {
+    this.resultService.GetAllClassResultApprovalStatus(this.curSessionId, this.selectedTermId).subscribe((res: any) => {
       if (res.hasErrors === false) {
         console.log(res);
         this.allResultStatus = res.payload;

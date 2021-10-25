@@ -22,6 +22,9 @@ export class MailReportCardComponent implements OnInit {
   selectedTermId: any;
   StudentIds = [];
   loggedInUser: any;
+  noData = true;
+  displayData = false;
+
   constructor(
     private classService: ClassService,
     private assessmentService: AssessmentService,
@@ -124,9 +127,13 @@ export class MailReportCardComponent implements OnInit {
     this.resultService.getStudentApprovedResults(this.loggedInUser.TeacherClassId, this.sessions.id, this.selectedTermId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.studentList = data.payload;
+        this.noData = false;
+        this.displayData = true;
+    
       } else {
-
         this.notifyService.publishMessages(data.errors, 'danger', 1);
+        this.noData = true;
+        this.displayData = false;
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

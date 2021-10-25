@@ -20,7 +20,13 @@
 
       </section>
 
-      <section class="list">
+      <div *ngIf="assignmentLists?.length === 0" class=" mh-100 bg-white d-flex flex-column justify-content-center align-items-center" style="height: 78vh"> 
+        <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+        <p class="fw-6 cursor-pointer" >
+        No assignment Submitted yet
+      </p></div>
+
+      <section class="list" *ngIf="assignmentLists?.length > 0">
         <table class="table table-borderless client-table">
           <thead>
             <tr>

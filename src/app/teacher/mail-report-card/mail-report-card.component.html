@@ -44,7 +44,7 @@
         </button>
     </div>
 
-    <section class="list">
+    <section class="list" *ngIf="displayData">
         <table class="table table-borderless client-table">
           <thead>
             <tr>
@@ -101,7 +101,14 @@
           <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
         </div> -->
 
-      </section>
+    </section>
+
+    <div class="bg-white py-5 px-4 d-flex justify-content-center align-items-center" *ngIf="noData">
+      <div class="d-flex flex-column text-center">
+        <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+        <p class="fw-6 fs-24" style="color:#BAB9C1;">Select term to display <br> information</p>
+      </div>
+    </div>
 
 
 

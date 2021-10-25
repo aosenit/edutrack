@@ -71,10 +71,10 @@
                             <p class="mb-0 fw-6">Class notes</p>
             
                             <div>
-                                <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
-                                <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                                <!-- <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3"> -->
+                                <!-- <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
                                     type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
+                                    aria-expanded="false"> -->
                                 <!-- ================ DROPDOWN ==================== -->
                                 <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
@@ -90,7 +90,14 @@
                                 </div>
                             </div>
                         </div>
-                    <section class="list">
+
+                        <div *ngIf="allLessonNote?.length === 0" class=" mh-100 bg-white d-flex flex-column justify-content-center align-items-center mt-3" style="height: 78vh"> 
+                            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+                            <p class="fw-6 cursor-pointer" >
+                            No class note yet
+                          </p>
+                        </div>
+                    <section class="list" *ngIf="allLessonNote?.length > 0">
                         <table class="table table-borderless client-table">
                             <thead>
                                 <tr>
@@ -158,10 +165,10 @@
                         <p class="mb-0 fw-6">Assignment</p>
         
                         <div>
-                            <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                            <!-- <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
                             <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
                                 type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                                aria-expanded="false"> -->
                             <!-- ================ DROPDOWN ==================== -->
                             <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
@@ -177,7 +184,14 @@
                             </div>
                         </div>
                     </div>
-                <section class="list">
+
+                    <div *ngIf="assignmentlist?.length === 0" class=" mh-100 bg-white d-flex flex-column justify-content-center align-items-center mt-3" style="height: 78vh"> 
+                        <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+                        <p class="fw-6 cursor-pointer" >
+                        No assignment yet
+                      </p>
+                    </div>
+                <section class="list" *ngIf="assignmentlist?.length > 0">
                     <table class="table table-borderless client-table">
                         <thead>
                             <tr>
@@ -250,10 +264,10 @@
                         <p class="mb-0 fw-6">Class Work</p>
         
                         <div>
-                            <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                            <!-- <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
                             <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
                                 type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                                aria-expanded="false"> -->
                             <!-- ================ DROPDOWN ==================== -->
                             <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
@@ -269,7 +283,15 @@
                             </div>
                         </div>
                     </div>
-                <section class="list">
+
+                    <div *ngIf="classworkList?.length === 0" class=" mh-100 bg-white d-flex flex-column justify-content-center align-items-center mt-3" style="height: 78vh"> 
+                        <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+                        <p class="fw-6 cursor-pointer" >
+                        No classwork yet
+                      </p>
+                    </div>
+
+                <section class="list" *ngIf="classworkList?.length > 0">
                     <table class="table table-borderless client-table">
                         <thead>
                             <tr>

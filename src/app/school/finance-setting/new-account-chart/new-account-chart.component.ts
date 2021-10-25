@@ -43,6 +43,7 @@ export class NewAccountChartComponent implements OnInit {
         // this.getProfileInformation();
         this.newChart = false;
         this.editChart = true;
+        this.getChartAccountByItsId();
 
       }
     });

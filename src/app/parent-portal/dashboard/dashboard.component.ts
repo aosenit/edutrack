@@ -49,7 +49,7 @@ export class DashboardComponent implements OnInit  {
   ngOnInit() {
     const helper = new JwtHelperService();
     this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
-
+    location.reload();
     this.greeting();
     this.daysofWeek();
     this.getChildInSelectedSchool();
