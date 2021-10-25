@@ -127,7 +127,6 @@ export class DashboardComponent implements OnInit  {
     this.getAllSubjects();
     this.getSubjectAttendance();
 
-
     this.assignmentCount = 0;
   }
 
