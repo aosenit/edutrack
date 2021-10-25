@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
+import { PromotionService } from '../../../../services/data/promotion/promotion.service';
 
 @Component({
   selector: 'app-promotion-dashboard',
@@ -11,15 +13,38 @@ export class PromotionDashboardComponent implements OnInit {
   @ViewChild('deviationChart', { static: true }) deviationChartRef: ElementRef;
   chart: any = [];
   deviationChrt: any = [];
+  currentSesion: any;
 
 
-  constructor() { }
+  constructor(
+    private promotion: PromotionService,
+    private assessment: AssessmentService,
+  ) { }
 
   ngOnInit() {
     this.createDistributionChart();
     this.createDeviationChart();
+    this.getCurrentSession();
+
+  } 
+
+  getCurrentSession() {
+    this.assessment.getCurrentSession().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.currentSesion = res.payload.id;
+        console.log(this.currentSesion);
+        this.getPromotionHightlights(this.currentSesion);
+      }
+    });
   }
 
+  getPromotionHightlights(id) {
+    this.promotion.getPromotionHighlight(id, '').subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        console.log('sdsd', res);
+      }
+    });
+  }
 
   createDistributionChart() {
 

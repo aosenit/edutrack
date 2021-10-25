@@ -17,6 +17,8 @@ const routes = {
   withdrawnList: 'schtrack-auth/api/v1/Promotion/GetWithdrawnList',
   promotionHighlight: 'schtrack-auth/api/v1/Promotion/GetPromotionHighlight',
   submitReasons: 'schtrack-auth/api/v1/Promotion/PostClassPool',
+
+  submitResultsForPromotion: 'schtrack-assessment/api/v1/Promotion',
 };
 
 
@@ -83,14 +85,19 @@ export class PromotionService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  getPromotionHighlight(sessionId) {
-    const url = `${this.baseUrl + routes.promotionHighlight}/${sessionId}`;
+  getPromotionHighlight(sessionId, classId?: any) {
+    const url = `${this.baseUrl + routes.promotionHighlight}/${sessionId}?classId=${classId}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   postReasons(payload) {
     const url = `${this.baseUrl + routes.submitReasons}`;
     return this.http.post(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  submitAllResultsForPromotion() {
+    const url = `${this.baseUrl + routes.submitResultsForPromotion}`;
+    return this.http.post(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
 }
