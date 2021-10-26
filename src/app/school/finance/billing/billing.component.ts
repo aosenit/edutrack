@@ -525,62 +525,52 @@ export class BillingComponent implements OnInit, OnDestroy {
 
   downlaodTemplate() {
     const data = document.getElementById('invoice');
-    // html2canvas(data).then(canvas => {
+    html2canvas(data).then(canvas => {
 
-    //   const contentDataURL = canvas.toDataURL('image/png');
-    //   const pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
-    //   const pageWidth = pdf.internal.pageSize.getWidth();
-    //   const pageHeight = pdf.internal.pageSize.getHeight();
-    //   const imageWidth = canvas.width;
-    //   const imageHeight = canvas.height;
-    //   const ratio = imageWidth / imageHeight >= pageWidth / pageHeight ? pageWidth / imageWidth : pageHeight / imageHeight;
-    //   const position = 0;
-    //   pdf.addImage(contentDataURL, 'PNG', 0, position, imageWidth * ratio, imageHeight * ratio);
-    //   pdf.save(`Invoice ${this.studentInvoicePreview.invoiceNumber}.pdf`); // Generated PDF
-    // });
-
-    const opt = {
-      margin: 1,
-      filename: 'Invoices.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-    let worker = html2pdf().set(opt).from(data).toPdf();
-    worker = worker.set(opt).from(data).toContainer().toCanvas().toPdf().get('pdf').then((pdf) => {
-      pdf.addPage();
-      pdf.save();
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imageWidth = canvas.width;
+      const imageHeight = canvas.height;
+      const ratio = imageWidth / imageHeight >= pageWidth / pageHeight ? pageWidth / imageWidth : pageHeight / imageHeight;
+      const position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imageWidth * ratio, imageHeight * ratio);
+      pdf.save(`Invoice ${this.studentInvoicePreview.invoiceNumber}.pdf`); // Generated PDF
     });
-    
+
 
 
   }
 
 
   print(divName) {
-    // es6printJS({
-    //   printable: divName,
-    //   type: 'html',
-    //   targetStyles: ['*'],
-    // });
-    const data = document.getElementById('invoice');
+    es6printJS({
+      printable: divName,
+      type: 'html',
+      targetStyles: ['*'],
+    });
+  //   const data = document.getElementById('invoice');
 
-    const opt = {
-      margin: 1,
-      filename: 'Invoices.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-    const pages = document.getElementById('invoice');
-    let worker = html2pdf().set(opt).from(pages).toPdf();
-    // tslint:disable-next-line:prefer-for-of
-    worker = worker.set(opt).from(pages).toPdf().get('pdf').then( (pdfObj) => {
-      pdfObj.autoPrint();
-      // window.open(pdfObj.output('bloburl'), '_blank');
-  });
+  //   const opt = {
+  //   margin: 1,
+  //   filename: 'Invoices.pdf',
+  //   image: { type: 'jpeg', quality: 0.98 },
+  //   html2canvas: { scale: 2 },
+  //   jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+  // };
+  //   const pages = document.getElementsByClassName('invoice-print');
+  //   let worker = html2pdf().set(opt).from(pages[0]).toPdf();
+  // // tslint:disable-next-line:prefer-for-of
+  //   for (let i = 0; i < pages.length; i++) {
+  //   worker = worker.set(opt).from(pages[i]).toContainer().toCanvas().toPdf().get('pdf').then((pdf) => {
+  //     pdf.autoPrint();
+  //     window.open(pdf.output('bloburl'), '_blank');
+  // });
+
+  // }
   }
-  
+
 
   multDownloadPDF() {
     const element = document.getElementById('element-to-print');
@@ -616,9 +606,10 @@ export class BillingComponent implements OnInit, OnDestroy {
     let worker = html2pdf().set(opt).from(pages[0]).toPdf();
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < pages.length; i++) {
-      worker = worker.set(opt).from(pages[i]).toPdf().get('pdf').then( (pdfObj) => {
-        pdfObj.autoPrint();
-        // window.open(pdfObj.output('bloburl'), '_blank');
+      worker = worker.set(opt).from(pages[i]).toContainer().toCanvas().toPdf().get('pdf').then((pdf) => {
+        pdf.addPage();
+        window.open(pdf.output('bloburl'), '_blank');
+        pdf.autoPrint();
     });
 
     }
