@@ -525,19 +525,33 @@ export class BillingComponent implements OnInit, OnDestroy {
 
   downlaodTemplate() {
     const data = document.getElementById('invoice');
-    html2canvas(data).then(canvas => {
+    // html2canvas(data).then(canvas => {
 
-      const contentDataURL = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
-      const pageWidth = pdf.internal.pageSize.getWidth();
-      const pageHeight = pdf.internal.pageSize.getHeight();
-      const imageWidth = canvas.width;
-      const imageHeight = canvas.height;
-      const ratio = imageWidth / imageHeight >= pageWidth / pageHeight ? pageWidth / imageWidth : pageHeight / imageHeight;
-      const position = 0;
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imageWidth * ratio, imageHeight * ratio);
-      pdf.save(`Invoice ${this.studentInvoicePreview.invoiceNumber}.pdf`); // Generated PDF
+    //   const contentDataURL = canvas.toDataURL('image/png');
+    //   const pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+    //   const pageWidth = pdf.internal.pageSize.getWidth();
+    //   const pageHeight = pdf.internal.pageSize.getHeight();
+    //   const imageWidth = canvas.width;
+    //   const imageHeight = canvas.height;
+    //   const ratio = imageWidth / imageHeight >= pageWidth / pageHeight ? pageWidth / imageWidth : pageHeight / imageHeight;
+    //   const position = 0;
+    //   pdf.addImage(contentDataURL, 'PNG', 0, position, imageWidth * ratio, imageHeight * ratio);
+    //   pdf.save(`Invoice ${this.studentInvoicePreview.invoiceNumber}.pdf`); // Generated PDF
+    // });
+
+    const opt = {
+      margin: 1,
+      filename: 'Invoices.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    let worker = html2pdf().set(opt).from(data).toPdf();
+    worker = worker.set(opt).from(data).toContainer().toCanvas().toPdf().get('pdf').then((pdf) => {
+      pdf.addPage();
+      pdf.save();
     });
+    
 
 
   }
@@ -567,13 +581,12 @@ export class BillingComponent implements OnInit, OnDestroy {
       worker = worker.set(opt).from(pages[i]).toContainer().toCanvas().toPdf().get('pdf').then((pdf) => {
         if (i < pages.length - 1) { // Bump cursor ahead to new page until on last page
           pdf.addPage();
-          pdf.save();
         }
       });
-
-
     }
+    worker.save();
   }
+  
   multiplePrintPdF() {
     const element = document.getElementById('element-to-print');
     const opt = {
