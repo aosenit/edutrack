@@ -109,9 +109,9 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
     });
     this.populateNewClassForm();
     this.getClassArms();
-    this.getClasses();
-    this.getSections();
-    this.getAllSubjects();
+    // this.getClasses();
+    // this.getSections();
+    // this.getAllSubjects();
     this.getAllSubjectsNoPage();
 
 
@@ -168,6 +168,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         this.class = false;
         this.subject = false;
         this.mail = false;
+        this.getClassArms();
         break;
 
       case 'level':
@@ -176,6 +177,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         this.arm = false;
         this.subject = false;
         this.mail = false;
+        this.getSections();
         break;
 
 
@@ -185,6 +187,9 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         this.arm = false;
         this.subject = false;
         this.mail = false;
+        this.getClasses();
+        this.getClassArms();
+        this.getSections();
         this.getAllSubjectsNoPage();
         break;
 
@@ -194,6 +199,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
         this.arm = false;
         this.subject = true;
         this.mail = false;
+        this.getAllSubjects();
         break;
 
       case 'mail':

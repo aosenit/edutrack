@@ -6,6 +6,7 @@ import { ResultService } from 'src/services/data/result/result.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { PromotionService } from 'src/services/data/promotion/promotion.service';
 // import * as $ from 'jquery';
 declare var $: any;
 
@@ -48,7 +49,8 @@ export class SchoolGradeBookComponent implements OnInit {
     private resultService: ResultService,
     private notifyService: NotificationsService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private promotion: PromotionService
 
 
 
@@ -264,6 +266,14 @@ export class SchoolGradeBookComponent implements OnInit {
       if (res.hasErrors === false) {
         console.log(res);
         this.allResultStatus = res.payload;
+      }
+    });
+  }
+
+  applyForPromotion() {
+    this.promotion.submitAllResultsForPromotion().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        console.log(res);
       }
     });
   }
