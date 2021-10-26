@@ -11,6 +11,8 @@ import html2pdf from 'html2pdf.js';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 // import * as html2pdf from 'h'
+import * as es6printJS from 'print-js';
+
 
 @Component({
   selector: 'app-billing',
@@ -541,9 +543,14 @@ export class BillingComponent implements OnInit, OnDestroy {
   }
 
 
-  print() {
-    
+  print(divName) {
+    es6printJS({
+      printable: divName,
+      type: 'html',
+      targetStyles: ['*'],
+    });
   }
+  
 
   multPrintPDF() {
     const element = document.getElementById('element-to-print');
