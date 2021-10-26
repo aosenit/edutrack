@@ -551,7 +551,7 @@ export class BillingComponent implements OnInit, OnDestroy {
       pdf.addPage();
       pdf.save();
     });
-    
+
 
 
   }
@@ -564,7 +564,7 @@ export class BillingComponent implements OnInit, OnDestroy {
       targetStyles: ['*'],
     });
   }
-  
+
 
   multDownloadPDF() {
     const element = document.getElementById('element-to-print');
@@ -586,7 +586,7 @@ export class BillingComponent implements OnInit, OnDestroy {
     }
     worker.save();
   }
-  
+
   multiplePrintPdF() {
     const element = document.getElementById('element-to-print');
     const opt = {
@@ -598,14 +598,15 @@ export class BillingComponent implements OnInit, OnDestroy {
     };
     const pages = document.getElementsByClassName('toPdfPage');
     let worker = html2pdf().set(opt).from(pages[0]).toPdf();
-    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < pages.length; i++) {
-      worker = worker.set(opt).from(pages[i]).toPdf().get('pdf').then( (pdfObj) => {
-        pdfObj.autoPrint();
-        window.open(pdfObj.output('bloburl'), '_blank');
-    });
-
+      worker = worker.set(opt).from(pages[i]).toContainer().toCanvas().toPdf().get('pdf').then((pdf) => {
+        if (i < pages.length - 1) { // Bump cursor ahead to new page until on last page
+          pdf.addPage();
+        }
+      });
     }
+    worker.autoPrint();
+
   }
 
   ngOnDestroy() {
