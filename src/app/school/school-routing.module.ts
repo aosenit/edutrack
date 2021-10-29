@@ -63,7 +63,6 @@ const routes: Routes = [
 
     ]
   },
-  { path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule) },
 ];
 
 @NgModule({

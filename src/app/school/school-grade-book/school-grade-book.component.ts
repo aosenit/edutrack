@@ -76,11 +76,11 @@ export class SchoolGradeBookComponent implements OnInit {
 
   }
 
-  showToolTip() {
-    $('[data-toggle=tooltip]').tooltip('show');
-    $('[data-toggle="tooltip"]').tooltip({placement: 'top'});
+  // showToolTip() {
+  //   $('[data-toggle=tooltip]').tooltip('show');
+  //   $('[data-toggle="tooltip"]').tooltip({placement: 'top'});
 
-  }
+  // }
 
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
@@ -271,7 +271,7 @@ export class SchoolGradeBookComponent implements OnInit {
   }
 
   applyForPromotion() {
-    this.promotion.submitAllResultsForPromotion().subscribe((res: any) => {
+    this.promotion.submitAllResultsForPromotion('').subscribe((res: any) => {
       if (res.hasErrors === false) {
         console.log(res);
       }

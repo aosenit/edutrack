@@ -16,7 +16,7 @@ export class StudentListComponent implements OnInit {
   studentList: any;
   searchString: string;
   p = 1;
-  itemsPerPage = 5;
+  itemsPerPage = 10;
   studentCount: number;
   fileString: any;
 

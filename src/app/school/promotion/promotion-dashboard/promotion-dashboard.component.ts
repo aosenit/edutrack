@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { AssessmentService } from 'src/services/data/assessment/assessment.service';
+import { ClassService } from 'src/services/data/class/class.service';
+import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import { PromotionService } from '../../../../services/data/promotion/promotion.service';
 
 @Component({
@@ -14,19 +16,25 @@ export class PromotionDashboardComponent implements OnInit {
   chart: any = [];
   deviationChrt: any = [];
   currentSesion: any;
+  levels: any;
+  classList: any;
 
 
   constructor(
     private promotion: PromotionService,
     private assessment: AssessmentService,
+    private schoolSectionService: SchoolSectionService,
+    private classService: ClassService,
+
   ) { }
 
   ngOnInit() {
     this.createDistributionChart();
     this.createDeviationChart();
     this.getCurrentSession();
+    this.getSections();
 
-  } 
+  }
 
   getCurrentSession() {
     this.assessment.getCurrentSession().subscribe((res: any) => {
@@ -38,8 +46,31 @@ export class PromotionDashboardComponent implements OnInit {
     });
   }
 
-  getPromotionHightlights(id) {
-    this.promotion.getPromotionHighlight(id, '').subscribe((res: any) => {
+  getSections() {
+    this.schoolSectionService.getSection().subscribe(
+      (res: any) => {
+        // tslint:disable-next-line:no-string-literal
+        this.levels = res['payload'];
+        // this.levels = this.levels.reverse();
+        // ('levels', this.levels);
+      }
+    );
+  }
+
+  getClassBySectionId(id) {
+    // (id);
+    this.classService.getClassBySection(id).subscribe((data: any) => {
+        if (data.hasErrors === false) {
+          this.classList = data.payload;
+          // (this.classList);
+
+        }
+      });
+
+  }
+
+  getPromotionHightlights(id, classId?) {
+    this.promotion.getPromotionHighlight(id, classId).subscribe((res: any) => {
       if (res.hasErrors === false) {
         console.log('sdsd', res);
       }

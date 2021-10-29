@@ -1,4 +1,4 @@
-<div class="row ml-3">
+<div class="container-fluid ml-3">
 
     
     <div class="d-flex justify-content-between  align-items-center mb-4">
@@ -12,18 +12,18 @@
                 </select>
               </div> -->
               <div class="col options">
+                <select name="" id="" class="form-control" (change)="getTerm($event.target.value)">
+                  <option value="">Session</option>
+                  <option [value]="t" *ngFor="let session of sessionList; let t = index"> {{session?.name}}</option>
+                </select>
+              </div>
+              <div class="col options">
                 <select name="" id="" class="form-control" (change)="selectedTerm($event.target.value)">
                   <option value="">Term</option>
                   <option [value]="t" *ngFor="let term of terms; let t = index"> {{term?.name}}</option>
                 </select>
               </div>
-              <div class="col-5 options">
-                <select name="" id="" class="form-control" (change)="getStudentRecord($event.target.value)">
-                  <option value="">Select student name</option>
-                  <option [value]="std" *ngFor="let student of studentList; let std = index">
-                    {{student?.firstName + ' ' + student?.lastName}}</option>
-                </select>
-              </div>
+              
             </div>
           </form>
         </div>

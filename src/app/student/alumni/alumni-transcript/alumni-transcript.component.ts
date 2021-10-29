@@ -48,6 +48,7 @@ export class AlumniTranscriptComponent implements OnInit {
   totalCAScoreObtained: any;
   HeadTeacherDetails: any;
   classTeacherDetials: any;
+  sessionList: any;
   constructor(
     private classService: ClassService,
     private route: ActivatedRoute,
@@ -62,6 +63,7 @@ export class AlumniTranscriptComponent implements OnInit {
     const helper = new JwtHelperService();
     this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
     this.getClassAndSubjectForTeacher();
+    this.getSession();
     this.getCurrentSesion();
     this.generateGradeSetup();
     this.getSchoolDetialsByID();
@@ -70,6 +72,15 @@ export class AlumniTranscriptComponent implements OnInit {
     // // ('route', this.route);
 
 
+  }
+
+  getSession() {
+    this.assessmentService.getSchoolSessions().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        // (data);
+        this.sessionList = data.payload;
+      }
+    });
   }
 
   getClassAndSubjectForTeacher() {
@@ -83,7 +94,9 @@ export class AlumniTranscriptComponent implements OnInit {
     );
   }
 
- 
+  getTerm(e) {
+    
+  }
 
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
@@ -120,7 +133,7 @@ export class AlumniTranscriptComponent implements OnInit {
     this.selectedStudent = this.studentList[i];
     this.selectedStudentID = this.studentList[i].id;
     // tslint:disable-next-line:max-line-length
-    this.resultService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.loggedInUser.TeacherClassId, 25  ).subscribe((data: any) => {
+    this.resultService.getStudentBehviour(this.sessionsId, this.selectedTermId, this.loggedInUser.TeacherClassId, this.selectedStudentID  ).subscribe((data: any) => {
      if (data.hasErrors === false) {
       //  // (data.payload);
        this.noData = false;
@@ -140,7 +153,7 @@ export class AlumniTranscriptComponent implements OnInit {
 
  getApprovedStudentResults() {
   // tslint:disable-next-line:max-line-length
-  this.resultService.getApprovedStudentResult(25, this.loggedInUser.TeacherClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
+  this.resultService.getApprovedStudentResult(this.selectedStudentID, this.loggedInUser.TeacherClassId, this.sessionsId, this.selectedTermId ).subscribe((data: any) => {
     if (data.hasErrors === false) {
       // // (data.payload);
       this.reportSheetDetails = data.payload;
