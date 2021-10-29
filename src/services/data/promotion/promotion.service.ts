@@ -95,9 +95,9 @@ export class PromotionService {
     return this.http.post(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  submitAllResultsForPromotion() {
+  submitAllResultsForPromotion(payload) {
     const url = `${this.baseUrl + routes.submitResultsForPromotion}`;
-    return this.http.post(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    return this.http.post(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
 }

@@ -1,0 +1,95 @@
+.event-banner {
+    /* background: url('../../../../assets/images/svg/event-banner.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45;
+    border-radius: 8px; */
+    height: 250px;
+}
+
+
+.banner-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+
+.card-name {
+    color: #2D3A4F;
+    font-size: 15px;
+    font-family: Nunito;
+    
+}
+
+.card-course {
+    font-size: 13px;
+    color: #9EA9B8;
+    
+}
+
+.card-job {
+    color: #9EA9B8;
+    
+    
+}
+
+
+.btn-alumni {
+    color: #ffffff;
+    background: #1666C5;
+    border-radius: 8px;
+    font-size: 15px;
+    /* font-weight: bold; */
+    font-family: Nunito;
+    padding: .5rem 0 !important;
+}
+
+.btn-share {
+    /* color: #0052B4; */
+    background: rgba(22, 102, 197, 0.1);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: .5rem 0 !important;
+}
+
+
+
+.event-detail {
+    color: #2D3A4F
+}
+
+.br-8 {
+    border-radius: 8px;
+}
+
+.tags {
+    color: #2D3A4F;
+
+}
+
+.send {
+    background: rgba(9, 183, 138, 0.06);
+    color: #09B78A;
+    ;
+}
+
+.host-avatar {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%; 
+}
+
+.circle-avatar {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%; 
+}
+
+
+.circle-username {
+    font-family: DM sans;
+}

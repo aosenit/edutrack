@@ -36,7 +36,9 @@ const routes: Routes = [
     {path: 'notification/:id', component: NotificationPageComponent},
     {path: 'preview/:id', component: TaskPreviewComponent},
     {path: 'file-storage/:id', component: FileStorageComponent},
-  ]}
+  ]},
+  { path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule) },
+
 
 ];
 
