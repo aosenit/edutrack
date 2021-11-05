@@ -12,8 +12,8 @@ import { AlumniComponent } from './alumni.component';
 
 const routes: Routes = [
   {path: '', component: AlumniComponent, children: [
-    {path: '', component: AlumniHomeComponent},
-    {path: 'profile', component: AlumniProfileComponent},
+    // {path: '', component: AlumniHomeComponent},
+    {path: '', component: AlumniProfileComponent},
     {path: 'alumni', component: AlumniAlumniComponent},
     {path: 'events', component: AlumniEventsComponent},
     {path: 'transcript', component: AlumniTranscriptComponent},

@@ -58,10 +58,8 @@ const routes: Routes = [
       { path: 'finance', loadChildren: () => import('./finance/finance.module').then(m => m.FinanceModule) },
       { path: 'promotion', loadChildren: () => import('./promotion/promotion.module').then(m => m.PromotionModule) },
       { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
-
-
-
     ]
+
   },
 ];
 
