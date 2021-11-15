@@ -95,10 +95,10 @@
         <a class="nav-link" id="pills-subject-tab" data-toggle="pill" href="#pills-subject" role="tab"
           aria-controls="pills-subject" aria-selected="false">Subjects</a>
       </li>
-      <li class="nav-item mr-5" (click)="showStatus('mail')">
+      <!-- <li class="nav-item mr-5" (click)="showStatus('mail')">
         <a class="nav-link" id="pills-mail-tab" data-toggle="pill" href="#pills-mail" role="tab"
           aria-controls="pills-mail" aria-selected="false">Mail Settings</a>
-      </li>
+      </li> -->
 
     </ul>
 
@@ -127,8 +127,8 @@
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
             </th> -->
-            <th scope="col" class="w-60">Class Arm <img src="assets/images/svg/table-sort.svg"> </th>
-            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>
+            <th scope="col" class="w-60">Class Arm  </th>
+            <th scope="col">Status  </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -183,24 +183,9 @@
       <table class="table table-borderless client-table">
         <thead>
           <tr>
-            <!-- <th scope="col" class="head ">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                <label class="custom-control-label" for="customCheckTh"></label>
-              </div>
-            </th> -->
+          
             <th scope="col" class="w-50">Level 
-              <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false"> -->
-              <!-- ================ DROPDOWN ==================== -->
-              <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item filter-title" href="#">FILTER BY: CLIENT</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item fc-orange" href="#">All </a>
-                <a class="dropdown-item" href="#">A - Z </a>
-                <a class="dropdown-item" href="#">Z - A </a>
-              </div> -->
+              
             </th>
             <th scope="col">Sequence </th>
 
@@ -224,12 +209,7 @@
 
 
           <tr class="pb-1" *ngFor="let level of levels">
-            <!-- <td scope="row" class="check rounded-left">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"></label>
-              </div>
-            </td> -->
+           
             <td class="user">
               <h6 class="fw-6 mb-0">{{level.name}} </h6>
             </td>
@@ -279,10 +259,10 @@
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
             </th> -->
-            <th scope="col">Class <img src="assets/images/svg/table-sort.svg"> </th>
-            <th scope="col">Class Arm<img src="assets/images/svg/table-sort.svg"> </th>
-            <th scope="col" class="">Section <img src="assets/images/svg/table-sort.svg"> </th>
-            <th scope="col">Sequence <img src="assets/images/svg/table-sort.svg"> </th>
+            <th scope="col">Class  </th>
+            <th scope="col">Class Arm </th>
+            <th scope="col" class="">Section  </th>
+            <th scope="col">Sequence  </th>
             <!-- <th scope="col" class="text-center">Arm <img src="assets/images/svg/table-sort.svg"> </th> -->
 
             <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>
@@ -370,8 +350,8 @@
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
             </th>
-            <th scope="col" class="w-50">Subject <img src="assets/images/svg/table-sort.svg"> </th>
-            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>
+            <th scope="col" class="w-50">Subject  </th>
+            <th scope="col">Status  </th>
             <th scope="col"></th>
           </tr>
         </thead>

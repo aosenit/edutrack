@@ -39,6 +39,7 @@ export class SchoolGradeBookComponent implements OnInit {
   selectedStudentId: any;
   allResultStatus: any;
   curSessionId: any;
+  allApproved = false;
 
 
 
@@ -196,7 +197,8 @@ export class SchoolGradeBookComponent implements OnInit {
       // (data);
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result approved', 'success', 1);
-
+        document.getElementById('closeModel').click();
+        location.reload();
       }
     }, error => {
       this.notifyService.publishMessages(error.payload, 'danger', 1);
@@ -223,6 +225,8 @@ export class SchoolGradeBookComponent implements OnInit {
       // (data);
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result rejected', 'success', 1);
+        document.getElementById('closeModel').click();
+        location.reload();
 
       }
     }, error => {
@@ -266,6 +270,19 @@ export class SchoolGradeBookComponent implements OnInit {
       if (res.hasErrors === false) {
         console.log(res);
         this.allResultStatus = res.payload;
+        // tslint:disable-next-line:prefer-for-of
+        for (let index = 0; index < this.allResultStatus.length; index++) {
+          if ( this.allResultStatus[index].isApproved === false) {
+            console.log(`${this.allResultStatus[index].isApproved} is still false`);
+            return;
+
+            } else {
+            this.allApproved = true;
+
+          }
+
+        }
+
       }
     });
   }
@@ -273,7 +290,23 @@ export class SchoolGradeBookComponent implements OnInit {
   applyForPromotion() {
     this.promotion.submitAllResultsForPromotion('').subscribe((res: any) => {
       if (res.hasErrors === false) {
+        this.performActualPromotion(res.payload);
+      } else {
+        this.notifyService.publishMessages(res.errors, 'danger', 1);
+
+      }
+    });
+  }
+
+  performActualPromotion(data) {
+    this.promotion.curateActualPromotion(data).subscribe((res: any) => {
+      if (res.hasErrors === false) {
         console.log(res);
+        this.notifyService.publishMessages('Successful', 'success', 1);
+
+      } else {
+        this.notifyService.publishMessages(res.errors, 'danger', 1);
+
       }
     });
   }

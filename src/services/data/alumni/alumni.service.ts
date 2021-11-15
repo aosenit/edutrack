@@ -24,8 +24,8 @@ export class AlumniService {
   constructor(private http: HttpClient) { }
 
 
-  getAllAlumnis() {
-    const url = `${this.baseUrl + routes.getAlumnis}`;
+  getAllAlumnis(SessionName, TermName) {
+    const url = `${this.baseUrl + routes.getAlumnis}?SessionName=${SessionName}&TermName=${TermName}`;
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 

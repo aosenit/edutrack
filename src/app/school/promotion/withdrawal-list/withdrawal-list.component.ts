@@ -20,6 +20,7 @@ export class WithdrawalListComponent implements OnInit {
   classList: any;
   noData = true;
   showData = false;
+  selectedstudentId: any;
   constructor(
     private fb: FormBuilder,
     private promotionService: PromotionService,
@@ -109,21 +110,40 @@ export class WithdrawalListComponent implements OnInit {
     });
   }
 
+  selectedStudentId(id, i) {
+
+    console.log(id);
+    this.selectedstudentId = id;
+    // this.selectedStudentId = this.repeatList[i];
+
+  }
+
   submitReason() {
+    const results = [];
     const { reason, Class, level} = this.withdrawalForm.value;
     const result = {
-      id: '',
-      studentName: '',
-      regNumber: '',
-      level: parseInt(level),
-      previousClass: '',
-      average: '',
-      withdrawalReason: '',
+      id: parseInt(this.selectedstudentId),
+      studentName: null,
+      regNumber: null,
+      level,
+      previousClass: null,
+      average: 0,
+      withdrawalReason: null,
       toClass: parseInt(Class),
       status: 4,
       reInstateReason: reason
     };
     console.log('withdrawal reason', result);
+    results.push(result);
+    this.promotionService.postReasons(results).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.notificationService.publishMessages('Successful', 'success', 1);
+        document.getElementById('closeModal').click();
+      } else {
+        this.notificationService.publishMessages(res.errors, 'danger', 1);
+
+      }
+    });
   }
 
 }

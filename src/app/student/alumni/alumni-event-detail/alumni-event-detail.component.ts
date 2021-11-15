@@ -24,6 +24,10 @@ export class AlumniEventDetailComponent implements OnInit {
 
   }
 
+  back() {
+    window.history.back();
+  }
+
   getEventByid() {
     this.alumni.getAllAlumniEventId(this.pageId).subscribe((res: any) => {
       if (res.hasErrors === false) {

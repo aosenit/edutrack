@@ -19,6 +19,7 @@ const routes = {
   submitReasons: 'schtrack-auth/api/v1/Promotion/PostClassPool',
 
   submitResultsForPromotion: 'schtrack-assessment/api/v1/Promotion',
+  promoteAllStudents: 'schtrack-auth/api/v1/Promotion/PromoteAllStudent',
 };
 
 
@@ -98,6 +99,12 @@ export class PromotionService {
   submitAllResultsForPromotion(payload) {
     const url = `${this.baseUrl + routes.submitResultsForPromotion}`;
     return this.http.post(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  curateActualPromotion(payload) {
+    const url = `${this.baseUrl + routes.promoteAllStudents}`;
+    return this.http.post(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
   }
 
 }

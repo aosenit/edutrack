@@ -90,7 +90,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="">
+        <tr class="" *ngFor="let record of withdrawalList">
           <td scope="row" class="check rounded-left">
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="">
@@ -101,56 +101,26 @@
 
             <div class="d-flex align-items-center">
               <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
-              <h6 class="fw-6 mb-0">Master John Boyeja </h6>
+              <h6 class="fw-6 mb-0">{{record?.studentName}} </h6>
             </div>
           </td>
-          <td>TAC/STN/2020/0001</td>
-          <td>Primary 1A</td>
-          <td class="">Nursery 1A</td>
-          <td class="">Fighting</td>
+          <td>{{record?.regNumber}}</td>
+          <td class="">{{record?.level}}</td>
+          <td>{{record?.previousClass}}</td>
+          <td class="">{{record?.withdrawalReason}}</td>
           <td class="rounded-right cursor-pointer">
             <img src="assets/images/svg/more-action.svg" alt="schools log"
               class="cursor-pointer dropdown-toggle drop-bg pt-3" type="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
             <div class="dropdown-menu">
 
-              <a class="dropdown-item " data-toggle="modal" data-target="#exampleModalCenterSubject"> Reinstate</a>
+              <a class="dropdown-item " (click)="selectedStudentId(record?.id, i)" data-toggle="modal" data-target="#exampleModalCenterSubject"> Reinstate</a>
 
             </div>
 
           </td>
         </tr>
-        <tr class="">
-          <td scope="row" class="check rounded-left">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="">
-              <label class="custom-control-label" for=""></label>
-            </div>
-          </td>
-          <td class="user">
-
-            <div class="d-flex align-items-center">
-              <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
-              <h6 class="fw-6 mb-0">Master John Boyeja </h6>
-            </div>
-          </td>
-          <td>TAC/STN/2020/0001</td>
-          <td>Primary 1A</td>
-          <td class="">Nursery 1A</td>
-          <td class="">Fighting</td>
-          <td class="rounded-right cursor-pointer">
-            <img src="assets/images/svg/more-action.svg" alt="schools log"
-              class="cursor-pointer dropdown-toggle drop-bg pt-3" type="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-            <div class="dropdown-menu">
-
-              <a class="dropdown-item " data-toggle="modal" data-target="#exampleModalCenterSubject"> Reinstate</a>
-
-            </div>
-
-          </td>
-        </tr>
-
+      
 
 
 
@@ -182,7 +152,7 @@
 
       <div class="modal-head mb-3 d-flex justify-content-between">
         <h6 class="modal-title fc-lblue ">Re-instate Student</h6>
-        <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myModal" data-dismiss="modal"
+        <img src="assets/images/svg/close-modal.svg" id="closeModal" alt="modal close button" id="myModal" data-dismiss="modal"
           aria-label="Close" class="close">
 
       </div>

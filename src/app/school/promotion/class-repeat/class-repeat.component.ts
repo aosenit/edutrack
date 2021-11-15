@@ -22,6 +22,7 @@ export class ClassRepeatComponent implements OnInit {
   classList: any;
   noData = true;
   showData = false;
+  selectedstudentId: any;
   constructor(
     private fb: FormBuilder,
     private promotionService: PromotionService,
@@ -76,7 +77,7 @@ export class ClassRepeatComponent implements OnInit {
   }
 
   getRepeatList(id) {
-    this.promotionService.getRepeatersList(id, '').subscribe((res: any) => {
+    this.promotionService.getRepeatersList(id).subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.repeatList = res.payload;
       } else {
@@ -108,40 +109,64 @@ export class ClassRepeatComponent implements OnInit {
     });
   }
 
+  selectedStudentId(id, i) {
+
+    console.log(id);
+    this.selectedstudentId = id;
+    // this.selectedStudentId = this.repeatList[i];
+
+  }
 
   submitPromotionOnTrialReason() {
+    const results = [];
     const { level, Class} = this.promoteOntrialForm.value;
     const result = {
-      id: '',
-      studentName: '',
-      regNumber: '',
-      level: parseInt(level),
-      previousClass: '',
-      average: '',
-      withdrawalReason: '',
+      id: parseInt(this.selectedstudentId),
+      studentName: null,
+      regNumber: null,
+      level,
+      previousClass: null,
+      average: 0,
+      withdrawalReason: null,
       toClass: parseInt(Class),
       status: 0,
-      reInstateReason: ''
+      reInstateReason: null
     };
+
     console.log('promotion on trial reason', result);
+    results.push(result);
+    this.promotionService.postReasons(results).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.notificationService.publishMessages('Successful', 'success', 1);
+        document.getElementById('closeTrialModal').click();
+      } else {
+        this.notificationService.publishMessages(res.errors, 'danger', 1);
+
+      }
+    });
   }
 
 
   submitWithDrawalReason() {
+    const results = [];
     const { reason} = this.withdrawalForm.value;
     const result = {
-      id: '',
-      studentName: '',
-      regNumber: '',
-      level: '',
-      previousClass: '',
-      average: '',
+      id: parseInt(this.selectedstudentId),
       withdrawalReason: reason,
-      toClass: '',
       status: 2,
-      reInstateReason: ''
     };
     console.log('withdrawal reason', result);
+    results.push(result);
+    this.promotionService.postReasons(results).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.notificationService.publishMessages('Successful', 'success', 1);
+        document.getElementById('closeWithdrawModal').click();
+        
+      } else {
+        this.notificationService.publishMessages(res.errors, 'danger', 1);
+
+      }
+    });
   }
 
 }
