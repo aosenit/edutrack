@@ -109,7 +109,7 @@ export class WithdrawalListComponent implements OnInit {
     });
   }
 
-  selectedStudentId(id, i) {
+  selectedStudentId(id) {
 
     console.log(id);
     this.selectedstudentId = id;
