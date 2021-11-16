@@ -70,7 +70,6 @@ export class ClassRepeatComponent implements OnInit {
     this.assessment.getCurrentSession().subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.currentSesion = res.payload.id;
-        console.log(this.currentSesion);
         this.getRepeatList(this.currentSesion);
       }
     });
@@ -111,7 +110,6 @@ export class ClassRepeatComponent implements OnInit {
 
   selectedStudentId(id, i) {
 
-    console.log(id);
     this.selectedstudentId = id;
     // this.selectedStudentId = this.repeatList[i];
 
@@ -133,7 +131,6 @@ export class ClassRepeatComponent implements OnInit {
       reInstateReason: null
     };
 
-    console.log('promotion on trial reason', result);
     results.push(result);
     this.promotionService.postReasons(results).subscribe((res: any) => {
       if (res.hasErrors === false) {
@@ -151,7 +148,6 @@ export class ClassRepeatComponent implements OnInit {
     const results = [];
     const { reason} = this.withdrawalForm.value;
     const result = {
-      id: parseInt(this.selectedstudentId),
       withdrawalReason: reason,
       status: 2,
     };

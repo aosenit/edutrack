@@ -71,7 +71,6 @@ export class WithdrawalListComponent implements OnInit {
     this.assessment.getCurrentSession().subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.currentSesion = res.payload.id;
-        console.log(this.currentSesion);
         this.getWithdrwalList(this.currentSesion);
       }
     });
@@ -133,7 +132,6 @@ export class WithdrawalListComponent implements OnInit {
       status: 4,
       reInstateReason: reason
     };
-    console.log('withdrawal reason', result);
     results.push(result);
     this.promotionService.postReasons(results).subscribe((res: any) => {
       if (res.hasErrors === false) {
