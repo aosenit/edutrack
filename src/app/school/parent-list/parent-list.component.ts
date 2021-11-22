@@ -25,9 +25,9 @@ export class ParentListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAllParents();
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
+    this.getAllParents();
   }
 
   getAllParents() {
