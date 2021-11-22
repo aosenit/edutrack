@@ -48,7 +48,7 @@ export class ParentListComponent implements OnInit {
 
   getPage(page: number) {
     // (page);
-    this.parentService.getAllParents(this.adminDetails.TenantId, page, this.itemsPerPage).subscribe((data: any) => {
+    this.parentService.getAllParentsInASchool(this.adminDetails.TenantId, page, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
         // (data);
         this.parentList = data.payload;
