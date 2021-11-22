@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { ParentsService } from 'src/services/data/parents/parents.service';
 
@@ -15,6 +16,7 @@ export class ParentListComponent implements OnInit {
   p = 1;
   itemsPerPage = 10;
   parentCount: number;
+  adminDetails: any;
 
   constructor(
     private parentService: ParentsService,
@@ -24,10 +26,12 @@ export class ParentListComponent implements OnInit {
 
   ngOnInit() {
     this.getAllParents();
+    const helper = new JwtHelperService();
+    this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
   }
 
   getAllParents() {
-    this.parentService.getAllParentsInASchool(this.p, this.itemsPerPage).subscribe((data: any) => {
+    this.parentService.getAllParentsInASchool(this.adminDetails.TenantId, this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
         // (data);
         this.parentList = data.payload;
@@ -44,7 +48,7 @@ export class ParentListComponent implements OnInit {
 
   getPage(page: number) {
     // (page);
-    this.parentService.getAllParents(page, this.itemsPerPage).subscribe((data: any) => {
+    this.parentService.getAllParents(this.adminDetails.TenantId, page, this.itemsPerPage).subscribe((data: any) => {
       if (data.hasErrors === false) {
         // (data);
         this.parentList = data.payload;

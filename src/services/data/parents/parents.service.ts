@@ -95,8 +95,8 @@ export class ParentsService {
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
-  getAllParentsInASchool(p, perpage) {
-    const url = `${this.baseUrl + routes.getallparentinASchool}?PageIndex=${p}&PageSize=${perpage}`;
+  getAllParentsInASchool(schoolId, p, perpage) {
+    const url = `${this.baseUrl + routes.getallparentinASchool}/${schoolId}?PageIndex=${p}&PageSize=${perpage}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
   getAllParentsWithName() {
