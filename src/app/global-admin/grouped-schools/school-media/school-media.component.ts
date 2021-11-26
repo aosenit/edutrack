@@ -127,7 +127,7 @@ export class SchoolMediaComponent implements OnInit {
       const file = event.target.files[0];
       // console.log('file', file);
       // this.iconname = this.icon.name;
-      const size = event.target.files[0].size;
+        const size = event.target.files[0].size;
       if (size >= 1048576) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
       } else {

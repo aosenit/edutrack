@@ -57,10 +57,10 @@ export class EducationComponent implements OnInit {
 
 
 
-  addEducation() {
-    this.items = this.EmployeeEducationForm.get('EducationExperienceVMs') as FormArray;
-    this.items.push(this.createItem());
-  }
+    addEducation() {
+      this.items = this.EmployeeEducationForm.get('EducationExperienceVMs') as FormArray;
+      this.items.push(this.createItem());
+    }
 
   createItem(): FormGroup {
     return this.fb.group({
