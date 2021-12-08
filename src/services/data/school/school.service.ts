@@ -57,6 +57,7 @@ export class SchoolService {
       formData.append('City', schoolFinalStep.City);
       formData.append('ContactFirstName', schoolFinalStep.ContactFirstName);
       formData.append('ContactLastName', schoolFinalStep.ContactLastName);
+      formData.append('ContactEmailPassword', schoolFinalStep.ContactEmailPassword);
       formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
       formData.append('ContactEmail', schoolFinalStep.ContactEmail);
       formData.append('IsActive', schoolFinalStep.isActive);
@@ -82,6 +83,7 @@ export class SchoolService {
       formData.append('City', schoolFinalStep.City);
       formData.append('ContactFirstName', schoolFinalStep.ContactFirstName);
       formData.append('ContactLastName', schoolFinalStep.ContactLastName);
+      formData.append('ContactEmailPassword', schoolFinalStep.ContactEmailPassword);
       formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
       formData.append('ContactEmail', schoolFinalStep.ContactEmail);
       formData.append('IsActive', schoolFinalStep.isActive);
