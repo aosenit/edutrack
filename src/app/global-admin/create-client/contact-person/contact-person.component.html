@@ -60,7 +60,7 @@
             <div class=" ">
                 <label for="tel" class="fw-6">Email Password <span class="text-danger">*</span></label>
                 <input type="tel" class="form-control form-control-lg" id="tel" 
-                placeholder="Enter phone number" formControlName="ContactEmailPassword" 
+                placeholder="Enter email password" formControlName="ContactEmailPassword" 
                 (keypress)="allowNumbersOnly($event)" required>
                 <div *ngIf="contactPersonForm.controls.ContactEmailPassword.touched && contactPersonForm.controls.ContactEmailPassword.errors" class="error">
                     <small *ngIf="contactPersonForm.controls.ContactEmailPassword.errors.required" class="text-danger">Field is required</small>
@@ -68,7 +68,7 @@
                 </div>
             </div>
             
-    
+        
     
         </div>
     

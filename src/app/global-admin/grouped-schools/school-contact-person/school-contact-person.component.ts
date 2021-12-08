@@ -38,6 +38,7 @@ export class SchoolContactPersonComponent implements OnInit {
     this.contactPersonForm = this.fb.group({
       ContactFirstName : ['', Validators.required],
       ContactLastName: ['', Validators.required],
+      ContactEmailPassword : ['', Validators.required],
       ContactPhoneNo: ['', [Validators.required, Validators.minLength(11), Validators.pattern('(0[7-9][0-1][0-9]{8})|(0[1-4][0-9]{7})+$')]],
       ContactEmail: ['', [Validators.email, Validators.required]]
     });
@@ -61,6 +62,7 @@ export class SchoolContactPersonComponent implements OnInit {
     this.contactPersonForm.patchValue({
           ContactFirstName: payload.contactFirstName,
           ContactLastName: payload.contactLastName,
+          ContactEmailPassword : payload.contactEmailPassword ,
           ContactPhoneNo: payload.contactPhone,
           ContactEmail: payload.contactEmail
         });
@@ -75,6 +77,7 @@ export class SchoolContactPersonComponent implements OnInit {
       this.contactPersonForm.patchValue({
         ContactFirstName: this.contactPerson.ContactFirstName,
         ContactLastName: this.contactPerson.ContactLastName,
+        ContactEmailPassword : this.contactPerson.ContactEmailPassword,
         ContactPhoneNo: this.contactPerson.ContactPhoneNo,
         ContactEmail: this.contactPerson.ContactEmail
       });
