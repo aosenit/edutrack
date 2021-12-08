@@ -167,6 +167,7 @@ export class SchoolService {
     schoolFinalStep.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
     formData.append('ContactFirstName', schoolFinalStep.ContactFirstName);
     formData.append('ContactLastName', schoolFinalStep.ContactLastName);
+    formData.append('ContactEmailPassword', schoolFinalStep.ContactEmailPassword);
     formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
     formData.append('ContactEmail', schoolFinalStep.ContactEmail);
     formData.append('IsActive', schoolFinalStep.isActive);
