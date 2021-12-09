@@ -60,9 +60,9 @@
         <div class="form-row my-5 ">
             <div class=" ">
                 <label for="tel" class="fw-6">Email Password <span class="text-danger">*</span></label>
-                <input type="tel" class="form-control form-control-lg" id="tel" 
+                <input type="text" class="form-control form-control-lg" id="tel" 
                 placeholder="Enter email password" formControlName="ContactEmailPassword" 
-                (keypress)="allowNumbersOnly($event)" required>
+                required>
                 <div *ngIf="contactPersonForm.controls.ContactEmailPassword.touched && contactPersonForm.controls.ContactEmailPassword.errors" class="error">
                     <small *ngIf="contactPersonForm.controls.ContactEmailPassword.errors.required" class="text-danger">Field is required</small>
                     <!-- <small *ngIf="contactPersonForm.controls.ContactEmailPassword.errors.minlength" class="text-danger">Invalid number length (must be 11 digit)</small> -->
