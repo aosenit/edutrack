@@ -109,7 +109,7 @@ DocumentTypes: number[] = [];
       DocumentTypes: this.DocumentTypes
     };
     // console.log('VERIFY PARENT ID', result.ParentId);
-    // console.log('result', result);
+    console.log('result', result);
     this.studentService.updateStudent(this.studentid, result).subscribe((data: any) => {
         // console.log('student updated', data);
         if ( data.hasErrors === false) {

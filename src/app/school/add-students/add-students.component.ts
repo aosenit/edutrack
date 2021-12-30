@@ -38,6 +38,7 @@ export class AddStudentsComponent implements OnInit, OnDestroy {
     sessionStorage.removeItem('student-social-details');
     sessionStorage.removeItem('Student-contact-details');
     sessionStorage.removeItem('student-medical-details');
+    sessionStorage.removeItem('all-student-info');
   }
 
 }

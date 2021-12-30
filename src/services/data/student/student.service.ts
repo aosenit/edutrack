@@ -60,7 +60,7 @@ export class StudentService {
       body.append('immunizationVms[' + i + '].vaccine', immunizationVms[i].vaccine);
     }
     const url = `${this.baseUrl + routes.addstudent}`;
-    console.log(body)
+    console.log(body);
     return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -90,7 +90,7 @@ export class StudentService {
       body.append('DateOfBirth', updateStudentForm.DateOfBirth);
       body.append('Religion', updateStudentForm.Religion);
       body.append('Nationality', updateStudentForm.Nationality);
-      body.append('ParentId', updateStudentForm.ParentId);
+      body.append('ParentId', updateStudentForm.ParentId[0].id);
       body.append('StateOfOrigin', updateStudentForm.StateOfOrigin);
       body.append('LocalGovt', updateStudentForm.LocalGovt);
       body.append('TransportRoute', updateStudentForm.TransportRoute);
@@ -131,7 +131,7 @@ export class StudentService {
       body.append('DateOfBirth', updateStudentForm.DateOfBirth);
       body.append('Religion', updateStudentForm.Religion);
       body.append('Nationality', updateStudentForm.Nationality);
-      body.append('ParentId', updateStudentForm.ParentId);
+      body.append('ParentId', updateStudentForm.ParentId[0].id);
       body.append('StateOfOrigin', updateStudentForm.StateOfOrigin);
       body.append('LocalGovt', updateStudentForm.LocalGovt);
       body.append('TransportRoute', updateStudentForm.TransportRoute);
@@ -178,7 +178,7 @@ export class StudentService {
     downloadSampleBulkSheet() {
       const url = `${this.baseUrl + routes.getBulkDdownload}`;
       return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
-  
+
     }
 
     uploadBulkDocument(payload) {

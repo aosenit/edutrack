@@ -90,9 +90,9 @@ export class BasicDetailsComponent implements OnInit {
     this.home.stepper(2);
     // tslint:disable-next-line:max-line-length
     const {FirstName, LastName, OtherNames, MothersMaidenName, Sex, DateOfBirth, Religion, Nationality, parentId, StateOfOrigin, LocalGovt, TransportRoute  } = this.basicDetailsForm.value;
-    const parent = parentId.map((data: any) => {
-      return data.id;
-    });
+    // const parent = parentId.map((data: any) => {
+    //   return data.id;
+    // });
     const result = {
       FirstName,
       LastName,
@@ -210,9 +210,10 @@ export class BasicDetailsComponent implements OnInit {
     }
     const parent = [];
     parent.push({
-        id: payload.ParentId,
+        id: payload.parentId,
         name: payload.parentName
       });
+      console.log(parent)
     this.basicDetailsForm.patchValue({
       FirstName: payload.firstName,
       LastName: payload.lastName,
