@@ -301,6 +301,13 @@ table.client-table {
     border-spacing: 0 .5em !important;
 }
 
+.multiselect-dropdown .dropdown-btn {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    
+    }
+
 /* ngpx-pagination styles */
 .ngx-pagination .disabled {
     padding: 0.1875rem 0.625rem;

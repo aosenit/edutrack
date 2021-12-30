@@ -32,7 +32,7 @@ export class StudentService {
     body.append('DateOfBirth', studentForm.DateOfBirth);
     body.append('Religion', studentForm.Religion);
     body.append('Nationality', studentForm.Nationality);
-    body.append('ParentId', studentForm.ParentId);
+    body.append('ParentId', studentForm.ParentId[0].id);
     body.append('StateOfOrigin', studentForm.StateOfOrigin);
     body.append('LocalGovt', studentForm.LocalGovt);
     body.append('TransportRoute', studentForm.TransportRoute);
@@ -60,6 +60,7 @@ export class StudentService {
       body.append('immunizationVms[' + i + '].vaccine', immunizationVms[i].vaccine);
     }
     const url = `${this.baseUrl + routes.addstudent}`;
+    console.log(body)
     return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

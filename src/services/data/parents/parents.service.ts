@@ -8,6 +8,7 @@ const routes = {
   getallparent: 'schtrack-auth/api/v1/Parent/GetAllParents',
   getallparentinASchool: 'schtrack-auth/api/v1/Parent/GetAllParentsInSchool',
   getparentbyid: 'schtrack-auth/api/v1/Parent/GetParentById',
+  getparentbyname: 'schtrack-auth/api/v1/Parent/GetParentByFirstName',
   getstudentparent: 'schtrack-auth/api/v1/Parent/GetParentsForStudent',
   updateparentbyid: 'schtrack-auth/api/v1/Parent/UpdateParent',
   deleteparent: 'schtrack-auth/api/v1/Parent/DeleteParent',
@@ -108,6 +109,12 @@ export class ParentsService {
   getParentById(id) {
 
     const url = `${this.baseUrl + routes.getparentbyid}/${id}`;
+    return this.http.get(url,   {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getParentByFirstName(name) {
+
+    const url = `${this.baseUrl + routes.getparentbyname}/${name}`;
     return this.http.get(url,   {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 

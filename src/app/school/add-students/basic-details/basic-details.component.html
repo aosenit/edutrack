@@ -108,9 +108,16 @@
                 <div class="mb-3">
                     <label for="parent" class="fw-6">Parent <span
                             class="text-danger">*</span></label>
-                            <select name="" id=""   class="form-control form-control-lg" id="parent" formControlName="parentId">
+                            <ng-multiselect-dropdown 
+                            [placeholder]="'Search parent by First Name'" [data]="parents"
+                            (onSelect)="onItemSelect($event)"
+                            (onFilterChange)="searchParents($event)"
+                            
+                              formControlName="parentId" [settings]="dropdownSettings" required>
+                            </ng-multiselect-dropdown>
+                            <!-- <select name="" id=""   class="form-control form-control-lg" id="parent" formControlName="parentId">
                                 <option [value]="parent?.id" *ngFor="let parent of parents">{{parent.fullName | titlecase}}</option>
-                            </select >
+                            </select > -->
                             <div *ngIf="basicDetailsForm.controls.parentId.touched && basicDetailsForm.controls.parentId.errors" class="error">
                                 <small *ngIf="basicDetailsForm.controls.parentId.errors.required" class="text-danger">Field is required</small>
                                 <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
