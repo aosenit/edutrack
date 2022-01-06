@@ -221,11 +221,12 @@ export class AccountSettingsComponent implements OnInit {
   }
 
 
+
+
   // getRolePermissionsByRoleId(id) {
   //   this.adminService.getAllPermissionForRoleById(id).subscribe((data: any) => {
   //     if (data.hasErrors === false) {
 
-  //       // (data.payload);
   //     } else {
   //       this.notifyService.publishMessages(data.errors, 'danger', 1);
 
