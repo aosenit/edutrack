@@ -1,0 +1,1174 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  SubscriptionListsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/global-admin/school-subscription/subscription-lists/subscription-lists.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-subscription-lists</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./subscription-lists.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./subscription-lists.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#subscriptionList" >subscriptionList</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ActivateDeactivate" >ActivateDeactivate</a>
+                            </li>
+                            <li>
+                                <a href="#getAllSubscriptionCreated" >getAllSubscriptionCreated</a>
+                            </li>
+                            <li>
+                                <a href="#markAsPaid" >markAsPaid</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(subscriptionService: <a href="../injectables/SubscriptionsService.html" target="_self">SubscriptionsService</a>, schoolServie: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>, notifyService: <a href="../injectables/NotificationsService.html" target="_self">NotificationsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/global-admin/school-subscription/subscription-lists/subscription-lists.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>subscriptionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SubscriptionsService.html" target="_self" >SubscriptionsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>schoolServie</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolService.html" target="_self" >SchoolService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>notifyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NotificationsService.html" target="_self" >NotificationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ActivateDeactivate"></a>
+                    <span class="name">
+                        <span ><b>ActivateDeactivate</b></span>
+                        <a href="#ActivateDeactivate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ActivateDeactivate(event, schoolId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/global-admin/school-subscription/subscription-lists/subscription-lists.component.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>schoolId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllSubscriptionCreated"></a>
+                    <span class="name">
+                        <span ><b>getAllSubscriptionCreated</b></span>
+                        <a href="#getAllSubscriptionCreated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllSubscriptionCreated()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/global-admin/school-subscription/subscription-lists/subscription-lists.component.ts:24</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="markAsPaid"></a>
+                    <span class="name">
+                        <span ><b>markAsPaid</b></span>
+                        <a href="#markAsPaid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>markAsPaid(index)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/global-admin/school-subscription/subscription-lists/subscription-lists.component.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>index</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/global-admin/school-subscription/subscription-lists/subscription-lists.component.ts:20</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscriptionList"></a>
+                    <span class="name">
+                        <span ><b>subscriptionList</b></span>
+                        <a href="#subscriptionList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/global-admin/school-subscription/subscription-lists/subscription-lists.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { NotificationsService } from &#x27;src/services/classes/notifications/notifications.service&#x27;;
+import { SchoolService } from &#x27;src/services/data/school/school.service&#x27;;
+import { SubscriptionsService } from &#x27;src/services/data/subscriptions/subscriptions.service&#x27;;
+
+@Component({
+  selector: &#x27;app-subscription-lists&#x27;,
+  templateUrl: &#x27;./subscription-lists.component.html&#x27;,
+  styleUrls: [&#x27;./subscription-lists.component.css&#x27;]
+})
+export class SubscriptionListsComponent implements OnInit {
+  subscriptionList: any;
+
+  constructor(
+    private subscriptionService: SubscriptionsService,
+    private schoolServie: SchoolService,
+    private notifyService: NotificationsService
+    ) { }
+
+  ngOnInit() {
+    this.getAllSubscriptionCreated();
+  }
+
+  getAllSubscriptionCreated() {
+    this.subscriptionService.getAllSubscriptions().subscribe((res: any) &#x3D;&gt; {
+      if (res.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        console.log(&#x27;ds&#x27;, res.payload);
+        this.subscriptionList &#x3D; res.payload;
+      }
+    });
+  }
+
+  ActivateDeactivate(event, schoolId) {
+    if (event &#x3D;&#x3D;&#x3D; true) {
+      console.log(&#x27;Activate school&#x27;, event);
+      this.schoolServie.activateSchool(schoolId).subscribe((res: any) &#x3D;&gt; {
+        if (res.hasErrors &#x3D;&#x3D;&#x3D; false ) {
+          console.log(res.payload);
+          this.notifyService.publishMessages(res.description, &#x27;success&#x27;, 1);
+          this.getAllSubscriptionCreated();
+        } else {
+          this.notifyService.publishMessages(res.errors, &#x27;danger&#x27;, 1);
+
+        }
+      });
+    } else {
+      console.log(&#x27;Deactivate school&#x27;, event, schoolId);
+      this.schoolServie.deactivateSchool(schoolId).subscribe((res: any) &#x3D;&gt; {
+        if (res.hasErrors &#x3D;&#x3D;&#x3D; false ) {
+          console.log(res.payload);
+          this.notifyService.publishMessages(res.description, &#x27;success&#x27;, 1);
+          this.getAllSubscriptionCreated();
+        } else {
+          this.notifyService.publishMessages(res.errors, &#x27;danger&#x27;, 1);
+
+        }
+      });
+    }
+  }
+
+
+  markAsPaid(index) {
+    const selectedSchool &#x3D; this.subscriptionList[index];
+    console.log(selectedSchool);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;client&quot; *ngIf&#x3D;&quot;subscriptionList?.length &#x3D;&#x3D;&#x3D; 0 || null&quot;&gt;
+  &lt;img src&#x3D;&quot;assets/images/svg/institution.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;&quot;&gt;
+  &lt;h6 class&#x3D;&quot;pt-5&quot;&gt;Create your first Subscription&lt;/h6&gt;
+  &lt;p class&#x3D;&quot;text-center pt-1&quot;&gt;It looks like you haven’t created any subscription yet. Get started by &lt;br&gt; clicking the
+    button
+    below.&lt;/p&gt;
+  &lt;button class&#x3D;&quot;btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3&quot; routerLink&#x3D;&quot;/admin/subscription/new-subscription&quot;&gt;
+    Add New &lt;/button&gt;
+
+&lt;/section&gt;
+
+
+&lt;div class&#x3D;&quot;main&quot; *ngIf&#x3D;&quot;subscriptionList?.length &gt; 0&quot;&gt;
+  &lt;section class&#x3D;&quot;banner mb-4 pb-3&quot;&gt;
+    &lt;div class&#x3D;&quot;pt-5 pl-3 content &quot;&gt;
+      &lt;h6 class&#x3D;&quot;banner__text-primary fw-6 &quot;&gt; Subscriptions &lt;/h6&gt;
+      &lt;p class&#x3D;&quot;&quot;&gt; Directory of all subscriptions &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+      &lt;!-- &lt;button class&#x3D;&quot;btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3&quot;routerLink&#x3D;&quot;/admin/subscription/unpaid-invoice&quot; &gt; View Invoices &lt;/button&gt; --&gt;
+  
+      &lt;button class&#x3D;&quot;btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3&quot; routerLink&#x3D;&quot;/admin/subscription/new-subscription&quot;&gt;
+        Add New
+      &lt;/button&gt;
+    &lt;/div&gt;
+
+  &lt;/section&gt;
+
+  &lt;section class&#x3D;&quot;search my-5&quot;&gt;
+    &lt;!-- &lt;div class&#x3D;&quot;search__input has-search&quot;&gt;
+      &lt;span class&#x3D;&quot;fa fa-search form-control-feedback&quot;&gt;&lt;/span&gt;
+      &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Search&quot; [(ngModel)]&#x3D;&quot;searchString&quot;&gt;
+    &lt;/div&gt; --&gt;
+    &lt;!-- &lt;div class&#x3D;&quot;search__input&quot;&gt;
+        &lt;form&gt;
+          &lt;div class&#x3D;&quot;form-row&quot;&gt;
+            &lt;div class&#x3D;&quot;col seperator&quot;&gt;
+              &lt;label for&#x3D;&quot;from&quot;&gt; From&lt;/label&gt;
+              &lt;input type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot;&gt;
+            &lt;/div&gt;
+            &lt;span class&#x3D;&quot;divider mx-3 mt-4 &quot;&gt;&amp;nbsp;&lt;/span&gt;
+            &lt;div class&#x3D;&quot;col &quot;&gt;
+              &lt;label for&#x3D;&quot;to&quot;&gt;To&lt;/label&gt;
+              &lt;input type&#x3D;&quot;date&quot; class&#x3D;&quot;form-control&quot;&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/div&gt; --&gt;
+  &lt;/section&gt;
+
+  &lt;section class&#x3D;&quot;list table-responsive&quot;&gt;
+    &lt;table class&#x3D;&quot;table table-borderless client-table&quot;&gt;
+
+      &lt;thead&gt;
+        &lt;th scope&#x3D;&quot;col&quot; class&#x3D;&quot;head&quot;&gt;School
+          &lt;img src&#x3D;&quot;assets/images/svg/table-sort.svg&quot; alt&#x3D;&quot;table sort icon&quot; class&#x3D;&quot;dropdown-toggle&quot; type&#x3D;&quot;button&quot;
+            id&#x3D;&quot;dropdownMenuButton&quot; data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+         
+        &lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;Start Date &lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;End Date
+        &lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;Price Per Student
+        &lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;No of Student
+        &lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;Status&lt;/th&gt;
+        &lt;th scope&#x3D;&quot;col&quot;&gt;Invoices&lt;/th&gt;
+
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr class&#x3D;&quot;pb-2&quot; *ngFor&#x3D;&quot;let client of subscriptionList; let i &#x3D; index&quot;&gt;
+          &lt;td scope&#x3D;&quot;row&quot; class&#x3D;&quot;school-logo rounded-left fc-lblue&quot;&gt;
+            {{client.school}}
+
+
+          &lt;/td&gt;
+          &lt;td&gt;
+            {{client?.startDate |  date: &#x27;dd/MM/y&#x27;}}
+
+          &lt;/td&gt;
+          &lt;td&gt;{{client?.endDate |   date: &#x27;dd/MM/y&#x27;}}&lt;/td&gt;
+          &lt;td&gt;{{client?.pricePerStudent}}&lt;/td&gt;
+
+          &lt;td&gt;{{client?.expectedNumberOfStudent}}&lt;/td&gt;
+          &lt;td class&#x3D;&quot;rounded-right &quot;&gt;
+            &lt;div class&#x3D;&quot;activated__date-switch&quot;&gt;
+                &lt;div class&#x3D;&quot;custom-control custom-switch&quot;&gt;
+                    &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;{{i}}&quot;
+                    (change)&#x3D;&quot;ActivateDeactivate($event.target.checked, client?.schoolId)&quot;
+                     [checked]&#x3D;&quot;client?.isActive &#x3D;&#x3D;&#x3D; true&quot;&gt;
+                    &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;{{i}}&quot; &gt;&lt;/label&gt;
+                &lt;/div&gt;
+                &lt;p class&#x3D;&quot;activated__date-title&quot;&gt;{{client?.isActive &#x3D;&#x3D;&#x3D; true ? &#x27;Activated&#x27; : &#x27;Deactivated&#x27;}}&lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/td&gt;
+          &lt;td class&#x3D;&quot;rounded-right &quot;&gt;
+            
+              &lt;div class&#x3D;&quot;d-flex align-items-center&quot;  &gt;
+                &lt;span class&#x3D;&quot;cursor-pointer mr-3&quot; routerLink&#x3D;&quot;/admin/subscription/invoice/{{client.schoolId}}&quot;&gt;
+                  &lt;svg width&#x3D;&quot;110&quot; height&#x3D;&quot;24&quot; viewBox&#x3D;&quot;0 0 110 24&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                    &lt;path d&#x3D;&quot;M33.218 16.5V6.63H34.114L40.064 14.568V6.63H41.128V16.5H40.26L34.296 8.534V16.5H33.218ZM46.4933 16.626C45.4199 16.626 44.5706 16.3133 43.9453 15.688C43.3199 15.0533 43.0073 14.1947 43.0073 13.112C43.0073 12.412 43.1473 11.796 43.4273 11.264C43.7073 10.7227 44.0899 10.3073 44.5753 10.018C45.0699 9.71933 45.6393 9.57 46.2833 9.57C47.2073 9.57 47.9306 9.86867 48.4533 10.466C48.9759 11.054 49.2373 11.866 49.2373 12.902V13.336H44.1133C44.1506 14.1107 44.3746 14.7033 44.7853 15.114C45.1959 15.5153 45.7653 15.716 46.4933 15.716C46.9039 15.716 47.2959 15.6553 47.6693 15.534C48.0426 15.4033 48.3973 15.1933 48.7333 14.904L49.1253 15.702C48.8173 15.9913 48.4253 16.22 47.9493 16.388C47.4733 16.5467 46.9879 16.626 46.4933 16.626ZM46.3113 10.41C45.6673 10.41 45.1586 10.6107 44.7853 11.012C44.4119 11.4133 44.1926 11.9407 44.1273 12.594H48.2573C48.2293 11.9033 48.0473 11.3667 47.7113 10.984C47.3846 10.6013 46.9179 10.41 46.3113 10.41ZM49.9558 16.5L52.7838 12.986L50.1238 9.696H51.4678L53.4418 12.202L55.4298 9.696H56.7598L54.0998 12.986L56.9278 16.5H55.5838L53.4278 13.798L51.2998 16.5H49.9558ZM60.9092 16.626C60.1066 16.626 59.5046 16.416 59.1032 15.996C58.7019 15.5667 58.5012 14.9507 58.5012 14.148V10.578H57.1712V9.696H58.5012V7.61H59.6352V9.696H61.7912V10.578H59.6352V14.036C59.6352 14.568 59.7472 14.974 59.9712 15.254C60.1952 15.5247 60.5592 15.66 61.0632 15.66C61.2126 15.66 61.3619 15.6413 61.5112 15.604C61.6606 15.5667 61.7959 15.5293 61.9172 15.492L62.1132 16.36C61.9919 16.4253 61.8146 16.486 61.5812 16.542C61.3479 16.598 61.1239 16.626 60.9092 16.626ZM66.8235 16.5V6.63H67.9715V16.5H66.8235ZM70.2515 16.5V9.696H71.3575V10.858C71.5815 10.4287 71.8988 10.1067 72.3095 9.892C72.7202 9.67733 73.1822 9.57 73.6955 9.57C75.3102 9.57 76.1175 10.466 76.1175 12.258V16.5H74.9835V12.328C74.9835 11.6933 74.8575 11.2313 74.6055 10.942C74.3628 10.6433 73.9708 10.494 73.4295 10.494C72.8042 10.494 72.3048 10.69 71.9315 11.082C71.5675 11.4647 71.3855 11.978 71.3855 12.622V16.5H70.2515ZM80.1422 16.5L77.2162 9.696H78.4482L80.7022 15.212L82.9842 9.696H84.1462L81.2062 16.5H80.1422ZM88.0775 16.626C87.4149 16.626 86.8409 16.4813 86.3555 16.192C85.8702 15.9027 85.4922 15.4967 85.2215 14.974C84.9602 14.442 84.8295 13.8167 84.8295 13.098C84.8295 12.3793 84.9602 11.7587 85.2215 11.236C85.4922 10.704 85.8702 10.2933 86.3555 10.004C86.8409 9.71467 87.4149 9.57 88.0775 9.57C88.7309 9.57 89.3002 9.71467 89.7855 10.004C90.2802 10.2933 90.6582 10.704 90.9195 11.236C91.1902 11.7587 91.3255 12.3793 91.3255 13.098C91.3255 13.8167 91.1902 14.442 90.9195 14.974C90.6582 15.4967 90.2802 15.9027 89.7855 16.192C89.3002 16.4813 88.7309 16.626 88.0775 16.626ZM88.0775 15.716C88.7122 15.716 89.2209 15.492 89.6035 15.044C89.9862 14.5867 90.1775 13.938 90.1775 13.098C90.1775 12.2487 89.9862 11.6 89.6035 11.152C89.2209 10.704 88.7122 10.48 88.0775 10.48C87.4335 10.48 86.9202 10.704 86.5375 11.152C86.1642 11.6 85.9775 12.2487 85.9775 13.098C85.9775 13.938 86.1642 14.5867 86.5375 15.044C86.9202 15.492 87.4335 15.716 88.0775 15.716ZM92.8888 8.002V6.728H94.2888V8.002H92.8888ZM93.0288 16.5V9.696H94.1628V16.5H93.0288ZM99.1668 16.626C98.4854 16.626 97.8974 16.4813 97.4028 16.192C96.9081 15.8933 96.5254 15.478 96.2548 14.946C95.9934 14.4047 95.8628 13.7747 95.8628 13.056C95.8628 11.9733 96.1568 11.124 96.7448 10.508C97.3328 9.88267 98.1401 9.57 99.1668 9.57C99.5868 9.57 100.002 9.64467 100.413 9.794C100.823 9.94333 101.164 10.1533 101.435 10.424L101.043 11.25C100.772 10.9887 100.473 10.7973 100.147 10.676C99.8294 10.5547 99.5261 10.494 99.2368 10.494C98.5274 10.494 97.9814 10.718 97.5988 11.166C97.2161 11.6047 97.0248 12.2393 97.0248 13.07C97.0248 13.882 97.2161 14.526 97.5988 15.002C97.9814 15.4687 98.5274 15.702 99.2368 15.702C99.5261 15.702 99.8294 15.6413 100.147 15.52C100.473 15.3987 100.772 15.2027 101.043 14.932L101.435 15.758C101.164 16.0287 100.819 16.2433 100.399 16.402C99.9881 16.5513 99.5774 16.626 99.1668 16.626ZM105.693 16.626C104.619 16.626 103.77 16.3133 103.145 15.688C102.519 15.0533 102.207 14.1947 102.207 13.112C102.207 12.412 102.347 11.796 102.627 11.264C102.907 10.7227 103.289 10.3073 103.775 10.018C104.269 9.71933 104.839 9.57 105.483 9.57C106.407 9.57 107.13 9.86867 107.653 10.466C108.175 11.054 108.437 11.866 108.437 12.902V13.336H103.312C103.35 14.1107 103.574 14.7033 103.985 15.114C104.395 15.5153 104.965 15.716 105.693 15.716C106.103 15.716 106.495 15.6553 106.869 15.534C107.242 15.4033 107.597 15.1933 107.933 14.904L108.325 15.702C108.017 15.9913 107.625 16.22 107.149 16.388C106.673 16.5467 106.187 16.626 105.693 16.626ZM105.511 10.41C104.867 10.41 104.358 10.6107 103.985 11.012C103.611 11.4133 103.392 11.9407 103.327 12.594H107.457C107.429 11.9033 107.247 11.3667 106.911 10.984C106.584 10.6013 106.117 10.41 105.511 10.41Z&quot; fill&#x3D;&quot;#355691&quot;/&gt;
+                    &lt;path d&#x3D;&quot;M12.5 2C6.98 2 2.5 6.48 2.5 12C2.5 17.52 6.98 22 12.5 22C18.02 22 22.5 17.52 22.5 12C22.5 6.48 18.02 2 12.5 2ZM18.5 13.97H13.5L15.76 11.71C14.85 10.65 13.51 9.97 12 9.97C9.63 9.97 7.65 11.63 7.14 13.85L6.18 13.53C6.82 10.91 9.18 8.97 12 8.97C13.78 8.97 15.37 9.76 16.47 11L18.5 8.97V13.97Z&quot; fill&#x3D;&quot;#014D94&quot;/&gt;
+                    &lt;/svg&gt;
+                    
+                &lt;/span&gt;
+
+                &lt;span class&#x3D;&quot;cursor-pointer mr-3&quot; routerLink&#x3D;&quot;/admin/subscription/invoice-arrears/{{client.schoolId}}&quot;  &gt;
+                  &lt;svg width&#x3D;&quot;121&quot; height&#x3D;&quot;20&quot; viewBox&#x3D;&quot;0 0 121 20&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                    &lt;path d&#x3D;&quot;M27.266 14.5L31.62 4.63H32.6L36.954 14.5H35.764L34.672 11.98H29.534L28.456 14.5H27.266ZM32.096 5.974L29.954 11.014H34.266L32.124 5.974H32.096ZM38.2632 14.5V7.696H39.3692V8.914C39.7332 8.09267 40.4799 7.64 41.6092 7.556L42.0152 7.514L42.0992 8.494L41.3852 8.578C40.7412 8.634 40.2512 8.83933 39.9152 9.194C39.5792 9.53933 39.4112 10.0153 39.4112 10.622V14.5H38.2632ZM43.2808 14.5V7.696H44.3868V8.914C44.7508 8.09267 45.4975 7.64 46.6268 7.556L47.0328 7.514L47.1168 8.494L46.4028 8.578C45.7588 8.634 45.2688 8.83933 44.9328 9.194C44.5968 9.53933 44.4288 10.0153 44.4288 10.622V14.5H43.2808ZM51.2823 14.626C50.209 14.626 49.3597 14.3133 48.7343 13.688C48.109 13.0533 47.7963 12.1947 47.7963 11.112C47.7963 10.412 47.9363 9.796 48.2163 9.264C48.4963 8.72267 48.879 8.30733 49.3643 8.018C49.859 7.71933 50.4283 7.57 51.0723 7.57C51.9963 7.57 52.7197 7.86867 53.2423 8.466C53.765 9.054 54.0263 9.866 54.0263 10.902V11.336H48.9023C48.9397 12.1107 49.1637 12.7033 49.5743 13.114C49.985 13.5153 50.5543 13.716 51.2823 13.716C51.693 13.716 52.085 13.6553 52.4583 13.534C52.8317 13.4033 53.1863 13.1933 53.5223 12.904L53.9143 13.702C53.6063 13.9913 53.2143 14.22 52.7383 14.388C52.2623 14.5467 51.777 14.626 51.2823 14.626ZM51.1003 8.41C50.4563 8.41 49.9477 8.61067 49.5743 9.012C49.201 9.41333 48.9817 9.94067 48.9163 10.594H53.0463C53.0183 9.90333 52.8363 9.36667 52.5003 8.984C52.1737 8.60133 51.707 8.41 51.1003 8.41ZM57.8095 14.626C57.3428 14.626 56.9228 14.5373 56.5495 14.36C56.1855 14.1733 55.8962 13.9213 55.6815 13.604C55.4668 13.2867 55.3595 12.932 55.3595 12.54C55.3595 12.0453 55.4855 11.6533 55.7375 11.364C55.9988 11.0747 56.4235 10.8693 57.0115 10.748C57.6088 10.6173 58.4208 10.552 59.4475 10.552H59.8955V10.118C59.8955 9.53933 59.7742 9.124 59.5315 8.872C59.2982 8.61067 58.9202 8.48 58.3975 8.48C57.9868 8.48 57.5902 8.54067 57.2075 8.662C56.8248 8.774 56.4328 8.96067 56.0315 9.222L55.6395 8.396C55.9942 8.144 56.4235 7.94333 56.9275 7.794C57.4408 7.64467 57.9308 7.57 58.3975 7.57C59.2748 7.57 59.9235 7.78467 60.3435 8.214C60.7728 8.64333 60.9875 9.31067 60.9875 10.216V14.5H59.9235V13.324C59.7462 13.7253 59.4708 14.0427 59.0975 14.276C58.7335 14.5093 58.3042 14.626 57.8095 14.626ZM57.9915 13.772C58.5515 13.772 59.0088 13.5807 59.3635 13.198C59.7182 12.806 59.8955 12.3113 59.8955 11.714V11.294H59.4615C58.7055 11.294 58.1082 11.3313 57.6695 11.406C57.2402 11.4713 56.9368 11.5927 56.7595 11.77C56.5915 11.938 56.5075 12.1713 56.5075 12.47C56.5075 12.8527 56.6382 13.1653 56.8995 13.408C57.1702 13.6507 57.5342 13.772 57.9915 13.772ZM63.0913 14.5V7.696H64.1973V8.914C64.5613 8.09267 65.308 7.64 66.4373 7.556L66.8433 7.514L66.9273 8.494L66.2133 8.578C65.5693 8.634 65.0793 8.83933 64.7433 9.194C64.4073 9.53933 64.2393 10.0153 64.2393 10.622V14.5H63.0913ZM70.3366 14.626C69.8046 14.626 69.3006 14.5513 68.8246 14.402C68.3486 14.2527 67.9566 14.0427 67.6486 13.772L68.0126 12.974C68.3486 13.2447 68.7172 13.4453 69.1186 13.576C69.5292 13.6973 69.9446 13.758 70.3646 13.758C70.8966 13.758 71.2979 13.66 71.5686 13.464C71.8392 13.268 71.9746 13.002 71.9746 12.666C71.9746 12.4047 71.8859 12.1993 71.7086 12.05C71.5312 11.8913 71.2512 11.77 70.8686 11.686L69.5946 11.406C68.4372 11.154 67.8586 10.5567 67.8586 9.614C67.8586 8.998 68.1012 8.50333 68.5866 8.13C69.0812 7.75667 69.7252 7.57 70.5186 7.57C70.9852 7.57 71.4286 7.64467 71.8486 7.794C72.2779 7.934 72.6326 8.144 72.9126 8.424L72.5346 9.222C72.2639 8.97 71.9466 8.77867 71.5826 8.648C71.2279 8.508 70.8732 8.438 70.5186 8.438C69.9959 8.438 69.5992 8.54067 69.3286 8.746C69.0579 8.95133 68.9226 9.222 68.9226 9.558C68.9226 10.0807 69.2679 10.4167 69.9586 10.566L71.2326 10.832C71.8299 10.9627 72.2826 11.1727 72.5906 11.462C72.8986 11.742 73.0526 12.1247 73.0526 12.61C73.0526 13.2353 72.8052 13.73 72.3106 14.094C71.8159 14.4487 71.1579 14.626 70.3366 14.626ZM78.5305 14.5V4.63H79.6785V14.5H78.5305ZM81.9585 14.5V7.696H83.0645V8.858C83.2885 8.42867 83.6059 8.10667 84.0165 7.892C84.4272 7.67733 84.8892 7.57 85.4025 7.57C87.0172 7.57 87.8245 8.466 87.8245 10.258V14.5H86.6905V10.328C86.6905 9.69333 86.5645 9.23133 86.3125 8.942C86.0699 8.64333 85.6779 8.494 85.1365 8.494C84.5112 8.494 84.0119 8.69 83.6385 9.082C83.2745 9.46467 83.0925 9.978 83.0925 10.622V14.5H81.9585ZM91.8492 14.5L88.9232 7.696H90.1552L92.4092 13.212L94.6912 7.696H95.8532L92.9132 14.5H91.8492ZM99.7846 14.626C99.1219 14.626 98.5479 14.4813 98.0626 14.192C97.5772 13.9027 97.1992 13.4967 96.9286 12.974C96.6672 12.442 96.5366 11.8167 96.5366 11.098C96.5366 10.3793 96.6672 9.75867 96.9286 9.236C97.1992 8.704 97.5772 8.29333 98.0626 8.004C98.5479 7.71467 99.1219 7.57 99.7846 7.57C100.438 7.57 101.007 7.71467 101.493 8.004C101.987 8.29333 102.365 8.704 102.627 9.236C102.897 9.75867 103.033 10.3793 103.033 11.098C103.033 11.8167 102.897 12.442 102.627 12.974C102.365 13.4967 101.987 13.9027 101.493 14.192C101.007 14.4813 100.438 14.626 99.7846 14.626ZM99.7846 13.716C100.419 13.716 100.928 13.492 101.311 13.044C101.693 12.5867 101.885 11.938 101.885 11.098C101.885 10.2487 101.693 9.6 101.311 9.152C100.928 8.704 100.419 8.48 99.7846 8.48C99.1406 8.48 98.6272 8.704 98.2446 9.152C97.8712 9.6 97.6846 10.2487 97.6846 11.098C97.6846 11.938 97.8712 12.5867 98.2446 13.044C98.6272 13.492 99.1406 13.716 99.7846 13.716ZM104.596 6.002V4.728H105.996V6.002H104.596ZM104.736 14.5V7.696H105.87V14.5H104.736ZM110.874 14.626C110.192 14.626 109.604 14.4813 109.11 14.192C108.615 13.8933 108.232 13.478 107.962 12.946C107.7 12.4047 107.57 11.7747 107.57 11.056C107.57 9.97333 107.864 9.124 108.452 8.508C109.04 7.88267 109.847 7.57 110.874 7.57C111.294 7.57 111.709 7.64467 112.12 7.794C112.53 7.94333 112.871 8.15333 113.142 8.424L112.75 9.25C112.479 8.98867 112.18 8.79733 111.854 8.676C111.536 8.55467 111.233 8.494 110.944 8.494C110.234 8.494 109.688 8.718 109.306 9.166C108.923 9.60467 108.732 10.2393 108.732 11.07C108.732 11.882 108.923 12.526 109.306 13.002C109.688 13.4687 110.234 13.702 110.944 13.702C111.233 13.702 111.536 13.6413 111.854 13.52C112.18 13.3987 112.479 13.2027 112.75 12.932L113.142 13.758C112.871 14.0287 112.526 14.2433 112.106 14.402C111.695 14.5513 111.284 14.626 110.874 14.626ZM117.4 14.626C116.326 14.626 115.477 14.3133 114.852 13.688C114.226 13.0533 113.914 12.1947 113.914 11.112C113.914 10.412 114.054 9.796 114.334 9.264C114.614 8.72267 114.996 8.30733 115.482 8.018C115.976 7.71933 116.546 7.57 117.19 7.57C118.114 7.57 118.837 7.86867 119.36 8.466C119.882 9.054 120.144 9.866 120.144 10.902V11.336H115.02C115.057 12.1107 115.281 12.7033 115.692 13.114C116.102 13.5153 116.672 13.716 117.4 13.716C117.81 13.716 118.202 13.6553 118.576 13.534C118.949 13.4033 119.304 13.1933 119.64 12.904L120.032 13.702C119.724 13.9913 119.332 14.22 118.856 14.388C118.38 14.5467 117.894 14.626 117.4 14.626ZM117.218 8.41C116.574 8.41 116.065 8.61067 115.692 9.012C115.318 9.41333 115.099 9.94067 115.034 10.594H119.164C119.136 9.90333 118.954 9.36667 118.618 8.984C118.291 8.60133 117.824 8.41 117.218 8.41Z&quot; fill&#x3D;&quot;#FB7B04&quot;/&gt;
+                    &lt;path d&#x3D;&quot;M9.00026 17.9159C6.69626 17.9159 4.60826 17.0246 3.09626 15.5741H14.9043C13.3923 17.0246 11.3043 17.9159 9.00026 17.9159ZM14.9043 3.91782C13.3923 2.44986 11.3043 1.55859 9.00026 1.55859C6.69626 1.55859 4.60826 2.44986 3.09626 3.90034H14.9043V3.91782ZM13.5003 8.8984C13.0323 8.8984 12.6363 9.26539 12.6363 9.73723C12.6363 10.1916 13.0143 10.5761 13.5003 10.5761C13.9683 10.5761 14.3643 10.2091 14.3643 9.73723C14.3463 9.28286 13.9683 8.8984 13.5003 8.8984ZM4.50026 8.8984C4.03226 8.8984 3.63626 9.26539 3.63626 9.73723C3.63626 10.1916 4.01426 10.5761 4.50026 10.5761C4.96826 10.5761 5.36426 10.2091 5.36426 9.73723C5.36426 9.28286 4.98626 8.8984 4.50026 8.8984ZM17.1363 6.22461V13.2673C17.1363 14.0188 16.5063 14.6304 15.7323 14.6304H2.26826C1.49426 14.6304 0.864258 14.0188 0.864258 13.2673V6.22461C0.864258 5.47316 1.49426 4.86151 2.26826 4.86151H15.7143C16.5063 4.84403 17.1363 5.45568 17.1363 6.22461ZM15.9303 7.69257C15.8223 7.72752 15.6963 7.72752 15.5703 7.72752C14.7783 7.72752 14.1483 7.11587 14.1483 6.34694C14.1483 6.22461 14.1663 6.11976 14.1843 6.0149H3.72626C3.74426 6.10228 3.74426 6.18966 3.74426 6.27704C3.74426 7.04597 3.09626 7.65762 2.32226 7.65762C2.23226 7.65762 2.16026 7.65762 2.07026 7.64015V11.8343C2.16026 11.8168 2.23226 11.8168 2.32226 11.8168C3.11426 11.8168 3.74426 12.4285 3.74426 13.1974C3.74426 13.2848 3.74426 13.3722 3.72626 13.4596H14.1663C14.1663 13.4071 14.1483 13.3547 14.1483 13.2848C14.1483 12.5159 14.7963 11.9042 15.5703 11.9042C15.6963 11.9042 15.8043 11.9217 15.9303 11.9392V7.69257ZM12.0963 9.73723C12.0963 11.3974 10.7103 12.7431 9.00026 12.7431C7.29026 12.7431 5.90426 11.3974 5.90426 9.73723C5.90426 8.07704 7.29026 6.73141 9.00026 6.73141C10.7103 6.73141 12.0963 8.07704 12.0963 9.73723ZM10.8003 9.73723C10.8003 8.77607 9.99026 8.00714 9.01826 8.00714C8.02826 8.00714 7.23626 8.79354 7.23626 9.73723C7.23626 10.6809 8.04626 11.4673 9.01826 11.4673C9.99026 11.4673 10.8003 10.6984 10.8003 9.73723Z&quot; fill&#x3D;&quot;#FB7B04&quot;/&gt;
+                    &lt;/svg&gt;
+                    
+                &lt;/span&gt;
+                &lt;span class&#x3D;&quot;cursor-pointer&quot; routerLink&#x3D;&quot;/admin/subscription/unpaid-invoice/{{client.schoolId}}&quot;&gt;
+                  &lt;svg width&#x3D;&quot;24&quot; height&#x3D;&quot;24&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                    &lt;path d&#x3D;&quot;M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z&quot; fill&#x3D;&quot;#A4A5A8&quot;/&gt;
+                    &lt;/svg&gt;
+                    
+                &lt;/span&gt;
+  
+              &lt;/div&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+
+
+        &lt;!-- &lt;tr class&#x3D;&quot;pb-2&quot;&gt;
+                      &lt;td scope&#x3D;&quot;row&quot; class&#x3D;&quot;school-logo rounded-left&quot;&gt; &lt;span&gt;&lt;img
+                                  src&#x3D;&quot;assets/images/svg/school-break.svg&quot; alt&#x3D;&quot;schools log&quot; class&#x3D;&quot;mr-3&quot;&gt; &lt;/span&gt; America
+                          International&lt;br&gt; School of Lagos &lt;img src&#x3D;&quot;assets/images/svg/verify.svg&quot; alt&#x3D;&quot;schools log&quot;&gt;
+                      &lt;/td&gt;
+                      &lt;td class&#x3D;&quot;&quot;&gt;197E8318&lt;/td&gt;
+                      &lt;td&gt;1,950&lt;/td&gt;
+                      &lt;td&gt;Lagos&lt;/td&gt;
+                      &lt;td&gt;&lt;span class&#x3D;&quot;status_inactive&quot;&gt;Inactive&lt;/span&gt;&lt;/td&gt;
+                      &lt;td&gt;17/03/2020&lt;/td&gt;
+                      &lt;td class&#x3D;&quot;rounded-right &quot;&gt;
+                          &lt;button class&#x3D;&quot;btn btn-link link&quot;&gt;&lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/admin/client&#x27;]&quot;&gt;View Details &lt;/a&gt;&lt;/button&gt;
+                      &lt;/td&gt;
+                  &lt;/tr&gt;  --&gt;
+
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class&#x3D;&quot;d-flex justify-content-end&quot;&gt;
+      &lt;!-- &lt;pagination-controls (pageChange)&#x3D;&quot;getPage(p &#x3D; $event)&quot; class&#x3D;&quot;text-center&quot;&gt;&lt;/pagination-controls&gt; --&gt;
+    &lt;/div&gt;
+
+    &lt;!-- &lt;div class&#x3D;&quot;d-flex justify-content-center align-items-center&quot; *ngIf&#x3D;&quot; !searchString &quot;&gt;
+              &lt;div class&#x3D;&quot;d-flex flex-column justify-content-center align-items-center&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/images/svg/no-result.svg&quot; alt&#x3D;&quot;no search result&quot; class&#x3D;&quot;my-4&quot;&gt;
+                  &lt;p class&#x3D;&quot;mb-4 no-result&quot;&gt;Sorry, no results found&lt;/p&gt;
+                  &lt;button class&#x3D;&quot;btn btn-outline-orange  mx-2 mx-lg-3&quot; &gt;Go back &lt;/button&gt;
+              &lt;/div&gt;
+          &lt;/div&gt; --&gt;
+
+  &lt;/section&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./subscription-lists.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.client h6 {
+    color: #0A1128;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+/* .client p {} */
+
+
+
+.main .banner {
+    width: 100%;
+    background-image: url(&quot;../../../../assets/images/svg/billing-bg.png&quot;);
+    background-repeat: no-repeat;
+    background-color: #1d4e4d;
+
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1.5rem;
+    color: #ffffff;
+    position: relative;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    backdrop-filter: opacity(.4);
+}
+
+
+
+.banner__text-primary {
+    font-size: 36px;
+}
+
+
+
+
+/* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; Search &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+input[type&#x3D;&quot;text&quot;] {
+    width: 125%;
+}
+
+.form-row {
+    align-items: center;
+}
+
+.search__input .divider {
+    background: #CFD7DE;
+    border: 1px solid #CFD7DE;
+    height: 1px;
+    width: 24px;
+    align-items: center;
+    display: flex
+}
+
+/* .seperator::after {
+      content: &#x27;&#x27;;
+      position: absolute;
+      top: 0;
+      left: 0;
+  
+  
+  }
+  
+  
+  /* dropdown overwrite */
+
+a.dropdown-item.filter-title {
+    color: #B5BCD4;
+}
+
+/* end of dropdown */
+
+/* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; table &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+table.client-table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+
+.list .table thead {
+    color: #4c75bd;
+
+}
+.table thead th{
+    vertical-align: unset;
+    padding: 0;
+}
+.list .table thead th {
+    font-weight: 600;
+    line-height: 24px;
+    font-size: 15px;
+}
+
+.list .table thead .head {
+    /* display: flex;
+    align-items: center;
+    color: #0a1128;
+    font-weight: 600; */
+    padding-left: 4.2rem;
+}
+
+.list .table tbody .school-logo {
+    /* display: flex;
+      align-items: center; */
+    color: #0a1128;
+    font-weight: 600;
+    padding-left: 1.5rem;
+    /* padding-left: 3.5rem; */
+    position: relative;
+    opacity: none;
+}
+
+.list .table tbody .school-logo span {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+}
+
+.list .table tbody tr {
+    background: #ffffff;
+    box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
+    border-radius: 5px;
+}
+
+.list .table tbody td:first-child {
+    color: #355691;
+}
+.list .table tbody td:last-child {
+    color: #014D94;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.list .table tbody td:not(:first-child) {
+    color: #0a1128;
+    /* opacity: 0.6; */
+}
+
+.list .table tbody .status_active {
+    background: #ebfffa;
+    border-radius: 10px;
+    color: #09b78a;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+.list .table tbody .status_inactive {
+    background: #FAE5E7;
+    border-radius: 10px;
+    color: #D72638;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+
+
+.btn-link {
+    color: #014d94;
+    opacity: 0.6;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0;
+}
+
+
+.modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+    background: #FFFFFF;
+    width: 100%;
+
+}
+
+
+.modal-content .modal-head {
+    background: #EBF0F5;
+    padding: 20px 40px;
+    
+}
+
+.modal-head {
+    background: #EBF0F5;
+    padding: 20px 40px;
+}
+
+
+.modal-content1 .client-modal {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+
+}
+
+
+
+.file-upload label {
+    position: absolute;
+    top: 70px;
+    right: 200px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    
+}
+.file-upload button{
+    position: absolute;
+    top: 150px;
+    right: 220px;
+}
+
+.file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.file-input:focus {
+    outline: none;
+}
+
+.file-upload .caption {
+    position: absolute;
+    top: 82%;
+    text-align: center;
+    font-size: 12px;
+}
+
+.btn-upload {
+    position: absolute;
+    top: 125px;
+    right: 200px;
+    border: none;
+    outline: none;
+    padding: 11px 50px;
+    border-radius: 2.5px;
+    color: #fff;
+    /* font-weight: 600; */
+    border-radius: 10px;
+}
+
+
+
+.download { 
+    cursor: pointer;
+}
+
+.image-rounded {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+
+.drop-bg {
+    opacity: 1 !important;
+}
+
+.no-result {
+    color: #0A1128;
+
+opacity: 0.6;
+}
+
+
+.client-modal {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 40px;
+
+}
+ .activated__date-switch {
+    display: flex;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="client" *ngIf="subscriptionList?.length === 0 || null">  <img src="assets/images/svg/institution.svg" alt="new client" class="">  <h6 class="pt-5">Create your first Subscription</h6>  <p class="text-center pt-1">It looks like you haven’t created any subscription yet. Get started by <br> clicking the    button    below.</p>  <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/admin/subscription/new-subscription">    Add New </button></section><div class="main" *ngIf="subscriptionList?.length > 0">  <section class="banner mb-4 pb-3">    <div class="pt-5 pl-3 content ">      <h6 class="banner__text-primary fw-6 "> Subscriptions </h6>      <p class=""> Directory of all subscriptions </p>    </div>    <div class="d-flex">      <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"routerLink="/admin/subscription/unpaid-invoice" > View Invoices </button> -->        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/admin/subscription/new-subscription">        Add New      </button>    </div>  </section>  <section class="search my-5">    <!-- <div class="search__input has-search">      <span class="fa fa-search form-control-feedback"></span>      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">    </div> -->    <!-- <div class="search__input">        <form>          <div class="form-row">            <div class="col seperator">              <label for="from"> From</label>              <input type="date" class="form-control">            </div>            <span class="divider mx-3 mt-4 ">&nbsp;</span>            <div class="col ">              <label for="to">To</label>              <input type="date" class="form-control">            </div>          </div>        </form>      </div> -->  </section>  <section class="list table-responsive">    <table class="table table-borderless client-table">      <thead>        <th scope="col" class="head">School          <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle" type="button"            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                 </th>        <th scope="col">Start Date </th>        <th scope="col">End Date        </th>        <th scope="col">Price Per Student        </th>        <th scope="col">No of Student        </th>        <th scope="col">Status</th>        <th scope="col">Invoices</th>      </thead>      <tbody>        <tr class="pb-2" *ngFor="let client of subscriptionList; let i = index">          <td scope="row" class="school-logo rounded-left fc-lblue">            {{client.school}}          </td>          <td>            {{client?.startDate |  date: \'dd/MM/y\'}}          </td>          <td>{{client?.endDate |   date: \'dd/MM/y\'}}</td>          <td>{{client?.pricePerStudent}}</td>          <td>{{client?.expectedNumberOfStudent}}</td>          <td class="rounded-right ">            <div class="activated__date-switch">                <div class="custom-control custom-switch">                    <input type="checkbox" class="custom-control-input" id="{{i}}"                    (change)="ActivateDeactivate($event.target.checked, client?.schoolId)"                     [checked]="client?.isActive === true">                    <label class="custom-control-label" for="{{i}}" ></label>                </div>                <p class="activated__date-title">{{client?.isActive === true ? \'Activated\' : \'Deactivated\'}}</p>            </div>          </td>          <td class="rounded-right ">                          <div class="d-flex align-items-center"  >                <span class="cursor-pointer mr-3" routerLink="/admin/subscription/invoice/{{client.schoolId}}">                  <svg width="110" height="24" viewBox="0 0 110 24" fill="none" xmlns="http://www.w3.org/2000/svg">                    <path d="M33.218 16.5V6.63H34.114L40.064 14.568V6.63H41.128V16.5H40.26L34.296 8.534V16.5H33.218ZM46.4933 16.626C45.4199 16.626 44.5706 16.3133 43.9453 15.688C43.3199 15.0533 43.0073 14.1947 43.0073 13.112C43.0073 12.412 43.1473 11.796 43.4273 11.264C43.7073 10.7227 44.0899 10.3073 44.5753 10.018C45.0699 9.71933 45.6393 9.57 46.2833 9.57C47.2073 9.57 47.9306 9.86867 48.4533 10.466C48.9759 11.054 49.2373 11.866 49.2373 12.902V13.336H44.1133C44.1506 14.1107 44.3746 14.7033 44.7853 15.114C45.1959 15.5153 45.7653 15.716 46.4933 15.716C46.9039 15.716 47.2959 15.6553 47.6693 15.534C48.0426 15.4033 48.3973 15.1933 48.7333 14.904L49.1253 15.702C48.8173 15.9913 48.4253 16.22 47.9493 16.388C47.4733 16.5467 46.9879 16.626 46.4933 16.626ZM46.3113 10.41C45.6673 10.41 45.1586 10.6107 44.7853 11.012C44.4119 11.4133 44.1926 11.9407 44.1273 12.594H48.2573C48.2293 11.9033 48.0473 11.3667 47.7113 10.984C47.3846 10.6013 46.9179 10.41 46.3113 10.41ZM49.9558 16.5L52.7838 12.986L50.1238 9.696H51.4678L53.4418 12.202L55.4298 9.696H56.7598L54.0998 12.986L56.9278 16.5H55.5838L53.4278 13.798L51.2998 16.5H49.9558ZM60.9092 16.626C60.1066 16.626 59.5046 16.416 59.1032 15.996C58.7019 15.5667 58.5012 14.9507 58.5012 14.148V10.578H57.1712V9.696H58.5012V7.61H59.6352V9.696H61.7912V10.578H59.6352V14.036C59.6352 14.568 59.7472 14.974 59.9712 15.254C60.1952 15.5247 60.5592 15.66 61.0632 15.66C61.2126 15.66 61.3619 15.6413 61.5112 15.604C61.6606 15.5667 61.7959 15.5293 61.9172 15.492L62.1132 16.36C61.9919 16.4253 61.8146 16.486 61.5812 16.542C61.3479 16.598 61.1239 16.626 60.9092 16.626ZM66.8235 16.5V6.63H67.9715V16.5H66.8235ZM70.2515 16.5V9.696H71.3575V10.858C71.5815 10.4287 71.8988 10.1067 72.3095 9.892C72.7202 9.67733 73.1822 9.57 73.6955 9.57C75.3102 9.57 76.1175 10.466 76.1175 12.258V16.5H74.9835V12.328C74.9835 11.6933 74.8575 11.2313 74.6055 10.942C74.3628 10.6433 73.9708 10.494 73.4295 10.494C72.8042 10.494 72.3048 10.69 71.9315 11.082C71.5675 11.4647 71.3855 11.978 71.3855 12.622V16.5H70.2515ZM80.1422 16.5L77.2162 9.696H78.4482L80.7022 15.212L82.9842 9.696H84.1462L81.2062 16.5H80.1422ZM88.0775 16.626C87.4149 16.626 86.8409 16.4813 86.3555 16.192C85.8702 15.9027 85.4922 15.4967 85.2215 14.974C84.9602 14.442 84.8295 13.8167 84.8295 13.098C84.8295 12.3793 84.9602 11.7587 85.2215 11.236C85.4922 10.704 85.8702 10.2933 86.3555 10.004C86.8409 9.71467 87.4149 9.57 88.0775 9.57C88.7309 9.57 89.3002 9.71467 89.7855 10.004C90.2802 10.2933 90.6582 10.704 90.9195 11.236C91.1902 11.7587 91.3255 12.3793 91.3255 13.098C91.3255 13.8167 91.1902 14.442 90.9195 14.974C90.6582 15.4967 90.2802 15.9027 89.7855 16.192C89.3002 16.4813 88.7309 16.626 88.0775 16.626ZM88.0775 15.716C88.7122 15.716 89.2209 15.492 89.6035 15.044C89.9862 14.5867 90.1775 13.938 90.1775 13.098C90.1775 12.2487 89.9862 11.6 89.6035 11.152C89.2209 10.704 88.7122 10.48 88.0775 10.48C87.4335 10.48 86.9202 10.704 86.5375 11.152C86.1642 11.6 85.9775 12.2487 85.9775 13.098C85.9775 13.938 86.1642 14.5867 86.5375 15.044C86.9202 15.492 87.4335 15.716 88.0775 15.716ZM92.8888 8.002V6.728H94.2888V8.002H92.8888ZM93.0288 16.5V9.696H94.1628V16.5H93.0288ZM99.1668 16.626C98.4854 16.626 97.8974 16.4813 97.4028 16.192C96.9081 15.8933 96.5254 15.478 96.2548 14.946C95.9934 14.4047 95.8628 13.7747 95.8628 13.056C95.8628 11.9733 96.1568 11.124 96.7448 10.508C97.3328 9.88267 98.1401 9.57 99.1668 9.57C99.5868 9.57 100.002 9.64467 100.413 9.794C100.823 9.94333 101.164 10.1533 101.435 10.424L101.043 11.25C100.772 10.9887 100.473 10.7973 100.147 10.676C99.8294 10.5547 99.5261 10.494 99.2368 10.494C98.5274 10.494 97.9814 10.718 97.5988 11.166C97.2161 11.6047 97.0248 12.2393 97.0248 13.07C97.0248 13.882 97.2161 14.526 97.5988 15.002C97.9814 15.4687 98.5274 15.702 99.2368 15.702C99.5261 15.702 99.8294 15.6413 100.147 15.52C100.473 15.3987 100.772 15.2027 101.043 14.932L101.435 15.758C101.164 16.0287 100.819 16.2433 100.399 16.402C99.9881 16.5513 99.5774 16.626 99.1668 16.626ZM105.693 16.626C104.619 16.626 103.77 16.3133 103.145 15.688C102.519 15.0533 102.207 14.1947 102.207 13.112C102.207 12.412 102.347 11.796 102.627 11.264C102.907 10.7227 103.289 10.3073 103.775 10.018C104.269 9.71933 104.839 9.57 105.483 9.57C106.407 9.57 107.13 9.86867 107.653 10.466C108.175 11.054 108.437 11.866 108.437 12.902V13.336H103.312C103.35 14.1107 103.574 14.7033 103.985 15.114C104.395 15.5153 104.965 15.716 105.693 15.716C106.103 15.716 106.495 15.6553 106.869 15.534C107.242 15.4033 107.597 15.1933 107.933 14.904L108.325 15.702C108.017 15.9913 107.625 16.22 107.149 16.388C106.673 16.5467 106.187 16.626 105.693 16.626ZM105.511 10.41C104.867 10.41 104.358 10.6107 103.985 11.012C103.611 11.4133 103.392 11.9407 103.327 12.594H107.457C107.429 11.9033 107.247 11.3667 106.911 10.984C106.584 10.6013 106.117 10.41 105.511 10.41Z" fill="#355691"/>                    <path d="M12.5 2C6.98 2 2.5 6.48 2.5 12C2.5 17.52 6.98 22 12.5 22C18.02 22 22.5 17.52 22.5 12C22.5 6.48 18.02 2 12.5 2ZM18.5 13.97H13.5L15.76 11.71C14.85 10.65 13.51 9.97 12 9.97C9.63 9.97 7.65 11.63 7.14 13.85L6.18 13.53C6.82 10.91 9.18 8.97 12 8.97C13.78 8.97 15.37 9.76 16.47 11L18.5 8.97V13.97Z" fill="#014D94"/>                    </svg>                                    </span>                <span class="cursor-pointer mr-3" routerLink="/admin/subscription/invoice-arrears/{{client.schoolId}}"  >                  <svg width="121" height="20" viewBox="0 0 121 20" fill="none" xmlns="http://www.w3.org/2000/svg">                    <path d="M27.266 14.5L31.62 4.63H32.6L36.954 14.5H35.764L34.672 11.98H29.534L28.456 14.5H27.266ZM32.096 5.974L29.954 11.014H34.266L32.124 5.974H32.096ZM38.2632 14.5V7.696H39.3692V8.914C39.7332 8.09267 40.4799 7.64 41.6092 7.556L42.0152 7.514L42.0992 8.494L41.3852 8.578C40.7412 8.634 40.2512 8.83933 39.9152 9.194C39.5792 9.53933 39.4112 10.0153 39.4112 10.622V14.5H38.2632ZM43.2808 14.5V7.696H44.3868V8.914C44.7508 8.09267 45.4975 7.64 46.6268 7.556L47.0328 7.514L47.1168 8.494L46.4028 8.578C45.7588 8.634 45.2688 8.83933 44.9328 9.194C44.5968 9.53933 44.4288 10.0153 44.4288 10.622V14.5H43.2808ZM51.2823 14.626C50.209 14.626 49.3597 14.3133 48.7343 13.688C48.109 13.0533 47.7963 12.1947 47.7963 11.112C47.7963 10.412 47.9363 9.796 48.2163 9.264C48.4963 8.72267 48.879 8.30733 49.3643 8.018C49.859 7.71933 50.4283 7.57 51.0723 7.57C51.9963 7.57 52.7197 7.86867 53.2423 8.466C53.765 9.054 54.0263 9.866 54.0263 10.902V11.336H48.9023C48.9397 12.1107 49.1637 12.7033 49.5743 13.114C49.985 13.5153 50.5543 13.716 51.2823 13.716C51.693 13.716 52.085 13.6553 52.4583 13.534C52.8317 13.4033 53.1863 13.1933 53.5223 12.904L53.9143 13.702C53.6063 13.9913 53.2143 14.22 52.7383 14.388C52.2623 14.5467 51.777 14.626 51.2823 14.626ZM51.1003 8.41C50.4563 8.41 49.9477 8.61067 49.5743 9.012C49.201 9.41333 48.9817 9.94067 48.9163 10.594H53.0463C53.0183 9.90333 52.8363 9.36667 52.5003 8.984C52.1737 8.60133 51.707 8.41 51.1003 8.41ZM57.8095 14.626C57.3428 14.626 56.9228 14.5373 56.5495 14.36C56.1855 14.1733 55.8962 13.9213 55.6815 13.604C55.4668 13.2867 55.3595 12.932 55.3595 12.54C55.3595 12.0453 55.4855 11.6533 55.7375 11.364C55.9988 11.0747 56.4235 10.8693 57.0115 10.748C57.6088 10.6173 58.4208 10.552 59.4475 10.552H59.8955V10.118C59.8955 9.53933 59.7742 9.124 59.5315 8.872C59.2982 8.61067 58.9202 8.48 58.3975 8.48C57.9868 8.48 57.5902 8.54067 57.2075 8.662C56.8248 8.774 56.4328 8.96067 56.0315 9.222L55.6395 8.396C55.9942 8.144 56.4235 7.94333 56.9275 7.794C57.4408 7.64467 57.9308 7.57 58.3975 7.57C59.2748 7.57 59.9235 7.78467 60.3435 8.214C60.7728 8.64333 60.9875 9.31067 60.9875 10.216V14.5H59.9235V13.324C59.7462 13.7253 59.4708 14.0427 59.0975 14.276C58.7335 14.5093 58.3042 14.626 57.8095 14.626ZM57.9915 13.772C58.5515 13.772 59.0088 13.5807 59.3635 13.198C59.7182 12.806 59.8955 12.3113 59.8955 11.714V11.294H59.4615C58.7055 11.294 58.1082 11.3313 57.6695 11.406C57.2402 11.4713 56.9368 11.5927 56.7595 11.77C56.5915 11.938 56.5075 12.1713 56.5075 12.47C56.5075 12.8527 56.6382 13.1653 56.8995 13.408C57.1702 13.6507 57.5342 13.772 57.9915 13.772ZM63.0913 14.5V7.696H64.1973V8.914C64.5613 8.09267 65.308 7.64 66.4373 7.556L66.8433 7.514L66.9273 8.494L66.2133 8.578C65.5693 8.634 65.0793 8.83933 64.7433 9.194C64.4073 9.53933 64.2393 10.0153 64.2393 10.622V14.5H63.0913ZM70.3366 14.626C69.8046 14.626 69.3006 14.5513 68.8246 14.402C68.3486 14.2527 67.9566 14.0427 67.6486 13.772L68.0126 12.974C68.3486 13.2447 68.7172 13.4453 69.1186 13.576C69.5292 13.6973 69.9446 13.758 70.3646 13.758C70.8966 13.758 71.2979 13.66 71.5686 13.464C71.8392 13.268 71.9746 13.002 71.9746 12.666C71.9746 12.4047 71.8859 12.1993 71.7086 12.05C71.5312 11.8913 71.2512 11.77 70.8686 11.686L69.5946 11.406C68.4372 11.154 67.8586 10.5567 67.8586 9.614C67.8586 8.998 68.1012 8.50333 68.5866 8.13C69.0812 7.75667 69.7252 7.57 70.5186 7.57C70.9852 7.57 71.4286 7.64467 71.8486 7.794C72.2779 7.934 72.6326 8.144 72.9126 8.424L72.5346 9.222C72.2639 8.97 71.9466 8.77867 71.5826 8.648C71.2279 8.508 70.8732 8.438 70.5186 8.438C69.9959 8.438 69.5992 8.54067 69.3286 8.746C69.0579 8.95133 68.9226 9.222 68.9226 9.558C68.9226 10.0807 69.2679 10.4167 69.9586 10.566L71.2326 10.832C71.8299 10.9627 72.2826 11.1727 72.5906 11.462C72.8986 11.742 73.0526 12.1247 73.0526 12.61C73.0526 13.2353 72.8052 13.73 72.3106 14.094C71.8159 14.4487 71.1579 14.626 70.3366 14.626ZM78.5305 14.5V4.63H79.6785V14.5H78.5305ZM81.9585 14.5V7.696H83.0645V8.858C83.2885 8.42867 83.6059 8.10667 84.0165 7.892C84.4272 7.67733 84.8892 7.57 85.4025 7.57C87.0172 7.57 87.8245 8.466 87.8245 10.258V14.5H86.6905V10.328C86.6905 9.69333 86.5645 9.23133 86.3125 8.942C86.0699 8.64333 85.6779 8.494 85.1365 8.494C84.5112 8.494 84.0119 8.69 83.6385 9.082C83.2745 9.46467 83.0925 9.978 83.0925 10.622V14.5H81.9585ZM91.8492 14.5L88.9232 7.696H90.1552L92.4092 13.212L94.6912 7.696H95.8532L92.9132 14.5H91.8492ZM99.7846 14.626C99.1219 14.626 98.5479 14.4813 98.0626 14.192C97.5772 13.9027 97.1992 13.4967 96.9286 12.974C96.6672 12.442 96.5366 11.8167 96.5366 11.098C96.5366 10.3793 96.6672 9.75867 96.9286 9.236C97.1992 8.704 97.5772 8.29333 98.0626 8.004C98.5479 7.71467 99.1219 7.57 99.7846 7.57C100.438 7.57 101.007 7.71467 101.493 8.004C101.987 8.29333 102.365 8.704 102.627 9.236C102.897 9.75867 103.033 10.3793 103.033 11.098C103.033 11.8167 102.897 12.442 102.627 12.974C102.365 13.4967 101.987 13.9027 101.493 14.192C101.007 14.4813 100.438 14.626 99.7846 14.626ZM99.7846 13.716C100.419 13.716 100.928 13.492 101.311 13.044C101.693 12.5867 101.885 11.938 101.885 11.098C101.885 10.2487 101.693 9.6 101.311 9.152C100.928 8.704 100.419 8.48 99.7846 8.48C99.1406 8.48 98.6272 8.704 98.2446 9.152C97.8712 9.6 97.6846 10.2487 97.6846 11.098C97.6846 11.938 97.8712 12.5867 98.2446 13.044C98.6272 13.492 99.1406 13.716 99.7846 13.716ZM104.596 6.002V4.728H105.996V6.002H104.596ZM104.736 14.5V7.696H105.87V14.5H104.736ZM110.874 14.626C110.192 14.626 109.604 14.4813 109.11 14.192C108.615 13.8933 108.232 13.478 107.962 12.946C107.7 12.4047 107.57 11.7747 107.57 11.056C107.57 9.97333 107.864 9.124 108.452 8.508C109.04 7.88267 109.847 7.57 110.874 7.57C111.294 7.57 111.709 7.64467 112.12 7.794C112.53 7.94333 112.871 8.15333 113.142 8.424L112.75 9.25C112.479 8.98867 112.18 8.79733 111.854 8.676C111.536 8.55467 111.233 8.494 110.944 8.494C110.234 8.494 109.688 8.718 109.306 9.166C108.923 9.60467 108.732 10.2393 108.732 11.07C108.732 11.882 108.923 12.526 109.306 13.002C109.688 13.4687 110.234 13.702 110.944 13.702C111.233 13.702 111.536 13.6413 111.854 13.52C112.18 13.3987 112.479 13.2027 112.75 12.932L113.142 13.758C112.871 14.0287 112.526 14.2433 112.106 14.402C111.695 14.5513 111.284 14.626 110.874 14.626ZM117.4 14.626C116.326 14.626 115.477 14.3133 114.852 13.688C114.226 13.0533 113.914 12.1947 113.914 11.112C113.914 10.412 114.054 9.796 114.334 9.264C114.614 8.72267 114.996 8.30733 115.482 8.018C115.976 7.71933 116.546 7.57 117.19 7.57C118.114 7.57 118.837 7.86867 119.36 8.466C119.882 9.054 120.144 9.866 120.144 10.902V11.336H115.02C115.057 12.1107 115.281 12.7033 115.692 13.114C116.102 13.5153 116.672 13.716 117.4 13.716C117.81 13.716 118.202 13.6553 118.576 13.534C118.949 13.4033 119.304 13.1933 119.64 12.904L120.032 13.702C119.724 13.9913 119.332 14.22 118.856 14.388C118.38 14.5467 117.894 14.626 117.4 14.626ZM117.218 8.41C116.574 8.41 116.065 8.61067 115.692 9.012C115.318 9.41333 115.099 9.94067 115.034 10.594H119.164C119.136 9.90333 118.954 9.36667 118.618 8.984C118.291 8.60133 117.824 8.41 117.218 8.41Z" fill="#FB7B04"/>                    <path d="M9.00026 17.9159C6.69626 17.9159 4.60826 17.0246 3.09626 15.5741H14.9043C13.3923 17.0246 11.3043 17.9159 9.00026 17.9159ZM14.9043 3.91782C13.3923 2.44986 11.3043 1.55859 9.00026 1.55859C6.69626 1.55859 4.60826 2.44986 3.09626 3.90034H14.9043V3.91782ZM13.5003 8.8984C13.0323 8.8984 12.6363 9.26539 12.6363 9.73723C12.6363 10.1916 13.0143 10.5761 13.5003 10.5761C13.9683 10.5761 14.3643 10.2091 14.3643 9.73723C14.3463 9.28286 13.9683 8.8984 13.5003 8.8984ZM4.50026 8.8984C4.03226 8.8984 3.63626 9.26539 3.63626 9.73723C3.63626 10.1916 4.01426 10.5761 4.50026 10.5761C4.96826 10.5761 5.36426 10.2091 5.36426 9.73723C5.36426 9.28286 4.98626 8.8984 4.50026 8.8984ZM17.1363 6.22461V13.2673C17.1363 14.0188 16.5063 14.6304 15.7323 14.6304H2.26826C1.49426 14.6304 0.864258 14.0188 0.864258 13.2673V6.22461C0.864258 5.47316 1.49426 4.86151 2.26826 4.86151H15.7143C16.5063 4.84403 17.1363 5.45568 17.1363 6.22461ZM15.9303 7.69257C15.8223 7.72752 15.6963 7.72752 15.5703 7.72752C14.7783 7.72752 14.1483 7.11587 14.1483 6.34694C14.1483 6.22461 14.1663 6.11976 14.1843 6.0149H3.72626C3.74426 6.10228 3.74426 6.18966 3.74426 6.27704C3.74426 7.04597 3.09626 7.65762 2.32226 7.65762C2.23226 7.65762 2.16026 7.65762 2.07026 7.64015V11.8343C2.16026 11.8168 2.23226 11.8168 2.32226 11.8168C3.11426 11.8168 3.74426 12.4285 3.74426 13.1974C3.74426 13.2848 3.74426 13.3722 3.72626 13.4596H14.1663C14.1663 13.4071 14.1483 13.3547 14.1483 13.2848C14.1483 12.5159 14.7963 11.9042 15.5703 11.9042C15.6963 11.9042 15.8043 11.9217 15.9303 11.9392V7.69257ZM12.0963 9.73723C12.0963 11.3974 10.7103 12.7431 9.00026 12.7431C7.29026 12.7431 5.90426 11.3974 5.90426 9.73723C5.90426 8.07704 7.29026 6.73141 9.00026 6.73141C10.7103 6.73141 12.0963 8.07704 12.0963 9.73723ZM10.8003 9.73723C10.8003 8.77607 9.99026 8.00714 9.01826 8.00714C8.02826 8.00714 7.23626 8.79354 7.23626 9.73723C7.23626 10.6809 8.04626 11.4673 9.01826 11.4673C9.99026 11.4673 10.8003 10.6984 10.8003 9.73723Z" fill="#FB7B04"/>                    </svg>                                    </span>                <span class="cursor-pointer" routerLink="/admin/subscription/unpaid-invoice/{{client.schoolId}}">                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z" fill="#A4A5A8"/>                    </svg>                                    </span>                </div>          </td>        </tr>        <!-- <tr class="pb-2">                      <td scope="row" class="school-logo rounded-left"> <span><img                                  src="assets/images/svg/school-break.svg" alt="schools log" class="mr-3"> </span> America                          International<br> School of Lagos <img src="assets/images/svg/verify.svg" alt="schools log">                      </td>                      <td class="">197E8318</td>                      <td>1,950</td>                      <td>Lagos</td>                      <td><span class="status_inactive">Inactive</span></td>                      <td>17/03/2020</td>                      <td class="rounded-right ">                          <button class="btn btn-link link"><a href="#" [routerLink]="[\'/admin/client\']">View Details </a></button>                      </td>                  </tr>  -->      </tbody>    </table>    <div class="d-flex justify-content-end">      <!-- <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls> -->    </div>    <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">              <div class="d-flex flex-column justify-content-center align-items-center">                <img src="assets/images/svg/no-result.svg" alt="no search result" class="my-4">                  <p class="mb-4 no-result">Sorry, no results found</p>                  <button class="btn btn-outline-orange  mx-2 mx-lg-3" >Go back </button>              </div>          </div> -->  </section></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AccountMappingComponent', 'selector': 'app-account-mapping'},{'name': 'AccountPanelComponent', 'selector': 'app-account-panel'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AdminAlumniCreateEventComponent', 'selector': 'app-admin-alumni-create-event'},{'name': 'AdminAlumniEventsComponent', 'selector': 'app-admin-alumni-events'},{'name': 'AdminAlumniListComponent', 'selector': 'app-admin-alumni-list'},{'name': 'AdminLoginComponent', 'selector': 'app-admin-login'},{'name': 'AlumniAlumniComponent', 'selector': 'app-alumni-alumni'},{'name': 'AlumniComponent', 'selector': 'app-alumni'},{'name': 'AlumniEventDetailComponent', 'selector': 'app-alumni-event-detail'},{'name': 'AlumniEventsComponent', 'selector': 'app-alumni-events'},{'name': 'AlumniHomeComponent', 'selector': 'app-alumni-home'},{'name': 'AlumniProfileComponent', 'selector': 'app-alumni-profile'},{'name': 'AlumniRecordsComponent', 'selector': 'app-alumni-records'},{'name': 'AlumniTranscriptComponent', 'selector': 'app-alumni-transcript'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentsComponent', 'selector': 'app-assignments'},{'name': 'AttachTeacherComponent', 'selector': 'app-attach-teacher'},{'name': 'AttendanceComponent', 'selector': 'app-attendance'},{'name': 'BankAccountsComponent', 'selector': 'app-bank-accounts'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BranchContactPersonComponent', 'selector': 'app-branch-contact-person'},{'name': 'BranchDetailComponent', 'selector': 'app-branch-detail'},{'name': 'BranchInformationComponent', 'selector': 'app-branch-information'},{'name': 'BranchLocationComponent', 'selector': 'app-branch-location'},{'name': 'BroadSheetComponent', 'selector': 'app-broad-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ChartOfAccountComponent', 'selector': 'app-chart-of-account'},{'name': 'ChildAssignmentComponent', 'selector': 'app-child-assignment'},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ClassAttendanceComponent', 'selector': 'app-class-attendance'},{'name': 'ClassPoolComponent', 'selector': 'app-class-pool'},{'name': 'ClassRepeatComponent', 'selector': 'app-class-repeat'},{'name': 'ClassScheduleComponent', 'selector': 'app-class-schedule'},{'name': 'ClientDetailComponent', 'selector': 'app-client-detail'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'ContactDetailComponent', 'selector': 'app-contact-detail'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactPersonComponent', 'selector': 'app-contact-person'},{'name': 'CreateAssignmentComponent', 'selector': 'app-create-assignment'},{'name': 'CreateBranchComponent', 'selector': 'app-create-branch'},{'name': 'CreateClientComponent', 'selector': 'app-create-client'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoComponent', 'selector': 'app-demo'},{'name': 'DiscountsComponent', 'selector': 'app-discounts'},{'name': 'EditUserComponent', 'selector': 'app-edit-user'},{'name': 'EducationComponent', 'selector': 'app-education'},{'name': 'EmailVerifiedComponent', 'selector': 'app-email-verified'},{'name': 'EmployeeComponent', 'selector': 'app-employee'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeListComponent', 'selector': 'app-employee-list'},{'name': 'FacilitySettingsComponent', 'selector': 'app-facility-settings'},{'name': 'FaqsComponent', 'selector': 'app-faqs'},{'name': 'FeeComponent', 'selector': 'app-fee'},{'name': 'FeeComponentComponent', 'selector': 'app-fee-component'},{'name': 'FeeTypeComponent', 'selector': 'app-fee-type'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FilesComponent', 'selector': 'app-files'},{'name': 'FileStorageComponent', 'selector': 'app-file-storage'},{'name': 'FinanceSettingsComponent', 'selector': 'app-finance-settings'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAdminComponent', 'selector': 'app-global-admin'},{'name': 'GradebookComponent', 'selector': 'app-gradebook'},{'name': 'GradingComponent', 'selector': 'app-grading'},{'name': 'GroupedSchoolsComponent', 'selector': 'app-grouped-schools'},{'name': 'HomenavbarComponent', 'selector': 'app-homenavbar'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LandingScreenComponent', 'selector': 'app-landing-screen'},{'name': 'LaterThingsComponent', 'selector': 'app-later-things'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'MailReportCardComponent', 'selector': 'app-mail-report-card'},{'name': 'MarkAttendanceComponent', 'selector': 'app-mark-attendance'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MedicalDetailsComponent', 'selector': 'app-medical-details'},{'name': 'NewAccountChartComponent', 'selector': 'app-new-account-chart'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewFeeComponent', 'selector': 'app-new-fee'},{'name': 'NewroleComponent', 'selector': 'app-newrole'},{'name': 'NewRoleRecordComponent', 'selector': 'app-new-role-record'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NewVendorsComponent', 'selector': 'app-new-vendors'},{'name': 'NextOfKinComponent', 'selector': 'app-next-of-kin'},{'name': 'NoRecordComponent', 'selector': 'app-no-record'},{'name': 'NotificationPageComponent', 'selector': 'app-notification-page'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ParentComponent', 'selector': 'app-parent'},{'name': 'ParentDetailsComponent', 'selector': 'app-parent-details'},{'name': 'ParentListComponent', 'selector': 'app-parent-list'},{'name': 'ParentLoginComponent', 'selector': 'app-parent-login'},{'name': 'ParentPortalComponent', 'selector': 'app-parent-portal'},{'name': 'PayrollAccountsComponent', 'selector': 'app-payroll-accounts'},{'name': 'PayrollSetttingsComponent', 'selector': 'app-payroll-setttings'},{'name': 'PeriodComponent', 'selector': 'app-period'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'PersonalSettingsComponent', 'selector': 'app-personal-settings'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileInformationComponent', 'selector': 'app-profile-information'},{'name': 'PromotionDashboardComponent', 'selector': 'app-promotion-dashboard'},{'name': 'PromotionSettingsComponent', 'selector': 'app-promotion-settings'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResultSettingsComponent', 'selector': 'app-result-settings'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'SchoolAdminComponent', 'selector': 'app-school-admin'},{'name': 'SchoolBranchManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolComponent', 'selector': 'app-school'},{'name': 'SchoolContactPersonComponent', 'selector': 'app-school-contact-person'},{'name': 'SchoolGradeBookComponent', 'selector': 'app-school-grade-book'},{'name': 'SchoolInformationComponent', 'selector': 'app-school-information'},{'name': 'SchoolLoginComponent', 'selector': 'app-school-login'},{'name': 'SchoolManagerBranchComponent', 'selector': 'app-school-manager-branch'},{'name': 'SchoolManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolManagerDashboardComponent', 'selector': 'app-school-manager-dashboard'},{'name': 'SchoolManagerSettingsComponent', 'selector': 'app-school-manager-settings'},{'name': 'SchoolMediaComponent', 'selector': 'app-school-media'},{'name': 'SchoolSettingsComponent', 'selector': 'app-school-settings'},{'name': 'ScoreSheetComponent', 'selector': 'app-score-sheet'},{'name': 'ScoreSheetDetailsPageComponent', 'selector': 'app-score-sheet-details-page'},{'name': 'SessionComponent', 'selector': 'app-session'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'StudentAttendanceComponent', 'selector': 'app-student-attendance'},{'name': 'StudentComponent', 'selector': 'app-student'},{'name': 'StudentDetailComponent', 'selector': 'app-student-detail'},{'name': 'StudentListComponent', 'selector': 'app-student-list'},{'name': 'StudentLoginComponent', 'selector': 'app-student-login'},{'name': 'StudentProfileComponent', 'selector': 'app-student-profile'},{'name': 'StudentReportComponent', 'selector': 'app-student-report'},{'name': 'StudentResultSheetComponent', 'selector': 'app-student-result-sheet'},{'name': 'StudentScoreSheetComponent', 'selector': 'app-student-score-sheet'},{'name': 'StudentSettingsComponent', 'selector': 'app-student-settings'},{'name': 'StudentSheetComponent', 'selector': 'app-student-sheet'},{'name': 'SubjecAttendanceComponent', 'selector': 'app-subjec-attendance'},{'name': 'SubscriptionInvoiceArreasComponent', 'selector': 'app-subscription-invoice-arreas'},{'name': 'SubscriptionInvoiceComponent', 'selector': 'app-subscription-invoice'},{'name': 'SubscriptionListsComponent', 'selector': 'app-subscription-lists'},{'name': 'SubscriptionPageComponent', 'selector': 'app-subscription-page'},{'name': 'TaskPreviewComponent', 'selector': 'app-task-preview'},{'name': 'TeacherComponent', 'selector': 'app-teacher'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'},{'name': 'TeachersComponent', 'selector': 'app-teachers'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'UnpaidSubscriptionsComponent', 'selector': 'app-unpaid-subscriptions'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VendorsComponent', 'selector': 'app-vendors'},{'name': 'ViewAssignmentComponent', 'selector': 'app-view-assignment'},{'name': 'ViewBillingComponent', 'selector': 'app-view-billing'},{'name': 'ViewFileComponent', 'selector': 'app-view-file'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportSheetComponent', 'selector': 'app-view-report-sheet'},{'name': 'VirtualClassComponent', 'selector': 'app-virtual-class'},{'name': 'VirtualClassroomComponent', 'selector': 'app-virtual-classroom'},{'name': 'VirtualSessionComponent', 'selector': 'app-virtual-session'},{'name': 'WithdrawalListComponent', 'selector': 'app-withdrawal-list'},{'name': 'WorkExperienceComponent', 'selector': 'app-work-experience'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SubscriptionListsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SubscriptionListsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

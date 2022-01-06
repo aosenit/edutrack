@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod"
+    "postinstall": "ng build --prod",
+    "compodoc": "npx compodoc -p tsconfig.doc.json -s"
   },
   "private": true,
   "dependencies": {

@@ -1,0 +1,1786 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  SchoolComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/school/school.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-school</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./school.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./school.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#adminDetails" >adminDetails</a>
+                            </li>
+                            <li>
+                                <a href="#schoolColor" >schoolColor</a>
+                            </li>
+                            <li>
+                                <a href="#schoolLogo" >schoolLogo</a>
+                            </li>
+                            <li>
+                                <a href="#schoolname" >schoolname</a>
+                            </li>
+                            <li>
+                                <a href="#year" >year</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getInitials" >getInitials</a>
+                            </li>
+                            <li>
+                                <a href="#getSchoolProperties" >getSchoolProperties</a>
+                            </li>
+                            <li>
+                                <a href="#getYear" >getYear</a>
+                            </li>
+                            <li>
+                                <a href="#logOut" >logOut</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSideBar" >toggleSideBar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, notifyService: <a href="../injectables/NotificationsService.html" target="_self">NotificationsService</a>, school: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/school/school.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>notifyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NotificationsService.html" target="_self" >NotificationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>school</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolService.html" target="_self" >SchoolService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInitials"></a>
+                    <span class="name">
+                        <span ><b>getInitials</b></span>
+                        <a href="#getInitials"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInitials(input)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/school/school.component.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>input</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSchoolProperties"></a>
+                    <span class="name">
+                        <span ><b>getSchoolProperties</b></span>
+                        <a href="#getSchoolProperties"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSchoolProperties()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/school/school.component.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getYear"></a>
+                    <span class="name">
+                        <span ><b>getYear</b></span>
+                        <a href="#getYear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getYear()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/school/school.component.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logOut"></a>
+                    <span class="name">
+                        <span ><b>logOut</b></span>
+                        <a href="#logOut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logOut()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/school/school.component.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/school/school.component.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSideBar"></a>
+                    <span class="name">
+                        <span ><b>toggleSideBar</b></span>
+                        <a href="#toggleSideBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSideBar()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/school/school.component.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="adminDetails"></a>
+                    <span class="name">
+                        <span ><b>adminDetails</b></span>
+                        <a href="#adminDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/school/school.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolColor"></a>
+                    <span class="name">
+                        <span ><b>schoolColor</b></span>
+                        <a href="#schoolColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/school/school.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolLogo"></a>
+                    <span class="name">
+                        <span ><b>schoolLogo</b></span>
+                        <a href="#schoolLogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/school/school.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolname"></a>
+                    <span class="name">
+                        <span ><b>schoolname</b></span>
+                        <a href="#schoolname"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/school/school.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="year"></a>
+                    <span class="name">
+                        <span ><b>year</b></span>
+                        <a href="#year"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Date()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/school/school.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { JwtHelperService } from &#x27;@auth0/angular-jwt&#x27;;
+import { NotificationsService } from &#x27;src/services/classes/notifications/notifications.service&#x27;;
+import { SchoolService } from &#x27;src/services/data/school/school.service&#x27;;
+
+
+@Component({
+  selector: &#x27;app-school&#x27;,
+  templateUrl: &#x27;./school.component.html&#x27;,
+  styleUrls: [&#x27;./school.component.css&#x27;]
+})
+export class SchoolComponent implements OnInit {
+  adminDetails: any;
+  schoolLogo: any;
+  schoolname: any;
+  year: Date &#x3D; new Date();
+  schoolColor: any;
+  constructor(
+    private router: Router,
+    private notifyService: NotificationsService,
+    private school: SchoolService
+    ) { }
+
+  ngOnInit() {
+    const helper &#x3D; new JwtHelperService();
+    this.adminDetails &#x3D; helper.decodeToken(localStorage.getItem(&#x27;access_token&#x27;));
+    // // (this.adminDetails);
+    this.getSchoolProperties();
+
+  }
+
+  logOut() {
+    localStorage.removeItem(&#x27;access_token&#x27;);
+    setTimeout(() &#x3D;&gt; {
+      this.notifyService.publishMessages(&#x27;Logged out successfully&#x27;, &#x27;success&#x27;, 1);
+      this.router.navigateByUrl(&#x27;/&#x27;);
+
+    }, 2000);
+  }
+
+  getInitials(input) {
+    const  names &#x3D; input.split(&#x27; &#x27;);
+    let initials &#x3D; names[0].substring(0, 1).toUpperCase();
+
+    if (names.length &gt; 1) {
+        initials +&#x3D; names[names.length - 1].substring(0, 1).toUpperCase();
+    }
+    return initials;
+}
+
+getSchoolProperties() {
+  this.school.getSchoolLogo(this.adminDetails.TenantId).subscribe((data: any) &#x3D;&gt; {
+    if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+      // (data.paylaod);
+      this.schoolLogo &#x3D; data.payload.logo;
+      this.schoolColor &#x3D; data.payload;
+      sessionStorage.setItem(&#x27;prop&#x27;, this.schoolLogo);
+      this.schoolname &#x3D; data.payload.schoolName;
+    }
+  });
+}
+
+
+toggleSideBar() {
+  // (&#x27;admin&#x27;);
+  const sidebar &#x3D; document.querySelector(&#x27;#sidebar&#x27;);
+  const content &#x3D; document.querySelector(&#x27;#content&#x27;);
+  sidebar.classList.toggle(&#x27;sidebar&#x27;);
+  content.classList.toggle(&#x27;content&#x27;);
+}
+
+getYear() {
+  return this.year.getFullYear();
+}
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;wrapper&quot;&gt;
+    &lt;div id&#x3D;&quot;sidebar&quot; [ngStyle]&#x3D;&quot;{&#x27;background-color&#x27;: schoolColor?.primaryColor}&quot;&gt;
+        &lt;div class&#x3D;&quot;p-3&quot;&gt;
+            &lt;p class&#x3D;&quot;text-center&quot;&gt;
+                &lt;img *ngIf&#x3D;&quot;schoolLogo &#x3D;&#x3D; null&quot; src&#x3D;&quot;assets/images/svg/logo.svg&quot; alt&#x3D;&quot;&quot;&gt; 
+                &lt;img class&#x3D;&quot;&quot; *ngIf&#x3D;&quot;schoolLogo&quot; src&#x3D;&quot;data:image/png;base64,{{schoolLogo}}&quot; alt&#x3D;&quot;schools log&quot;
+                class&#x3D;&quot;mr-3 school-logo&quot; id&#x3D;&quot;&quot;&gt; 
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;p class&#x3D;&quot;px-3 ff-s fc-grey1 fs-14&quot;&gt;MAIN MENU&lt;/p&gt;
+        &lt;ul class&#x3D;&quot;list-unstyled components&quot;&gt;
+
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;]&quot; [routerLinkActive]&#x3D;&quot;[&#x27;active&#x27;]&quot;&gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;25&quot; height&#x3D;&quot;24&quot; viewBox&#x3D;&quot;0 0 25 24&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M13.4683 3.95396C12.7462 3.39278 11.7356 3.39278 11.0135 3.95397L4.4769 9.03458C4.23316 9.22403 4.09058 9.51543 4.09058 9.82413V20C4.09058 20.5523 4.53829 21 5.09058 21H8.69801C9.2503 21 9.69801 20.5523 9.69801 20V14.9581C9.69801 14.4058 10.1457 13.9581 10.698 13.9581H13.7838C14.3361 13.9581 14.7838 14.4058 14.7838 14.9581V20C14.7838 20.5523 15.2315 21 15.7838 21H19.3912C19.9435 21 20.3912 20.5523 20.3912 20V9.82413C20.3912 9.51543 20.2487 9.22403 20.0049 9.03458L13.4683 3.95396Z&quot; fill&#x3D;&quot;#011160&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                    Dashboard
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot; &gt;
+                    &lt;span class&#x3D;&quot;ico&quot; id&#x3D;&quot;Vector&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path id&#x3D;&quot;Vector&quot; d&#x3D;&quot;M9.68211 12.9106L9.35398 12.4354C9.23765 12.2668 9.08212 12.129 8.90076 12.0338C8.7194 11.9385 8.51763 11.8888 8.3128 11.8887C8.30736 11.8888 8.30201 11.8901 8.29724 11.8927C8.29247 11.8954 8.28843 11.8991 8.28548 11.9037C8.28253 11.9083 8.28077 11.9135 8.28037 11.9189C8.27996 11.9243 8.28091 11.9298 8.28314 11.9347L8.31477 12.0055C8.46872 12.3499 8.59294 12.7068 8.68608 13.0724L9.08317 14.6328C9.14467 14.8392 9.27141 15.0202 9.44439 15.1485C9.61737 15.2769 9.82728 15.3457 10.0427 15.3447H12.657C12.9229 15.3444 13.1778 15.2385 13.3657 15.0505C13.5537 14.8624 13.6594 14.6075 13.6597 14.3416V12.2253C13.6601 12.1809 13.6517 12.1368 13.635 12.0956C13.6183 12.0545 13.5936 12.017 13.5623 11.9854C13.5311 11.9539 13.4939 11.9288 13.4528 11.9117C13.4118 11.8946 13.3678 11.8858 13.3234 11.8858C13.279 11.8858 13.235 11.8946 13.194 11.9117C13.153 11.9288 13.1157 11.9539 13.0845 11.9854C13.0532 12.017 13.0285 12.0545 13.0118 12.0956C12.9951 12.1368 12.9867 12.1809 12.9871 12.2253V12.8619C12.9871 12.9033 12.9707 12.9431 12.9414 12.9724C12.9121 13.0017 12.8723 13.0181 12.8309 13.0181C12.7895 13.0181 12.7497 13.0017 12.7204 12.9724C12.6911 12.9431 12.6746 12.9033 12.6746 12.8619V11.9314C12.6747 11.8493 12.6444 11.77 12.5894 11.7089C12.5345 11.6478 12.4589 11.6092 12.3771 11.6006C12.2954 11.5921 12.2134 11.6141 12.147 11.6624C12.0805 11.7108 12.0344 11.782 12.0174 11.8624V12.6674C12.0174 12.6879 12.0134 12.7083 12.0055 12.7272C11.9977 12.7462 11.9862 12.7634 11.9717 12.7779C11.9571 12.7924 11.9399 12.8039 11.921 12.8118C11.902 12.8196 11.8817 12.8237 11.8612 12.8237C11.8599 12.8237 11.8588 12.8233 11.8575 12.8233C11.8563 12.8233 11.8551 12.8237 11.8539 12.8237C11.8124 12.8237 11.7727 12.8072 11.7434 12.7779C11.7141 12.7486 11.6976 12.7089 11.6976 12.6674V11.9314C11.6979 11.9007 11.7003 11.8701 11.7049 11.8397V11.6202C11.7049 11.5377 11.6722 11.4587 11.6139 11.4003C11.5555 11.342 11.4764 11.3093 11.394 11.3093C11.3115 11.3093 11.2324 11.342 11.1741 11.4003C11.1158 11.4587 11.083 11.5377 11.083 11.6202V12.6674C11.083 12.7089 11.0666 12.7486 11.0373 12.7779C11.008 12.8072 10.9682 12.8237 10.9268 12.8237C10.8854 12.8237 10.8456 12.8072 10.8163 12.7779C10.787 12.7486 10.7705 12.7089 10.7705 12.6674V11.896C10.7655 11.8809 10.7628 11.8651 10.7625 11.8491V8.52066C10.7625 8.41883 10.7221 8.32117 10.6501 8.24917C10.5781 8.17717 10.4804 8.13672 10.3786 8.13672C10.2768 8.13672 10.1791 8.17717 10.1071 8.24917C10.0351 8.32117 9.99467 8.41883 9.99467 8.52066V13.6166C9.99467 13.6581 9.97821 13.6978 9.94891 13.7271C9.9196 13.7564 9.87986 13.7729 9.83842 13.7729C9.79698 13.7729 9.75724 13.7564 9.72794 13.7271C9.69863 13.6978 9.68217 13.6581 9.68217 13.6166V12.9104L9.68211 12.9106Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path id&#x3D;&quot;Vector&quot; d&#x3D;&quot;M3.83887 1.48047C3.7647 1.48047 3.6922 1.50246 3.63053 1.54367C3.56886 1.58487 3.5208 1.64344 3.49241 1.71196C3.46403 1.78049 3.4566 1.85589 3.47107 1.92863C3.48554 2.00137 3.52126 2.06819 3.5737 2.12064C3.62615 2.17308 3.69296 2.2088 3.76571 2.22326C3.83845 2.23773 3.91385 2.23031 3.98237 2.20193C4.05089 2.17354 4.10946 2.12548 4.15067 2.06381C4.19187 2.00214 4.21387 1.92964 4.21387 1.85547C4.21376 1.75605 4.17421 1.66073 4.10391 1.59042C4.03361 1.52012 3.93829 1.48058 3.83887 1.48047Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path id&#x3D;&quot;Vector&quot; d&#x3D;&quot;M0.71875 12.3822C0.718932 12.52 0.773768 12.6521 0.871228 12.7495C0.968689 12.847 1.10082 12.9018 1.23863 12.9019L8.32925 12.9519C8.24833 12.6719 8.14809 12.3979 8.02925 12.1318L7.99762 12.061C7.97415 12.0085 7.96418 11.9509 7.96863 11.8935C7.97307 11.8362 7.99179 11.7808 8.02308 11.7325C8.05437 11.6842 8.09724 11.6445 8.14779 11.617C8.19834 11.5895 8.25496 11.5751 8.3125 11.5751C8.56794 11.5751 8.81955 11.6371 9.04571 11.7558C9.27188 11.8746 9.46583 12.0464 9.61091 12.2567L9.68169 12.3593V8.51947C9.68169 8.33476 9.75506 8.15762 9.88567 8.02701C10.0163 7.89641 10.1934 7.82303 10.3781 7.82303C10.5628 7.82303 10.74 7.89641 10.8706 8.02701C11.0012 8.15762 11.0746 8.33476 11.0746 8.51947V11.0842C11.1527 11.0372 11.2403 11.008 11.331 10.9987C11.4217 10.9894 11.5134 11.0002 11.5995 11.0303C11.6856 11.0604 11.764 11.1091 11.8291 11.1729C11.8942 11.2368 11.9445 11.3142 11.9763 11.3996C12.0565 11.3441 12.1482 11.3076 12.2446 11.2928C12.341 11.278 12.4395 11.2853 12.5326 11.3141C12.6257 11.343 12.7111 11.3926 12.7822 11.4593C12.8533 11.526 12.9084 11.6081 12.9431 11.6992C13.0398 11.6288 13.1541 11.5866 13.2733 11.5772C13.3925 11.5678 13.512 11.5916 13.6185 11.646C13.7251 11.7003 13.8144 11.7831 13.8768 11.8852C13.9391 11.9872 13.972 12.1046 13.9717 12.2242V12.9448L14.7527 12.9022C14.7556 12.9022 14.7584 12.9019 14.7612 12.9019C14.8991 12.9018 15.0312 12.847 15.1287 12.7496C15.2262 12.6522 15.2811 12.52 15.2812 12.3822V3.41797H0.71875V12.3822ZM4.725 9.05956L3.77038 10.2068L3.76413 10.2128C3.71722 10.2589 3.65491 10.286 3.5892 10.289C3.52349 10.2919 3.45902 10.2704 3.40822 10.2286L3.06322 9.94947C3.0472 9.93658 3.03388 9.92067 3.02403 9.90263C3.01417 9.88458 3.00797 9.86478 3.00579 9.84434C3.0036 9.8239 3.00547 9.80323 3.01129 9.78351C3.0171 9.76379 3.02675 9.74542 3.03968 9.72944C3.05261 9.71346 3.06857 9.70018 3.08664 9.69038C3.10471 9.68058 3.12453 9.67444 3.14498 9.67231C3.16542 9.67018 3.18609 9.67211 3.20579 9.67798C3.22549 9.68385 3.24384 9.69355 3.25978 9.70653L3.57075 9.95816L4.48481 8.85969C4.49794 8.84392 4.51405 8.83089 4.53222 8.82134C4.55039 8.8118 4.57026 8.80592 4.5907 8.80406C4.61114 8.80219 4.63174 8.80437 4.65134 8.81047C4.67093 8.81656 4.68914 8.82646 4.70491 8.83959C4.72068 8.85273 4.73371 8.86884 4.74325 8.887C4.7528 8.90517 4.75867 8.92504 4.76054 8.94548C4.7624 8.96592 4.76022 8.98652 4.75413 9.00612C4.74803 9.02571 4.73813 9.04392 4.725 9.05969V9.05956ZM13.8156 9.39516H12.2922C12.2508 9.39516 12.2111 9.37869 12.1818 9.34939C12.1525 9.32009 12.136 9.28035 12.136 9.23891C12.136 9.19747 12.1525 9.15772 12.1818 9.12842C12.2111 9.09912 12.2508 9.08266 12.2922 9.08266H13.8156C13.8571 9.08266 13.8968 9.09912 13.9261 9.12842C13.9554 9.15772 13.9719 9.19747 13.9719 9.23891C13.9719 9.28035 13.9554 9.32009 13.9261 9.34939C13.8968 9.37869 13.8571 9.39516 13.8156 9.39516ZM6.49922 5.10862H13.8156C13.8571 5.10862 13.8968 5.12509 13.9261 5.15439C13.9554 5.18369 13.9719 5.22343 13.9719 5.26487C13.9719 5.30632 13.9554 5.34606 13.9261 5.37536C13.8968 5.40466 13.8571 5.42112 13.8156 5.42112H6.49922C6.45778 5.42112 6.41804 5.40466 6.38873 5.37536C6.35943 5.34606 6.34297 5.30632 6.34297 5.26487C6.34297 5.22343 6.35943 5.18369 6.38873 5.15439C6.41804 5.12509 6.45778 5.10862 6.49922 5.10862ZM6.49922 6.66213H13.8156C13.8571 6.66213 13.8968 6.67859 13.9261 6.70789C13.9554 6.73719 13.9719 6.77694 13.9719 6.81838C13.9719 6.85982 13.9554 6.89956 13.9261 6.92886C13.8968 6.95816 13.8571 6.97463 13.8156 6.97463H6.49922C6.45778 6.97463 6.41804 6.95816 6.38873 6.92886C6.35943 6.89956 6.34297 6.85982 6.34297 6.81838C6.34297 6.77694 6.35943 6.73719 6.38873 6.70789C6.41804 6.67859 6.45778 6.66213 6.49922 6.66213ZM6.49922 9.08266H8.87544C8.91688 9.08266 8.95662 9.09912 8.98592 9.12842C9.01523 9.15772 9.03169 9.19747 9.03169 9.23891C9.03169 9.28035 9.01523 9.32009 8.98592 9.34939C8.95662 9.37869 8.91688 9.39516 8.87544 9.39516H6.49922C6.45778 9.39516 6.41804 9.37869 6.38873 9.34939C6.35943 9.32009 6.34297 9.28035 6.34297 9.23891C6.34297 9.19747 6.35943 9.15772 6.38873 9.12842C6.41804 9.09912 6.45778 9.08266 6.49922 9.08266ZM6.49922 10.6361H7.13963C7.18107 10.6361 7.22081 10.6526 7.25011 10.6819C7.27941 10.7112 7.29588 10.7509 7.29588 10.7924C7.29588 10.8338 7.27941 10.8736 7.25011 10.9029C7.22081 10.9322 7.18107 10.9486 7.13963 10.9486H6.49922C6.45778 10.9486 6.41804 10.9322 6.38873 10.9029C6.35943 10.8736 6.34297 10.8338 6.34297 10.7924C6.34297 10.7509 6.35943 10.7112 6.38873 10.6819C6.41804 10.6526 6.45778 10.6361 6.49922 10.6361ZM4.48488 4.88566C4.5114 4.85381 4.54948 4.83379 4.59076 4.83003C4.63204 4.82626 4.67312 4.83904 4.70497 4.86556C4.73682 4.89208 4.75683 4.93017 4.7606 4.97145C4.76437 5.01272 4.75158 5.05381 4.72506 5.08566L3.77044 6.23291L3.76419 6.23894C3.71726 6.28502 3.65494 6.31212 3.58923 6.315C3.52352 6.31789 3.45907 6.29636 3.40828 6.25456L3.06328 5.97544C3.0312 5.94933 3.01078 5.91156 3.0065 5.87042C3.00222 5.82928 3.01443 5.78812 3.04044 5.75597C3.06646 5.72381 3.10416 5.70329 3.14529 5.69889C3.18642 5.69449 3.22761 5.70658 3.25984 5.7325L3.57081 5.98409L4.48488 4.88566ZM2.26038 5.21981C2.26046 5.15567 2.28598 5.09418 2.33134 5.04884C2.37671 5.00349 2.4382 4.978 2.50234 4.97794H3.39959C3.44103 4.97794 3.48078 4.9944 3.51008 5.0237C3.53938 5.053 3.55584 5.09275 3.55584 5.13419C3.55584 5.17563 3.53938 5.21537 3.51008 5.24467C3.48078 5.27398 3.44103 5.29044 3.39959 5.29044H2.57288V6.94141H4.22634V6.40531C4.22634 6.36387 4.24281 6.32413 4.27211 6.29483C4.30141 6.26552 4.34115 6.24906 4.38259 6.24906C4.42403 6.24906 4.46378 6.26552 4.49308 6.29483C4.52238 6.32413 4.53884 6.36387 4.53884 6.40531V7.01203C4.53875 7.07617 4.51323 7.13765 4.46787 7.183C4.42251 7.22834 4.36101 7.25384 4.29688 7.25391H2.50234C2.4382 7.25385 2.37671 7.22835 2.33134 7.183C2.28598 7.13766 2.26046 7.07617 2.26038 7.01203V5.21981ZM2.26038 9.19381C2.26046 9.12967 2.28598 9.06818 2.33134 9.02284C2.37671 8.97749 2.4382 8.95199 2.50234 8.95194H3.39959C3.44103 8.95194 3.48078 8.9684 3.51008 8.9977C3.53938 9.027 3.55584 9.06675 3.55584 9.10819C3.55584 9.14963 3.53938 9.18937 3.51008 9.21867C3.48078 9.24798 3.44103 9.26444 3.39959 9.26444H2.57288V10.9154H4.22634V10.3793C4.22634 10.3379 4.24281 10.2982 4.27211 10.2689C4.30141 10.2396 4.34115 10.2231 4.38259 10.2231C4.42403 10.2231 4.46378 10.2396 4.49308 10.2689C4.52238 10.2982 4.53884 10.3379 4.53884 10.3793V10.986C4.53876 11.0502 4.51324 11.1117 4.46788 11.157C4.42251 11.2024 4.36102 11.2278 4.29688 11.2279H2.50234C2.4382 11.2278 2.37671 11.2024 2.33134 11.157C2.28598 11.1117 2.26046 11.0502 2.26038 10.986V9.19381Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path id&#x3D;&quot;Vector&quot; d&#x3D;&quot;M1.94336 1.48047C1.86919 1.48047 1.79669 1.50246 1.73502 1.54367C1.67335 1.58487 1.62529 1.64344 1.5969 1.71196C1.56852 1.78049 1.5611 1.85589 1.57557 1.92863C1.59003 2.00137 1.62575 2.06819 1.67819 2.12064C1.73064 2.17308 1.79746 2.2088 1.8702 2.22326C1.94294 2.23773 2.01834 2.23031 2.08686 2.20193C2.15539 2.17354 2.21395 2.12548 2.25516 2.06381C2.29636 2.00214 2.31836 1.92964 2.31836 1.85547C2.31826 1.75604 2.27872 1.66072 2.20841 1.59041C2.13811 1.52011 2.04278 1.48057 1.94336 1.48047Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path id&#x3D;&quot;Vector&quot; d&#x3D;&quot;M5.7334 1.48047C5.65923 1.48047 5.58673 1.50246 5.52506 1.54367C5.46339 1.58487 5.41533 1.64344 5.38694 1.71196C5.35856 1.78049 5.35113 1.85589 5.3656 1.92863C5.38007 2.00137 5.41579 2.06819 5.46823 2.12064C5.52068 2.17308 5.5875 2.2088 5.66024 2.22326C5.73298 2.23773 5.80838 2.23031 5.87691 2.20193C5.94543 2.17354 6.004 2.12548 6.0452 2.06381C6.08641 2.00214 6.1084 1.92964 6.1084 1.85547C6.1083 1.75604 6.06876 1.66072 5.99846 1.59041C5.92815 1.52011 5.83283 1.48057 5.7334 1.48047Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path id&#x3D;&quot;Vector&quot; d&#x3D;&quot;M14.7614 0.65625H1.23863C1.10081 0.656391 0.968679 0.711191 0.871217 0.808629C0.773756 0.906067 0.718924 1.03819 0.71875 1.176V3.10566H15.2812V1.176C15.2811 1.03819 15.2262 0.906067 15.1288 0.808629C15.0313 0.711191 14.8992 0.656391 14.7614 0.65625ZM1.94375 2.54475C1.80778 2.54475 1.67485 2.50443 1.5618 2.42889C1.44874 2.35334 1.36062 2.24597 1.30858 2.12034C1.25655 1.99472 1.24293 1.85649 1.26946 1.72313C1.29599 1.58976 1.36147 1.46726 1.45761 1.37111C1.55376 1.27497 1.67626 1.20949 1.80963 1.18296C1.94299 1.15643 2.08122 1.17005 2.20684 1.22208C2.33247 1.27412 2.43984 1.36224 2.51539 1.4753C2.59093 1.58835 2.63125 1.72128 2.63125 1.85725C2.63106 2.03953 2.55857 2.21429 2.42968 2.34318C2.30079 2.47207 2.12603 2.54456 1.94375 2.54475ZM3.83853 2.54475C3.70256 2.54475 3.56964 2.50443 3.45658 2.42889C3.34352 2.35334 3.2554 2.24597 3.20336 2.12034C3.15133 1.99472 3.13771 1.85649 3.16424 1.72313C3.19077 1.58976 3.25625 1.46726 3.3524 1.37111C3.44854 1.27497 3.57104 1.20949 3.70441 1.18296C3.83777 1.15643 3.976 1.17005 4.10163 1.22208C4.22725 1.27412 4.33462 1.36224 4.41017 1.4753C4.48571 1.58835 4.52603 1.72128 4.52603 1.85725C4.52583 2.03953 4.45334 2.21428 4.32445 2.34317C4.19556 2.47205 4.02081 2.54455 3.83853 2.54475ZM5.73334 2.54475C5.59737 2.54475 5.46445 2.50443 5.35139 2.42889C5.23833 2.35334 5.15021 2.24597 5.09818 2.12034C5.04614 1.99472 5.03253 1.85649 5.05905 1.72313C5.08558 1.58976 5.15106 1.46726 5.24721 1.37111C5.34336 1.27497 5.46586 1.20949 5.59922 1.18296C5.73258 1.15643 5.87081 1.17005 5.99644 1.22208C6.12206 1.27412 6.22944 1.36224 6.30498 1.4753C6.38052 1.58835 6.42084 1.72128 6.42084 1.85725C6.42065 2.03953 6.34816 2.21429 6.21927 2.34318C6.09038 2.47207 5.91562 2.54456 5.73334 2.54475ZM14.6229 1.97812H8.53125C8.48981 1.97812 8.45007 1.96166 8.42076 1.93236C8.39146 1.90306 8.375 1.86332 8.375 1.82187C8.375 1.78043 8.39146 1.74069 8.42076 1.71139C8.45007 1.68209 8.48981 1.66562 8.53125 1.66562H14.6229C14.6643 1.66562 14.7041 1.68209 14.7334 1.71139C14.7627 1.74069 14.7792 1.78043 14.7792 1.82187C14.7792 1.86332 14.7627 1.90306 14.7334 1.93236C14.7041 1.96166 14.6643 1.97812 14.6229 1.97812Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+
+                    &lt;/span&gt;
+                    Enrollment
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a  href&#x3D;&quot;#alumni-submenu&quot; class&#x3D;&quot;nav-link&quot;  data-toggle&#x3D;&quot;collapse&quot; aria-expanded&#x3D;&quot;false&quot;  &gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M11.75 0V2.375H14.0938L11.75 0Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M9.43148 1.28625C9.80555 1.68813 10.0315 1.93062 10.0315 2.34375V6.15625H14.094V3.3125H11.2815C11.0227 3.3125 10.8127 3.1025 10.8127 2.84375V0H8.16211C8.55867 0.384062 9.07211 0.900312 9.43148 1.28625Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M6.75 0V2.375H9.09375L6.75 0Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M7.85156 5.05875L8.40031 6.15625H9.09375V3.3125H6.28125C6.0225 3.3125 5.8125 3.1025 5.8125 2.84375V0H2.375C2.11625 0 1.90625 0.21 1.90625 0.46875V4.28125H6.59375C7.13 4.28125 7.61188 4.57906 7.85156 5.05875Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M14.5938 7.09375H7.82097L7.01303 5.47788C6.93363 5.31906 6.77131 5.21875 6.59375 5.21875H1.40625C1.14737 5.21875 0.9375 5.42862 0.9375 5.6875V14.5938C0.9375 15.3692 1.56834 16 2.34375 16H13.6562C14.4317 16 15.0625 15.3692 15.0625 14.5938V7.5625C15.0625 7.30363 14.8526 7.09375 14.5938 7.09375ZM12.6875 14.0938H9.40625C9.14738 14.0938 8.9375 13.8839 8.9375 13.625C8.9375 13.3661 9.14738 13.1562 9.40625 13.1562H12.6875C12.9464 13.1562 13.1562 13.3661 13.1562 13.625C13.1562 13.8839 12.9464 14.0938 12.6875 14.0938ZM12.6875 12.2188H9.40625C9.14738 12.2188 8.9375 12.0089 8.9375 11.75C8.9375 11.4911 9.14738 11.2812 9.40625 11.2812H12.6875C12.9464 11.2812 13.1562 11.4911 13.1562 11.75C13.1562 12.0089 12.9464 12.2188 12.6875 12.2188Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                    Alumni
+                    &lt;span class&#x3D;&quot;ml-auto mr-2&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                &lt;/a&gt;
+                &lt;ul class&#x3D;&quot;collapse list-unstyled&quot; id&#x3D;&quot;alumni-submenu&quot;&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school/alumni-list&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Alumni&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/alumni-events&#x27;]&quot;   routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Events&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Transcript&lt;/a&gt;
+                    &lt;/li&gt;
+                   
+                    
+
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot; class&#x3D;&quot;nav-link&quot; [routerLink]&#x3D;&quot;[&#x27;/school/&#x27;]&quot; &gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M13.333 1.33203H2.66634C1.93301 1.33203 1.33967 1.93203 1.33967 2.66536L1.33301 14.6654L3.99967 11.9987H13.333C14.0663 11.9987 14.6663 11.3987 14.6663 10.6654V2.66536C14.6663 1.93203 14.0663 1.33203 13.333 1.33203ZM11.9997 9.33203H3.99967V7.9987H11.9997V9.33203ZM11.9997 7.33203H3.99967V5.9987H11.9997V7.33203ZM11.9997 5.33203H3.99967V3.9987H11.9997V5.33203Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                    Messages
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a  href&#x3D;&quot;#record-submenu&quot; class&#x3D;&quot;nav-link&quot;  data-toggle&#x3D;&quot;collapse&quot; aria-expanded&#x3D;&quot;false&quot;  &gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M11.75 0V2.375H14.0938L11.75 0Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M9.43148 1.28625C9.80555 1.68813 10.0315 1.93062 10.0315 2.34375V6.15625H14.094V3.3125H11.2815C11.0227 3.3125 10.8127 3.1025 10.8127 2.84375V0H8.16211C8.55867 0.384062 9.07211 0.900312 9.43148 1.28625Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M6.75 0V2.375H9.09375L6.75 0Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M7.85156 5.05875L8.40031 6.15625H9.09375V3.3125H6.28125C6.0225 3.3125 5.8125 3.1025 5.8125 2.84375V0H2.375C2.11625 0 1.90625 0.21 1.90625 0.46875V4.28125H6.59375C7.13 4.28125 7.61188 4.57906 7.85156 5.05875Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M14.5938 7.09375H7.82097L7.01303 5.47788C6.93363 5.31906 6.77131 5.21875 6.59375 5.21875H1.40625C1.14737 5.21875 0.9375 5.42862 0.9375 5.6875V14.5938C0.9375 15.3692 1.56834 16 2.34375 16H13.6562C14.4317 16 15.0625 15.3692 15.0625 14.5938V7.5625C15.0625 7.30363 14.8526 7.09375 14.5938 7.09375ZM12.6875 14.0938H9.40625C9.14738 14.0938 8.9375 13.8839 8.9375 13.625C8.9375 13.3661 9.14738 13.1562 9.40625 13.1562H12.6875C12.9464 13.1562 13.1562 13.3661 13.1562 13.625C13.1562 13.8839 12.9464 14.0938 12.6875 14.0938ZM12.6875 12.2188H9.40625C9.14738 12.2188 8.9375 12.0089 8.9375 11.75C8.9375 11.4911 9.14738 11.2812 9.40625 11.2812H12.6875C12.9464 11.2812 13.1562 11.4911 13.1562 11.75C13.1562 12.0089 12.9464 12.2188 12.6875 12.2188Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                    Records
+                    &lt;span class&#x3D;&quot;ml-auto mr-2&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                &lt;/a&gt;
+                &lt;ul class&#x3D;&quot;collapse list-unstyled&quot; id&#x3D;&quot;record-submenu&quot;&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school/students&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Student&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/parents&#x27;]&quot;   routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Parent&lt;/a&gt;
+                    &lt;/li&gt;
+                   
+                    
+
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;#academics-submenu&quot; class&#x3D;&quot;nav-link&quot;   data-toggle&#x3D;&quot;collapse&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;g clip-path&#x3D;&quot;url(#clip0)&quot;&gt;
+                            &lt;path d&#x3D;&quot;M14.5625 10.8125H9.875C9.10906 10.8125 8.42781 11.1819 8 11.7519C7.57219 11.1819 6.89094 10.8125 6.125 10.8125H1.4375C1.17875 10.8125 0.96875 11.0225 0.96875 11.2812V11.75H4.89969C5.99631 11.75 7.08728 11.9672 8 12.5756C8.91244 11.9674 10.0033 11.75 11.1003 11.75H15.0312V11.2812C15.0312 11.0225 14.8212 10.8125 14.5625 10.8125Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M7.12022 14.2533C6.60072 13.8364 5.85356 13.625 4.89953 13.625H0.46875C0.209875 13.625 0 13.4151 0 13.1562C0 12.8974 0.209875 12.6875 0.46875 12.6875H4.89953C6.07231 12.6875 7.01691 12.9683 7.70703 13.5222C7.87806 13.6595 8.12184 13.6596 8.29297 13.5222C8.98309 12.9683 9.92769 12.6875 11.1005 12.6875H15.5312C15.7901 12.6875 16 12.8974 16 13.1562C16 13.4151 15.7901 13.625 15.5312 13.625H11.1005C10.1464 13.625 9.39928 13.8364 8.87975 14.2533C8.36928 14.6631 7.63622 14.6675 7.12022 14.2533Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M11.2812 6.17969V7.52968C11.2812 7.70718 11.1809 7.86968 11.0222 7.94906L8.94906 8.9853C8.71937 9.1003 8.50906 9.24842 8.32406 9.4253C8.14281 9.59842 7.85719 9.59842 7.67594 9.4253C7.49094 9.24842 7.28063 9.1003 7.05094 8.9853L4.97781 7.94906C4.81906 7.86968 4.71875 7.70718 4.71875 7.52968V6.17969L7.61375 7.00687C7.86122 7.07765 8.12978 7.08025 8.38625 7.00687L11.2812 6.17969Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M13.1562 5.64453V8.46766C13.1562 8.72641 12.9462 8.93641 12.6875 8.93641C12.4288 8.93641 12.2188 8.72641 12.2188 8.46766V5.91234L13.1562 5.64453Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M7.8711 6.10698L1.3086 4.23198C0.85716 4.10302 0.856379 3.45977 1.3086 3.33055L7.8711 1.45555C7.95525 1.43148 8.04447 1.43148 8.12863 1.45555L14.6911 3.33055C15.1426 3.45952 15.1433 4.10277 14.6911 4.23198L8.12863 6.10698C8.04482 6.13092 7.9556 6.13111 7.8711 6.10698Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/g&gt;
+                            &lt;defs&gt;
+                            &lt;clipPath id&#x3D;&quot;clip0&quot;&gt;
+                            &lt;rect width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;white&quot;/&gt;
+                            &lt;/clipPath&gt;
+                            &lt;/defs&gt;
+                            &lt;/svg&gt;
+                            
+
+                    &lt;/span&gt;
+                    Academics
+                    &lt;span class&#x3D;&quot;ml-auto mr-2&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                &lt;/a&gt;
+                &lt;ul class&#x3D;&quot;collapse list-unstyled&quot; id&#x3D;&quot;academics-submenu&quot;&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school/teacher&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Teachers&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot;  [routerLink]&#x3D;&quot;[&#x27;/school/grade-book&#x27;]&quot;   routerLinkActive&#x3D;&quot;active&quot;&gt; Gradebook&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot;  &gt; Class Promotion&lt;/a&gt;
+                    &lt;/li&gt;
+                   
+                    
+
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;#promotion-submenu&quot; class&#x3D;&quot;nav-link&quot;   data-toggle&#x3D;&quot;collapse&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;g clip-path&#x3D;&quot;url(#clip0)&quot;&gt;
+                            &lt;path d&#x3D;&quot;M14.5625 10.8125H9.875C9.10906 10.8125 8.42781 11.1819 8 11.7519C7.57219 11.1819 6.89094 10.8125 6.125 10.8125H1.4375C1.17875 10.8125 0.96875 11.0225 0.96875 11.2812V11.75H4.89969C5.99631 11.75 7.08728 11.9672 8 12.5756C8.91244 11.9674 10.0033 11.75 11.1003 11.75H15.0312V11.2812C15.0312 11.0225 14.8212 10.8125 14.5625 10.8125Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M7.12022 14.2533C6.60072 13.8364 5.85356 13.625 4.89953 13.625H0.46875C0.209875 13.625 0 13.4151 0 13.1562C0 12.8974 0.209875 12.6875 0.46875 12.6875H4.89953C6.07231 12.6875 7.01691 12.9683 7.70703 13.5222C7.87806 13.6595 8.12184 13.6596 8.29297 13.5222C8.98309 12.9683 9.92769 12.6875 11.1005 12.6875H15.5312C15.7901 12.6875 16 12.8974 16 13.1562C16 13.4151 15.7901 13.625 15.5312 13.625H11.1005C10.1464 13.625 9.39928 13.8364 8.87975 14.2533C8.36928 14.6631 7.63622 14.6675 7.12022 14.2533Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M11.2812 6.17969V7.52968C11.2812 7.70718 11.1809 7.86968 11.0222 7.94906L8.94906 8.9853C8.71937 9.1003 8.50906 9.24842 8.32406 9.4253C8.14281 9.59842 7.85719 9.59842 7.67594 9.4253C7.49094 9.24842 7.28063 9.1003 7.05094 8.9853L4.97781 7.94906C4.81906 7.86968 4.71875 7.70718 4.71875 7.52968V6.17969L7.61375 7.00687C7.86122 7.07765 8.12978 7.08025 8.38625 7.00687L11.2812 6.17969Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M13.1562 5.64453V8.46766C13.1562 8.72641 12.9462 8.93641 12.6875 8.93641C12.4288 8.93641 12.2188 8.72641 12.2188 8.46766V5.91234L13.1562 5.64453Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M7.8711 6.10698L1.3086 4.23198C0.85716 4.10302 0.856379 3.45977 1.3086 3.33055L7.8711 1.45555C7.95525 1.43148 8.04447 1.43148 8.12863 1.45555L14.6911 3.33055C15.1426 3.45952 15.1433 4.10277 14.6911 4.23198L8.12863 6.10698C8.04482 6.13092 7.9556 6.13111 7.8711 6.10698Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/g&gt;
+                            &lt;defs&gt;
+                            &lt;clipPath id&#x3D;&quot;clip0&quot;&gt;
+                            &lt;rect width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;white&quot;/&gt;
+                            &lt;/clipPath&gt;
+                            &lt;/defs&gt;
+                            &lt;/svg&gt;
+                            
+
+                    &lt;/span&gt;
+                    Promotion
+                    &lt;span class&#x3D;&quot;ml-auto mr-2&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                &lt;/a&gt;
+                &lt;ul class&#x3D;&quot;collapse list-unstyled&quot; id&#x3D;&quot;promotion-submenu&quot;&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot; routerLink&#x3D;&quot;/school/promotion/class-repeat&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Class Repeat&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot;  routerLink&#x3D;&quot;/school/promotion/withdrawal-list&quot;   routerLinkActive&#x3D;&quot;active&quot;&gt; Withdrawal List&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; routerLink&#x3D;&quot;/school/promotion/class-pool&quot;  &gt; Class Pool&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; routerLink&#x3D;&quot;/school/promotion/promotion-dashboard&quot;  &gt; Promotion Dashboard&lt;/a&gt;
+                    &lt;/li&gt;
+                   
+                    
+
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;#schedule-submenu&quot; class&#x3D;&quot;nav-link&quot;   data-toggle&#x3D;&quot;collapse&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M12 8.80078H8V12.8008H12V8.80078Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M13.5998 1.60001H12.7998V0H11.1998V1.60001H4.79981V0H3.1998V1.60001H2.39982C1.51583 1.60001 0.80783 2.316 0.80783 3.20002L0.799805 14.4C0.799805 15.284 1.51579 16 2.39982 16H13.5998C14.4838 16 15.1998 15.284 15.1998 14.4V3.19999C15.1998 2.316 14.4838 1.60001 13.5998 1.60001ZM13.5998 14.4H2.39982V5.59998H13.5998V14.4Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+
+
+                    &lt;/span&gt;
+                    Schedule
+                    &lt;span class&#x3D;&quot;ml-auto mr-2&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                &lt;/a&gt;
+                &lt;ul class&#x3D;&quot;collapse list-unstyled&quot; id&#x3D;&quot;schedule-submenu&quot;&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school/period&#x27;]&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Period&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school/time-table&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Time table&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot;   routerLinkActive&#x3D;&quot;active&quot;&gt; School Calendar&lt;/a&gt;
+                    &lt;/li&gt;
+                    
+                &lt;/ul&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;ul class&#x3D;&quot;list-unstyled components&quot;&gt;
+
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a  href&#x3D;&quot;#human-submenu&quot; class&#x3D;&quot;nav-link&quot;  data-toggle&#x3D;&quot;collapse&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path id&#x3D;&quot;Vector&quot; d&#x3D;&quot;M10.667 7.33203C11.7737 7.33203 12.6603 6.4387 12.6603 5.33203C12.6603 4.22536 11.7737 3.33203 10.667 3.33203C9.56032 3.33203 8.66699 4.22536 8.66699 5.33203C8.66699 6.4387 9.56032 7.33203 10.667 7.33203ZM5.33366 7.33203C6.44033 7.33203 7.32699 6.4387 7.32699 5.33203C7.32699 4.22536 6.44033 3.33203 5.33366 3.33203C4.22699 3.33203 3.33366 4.22536 3.33366 5.33203C3.33366 6.4387 4.22699 7.33203 5.33366 7.33203ZM5.33366 8.66536C3.78033 8.66536 0.666992 9.44536 0.666992 10.9987V12.6654H10.0003V10.9987C10.0003 9.44536 6.88699 8.66536 5.33366 8.66536ZM10.667 8.66536C10.4737 8.66536 10.2537 8.6787 10.0203 8.6987C10.7937 9.2587 11.3337 10.012 11.3337 10.9987V12.6654H15.3337V10.9987C15.3337 9.44536 12.2203 8.66536 10.667 8.66536Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+
+                    &lt;/span&gt;
+                    Human Resources
+                    &lt;span class&#x3D;&quot;ml-auto mr-2&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                &lt;/a&gt;
+                &lt;ul class&#x3D;&quot;collapse list-unstyled&quot; id&#x3D;&quot;human-submenu&quot;&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school/employees&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Employees&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot;  &gt; Loan&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a  [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot; &gt; Attendance Sheet&lt;/a&gt;
+                    &lt;/li&gt;
+                   
+                    
+
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;#finance-settings-submenu&quot; class&#x3D;&quot;nav-link&quot;   data-toggle&#x3D;&quot;collapse&quot; aria-expanded&#x3D;&quot;false&quot;  &gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M13.333 3.9987H10.6663V2.66536C10.6663 1.92536 10.073 1.33203 9.33301 1.33203H6.66634C5.92634 1.33203 5.33301 1.92536 5.33301 2.66536V3.9987H2.66634C1.92634 3.9987 1.33967 4.59203 1.33967 5.33203L1.33301 12.6654C1.33301 13.4054 1.92634 13.9987 2.66634 13.9987H13.333C14.073 13.9987 14.6663 13.4054 14.6663 12.6654V5.33203C14.6663 4.59203 14.073 3.9987 13.333 3.9987ZM9.33301 3.9987H6.66634V2.66536H9.33301V3.9987Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+
+
+                    &lt;/span&gt;
+                    Finance Settings
+                    &lt;span class&#x3D;&quot;ml-auto mr-2&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                &lt;/a&gt;
+                &lt;ul class&#x3D;&quot;collapse list-unstyled&quot; id&#x3D;&quot;finance-settings-submenu&quot;&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school/finance-setting/accounts&#x27;]&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Account Setting &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school/finance-setting/chart-of-account&#x27;]&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Chart of Account &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/finance-setting/fee-type&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot;&gt; Fee Type&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school/finance-setting/fee-component&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Fee Component&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/finance-setting/fee&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot;&gt; Fee&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/finance-setting/bank-account&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot;&gt; Bank Account &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot;   routerLinkActive&#x3D;&quot;active&quot;&gt; Vendors&lt;/a&gt;
+                        &lt;!-- &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/finance-setting/vendors&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot;&gt; Vendors&lt;/a&gt; --&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot;   routerLinkActive&#x3D;&quot;active&quot;&gt; Discount &lt;/a&gt;
+                        &lt;!-- &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/finance-setting/discount&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot;&gt; Discount &lt;/a&gt; --&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot;   routerLinkActive&#x3D;&quot;active&quot;&gt; Payroll Account &lt;/a&gt;
+                        &lt;!-- &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/finance-setting/payroll-account&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot;&gt; Payroll Account &lt;/a&gt; --&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot;   routerLinkActive&#x3D;&quot;active&quot;&gt; Account Mapping &lt;/a&gt;
+                        &lt;!-- &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/finance-setting/acount-mapping&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot;&gt; Account Mapping &lt;/a&gt; --&gt;
+                    &lt;/li&gt;
+                    
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;#finance-submenu&quot; class&#x3D;&quot;nav-link&quot;   data-toggle&#x3D;&quot;collapse&quot; aria-expanded&#x3D;&quot;false&quot;  &gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M12.473 7.946C14.3911 7.946 15.946 7.06266 15.946 5.973C15.946 4.88334 14.3911 4 12.473 4C10.5549 4 9 4.88334 9 5.973C9 7.06266 10.5549 7.946 12.473 7.946Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path fill-rule&#x3D;&quot;evenodd&quot; clip-rule&#x3D;&quot;evenodd&quot; d&#x3D;&quot;M12.5248 9.0815C10.0408 9.0815 9.05176 8.0405 9.05176 7.4375V10.0205C9.05176 11.1105 10.6068 11.9925 12.5248 11.9925C14.4448 11.9925 15.9998 11.1105 15.9998 10.0205V7.4995C15.9998 8.1035 15.0098 9.0815 12.5248 9.0815Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path fill-rule&#x3D;&quot;evenodd&quot; clip-rule&#x3D;&quot;evenodd&quot; d&#x3D;&quot;M12.5248 13.0725C10.3028 13.0725 9.05176 12.0715 9.05176 11.4685V14.0275C9.05176 15.1175 10.6068 16.0005 12.5248 16.0005C14.4448 16.0005 15.9998 15.1175 15.9998 14.0275V11.4375C15.9998 12.0405 14.7478 13.0725 12.5248 13.0725Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M3.937 3.946C6.11135 3.946 7.874 3.06266 7.874 1.973C7.874 0.883342 6.11135 0 3.937 0C1.76266 0 0 0.883342 0 1.973C0 3.06266 1.76266 3.946 3.937 3.946Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path fill-rule&#x3D;&quot;evenodd&quot; clip-rule&#x3D;&quot;evenodd&quot; d&#x3D;&quot;M4.062 5.0815C1.247 5.0815 0.125 4.0405 0.125 3.4375V6.0205C0.125 7.1105 1.888 7.9925 4.062 7.9925C6.238 7.9925 8 7.1105 8 6.0205V3.4995C8 4.1035 6.877 5.0815 4.062 5.0815Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path fill-rule&#x3D;&quot;evenodd&quot; clip-rule&#x3D;&quot;evenodd&quot; d&#x3D;&quot;M4.062 9.0725C1.543 9.0725 0.125 8.0715 0.125 7.4685V10.0275C0.125 11.1175 1.888 12.0005 4.062 12.0005C6.238 12.0005 8 11.1175 8 10.0275V7.4375C8 8.0405 6.58 9.0725 4.062 9.0725Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path fill-rule&#x3D;&quot;evenodd&quot; clip-rule&#x3D;&quot;evenodd&quot; d&#x3D;&quot;M4.062 13.0725C1.543 13.0725 0.125 12.0715 0.125 11.4685V14.0275C0.125 15.1175 1.888 16.0005 4.062 16.0005C6.238 16.0005 8 15.1175 8 14.0275V11.4375C8 12.0405 6.58 13.0725 4.062 13.0725Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+
+                    &lt;/span&gt;
+                    Finance
+                    &lt;span class&#x3D;&quot;ml-auto mr-2&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                &lt;/a&gt;
+                &lt;ul class&#x3D;&quot;collapse list-unstyled&quot; id&#x3D;&quot;finance-submenu&quot;&gt;
+                    &lt;li class&#x3D;&quot;  text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school/finance/billing&#x27;]&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Billing &lt;/a&gt;
+                    &lt;/li&gt;
+                  
+                    
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot; class&#x3D;&quot;nav-link&quot;  &gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;g clip-path&#x3D;&quot;url(#clip0)&quot;&gt;
+                            &lt;path d&#x3D;&quot;M4.26658 3.46612V2.39947C4.26658 2.25221 4.14718 2.13281 3.99992 2.13281H0.266661C0.119399 2.13281 0 2.25221 0 2.39947V3.46612H4.26658Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M0 4V12.7998H4.26658V4H0ZM3.19994 7.4666H1.06665C0.919383 7.4666 0.799984 7.3472 0.799984 7.19994V5.06665C0.799984 4.91938 0.919383 4.79998 1.06665 4.79998H3.19994C3.3472 4.79998 3.4666 4.91938 3.4666 5.06665V7.19994C3.4666 7.3472 3.3472 7.4666 3.19994 7.4666Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M0 14.3984V15.7317C0 15.879 0.119399 15.9984 0.266661 15.9984H3.99992C4.14718 15.9984 4.26658 15.879 4.26658 15.7317V14.3984H0Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M0 13.3359H4.26658V13.8692H0V13.3359Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M4.7998 13.3359H8.26642V13.8692H4.7998V13.3359Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M8.26642 1.06665V0.266662C8.26642 0.119399 8.14702 0 7.99975 0H5.06647C4.9192 0 4.7998 0.119399 4.7998 0.266662V1.06665H8.26642Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M4.7998 2.93359H8.26642V12.8001H4.7998V2.93359Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M4.7998 14.3984V15.7317C4.7998 15.879 4.9192 15.9984 5.06647 15.9984H7.99975C8.14702 15.9984 8.26642 15.879 8.26642 15.7317V14.3984H4.7998Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M4.7998 1.60156H8.26642V2.40155H4.7998V1.60156Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M8.79297 5.52068L8.93567 6.06846L13.4517 4.86418L13.3089 4.31641L8.79297 5.52068Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M11.0215 14.0661L15.5375 12.8618L15.2516 11.7656L10.7354 12.9699L11.0215 14.0661Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M15.1168 11.2494L13.5865 5.38281L9.07031 6.58709L10.6006 12.4536L15.1168 11.2494Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M8.65833 5.00543L13.1741 3.8013L12.7913 2.33271C12.7519 2.19052 12.6066 2.1055 12.4633 2.14079L8.46341 3.20743C8.32214 3.2461 8.23789 3.39076 8.27396 3.53268L8.65833 5.00543Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M15.6725 13.3789L11.1562 14.5832L11.4743 15.8023C11.4928 15.8711 11.5379 15.9297 11.5997 15.9651C11.64 15.9894 11.6861 16.0023 11.7331 16.0023C11.7564 16.0023 11.7797 15.9996 11.8023 15.9944L15.8023 14.9277C15.9436 14.889 16.0278 14.7443 15.9917 14.6023L15.6725 13.3789Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/g&gt;
+                            &lt;defs&gt;
+                            &lt;clipPath id&#x3D;&quot;clip0&quot;&gt;
+                            &lt;rect width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;white&quot;/&gt;
+                            &lt;/clipPath&gt;
+                            &lt;/defs&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                    Library
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot; &gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;14&quot; height&#x3D;&quot;18&quot; viewBox&#x3D;&quot;0 0 14 18&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;g &gt;
+                            &lt;path d&#x3D;&quot;M0 0V18H6V14.5H8V18H14V0H0ZM2 2H4V4H2V2ZM6 2H8V4H6V2ZM10 2H12V4H10V2ZM2 6H4V8H2V6ZM6 6H8V8H6V6ZM10 6H12V8H10V6ZM2 10H4V12H2V10ZM6 10H8V12H6V10ZM10 10H12V12H10V10ZM2 14H4V16H2V14ZM10 14H12V16H10V14Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/g&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                    Facility Manager
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2 &quot;&gt;
+                &lt;a href&#x3D;&quot;#setting-submenu&quot; class&#x3D;&quot;nav-link&quot;  data-toggle&#x3D;&quot;collapse&quot; aria-expanded&#x3D;&quot;false&quot; &gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M12.7604 8.62556C12.7844 8.42556 12.8004 8.21756 12.8004 8.00156C12.8004 7.78556 12.7844 7.57756 12.7524 7.37756L14.1044 6.32156C14.2244 6.22556 14.2564 6.04956 14.1844 5.91356L12.9044 3.69756C12.8244 3.55356 12.6564 3.50556 12.5124 3.55356L10.9204 4.19356C10.5844 3.93756 10.2324 3.72956 9.8404 3.56956L9.6004 1.87356C9.5764 1.71356 9.4404 1.60156 9.2804 1.60156H6.7204C6.5604 1.60156 6.4324 1.71356 6.4084 1.87356L6.1684 3.56956C5.7764 3.72956 5.4164 3.94556 5.0884 4.19356L3.4964 3.55356C3.3524 3.49756 3.1844 3.55356 3.1044 3.69756L1.8244 5.91356C1.7444 6.05756 1.7764 6.22556 1.9044 6.32156L3.2564 7.37756C3.2244 7.57756 3.2004 7.79356 3.2004 8.00156C3.2004 8.20956 3.2164 8.42556 3.2484 8.62556L1.8964 9.68156C1.7764 9.77756 1.7444 9.95356 1.8164 10.0896L3.0964 12.3056C3.1764 12.4496 3.3444 12.4976 3.4884 12.4496L5.0804 11.8096C5.4164 12.0656 5.7684 12.2736 6.1604 12.4336L6.4004 14.1296C6.4324 14.2896 6.5604 14.4016 6.7204 14.4016H9.2804C9.4404 14.4016 9.5764 14.2896 9.5924 14.1296L9.8324 12.4336C10.2244 12.2736 10.5844 12.0576 10.9124 11.8096L12.5044 12.4496C12.6484 12.5056 12.8164 12.4496 12.8964 12.3056L14.1764 10.0896C14.2564 9.94556 14.2244 9.77756 14.0964 9.68156L12.7604 8.62556ZM8.0004 10.4016C6.6804 10.4016 5.6004 9.32156 5.6004 8.00156C5.6004 6.68156 6.6804 5.60156 8.0004 5.60156C9.3204 5.60156 10.4004 6.68156 10.4004 8.00156C10.4004 9.32156 9.3204 10.4016 8.0004 10.4016Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                    General Settings
+                    &lt;span class&#x3D;&quot;ml-auto mr-2&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z&quot; fill&#x3D;&quot;#94B3D1&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                &lt;/a&gt;
+                &lt;ul class&#x3D;&quot;collapse list-unstyled&quot; id&#x3D;&quot;setting-submenu&quot;&gt;
+                    &lt;li class&#x3D;&quot; text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/settings/account-settings&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Account&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot; text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/settings/school-settings&#x27;]&quot;   routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; School Settings&lt;/a&gt;
+                    &lt;/li&gt;
+                    
+                    &lt;li class&#x3D;&quot; text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot;  [routerLink]&#x3D;&quot;[&#x27;/school/settings/personal-settings&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot;  class&#x3D;&quot;&quot;&gt; Personal Settings&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot; text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot;  [routerLink]&#x3D;&quot;[&#x27;/school/settings/promotion-settings&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot;  class&#x3D;&quot;&quot;&gt; Promotion Settings&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot; text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/settings/school-manager&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; School Manager&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot; text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/settings/result-settings&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Result Settings&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot; text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/coming-soon&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Finance Settings&lt;/a&gt;
+                        &lt;!-- &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/settings/finance-settings&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Finance Settings&lt;/a&gt; --&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot; text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot;   routerLinkActive&#x3D;&quot;active&quot;  class&#x3D;&quot;&quot;&gt; Facility Settings&lt;/a&gt;
+                        &lt;!-- &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/facility-settings&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot;  class&#x3D;&quot;&quot;&gt; Facility Settings&lt;/a&gt; --&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot; text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Student Settings&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot; text-white  d-flex justify-content-start align-items-center&quot;&gt;
+                        &lt;div class&#x3D;&quot;ellipse bg-white mr-3 ml-3&quot;&gt; &amp;nbsp; &lt;/div&gt;
+                        &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot;   routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Payroll Settings&lt;/a&gt;
+                        &lt;!-- &lt;a href&#x3D;&quot;#&quot; [routerLink]&#x3D;&quot;[&#x27;/school/payroll-settings&#x27;]&quot;  routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;&quot;&gt; Payroll Settings&lt;/a&gt; --&gt;
+                    &lt;/li&gt;
+                    
+
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link&quot; [routerLink]&#x3D;&quot;[&#x27;/school&#x27;, &#x27;coming-soon&#x27;]&quot; &gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path d&#x3D;&quot;M3.33301 6.13203H5.33301V12.6654H3.33301V6.13203ZM7.06634 3.33203H8.93301V12.6654H7.06634V3.33203ZM10.7997 8.66536H12.6663V12.6654H10.7997V8.66536Z&quot; fill&#x3D;&quot;#94B3D1&quot; fill-opacity&#x3D;&quot;0.4&quot;/&gt;
+                            &lt;/svg&gt;
+                            
+                    &lt;/span&gt;
+                    Report
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;!-- &lt;li class&#x3D;&quot;nav-item mb-2&quot; (click)&#x3D;&quot;logOut()&quot;&gt;
+                &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link&quot; [routerLink]&#x3D;&quot;[&#x27;/main/&#x27;]&quot; [routerLinkActive]&#x3D;&quot;[&#x27;active&#x27;]&quot;&gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;20&quot; height&#x3D;&quot;15&quot; viewBox&#x3D;&quot;0 0 20 15&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;g id&#x3D;&quot;signout&quot;&gt;
+                                &lt;path id&#x3D;&quot;Vector&quot;
+                                    d&#x3D;&quot;M19.4108 8.16354L12.8494 14.7249C12.2636 15.3108 11.2481 14.9007 11.2481 14.061V10.3116H5.93651C5.41707 10.3116 4.99917 9.89372 4.99917 9.37427V5.6249C4.99917 5.10545 5.41707 4.68755 5.93651 4.68755H11.2481V0.938175C11.2481 0.102376 12.2597 -0.311617 12.8494 0.274223L19.4108 6.83563C19.7741 7.20276 19.7741 7.79641 19.4108 8.16354ZM7.49875 14.5297V12.9674C7.49875 12.7097 7.28785 12.4988 7.03008 12.4988H3.74938C3.05809 12.4988 2.49958 11.9403 2.49958 11.249V3.75021C2.49958 3.05892 3.05809 2.50042 3.74938 2.50042H7.03008C7.28785 2.50042 7.49875 2.28951 7.49875 2.03174V0.469503C7.49875 0.211733 7.28785 0.000830666 7.03008 0.000830666H3.74938C1.67941 0.000830666 0 1.68024 0 3.75021V11.249C0 13.3189 1.67941 14.9983 3.74938 14.9983H7.03008C7.28785 14.9983 7.49875 14.7874 7.49875 14.5297Z&quot; /&gt;
+                            &lt;/g&gt;
+                        &lt;/svg&gt;
+
+                    &lt;/span&gt;
+                    Sign out
+                &lt;/a&gt;
+            &lt;/li&gt; --&gt;
+
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div id&#x3D;&quot;content&quot;&gt;
+        &lt;header class&#x3D;&quot;main-head sticky-top py-lg-2&quot; [ngStyle]&#x3D;&quot;{&#x27;background-color&#x27;: schoolColor?.secondaryColor}&quot;&gt;
+            &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+                &lt;div class&#x3D;&quot;row d-flex justify-content-between lang&quot;&gt;
+                    &lt;div class&#x3D;&quot; hamburger d-flex align-items-center&quot;  (click)&#x3D;&quot;toggleSideBar()&quot;&gt;
+                        &lt;img src&#x3D;&quot;assets/images/svg/hamburger.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;&quot;&gt;
+                        &lt;p class&#x3D;&quot;mb-0 fw-6 ml-4&quot; style&#x3D;&quot;font-size: 21px;&quot;&gt; {{schoolname | titlecase}}&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;  &quot;&gt;
+                        &lt;div class&#x3D;&quot;d-flex  align-center justify-content-center &quot;&gt;
+                            &lt;!-- &lt;img src&#x3D;&quot;assets/images/svg/bell.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;mr-5 notification&quot;&gt;
+                            &lt;span class&#x3D;&quot;count&quot;&gt;2&lt;/span&gt; --&gt;
+
+                            &lt;div class&#x3D;&quot;profile mr-5&quot;&gt;
+                                &lt;div class&#x3D;&quot;profile-intials&quot;&gt; &lt;p&gt; {{getInitials(adminDetails.given_name + &#x27; &#x27; + adminDetails.family_name )}} &lt;/p&gt;&lt;/div&gt;
+                                &lt;div class&#x3D;&quot;pl-3&quot;&gt;
+                                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;{{adminDetails.given_name}} {{adminDetails.family_name}}&lt;/p&gt;
+                                    &lt;small *ngIf&#x3D;&quot;adminDetails.role !&#x3D;&#x3D; null &quot;&gt;{{ adminDetails.role | titlecase }}&lt;/small&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+
+                                &lt;span&gt;
+                                    &lt;svg _ngcontent-vxg-c3&#x3D;&quot;&quot; fill&#x3D;&quot;none&quot; height&#x3D;&quot;18&quot; viewBox&#x3D;&quot;0 0 20 18&quot; width&#x3D;&quot;20&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path _ngcontent-vxg-c3&#x3D;&quot;&quot; d&#x3D;&quot;M10.0052 10.8C12.9652 10.8 15.3852 8.38002 15.3852 5.40002C15.3852 2.42002 12.9652 1.95313e-05 10.0052 1.95313e-05C7.04518 1.95313e-05 4.62518 2.42002 4.62518 5.40002C4.62518 8.38002 7.04518 10.8 10.0052 10.8ZM10.0052 1.58C12.0852 1.58 13.7852 3.28 13.7852 5.38C13.7852 7.48 12.0852 9.18 10.0052 9.18C7.92518 9.18 6.22518 7.48 6.22518 5.38C6.22518 3.28 7.92518 1.58 10.0052 1.58ZM12.5052 11.32C12.2452 11.24 11.9452 11.3 11.7452 11.48L10.0052 12.96L8.26517 11.48C8.04517 11.3 7.76518 11.24 7.50518 11.32C6.38518 11.68 0.805176 13.6 0.805176 16.38C0.805176 16.82 1.16518 17.18 1.60518 17.18H18.4052C18.8452 17.18 19.2052 16.82 19.2052 16.38C19.2052 13.6 13.6252 11.68 12.5052 11.32ZM2.82518 15.58C3.70518 14.64 5.82517 13.6 7.58517 13L9.48518 14.62C9.78517 14.88 10.2252 14.88 10.5252 14.62L12.4252 13C14.1852 13.62 16.3052 14.66 17.1852 15.58H2.82518Z&quot; fill&#x3D;&quot;#0052B4&quot; id&#x3D;&quot;icon&quot;&gt;&lt;/path&gt;&lt;/svg&gt;
+                                &lt;/span&gt;
+                                &lt;img src&#x3D;&quot;assets/images/svg/caret.svg&quot; alt&#x3D;&quot;country flag&quot; class&#x3D;&quot;ml-2 dropdown-toggle&quot; type&#x3D;&quot;button&quot; id&#x3D;&quot;dropdownMenuButton&quot; data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+                            
+                                &lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; DROPDOWN &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
+                                 &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;dropdownMenuButton&quot;&gt;
+                                    &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;&quot; (click)&#x3D;&quot;logOut()&quot;&gt;
+                                        &lt;svg width&#x3D;&quot;18&quot; height&#x3D;&quot;18&quot; viewBox&#x3D;&quot;0 0 18 18&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                                            &lt;path id&#x3D;&quot;icons&quot; d&#x3D;&quot;M6.82741 12.59L8.18519 14L13 9L8.18519 4L6.82741 5.41L9.31185 8H0V10H9.31185L6.82741 12.59Z&quot; fill&#x3D;&quot;#D72638&quot;/&gt;
+                                            &lt;path id&#x3D;&quot;icons&quot; d&#x3D;&quot;M16 0H2C0.89 0 0 0.9 0 2V6H2V2H16V16H2V12H0V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V2C18 0.9 17.1 0 16 0Z&quot; fill&#x3D;&quot;#D72638&quot;/&gt;
+                                            &lt;/svg&gt;
+                                             Logout &lt;/a&gt;
+                                &lt;!-- &lt;div class&#x3D;&quot;dropdown-divider&quot;&gt;&lt;/div&gt; --&gt;
+                                &lt;!-- &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;&lt;img src&#x3D;&quot;assets/images/svg/uk.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;pr-2 mb-2&quot;&gt; English &lt;/a&gt;
+                                &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;&lt;img src&#x3D;&quot;assets/images/svg/french.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;pr-2 mb-2&quot;&gt; French &lt;/a&gt;
+                                &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;&lt;img src&#x3D;&quot;assets/images/svg/spain.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;pr-2 mb-2&quot;&gt; Spanish     &lt;/a&gt; --&gt; 
+                              &lt;/div&gt;
+
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;main class&#x3D;&quot;main row-sizing&quot;&gt;
+        
+            &lt;router-outlet&gt;&lt;/router-outlet&gt;
+    
+        &lt;/main&gt;
+        &lt;div class&#x3D;&quot;foot bg-dark py-3 mt-5 footer&quot;&gt;
+            &lt;p class&#x3D;&quot;fc-grey ff-a fs-12 m-0 text-center&quot;&gt; Powered by Infoworks Solution © {{getYear()}}. &lt;span class&#x3D;&quot;fw-6 ls-7&quot;&gt;Schooltrack&lt;/span&gt; - All rights
+                reserved &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./school.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
+
+#sidebar {
+    width: 280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: #014D94;
+    color: #EDF7F6;
+    z-index: 9;
+    overflow-x: auto;
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 2px;
+    height: 5px;
+    background: transparent;
+}
+
+.sidebar {
+    width: 0 !important;
+    display: none;
+}
+
+#sidebar.active {
+    min-width: 80px;
+    max-width: 80px;
+    background: #014D94;
+    transition: width 1s ease-in-out !important;
+    text-align: center;
+}
+
+#content {
+    margin-left: +280px;
+    width: 100%;
+    transition: margin-left .3s !important;
+    background: #EBF0F5;
+    min-height: 100vh;
+}
+
+.content {
+    margin-left: 0 !important;
+    width: 100%;
+}
+
+#content header {
+    background: #FFFFFF;
+    box-shadow: 0px 1px 16px rgba(27, 39, 51, 0.08);
+}
+
+#content.active {
+    margin-left: +80px !important;
+    transition: margin-left .3s !important;
+}
+
+#sidebar ul {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#sidebar ul li a.nav-link {
+    font-family: Avenir;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    
+    letter-spacing: 0.01em;
+    
+    color: #011160;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    /* padding-left: 47px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: .3s ease-in-out;
+}
+#sidebar ul li a.nav-link.active {
+    
+    color: #ffffff;
+    background: #013F7A;
+    width: 100%;
+    transition: .3s ease-in-out;
+}
+
+
+
+
+#sidebar ul li ul#record-submenu, #sidebar ul li ul#setting-submenu,
+#sidebar ul li ul#academics-submenu, #sidebar ul li ul#human-submenu,
+#sidebar ul li ul#schedule-submenu, #sidebar ul li ul#finance-settings-submenu,
+#sidebar ul li ul#finance-submenu, #sidebar ul li ul#promotion-submenu,
+#sidebar ul li ul#alumni-submenu {
+    background: #013F7A;
+    width: 100%;
+    /* padding-left: 47px; */
+    transition: .3s ease-in-out;
+    border-radius: 0px 0px 10px 10px;
+
+}
+
+
+#sidebar ul li ul#record-submenu a, #sidebar ul li ul#setting-submenu a,
+#sidebar ul li ul#academics-submenu a, #sidebar ul li ul#human-submenu a,
+#sidebar ul li ul#schedule-submenu a, #sidebar ul li ul#finance-settings-submenu a,
+#sidebar ul li ul#finance-submenu a, #sidebar ul li ul#promotion-submenu a,
+#sidebar ul li ul#alumni-submenu a  {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    /* display: flex; */
+    align-items: center;
+    color: rgba(148, 179, 209, 0.4);
+    width: 100%;
+    /* padding-left: 47px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: .3s ease-in-out;
+    text-decoration: none;
+}
+
+#sidebar ul li ul#record-submenu a.active, #sidebar ul li ul#setting-submenu a.active,
+#sidebar ul li ul#academics-submenu a.active, #sidebar ul li ul#human-submenu a.active,
+#sidebar ul li ul#schedule-submenu a.active, #sidebar ul li ul#finance-settings-submenu a.active,
+#sidebar ul li ul#finance-submenu a.active, #sidebar ul li ul#promotion-submenu a.active,
+#sidebar ul li ul#alumni-submenu a.active  {
+    
+    color: #ffffff;
+    
+}
+
+#sidebar ul li a.nav-link .ico {
+    margin-right: 20px;
+    width: 24px;
+}
+
+
+#sidebar ul li a.nav-link:hover {
+    background: #013F7A;
+    border-radius: 10px 10px 10px 10px;
+    color: #FFFFFF;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#sidebar ul li.active {
+    background: red;
+    border-radius: 10px 10px 10px 10px;
+    color: #FFFFFF;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#sidebar ul li a.nav-link.active {
+    background: #013F7A;
+    border-radius: 10px 10px 10px 10px;
+
+}
+
+#sidebar ul li a.nav-link svg path#Vector,
+#sidebar ul li a.nav-link svg g#icon {
+    fill: #fff;
+    /* opacity: .3; */
+    transition: .3s ease-in-out;
+}
+
+#sidebar ul li a.nav-link:hover svg path#Vector {
+    /* opacity: .7; */
+    fill: #ffffff;
+}
+
+svg path , svg g path {
+    fill: #ffffff;
+    fill-opacity: 1;
+}
+
+
+svg #icons , svg g #icons {
+    fill-opacity: inherit;
+    fill: hsl(354deg 70% 50%);;
+}
+
+.ellipse {
+    width: 11px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.main-head {
+    background: #FEFEFF;
+    align-items: center;
+}
+
+.hamburger {
+    padding-left: 1.5rem;
+}
+
+.lang {
+    padding-right: 4rem;
+
+}
+
+.notification {
+    position: relative;
+
+}
+
+.count {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    color: #ffffff;
+    border-radius: 3px;
+    top: 6px;
+    left: 24px;
+    border: 1.1px solid #fff;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    background: #FF6663;
+    border: 1px solid #FEFEFF;
+
+}
+
+.profile {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+
+}
+
+.profile::after {
+    content: &#x27;&#x27;;
+    position: absolute;
+    top: 3px;
+    right: -25px;
+    height: 41px;
+    opacity: 0.4;
+    border-left: 1.5px solid #000000;
+}
+
+.profile-intials {
+    background: rgba(68, 123, 255, 0.11);
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    text-align: center;
+    color: #00529B;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 10px 15px; */
+    align-self: center;
+
+}
+
+.profile-intials p {
+    margin-bottom: 0;
+}
+
+.main {
+    width: 100%;
+}
+
+.row-sizing {
+    padding: 1.5rem 4rem 1rem 2rem;
+}
+
+
+.school-logo {
+    /* width: 100%; */
+    height: 65px;
+    /* width: fit-content; */
+
+}
+
+
+@media screen and (max-width: 600px) {
+   
+    .row-sizing {
+        padding: 1.5rem 2rem;
+    }
+
+    #sidebar {
+        display: none;
+
+    }
+
+    #content {
+        margin-left: 0px;
+       
+    }
+
+    #sidebar ul li a.nav-link {
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        
+        letter-spacing: 0.01em;
+        
+        color: #011160;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+    
+        width: 10%;
+        /* padding-left: 47px; */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        transition: .3s ease-in-out;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="wrapper">    <div id="sidebar" [ngStyle]="{\'background-color\': schoolColor?.primaryColor}">        <div class="p-3">            <p class="text-center">                <img *ngIf="schoolLogo == null" src="assets/images/svg/logo.svg" alt="">                 <img class="" *ngIf="schoolLogo" src="data:image/png;base64,{{schoolLogo}}" alt="schools log"                class="mr-3 school-logo" id="">             </p>        </div>        <p class="px-3 ff-s fc-grey1 fs-14">MAIN MENU</p>        <ul class="list-unstyled components">            <li class="nav-item mb-2">                <a href="#" class="nav-link" [routerLink]="[\'/school\']" [routerLinkActive]="[\'active\']">                    <span class="ico">                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M13.4683 3.95396C12.7462 3.39278 11.7356 3.39278 11.0135 3.95397L4.4769 9.03458C4.23316 9.22403 4.09058 9.51543 4.09058 9.82413V20C4.09058 20.5523 4.53829 21 5.09058 21H8.69801C9.2503 21 9.69801 20.5523 9.69801 20V14.9581C9.69801 14.4058 10.1457 13.9581 10.698 13.9581H13.7838C14.3361 13.9581 14.7838 14.4058 14.7838 14.9581V20C14.7838 20.5523 15.2315 21 15.7838 21H19.3912C19.9435 21 20.3912 20.5523 20.3912 20V9.82413C20.3912 9.51543 20.2487 9.22403 20.0049 9.03458L13.4683 3.95396Z" fill="#011160"/>                            </svg>                                                </span>                    Dashboard                </a>            </li>            <li class="nav-item mb-2">                <a href="#" class="nav-link" [routerLink]="[\'/school\', \'coming-soon\']" >                    <span class="ico" id="Vector">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path id="Vector" d="M9.68211 12.9106L9.35398 12.4354C9.23765 12.2668 9.08212 12.129 8.90076 12.0338C8.7194 11.9385 8.51763 11.8888 8.3128 11.8887C8.30736 11.8888 8.30201 11.8901 8.29724 11.8927C8.29247 11.8954 8.28843 11.8991 8.28548 11.9037C8.28253 11.9083 8.28077 11.9135 8.28037 11.9189C8.27996 11.9243 8.28091 11.9298 8.28314 11.9347L8.31477 12.0055C8.46872 12.3499 8.59294 12.7068 8.68608 13.0724L9.08317 14.6328C9.14467 14.8392 9.27141 15.0202 9.44439 15.1485C9.61737 15.2769 9.82728 15.3457 10.0427 15.3447H12.657C12.9229 15.3444 13.1778 15.2385 13.3657 15.0505C13.5537 14.8624 13.6594 14.6075 13.6597 14.3416V12.2253C13.6601 12.1809 13.6517 12.1368 13.635 12.0956C13.6183 12.0545 13.5936 12.017 13.5623 11.9854C13.5311 11.9539 13.4939 11.9288 13.4528 11.9117C13.4118 11.8946 13.3678 11.8858 13.3234 11.8858C13.279 11.8858 13.235 11.8946 13.194 11.9117C13.153 11.9288 13.1157 11.9539 13.0845 11.9854C13.0532 12.017 13.0285 12.0545 13.0118 12.0956C12.9951 12.1368 12.9867 12.1809 12.9871 12.2253V12.8619C12.9871 12.9033 12.9707 12.9431 12.9414 12.9724C12.9121 13.0017 12.8723 13.0181 12.8309 13.0181C12.7895 13.0181 12.7497 13.0017 12.7204 12.9724C12.6911 12.9431 12.6746 12.9033 12.6746 12.8619V11.9314C12.6747 11.8493 12.6444 11.77 12.5894 11.7089C12.5345 11.6478 12.4589 11.6092 12.3771 11.6006C12.2954 11.5921 12.2134 11.6141 12.147 11.6624C12.0805 11.7108 12.0344 11.782 12.0174 11.8624V12.6674C12.0174 12.6879 12.0134 12.7083 12.0055 12.7272C11.9977 12.7462 11.9862 12.7634 11.9717 12.7779C11.9571 12.7924 11.9399 12.8039 11.921 12.8118C11.902 12.8196 11.8817 12.8237 11.8612 12.8237C11.8599 12.8237 11.8588 12.8233 11.8575 12.8233C11.8563 12.8233 11.8551 12.8237 11.8539 12.8237C11.8124 12.8237 11.7727 12.8072 11.7434 12.7779C11.7141 12.7486 11.6976 12.7089 11.6976 12.6674V11.9314C11.6979 11.9007 11.7003 11.8701 11.7049 11.8397V11.6202C11.7049 11.5377 11.6722 11.4587 11.6139 11.4003C11.5555 11.342 11.4764 11.3093 11.394 11.3093C11.3115 11.3093 11.2324 11.342 11.1741 11.4003C11.1158 11.4587 11.083 11.5377 11.083 11.6202V12.6674C11.083 12.7089 11.0666 12.7486 11.0373 12.7779C11.008 12.8072 10.9682 12.8237 10.9268 12.8237C10.8854 12.8237 10.8456 12.8072 10.8163 12.7779C10.787 12.7486 10.7705 12.7089 10.7705 12.6674V11.896C10.7655 11.8809 10.7628 11.8651 10.7625 11.8491V8.52066C10.7625 8.41883 10.7221 8.32117 10.6501 8.24917C10.5781 8.17717 10.4804 8.13672 10.3786 8.13672C10.2768 8.13672 10.1791 8.17717 10.1071 8.24917C10.0351 8.32117 9.99467 8.41883 9.99467 8.52066V13.6166C9.99467 13.6581 9.97821 13.6978 9.94891 13.7271C9.9196 13.7564 9.87986 13.7729 9.83842 13.7729C9.79698 13.7729 9.75724 13.7564 9.72794 13.7271C9.69863 13.6978 9.68217 13.6581 9.68217 13.6166V12.9104L9.68211 12.9106Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path id="Vector" d="M3.83887 1.48047C3.7647 1.48047 3.6922 1.50246 3.63053 1.54367C3.56886 1.58487 3.5208 1.64344 3.49241 1.71196C3.46403 1.78049 3.4566 1.85589 3.47107 1.92863C3.48554 2.00137 3.52126 2.06819 3.5737 2.12064C3.62615 2.17308 3.69296 2.2088 3.76571 2.22326C3.83845 2.23773 3.91385 2.23031 3.98237 2.20193C4.05089 2.17354 4.10946 2.12548 4.15067 2.06381C4.19187 2.00214 4.21387 1.92964 4.21387 1.85547C4.21376 1.75605 4.17421 1.66073 4.10391 1.59042C4.03361 1.52012 3.93829 1.48058 3.83887 1.48047Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path id="Vector" d="M0.71875 12.3822C0.718932 12.52 0.773768 12.6521 0.871228 12.7495C0.968689 12.847 1.10082 12.9018 1.23863 12.9019L8.32925 12.9519C8.24833 12.6719 8.14809 12.3979 8.02925 12.1318L7.99762 12.061C7.97415 12.0085 7.96418 11.9509 7.96863 11.8935C7.97307 11.8362 7.99179 11.7808 8.02308 11.7325C8.05437 11.6842 8.09724 11.6445 8.14779 11.617C8.19834 11.5895 8.25496 11.5751 8.3125 11.5751C8.56794 11.5751 8.81955 11.6371 9.04571 11.7558C9.27188 11.8746 9.46583 12.0464 9.61091 12.2567L9.68169 12.3593V8.51947C9.68169 8.33476 9.75506 8.15762 9.88567 8.02701C10.0163 7.89641 10.1934 7.82303 10.3781 7.82303C10.5628 7.82303 10.74 7.89641 10.8706 8.02701C11.0012 8.15762 11.0746 8.33476 11.0746 8.51947V11.0842C11.1527 11.0372 11.2403 11.008 11.331 10.9987C11.4217 10.9894 11.5134 11.0002 11.5995 11.0303C11.6856 11.0604 11.764 11.1091 11.8291 11.1729C11.8942 11.2368 11.9445 11.3142 11.9763 11.3996C12.0565 11.3441 12.1482 11.3076 12.2446 11.2928C12.341 11.278 12.4395 11.2853 12.5326 11.3141C12.6257 11.343 12.7111 11.3926 12.7822 11.4593C12.8533 11.526 12.9084 11.6081 12.9431 11.6992C13.0398 11.6288 13.1541 11.5866 13.2733 11.5772C13.3925 11.5678 13.512 11.5916 13.6185 11.646C13.7251 11.7003 13.8144 11.7831 13.8768 11.8852C13.9391 11.9872 13.972 12.1046 13.9717 12.2242V12.9448L14.7527 12.9022C14.7556 12.9022 14.7584 12.9019 14.7612 12.9019C14.8991 12.9018 15.0312 12.847 15.1287 12.7496C15.2262 12.6522 15.2811 12.52 15.2812 12.3822V3.41797H0.71875V12.3822ZM4.725 9.05956L3.77038 10.2068L3.76413 10.2128C3.71722 10.2589 3.65491 10.286 3.5892 10.289C3.52349 10.2919 3.45902 10.2704 3.40822 10.2286L3.06322 9.94947C3.0472 9.93658 3.03388 9.92067 3.02403 9.90263C3.01417 9.88458 3.00797 9.86478 3.00579 9.84434C3.0036 9.8239 3.00547 9.80323 3.01129 9.78351C3.0171 9.76379 3.02675 9.74542 3.03968 9.72944C3.05261 9.71346 3.06857 9.70018 3.08664 9.69038C3.10471 9.68058 3.12453 9.67444 3.14498 9.67231C3.16542 9.67018 3.18609 9.67211 3.20579 9.67798C3.22549 9.68385 3.24384 9.69355 3.25978 9.70653L3.57075 9.95816L4.48481 8.85969C4.49794 8.84392 4.51405 8.83089 4.53222 8.82134C4.55039 8.8118 4.57026 8.80592 4.5907 8.80406C4.61114 8.80219 4.63174 8.80437 4.65134 8.81047C4.67093 8.81656 4.68914 8.82646 4.70491 8.83959C4.72068 8.85273 4.73371 8.86884 4.74325 8.887C4.7528 8.90517 4.75867 8.92504 4.76054 8.94548C4.7624 8.96592 4.76022 8.98652 4.75413 9.00612C4.74803 9.02571 4.73813 9.04392 4.725 9.05969V9.05956ZM13.8156 9.39516H12.2922C12.2508 9.39516 12.2111 9.37869 12.1818 9.34939C12.1525 9.32009 12.136 9.28035 12.136 9.23891C12.136 9.19747 12.1525 9.15772 12.1818 9.12842C12.2111 9.09912 12.2508 9.08266 12.2922 9.08266H13.8156C13.8571 9.08266 13.8968 9.09912 13.9261 9.12842C13.9554 9.15772 13.9719 9.19747 13.9719 9.23891C13.9719 9.28035 13.9554 9.32009 13.9261 9.34939C13.8968 9.37869 13.8571 9.39516 13.8156 9.39516ZM6.49922 5.10862H13.8156C13.8571 5.10862 13.8968 5.12509 13.9261 5.15439C13.9554 5.18369 13.9719 5.22343 13.9719 5.26487C13.9719 5.30632 13.9554 5.34606 13.9261 5.37536C13.8968 5.40466 13.8571 5.42112 13.8156 5.42112H6.49922C6.45778 5.42112 6.41804 5.40466 6.38873 5.37536C6.35943 5.34606 6.34297 5.30632 6.34297 5.26487C6.34297 5.22343 6.35943 5.18369 6.38873 5.15439C6.41804 5.12509 6.45778 5.10862 6.49922 5.10862ZM6.49922 6.66213H13.8156C13.8571 6.66213 13.8968 6.67859 13.9261 6.70789C13.9554 6.73719 13.9719 6.77694 13.9719 6.81838C13.9719 6.85982 13.9554 6.89956 13.9261 6.92886C13.8968 6.95816 13.8571 6.97463 13.8156 6.97463H6.49922C6.45778 6.97463 6.41804 6.95816 6.38873 6.92886C6.35943 6.89956 6.34297 6.85982 6.34297 6.81838C6.34297 6.77694 6.35943 6.73719 6.38873 6.70789C6.41804 6.67859 6.45778 6.66213 6.49922 6.66213ZM6.49922 9.08266H8.87544C8.91688 9.08266 8.95662 9.09912 8.98592 9.12842C9.01523 9.15772 9.03169 9.19747 9.03169 9.23891C9.03169 9.28035 9.01523 9.32009 8.98592 9.34939C8.95662 9.37869 8.91688 9.39516 8.87544 9.39516H6.49922C6.45778 9.39516 6.41804 9.37869 6.38873 9.34939C6.35943 9.32009 6.34297 9.28035 6.34297 9.23891C6.34297 9.19747 6.35943 9.15772 6.38873 9.12842C6.41804 9.09912 6.45778 9.08266 6.49922 9.08266ZM6.49922 10.6361H7.13963C7.18107 10.6361 7.22081 10.6526 7.25011 10.6819C7.27941 10.7112 7.29588 10.7509 7.29588 10.7924C7.29588 10.8338 7.27941 10.8736 7.25011 10.9029C7.22081 10.9322 7.18107 10.9486 7.13963 10.9486H6.49922C6.45778 10.9486 6.41804 10.9322 6.38873 10.9029C6.35943 10.8736 6.34297 10.8338 6.34297 10.7924C6.34297 10.7509 6.35943 10.7112 6.38873 10.6819C6.41804 10.6526 6.45778 10.6361 6.49922 10.6361ZM4.48488 4.88566C4.5114 4.85381 4.54948 4.83379 4.59076 4.83003C4.63204 4.82626 4.67312 4.83904 4.70497 4.86556C4.73682 4.89208 4.75683 4.93017 4.7606 4.97145C4.76437 5.01272 4.75158 5.05381 4.72506 5.08566L3.77044 6.23291L3.76419 6.23894C3.71726 6.28502 3.65494 6.31212 3.58923 6.315C3.52352 6.31789 3.45907 6.29636 3.40828 6.25456L3.06328 5.97544C3.0312 5.94933 3.01078 5.91156 3.0065 5.87042C3.00222 5.82928 3.01443 5.78812 3.04044 5.75597C3.06646 5.72381 3.10416 5.70329 3.14529 5.69889C3.18642 5.69449 3.22761 5.70658 3.25984 5.7325L3.57081 5.98409L4.48488 4.88566ZM2.26038 5.21981C2.26046 5.15567 2.28598 5.09418 2.33134 5.04884C2.37671 5.00349 2.4382 4.978 2.50234 4.97794H3.39959C3.44103 4.97794 3.48078 4.9944 3.51008 5.0237C3.53938 5.053 3.55584 5.09275 3.55584 5.13419C3.55584 5.17563 3.53938 5.21537 3.51008 5.24467C3.48078 5.27398 3.44103 5.29044 3.39959 5.29044H2.57288V6.94141H4.22634V6.40531C4.22634 6.36387 4.24281 6.32413 4.27211 6.29483C4.30141 6.26552 4.34115 6.24906 4.38259 6.24906C4.42403 6.24906 4.46378 6.26552 4.49308 6.29483C4.52238 6.32413 4.53884 6.36387 4.53884 6.40531V7.01203C4.53875 7.07617 4.51323 7.13765 4.46787 7.183C4.42251 7.22834 4.36101 7.25384 4.29688 7.25391H2.50234C2.4382 7.25385 2.37671 7.22835 2.33134 7.183C2.28598 7.13766 2.26046 7.07617 2.26038 7.01203V5.21981ZM2.26038 9.19381C2.26046 9.12967 2.28598 9.06818 2.33134 9.02284C2.37671 8.97749 2.4382 8.95199 2.50234 8.95194H3.39959C3.44103 8.95194 3.48078 8.9684 3.51008 8.9977C3.53938 9.027 3.55584 9.06675 3.55584 9.10819C3.55584 9.14963 3.53938 9.18937 3.51008 9.21867C3.48078 9.24798 3.44103 9.26444 3.39959 9.26444H2.57288V10.9154H4.22634V10.3793C4.22634 10.3379 4.24281 10.2982 4.27211 10.2689C4.30141 10.2396 4.34115 10.2231 4.38259 10.2231C4.42403 10.2231 4.46378 10.2396 4.49308 10.2689C4.52238 10.2982 4.53884 10.3379 4.53884 10.3793V10.986C4.53876 11.0502 4.51324 11.1117 4.46788 11.157C4.42251 11.2024 4.36102 11.2278 4.29688 11.2279H2.50234C2.4382 11.2278 2.37671 11.2024 2.33134 11.157C2.28598 11.1117 2.26046 11.0502 2.26038 10.986V9.19381Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path id="Vector" d="M1.94336 1.48047C1.86919 1.48047 1.79669 1.50246 1.73502 1.54367C1.67335 1.58487 1.62529 1.64344 1.5969 1.71196C1.56852 1.78049 1.5611 1.85589 1.57557 1.92863C1.59003 2.00137 1.62575 2.06819 1.67819 2.12064C1.73064 2.17308 1.79746 2.2088 1.8702 2.22326C1.94294 2.23773 2.01834 2.23031 2.08686 2.20193C2.15539 2.17354 2.21395 2.12548 2.25516 2.06381C2.29636 2.00214 2.31836 1.92964 2.31836 1.85547C2.31826 1.75604 2.27872 1.66072 2.20841 1.59041C2.13811 1.52011 2.04278 1.48057 1.94336 1.48047Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path id="Vector" d="M5.7334 1.48047C5.65923 1.48047 5.58673 1.50246 5.52506 1.54367C5.46339 1.58487 5.41533 1.64344 5.38694 1.71196C5.35856 1.78049 5.35113 1.85589 5.3656 1.92863C5.38007 2.00137 5.41579 2.06819 5.46823 2.12064C5.52068 2.17308 5.5875 2.2088 5.66024 2.22326C5.73298 2.23773 5.80838 2.23031 5.87691 2.20193C5.94543 2.17354 6.004 2.12548 6.0452 2.06381C6.08641 2.00214 6.1084 1.92964 6.1084 1.85547C6.1083 1.75604 6.06876 1.66072 5.99846 1.59041C5.92815 1.52011 5.83283 1.48057 5.7334 1.48047Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path id="Vector" d="M14.7614 0.65625H1.23863C1.10081 0.656391 0.968679 0.711191 0.871217 0.808629C0.773756 0.906067 0.718924 1.03819 0.71875 1.176V3.10566H15.2812V1.176C15.2811 1.03819 15.2262 0.906067 15.1288 0.808629C15.0313 0.711191 14.8992 0.656391 14.7614 0.65625ZM1.94375 2.54475C1.80778 2.54475 1.67485 2.50443 1.5618 2.42889C1.44874 2.35334 1.36062 2.24597 1.30858 2.12034C1.25655 1.99472 1.24293 1.85649 1.26946 1.72313C1.29599 1.58976 1.36147 1.46726 1.45761 1.37111C1.55376 1.27497 1.67626 1.20949 1.80963 1.18296C1.94299 1.15643 2.08122 1.17005 2.20684 1.22208C2.33247 1.27412 2.43984 1.36224 2.51539 1.4753C2.59093 1.58835 2.63125 1.72128 2.63125 1.85725C2.63106 2.03953 2.55857 2.21429 2.42968 2.34318C2.30079 2.47207 2.12603 2.54456 1.94375 2.54475ZM3.83853 2.54475C3.70256 2.54475 3.56964 2.50443 3.45658 2.42889C3.34352 2.35334 3.2554 2.24597 3.20336 2.12034C3.15133 1.99472 3.13771 1.85649 3.16424 1.72313C3.19077 1.58976 3.25625 1.46726 3.3524 1.37111C3.44854 1.27497 3.57104 1.20949 3.70441 1.18296C3.83777 1.15643 3.976 1.17005 4.10163 1.22208C4.22725 1.27412 4.33462 1.36224 4.41017 1.4753C4.48571 1.58835 4.52603 1.72128 4.52603 1.85725C4.52583 2.03953 4.45334 2.21428 4.32445 2.34317C4.19556 2.47205 4.02081 2.54455 3.83853 2.54475ZM5.73334 2.54475C5.59737 2.54475 5.46445 2.50443 5.35139 2.42889C5.23833 2.35334 5.15021 2.24597 5.09818 2.12034C5.04614 1.99472 5.03253 1.85649 5.05905 1.72313C5.08558 1.58976 5.15106 1.46726 5.24721 1.37111C5.34336 1.27497 5.46586 1.20949 5.59922 1.18296C5.73258 1.15643 5.87081 1.17005 5.99644 1.22208C6.12206 1.27412 6.22944 1.36224 6.30498 1.4753C6.38052 1.58835 6.42084 1.72128 6.42084 1.85725C6.42065 2.03953 6.34816 2.21429 6.21927 2.34318C6.09038 2.47207 5.91562 2.54456 5.73334 2.54475ZM14.6229 1.97812H8.53125C8.48981 1.97812 8.45007 1.96166 8.42076 1.93236C8.39146 1.90306 8.375 1.86332 8.375 1.82187C8.375 1.78043 8.39146 1.74069 8.42076 1.71139C8.45007 1.68209 8.48981 1.66562 8.53125 1.66562H14.6229C14.6643 1.66562 14.7041 1.68209 14.7334 1.71139C14.7627 1.74069 14.7792 1.78043 14.7792 1.82187C14.7792 1.86332 14.7627 1.90306 14.7334 1.93236C14.7041 1.96166 14.6643 1.97812 14.6229 1.97812Z" fill="#94B3D1" fill-opacity="0.4"/>                            </svg>                                                </span>                    Enrollment                </a>            </li>            <li class="nav-item mb-2">                <a  href="#alumni-submenu" class="nav-link"  data-toggle="collapse" aria-expanded="false"  >                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M11.75 0V2.375H14.0938L11.75 0Z" fill="#94B3D1"/>                            <path d="M9.43148 1.28625C9.80555 1.68813 10.0315 1.93062 10.0315 2.34375V6.15625H14.094V3.3125H11.2815C11.0227 3.3125 10.8127 3.1025 10.8127 2.84375V0H8.16211C8.55867 0.384062 9.07211 0.900312 9.43148 1.28625Z" fill="#94B3D1"/>                            <path d="M6.75 0V2.375H9.09375L6.75 0Z" fill="#94B3D1"/>                            <path d="M7.85156 5.05875L8.40031 6.15625H9.09375V3.3125H6.28125C6.0225 3.3125 5.8125 3.1025 5.8125 2.84375V0H2.375C2.11625 0 1.90625 0.21 1.90625 0.46875V4.28125H6.59375C7.13 4.28125 7.61188 4.57906 7.85156 5.05875Z" fill="#94B3D1"/>                            <path d="M14.5938 7.09375H7.82097L7.01303 5.47788C6.93363 5.31906 6.77131 5.21875 6.59375 5.21875H1.40625C1.14737 5.21875 0.9375 5.42862 0.9375 5.6875V14.5938C0.9375 15.3692 1.56834 16 2.34375 16H13.6562C14.4317 16 15.0625 15.3692 15.0625 14.5938V7.5625C15.0625 7.30363 14.8526 7.09375 14.5938 7.09375ZM12.6875 14.0938H9.40625C9.14738 14.0938 8.9375 13.8839 8.9375 13.625C8.9375 13.3661 9.14738 13.1562 9.40625 13.1562H12.6875C12.9464 13.1562 13.1562 13.3661 13.1562 13.625C13.1562 13.8839 12.9464 14.0938 12.6875 14.0938ZM12.6875 12.2188H9.40625C9.14738 12.2188 8.9375 12.0089 8.9375 11.75C8.9375 11.4911 9.14738 11.2812 9.40625 11.2812H12.6875C12.9464 11.2812 13.1562 11.4911 13.1562 11.75C13.1562 12.0089 12.9464 12.2188 12.6875 12.2188Z" fill="#94B3D1"/>                            </svg>                                                </span>                    Alumni                    <span class="ml-auto mr-2">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>                            </svg>                                                </span>                </a>                <ul class="collapse list-unstyled" id="alumni-submenu">                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="" [routerLink]="[\'/school/alumni-list\']"  routerLinkActive="active" class=""> Alumni</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school/alumni-events\']"   routerLinkActive="active" class=""> Events</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school\', \'coming-soon\']"  routerLinkActive="active" class=""> Transcript</a>                    </li>                                                       </ul>            </li>            <li class="nav-item mb-2">                <a href="" [routerLink]="[\'/school\', \'coming-soon\']" class="nav-link" [routerLink]="[\'/school/\']" >                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M13.333 1.33203H2.66634C1.93301 1.33203 1.33967 1.93203 1.33967 2.66536L1.33301 14.6654L3.99967 11.9987H13.333C14.0663 11.9987 14.6663 11.3987 14.6663 10.6654V2.66536C14.6663 1.93203 14.0663 1.33203 13.333 1.33203ZM11.9997 9.33203H3.99967V7.9987H11.9997V9.33203ZM11.9997 7.33203H3.99967V5.9987H11.9997V7.33203ZM11.9997 5.33203H3.99967V3.9987H11.9997V5.33203Z" fill="#94B3D1" fill-opacity="0.4"/>                            </svg>                                                </span>                    Messages                </a>            </li>            <li class="nav-item mb-2">                <a  href="#record-submenu" class="nav-link"  data-toggle="collapse" aria-expanded="false"  >                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M11.75 0V2.375H14.0938L11.75 0Z" fill="#94B3D1"/>                            <path d="M9.43148 1.28625C9.80555 1.68813 10.0315 1.93062 10.0315 2.34375V6.15625H14.094V3.3125H11.2815C11.0227 3.3125 10.8127 3.1025 10.8127 2.84375V0H8.16211C8.55867 0.384062 9.07211 0.900312 9.43148 1.28625Z" fill="#94B3D1"/>                            <path d="M6.75 0V2.375H9.09375L6.75 0Z" fill="#94B3D1"/>                            <path d="M7.85156 5.05875L8.40031 6.15625H9.09375V3.3125H6.28125C6.0225 3.3125 5.8125 3.1025 5.8125 2.84375V0H2.375C2.11625 0 1.90625 0.21 1.90625 0.46875V4.28125H6.59375C7.13 4.28125 7.61188 4.57906 7.85156 5.05875Z" fill="#94B3D1"/>                            <path d="M14.5938 7.09375H7.82097L7.01303 5.47788C6.93363 5.31906 6.77131 5.21875 6.59375 5.21875H1.40625C1.14737 5.21875 0.9375 5.42862 0.9375 5.6875V14.5938C0.9375 15.3692 1.56834 16 2.34375 16H13.6562C14.4317 16 15.0625 15.3692 15.0625 14.5938V7.5625C15.0625 7.30363 14.8526 7.09375 14.5938 7.09375ZM12.6875 14.0938H9.40625C9.14738 14.0938 8.9375 13.8839 8.9375 13.625C8.9375 13.3661 9.14738 13.1562 9.40625 13.1562H12.6875C12.9464 13.1562 13.1562 13.3661 13.1562 13.625C13.1562 13.8839 12.9464 14.0938 12.6875 14.0938ZM12.6875 12.2188H9.40625C9.14738 12.2188 8.9375 12.0089 8.9375 11.75C8.9375 11.4911 9.14738 11.2812 9.40625 11.2812H12.6875C12.9464 11.2812 13.1562 11.4911 13.1562 11.75C13.1562 12.0089 12.9464 12.2188 12.6875 12.2188Z" fill="#94B3D1"/>                            </svg>                                                </span>                    Records                    <span class="ml-auto mr-2">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>                            </svg>                                                </span>                </a>                <ul class="collapse list-unstyled" id="record-submenu">                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="" [routerLink]="[\'/school/students\']"  routerLinkActive="active" class=""> Student</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school/parents\']"   routerLinkActive="active" class=""> Parent</a>                    </li>                                                       </ul>            </li>            <li class="nav-item mb-2">                <a href="#academics-submenu" class="nav-link"   data-toggle="collapse" aria-expanded="false">                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <g clip-path="url(#clip0)">                            <path d="M14.5625 10.8125H9.875C9.10906 10.8125 8.42781 11.1819 8 11.7519C7.57219 11.1819 6.89094 10.8125 6.125 10.8125H1.4375C1.17875 10.8125 0.96875 11.0225 0.96875 11.2812V11.75H4.89969C5.99631 11.75 7.08728 11.9672 8 12.5756C8.91244 11.9674 10.0033 11.75 11.1003 11.75H15.0312V11.2812C15.0312 11.0225 14.8212 10.8125 14.5625 10.8125Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M7.12022 14.2533C6.60072 13.8364 5.85356 13.625 4.89953 13.625H0.46875C0.209875 13.625 0 13.4151 0 13.1562C0 12.8974 0.209875 12.6875 0.46875 12.6875H4.89953C6.07231 12.6875 7.01691 12.9683 7.70703 13.5222C7.87806 13.6595 8.12184 13.6596 8.29297 13.5222C8.98309 12.9683 9.92769 12.6875 11.1005 12.6875H15.5312C15.7901 12.6875 16 12.8974 16 13.1562C16 13.4151 15.7901 13.625 15.5312 13.625H11.1005C10.1464 13.625 9.39928 13.8364 8.87975 14.2533C8.36928 14.6631 7.63622 14.6675 7.12022 14.2533Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M11.2812 6.17969V7.52968C11.2812 7.70718 11.1809 7.86968 11.0222 7.94906L8.94906 8.9853C8.71937 9.1003 8.50906 9.24842 8.32406 9.4253C8.14281 9.59842 7.85719 9.59842 7.67594 9.4253C7.49094 9.24842 7.28063 9.1003 7.05094 8.9853L4.97781 7.94906C4.81906 7.86968 4.71875 7.70718 4.71875 7.52968V6.17969L7.61375 7.00687C7.86122 7.07765 8.12978 7.08025 8.38625 7.00687L11.2812 6.17969Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M13.1562 5.64453V8.46766C13.1562 8.72641 12.9462 8.93641 12.6875 8.93641C12.4288 8.93641 12.2188 8.72641 12.2188 8.46766V5.91234L13.1562 5.64453Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M7.8711 6.10698L1.3086 4.23198C0.85716 4.10302 0.856379 3.45977 1.3086 3.33055L7.8711 1.45555C7.95525 1.43148 8.04447 1.43148 8.12863 1.45555L14.6911 3.33055C15.1426 3.45952 15.1433 4.10277 14.6911 4.23198L8.12863 6.10698C8.04482 6.13092 7.9556 6.13111 7.8711 6.10698Z" fill="#94B3D1" fill-opacity="0.4"/>                            </g>                            <defs>                            <clipPath id="clip0">                            <rect width="16" height="16" fill="white"/>                            </clipPath>                            </defs>                            </svg>                                                </span>                    Academics                    <span class="ml-auto mr-2">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>                            </svg>                                                </span>                </a>                <ul class="collapse list-unstyled" id="academics-submenu">                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="" [routerLink]="[\'/school/teacher\']"  routerLinkActive="active" class=""> Teachers</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href=""  [routerLink]="[\'/school/grade-book\']"   routerLinkActive="active"> Gradebook</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school\', \'coming-soon\']"  > Class Promotion</a>                    </li>                                                       </ul>            </li>            <li class="nav-item mb-2">                <a href="#promotion-submenu" class="nav-link"   data-toggle="collapse" aria-expanded="false">                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <g clip-path="url(#clip0)">                            <path d="M14.5625 10.8125H9.875C9.10906 10.8125 8.42781 11.1819 8 11.7519C7.57219 11.1819 6.89094 10.8125 6.125 10.8125H1.4375C1.17875 10.8125 0.96875 11.0225 0.96875 11.2812V11.75H4.89969C5.99631 11.75 7.08728 11.9672 8 12.5756C8.91244 11.9674 10.0033 11.75 11.1003 11.75H15.0312V11.2812C15.0312 11.0225 14.8212 10.8125 14.5625 10.8125Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M7.12022 14.2533C6.60072 13.8364 5.85356 13.625 4.89953 13.625H0.46875C0.209875 13.625 0 13.4151 0 13.1562C0 12.8974 0.209875 12.6875 0.46875 12.6875H4.89953C6.07231 12.6875 7.01691 12.9683 7.70703 13.5222C7.87806 13.6595 8.12184 13.6596 8.29297 13.5222C8.98309 12.9683 9.92769 12.6875 11.1005 12.6875H15.5312C15.7901 12.6875 16 12.8974 16 13.1562C16 13.4151 15.7901 13.625 15.5312 13.625H11.1005C10.1464 13.625 9.39928 13.8364 8.87975 14.2533C8.36928 14.6631 7.63622 14.6675 7.12022 14.2533Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M11.2812 6.17969V7.52968C11.2812 7.70718 11.1809 7.86968 11.0222 7.94906L8.94906 8.9853C8.71937 9.1003 8.50906 9.24842 8.32406 9.4253C8.14281 9.59842 7.85719 9.59842 7.67594 9.4253C7.49094 9.24842 7.28063 9.1003 7.05094 8.9853L4.97781 7.94906C4.81906 7.86968 4.71875 7.70718 4.71875 7.52968V6.17969L7.61375 7.00687C7.86122 7.07765 8.12978 7.08025 8.38625 7.00687L11.2812 6.17969Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M13.1562 5.64453V8.46766C13.1562 8.72641 12.9462 8.93641 12.6875 8.93641C12.4288 8.93641 12.2188 8.72641 12.2188 8.46766V5.91234L13.1562 5.64453Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M7.8711 6.10698L1.3086 4.23198C0.85716 4.10302 0.856379 3.45977 1.3086 3.33055L7.8711 1.45555C7.95525 1.43148 8.04447 1.43148 8.12863 1.45555L14.6911 3.33055C15.1426 3.45952 15.1433 4.10277 14.6911 4.23198L8.12863 6.10698C8.04482 6.13092 7.9556 6.13111 7.8711 6.10698Z" fill="#94B3D1" fill-opacity="0.4"/>                            </g>                            <defs>                            <clipPath id="clip0">                            <rect width="16" height="16" fill="white"/>                            </clipPath>                            </defs>                            </svg>                                                </span>                    Promotion                    <span class="ml-auto mr-2">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>                            </svg>                                                </span>                </a>                <ul class="collapse list-unstyled" id="promotion-submenu">                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="" routerLink="/school/promotion/class-repeat"  routerLinkActive="active" class=""> Class Repeat</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href=""  routerLink="/school/promotion/withdrawal-list"   routerLinkActive="active"> Withdrawal List</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" routerLink="/school/promotion/class-pool"  > Class Pool</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" routerLink="/school/promotion/promotion-dashboard"  > Promotion Dashboard</a>                    </li>                                                       </ul>            </li>            <li class="nav-item mb-2">                <a href="#schedule-submenu" class="nav-link"   data-toggle="collapse" aria-expanded="false">                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M12 8.80078H8V12.8008H12V8.80078Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M13.5998 1.60001H12.7998V0H11.1998V1.60001H4.79981V0H3.1998V1.60001H2.39982C1.51583 1.60001 0.80783 2.316 0.80783 3.20002L0.799805 14.4C0.799805 15.284 1.51579 16 2.39982 16H13.5998C14.4838 16 15.1998 15.284 15.1998 14.4V3.19999C15.1998 2.316 14.4838 1.60001 13.5998 1.60001ZM13.5998 14.4H2.39982V5.59998H13.5998V14.4Z" fill="#94B3D1" fill-opacity="0.4"/>                            </svg>                                                </span>                    Schedule                    <span class="ml-auto mr-2">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>                            </svg>                                                </span>                </a>                <ul class="collapse list-unstyled" id="schedule-submenu">                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="" [routerLink]="[\'/school/period\']" routerLinkActive="active" class=""> Period</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="" [routerLink]="[\'/school/time-table\']"  routerLinkActive="active" class=""> Time table</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school\', \'coming-soon\']"   routerLinkActive="active"> School Calendar</a>                    </li>                                    </ul>            </li>        </ul>        <ul class="list-unstyled components">            <li class="nav-item mb-2">                <a  href="#human-submenu" class="nav-link"  data-toggle="collapse" aria-expanded="false">                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path id="Vector" d="M10.667 7.33203C11.7737 7.33203 12.6603 6.4387 12.6603 5.33203C12.6603 4.22536 11.7737 3.33203 10.667 3.33203C9.56032 3.33203 8.66699 4.22536 8.66699 5.33203C8.66699 6.4387 9.56032 7.33203 10.667 7.33203ZM5.33366 7.33203C6.44033 7.33203 7.32699 6.4387 7.32699 5.33203C7.32699 4.22536 6.44033 3.33203 5.33366 3.33203C4.22699 3.33203 3.33366 4.22536 3.33366 5.33203C3.33366 6.4387 4.22699 7.33203 5.33366 7.33203ZM5.33366 8.66536C3.78033 8.66536 0.666992 9.44536 0.666992 10.9987V12.6654H10.0003V10.9987C10.0003 9.44536 6.88699 8.66536 5.33366 8.66536ZM10.667 8.66536C10.4737 8.66536 10.2537 8.6787 10.0203 8.6987C10.7937 9.2587 11.3337 10.012 11.3337 10.9987V12.6654H15.3337V10.9987C15.3337 9.44536 12.2203 8.66536 10.667 8.66536Z" fill="#94B3D1" fill-opacity="0.4"/>                            </svg>                                                </span>                    Human Resources                    <span class="ml-auto mr-2">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>                            </svg>                                                </span>                </a>                <ul class="collapse list-unstyled" id="human-submenu">                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="" [routerLink]="[\'/school/employees\']"  routerLinkActive="active" class=""> Employees</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a [routerLink]="[\'/school\', \'coming-soon\']"  > Loan</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a  [routerLink]="[\'/school\', \'coming-soon\']" > Attendance Sheet</a>                    </li>                                                       </ul>            </li>            <li class="nav-item mb-2">                <a href="#finance-settings-submenu" class="nav-link"   data-toggle="collapse" aria-expanded="false"  >                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M13.333 3.9987H10.6663V2.66536C10.6663 1.92536 10.073 1.33203 9.33301 1.33203H6.66634C5.92634 1.33203 5.33301 1.92536 5.33301 2.66536V3.9987H2.66634C1.92634 3.9987 1.33967 4.59203 1.33967 5.33203L1.33301 12.6654C1.33301 13.4054 1.92634 13.9987 2.66634 13.9987H13.333C14.073 13.9987 14.6663 13.4054 14.6663 12.6654V5.33203C14.6663 4.59203 14.073 3.9987 13.333 3.9987ZM9.33301 3.9987H6.66634V2.66536H9.33301V3.9987Z" fill="#94B3D1" fill-opacity="0.4"/>                            </svg>                                                </span>                    Finance Settings                    <span class="ml-auto mr-2">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>                            </svg>                                                </span>                </a>                <ul class="collapse list-unstyled" id="finance-settings-submenu">                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="" [routerLink]="[\'/school/finance-setting/accounts\']" routerLinkActive="active" class=""> Account Setting </a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="" [routerLink]="[\'/school/finance-setting/chart-of-account\']" routerLinkActive="active" class=""> Chart of Account </a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school/finance-setting/fee-type\']"  routerLinkActive="active"> Fee Type</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="" [routerLink]="[\'/school/finance-setting/fee-component\']"  routerLinkActive="active" class=""> Fee Component</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school/finance-setting/fee\']"  routerLinkActive="active"> Fee</a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school/finance-setting/bank-account\']"  routerLinkActive="active"> Bank Account </a>                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school\', \'coming-soon\']"   routerLinkActive="active"> Vendors</a>                        <!-- <a href="#" [routerLink]="[\'/school/finance-setting/vendors\']"  routerLinkActive="active"> Vendors</a> -->                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school\', \'coming-soon\']"   routerLinkActive="active"> Discount </a>                        <!-- <a href="#" [routerLink]="[\'/school/finance-setting/discount\']"  routerLinkActive="active"> Discount </a> -->                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school\', \'coming-soon\']"   routerLinkActive="active"> Payroll Account </a>                        <!-- <a href="#" [routerLink]="[\'/school/finance-setting/payroll-account\']"  routerLinkActive="active"> Payroll Account </a> -->                    </li>                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school\', \'coming-soon\']"   routerLinkActive="active"> Account Mapping </a>                        <!-- <a href="#" [routerLink]="[\'/school/finance-setting/acount-mapping\']"  routerLinkActive="active"> Account Mapping </a> -->                    </li>                                    </ul>            </li>            <li class="nav-item mb-2">                <a href="#finance-submenu" class="nav-link"   data-toggle="collapse" aria-expanded="false"  >                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M12.473 7.946C14.3911 7.946 15.946 7.06266 15.946 5.973C15.946 4.88334 14.3911 4 12.473 4C10.5549 4 9 4.88334 9 5.973C9 7.06266 10.5549 7.946 12.473 7.946Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5248 9.0815C10.0408 9.0815 9.05176 8.0405 9.05176 7.4375V10.0205C9.05176 11.1105 10.6068 11.9925 12.5248 11.9925C14.4448 11.9925 15.9998 11.1105 15.9998 10.0205V7.4995C15.9998 8.1035 15.0098 9.0815 12.5248 9.0815Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5248 13.0725C10.3028 13.0725 9.05176 12.0715 9.05176 11.4685V14.0275C9.05176 15.1175 10.6068 16.0005 12.5248 16.0005C14.4448 16.0005 15.9998 15.1175 15.9998 14.0275V11.4375C15.9998 12.0405 14.7478 13.0725 12.5248 13.0725Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M3.937 3.946C6.11135 3.946 7.874 3.06266 7.874 1.973C7.874 0.883342 6.11135 0 3.937 0C1.76266 0 0 0.883342 0 1.973C0 3.06266 1.76266 3.946 3.937 3.946Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.062 5.0815C1.247 5.0815 0.125 4.0405 0.125 3.4375V6.0205C0.125 7.1105 1.888 7.9925 4.062 7.9925C6.238 7.9925 8 7.1105 8 6.0205V3.4995C8 4.1035 6.877 5.0815 4.062 5.0815Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.062 9.0725C1.543 9.0725 0.125 8.0715 0.125 7.4685V10.0275C0.125 11.1175 1.888 12.0005 4.062 12.0005C6.238 12.0005 8 11.1175 8 10.0275V7.4375C8 8.0405 6.58 9.0725 4.062 9.0725Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.062 13.0725C1.543 13.0725 0.125 12.0715 0.125 11.4685V14.0275C0.125 15.1175 1.888 16.0005 4.062 16.0005C6.238 16.0005 8 15.1175 8 14.0275V11.4375C8 12.0405 6.58 13.0725 4.062 13.0725Z" fill="#94B3D1" fill-opacity="0.4"/>                            </svg>                                                </span>                    Finance                    <span class="ml-auto mr-2">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>                            </svg>                                                </span>                </a>                <ul class="collapse list-unstyled" id="finance-submenu">                    <li class="  text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="" [routerLink]="[\'/school/finance/billing\']" routerLinkActive="active" class=""> Billing </a>                    </li>                                                      </ul>            </li>            <li class="nav-item mb-2">                <a href="" [routerLink]="[\'/school\', \'coming-soon\']" class="nav-link"  >                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <g clip-path="url(#clip0)">                            <path d="M4.26658 3.46612V2.39947C4.26658 2.25221 4.14718 2.13281 3.99992 2.13281H0.266661C0.119399 2.13281 0 2.25221 0 2.39947V3.46612H4.26658Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M0 4V12.7998H4.26658V4H0ZM3.19994 7.4666H1.06665C0.919383 7.4666 0.799984 7.3472 0.799984 7.19994V5.06665C0.799984 4.91938 0.919383 4.79998 1.06665 4.79998H3.19994C3.3472 4.79998 3.4666 4.91938 3.4666 5.06665V7.19994C3.4666 7.3472 3.3472 7.4666 3.19994 7.4666Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M0 14.3984V15.7317C0 15.879 0.119399 15.9984 0.266661 15.9984H3.99992C4.14718 15.9984 4.26658 15.879 4.26658 15.7317V14.3984H0Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M0 13.3359H4.26658V13.8692H0V13.3359Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M4.7998 13.3359H8.26642V13.8692H4.7998V13.3359Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M8.26642 1.06665V0.266662C8.26642 0.119399 8.14702 0 7.99975 0H5.06647C4.9192 0 4.7998 0.119399 4.7998 0.266662V1.06665H8.26642Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M4.7998 2.93359H8.26642V12.8001H4.7998V2.93359Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M4.7998 14.3984V15.7317C4.7998 15.879 4.9192 15.9984 5.06647 15.9984H7.99975C8.14702 15.9984 8.26642 15.879 8.26642 15.7317V14.3984H4.7998Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M4.7998 1.60156H8.26642V2.40155H4.7998V1.60156Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M8.79297 5.52068L8.93567 6.06846L13.4517 4.86418L13.3089 4.31641L8.79297 5.52068Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M11.0215 14.0661L15.5375 12.8618L15.2516 11.7656L10.7354 12.9699L11.0215 14.0661Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M15.1168 11.2494L13.5865 5.38281L9.07031 6.58709L10.6006 12.4536L15.1168 11.2494Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M8.65833 5.00543L13.1741 3.8013L12.7913 2.33271C12.7519 2.19052 12.6066 2.1055 12.4633 2.14079L8.46341 3.20743C8.32214 3.2461 8.23789 3.39076 8.27396 3.53268L8.65833 5.00543Z" fill="#94B3D1" fill-opacity="0.4"/>                            <path d="M15.6725 13.3789L11.1562 14.5832L11.4743 15.8023C11.4928 15.8711 11.5379 15.9297 11.5997 15.9651C11.64 15.9894 11.6861 16.0023 11.7331 16.0023C11.7564 16.0023 11.7797 15.9996 11.8023 15.9944L15.8023 14.9277C15.9436 14.889 16.0278 14.7443 15.9917 14.6023L15.6725 13.3789Z" fill="#94B3D1" fill-opacity="0.4"/>                            </g>                            <defs>                            <clipPath id="clip0">                            <rect width="16" height="16" fill="white"/>                            </clipPath>                            </defs>                            </svg>                                                </span>                    Library                </a>            </li>            <li class="nav-item mb-2">                <a href="#" class="nav-link" [routerLink]="[\'/school\', \'coming-soon\']" >                    <span class="ico">                        <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">                            <g >                            <path d="M0 0V18H6V14.5H8V18H14V0H0ZM2 2H4V4H2V2ZM6 2H8V4H6V2ZM10 2H12V4H10V2ZM2 6H4V8H2V6ZM6 6H8V8H6V6ZM10 6H12V8H10V6ZM2 10H4V12H2V10ZM6 10H8V12H6V10ZM10 10H12V12H10V10ZM2 14H4V16H2V14ZM10 14H12V16H10V14Z" fill="#94B3D1" fill-opacity="0.4"/>                            </g>                            </svg>                                                </span>                    Facility Manager                </a>            </li>            <li class="nav-item mb-2 ">                <a href="#setting-submenu" class="nav-link"  data-toggle="collapse" aria-expanded="false" >                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M12.7604 8.62556C12.7844 8.42556 12.8004 8.21756 12.8004 8.00156C12.8004 7.78556 12.7844 7.57756 12.7524 7.37756L14.1044 6.32156C14.2244 6.22556 14.2564 6.04956 14.1844 5.91356L12.9044 3.69756C12.8244 3.55356 12.6564 3.50556 12.5124 3.55356L10.9204 4.19356C10.5844 3.93756 10.2324 3.72956 9.8404 3.56956L9.6004 1.87356C9.5764 1.71356 9.4404 1.60156 9.2804 1.60156H6.7204C6.5604 1.60156 6.4324 1.71356 6.4084 1.87356L6.1684 3.56956C5.7764 3.72956 5.4164 3.94556 5.0884 4.19356L3.4964 3.55356C3.3524 3.49756 3.1844 3.55356 3.1044 3.69756L1.8244 5.91356C1.7444 6.05756 1.7764 6.22556 1.9044 6.32156L3.2564 7.37756C3.2244 7.57756 3.2004 7.79356 3.2004 8.00156C3.2004 8.20956 3.2164 8.42556 3.2484 8.62556L1.8964 9.68156C1.7764 9.77756 1.7444 9.95356 1.8164 10.0896L3.0964 12.3056C3.1764 12.4496 3.3444 12.4976 3.4884 12.4496L5.0804 11.8096C5.4164 12.0656 5.7684 12.2736 6.1604 12.4336L6.4004 14.1296C6.4324 14.2896 6.5604 14.4016 6.7204 14.4016H9.2804C9.4404 14.4016 9.5764 14.2896 9.5924 14.1296L9.8324 12.4336C10.2244 12.2736 10.5844 12.0576 10.9124 11.8096L12.5044 12.4496C12.6484 12.5056 12.8164 12.4496 12.8964 12.3056L14.1764 10.0896C14.2564 9.94556 14.2244 9.77756 14.0964 9.68156L12.7604 8.62556ZM8.0004 10.4016C6.6804 10.4016 5.6004 9.32156 5.6004 8.00156C5.6004 6.68156 6.6804 5.60156 8.0004 5.60156C9.3204 5.60156 10.4004 6.68156 10.4004 8.00156C10.4004 9.32156 9.3204 10.4016 8.0004 10.4016Z" fill="#94B3D1" fill-opacity="0.4"/>                            </svg>                                                </span>                    General Settings                    <span class="ml-auto mr-2">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M8 10.668L12 6.66797L11.06 5.72797L8 8.7813L4.94 5.72797L4 6.66797L8 10.668Z" fill="#94B3D1"/>                            </svg>                                                </span>                </a>                <ul class="collapse list-unstyled" id="setting-submenu">                    <li class=" text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school/settings/account-settings\']"  routerLinkActive="active" class=""> Account</a>                    </li>                    <li class=" text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school/settings/school-settings\']"   routerLinkActive="active" class=""> School Settings</a>                    </li>                                        <li class=" text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#"  [routerLink]="[\'/school/settings/personal-settings\']"  routerLinkActive="active"  class=""> Personal Settings</a>                    </li>                    <li class=" text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#"  [routerLink]="[\'/school/settings/promotion-settings\']"  routerLinkActive="active"  class=""> Promotion Settings</a>                    </li>                    <li class=" text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school/settings/school-manager\']"  routerLinkActive="active" class=""> School Manager</a>                    </li>                    <li class=" text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school/settings/result-settings\']"  routerLinkActive="active" class=""> Result Settings</a>                    </li>                    <li class=" text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school/coming-soon\']"  routerLinkActive="active" class=""> Finance Settings</a>                        <!-- <a href="#" [routerLink]="[\'/school/settings/finance-settings\']"  routerLinkActive="active" class=""> Finance Settings</a> -->                    </li>                    <li class=" text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school\', \'coming-soon\']"   routerLinkActive="active"  class=""> Facility Settings</a>                        <!-- <a href="#" [routerLink]="[\'/school/facility-settings\']"  routerLinkActive="active"  class=""> Facility Settings</a> -->                    </li>                    <li class=" text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school\', \'coming-soon\']"  routerLinkActive="active" class=""> Student Settings</a>                    </li>                    <li class=" text-white  d-flex justify-content-start align-items-center">                        <div class="ellipse bg-white mr-3 ml-3"> &nbsp; </div>                        <a href="#" [routerLink]="[\'/school\', \'coming-soon\']"   routerLinkActive="active" class=""> Payroll Settings</a>                        <!-- <a href="#" [routerLink]="[\'/school/payroll-settings\']"  routerLinkActive="active" class=""> Payroll Settings</a> -->                    </li>                                    </ul>            </li>            <li class="nav-item mb-2">                <a href="#" class="nav-link" [routerLink]="[\'/school\', \'coming-soon\']" >                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path d="M3.33301 6.13203H5.33301V12.6654H3.33301V6.13203ZM7.06634 3.33203H8.93301V12.6654H7.06634V3.33203ZM10.7997 8.66536H12.6663V12.6654H10.7997V8.66536Z" fill="#94B3D1" fill-opacity="0.4"/>                            </svg>                                                </span>                    Report                </a>            </li>            <!-- <li class="nav-item mb-2" (click)="logOut()">                <a href="#" class="nav-link" [routerLink]="[\'/main/\']" [routerLinkActive]="[\'active\']">                    <span class="ico">                        <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">                            <g id="signout">                                <path id="Vector"                                    d="M19.4108 8.16354L12.8494 14.7249C12.2636 15.3108 11.2481 14.9007 11.2481 14.061V10.3116H5.93651C5.41707 10.3116 4.99917 9.89372 4.99917 9.37427V5.6249C4.99917 5.10545 5.41707 4.68755 5.93651 4.68755H11.2481V0.938175C11.2481 0.102376 12.2597 -0.311617 12.8494 0.274223L19.4108 6.83563C19.7741 7.20276 19.7741 7.79641 19.4108 8.16354ZM7.49875 14.5297V12.9674C7.49875 12.7097 7.28785 12.4988 7.03008 12.4988H3.74938C3.05809 12.4988 2.49958 11.9403 2.49958 11.249V3.75021C2.49958 3.05892 3.05809 2.50042 3.74938 2.50042H7.03008C7.28785 2.50042 7.49875 2.28951 7.49875 2.03174V0.469503C7.49875 0.211733 7.28785 0.000830666 7.03008 0.000830666H3.74938C1.67941 0.000830666 0 1.68024 0 3.75021V11.249C0 13.3189 1.67941 14.9983 3.74938 14.9983H7.03008C7.28785 14.9983 7.49875 14.7874 7.49875 14.5297Z" />                            </g>                        </svg>                    </span>                    Sign out                </a>            </li> -->        </ul>    </div>    <div id="content">        <header class="main-head sticky-top py-lg-2" [ngStyle]="{\'background-color\': schoolColor?.secondaryColor}">            <div class="container-fluid">                <div class="row d-flex justify-content-between lang">                    <div class=" hamburger d-flex align-items-center"  (click)="toggleSideBar()">                        <img src="assets/images/svg/hamburger.svg" alt="new client" class="">                        <p class="mb-0 fw-6 ml-4" style="font-size: 21px;"> {{schoolname | titlecase}}</p>                    </div>                    <div class="  ">                        <div class="d-flex  align-center justify-content-center ">                            <!-- <img src="assets/images/svg/bell.svg" alt="new client" class="mr-5 notification">                            <span class="count">2</span> -->                            <div class="profile mr-5">                                <div class="profile-intials"> <p> {{getInitials(adminDetails.given_name + \' \' + adminDetails.family_name )}} </p></div>                                <div class="pl-3">                                    <p class="mb-0">{{adminDetails.given_name}} {{adminDetails.family_name}}</p>                                    <small *ngIf="adminDetails.role !== null ">{{ adminDetails.role | titlecase }}</small>                                </div>                            </div>                                <span>                                    <svg _ngcontent-vxg-c3="" fill="none" height="18" viewBox="0 0 20 18" width="20" xmlns="http://www.w3.org/2000/svg"><path _ngcontent-vxg-c3="" d="M10.0052 10.8C12.9652 10.8 15.3852 8.38002 15.3852 5.40002C15.3852 2.42002 12.9652 1.95313e-05 10.0052 1.95313e-05C7.04518 1.95313e-05 4.62518 2.42002 4.62518 5.40002C4.62518 8.38002 7.04518 10.8 10.0052 10.8ZM10.0052 1.58C12.0852 1.58 13.7852 3.28 13.7852 5.38C13.7852 7.48 12.0852 9.18 10.0052 9.18C7.92518 9.18 6.22518 7.48 6.22518 5.38C6.22518 3.28 7.92518 1.58 10.0052 1.58ZM12.5052 11.32C12.2452 11.24 11.9452 11.3 11.7452 11.48L10.0052 12.96L8.26517 11.48C8.04517 11.3 7.76518 11.24 7.50518 11.32C6.38518 11.68 0.805176 13.6 0.805176 16.38C0.805176 16.82 1.16518 17.18 1.60518 17.18H18.4052C18.8452 17.18 19.2052 16.82 19.2052 16.38C19.2052 13.6 13.6252 11.68 12.5052 11.32ZM2.82518 15.58C3.70518 14.64 5.82517 13.6 7.58517 13L9.48518 14.62C9.78517 14.88 10.2252 14.88 10.5252 14.62L12.4252 13C14.1852 13.62 16.3052 14.66 17.1852 15.58H2.82518Z" fill="#0052B4" id="icon"></path></svg>                                </span>                                <img src="assets/images/svg/caret.svg" alt="country flag" class="ml-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                                                            <!-- ================ DROPDOWN ==================== -->                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                                    <a class="dropdown-item" href="" (click)="logOut()">                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">                                            <path id="icons" d="M6.82741 12.59L8.18519 14L13 9L8.18519 4L6.82741 5.41L9.31185 8H0V10H9.31185L6.82741 12.59Z" fill="#D72638"/>                                            <path id="icons" d="M16 0H2C0.89 0 0 0.9 0 2V6H2V2H16V16H2V12H0V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V2C18 0.9 17.1 0 16 0Z" fill="#D72638"/>                                            </svg>                                             Logout </a>                                <!-- <div class="dropdown-divider"></div> -->                                <!-- <a class="dropdown-item" href="#"><img src="assets/images/svg/uk.svg" alt="new client" class="pr-2 mb-2"> English </a>                                <a class="dropdown-item" href="#"><img src="assets/images/svg/french.svg" alt="new client" class="pr-2 mb-2"> French </a>                                <a class="dropdown-item" href="#"><img src="assets/images/svg/spain.svg" alt="new client" class="pr-2 mb-2"> Spanish     </a> -->                               </div>                        </div>                    </div>                </div>            </div>        </header>        <main class="main row-sizing">                    <router-outlet></router-outlet>            </main>        <div class="foot bg-dark py-3 mt-5 footer">            <p class="fc-grey ff-a fs-12 m-0 text-center"> Powered by Infoworks Solution © {{getYear()}}. <span class="fw-6 ls-7">Schooltrack</span> - All rights                reserved </p>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AccountMappingComponent', 'selector': 'app-account-mapping'},{'name': 'AccountPanelComponent', 'selector': 'app-account-panel'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AdminAlumniCreateEventComponent', 'selector': 'app-admin-alumni-create-event'},{'name': 'AdminAlumniEventsComponent', 'selector': 'app-admin-alumni-events'},{'name': 'AdminAlumniListComponent', 'selector': 'app-admin-alumni-list'},{'name': 'AdminLoginComponent', 'selector': 'app-admin-login'},{'name': 'AlumniAlumniComponent', 'selector': 'app-alumni-alumni'},{'name': 'AlumniComponent', 'selector': 'app-alumni'},{'name': 'AlumniEventDetailComponent', 'selector': 'app-alumni-event-detail'},{'name': 'AlumniEventsComponent', 'selector': 'app-alumni-events'},{'name': 'AlumniHomeComponent', 'selector': 'app-alumni-home'},{'name': 'AlumniProfileComponent', 'selector': 'app-alumni-profile'},{'name': 'AlumniRecordsComponent', 'selector': 'app-alumni-records'},{'name': 'AlumniTranscriptComponent', 'selector': 'app-alumni-transcript'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentsComponent', 'selector': 'app-assignments'},{'name': 'AttachTeacherComponent', 'selector': 'app-attach-teacher'},{'name': 'AttendanceComponent', 'selector': 'app-attendance'},{'name': 'BankAccountsComponent', 'selector': 'app-bank-accounts'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BranchContactPersonComponent', 'selector': 'app-branch-contact-person'},{'name': 'BranchDetailComponent', 'selector': 'app-branch-detail'},{'name': 'BranchInformationComponent', 'selector': 'app-branch-information'},{'name': 'BranchLocationComponent', 'selector': 'app-branch-location'},{'name': 'BroadSheetComponent', 'selector': 'app-broad-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ChartOfAccountComponent', 'selector': 'app-chart-of-account'},{'name': 'ChildAssignmentComponent', 'selector': 'app-child-assignment'},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ClassAttendanceComponent', 'selector': 'app-class-attendance'},{'name': 'ClassPoolComponent', 'selector': 'app-class-pool'},{'name': 'ClassRepeatComponent', 'selector': 'app-class-repeat'},{'name': 'ClassScheduleComponent', 'selector': 'app-class-schedule'},{'name': 'ClientDetailComponent', 'selector': 'app-client-detail'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'ContactDetailComponent', 'selector': 'app-contact-detail'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactPersonComponent', 'selector': 'app-contact-person'},{'name': 'CreateAssignmentComponent', 'selector': 'app-create-assignment'},{'name': 'CreateBranchComponent', 'selector': 'app-create-branch'},{'name': 'CreateClientComponent', 'selector': 'app-create-client'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoComponent', 'selector': 'app-demo'},{'name': 'DiscountsComponent', 'selector': 'app-discounts'},{'name': 'EditUserComponent', 'selector': 'app-edit-user'},{'name': 'EducationComponent', 'selector': 'app-education'},{'name': 'EmailVerifiedComponent', 'selector': 'app-email-verified'},{'name': 'EmployeeComponent', 'selector': 'app-employee'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeListComponent', 'selector': 'app-employee-list'},{'name': 'FacilitySettingsComponent', 'selector': 'app-facility-settings'},{'name': 'FaqsComponent', 'selector': 'app-faqs'},{'name': 'FeeComponent', 'selector': 'app-fee'},{'name': 'FeeComponentComponent', 'selector': 'app-fee-component'},{'name': 'FeeTypeComponent', 'selector': 'app-fee-type'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FilesComponent', 'selector': 'app-files'},{'name': 'FileStorageComponent', 'selector': 'app-file-storage'},{'name': 'FinanceSettingsComponent', 'selector': 'app-finance-settings'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAdminComponent', 'selector': 'app-global-admin'},{'name': 'GradebookComponent', 'selector': 'app-gradebook'},{'name': 'GradingComponent', 'selector': 'app-grading'},{'name': 'GroupedSchoolsComponent', 'selector': 'app-grouped-schools'},{'name': 'HomenavbarComponent', 'selector': 'app-homenavbar'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LandingScreenComponent', 'selector': 'app-landing-screen'},{'name': 'LaterThingsComponent', 'selector': 'app-later-things'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'MailReportCardComponent', 'selector': 'app-mail-report-card'},{'name': 'MarkAttendanceComponent', 'selector': 'app-mark-attendance'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MedicalDetailsComponent', 'selector': 'app-medical-details'},{'name': 'NewAccountChartComponent', 'selector': 'app-new-account-chart'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewFeeComponent', 'selector': 'app-new-fee'},{'name': 'NewroleComponent', 'selector': 'app-newrole'},{'name': 'NewRoleRecordComponent', 'selector': 'app-new-role-record'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NewVendorsComponent', 'selector': 'app-new-vendors'},{'name': 'NextOfKinComponent', 'selector': 'app-next-of-kin'},{'name': 'NoRecordComponent', 'selector': 'app-no-record'},{'name': 'NotificationPageComponent', 'selector': 'app-notification-page'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ParentComponent', 'selector': 'app-parent'},{'name': 'ParentDetailsComponent', 'selector': 'app-parent-details'},{'name': 'ParentListComponent', 'selector': 'app-parent-list'},{'name': 'ParentLoginComponent', 'selector': 'app-parent-login'},{'name': 'ParentPortalComponent', 'selector': 'app-parent-portal'},{'name': 'PayrollAccountsComponent', 'selector': 'app-payroll-accounts'},{'name': 'PayrollSetttingsComponent', 'selector': 'app-payroll-setttings'},{'name': 'PeriodComponent', 'selector': 'app-period'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'PersonalSettingsComponent', 'selector': 'app-personal-settings'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileInformationComponent', 'selector': 'app-profile-information'},{'name': 'PromotionDashboardComponent', 'selector': 'app-promotion-dashboard'},{'name': 'PromotionSettingsComponent', 'selector': 'app-promotion-settings'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResultSettingsComponent', 'selector': 'app-result-settings'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'SchoolAdminComponent', 'selector': 'app-school-admin'},{'name': 'SchoolBranchManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolComponent', 'selector': 'app-school'},{'name': 'SchoolContactPersonComponent', 'selector': 'app-school-contact-person'},{'name': 'SchoolGradeBookComponent', 'selector': 'app-school-grade-book'},{'name': 'SchoolInformationComponent', 'selector': 'app-school-information'},{'name': 'SchoolLoginComponent', 'selector': 'app-school-login'},{'name': 'SchoolManagerBranchComponent', 'selector': 'app-school-manager-branch'},{'name': 'SchoolManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolManagerDashboardComponent', 'selector': 'app-school-manager-dashboard'},{'name': 'SchoolManagerSettingsComponent', 'selector': 'app-school-manager-settings'},{'name': 'SchoolMediaComponent', 'selector': 'app-school-media'},{'name': 'SchoolSettingsComponent', 'selector': 'app-school-settings'},{'name': 'ScoreSheetComponent', 'selector': 'app-score-sheet'},{'name': 'ScoreSheetDetailsPageComponent', 'selector': 'app-score-sheet-details-page'},{'name': 'SessionComponent', 'selector': 'app-session'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'StudentAttendanceComponent', 'selector': 'app-student-attendance'},{'name': 'StudentComponent', 'selector': 'app-student'},{'name': 'StudentDetailComponent', 'selector': 'app-student-detail'},{'name': 'StudentListComponent', 'selector': 'app-student-list'},{'name': 'StudentLoginComponent', 'selector': 'app-student-login'},{'name': 'StudentProfileComponent', 'selector': 'app-student-profile'},{'name': 'StudentReportComponent', 'selector': 'app-student-report'},{'name': 'StudentResultSheetComponent', 'selector': 'app-student-result-sheet'},{'name': 'StudentScoreSheetComponent', 'selector': 'app-student-score-sheet'},{'name': 'StudentSettingsComponent', 'selector': 'app-student-settings'},{'name': 'StudentSheetComponent', 'selector': 'app-student-sheet'},{'name': 'SubjecAttendanceComponent', 'selector': 'app-subjec-attendance'},{'name': 'SubscriptionInvoiceArreasComponent', 'selector': 'app-subscription-invoice-arreas'},{'name': 'SubscriptionInvoiceComponent', 'selector': 'app-subscription-invoice'},{'name': 'SubscriptionListsComponent', 'selector': 'app-subscription-lists'},{'name': 'SubscriptionPageComponent', 'selector': 'app-subscription-page'},{'name': 'TaskPreviewComponent', 'selector': 'app-task-preview'},{'name': 'TeacherComponent', 'selector': 'app-teacher'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'},{'name': 'TeachersComponent', 'selector': 'app-teachers'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'UnpaidSubscriptionsComponent', 'selector': 'app-unpaid-subscriptions'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VendorsComponent', 'selector': 'app-vendors'},{'name': 'ViewAssignmentComponent', 'selector': 'app-view-assignment'},{'name': 'ViewBillingComponent', 'selector': 'app-view-billing'},{'name': 'ViewFileComponent', 'selector': 'app-view-file'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportSheetComponent', 'selector': 'app-view-report-sheet'},{'name': 'VirtualClassComponent', 'selector': 'app-virtual-class'},{'name': 'VirtualClassroomComponent', 'selector': 'app-virtual-classroom'},{'name': 'VirtualSessionComponent', 'selector': 'app-virtual-session'},{'name': 'WithdrawalListComponent', 'selector': 'app-withdrawal-list'},{'name': 'WorkExperienceComponent', 'selector': 'app-work-experience'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SchoolComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SchoolComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

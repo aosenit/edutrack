@@ -1,0 +1,3037 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li >ParentsService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/services/data/parents/parents.service.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#baseUrl" >baseUrl</a>
+                            </li>
+                            <li>
+                                <a href="#baseUrl2" >baseUrl2</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addParent" >addParent</a>
+                            </li>
+                            <li>
+                                <a href="#createNewTransaction" >createNewTransaction</a>
+                            </li>
+                            <li>
+                                <a href="#deleteParentById" >deleteParentById</a>
+                            </li>
+                            <li>
+                                <a href="#getAllAssessmentSetup" >getAllAssessmentSetup</a>
+                            </li>
+                            <li>
+                                <a href="#getAllClassesForClassByDay" >getAllClassesForClassByDay</a>
+                            </li>
+                            <li>
+                                <a href="#getAllGradeSetupForSchool" >getAllGradeSetupForSchool</a>
+                            </li>
+                            <li>
+                                <a href="#getAllParents" >getAllParents</a>
+                            </li>
+                            <li>
+                                <a href="#getAllParentsInASchool" >getAllParentsInASchool</a>
+                            </li>
+                            <li>
+                                <a href="#getAllParentsWithName" >getAllParentsWithName</a>
+                            </li>
+                            <li>
+                                <a href="#getAllPendingTransactions" >getAllPendingTransactions</a>
+                            </li>
+                            <li>
+                                <a href="#getAllSubjectsInAClassByClassID" >getAllSubjectsInAClassByClassID</a>
+                            </li>
+                            <li>
+                                <a href="#getAllSubjectsInAClassWithAssignmentCountByClassID" >getAllSubjectsInAClassWithAssignmentCountByClassID</a>
+                            </li>
+                            <li>
+                                <a href="#getAllTransactions" >getAllTransactions</a>
+                            </li>
+                            <li>
+                                <a href="#getApprovedStudentResult" >getApprovedStudentResult</a>
+                            </li>
+                            <li>
+                                <a href="#getAssignmentsByClassSubject" >getAssignmentsByClassSubject</a>
+                            </li>
+                            <li>
+                                <a href="#getChildInASchoolForParent" >getChildInASchoolForParent</a>
+                            </li>
+                            <li>
+                                <a href="#getClassAttendance" >getClassAttendance</a>
+                            </li>
+                            <li>
+                                <a href="#getFiles" >getFiles</a>
+                            </li>
+                            <li>
+                                <a href="#getInvoices" >getInvoices</a>
+                            </li>
+                            <li>
+                                <a href="#getInvoicesById" >getInvoicesById</a>
+                            </li>
+                            <li>
+                                <a href="#getParentByFirstName" >getParentByFirstName</a>
+                            </li>
+                            <li>
+                                <a href="#getParentById" >getParentById</a>
+                            </li>
+                            <li>
+                                <a href="#getParentForStudent" >getParentForStudent</a>
+                            </li>
+                            <li>
+                                <a href="#getPeriods" >getPeriods</a>
+                            </li>
+                            <li>
+                                <a href="#getSchoolById" >getSchoolById</a>
+                            </li>
+                            <li>
+                                <a href="#getSchoolLogo" >getSchoolLogo</a>
+                            </li>
+                            <li>
+                                <a href="#getSchoolSessions" >getSchoolSessions</a>
+                            </li>
+                            <li>
+                                <a href="#getStaffSignature" >getStaffSignature</a>
+                            </li>
+                            <li>
+                                <a href="#getStudentAssignmentSubmission" >getStudentAssignmentSubmission</a>
+                            </li>
+                            <li>
+                                <a href="#getStudentBehviour" >getStudentBehviour</a>
+                            </li>
+                            <li>
+                                <a href="#getStudentSchools" >getStudentSchools</a>
+                            </li>
+                            <li>
+                                <a href="#getSubjectAttendance" >getSubjectAttendance</a>
+                            </li>
+                            <li>
+                                <a href="#getTimeTableForClass" >getTimeTableForClass</a>
+                            </li>
+                            <li>
+                                <a href="#getTransactionPaymentHistory" >getTransactionPaymentHistory</a>
+                            </li>
+                            <li>
+                                <a href="#updateParent" >updateParent</a>
+                            </li>
+                            <li>
+                                <a href="#updateSelectedInvoice" >updateSelectedInvoice</a>
+                            </li>
+                            <li>
+                                <a href="#updateTransactionReceipt" >updateTransactionReceipt</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/services/data/parents/parents.service.ts:65</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addParent"></a>
+                    <span class="name">
+                        <span ><b>addParent</b></span>
+                        <a href="#addParent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addParent(createParentForm)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>createParentForm</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewTransaction"></a>
+                    <span class="name">
+                        <span ><b>createNewTransaction</b></span>
+                        <a href="#createNewTransaction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewTransaction(transactionData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="267"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:267</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>transactionData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteParentById"></a>
+                    <span class="name">
+                        <span ><b>deleteParentById</b></span>
+                        <a href="#deleteParentById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteParentById(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="150"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:150</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllAssessmentSetup"></a>
+                    <span class="name">
+                        <span ><b>getAllAssessmentSetup</b></span>
+                        <a href="#getAllAssessmentSetup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllAssessmentSetup()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="329"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:329</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllClassesForClassByDay"></a>
+                    <span class="name">
+                        <span ><b>getAllClassesForClassByDay</b></span>
+                        <a href="#getAllClassesForClassByDay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllClassesForClassByDay(classId, day)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="193"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:193</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>classId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>day</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllGradeSetupForSchool"></a>
+                    <span class="name">
+                        <span ><b>getAllGradeSetupForSchool</b></span>
+                        <a href="#getAllGradeSetupForSchool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllGradeSetupForSchool()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="311"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:311</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllParents"></a>
+                    <span class="name">
+                        <span ><b>getAllParents</b></span>
+                        <a href="#getAllParents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllParents(p, perpage)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="93"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:93</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>p</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>perpage</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllParentsInASchool"></a>
+                    <span class="name">
+                        <span ><b>getAllParentsInASchool</b></span>
+                        <a href="#getAllParentsInASchool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllParentsInASchool(schoolId, p, perpage)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:99</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>schoolId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>p</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>perpage</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllParentsWithName"></a>
+                    <span class="name">
+                        <span ><b>getAllParentsWithName</b></span>
+                        <a href="#getAllParentsWithName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllParentsWithName()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:103</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllPendingTransactions"></a>
+                    <span class="name">
+                        <span ><b>getAllPendingTransactions</b></span>
+                        <a href="#getAllPendingTransactions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllPendingTransactions(StudentId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="284"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:284</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>StudentId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllSubjectsInAClassByClassID"></a>
+                    <span class="name">
+                        <span ><b>getAllSubjectsInAClassByClassID</b></span>
+                        <a href="#getAllSubjectsInAClassByClassID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllSubjectsInAClassByClassID(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="201"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:201</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllSubjectsInAClassWithAssignmentCountByClassID"></a>
+                    <span class="name">
+                        <span ><b>getAllSubjectsInAClassWithAssignmentCountByClassID</b></span>
+                        <a href="#getAllSubjectsInAClassWithAssignmentCountByClassID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllSubjectsInAClassWithAssignmentCountByClassID(classId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="207"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:207</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>classId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllTransactions"></a>
+                    <span class="name">
+                        <span ><b>getAllTransactions</b></span>
+                        <a href="#getAllTransactions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllTransactions()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="273"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:273</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getApprovedStudentResult"></a>
+                    <span class="name">
+                        <span ><b>getApprovedStudentResult</b></span>
+                        <a href="#getApprovedStudentResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getApprovedStudentResult(studId, classId, sessionId, termSequenceNumber)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="244"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:244</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>studId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>classId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>sessionId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>termSequenceNumber</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAssignmentsByClassSubject"></a>
+                    <span class="name">
+                        <span ><b>getAssignmentsByClassSubject</b></span>
+                        <a href="#getAssignmentsByClassSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAssignmentsByClassSubject(classSubjectId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="214"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:214</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>classSubjectId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getChildInASchoolForParent"></a>
+                    <span class="name">
+                        <span ><b>getChildInASchoolForParent</b></span>
+                        <a href="#getChildInASchoolForParent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getChildInASchoolForParent()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="165"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:165</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClassAttendance"></a>
+                    <span class="name">
+                        <span ><b>getClassAttendance</b></span>
+                        <a href="#getClassAttendance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClassAttendance(StudentId, ClassId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="232"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:232</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>StudentId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>ClassId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFiles"></a>
+                    <span class="name">
+                        <span ><b>getFiles</b></span>
+                        <a href="#getFiles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFiles(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="304"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:304</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInvoices"></a>
+                    <span class="name">
+                        <span ><b>getInvoices</b></span>
+                        <a href="#getInvoices"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInvoices(ClassId, StudentId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="256"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:256</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ClassId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>StudentId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInvoicesById"></a>
+                    <span class="name">
+                        <span ><b>getInvoicesById</b></span>
+                        <a href="#getInvoicesById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInvoicesById(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="279"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:279</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getParentByFirstName"></a>
+                    <span class="name">
+                        <span ><b>getParentByFirstName</b></span>
+                        <a href="#getParentByFirstName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getParentByFirstName(name)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="115"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:115</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>name</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getParentById"></a>
+                    <span class="name">
+                        <span ><b>getParentById</b></span>
+                        <a href="#getParentById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getParentById(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="109"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:109</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getParentForStudent"></a>
+                    <span class="name">
+                        <span ><b>getParentForStudent</b></span>
+                        <a href="#getParentForStudent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getParentForStudent(studid)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="121"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:121</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>studid</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPeriods"></a>
+                    <span class="name">
+                        <span ><b>getPeriods</b></span>
+                        <a href="#getPeriods"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPeriods()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="174"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:174</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSchoolById"></a>
+                    <span class="name">
+                        <span ><b>getSchoolById</b></span>
+                        <a href="#getSchoolById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSchoolById(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="324"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:324</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSchoolLogo"></a>
+                    <span class="name">
+                        <span ><b>getSchoolLogo</b></span>
+                        <a href="#getSchoolLogo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSchoolLogo()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="318"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:318</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSchoolSessions"></a>
+                    <span class="name">
+                        <span ><b>getSchoolSessions</b></span>
+                        <a href="#getSchoolSessions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSchoolSessions()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="251"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:251</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStaffSignature"></a>
+                    <span class="name">
+                        <span ><b>getStaffSignature</b></span>
+                        <a href="#getStaffSignature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStaffSignature(userId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="334"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:334</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStudentAssignmentSubmission"></a>
+                    <span class="name">
+                        <span ><b>getStudentAssignmentSubmission</b></span>
+                        <a href="#getStudentAssignmentSubmission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStudentAssignmentSubmission(childId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="222"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:222</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>childId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStudentBehviour"></a>
+                    <span class="name">
+                        <span ><b>getStudentBehviour</b></span>
+                        <a href="#getStudentBehviour"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStudentBehviour(SessionId, TermSequence, ClassId, StudentId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="237"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:237</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>SessionId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>TermSequence</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>ClassId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>StudentId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStudentSchools"></a>
+                    <span class="name">
+                        <span ><b>getStudentSchools</b></span>
+                        <a href="#getStudentSchools"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStudentSchools()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="159"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:159</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubjectAttendance"></a>
+                    <span class="name">
+                        <span ><b>getSubjectAttendance</b></span>
+                        <a href="#getSubjectAttendance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSubjectAttendance(StudentId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="228"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:228</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>StudentId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTimeTableForClass"></a>
+                    <span class="name">
+                        <span ><b>getTimeTableForClass</b></span>
+                        <a href="#getTimeTableForClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTimeTableForClass(classId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="184"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:184</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>classId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTransactionPaymentHistory"></a>
+                    <span class="name">
+                        <span ><b>getTransactionPaymentHistory</b></span>
+                        <a href="#getTransactionPaymentHistory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTransactionPaymentHistory(StudentId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="262"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:262</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>StudentId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateParent"></a>
+                    <span class="name">
+                        <span ><b>updateParent</b></span>
+                        <a href="#updateParent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateParent(id, updateParentForm)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:126</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>updateParentForm</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateSelectedInvoice"></a>
+                    <span class="name">
+                        <span ><b>updateSelectedInvoice</b></span>
+                        <a href="#updateSelectedInvoice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateSelectedInvoice(formBody)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="299"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:299</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>formBody</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTransactionReceipt"></a>
+                    <span class="name">
+                        <span ><b>updateTransactionReceipt</b></span>
+                        <a href="#updateTransactionReceipt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateTransactionReceipt(transactionData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="289"
+                            class="link-to-prism">src/services/data/parents/parents.service.ts:289</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>transactionData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseUrl"></a>
+                    <span class="name">
+                        <span ><b>baseUrl</b></span>
+                        <a href="#baseUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment.serverUrl</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/services/data/parents/parents.service.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseUrl2"></a>
+                    <span class="name">
+                        <span ><b>baseUrl2</b></span>
+                        <a href="#baseUrl2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment.demourl</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/services/data/parents/parents.service.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+
+
+const routes &#x3D; {
+  addparent: &#x27;schtrack-auth/api/v1/Parent/AddNewParent  &#x27;,
+  getallparent: &#x27;schtrack-auth/api/v1/Parent/GetAllParents&#x27;,
+  getallparentinASchool: &#x27;schtrack-auth/api/v1/Parent/GetAllParentsInSchool&#x27;,
+  getparentbyid: &#x27;schtrack-auth/api/v1/Parent/GetParentById&#x27;,
+  getparentbyname: &#x27;schtrack-auth/api/v1/Parent/GetParentByFirstName&#x27;,
+  getstudentparent: &#x27;schtrack-auth/api/v1/Parent/GetParentsForStudent&#x27;,
+  updateparentbyid: &#x27;schtrack-auth/api/v1/Parent/UpdateParent&#x27;,
+  deleteparent: &#x27;schtrack-auth/api/v1/Parent/DeleteParent&#x27;,
+  getstudentSchools: &#x27;schtrack-auth/api/v1/Parent/GetStudentsSchools&#x27;,
+  getstudentInASchoolsForParent: &#x27;schtrack-auth/api/v1/Parent/GetStudentsInSchool&#x27;,
+
+  // All endpoint below are exclusively for the parent portal
+  getTableforClassByClassId: &#x27;schtrack-learning/api/v1/TimeTable/GetTimetableForClass&#x27;,
+  getTableforClassByDay: &#x27;schtrack-learning/api/v1/TimeTable/GetAllClassesForClassToday&#x27;,
+  getPeriods : &#x27;schtrack-learning/api/v1/TimeTable/GetPeriods&#x27;,
+  // tslint:disable-next-line:max-line-length
+  getallsubjectsWithAssignmentforclass: &#x27;schtrack-learning/api/v1/ClassSubject/GetSubjectsForClassWithAssignmentCount&#x27;, // this endpoint get all subjects and assignment counts in each subject
+  getAssignmentByClassSubject: &#x27;schtrack-learning/api/v1/Assignment/GetAssignmentsByClassSubject&#x27;,
+  getchildsubmissions: &#x27;schtrack-learning/api/v1/AssignmentAnswer/GetAssignmentSubmissionForStudent&#x27;,
+  getsubjectAttendance: &#x27;schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject&#x27;,
+  getclassAttendance: &#x27;schtrack-learning/api/v1/Attendance/GetStudentAttendanceForClass&#x27;,
+  getapprovedResult: &#x27;schtrack-assessment/api/v1/Result/GetApprovedStudentReportSheet&#x27;,
+  viewstudentbehaviour: &#x27;schtrack-assessment/api/v1/Result/GetBehaviourResult&#x27;,
+  getClassAndSubjectForATeahcer: &#x27;schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher&#x27;,
+  getschoolSessions: &#x27;schtrack-assessment/api/v1/SessionSetup/GetSchoolSessions&#x27;,
+
+  getinvoices: &#x27;schtrack-finance/api/v1/Invoice/GetInvoices&#x27;,
+  updateinvoices: &#x27;schtrack-finance/api/v1/Invoice/UpdateInvoiceSelection&#x27;,
+  getInvoicepaymenthistory: &#x27;schtrack-finance/api/v1/Invoice/GetPaymentHistoryInvoices&#x27;,
+
+  createTransaction: &#x27;schtrack-finance/api/v1/Transaction/NewTransaction&#x27;,
+  editTransactionReciept: &#x27;schtrack-finance/api/v1/Transaction/UploadTransactionReceipt&#x27;,
+  getInvocesbyId: &#x27;schtrack-finance/api/v1/Invoice/GetInvoice&#x27;,
+
+  viewTransactionHistory: &#x27;schtrack-finance/api/v1/Transaction/GetTransactionHistory&#x27;,
+  viewAllTransaction: &#x27;schtrack-finance/api/v1/Transaction/GetAllTransactions&#x27;,
+  viewPendingTransaction: &#x27;schtrack-finance/api/v1/Transaction/GetAllPendingTransactions&#x27;,
+
+
+  viewfile: &#x27;schtrack-finance/api/v1/Files/GetFile&#x27;,
+
+  getAllGradeSetup: &#x27;schtrack-assessment/api/v1/GradeSetup/GetAllGradeForSchoolSetup&#x27;,
+  viewSchoolproperty: &#x27;schtrack-auth/api/v1/School/GetSchoolNameAndLogo&#x27;,
+  getschoolbyid: &#x27;schtrack-auth/api/v1/School/GetSchool&#x27;,
+
+  getassessmentsetup: &#x27;schtrack-assessment/api/v1/AssessmentSetup/GetAllAssessmentSetup&#x27;,
+
+  staffSignature: &#x27;schtrack-auth/api/v1/Staff/GetStaffNameAndSignatureByUserId&#x27;
+
+
+};
+
+const tenantId &#x3D; sessionStorage.getItem(&#x27;tenant&#x27;);
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class ParentsService {
+  baseUrl: string &#x3D; environment.serverUrl;
+  baseUrl2: string &#x3D; environment.demourl;
+
+  constructor(private http: HttpClient) { }
+
+  addParent(createParentForm) {
+
+    const formData &#x3D; new FormData();
+    formData.append(&#x27;HomeAddress&#x27;, createParentForm.HomeAddress);
+    formData.append(&#x27;SecondaryPhoneNumber&#x27;, createParentForm.SecondaryPhoneNumber);
+    formData.append(&#x27;SecondaryEmailAddress&#x27;, createParentForm.SecondaryEmailAddress);
+    formData.append(&#x27;EmailAddress&#x27;, createParentForm.EmailAddress);
+    formData.append(&#x27;FirstName&#x27;, createParentForm.FirstName);
+    formData.append(&#x27;LastName&#x27;, createParentForm.LastName);
+    formData.append(&#x27;OtherName&#x27;, createParentForm.OtherName);
+    formData.append(&#x27;ModeOfIdentification&#x27;, createParentForm.ModeOfIdentification);
+    formData.append(&#x27;IdentificationNumber&#x27;, createParentForm.IdentificationNumber);
+    formData.append(&#x27;PhoneNumber&#x27;, createParentForm.PhoneNumber);
+    formData.append(&#x27;Occupation&#x27;, createParentForm.Occupation);
+    formData.append(&#x27;OfficeAddress&#x27;, createParentForm.OfficeAddress);
+    formData.append(&#x27;File&#x27;, createParentForm.profileImage);
+    createParentForm.DocumentTypes.forEach((item) &#x3D;&gt; formData.append(&#x27;DocumentType&#x27;, item));
+    formData.append(&#x27;Sex&#x27;, createParentForm.Sex);
+    formData.append(&#x27;Status&#x27;, createParentForm.Status);
+    formData.append(&#x27;Title&#x27;, createParentForm.Title);
+    const url &#x3D; &#x60;${this.baseUrl + routes.addparent}&#x60;;
+    return this.http.post(url, formData,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllParents(p, perpage) {
+
+    const url &#x3D; &#x60;${this.baseUrl + routes.getallparent}?PageIndex&#x3D;${p}&amp;PageSize&#x3D;${perpage}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllParentsInASchool(schoolId, p, perpage) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getallparentinASchool}/${schoolId}?PageIndex&#x3D;${p}&amp;PageSize&#x3D;${perpage}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+  getAllParentsWithName() {
+
+    const url &#x3D; &#x60;${this.baseUrl + routes.getallparent}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getParentById(id) {
+
+    const url &#x3D; &#x60;${this.baseUrl + routes.getparentbyid}/${id}&#x60;;
+    return this.http.get(url,   {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getParentByFirstName(name) {
+
+    const url &#x3D; &#x60;${this.baseUrl + routes.getparentbyname}/${name}&#x60;;
+    return this.http.get(url,   {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getParentForStudent(studid) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getstudentparent}/${studid}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  updateParent(id, updateParentForm) {
+    const formData &#x3D; new FormData();
+    formData.append(&#x27;HomeAddress&#x27;, updateParentForm.HomeAddress);
+    formData.append(&#x27;SecondaryPhoneNumber&#x27;, updateParentForm.SecondaryPhoneNumber);
+    formData.append(&#x27;SecondaryEmailAddress&#x27;, updateParentForm.SecondaryEmailAddress);
+    formData.append(&#x27;EmailAddress&#x27;, updateParentForm.EmailAddress);
+    formData.append(&#x27;FirstName&#x27;, updateParentForm.FirstName);
+    formData.append(&#x27;LastName&#x27;, updateParentForm.LastName);
+    formData.append(&#x27;OtherName&#x27;, updateParentForm.OtherName);
+    formData.append(&#x27;ModeOfIdentification&#x27;, updateParentForm.ModeOfIdentification);
+    formData.append(&#x27;IdentificationNumber&#x27;, updateParentForm.IdentificationNumber);
+    formData.append(&#x27;PhoneNumber&#x27;, updateParentForm.PhoneNumber);
+    formData.append(&#x27;Occupation&#x27;, updateParentForm.Occupation);
+    formData.append(&#x27;OfficeAddress&#x27;, updateParentForm.OfficeAddress);
+    formData.append(&#x27;File&#x27;, updateParentForm.profileImage);
+    updateParentForm.DocumentTypes.forEach((item) &#x3D;&gt; formData.append(&#x27;DocumentType&#x27;, item));
+    formData.append(&#x27;Sex&#x27;, updateParentForm.Sex);
+    formData.append(&#x27;Status&#x27;, updateParentForm.Status);
+    formData.append(&#x27;Title&#x27;, updateParentForm.Title);
+    const url &#x3D; &#x60;${this.baseUrl + routes.updateparentbyid}/${id}&#x60;;
+    return this.http.put(url, formData, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+  deleteParentById(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.deleteparent}/${id}&#x60;;
+    return this.http.delete(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+
+  // Endpoints designnated for parent portal
+
+  getStudentSchools() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getstudentSchools}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+  getChildInASchoolForParent() {
+    // const id &#x3D; sessionStorage.getItem(&#x27;tenant&#x27;);
+    // const tenantId &#x3D; id;
+    const url &#x3D; &#x60;${this.baseUrl + routes.getstudentInASchoolsForParent}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId }});
+
+  }
+
+
+  getPeriods() {
+    // const id &#x3D; sessionStorage.getItem(&#x27;tenant&#x27;);
+    // const tenantId &#x3D; id;
+
+    const url &#x3D; &#x60;${this.baseUrl + routes.getPeriods}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId } });
+  }
+
+
+
+  getTimeTableForClass(classId) {
+    // const id &#x3D; sessionStorage.getItem(&#x27;tenant&#x27;);
+    // const tenantId &#x3D; id;
+    const url &#x3D; &#x60;${this.baseUrl + routes.getTableforClassByClassId}?classId&#x3D;${classId}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId } });
+  }
+
+
+
+  getAllClassesForClassByDay( classId, day) {
+    // const id &#x3D; sessionStorage.getItem(&#x27;tenant&#x27;);
+    // const tenantId &#x3D; id;
+
+    const url &#x3D; &#x60;${this.baseUrl + routes.getTableforClassByDay}?classId&#x3D;${classId}&amp;day&#x3D;${day}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId } });
+  }
+
+  getAllSubjectsInAClassByClassID(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classid&#x3D;${id}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId  } });
+  }
+
+
+  getAllSubjectsInAClassWithAssignmentCountByClassID(classId) {
+    // const id &#x3D; sessionStorage.getItem(&#x27;tenant&#x27;);
+    // const tenantId &#x3D; id;
+    const url &#x3D; &#x60;${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classId&#x3D;${classId}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId } });
+  }
+
+  getAssignmentsByClassSubject(classSubjectId: number) {
+    // const id &#x3D; sessionStorage.getItem(&#x27;tenant&#x27;);
+    // const tenantId &#x3D; id;
+    const url &#x3D; &#x60;${this.baseUrl + routes.getAssignmentByClassSubject}?classSubjectId&#x3D;${classSubjectId}&#x60;;
+    return this.http.get(url,  { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId } });
+  }
+
+
+  getStudentAssignmentSubmission(childId) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getchildsubmissions}?studentId&#x3D;${childId}&#x60;;
+
+    return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId }});
+  }
+
+  getSubjectAttendance(StudentId) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getsubjectAttendance}?StudentId&#x3D;${StudentId}&#x60;;
+    return this.http.get(url,  { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId } });
+  }
+  getClassAttendance(StudentId, ClassId ) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getclassAttendance}?StudentId&#x3D;${StudentId}&amp;ClassId&#x3D;${ClassId}&#x60;;
+    return this.http.get(url,  { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId } });
+  }
+
+  getStudentBehviour(SessionId, TermSequence, ClassId, StudentId) {
+    // tslint:disable-next-line:max-line-length
+    const url &#x3D; &#x60;${this.baseUrl + routes.viewstudentbehaviour}?SessionId&#x3D;${SessionId}&amp;TermSequence&#x3D;${TermSequence}&amp;ClassId&#x3D;${ClassId}&amp;StudentId&#x3D;${StudentId}&#x60;;
+    return this.http.get(url, {  headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId }});
+   }
+
+
+ getApprovedStudentResult(studId, classId, sessionId, termSequenceNumber) {
+  // tslint:disable-next-line:max-line-length
+  const url &#x3D; &#x60;${this.baseUrl + routes.getapprovedResult}?studId&#x3D;${studId}&amp;classId&#x3D;${classId}&amp;sessionId&#x3D;${sessionId}&amp;termSequenceNumber&#x3D;${termSequenceNumber}&#x60;;
+  return this.http.get(url, {  headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId }});
+
+ }
+
+ getSchoolSessions() {
+  const url &#x3D; &#x60;${this.baseUrl + routes.getschoolSessions}&#x60;;
+  return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId  }});
+}
+
+getInvoices(ClassId, StudentId) {
+  const url &#x3D; &#x60;${this.baseUrl + routes.getinvoices}?ClassId&#x3D;${ClassId}&amp;StudentId&#x3D;${StudentId}&#x60;;
+  return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) , tenantId  }});
+
+}
+
+getTransactionPaymentHistory(StudentId) {
+  const url &#x3D; &#x60;${this.baseUrl + routes.viewTransactionHistory}/${StudentId}&#x60;;
+  return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId }});
+}
+
+createNewTransaction(transactionData) {
+  const url &#x3D; &#x60;${this.baseUrl + routes.createTransaction}&#x60;;
+  return this.http.post(url, transactionData, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId }});
+
+}
+
+getAllTransactions() {
+  const url &#x3D; &#x60;${this.baseUrl + routes.viewAllTransaction}&#x60;;
+  return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId }});
+}
+
+
+getInvoicesById(id) {
+  const url &#x3D; &#x60;${this.baseUrl + routes.getInvocesbyId}/${id}&#x60;;
+  return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId  }});
+}
+
+getAllPendingTransactions(StudentId) {
+  const url &#x3D; &#x60;${this.baseUrl + routes.viewPendingTransaction}?studentId&#x3D;${StudentId}&#x60;;
+  return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId }});
+}
+
+updateTransactionReceipt(transactionData) {
+  const body &#x3D; new FormData();
+  body.append(&#x27;TransactionId&#x27;, transactionData.TransactionId) ;
+  body.append(&#x27;PaymentReference&#x27;, transactionData.PaymentReference) ;
+  body.append(&#x27;PaymentDescription&#x27;, transactionData.PaymentDescription) ;
+  body.append(&#x27;Document&#x27;, transactionData.Document);
+  const url &#x3D; &#x60;${this.baseUrl + routes.editTransactionReciept}&#x60;;
+  return this.http.put(url, body,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId }});
+}
+
+updateSelectedInvoice(formBody) {
+  const url &#x3D; &#x60;${this.baseUrl + routes.updateinvoices}&#x60;;
+  return this.http.put(url, formBody,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId }});
+}
+
+getFiles(id) {
+  const url &#x3D; &#x60;${this.baseUrl + routes.viewfile}/${id}&#x60;;
+  return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId } });
+
+}
+
+
+getAllGradeSetupForSchool() {
+
+  const url &#x3D; &#x60;${this.baseUrl + routes.getAllGradeSetup}&#x60;;
+  return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId }});
+
+}
+
+getSchoolLogo() {
+  const url &#x3D; &#x60;${this.baseUrl + routes.viewSchoolproperty}/${tenantId}&#x60;;
+  return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId } } );
+}
+
+
+getSchoolById(id) {
+  const url &#x3D; &#x60;${this.baseUrl + routes.getschoolbyid}/${id}&#x60;;
+  return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId } } );
+}
+
+getAllAssessmentSetup() {
+  const url &#x3D; &#x60;${this.baseUrl + routes.getassessmentsetup}&#x60;;
+  return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId  }});
+}
+
+getStaffSignature(userId) {
+  const url &#x3D; &#x60;${this.baseUrl + routes.staffSignature}/${userId}&#x60;;
+
+  return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;), tenantId  }});
+
+}
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ParentsService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

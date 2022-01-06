@@ -1,0 +1,940 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  SchoolBranchManagerComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/school-manager/school-manager.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-school-manager</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./school-manager.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./school-manager.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#adminDetails" >adminDetails</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#logOut" >logOut</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleMobileSideBar" >toggleMobileSideBar</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSideBar" >toggleSideBar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/school-manager/school-manager.component.ts:12</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logOut"></a>
+                    <span class="name">
+                        <span ><b>logOut</b></span>
+                        <a href="#logOut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logOut()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/school-manager/school-manager.component.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/school-manager/school-manager.component.ts:19</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleMobileSideBar"></a>
+                    <span class="name">
+                        <span ><b>toggleMobileSideBar</b></span>
+                        <a href="#toggleMobileSideBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleMobileSideBar()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/school-manager/school-manager.component.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSideBar"></a>
+                    <span class="name">
+                        <span ><b>toggleSideBar</b></span>
+                        <a href="#toggleSideBar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSideBar()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/school-manager/school-manager.component.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="adminDetails"></a>
+                    <span class="name">
+                        <span ><b>adminDetails</b></span>
+                        <a href="#adminDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/school-manager/school-manager.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { JwtHelperService } from &#x27;@auth0/angular-jwt&#x27;;
+
+
+@Component({
+  selector: &#x27;app-school-manager&#x27;,
+  templateUrl: &#x27;./school-manager.component.html&#x27;,
+  styleUrls: [&#x27;./school-manager.component.css&#x27;]
+})
+export class SchoolBranchManagerComponent implements OnInit {
+  adminDetails: any;
+
+  constructor(
+    private router: Router
+
+  ) { }
+
+  ngOnInit() {
+    const helper &#x3D; new JwtHelperService();
+    this.adminDetails &#x3D; helper.decodeToken(localStorage.getItem(&#x27;access_token&#x27;));
+  }
+
+
+  toggleSideBar() {
+    // console.log(&#x27;admin&#x27;);
+    const sidebar &#x3D; document.querySelector(&#x27;#sidebar&#x27;);
+    const content &#x3D; document.querySelector(&#x27;#content&#x27;);
+    sidebar.classList.toggle(&#x27;sidebar&#x27;);
+    content.classList.toggle(&#x27;content&#x27;);
+  }
+
+  toggleMobileSideBar() {
+    // console.log(&#x27;na me&#x27;)
+    const sidebar &#x3D; document.querySelector(&#x27;#sidebar&#x27;);
+    const content &#x3D; document.querySelector(&#x27;#content&#x27;);
+    sidebar.classList.toggle(&#x27;removeSidebar&#x27;);
+    content.classList.toggle(&#x27;mcontent&#x27;);
+  }
+
+  logOut() {
+    localStorage.removeItem(&#x27;access_token&#x27;);
+    this.router.navigateByUrl(&#x27;/&#x27;);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;wrapper&quot;&gt;
+    &lt;div id&#x3D;&quot;sidebar&quot;&gt;
+        &lt;div class&#x3D;&quot;p-3&quot;&gt;
+            &lt;p class&#x3D;&quot;text-center&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/images/svg/logo.svg&quot; alt&#x3D;&quot;&quot;&gt;
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;p class&#x3D;&quot;px-3 ff-s fc-grey1 fs-14&quot;&gt;MAIN MENU&lt;/p&gt;
+        &lt;ul class&#x3D;&quot;list-unstyled components&quot;&gt;
+
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link&quot; [routerLink]&#x3D;&quot;[&#x27;/school-manager&#x27;]&quot; [routerLinkActive]&#x3D;&quot;[&#x27;active&#x27;]&quot;&gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;g id&#x3D;&quot;Group d&quot;&gt;
+                                &lt;path id&#x3D;&quot;Vector&quot;
+                                    d&#x3D;&quot;M0 8.88889H7.11111V0H0V8.88889ZM0 16H7.11111V10.6667H0V16ZM8.88889 16H16V7.11111H8.88889V16ZM8.88889 0V5.33333H16V0H8.88889Z&quot; /&gt;
+                            &lt;/g&gt;
+                        &lt;/svg&gt;
+                    &lt;/span&gt;
+                    Dashboard
+                &lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li class&#x3D;&quot;nav-item mb-2&quot;&gt;
+                &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link&quot; [routerLink]&#x3D;&quot;[&#x27;/school-manager/branches&#x27;]&quot;
+                    [routerLinkActive]&#x3D;&quot;[&#x27;active&#x27;]&quot;&gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;14&quot; height&#x3D;&quot;18&quot; viewBox&#x3D;&quot;0 0 14 18&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;path id&#x3D;&quot;Vector&quot;
+                                d&#x3D;&quot;M0 0V18H6V14.5H8V18H14V0H0ZM2 2H4V4H2V2ZM6 2H8V4H6V2ZM10 2H12V4H10V2ZM2 6H4V8H2V6ZM6 6H8V8H6V6ZM10 6H12V8H10V6ZM2 10H4V12H2V10ZM6 10H8V12H6V10ZM10 10H12V12H10V10ZM2 14H4V16H2V14ZM10 14H12V16H10V14Z&quot; /&gt;
+                        &lt;/svg&gt;
+
+                    &lt;/span&gt;
+                    Branches
+                &lt;/a&gt;
+            &lt;/li&gt;
+            
+        &lt;/ul&gt;
+
+        &lt;ul class&#x3D;&quot;list-unstyled components&quot;&gt;
+
+           
+            &lt;li class&#x3D;&quot;nav-item mb-2 mt-5&quot; (click)&#x3D;&quot;logOut()&quot;&gt;
+                &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link&quot; &gt;
+                    &lt;span class&#x3D;&quot;ico&quot;&gt;
+                        &lt;svg width&#x3D;&quot;20&quot; height&#x3D;&quot;15&quot; viewBox&#x3D;&quot;0 0 20 15&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                            &lt;g id&#x3D;&quot;signout&quot;&gt;
+                                &lt;path id&#x3D;&quot;Vector&quot;
+                                    d&#x3D;&quot;M19.4108 8.16354L12.8494 14.7249C12.2636 15.3108 11.2481 14.9007 11.2481 14.061V10.3116H5.93651C5.41707 10.3116 4.99917 9.89372 4.99917 9.37427V5.6249C4.99917 5.10545 5.41707 4.68755 5.93651 4.68755H11.2481V0.938175C11.2481 0.102376 12.2597 -0.311617 12.8494 0.274223L19.4108 6.83563C19.7741 7.20276 19.7741 7.79641 19.4108 8.16354ZM7.49875 14.5297V12.9674C7.49875 12.7097 7.28785 12.4988 7.03008 12.4988H3.74938C3.05809 12.4988 2.49958 11.9403 2.49958 11.249V3.75021C2.49958 3.05892 3.05809 2.50042 3.74938 2.50042H7.03008C7.28785 2.50042 7.49875 2.28951 7.49875 2.03174V0.469503C7.49875 0.211733 7.28785 0.000830666 7.03008 0.000830666H3.74938C1.67941 0.000830666 0 1.68024 0 3.75021V11.249C0 13.3189 1.67941 14.9983 3.74938 14.9983H7.03008C7.28785 14.9983 7.49875 14.7874 7.49875 14.5297Z&quot; /&gt;
+                            &lt;/g&gt;
+                        &lt;/svg&gt;
+
+                    &lt;/span&gt;
+                    Sign out
+                &lt;/a&gt;
+            &lt;/li&gt;
+
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div id&#x3D;&quot;content&quot;&gt;
+        &lt;header class&#x3D;&quot;main-head sticky-top py-lg-2&quot;&gt;
+            &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+                &lt;div class&#x3D;&quot;row lang&quot;&gt;
+                    &lt;div class&#x3D;&quot;col-lg-8 hamburger&quot; (click)&#x3D;&quot;toggleSideBar()&quot;&gt;
+                        &lt;img src&#x3D;&quot;assets/images/svg/hamburger.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;&quot;&gt;
+
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-lg-8 mobile-hamburger&quot; (click)&#x3D;&quot;toggleMobileSideBar()&quot;&gt;
+                        &lt;img src&#x3D;&quot;assets/images/svg/hamburger.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;&quot;&gt;
+
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-lg-4  &quot;&gt;
+                        &lt;div class&#x3D;&quot;d-flex row align-center justify-content-center &quot;&gt;
+                            &lt;img src&#x3D;&quot;assets/images/svg/bell.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;mr-5 notification&quot;&gt;
+                            &lt;span class&#x3D;&quot;count&quot;&gt;2&lt;/span&gt;
+
+                            &lt;div class&#x3D;&quot;profile mr-5&quot;&gt;
+                                &lt;div class&#x3D;&quot;profile-intials&quot;&gt;
+                                    &lt;p&gt; TO &lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;pl-3&quot;&gt;
+                                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;{{adminDetails.given_name}} {{adminDetails.family_name}} &lt;/p&gt;
+                                    &lt;small&gt;School Manager&lt;/small&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+
+                            
+                            &lt;img src&#x3D;&quot;assets/images/svg/caret.svg&quot; alt&#x3D;&quot;country flag&quot; class&#x3D;&quot;ml-2 dropdown-toggle&quot; type&#x3D;&quot;button&quot; id&#x3D;&quot;dropdownMenuButton&quot; data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+
+
+                            &lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; DROPDOWN &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
+                            &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;dropdownMenuButton&quot;&gt;
+                                &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;&quot; (click)&#x3D;&quot;logOut()&quot;&gt;
+                                    &lt;svg width&#x3D;&quot;18&quot; height&#x3D;&quot;18&quot; viewBox&#x3D;&quot;0 0 18 18&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                                        &lt;path id&#x3D;&quot;icons&quot; d&#x3D;&quot;M6.82741 12.59L8.18519 14L13 9L8.18519 4L6.82741 5.41L9.31185 8H0V10H9.31185L6.82741 12.59Z&quot; fill&#x3D;&quot;#D72638&quot;/&gt;
+                                        &lt;path id&#x3D;&quot;icons&quot; d&#x3D;&quot;M16 0H2C0.89 0 0 0.9 0 2V6H2V2H16V16H2V12H0V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V2C18 0.9 17.1 0 16 0Z&quot; fill&#x3D;&quot;#D72638&quot;/&gt;
+                                        &lt;/svg&gt;
+                                         Logout &lt;/a&gt;
+                            &lt;!-- &lt;div class&#x3D;&quot;dropdown-divider&quot;&gt;&lt;/div&gt; --&gt;
+                            &lt;!-- &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;&lt;img src&#x3D;&quot;assets/images/svg/uk.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;pr-2 mb-2&quot;&gt; English &lt;/a&gt;
+                            &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;&lt;img src&#x3D;&quot;assets/images/svg/french.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;pr-2 mb-2&quot;&gt; French &lt;/a&gt;
+                            &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;&lt;img src&#x3D;&quot;assets/images/svg/spain.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;pr-2 mb-2&quot;&gt; Spanish     &lt;/a&gt; --&gt; 
+                          &lt;/div&gt;
+
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/header&gt;
+        &lt;main class&#x3D;&quot;main row-sizing&quot;&gt;
+
+            &lt;router-outlet&gt;&lt;/router-outlet&gt;
+
+        &lt;/main&gt;
+    &lt;/div&gt;
+
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./school-manager.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    width: 280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: #014D94;
+    color: #EDF7F6;
+    z-index: 9;
+}
+.sidebar {
+    width: 0 !important;
+    display: none;
+}
+
+
+
+#sidebar.active {
+    min-width: 80px;
+    max-width: 80px;
+    background: #014D94;
+    transition: width 1s ease-in-out !important;
+    text-align: center;
+}
+
+#content {
+    margin-left: +280px;
+    width: 100%;
+    transition: margin-left .3s !important;
+    background: #EBF0F5;
+    min-height: 100vh;
+}
+
+.content {
+    margin-left: 0 !important;
+    width: 100%;
+}
+
+#content header {
+    background: #FFFFFF;
+    box-shadow: 0px 1px 16px rgba(27, 39, 51, 0.08);
+}
+
+#content.active {
+    margin-left: +80px !important;
+    transition: margin-left .3s !important;
+}
+
+#sidebar ul {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#sidebar ul li a.nav-link {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    color: #EDF7F6;
+    width: 100%;
+    /* padding-left: 47px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: .3s ease-in-out;
+}
+
+#sidebar ul li  .ico {
+    margin-right: 20px;
+    width: 24px;
+}
+
+#sidebar ul li a.nav-link:hover {
+    background: #013F7A;
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#sidebar ul li a.nav-link svg path#Vector,
+#sidebar ul li a.nav-link svg g#icon {
+    /* fill: #94B3D1; */
+    fill: #ffffff;
+    /* opacity: .3; */
+    transition: .3s ease-in-out;
+}
+
+#sidebar ul li a.nav-link:hover svg path#Vector {
+    opacity: .7;
+}
+
+.main-head {
+    background: #FEFEFF;
+    align-items: center;
+}
+
+.hamburger {
+    padding-left: 1.5rem;
+}
+
+.mobile-hamburger {
+    display: none;
+}
+
+.lang {
+    padding-right: 4rem;
+
+}
+
+.notification {
+    position: relative;
+
+}
+
+.count {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    color: #ffffff;
+    border-radius: 3px;
+    top: 6px;
+    left: 24px;
+    border: 1.1px solid #fff;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    background: #FF6663;
+    border: 1px solid #FEFEFF;
+
+}
+
+.profile {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+
+}
+
+.profile::after {
+    content: &#x27;&#x27;;
+    position: absolute;
+    top: 3px;
+    right: -25px;
+    height: 41px;
+    opacity: 0.4;
+    border-left: 1.5px solid #000000;
+}
+
+.profile-intials {
+    background: rgba(68, 123, 255, 0.11);
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    text-align: center;
+    color: #00529B;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 10px 15px; */
+    align-self: center;
+
+}
+
+.profile-intials p {
+    margin-bottom: 0;
+}
+
+.main {
+    width: 100%;
+}
+
+.row-sizing {
+    padding: 1.5rem 4rem 1rem 2rem;
+}
+
+
+@media screen and (max-width: 600px) {
+   
+    .row-sizing {
+        padding: 1.5rem 2rem;
+    }
+    #sidebar {
+      display: none;
+
+    }
+
+    .removeSidebar {
+        display: block !important;
+    }
+
+
+    .hamburger {
+        display: none;
+    }
+
+    .mobile-hamburger {
+        display: block;
+    }
+
+    #content {
+        margin-left: 0px;
+       
+    }
+    .mcontent {
+        margin-left: +280px !important;
+        width: 100%;
+    }
+
+    #sidebar ul li a.nav-link {
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        
+        letter-spacing: 0.01em;
+        
+        color: #011160;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+    
+        /* padding-left: 47px; */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        transition: .3s ease-in-out;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="wrapper">    <div id="sidebar">        <div class="p-3">            <p class="text-center">                <img src="assets/images/svg/logo.svg" alt="">            </p>        </div>        <p class="px-3 ff-s fc-grey1 fs-14">MAIN MENU</p>        <ul class="list-unstyled components">            <li class="nav-item mb-2">                <a href="#" class="nav-link" [routerLink]="[\'/school-manager\']" [routerLinkActive]="[\'active\']">                    <span class="ico">                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">                            <g id="Group d">                                <path id="Vector"                                    d="M0 8.88889H7.11111V0H0V8.88889ZM0 16H7.11111V10.6667H0V16ZM8.88889 16H16V7.11111H8.88889V16ZM8.88889 0V5.33333H16V0H8.88889Z" />                            </g>                        </svg>                    </span>                    Dashboard                </a>            </li>            <li class="nav-item mb-2">                <a href="#" class="nav-link" [routerLink]="[\'/school-manager/branches\']"                    [routerLinkActive]="[\'active\']">                    <span class="ico">                        <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">                            <path id="Vector"                                d="M0 0V18H6V14.5H8V18H14V0H0ZM2 2H4V4H2V2ZM6 2H8V4H6V2ZM10 2H12V4H10V2ZM2 6H4V8H2V6ZM6 6H8V8H6V6ZM10 6H12V8H10V6ZM2 10H4V12H2V10ZM6 10H8V12H6V10ZM10 10H12V12H10V10ZM2 14H4V16H2V14ZM10 14H12V16H10V14Z" />                        </svg>                    </span>                    Branches                </a>            </li>                    </ul>        <ul class="list-unstyled components">                       <li class="nav-item mb-2 mt-5" (click)="logOut()">                <a href="#" class="nav-link" >                    <span class="ico">                        <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">                            <g id="signout">                                <path id="Vector"                                    d="M19.4108 8.16354L12.8494 14.7249C12.2636 15.3108 11.2481 14.9007 11.2481 14.061V10.3116H5.93651C5.41707 10.3116 4.99917 9.89372 4.99917 9.37427V5.6249C4.99917 5.10545 5.41707 4.68755 5.93651 4.68755H11.2481V0.938175C11.2481 0.102376 12.2597 -0.311617 12.8494 0.274223L19.4108 6.83563C19.7741 7.20276 19.7741 7.79641 19.4108 8.16354ZM7.49875 14.5297V12.9674C7.49875 12.7097 7.28785 12.4988 7.03008 12.4988H3.74938C3.05809 12.4988 2.49958 11.9403 2.49958 11.249V3.75021C2.49958 3.05892 3.05809 2.50042 3.74938 2.50042H7.03008C7.28785 2.50042 7.49875 2.28951 7.49875 2.03174V0.469503C7.49875 0.211733 7.28785 0.000830666 7.03008 0.000830666H3.74938C1.67941 0.000830666 0 1.68024 0 3.75021V11.249C0 13.3189 1.67941 14.9983 3.74938 14.9983H7.03008C7.28785 14.9983 7.49875 14.7874 7.49875 14.5297Z" />                            </g>                        </svg>                    </span>                    Sign out                </a>            </li>        </ul>    </div>    <div id="content">        <header class="main-head sticky-top py-lg-2">            <div class="container-fluid">                <div class="row lang">                    <div class="col-lg-8 hamburger" (click)="toggleSideBar()">                        <img src="assets/images/svg/hamburger.svg" alt="new client" class="">                    </div>                    <div class="col-lg-8 mobile-hamburger" (click)="toggleMobileSideBar()">                        <img src="assets/images/svg/hamburger.svg" alt="new client" class="">                    </div>                    <div class="col-lg-4  ">                        <div class="d-flex row align-center justify-content-center ">                            <img src="assets/images/svg/bell.svg" alt="new client" class="mr-5 notification">                            <span class="count">2</span>                            <div class="profile mr-5">                                <div class="profile-intials">                                    <p> TO </p>                                </div>                                <div class="pl-3">                                    <p class="mb-0">{{adminDetails.given_name}} {{adminDetails.family_name}} </p>                                    <small>School Manager</small>                                </div>                            </div>                                                        <img src="assets/images/svg/caret.svg" alt="country flag" class="ml-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                            <!-- ================ DROPDOWN ==================== -->                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                                <a class="dropdown-item" href="" (click)="logOut()">                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">                                        <path id="icons" d="M6.82741 12.59L8.18519 14L13 9L8.18519 4L6.82741 5.41L9.31185 8H0V10H9.31185L6.82741 12.59Z" fill="#D72638"/>                                        <path id="icons" d="M16 0H2C0.89 0 0 0.9 0 2V6H2V2H16V16H2V12H0V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V2C18 0.9 17.1 0 16 0Z" fill="#D72638"/>                                        </svg>                                         Logout </a>                            <!-- <div class="dropdown-divider"></div> -->                            <!-- <a class="dropdown-item" href="#"><img src="assets/images/svg/uk.svg" alt="new client" class="pr-2 mb-2"> English </a>                            <a class="dropdown-item" href="#"><img src="assets/images/svg/french.svg" alt="new client" class="pr-2 mb-2"> French </a>                            <a class="dropdown-item" href="#"><img src="assets/images/svg/spain.svg" alt="new client" class="pr-2 mb-2"> Spanish     </a> -->                           </div>                        </div>                    </div>                </div>            </div>        </header>        <main class="main row-sizing">            <router-outlet></router-outlet>        </main>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AccountMappingComponent', 'selector': 'app-account-mapping'},{'name': 'AccountPanelComponent', 'selector': 'app-account-panel'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AdminAlumniCreateEventComponent', 'selector': 'app-admin-alumni-create-event'},{'name': 'AdminAlumniEventsComponent', 'selector': 'app-admin-alumni-events'},{'name': 'AdminAlumniListComponent', 'selector': 'app-admin-alumni-list'},{'name': 'AdminLoginComponent', 'selector': 'app-admin-login'},{'name': 'AlumniAlumniComponent', 'selector': 'app-alumni-alumni'},{'name': 'AlumniComponent', 'selector': 'app-alumni'},{'name': 'AlumniEventDetailComponent', 'selector': 'app-alumni-event-detail'},{'name': 'AlumniEventsComponent', 'selector': 'app-alumni-events'},{'name': 'AlumniHomeComponent', 'selector': 'app-alumni-home'},{'name': 'AlumniProfileComponent', 'selector': 'app-alumni-profile'},{'name': 'AlumniRecordsComponent', 'selector': 'app-alumni-records'},{'name': 'AlumniTranscriptComponent', 'selector': 'app-alumni-transcript'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentsComponent', 'selector': 'app-assignments'},{'name': 'AttachTeacherComponent', 'selector': 'app-attach-teacher'},{'name': 'AttendanceComponent', 'selector': 'app-attendance'},{'name': 'BankAccountsComponent', 'selector': 'app-bank-accounts'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BranchContactPersonComponent', 'selector': 'app-branch-contact-person'},{'name': 'BranchDetailComponent', 'selector': 'app-branch-detail'},{'name': 'BranchInformationComponent', 'selector': 'app-branch-information'},{'name': 'BranchLocationComponent', 'selector': 'app-branch-location'},{'name': 'BroadSheetComponent', 'selector': 'app-broad-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ChartOfAccountComponent', 'selector': 'app-chart-of-account'},{'name': 'ChildAssignmentComponent', 'selector': 'app-child-assignment'},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ClassAttendanceComponent', 'selector': 'app-class-attendance'},{'name': 'ClassPoolComponent', 'selector': 'app-class-pool'},{'name': 'ClassRepeatComponent', 'selector': 'app-class-repeat'},{'name': 'ClassScheduleComponent', 'selector': 'app-class-schedule'},{'name': 'ClientDetailComponent', 'selector': 'app-client-detail'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'ContactDetailComponent', 'selector': 'app-contact-detail'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactPersonComponent', 'selector': 'app-contact-person'},{'name': 'CreateAssignmentComponent', 'selector': 'app-create-assignment'},{'name': 'CreateBranchComponent', 'selector': 'app-create-branch'},{'name': 'CreateClientComponent', 'selector': 'app-create-client'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoComponent', 'selector': 'app-demo'},{'name': 'DiscountsComponent', 'selector': 'app-discounts'},{'name': 'EditUserComponent', 'selector': 'app-edit-user'},{'name': 'EducationComponent', 'selector': 'app-education'},{'name': 'EmailVerifiedComponent', 'selector': 'app-email-verified'},{'name': 'EmployeeComponent', 'selector': 'app-employee'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeListComponent', 'selector': 'app-employee-list'},{'name': 'FacilitySettingsComponent', 'selector': 'app-facility-settings'},{'name': 'FaqsComponent', 'selector': 'app-faqs'},{'name': 'FeeComponent', 'selector': 'app-fee'},{'name': 'FeeComponentComponent', 'selector': 'app-fee-component'},{'name': 'FeeTypeComponent', 'selector': 'app-fee-type'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FilesComponent', 'selector': 'app-files'},{'name': 'FileStorageComponent', 'selector': 'app-file-storage'},{'name': 'FinanceSettingsComponent', 'selector': 'app-finance-settings'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAdminComponent', 'selector': 'app-global-admin'},{'name': 'GradebookComponent', 'selector': 'app-gradebook'},{'name': 'GradingComponent', 'selector': 'app-grading'},{'name': 'GroupedSchoolsComponent', 'selector': 'app-grouped-schools'},{'name': 'HomenavbarComponent', 'selector': 'app-homenavbar'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LandingScreenComponent', 'selector': 'app-landing-screen'},{'name': 'LaterThingsComponent', 'selector': 'app-later-things'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'MailReportCardComponent', 'selector': 'app-mail-report-card'},{'name': 'MarkAttendanceComponent', 'selector': 'app-mark-attendance'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MedicalDetailsComponent', 'selector': 'app-medical-details'},{'name': 'NewAccountChartComponent', 'selector': 'app-new-account-chart'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewFeeComponent', 'selector': 'app-new-fee'},{'name': 'NewroleComponent', 'selector': 'app-newrole'},{'name': 'NewRoleRecordComponent', 'selector': 'app-new-role-record'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NewVendorsComponent', 'selector': 'app-new-vendors'},{'name': 'NextOfKinComponent', 'selector': 'app-next-of-kin'},{'name': 'NoRecordComponent', 'selector': 'app-no-record'},{'name': 'NotificationPageComponent', 'selector': 'app-notification-page'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ParentComponent', 'selector': 'app-parent'},{'name': 'ParentDetailsComponent', 'selector': 'app-parent-details'},{'name': 'ParentListComponent', 'selector': 'app-parent-list'},{'name': 'ParentLoginComponent', 'selector': 'app-parent-login'},{'name': 'ParentPortalComponent', 'selector': 'app-parent-portal'},{'name': 'PayrollAccountsComponent', 'selector': 'app-payroll-accounts'},{'name': 'PayrollSetttingsComponent', 'selector': 'app-payroll-setttings'},{'name': 'PeriodComponent', 'selector': 'app-period'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'PersonalSettingsComponent', 'selector': 'app-personal-settings'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileInformationComponent', 'selector': 'app-profile-information'},{'name': 'PromotionDashboardComponent', 'selector': 'app-promotion-dashboard'},{'name': 'PromotionSettingsComponent', 'selector': 'app-promotion-settings'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResultSettingsComponent', 'selector': 'app-result-settings'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'SchoolAdminComponent', 'selector': 'app-school-admin'},{'name': 'SchoolBranchManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolComponent', 'selector': 'app-school'},{'name': 'SchoolContactPersonComponent', 'selector': 'app-school-contact-person'},{'name': 'SchoolGradeBookComponent', 'selector': 'app-school-grade-book'},{'name': 'SchoolInformationComponent', 'selector': 'app-school-information'},{'name': 'SchoolLoginComponent', 'selector': 'app-school-login'},{'name': 'SchoolManagerBranchComponent', 'selector': 'app-school-manager-branch'},{'name': 'SchoolManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolManagerDashboardComponent', 'selector': 'app-school-manager-dashboard'},{'name': 'SchoolManagerSettingsComponent', 'selector': 'app-school-manager-settings'},{'name': 'SchoolMediaComponent', 'selector': 'app-school-media'},{'name': 'SchoolSettingsComponent', 'selector': 'app-school-settings'},{'name': 'ScoreSheetComponent', 'selector': 'app-score-sheet'},{'name': 'ScoreSheetDetailsPageComponent', 'selector': 'app-score-sheet-details-page'},{'name': 'SessionComponent', 'selector': 'app-session'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'StudentAttendanceComponent', 'selector': 'app-student-attendance'},{'name': 'StudentComponent', 'selector': 'app-student'},{'name': 'StudentDetailComponent', 'selector': 'app-student-detail'},{'name': 'StudentListComponent', 'selector': 'app-student-list'},{'name': 'StudentLoginComponent', 'selector': 'app-student-login'},{'name': 'StudentProfileComponent', 'selector': 'app-student-profile'},{'name': 'StudentReportComponent', 'selector': 'app-student-report'},{'name': 'StudentResultSheetComponent', 'selector': 'app-student-result-sheet'},{'name': 'StudentScoreSheetComponent', 'selector': 'app-student-score-sheet'},{'name': 'StudentSettingsComponent', 'selector': 'app-student-settings'},{'name': 'StudentSheetComponent', 'selector': 'app-student-sheet'},{'name': 'SubjecAttendanceComponent', 'selector': 'app-subjec-attendance'},{'name': 'SubscriptionInvoiceArreasComponent', 'selector': 'app-subscription-invoice-arreas'},{'name': 'SubscriptionInvoiceComponent', 'selector': 'app-subscription-invoice'},{'name': 'SubscriptionListsComponent', 'selector': 'app-subscription-lists'},{'name': 'SubscriptionPageComponent', 'selector': 'app-subscription-page'},{'name': 'TaskPreviewComponent', 'selector': 'app-task-preview'},{'name': 'TeacherComponent', 'selector': 'app-teacher'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'},{'name': 'TeachersComponent', 'selector': 'app-teachers'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'UnpaidSubscriptionsComponent', 'selector': 'app-unpaid-subscriptions'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VendorsComponent', 'selector': 'app-vendors'},{'name': 'ViewAssignmentComponent', 'selector': 'app-view-assignment'},{'name': 'ViewBillingComponent', 'selector': 'app-view-billing'},{'name': 'ViewFileComponent', 'selector': 'app-view-file'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportSheetComponent', 'selector': 'app-view-report-sheet'},{'name': 'VirtualClassComponent', 'selector': 'app-virtual-class'},{'name': 'VirtualClassroomComponent', 'selector': 'app-virtual-classroom'},{'name': 'VirtualSessionComponent', 'selector': 'app-virtual-session'},{'name': 'WithdrawalListComponent', 'selector': 'app-withdrawal-list'},{'name': 'WorkExperienceComponent', 'selector': 'app-work-experience'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SchoolBranchManagerComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SchoolBranchManagerComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

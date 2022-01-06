@@ -1,0 +1,1092 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  GradingComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/teacher/grading/grading.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-grading</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./grading.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./grading.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#extraCommentForm" >extraCommentForm</a>
+                            </li>
+                            <li>
+                                <a href="#filePreview" >filePreview</a>
+                            </li>
+                            <li>
+                                <a href="#gradeAssignment" >gradeAssignment</a>
+                            </li>
+                            <li>
+                                <a href="#hideSide" >hideSide</a>
+                            </li>
+                            <li>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                <a href="#scoreForm" >scoreForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#back" >back</a>
+                            </li>
+                            <li>
+                                <a href="#getAssignmentPreview" >getAssignmentPreview</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#submitComment" >submitComment</a>
+                            </li>
+                            <li>
+                                <a href="#submitScore" >submitScore</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, assignmentservice: <a href="../injectables/AssignmentService.html" target="_self">AssignmentService</a>, notifyService: <a href="../injectables/NotificationsService.html" target="_self">NotificationsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/teacher/grading/grading.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>assignmentservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AssignmentService.html" target="_self" >AssignmentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>notifyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NotificationsService.html" target="_self" >NotificationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="back"></a>
+                    <span class="name">
+                        <span ><b>back</b></span>
+                        <a href="#back"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>back()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">src/app/teacher/grading/grading.component.ts:92</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAssignmentPreview"></a>
+                    <span class="name">
+                        <span ><b>getAssignmentPreview</b></span>
+                        <a href="#getAssignmentPreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAssignmentPreview()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">src/app/teacher/grading/grading.component.ts:83</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/teacher/grading/grading.component.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitComment"></a>
+                    <span class="name">
+                        <span ><b>submitComment</b></span>
+                        <a href="#submitComment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitComment()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/teacher/grading/grading.component.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitScore"></a>
+                    <span class="name">
+                        <span ><b>submitScore</b></span>
+                        <a href="#submitScore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitScore()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="63"
+                            class="link-to-prism">src/app/teacher/grading/grading.component.ts:63</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extraCommentForm"></a>
+                    <span class="name">
+                        <span ><b>extraCommentForm</b></span>
+                        <a href="#extraCommentForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/teacher/grading/grading.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filePreview"></a>
+                    <span class="name">
+                        <span ><b>filePreview</b></span>
+                        <a href="#filePreview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/teacher/grading/grading.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gradeAssignment"></a>
+                    <span class="name">
+                        <span ><b>gradeAssignment</b></span>
+                        <a href="#gradeAssignment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/teacher/grading/grading.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hideSide"></a>
+                    <span class="name">
+                        <span ><b>hideSide</b></span>
+                        <a href="#hideSide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/teacher/grading/grading.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/teacher/grading/grading.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scoreForm"></a>
+                    <span class="name">
+                        <span ><b>scoreForm</b></span>
+                        <a href="#scoreForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/teacher/grading/grading.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormGroup, FormBuilder, Validators } from &#x27;@angular/forms&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { NotificationsService } from &#x27;src/services/classes/notifications/notifications.service&#x27;;
+import { AssignmentService } from &#x27;src/services/data/assignment/assignment.service&#x27;;
+@Component({
+  selector: &#x27;app-grading&#x27;,
+  templateUrl: &#x27;./grading.component.html&#x27;,
+  styleUrls: [&#x27;./grading.component.css&#x27;]
+})
+export class GradingComponent implements OnInit {
+  extraCommentForm: FormGroup;
+  scoreForm: FormGroup;
+  id: any;
+  hideSide &#x3D; false;
+  gradeAssignment &#x3D; true;
+  filePreview: any;
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private assignmentservice: AssignmentService,
+    private notifyService: NotificationsService
+  ) { }
+
+  ngOnInit() {
+    this.id &#x3D; this.route.snapshot.params.id;
+    this.filePreview &#x3D; JSON.parse(sessionStorage.getItem(&#x27;preview-assignment&#x27;));
+    // // (this.id);
+    this.extraCommentForm &#x3D; this.fb.group({
+      comment: [&#x27;&#x27;, Validators.required]
+    });
+    this.scoreForm &#x3D; this.fb.group({
+      score: [&#x27;&#x27;, Validators.required]
+    });
+    this.getAssignmentPreview();
+  }
+
+  submitComment() {
+    // tslint:disable-next-line:radix
+    const assignmentAnswerId &#x3D; parseInt(this.id);
+    const { comment } &#x3D; this.extraCommentForm.value;
+    const result &#x3D; {
+      assignmentAnswerId,
+      comment
+    };
+    // (result);
+    this.assignmentservice.updateComment(result).subscribe((data: any) &#x3D;&gt; {
+      // // (data);
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.notifyService.publishMessages(&#x27;Comment successful&#x27;, &#x27;success&#x27;, 1);
+        
+      } else {
+        this.notifyService.publishMessages(data.errors, &#x27;success&#x27;, 1);
+
+      }
+    }, error &#x3D;&gt; {
+      this.notifyService.publishMessages(error.error, &#x27;success&#x27;, 1);
+
+    });
+
+  }
+
+  submitScore() {
+    // tslint:disable-next-line:radix
+    const assignmentAnswerId &#x3D; parseInt(this.id);
+    const { score } &#x3D; this.scoreForm.value;
+    const result &#x3D; {
+      assignmentAnswerId,
+      score
+    };
+    this.assignmentservice.updateScore(result).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        // (data);
+        this.notifyService.publishMessages(&#x27;score submitted successfully&#x27;, &#x27;success&#x27;, 1);
+        
+      } else {
+        
+        this.notifyService.publishMessages(data.errors, &#x27;success&#x27;, 1);
+      }
+    });
+  }
+
+  getAssignmentPreview() {
+    const currentpath &#x3D; this.route.snapshot.url[0].path; // get current path to know which endpoint to use
+    // // (currentpath);
+    if (currentpath &#x3D;&#x3D;&#x3D; &#x27;preview-assignment&#x27;) {
+      this.hideSide &#x3D; true;
+      this.gradeAssignment &#x3D; false;
+    }
+  }
+
+  back() {
+    window.history.back();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+  &lt;div class&#x3D;&quot;row &quot; *ngIf&#x3D;&quot;gradeAssignment&quot;&gt;
+    &lt;div class&#x3D;&quot;col-md-8 file-reader&quot;&gt;
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12 top-bar p-3&quot;&gt;
+          &lt;div class&#x3D;&quot;row align-items-center&quot;&gt;
+            &lt;div class&#x3D;&quot;col-md-6 &quot;&gt;
+              &lt;div class&#x3D;&quot;d-flex align-items-center cursor-pointer&quot; (click)&#x3D;&quot;back()&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/images/svg/breadcrumb.svg&quot; class&#x3D;&quot;mr-3&quot; alt&#x3D;&quot;...&quot; /&gt;
+                &lt;p class&#x3D;&quot;mb-0&quot;&gt;Back&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
+              &lt;div class&#x3D;&quot;d-flex align-items-center&quot;&gt;
+                &lt;p class&#x3D;&quot;mb-0&quot;&gt;Score&lt;/p&gt;
+                &lt;form class&#x3D;&quot;pl-2 form-inline&quot; [formGroup]&#x3D;&quot;scoreForm&quot; (ngSubmit)&#x3D;&quot;submitScore()&quot;&gt;
+                  &lt;input type&#x3D;&quot;number&quot; id&#x3D;&quot;&quot; class&#x3D;&quot;form-control &quot; formControlName&#x3D;&quot;score&quot;&gt;
+                  &lt;button class&#x3D;&quot;btn regrade  ml-2&quot; [disabled]&#x3D;&quot;scoreForm.invalid&quot;&gt;Submit&lt;/button&gt;
+                &lt;/form&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;col-md-12 document-viewer p-3&quot; *ngIf&#x3D;&quot;filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;text/plain&#x27;&quot;&gt;
+
+          &lt;iframe class&#x3D;&quot;document-pages p-3 bg-white w-100 &quot;
+            [src]&#x3D;&quot;&#x27; data:text/plain;base64,&#x27; + filePreview?.file | trustedUrl&quot; style&#x3D;&quot;height: 85vh; width: 100%;&quot;&gt;
+            &lt;p&gt;dOCUMENT VIEWR GOES HERE&lt;/p&gt;
+          &lt;/iframe&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-12 document-viewer p-3&quot; *ngIf&#x3D;&quot;filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;image/png&#x27;&quot;&gt;
+
+          &lt;iframe class&#x3D;&quot;document-pages p-3 bg-white w-100 &quot;
+            [src]&#x3D;&quot;&#x27; data:image/png;base64,&#x27; + filePreview?.file | trustedUrl&quot; style&#x3D;&quot;height: 85vh; width: 100%;&quot;&gt;
+            &lt;p&gt;dOCUMENT VIEWR GOES HERE&lt;/p&gt;
+          &lt;/iframe&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-12 document-viewer p-3&quot; *ngIf&#x3D;&quot;filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;image/jpeg&#x27;&quot;&gt;
+
+          &lt;iframe class&#x3D;&quot;document-pages p-3 bg-white w-100 &quot;
+            [src]&#x3D;&quot;&#x27; data:image/jpeg;base64,&#x27; + filePreview?.file | trustedUrl&quot; style&#x3D;&quot;height: 85vh; width: 100%;&quot;&gt;
+            &lt;p&gt;dOCUMENT VIEWR GOES HERE&lt;/p&gt;
+          &lt;/iframe&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-12 document-viewer p-3&quot; *ngIf&#x3D;&quot;filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;application/pdf&#x27;&quot;&gt;
+
+          &lt;iframe class&#x3D;&quot;document-pages p-3 bg-white w-100 &quot;
+            [src]&#x3D;&quot;&#x27; data:application/pdf;base64,&#x27; + filePreview?.file | trustedUrl&quot; style&#x3D;&quot;height: 85vh; width: 100%;&quot;&gt;
+            &lt;p&gt;dOCUMENT VIEWR GOES HERE&lt;/p&gt;
+          &lt;/iframe&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-12 document-viewer p-3&quot;
+          *ngIf&#x3D;&quot;filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x27; || filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&#x27; ||  filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;application/msword&#x27;&quot;&gt;
+
+
+          &lt;div class&#x3D;&quot;d-flex flex-column text-center&quot;&gt;
+            &lt;img src&#x3D;&quot;assets/images/svg/sad-face.svg&quot; alt&#x3D;&quot;table sort icon&quot; class&#x3D;&quot;mb-3&quot;&gt;
+            &lt;p class&#x3D;&quot;fw-6&quot;&gt;Sorry, you cant preview this file but you can download.&lt;/p&gt;
+            &lt;p&gt; &lt;a href&#x3D;&quot;&quot; download&#x3D;&quot;&quot;&gt; Click here to download&lt;/a&gt;&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col-md-1 actions px-0&quot;&gt;
+      &lt;div class&#x3D;&quot;d-flex justify-content-center align-items-center pt-5 pb-4 comment dropleft&quot;&gt;
+        &lt;img src&#x3D;&quot;assets/images/svg/add_comment.svg&quot; title&#x3D;&quot;Comment on assignment&quot; class&#x3D;&quot;dropdown-toggle&quot;
+          data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot; aria-expanded&#x3D;&quot;false&quot; alt&#x3D;&quot;...&quot; /&gt;
+        &lt;div class&#x3D;&quot;dropdown-menu px-3 pt-3 pb-3&quot;&gt;
+          &lt;p&gt;Make Comment&lt;/p&gt;
+          &lt;form [formGroup]&#x3D;&quot;extraCommentForm&quot; (ngSubmit)&#x3D;&quot;submitComment()&quot;&gt;
+            &lt;div class&#x3D;&quot;form-group&quot;&gt;
+              &lt;textarea class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;comment&quot;&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;d-flex justify-content-start mb-3   &quot;&gt;
+              &lt;button class&#x3D;&quot;pop-left btn-blue mr-3&quot;&gt;Comment&lt;/button&gt;
+              &lt;button class&#x3D;&quot;pop-left btn-clear&quot;&gt;Cancel&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/form&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;d-flex justify-content-center align-items-center pt-5 pb-4 download&quot;&gt;
+        &lt;img src&#x3D;&quot;assets/images/svg/download-grading.svg&quot; class&#x3D;&quot;&quot; alt&#x3D;&quot;...&quot; /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col-md-3 notice-board p-3&quot;&gt;
+      &lt;button class&#x3D;&quot;btn btn-orange-two px-5 mb-4 mt-3&quot; (click)&#x3D;&quot;back()&quot;&gt; Return &lt;/button&gt;
+      &lt;div class&#x3D;&quot;assignment-info&quot;&gt;
+        &lt;!-- &lt;p class&#x3D;&quot;fs-14 fw-6 text-white&quot;&gt;Title&lt;/p&gt;
+        &lt;p class&#x3D;&quot;fw-6 fs-18 &quot;&gt;How I Learnt Swimming&lt;/p&gt; --&gt;
+        &lt;p class&#x3D;&quot;date fs-12 mb-0 pb-1&quot;&gt;Submitted {{filePreview?.date | date: &#x27;mediumDate&#x27;}} &lt;/p&gt;
+        &lt;p class&#x3D;&quot;fw-6 mb-0 &quot;&gt;{{filePreview?.studentName | titlecase}}&lt;/p&gt;
+        &lt;!-- &lt;p class&#x3D;&quot;fs-12&quot;&gt; AMI/ST/2020/002&lt;/p&gt; --&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;row&quot; *ngIf&#x3D;&quot;hideSide&quot;&gt;
+    &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+      &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12 top-bar p-3&quot;&gt;
+          &lt;div class&#x3D;&quot;row align-items-center&quot;&gt;
+            &lt;div class&#x3D;&quot;col-md-10 &quot;&gt;
+              &lt;div class&#x3D;&quot;d-flex align-items-center cursor-pointer&quot; (click)&#x3D;&quot;back()&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/images/svg/breadcrumb.svg&quot; class&#x3D;&quot;mr-3&quot; alt&#x3D;&quot;...&quot; /&gt;
+                &lt;p class&#x3D;&quot;mb-0&quot;&gt;Back&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-12 document-viewer p-3&quot; *ngIf&#x3D;&quot;filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;image/png&#x27;&quot;&gt;
+
+          &lt;iframe class&#x3D;&quot;document-pages p-3 bg-white w-100 &quot;
+            [src]&#x3D;&quot;&#x27; data:image/png;base64,&#x27; + filePreview?.file | trustedUrl&quot; style&#x3D;&quot;height: 85vh; width: 100%;&quot;&gt;
+            &lt;p&gt;dOCUMENT VIEWR GOES HERE&lt;/p&gt;
+          &lt;/iframe&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-12 document-viewer p-3&quot; *ngIf&#x3D;&quot;filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;image/jpeg&#x27;&quot;&gt;
+
+          &lt;iframe class&#x3D;&quot;document-pages p-3 bg-white w-100 &quot;
+            [src]&#x3D;&quot;&#x27; data:image/jpeg;base64,&#x27; + filePreview?.file | trustedUrl&quot; style&#x3D;&quot;height: 85vh; width: 100%;&quot;&gt;
+            &lt;p&gt;dOCUMENT VIEWR GOES HERE&lt;/p&gt;
+          &lt;/iframe&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-12 document-viewer p-3&quot; *ngIf&#x3D;&quot;filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;application/pdf&#x27;&quot;&gt;
+
+          &lt;iframe class&#x3D;&quot;document-pages p-3 bg-white w-100 &quot;
+            [src]&#x3D;&quot;&#x27; data:application/pdf;base64,&#x27; + filePreview?.file | trustedUrl&quot; style&#x3D;&quot;height: 85vh; width: 100%;&quot;&gt;
+            &lt;p&gt;dOCUMENT VIEWR GOES HERE&lt;/p&gt;
+          &lt;/iframe&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-12 document-viewer p-3&quot;
+          *ngIf&#x3D;&quot;filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x27; || filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&#x27; ||  filePreview?.fileType &#x3D;&#x3D;&#x3D; &#x27;application/msword&#x27;&quot;&gt;
+
+
+          &lt;div class&#x3D;&quot;d-flex flex-column text-center&quot;&gt;
+            &lt;img src&#x3D;&quot;assets/images/svg/sad-face.svg&quot; alt&#x3D;&quot;table sort icon&quot; class&#x3D;&quot;mb-3&quot;&gt;
+            &lt;p class&#x3D;&quot;fw-6&quot;&gt;Sorry, you cant preview this file but you can download.&lt;/p&gt;
+            &lt;p&gt; &lt;a href&#x3D;&quot;&quot; download&#x3D;&quot;&quot;&gt; Click here to download&lt;/a&gt;&lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./grading.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.top-bar {
+    background: #F3F3F3;
+    border-bottom: 2px solid rgba(24, 39, 75, 0.12);
+
+
+    /* box-shadow: 0px 6px 8px -6px rgba(24, 39, 75, 0.12), 0px 8px 16px -6px rgba(24, 39, 75, 0.08); */
+}
+
+.document-viewer {
+    background: #F3F3F3;
+
+}
+
+.document-viewer .document-pages {
+    background: #FFFFFF;
+    height: 100vh;
+}
+
+.actions {
+    background: #FFFFFF;
+    border-left: 1px solid #94B3D1;
+    height: 100vh;
+}
+
+.actions .comment:hover {
+    background: #fb882c;
+}
+
+.actions .comment,
+.download {
+    border-bottom: 1px solid #94B3D1;
+    cursor: pointer;
+}
+
+.notice-board, .regrade {
+    background: #0052B4;
+}
+
+.regrade {
+    color: #ffffff;
+}
+
+.notice-board .btn-orange-two {
+    background: #fb882c;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #ffffff;
+}
+
+.notice-board .assignment-info {
+    color: #FFFFFF;
+    font-family: nunito;
+}
+
+.assignment-info .date {
+    color: #E6E6E6;
+}
+
+
+.dropdown-menu.show {
+    display: block;
+
+    color: #000000;
+    font-family: nunito;
+    transform: translate3d(-350px, 36px, 0px) !important;
+    width: 350px;
+}
+
+.dropdown-menu.show .pop-left {
+    padding: 10px 24px;
+    border-radius: 2.5px;
+    color: #fff;
+    /* font-weight: 600; */
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.dropdown-menu.show .btn-blue {
+    background: #0052B4;
+
+}
+
+.dropdown-menu.show .btn-clear {
+    background: #C4C4C4;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid">  <div class="row " *ngIf="gradeAssignment">    <div class="col-md-8 file-reader">      <div class="row">        <div class="col-md-12 top-bar p-3">          <div class="row align-items-center">            <div class="col-md-6 ">              <div class="d-flex align-items-center cursor-pointer" (click)="back()">                <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />                <p class="mb-0">Back</p>              </div>            </div>            <div class="col-md-6">              <div class="d-flex align-items-center">                <p class="mb-0">Score</p>                <form class="pl-2 form-inline" [formGroup]="scoreForm" (ngSubmit)="submitScore()">                  <input type="number" id="" class="form-control " formControlName="score">                  <button class="btn regrade  ml-2" [disabled]="scoreForm.invalid">Submit</button>                </form>              </div>            </div>          </div>        </div>        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === \'text/plain\'">          <iframe class="document-pages p-3 bg-white w-100 "            [src]="\' data:text/plain;base64,\' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">            <p>dOCUMENT VIEWR GOES HERE</p>          </iframe>        </div>        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === \'image/png\'">          <iframe class="document-pages p-3 bg-white w-100 "            [src]="\' data:image/png;base64,\' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">            <p>dOCUMENT VIEWR GOES HERE</p>          </iframe>        </div>        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === \'image/jpeg\'">          <iframe class="document-pages p-3 bg-white w-100 "            [src]="\' data:image/jpeg;base64,\' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">            <p>dOCUMENT VIEWR GOES HERE</p>          </iframe>        </div>        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === \'application/pdf\'">          <iframe class="document-pages p-3 bg-white w-100 "            [src]="\' data:application/pdf;base64,\' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">            <p>dOCUMENT VIEWR GOES HERE</p>          </iframe>        </div>        <div class="col-md-12 document-viewer p-3"          *ngIf="filePreview?.fileType === \'application/vnd.openxmlformats-officedocument.wordprocessingml.document\' || filePreview?.fileType === \'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\' ||  filePreview?.fileType === \'application/msword\'">          <div class="d-flex flex-column text-center">            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">            <p class="fw-6">Sorry, you cant preview this file but you can download.</p>            <p> <a href="" download=""> Click here to download</a></p>          </div>        </div>      </div>    </div>    <div class="col-md-1 actions px-0">      <div class="d-flex justify-content-center align-items-center pt-5 pb-4 comment dropleft">        <img src="assets/images/svg/add_comment.svg" title="Comment on assignment" class="dropdown-toggle"          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="..." />        <div class="dropdown-menu px-3 pt-3 pb-3">          <p>Make Comment</p>          <form [formGroup]="extraCommentForm" (ngSubmit)="submitComment()">            <div class="form-group">              <textarea class="form-control" formControlName="comment"></textarea>            </div>            <div class="d-flex justify-content-start mb-3   ">              <button class="pop-left btn-blue mr-3">Comment</button>              <button class="pop-left btn-clear">Cancel</button>            </div>          </form>        </div>      </div>      <div class="d-flex justify-content-center align-items-center pt-5 pb-4 download">        <img src="assets/images/svg/download-grading.svg" class="" alt="..." />      </div>    </div>    <div class="col-md-3 notice-board p-3">      <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="back()"> Return </button>      <div class="assignment-info">        <!-- <p class="fs-14 fw-6 text-white">Title</p>        <p class="fw-6 fs-18 ">How I Learnt Swimming</p> -->        <p class="date fs-12 mb-0 pb-1">Submitted {{filePreview?.date | date: \'mediumDate\'}} </p>        <p class="fw-6 mb-0 ">{{filePreview?.studentName | titlecase}}</p>        <!-- <p class="fs-12"> AMI/ST/2020/002</p> -->      </div>    </div>  </div>  <div class="row" *ngIf="hideSide">    <div class="col-md-12">      <div class="row">        <div class="col-md-12 top-bar p-3">          <div class="row align-items-center">            <div class="col-md-10 ">              <div class="d-flex align-items-center cursor-pointer" (click)="back()">                <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />                <p class="mb-0">Back</p>              </div>            </div>          </div>        </div>        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === \'image/png\'">          <iframe class="document-pages p-3 bg-white w-100 "            [src]="\' data:image/png;base64,\' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">            <p>dOCUMENT VIEWR GOES HERE</p>          </iframe>        </div>        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === \'image/jpeg\'">          <iframe class="document-pages p-3 bg-white w-100 "            [src]="\' data:image/jpeg;base64,\' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">            <p>dOCUMENT VIEWR GOES HERE</p>          </iframe>        </div>        <div class="col-md-12 document-viewer p-3" *ngIf="filePreview?.fileType === \'application/pdf\'">          <iframe class="document-pages p-3 bg-white w-100 "            [src]="\' data:application/pdf;base64,\' + filePreview?.file | trustedUrl" style="height: 85vh; width: 100%;">            <p>dOCUMENT VIEWR GOES HERE</p>          </iframe>        </div>        <div class="col-md-12 document-viewer p-3"          *ngIf="filePreview?.fileType === \'application/vnd.openxmlformats-officedocument.wordprocessingml.document\' || filePreview?.fileType === \'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\' ||  filePreview?.fileType === \'application/msword\'">          <div class="d-flex flex-column text-center">            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">            <p class="fw-6">Sorry, you cant preview this file but you can download.</p>            <p> <a href="" download=""> Click here to download</a></p>          </div>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AccountMappingComponent', 'selector': 'app-account-mapping'},{'name': 'AccountPanelComponent', 'selector': 'app-account-panel'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AdminAlumniCreateEventComponent', 'selector': 'app-admin-alumni-create-event'},{'name': 'AdminAlumniEventsComponent', 'selector': 'app-admin-alumni-events'},{'name': 'AdminAlumniListComponent', 'selector': 'app-admin-alumni-list'},{'name': 'AdminLoginComponent', 'selector': 'app-admin-login'},{'name': 'AlumniAlumniComponent', 'selector': 'app-alumni-alumni'},{'name': 'AlumniComponent', 'selector': 'app-alumni'},{'name': 'AlumniEventDetailComponent', 'selector': 'app-alumni-event-detail'},{'name': 'AlumniEventsComponent', 'selector': 'app-alumni-events'},{'name': 'AlumniHomeComponent', 'selector': 'app-alumni-home'},{'name': 'AlumniProfileComponent', 'selector': 'app-alumni-profile'},{'name': 'AlumniRecordsComponent', 'selector': 'app-alumni-records'},{'name': 'AlumniTranscriptComponent', 'selector': 'app-alumni-transcript'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentsComponent', 'selector': 'app-assignments'},{'name': 'AttachTeacherComponent', 'selector': 'app-attach-teacher'},{'name': 'AttendanceComponent', 'selector': 'app-attendance'},{'name': 'BankAccountsComponent', 'selector': 'app-bank-accounts'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BranchContactPersonComponent', 'selector': 'app-branch-contact-person'},{'name': 'BranchDetailComponent', 'selector': 'app-branch-detail'},{'name': 'BranchInformationComponent', 'selector': 'app-branch-information'},{'name': 'BranchLocationComponent', 'selector': 'app-branch-location'},{'name': 'BroadSheetComponent', 'selector': 'app-broad-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ChartOfAccountComponent', 'selector': 'app-chart-of-account'},{'name': 'ChildAssignmentComponent', 'selector': 'app-child-assignment'},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ClassAttendanceComponent', 'selector': 'app-class-attendance'},{'name': 'ClassPoolComponent', 'selector': 'app-class-pool'},{'name': 'ClassRepeatComponent', 'selector': 'app-class-repeat'},{'name': 'ClassScheduleComponent', 'selector': 'app-class-schedule'},{'name': 'ClientDetailComponent', 'selector': 'app-client-detail'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'ContactDetailComponent', 'selector': 'app-contact-detail'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactPersonComponent', 'selector': 'app-contact-person'},{'name': 'CreateAssignmentComponent', 'selector': 'app-create-assignment'},{'name': 'CreateBranchComponent', 'selector': 'app-create-branch'},{'name': 'CreateClientComponent', 'selector': 'app-create-client'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoComponent', 'selector': 'app-demo'},{'name': 'DiscountsComponent', 'selector': 'app-discounts'},{'name': 'EditUserComponent', 'selector': 'app-edit-user'},{'name': 'EducationComponent', 'selector': 'app-education'},{'name': 'EmailVerifiedComponent', 'selector': 'app-email-verified'},{'name': 'EmployeeComponent', 'selector': 'app-employee'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeListComponent', 'selector': 'app-employee-list'},{'name': 'FacilitySettingsComponent', 'selector': 'app-facility-settings'},{'name': 'FaqsComponent', 'selector': 'app-faqs'},{'name': 'FeeComponent', 'selector': 'app-fee'},{'name': 'FeeComponentComponent', 'selector': 'app-fee-component'},{'name': 'FeeTypeComponent', 'selector': 'app-fee-type'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FilesComponent', 'selector': 'app-files'},{'name': 'FileStorageComponent', 'selector': 'app-file-storage'},{'name': 'FinanceSettingsComponent', 'selector': 'app-finance-settings'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAdminComponent', 'selector': 'app-global-admin'},{'name': 'GradebookComponent', 'selector': 'app-gradebook'},{'name': 'GradingComponent', 'selector': 'app-grading'},{'name': 'GroupedSchoolsComponent', 'selector': 'app-grouped-schools'},{'name': 'HomenavbarComponent', 'selector': 'app-homenavbar'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LandingScreenComponent', 'selector': 'app-landing-screen'},{'name': 'LaterThingsComponent', 'selector': 'app-later-things'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'MailReportCardComponent', 'selector': 'app-mail-report-card'},{'name': 'MarkAttendanceComponent', 'selector': 'app-mark-attendance'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MedicalDetailsComponent', 'selector': 'app-medical-details'},{'name': 'NewAccountChartComponent', 'selector': 'app-new-account-chart'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewFeeComponent', 'selector': 'app-new-fee'},{'name': 'NewroleComponent', 'selector': 'app-newrole'},{'name': 'NewRoleRecordComponent', 'selector': 'app-new-role-record'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NewVendorsComponent', 'selector': 'app-new-vendors'},{'name': 'NextOfKinComponent', 'selector': 'app-next-of-kin'},{'name': 'NoRecordComponent', 'selector': 'app-no-record'},{'name': 'NotificationPageComponent', 'selector': 'app-notification-page'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ParentComponent', 'selector': 'app-parent'},{'name': 'ParentDetailsComponent', 'selector': 'app-parent-details'},{'name': 'ParentListComponent', 'selector': 'app-parent-list'},{'name': 'ParentLoginComponent', 'selector': 'app-parent-login'},{'name': 'ParentPortalComponent', 'selector': 'app-parent-portal'},{'name': 'PayrollAccountsComponent', 'selector': 'app-payroll-accounts'},{'name': 'PayrollSetttingsComponent', 'selector': 'app-payroll-setttings'},{'name': 'PeriodComponent', 'selector': 'app-period'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'PersonalSettingsComponent', 'selector': 'app-personal-settings'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileInformationComponent', 'selector': 'app-profile-information'},{'name': 'PromotionDashboardComponent', 'selector': 'app-promotion-dashboard'},{'name': 'PromotionSettingsComponent', 'selector': 'app-promotion-settings'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResultSettingsComponent', 'selector': 'app-result-settings'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'SchoolAdminComponent', 'selector': 'app-school-admin'},{'name': 'SchoolBranchManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolComponent', 'selector': 'app-school'},{'name': 'SchoolContactPersonComponent', 'selector': 'app-school-contact-person'},{'name': 'SchoolGradeBookComponent', 'selector': 'app-school-grade-book'},{'name': 'SchoolInformationComponent', 'selector': 'app-school-information'},{'name': 'SchoolLoginComponent', 'selector': 'app-school-login'},{'name': 'SchoolManagerBranchComponent', 'selector': 'app-school-manager-branch'},{'name': 'SchoolManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolManagerDashboardComponent', 'selector': 'app-school-manager-dashboard'},{'name': 'SchoolManagerSettingsComponent', 'selector': 'app-school-manager-settings'},{'name': 'SchoolMediaComponent', 'selector': 'app-school-media'},{'name': 'SchoolSettingsComponent', 'selector': 'app-school-settings'},{'name': 'ScoreSheetComponent', 'selector': 'app-score-sheet'},{'name': 'ScoreSheetDetailsPageComponent', 'selector': 'app-score-sheet-details-page'},{'name': 'SessionComponent', 'selector': 'app-session'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'StudentAttendanceComponent', 'selector': 'app-student-attendance'},{'name': 'StudentComponent', 'selector': 'app-student'},{'name': 'StudentDetailComponent', 'selector': 'app-student-detail'},{'name': 'StudentListComponent', 'selector': 'app-student-list'},{'name': 'StudentLoginComponent', 'selector': 'app-student-login'},{'name': 'StudentProfileComponent', 'selector': 'app-student-profile'},{'name': 'StudentReportComponent', 'selector': 'app-student-report'},{'name': 'StudentResultSheetComponent', 'selector': 'app-student-result-sheet'},{'name': 'StudentScoreSheetComponent', 'selector': 'app-student-score-sheet'},{'name': 'StudentSettingsComponent', 'selector': 'app-student-settings'},{'name': 'StudentSheetComponent', 'selector': 'app-student-sheet'},{'name': 'SubjecAttendanceComponent', 'selector': 'app-subjec-attendance'},{'name': 'SubscriptionInvoiceArreasComponent', 'selector': 'app-subscription-invoice-arreas'},{'name': 'SubscriptionInvoiceComponent', 'selector': 'app-subscription-invoice'},{'name': 'SubscriptionListsComponent', 'selector': 'app-subscription-lists'},{'name': 'SubscriptionPageComponent', 'selector': 'app-subscription-page'},{'name': 'TaskPreviewComponent', 'selector': 'app-task-preview'},{'name': 'TeacherComponent', 'selector': 'app-teacher'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'},{'name': 'TeachersComponent', 'selector': 'app-teachers'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'UnpaidSubscriptionsComponent', 'selector': 'app-unpaid-subscriptions'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VendorsComponent', 'selector': 'app-vendors'},{'name': 'ViewAssignmentComponent', 'selector': 'app-view-assignment'},{'name': 'ViewBillingComponent', 'selector': 'app-view-billing'},{'name': 'ViewFileComponent', 'selector': 'app-view-file'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportSheetComponent', 'selector': 'app-view-report-sheet'},{'name': 'VirtualClassComponent', 'selector': 'app-virtual-class'},{'name': 'VirtualClassroomComponent', 'selector': 'app-virtual-classroom'},{'name': 'VirtualSessionComponent', 'selector': 'app-virtual-session'},{'name': 'WithdrawalListComponent', 'selector': 'app-withdrawal-list'},{'name': 'WorkExperienceComponent', 'selector': 'app-work-experience'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'GradingComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GradingComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
