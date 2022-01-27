@@ -291,7 +291,7 @@
 
                 </ul>
             </li>
-            <li class="nav-item mb-2">
+            <li class="nav-item mb-2" *ngIf="allowFinanceModule === true">
                 <a href="#finance-settings-submenu" class="nav-link"   data-toggle="collapse" aria-expanded="false"  >
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -357,7 +357,7 @@
                     
                 </ul>
             </li>
-            <li class="nav-item mb-2">
+            <li class="nav-item mb-2" *ngIf="allowFinanceModule === true">
                 <a href="#finance-submenu" class="nav-link"   data-toggle="collapse" aria-expanded="false"  >
                     <span class="ico">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

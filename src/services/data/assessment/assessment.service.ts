@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   addsession: 'schtrack-assessment/api/v1/SessionSetup/AddSchoolSession',
+  editsession: 'schtrack-assessment/api/v1/SessionSetup/UpdateSchoolSession',
   getschoolSessions: 'schtrack-assessment/api/v1/SessionSetup/GetSchoolSessions',
   getcurrentsession: 'schtrack-assessment/api/v1/SessionSetup/GetCurrentSchoolSessions',
   setupassessment: 'schtrack-assessment/api/v1/AssessmentSetup/UploadAssessmentSetups',
@@ -26,6 +27,10 @@ export class AssessmentService {
 
   addProperty( result) {
     const url = `${this.baseUrl + routes.addsession}`;
+    return this.http.post(url, result, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+  updateProperty( id, result) {
+    const url = `${this.baseUrl + routes.editsession}/${id}`;
     return this.http.post(url, result, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 

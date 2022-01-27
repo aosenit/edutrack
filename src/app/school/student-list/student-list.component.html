@@ -97,7 +97,10 @@
                     <td class="user" >
                         
                         <div class="d-flex align-items-center">
-                            <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
+                            <img class="" *ngIf="student.image" src="data:image/png;base64,{{student.image}}" alt="schools log"
+                            class="mr-3 image-rounded" id="">
+                          <img class="" *ngIf="student.image == null" src="assets/images/svg/companyalt.svg" alt="schools log"
+                            class="mr-3 image-rounded" id="">
                             <h6 class="fw-6 mb-0" >{{student?.firstName + ' ' + student?.lastName | titlecase}} </h6>
                         </div>
                     </td>

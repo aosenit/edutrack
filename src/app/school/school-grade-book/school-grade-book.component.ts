@@ -199,6 +199,9 @@ export class SchoolGradeBookComponent implements OnInit {
         this.notifyService.publishMessages('Result approved', 'success', 1);
         document.getElementById('closeModel').click();
         location.reload();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.payload, 'danger', 1);
@@ -227,6 +230,9 @@ export class SchoolGradeBookComponent implements OnInit {
         this.notifyService.publishMessages('Result rejected', 'success', 1);
         document.getElementById('closeModel').click();
         location.reload();
+
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
 
       }
     }, error => {

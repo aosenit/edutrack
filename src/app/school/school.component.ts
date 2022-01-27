@@ -16,6 +16,7 @@ export class SchoolComponent implements OnInit {
   schoolname: any;
   year: Date = new Date();
   schoolColor: any;
+  allowFinanceModule = false;
   constructor(
     private router: Router,
     private notifyService: NotificationsService,
@@ -25,7 +26,29 @@ export class SchoolComponent implements OnInit {
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
-    // // (this.adminDetails);
+
+    console.log(this.adminDetails);
+    if (this.adminDetails.UserType === 'SchoolAdmin') {
+      this.allowFinanceModule = true;
+      console.log('no dey');
+    }
+    const finance = [
+      'FINANCE_CREATE',
+      'FINANCE_READ',
+      'FINANCE_UPDATE',
+      'FINANCE_DELETE'
+  ];
+    if (this.adminDetails.Permission !== null || undefined) {
+      // tslint:disable-next-line:prefer-for-of
+    for (let index = 0; index < finance.length; index++) {
+      const element = finance[index];
+
+      if (this.adminDetails.Permission.includes(element) && this.adminDetails.UserType === 'NonTeachingStaff') {
+        this.allowFinanceModule = true;
+      }
+    }
+    }
+
     this.getSchoolProperties();
 
   }
