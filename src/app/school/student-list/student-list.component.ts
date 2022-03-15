@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 import { StudentService } from 'src/services/data/student/student.service';
 
 @Component({
@@ -19,13 +20,16 @@ export class StudentListComponent implements OnInit {
   itemsPerPage = 10;
   studentCount: number;
   fileString: any;
+  sessionName: any;
 
 
   constructor(
     private notifyService: NotificationsService,
     private fb: FormBuilder,
     private studentService: StudentService,
-    private router: Router
+    private router: Router,
+    private assessmentService: AssessmentService
+
   ) { }
 
   ngOnInit() {
@@ -34,6 +38,8 @@ export class StudentListComponent implements OnInit {
     });
 
     this.getAllStudents();
+    this.getSession();
+
   }
 
 
@@ -151,12 +157,23 @@ export class StudentListComponent implements OnInit {
   }
 
   deleteStudent(id) {
-    this.studentService.deleteStudentById(id).subscribe((data: any) => {
+    this.studentService.deleteStudentById(id, this.sessionName).subscribe((data: any) => {
       if (data.hasErrors === false) {
         // console.log(data.payload);
         this.notifyService.publishMessages('Student deleted successfully', 'success', 1);
         this.getAllStudents();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
+    });
+  }
+
+  getSession() {
+    this.assessmentService.getCurrentSession().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.sessionName = data.payload.name;
+    }
     });
   }
 

@@ -1,5 +1,5 @@
   import { Injectable } from '@angular/core';
-  import { HttpClient } from '@angular/common/http';
+  import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
   import { environment } from 'src/environments/environment';
   const routes = {
   addstudent: 'schtrack-auth/api/v1/Student/AddStudent',
@@ -163,9 +163,15 @@ export class StudentService {
 
   }
 
-    deleteStudentById(id) {
-    const url = `${this.baseUrl + routes.deletestudent}/${id}`;
-    return this.http.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    deleteStudentById(id, name) {
+      const body = new FormData();
+      body.append('sessionName', name);
+      const options = {
+        headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token')},
+        body
+      };
+      const url = `${this.baseUrl + routes.deletestudent}/${id}`;
+      return this.http.delete(url, options);
 
   }
 
