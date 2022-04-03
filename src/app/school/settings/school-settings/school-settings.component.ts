@@ -645,7 +645,7 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       });
   }
   getAllSubjectsNoPage() {
-    this.subjectService.getAllSubjectsNoPagination()
+    this.subjectService.getAllSubjects()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe((data: any) => {
         if (data.hasErrors === false) {
