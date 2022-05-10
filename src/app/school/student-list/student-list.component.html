@@ -33,7 +33,7 @@
     <section class="d-flex align-items-center justify-content-between mb-4 mt-5">
         <div class="search__input has-search">
             <span class="fa fa-search form-control-feedback"></span>
-            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
+            <input type="text" class="form-control" placeholder="Search" [formControl]="searchField">
         </div>
         <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
     
@@ -87,7 +87,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="pb-1" *ngFor="let student of studentList | tableSearch : 'firstName' : searchString | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: studentCount }">
+                <tr class="pb-1" *ngFor="let student of studentList | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: studentCount }">
                     <td scope="row" class="check rounded-left">
                         <div class="custom-control custom-checkbox" >
                             <input type="checkbox" class="custom-control-input" id="{{student?.id}}">

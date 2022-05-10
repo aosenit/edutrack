@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 import { StudentService } from 'src/services/data/student/student.service';
@@ -21,6 +22,7 @@ export class StudentListComponent implements OnInit {
   studentCount: number;
   fileString: any;
   sessionName: any;
+  searchField!: FormControl;
 
 
   constructor(
@@ -39,7 +41,15 @@ export class StudentListComponent implements OnInit {
 
     this.getAllStudents();
     this.getSession();
-
+    this.searchField = new FormControl();
+    this.searchField.valueChanges
+    .pipe(
+      debounceTime(400),
+      distinctUntilChanged()
+    )
+    .subscribe(term => {
+      this.searchStudent(term)
+    });
   }
 
 
@@ -167,6 +177,17 @@ export class StudentListComponent implements OnInit {
 
       }
     });
+  }
+
+
+  searchStudent(event: string) {
+    if (event === '' ) {
+      this.getAllStudents();
+    } else {
+      this.studentService.searchSingleStudent(event).subscribe((res: any) => {
+        this.studentList = res.payload;
+      });
+    }
   }
 
   getSession() {
