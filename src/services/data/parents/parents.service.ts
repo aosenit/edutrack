@@ -14,6 +14,7 @@ const routes = {
   deleteparent: 'schtrack-auth/api/v1/Parent/DeleteParent',
   getstudentSchools: 'schtrack-auth/api/v1/Parent/GetStudentsSchools',
   getstudentInASchoolsForParent: 'schtrack-auth/api/v1/Parent/GetStudentsInSchool',
+  searchParent: 'schtrack-auth/api/v1/Parent/GetParentBySchoolIdAndName',
 
   // All endpoint below are exclusively for the parent portal
   getTableforClassByClassId: 'schtrack-learning/api/v1/TimeTable/GetTimetableForClass',
@@ -116,6 +117,13 @@ export class ParentsService {
 
     const url = `${this.baseUrl + routes.getparentbyname}/${name}`;
     return this.http.get(url,   {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  searchSingleParent(name: string, schoolId: string) {
+    const url = `${this.baseUrl + routes.searchParent}?Name=${name}&SchoolId=${schoolId}`;
+    // console.log(url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
   }
 
   getParentForStudent(studid) {

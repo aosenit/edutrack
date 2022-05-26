@@ -42,17 +42,17 @@
     
     
     
-    <section class="list table-responsive mb-5">
+    <section class="list table-responsive mb-5" *ngIf="studentList?.length > 0">
         <table class="table table-borderless client-table">
             <thead>
                 <tr>
-                    <th scope="col" class="head ">
+                    <!-- <th scope="col" class="head ">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="customCheckTh">
                             <label class="custom-control-label" for="customCheckTh"></label>
                         </div>
-                    </th>
-                    <th scope="col" class="text-center" >Student Name 
+                    </th> -->
+                    <th scope="col" class="head" >Student Name 
                         <!-- <img src="assets/images/svg/table-sort.svg"
                             alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
@@ -88,12 +88,12 @@
             </thead>
             <tbody>
                 <tr class="pb-1" *ngFor="let student of studentList | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: studentCount }">
-                    <td scope="row" class="check rounded-left">
+                    <!-- <td scope="row" class="check rounded-left">
                         <div class="custom-control custom-checkbox" >
                             <input type="checkbox" class="custom-control-input" id="{{student?.id}}">
                             <label class="custom-control-label" for="{{student?.id}}"></label>
                         </div>
-                    </td>
+                    </td> -->
                     <td class="user" >
                         
                         <div class="d-flex align-items-center">
@@ -136,6 +136,11 @@
           </div>
     
     </section>
+    <div class="empty-state" *ngIf="studentList?.length === 0">
+        <p class="text-center fs-24 ff-a">
+          Not record found
+        </p>
+      </div>
 </div>
 
 

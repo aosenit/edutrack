@@ -46,13 +46,8 @@ data-target="#exampleModalCenterUpload"> Bulk Upload </button>
         <table class="table table-borderless client-table">
             <thead>
                 <tr>
-                    <th scope="col" class="head ">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                            <label class="custom-control-label" for="customCheckTh"></label>
-                        </div>
-                    </th>
-                    <th scope="col" >Full Name 
+                   
+                    <th scope="col" class="head" >Full Name 
                         <!-- <img src="assets/images/svg/table-sort.svg"
                             alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
@@ -66,9 +61,8 @@ data-target="#exampleModalCenterUpload"> Bulk Upload </button>
                     </th>
                     <th scope="col">Staff Number </th>
                    
-                    <th scope="col">Designation 
-                        <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
-                    </th>
+                    <!-- <th scope="col">Designation 
+                    </th> -->
                     
     
                     <th scope="col">Status 
@@ -88,13 +82,8 @@ data-target="#exampleModalCenterUpload"> Bulk Upload </button>
             </thead>
             <tbody>
                 <tr class="pb-1" *ngFor = "let teacher of teachersList | tableSearch : 'firstName' : searchString">
-                    <td scope="row" class="check rounded-left">
-                        <div class="custom-control custom-checkbox" >
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1"></label>
-                        </div>
-                    </td>
-                    <td class="user" >
+                    
+                    <td class="user check rounded-left" >
                         
                         <div class="d-flex align-items-center">
                             <img src="assets/images/svg/dummy_user.png" alt="schools log" class="mr-3  image-rounded" >
@@ -102,7 +91,7 @@ data-target="#exampleModalCenterUpload"> Bulk Upload </button>
                         </div>
                     </td>
                     <td>{{teacher?.staffNumber}}</td>
-                    <td> N/A </td>
+                    <!-- <td> N/A </td> -->
                     
                     <td><span class="status_active">Active</span></td>
                     <td class="rounded-right "><img src="assets/images/svg/more-action.svg"

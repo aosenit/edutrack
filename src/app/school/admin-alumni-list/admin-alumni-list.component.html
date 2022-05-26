@@ -27,13 +27,13 @@
         <table class="table table-borderless client-table">
             <thead>
                 <tr>
-                    <th scope="col" class="head ">
+                    <!-- <th scope="col" class="head ">
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" id="customCheckTh">
                             <label class="custom-control-label" for="customCheckTh"></label>
                         </div>
-                    </th>
-                    <th scope="col" class="text-center" >Alumni Name
+                    </th> -->
+                    <th scope="col" class="head" >Alumni Name
     
                     </th>
                     <th scope="col">Student Number </th>
@@ -45,17 +45,17 @@
                     <th scope="col">Status
     
                     </th>
-                    <th scope="col"></th>
+                    <!-- <th scope="col"></th> -->
                 </tr>
             </thead>
             <tbody>
-                <tr class="pb-1" *ngFor="let record of alumniList" >
-                    <td scope="row" class="check rounded-left">
+                <tr class="pb-1" *ngFor="let record of alumniList | tableSearch : 'firstName' : searchString" >
+                    <!-- <td scope="row" class="check rounded-left">
                         <div class="custom-control custom-checkbox" >
                             <input type="checkbox" class="custom-control-input" id="id1">
                             <label class="custom-control-label" for="id1}}"></label>
                         </div>
-                    </td>
+                    </td> -->
                     <td class="user" >
     
                         <div class="d-flex align-items-center">
@@ -68,13 +68,13 @@
                     <td class=""> {{record?.dateOfBirth | date: 'mediumDate'}} </td>
                     <td class=""> {{record?.dateCreated | date: 'mediumDate'}} </td>
                     <td><span class="status_inactive">{{record?.status === false ? 'Inactive' : 'Active'}}</span></td>
-                    <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
+                    <!-- <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
                             alt="schools log" class="dropdown-toggle mt-3       " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#" [routerLink]="['/school', 'student-detail',2]">View</a>
     
-                              </div> -->
-                        </td>
+                              </div>
+                        </td> -->
                 </tr>
     
     

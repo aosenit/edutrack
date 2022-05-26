@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { ParentsService } from 'src/services/data/parents/parents.service';
 
@@ -17,6 +19,8 @@ export class ParentListComponent implements OnInit {
   itemsPerPage = 10;
   parentCount: number;
   adminDetails: any;
+  searchField!: FormControl;
+
 
   constructor(
     private parentService: ParentsService,
@@ -28,6 +32,15 @@ export class ParentListComponent implements OnInit {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
     this.getAllParents();
+    this.searchField = new FormControl();
+    this.searchField.valueChanges
+    .pipe(
+      debounceTime(400),
+      distinctUntilChanged()
+    )
+    .subscribe(term => {
+      this.searchParent(term);
+    });
   }
 
   getAllParents() {
@@ -84,6 +97,16 @@ export class ParentListComponent implements OnInit {
     //   this.notifyService.publishMessages(error.message, 'danger', 1);
 
     // });
+  }
+
+  searchParent(event: string) {
+    if (event === '' ) {
+      this.getAllParents();
+    } else {
+      this.parentService.searchSingleParent(event, this.adminDetails.TenantId).subscribe((res: any) => {
+        this.parentList = res.payload;
+      });
+    }
   }
 
   clearStorage() {
