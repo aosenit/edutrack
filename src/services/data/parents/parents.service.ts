@@ -16,6 +16,9 @@ const routes = {
   getstudentInASchoolsForParent: 'schtrack-auth/api/v1/Parent/GetStudentsInSchool',
   searchParent: 'schtrack-auth/api/v1/Parent/GetParentBySchoolIdAndName',
 
+  getBulkDdownload: 'schtrack-auth/api/v1/Parent/GetParentsExcelSheet',
+  bulkUpload: 'schtrack-auth/api/v1/Parent/AddBulkParent',
+
   // All endpoint below are exclusively for the parent portal
   getTableforClassByClassId: 'schtrack-learning/api/v1/TimeTable/GetTimetableForClass',
   getTableforClassByDay: 'schtrack-learning/api/v1/TimeTable/GetAllClassesForClassToday',
@@ -161,6 +164,20 @@ export class ParentsService {
 
   }
 
+  downloadSampleBulkSheet() {
+    const url = `${this.baseUrl + routes.getBulkDdownload}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  uploadBulkDocument(payload) {
+    const body = new FormData();
+    body.append('File', payload.Document);
+
+    const url = `${this.baseUrl + routes.bulkUpload}`;
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
 
   // Endpoints designnated for parent portal
 
