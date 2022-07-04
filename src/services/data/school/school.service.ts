@@ -6,6 +6,7 @@ const routes = {
   addschool: 'schtrack-auth/api/v1/School/AddSchool ',
   getschoolbyid: 'schtrack-auth/api/v1/School/GetSchool',
   getallschool: 'schtrack-auth/api/v1/School/GetSchools',
+  getSubscriptionStatus: 'schtrack-auth/api/v1/School/NotifySubcriptionExpirationDateToAdmin',
   // getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
 
   //  grouped schools
@@ -103,6 +104,11 @@ export class SchoolService {
 
   getSchoolById(id) {
     const url = `${this.baseUrl + routes.getschoolbyid}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getSchoolSubscriptionStatusById(id) {
+    const url = `${this.baseUrl + routes.getSubscriptionStatus}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 

@@ -7,6 +7,8 @@ import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { Chart } from 'chart.js';
 import { ClassService } from 'src/services/data/class/class.service';
 import { AttendanceService } from 'src/services/data/attendance/attendance.service';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { SchoolService } from 'src/services/data/school/school.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -36,6 +38,7 @@ export class DashboardComponent implements OnInit {
   attendanceList: any;
   barDashboardDatas: string[];
   barDashboardDataKeys: string[];
+  subscriptionStatus: any;
 
 
 
@@ -45,7 +48,10 @@ export class DashboardComponent implements OnInit {
     private staffService: StaffService,
     private finance: FinanceService,
     private classService: ClassService,
-    private attendance: AttendanceService
+    private attendance: AttendanceService,
+    private notifyService: NotificationsService,
+    private school: SchoolService
+
 
 
 
@@ -61,6 +67,7 @@ export class DashboardComponent implements OnInit {
     this.getAllEmployees();
     this.getAllPayment();
     this.getAllClassesInSchool();
+    this.getSubscriptionStatus()
   }
 
   greeting() {
@@ -332,6 +339,22 @@ export class DashboardComponent implements OnInit {
     }
 
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+
+  getSubscriptionStatus() {
+    this.school.getSchoolSubscriptionStatusById(this.adminDetails.TenantId).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.subscriptionStatus = res.payload;
+        this.notify()
+      }
+    });
+  }
+
+  notify() {
+    setTimeout(() => {
+      document.getElementById('popupBtn').click();
+    }, 2000);
   }
 
 }

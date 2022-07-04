@@ -17,6 +17,7 @@ export class SchoolComponent implements OnInit {
   year: Date = new Date();
   schoolColor: any;
   allowFinanceModule = false;
+  subscriptionStatus: any;
   constructor(
     private router: Router,
     private notifyService: NotificationsService,
@@ -26,11 +27,10 @@ export class SchoolComponent implements OnInit {
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
+    this.getSchoolProperties();
 
-    console.log(this.adminDetails);
     if (this.adminDetails.UserType === 'SchoolAdmin') {
       this.allowFinanceModule = true;
-      console.log('no dey');
     }
     const finance = [
       'FINANCE_CREATE',
@@ -38,7 +38,7 @@ export class SchoolComponent implements OnInit {
       'FINANCE_UPDATE',
       'FINANCE_DELETE'
   ];
-    if (this.adminDetails.Permission !== null || undefined) {
+    if (this.adminDetails.Permission !== null || this.adminDetails.Permission !== undefined) {
       // tslint:disable-next-line:prefer-for-of
     for (let index = 0; index < finance.length; index++) {
       const element = finance[index];
@@ -49,7 +49,6 @@ export class SchoolComponent implements OnInit {
     }
     }
 
-    this.getSchoolProperties();
 
   }
 
@@ -73,6 +72,7 @@ export class SchoolComponent implements OnInit {
 }
 
 getSchoolProperties() {
+  console.log('called')
   this.school.getSchoolLogo(this.adminDetails.TenantId).subscribe((data: any) => {
     if (data.hasErrors === false) {
       // (data.paylaod);
@@ -83,6 +83,9 @@ getSchoolProperties() {
     }
   });
 }
+
+
+
 
 
 toggleSideBar() {
