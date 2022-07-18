@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 const routes = {
   getAlumnis: 'schtrack-auth/api/v1/Alumni/GetAllAlumni',
   getAlumnWithId: 'schtrack-auth/api/v1/Alumni/GetAllAlumniById',
+  createAlumni: 'schtrack-auth/api/v1/Alumni/AddAlumni',
   updateAlumi: 'schtrack-auth/api/v1/Alumni/UpdateAlumni',
   createEvent: 'schtrack-auth/api/v1/AlumniEvent/AddEvent',
   getAlumnisEvent: 'schtrack-auth/api/v1/AlumniEvent/GetAllEvents',
@@ -32,6 +33,12 @@ export class AlumniService {
   getAllAlumniById() {
     const url = `${this.baseUrl + routes.getAlumnWithId}`;
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  createNewAllumni(payload) {
+    const url = `${this.baseUrl + routes.createAlumni}`;
+    return this.http.post(url, payload, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+
   }
 
   createEvent(payload) {

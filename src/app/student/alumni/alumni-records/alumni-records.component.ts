@@ -80,7 +80,6 @@ export class AlumniRecordsComponent implements OnInit {
       if (data.hasErrors === false) {
         // (data);
         this.sessionList = data.payload;
-        console.log(this.sessionList);
       }
     });
   }

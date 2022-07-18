@@ -3,9 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
 import { SchoolGuard } from 'src/services/guards/school/school.guard';
 import { TeacherGuard } from 'src/services/guards/teacher.guard';
-import { AdminAlumniCreateEventComponent } from './admin-alumni-create-event/admin-alumni-create-event.component';
-import { AdminAlumniEventsComponent } from './admin-alumni-events/admin-alumni-events.component';
-import { AdminAlumniListComponent } from './admin-alumni-list/admin-alumni-list.component';
+import { AdminAddAlumniComponent } from './alumni/admin-add-alumni/admin-add-alumni.component';
+import { AdminAlumniCreateEventComponent } from './alumni/admin-alumni-create-event/admin-alumni-create-event.component';
+import { AdminAlumniEventsComponent } from './alumni/admin-alumni-events/admin-alumni-events.component';
+import { AdminAlumniListComponent } from './alumni/admin-alumni-list/admin-alumni-list.component';
 import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
@@ -47,6 +48,7 @@ const routes: Routes = [
       { path: 'create-event', component: AdminAlumniCreateEventComponent },
       { path: 'edit-event/:id', component: AdminAlumniCreateEventComponent },
       { path: 'alumni-list', component: AdminAlumniListComponent },
+      { path: 'add-alumni', component: AdminAddAlumniComponent },
       { path: 'alumni-events', component: AdminAlumniEventsComponent },
       { path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },
       { path: 'edit-student/:id', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },

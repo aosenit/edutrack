@@ -49,7 +49,6 @@ export class BranchInformationComponent implements OnInit {
 
   createProfileForm() {
     const data = JSON.parse(sessionStorage.getItem('branch'));
-    console.log(data)
     this.profileForm = this.fb.group({
 
       Name: ['' , Validators.required],

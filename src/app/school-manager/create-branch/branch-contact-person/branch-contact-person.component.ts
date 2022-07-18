@@ -158,7 +158,6 @@ export class BranchContactPersonComponent implements OnInit {
             if ( this.routeUrl === '/school-manager/create-school' ) {
               this.router.navigateByUrl('/school-manager/branches');
             } else {
-              console.log('ADMIN');
               this.router.navigateByUrl('/admin/clients');
             }
         }

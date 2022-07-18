@@ -20,7 +20,7 @@ export class AdminAlumniListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCurrentSession()
+    this.getCurrentSession();
   }
 
   getCurrentSession() {
@@ -30,13 +30,12 @@ export class AdminAlumniListComponent implements OnInit {
         this.sessionName = res.payload.name;
         // tslint:disable-next-line:prefer-for-of
         for (let index = 0; index < this.currentSesion.terms.length; index++) {
-          
+
           this.termName = this.currentSesion.terms[2].name;
-          console.log(this.termName)
-          
+
         }
         this.getAllSchoolAlumnis(this.sessionName, this.termName);
-       
+
       }
     });
   }
@@ -49,7 +48,7 @@ export class AdminAlumniListComponent implements OnInit {
     this.alumni.getAllAlumnis(session, term).subscribe((res: any) => {
       if (res.hasErrors === false ) {
         this.alumniList = res.payload;
-        console.log(res.payload)
+        console.log(res.payload);
       }
     }, error => {
       console.log(error);

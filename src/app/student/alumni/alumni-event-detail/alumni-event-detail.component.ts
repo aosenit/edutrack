@@ -31,7 +31,6 @@ export class AlumniEventDetailComponent implements OnInit {
   getEventByid() {
     this.alumni.getAllAlumniEventId(this.pageId).subscribe((res: any) => {
       if (res.hasErrors === false) {
-        console.log(res);
         this.eventDetails = res.payload;
       }
     });

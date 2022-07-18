@@ -29,7 +29,6 @@ export class AlumniEventsComponent implements OnInit {
   getAllAlumiEvents() {
     this.alumni.getAllEvents().subscribe((res: any) => {
       if (res.hasErrors === false) {
-        console.log('events', res.payload);
         this.eventLists = res.payload;
       }
     });

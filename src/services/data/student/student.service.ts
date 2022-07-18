@@ -61,7 +61,6 @@ export class StudentService {
       body.append('immunizationVms[' + i + '].vaccine', immunizationVms[i].vaccine);
     }
     const url = `${this.baseUrl + routes.addstudent}`;
-    console.log(body);
     return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -170,9 +169,10 @@ export class StudentService {
 
   }
 
-    deleteStudentById(id, name) {
+    deleteStudentById(id, payload) {
       const body = new FormData();
-      body.append('sessionName', name);
+      body.append('sessionName', payload.sessionName);
+      body.append('DeactivationReason', payload.DeactivationReason.reason);
       const options = {
         headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token')},
         body

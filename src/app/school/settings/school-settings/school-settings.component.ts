@@ -216,7 +216,6 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   }
 
   createClassArm() {
-    console.log('class arm create', this.classArmform.value);
     const {Name, status} = this.classArmform.value;
     const result = {
       Name,
@@ -436,12 +435,10 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       .subscribe(
         (res: any) => {
           this.theClass = res.payload;
-          console.log(res.payload);
           this.editClassForm.patchValue({
             name: res.payload.className,
             id: res.payload.id
           });
-          console.log(this.editClassForm.value);
         }
       );
   }
@@ -701,7 +698,6 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
       name,
       isActive: this.subjectStatus
     };
-    console.log(result);
     this.subjectService.updateSubjects(result).subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.notification.publishMessages(res.description, 'info', 0);

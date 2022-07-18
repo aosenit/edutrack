@@ -236,7 +236,6 @@ export class ScoreSheetComponent implements OnInit {
   handleBulkUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      console.log(file);
       if (file.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ) {
         this.notifyService.publishMessages('Invalid format! Please select only excel file', 'danger', 1);
         return;
@@ -298,7 +297,7 @@ export class ScoreSheetComponent implements OnInit {
     // tslint:disable-next-line:triple-equals
     if (check.id == studentId && score > this.AssessmentScore) {
       this.notifyService.publishMessages('Score cannot be greater than max score', 'danger', 1);
-      console.log('ikoja aye');
+      // console.log('ikoja aye');
       return;
     }
 
@@ -322,7 +321,7 @@ export class ScoreSheetComponent implements OnInit {
     let testScore = 0;
     // tslint:disable-next-line:forin
     for (const key in newCumm) {
-      console.log(newCumm[key]);
+      // console.log(newCumm[key]);
       if (typeof (newCumm[key]) === 'object') {
         testScore += newCumm[key].Score;
         // (testScore);

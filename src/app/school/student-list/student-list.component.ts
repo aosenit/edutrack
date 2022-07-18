@@ -23,8 +23,9 @@ export class StudentListComponent implements OnInit {
   fileString: any;
   sessionName: any;
   searchField!: FormControl;
+  selectedStudent: any;
 
-
+  deativateForm: FormGroup;
   constructor(
     private notifyService: NotificationsService,
     private fb: FormBuilder,
@@ -37,6 +38,9 @@ export class StudentListComponent implements OnInit {
   ngOnInit() {
     this.studentBulkUploadForm = this.fb.group({
       Document: []
+    });
+    this.deativateForm = this.fb.group({
+      reason: ['', Validators.required]
     });
 
     this.getAllStudents();
@@ -100,9 +104,7 @@ export class StudentListComponent implements OnInit {
 
   createStudentBulkUpload() {
     this.studentService.uploadBulkDocument(this.studentBulkUploadForm.value).subscribe((data: any) => {
-      console.log('bulk file', data);
       if (data.hasErrors === false) {
-        console.log('file successfully uplaoded', data.payload);
         this.notifyService.publishMessages(data.description, 'success', 1);
         document.getElementById('close').click();
         this.router.navigateByUrl('/admin/students');
@@ -156,6 +158,10 @@ export class StudentListComponent implements OnInit {
     });
   }
 
+
+  studentData(data) {
+    this.selectedStudent = data;
+  }
   editStudent(id) {
     this.studentService.getStudentById(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -167,10 +173,16 @@ export class StudentListComponent implements OnInit {
   }
 
   deleteStudent(id) {
-    this.studentService.deleteStudentById(id, this.sessionName).subscribe((data: any) => {
+    const result = {
+      sessionName: this.sessionName,
+      DeactivationReason: this.deativateForm.value
+    };
+    this.studentService.deleteStudentById(id, result).subscribe((data: any) => {
       if (data.hasErrors === false) {
         // console.log(data.payload);
         this.notifyService.publishMessages('Student deleted successfully', 'success', 1);
+        document.getElementById('closeModel').click();
+
         this.getAllStudents();
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);

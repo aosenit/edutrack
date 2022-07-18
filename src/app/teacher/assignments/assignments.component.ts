@@ -81,7 +81,6 @@ export class AssignmentsComponent implements OnInit {
     if (event === true) {
       this.view = true;
       this.selectedSubject = this.assignmentLists[i];
-      console.log(this.selectedSubject)
       this.clipnote = false;
     } else {
       this.view = false;

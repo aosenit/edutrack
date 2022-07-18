@@ -42,7 +42,6 @@ export class PromotionSettingsComponent implements OnInit {
   getPromotionTypes() {
     this.promotion.getPromotionType().subscribe((res: any) => {
       if (res) {
-        console.log(res);
         this.promotionTypes = res;
       }
     });
@@ -51,7 +50,6 @@ export class PromotionSettingsComponent implements OnInit {
   getPromotionMethods() {
     this.promotion.getPromotionMethod().subscribe((res: any) => {
       if (res) {
-        console.log(res);
         this.promotionMethods = res;
       }
     });
@@ -70,7 +68,6 @@ export class PromotionSettingsComponent implements OnInit {
 
     this.promotion.updatePromotionSetup(payload).subscribe((res: any) => {
       if (res.hasErrors === false) {
-        console.log(res);
         this.notification.publishMessages(res.description, 'success', 1);
         this.promotionForm.reset();
         this.getPromotionSetups();
@@ -84,7 +81,6 @@ export class PromotionSettingsComponent implements OnInit {
   getPromotionSetups() {
     this.promotion.getPromotionSetup().subscribe((res: any) => {
       if (res.hasErrors === false) {
-        console.log(res.payload);
         this.currentPromotionSetup = res.payload;
         this.pupulatePromotionSetup(res.payload);
         // this.terminalClasses = res.payload;
@@ -103,7 +99,6 @@ export class PromotionSettingsComponent implements OnInit {
   getWithdrawalSetups() {
     this.promotion.getWithdrawalSetup().subscribe((res: any) => {
       if (res.hasErrors === false) {
-        console.log(res.payload);
         this.populateWithdrawalSetup(res.payload);
       }
     });
@@ -165,7 +160,6 @@ export class PromotionSettingsComponent implements OnInit {
 
   setTerminal(e, i) {
     this.terminalClasses[i].isTerminal = e;
-    console.log(e, this.terminalClasses[i]);
 
   }
 

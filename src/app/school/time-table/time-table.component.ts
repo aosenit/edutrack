@@ -44,7 +44,6 @@ export class TimeTableComponent implements OnInit {
     // this.getClasses();
     this.getAllPeriods();
     this.daysofWeek();
-    console.log(this.checkPushlishStatus);
     this.initTimeTableCellForm();
     // this.deleteTableCell();
 
@@ -196,7 +195,6 @@ export class TimeTableComponent implements OnInit {
       HasVirtual: hasVirtual
     };
     this.tableCells.push(result);
-    console.log(this.tableCells)
     this.timetableCellForm.controls.teacherClassSubjectId.setValue('');
     this.timetableCellForm.controls.hasVirtual.setValue(false);
     sessionStorage.setItem('publish', JSON.stringify(this.addCell));

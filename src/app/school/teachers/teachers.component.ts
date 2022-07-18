@@ -121,9 +121,7 @@ fileString: any;
 
   createTeacherBulkUpload() {
     this.teacherService.uploadBulkDocument(this.teacherBulkUpload.value).subscribe((data: any) => {
-      console.log('bulk file', data);
       if (data.hasErrors === false) {
-        console.log('file successfully uploaded', data.payload);
         this.notifyService.publishMessages(data.description, 'success', 1);
         document.getElementById('close').click();
         this.router.navigateByUrl('/admin/teacher');

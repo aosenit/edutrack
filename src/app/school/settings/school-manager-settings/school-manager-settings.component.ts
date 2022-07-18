@@ -210,7 +210,6 @@ export class SchoolManagerSettingsComponent implements OnInit {
   }
 
   getTermDetails(index, id) {
-    console.log(id);
     this.selectedterm = this.sessionList[index];
     const selectedterm = this.sessionList[index];
     this.modalTitle = 'Update Term';

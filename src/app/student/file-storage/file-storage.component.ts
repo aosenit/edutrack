@@ -64,7 +64,6 @@ classWorks: any;
     // (fileId);
     this.fileService.getFileUpload(fileId).subscribe((data: any) => {
       // (data);
-      console.log(data);
     });
   }
 
