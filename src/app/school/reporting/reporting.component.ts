@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ClassService } from 'src/services/data/class/class.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { ReportingService } from 'src/services/data/reporting/reporting.service';
 
 @Component({
   selector: 'app-reporting',
@@ -14,7 +17,7 @@ export class ReportingComponent implements OnInit {
       {id: 4, title: 'Parent Profile'},
 
     ]},
-    {id: 3, title: 'Student Report', slug: 'studentReport', data: [
+    {id: 2, title: 'Student Report', slug: 'studentReport', data: [
       {id: 1, title: 'Daily Student Attendance'},
       {id: 2, title: 'Weekly Student Attendance'},
       {id: 3, title: 'Term Student Attendance'},
@@ -26,7 +29,7 @@ export class ReportingComponent implements OnInit {
       {id: 2, title: 'Borrowed Overdue List'},
 
     ]},
-    {id: 3, title: 'Finance Report', slug: 'financeReport', data: [
+    {id: 4, title: 'Finance Report', slug: 'financeReport', data: [
       {id: 1, title: 'Journal Listing / Transactions'},
       {id: 1, title: 'Monthly Depreciating Report'},
       {id: 1, title: 'Annual Depreciating Report'},
@@ -44,20 +47,38 @@ export class ReportingComponent implements OnInit {
       {id: 1, title: 'Budget / Project Stewardship Report  '},
       {id: 1, title: 'Project Line item Report  '}
     ]},
-  ]
+  ];
 
 
   studentReport = [
-  ]
+  ];
   financeReport: [
     {id: 1, title: 'Payment'},
     {id: 1, title: 'Subscriptions'}
-  ]
+  ];
   selectedReportType: any;
   showNext = false;
-  constructor() { }
+  showTypes = false;
+  showSubReport = false;
+  selectedSubReport: any;
+  adminDetails: any;
+  selectedStartDate = '';
+  selectedEndDate = '';
+  studentAttendanceRecord: any;
+  classList: any;
+  selectedClass: any;
+  constructor(
+    private classService: ClassService,
+    private reportService: ReportingService
+  ) { }
 
   ngOnInit() {
+    const helper = new JwtHelperService();
+    this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
+    console.log(this.adminDetails);
+    this.getAllClasses();
+    this.fetchAttendanceRecord(this.adminDetails.TenantId);
+
   }
 
   getReportType(event) {
@@ -66,8 +87,60 @@ export class ReportingComponent implements OnInit {
 
         this.selectedReportType = item.data;
       }
-    })
-    this.showNext = true;
+    });
+    this.showTypes = true;
   }
+
+  selectReportType(event) {
+    this.showSubReport = true;
+    this.selectedSubReport = event;
+  }
+
+  getAllClasses() {
+      this.classService.getAllClasses().subscribe((res: any) => {
+        if (res.hasErrors === false) {
+          console.log(res);
+          this.classList = res.payload;
+        }
+      });
+  }
+
+  fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
+    this.reportService.GetClassAttendanceWithDateSummary(tenantId, classId, startDate, endDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.studentAttendanceRecord = res.payload;
+      }
+    });
+  }
+
+  selectClass(event) {
+    console.log(event)
+    this.selectedClass = event;
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
+  }
+
+ getStartDate(event) {
+  this.selectedStartDate = event;
+  this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate);
+}
+getEndDate(event) {
+  this.selectedEndDate = event;
+  this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate);
+ }
+
+  downloadReport() {
+    // tslint:disable-next-line:max-line-length
+    this.reportService.exportAttance(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        console.log(res.payload);
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
+
 
 }
