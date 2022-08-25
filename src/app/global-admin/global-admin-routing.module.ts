@@ -36,6 +36,7 @@ const routes: Routes = [
       {path: 'create-client', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
       {path: 'group-of-schools', loadChildren: () => import('./grouped-schools/grouped-schools.module').then(m => m.GroupedSchoolsModule)},
       {path: 'edit-client/:id', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
+      {path: 'reports', loadChildren: () => import('./reporting/reporting.module').then(m => m.ReportingModule)},
 
 
     ]

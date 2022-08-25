@@ -59,6 +59,7 @@ const routes: Routes = [
       { path: 'finance-setting', loadChildren: () => import('./finance-setting/finance-setting.module').then(m => m.FinanceSettingModule) },
       { path: 'finance', loadChildren: () => import('./finance/finance.module').then(m => m.FinanceModule) },
       { path: 'promotion', loadChildren: () => import('./promotion/promotion.module').then(m => m.PromotionModule) },
+      { path: 'report', loadChildren: () => import('./reporting/reporting.module').then(m => m.ReportingModule) },
       { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
     ]
 
