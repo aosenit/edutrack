@@ -67,6 +67,7 @@ export class ReportingComponent implements OnInit {
   studentAttendanceRecord: any;
   classList: any;
   selectedClass: any;
+  selectedSlug: string;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService
@@ -77,23 +78,23 @@ export class ReportingComponent implements OnInit {
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
     console.log(this.adminDetails);
     this.getAllClasses();
-    this.fetchAttendanceRecord(this.adminDetails.TenantId);
-
+    
   }
-
+  
   getReportType(event) {
     this.reportingOptions.forEach(item => {
       if (item.slug === event) {
-
+        this.selectedSlug = item.slug;
         this.selectedReportType = item.data;
       }
     });
     this.showTypes = true;
   }
-
+  
   selectReportType(event) {
-    this.showSubReport = true;
+    this.showNext = true;
     this.selectedSubReport = event;
+    this.fetchAttendanceRecord(this.adminDetails.TenantId);
   }
 
   getAllClasses() {

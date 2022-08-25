@@ -8,7 +8,7 @@
             <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
               data-target="#exampleModalCenterUpload"> Export </button> -->
       
-            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReport()"> Export
+            <button *ngIf="showNext" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReport()"> Export
             </button>
           </div>
   
@@ -43,7 +43,7 @@
               <div class="col " *ngIf="showNext">
                 <label for="class" class="fs-12 fw-6">Class</label>
                 <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
-                  <option value="" selected>Report Type</option>
+                  <option value="" selected>Select class</option>
                   <option [value]="class.id" *ngFor="let class of classList">{{class.classSection + ' ' + class.name}}</option>
   
   
@@ -80,7 +80,7 @@
       </div>
     </div>
   
-    <ng-container>
+    <ng-container *ngIf="selectedSlug === 'studentReport' ">
       <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
         <table class="table table-borderless client-table">
           <thead>
@@ -124,6 +124,15 @@
                 </div>
             </div> -->
       </section>
+    </ng-container>
+
+
+    <ng-container *ngIf="selectedSlug === 'userReport' ">
+      'Judith this is for you'
+    </ng-container>
+    
+    <ng-container *ngIf="selectedSlug === 'userReport' ">
+      'Judith this is for you'
     </ng-container>
    
   
