@@ -19,7 +19,7 @@ const routes = {
   getteacherdesignation: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
   getsubjectAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject',
   getclassAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForClass',
-
+  downloadEmployeesData: 'schtrack-auth/api/v1/Teacher/GetTeachersDataInExcel'
 };
 @Injectable({
   providedIn: 'root'
@@ -312,6 +312,12 @@ export class TeacherService {
 
     const url = `${this.baseUrl + routes.bulkUpload}`;
     return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  exportEmployeeExcelFile(staff) {
+    const url = `${this.baseUrl + routes.downloadEmployeesData}?Staff=${staff}`;
+    return this.http.post(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 
