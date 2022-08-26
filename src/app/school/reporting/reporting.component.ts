@@ -68,6 +68,7 @@ export class ReportingComponent implements OnInit {
   showNext = false;
   showTypes = false;
   showSubReport = false;
+  showClass = false;
   selectedSubReport: any;
   adminDetails: any;
   selectedStartDate = '';
@@ -115,6 +116,7 @@ export class ReportingComponent implements OnInit {
     this.selectedSubReport = event;
     if (this.selectedSlug === 'userReport') {
       this.showNext = false;
+      this.showClass= true;
       this.showExportBtn = true;
       // tslint:disable-next-line:max-line-length
       event === 'teacherProfile' ?  (this.subSlug = true, this.getAllTeachers()) : 
@@ -225,7 +227,13 @@ getAllParents() {
 
   downloadReport() {
     // tslint:disable-next-line:max-line-length
-    this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() : this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() : this.downloadAttendanceReport()
+    this.selectedSubReport === 'nonTeacherProfile' ? 
+    this.downloadStaffRecord() : 
+    this.selectedSubReport === 'teacherProfile' ? 
+    this.downloadTeacherRecord() : 
+    this.selectedSubReport === 'studentProfile' ? 
+    this.downloadStudentRecord() :
+    this.downloadAttendanceReport()
   }
 
   downloadAttendanceReport() {
@@ -265,4 +273,15 @@ getAllParents() {
     });
   }
 
+  downloadStudentRecord() {
+    // tslint:disable-next-line:max-line-length
+    this.studentService.exportStudentExcelFile(this.selectedClass).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
 }

@@ -10,7 +10,8 @@
   deletestudent: 'schtrack-auth/api/v1/Student/DeleteStudent',
   getBulkDdownload: 'schtrack-auth/api/v1/Student/GetStudentsExcelSheet',
   bulkUpload: 'schtrack-auth/api/v1/Student/AddBulkStudent',
-  searchStudent: 'schtrack-auth/api/v1/Student/GetStudentByName'
+  searchStudent: 'schtrack-auth/api/v1/Student/GetStudentByName',
+  downloadStudentsReport: 'schtrack-auth/api/v1/Student/GetStudentDataInExcel'
 };
 
   @Injectable({
@@ -201,5 +202,11 @@ export class StudentService {
       const url = `${this.baseUrl + routes.bulkUpload}`;
       return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
+    }
+
+    exportStudentExcelFile(classId) {
+      const url = `${this.baseUrl + routes.downloadStudentsReport}?classId=${classId}`;
+      return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  
     }
 }
