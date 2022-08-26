@@ -113,16 +113,7 @@
       
           </tbody>
         </table>
-        <!-- <div class="d-flex justify-content-end">
-          <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
-        </div> -->
-        <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                  <img src="assets/images/svg/no-result.svg" alt="no search result" class="my-4">
-                    <p class="mb-4 no-result">Sorry, no results found</p>
-                    <button class="btn btn-outline-orange  mx-2 mx-lg-3" >Go back </button>
-                </div>
-            </div> -->
+      
       </section>
     </ng-container>
 
@@ -135,34 +126,12 @@
               <tr>
                  
                   <th scope="col" class="head" >Full Name 
-                      <!-- <img src="assets/images/svg/table-sort.svg"
-                          alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-                      <!-- ================ DROPDOWN ==================== -->
-                      <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          
-                          <a class="dropdown-item fc-orange" href="#">All </a>
-                          <a class="dropdown-item" href="#">A - Z </a>
-                          <a class="dropdown-item" href="#">Z - A </a>
-                      </div> -->
+                    
                   </th>
                   <th scope="col">Staff Number </th>
                  
-                  <!-- <th scope="col">Designation 
-                  </th> -->
-                  
-  
                   <th scope="col">Status 
-                      <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
-                          class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
-                          aria-haspopup="true" aria-expanded="false"> -->
-                      <!-- ================ DROPDOWN ==================== -->
-                      <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                          
-                          <a class="dropdown-item fc-orange" href="#">All </a>
-                          <a class="dropdown-item" href="#">Active </a>
-                          <a class="dropdown-item" href="#">Inactive </a>
-                      </div> -->
+                      
                   </th>
                   
               </tr>
@@ -178,7 +147,6 @@
                       </div>
                   </td>
                   <td>{{teacher?.staffNumber}}</td>
-                  <!-- <td> N/A </td> -->
                   
                   <td class="rounded-right "><span class="status_active">Active</span></td>
                 
@@ -243,51 +211,104 @@
             </div> -->
       </section>
     </ng-container>
-   
-    <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'studentProfile'  ">
-      'Helen this is for you'
+
+    <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'parentProfile'  ">
       <section class="list table-responsive mb-5" >
         <table class="table table-borderless client-table">
           <thead>
-      
-            <th scope="col" class="">Student ID </th>
-            <th scope="col">Name </th>
-            <th scope="col">Class
-            </th>
-            <th scope="col">No of Time present
-            </th>
-            <th scope="col">No of Time absent
-            </th>
-      
+              <tr>
+                 
+                  <th scope="col" class="head " >Full Name 
+               
+                  </th>
+                  <th scope="col">Parent ID </th>
+                 
+                  <th scope="col">Phone Number 
+                   
+                  </th>
+                  <th scope="col">Email 
+                  </th>
+  
+                  <th scope="col">Status 
+                 
+                  </th>
+              </tr>
           </thead>
           <tbody>
-            <tr class="pb-2" >
-              <td scope="row" class="school-logo rounded-left fc-lblue">
-               sdsdsd
-              </td>
-              <td> dsdsd </td>
-              <td> dsdsds </td>
-              <td>dsdsds</td>
-      
-              <td class="rounded-right ">
-                sdsds
-              </td>
-            </tr>
-      
-      
-      
+
+              <tr class="pb-1" *ngFor="let parent of parentList  ">
+                  
+               
+                  <td class="user" >
+                      
+                      <div class="d-flex align-items-center">
+                          <img class="" *ngIf="parent.image" src="data:image/png;base64,{{parent.image}}" alt="schools log"
+                          class="mr-3 image-rounded" id="">
+                          <h6 class="fw-6 mb-0" >{{parent?.fullName | titlecase}} </h6>
+                      </div>
+                  </td>
+                  <td>{{parent?.parentCode}}</td>
+                  <td>{{parent?.phoneNumber}}</td>
+                  <td class="">{{parent?.email}}</td>
+                  <td class="rounded-right">
+                      <span class="status_active" *ngIf = "parent.status == true">Active</span>
+                      <span class="status_active" *ngIf = "parent.status == false">Inactive</span>
+                  </td>
+               
+              </tr>
+  
+  
           </tbody>
-        </table>
-        <!-- <div class="d-flex justify-content-end">
-          <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
-        </div> -->
-        <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                  <img src="assets/images/svg/no-result.svg" alt="no search result" class="my-4">
-                    <p class="mb-4 no-result">Sorry, no results found</p>
-                    <button class="btn btn-outline-orange  mx-2 mx-lg-3" >Go back </button>
-                </div>
-            </div> -->
+      </table>
+    
+      </section>
+    </ng-container>
+   
+    <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'studentProfile'  ">
+      <section class="list table-responsive mb-5" >
+        <table class="table table-borderless client-table">
+          <thead>
+              <tr>
+                  <th scope="col" class="head" >Student Name 
+                  </th>
+                  <th scope="col">Student Number </th>
+                 
+                  <th scope="col">Gender</th>
+                  <th scope="col">Date of Birth</th>
+                  <th scope="col">Level</th>
+                  <th scope="col">Class</th>
+  
+                  <th scope="col">Status 
+                  </th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+              <tr class="pb-1" *ngFor="let student of studentList ">
+                  <td class="user" >
+                      
+                      <div class="d-flex align-items-center">
+                          <img class="" *ngIf="student.image" src="data:image/png;base64,{{student.image}}" alt="schools log"
+                          class="mr-3 image-rounded" id="">
+                        <img class="" *ngIf="student.image == null" src="assets/images/svg/companyalt.svg" alt="schools log"
+                          class="mr-3 image-rounded" id="">
+                          <h6 class="fw-6 mb-0" >{{student?.firstName + ' ' + student?.lastName | titlecase}} </h6>
+                      </div>
+                  </td>
+                  <td>{{student?.studentNumber}}</td>
+                  <td>{{student?.sex | titlecase}}</td>
+                  <td class="">{{student?.dateOfBirth | date : 'mediumDate'}}</td>
+                  <td class="">{{student?.section}}</td>
+                  <td class="">{{student?.class}}</td>
+                  <td class="rounded-right"><span class="status_active">Active</span></td>
+              </tr>
+  
+              
+  
+  
+  
+          </tbody>
+      </table>
       </section>
     </ng-container>
   
