@@ -317,7 +317,7 @@ export class TeacherService {
 
   exportEmployeeExcelFile(staff) {
     const url = `${this.baseUrl + routes.downloadEmployeesData}?Staff=${staff}`;
-    return this.http.post(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 

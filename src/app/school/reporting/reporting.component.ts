@@ -77,6 +77,7 @@ export class ReportingComponent implements OnInit {
   teachersList : any;
   subSlug = false;
   employeeList: any
+  showExportBtn = false;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -107,6 +108,7 @@ export class ReportingComponent implements OnInit {
     this.selectedSubReport = event;
     if (this.selectedSlug === 'userReport') {
       this.showNext = false;
+      this.showExportBtn = true;
       // tslint:disable-next-line:max-line-length
       event === 'teacherProfile' ? (this.subSlug = true, this.getAllTeachers()) : event === 'nonTeacherProfile' ? (this.subSlug = true, this.callNonTeacherEndPoint()) : this.subSlug = false
       // you can call user focused endpoints here
@@ -179,7 +181,13 @@ callNonTeacherEndPoint() {
   });
 }
 
+
   downloadReport() {
+    // tslint:disable-next-line:max-line-length
+    this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() : this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() : this.downloadAttendanceReport()
+  }
+  
+  downloadAttendanceReport() {
     // tslint:disable-next-line:max-line-length
     this.reportService.exportAttance(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
@@ -189,8 +197,8 @@ callNonTeacherEndPoint() {
         link.click();
       }
     });
-  }
 
+  }
   downloadTeacherRecord() {
     // tslint:disable-next-line:max-line-length
     this.teacherService.exportEmployeeExcelFile(1).subscribe((res: any) => {
