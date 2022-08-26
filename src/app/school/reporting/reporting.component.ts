@@ -2,12 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ClassService } from 'src/services/data/class/class.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { ReportingService } from 'src/services/data/reporting/reporting.service';
+import { StaffService } from 'src/services/data/staff/staff.service';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+
 
 @Component({
   selector: 'app-reporting',
   templateUrl: './reporting.component.html',
   styleUrls: ['./reporting.component.css']
 })
+
 export class ReportingComponent implements OnInit {
   reportingOptions = [
     {id: 1, title: 'User profile', slug: 'userReport', data : [
@@ -69,9 +73,12 @@ export class ReportingComponent implements OnInit {
   selectedClass: any;
   selectedSlug: string;
   subSlug = false;
+  employeeList: any
   constructor(
     private classService: ClassService,
-    private reportService: ReportingService
+    private reportService: ReportingService,
+    private staffService: StaffService,
+    private notifyService: NotificationsService,
   ) { }
 
   ngOnInit() {
@@ -149,8 +156,15 @@ callTeahcerEndPoint() {
 }
 
 callNonTeacherEndPoint() {
-  console.log('I am been called by Helen')
-  // import th staff service and call the right method
+  this.staffService.getAllStaffInSchool().subscribe( (data: any) => {
+    if (data.hasErrors === false) {
+      this.employeeList = data.payload;
+      // ('all employees', this.employeeList);
+    }
+  }, error => {
+    this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+  });
 }
 
   downloadReport() {
