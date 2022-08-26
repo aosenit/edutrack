@@ -7,6 +7,7 @@ import { StaffService } from 'src/services/data/staff/staff.service';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 
 import {TeacherService}from 'src/services/data/teacher/teacher.service';
+import { StudentService } from 'src/services/data/student/student.service';
 
 @Component({
   selector: 'app-reporting',
@@ -78,12 +79,15 @@ export class ReportingComponent implements OnInit {
   subSlug = false;
   employeeList: any
   showExportBtn = false;
+  studentList: any;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
     private staffService: StaffService,
     private notifyService: NotificationsService,
-    private teacherService: TeacherService
+    private teacherService: TeacherService,
+    private studentService: StudentService,
+
   ) { }
 
   ngOnInit() {
@@ -178,6 +182,19 @@ callNonTeacherEndPoint() {
   }, error => {
     this.notifyService.publishMessages(error.errors, 'danger', 1);
 
+  });
+}
+getAllStudents() {
+  this.studentService.getAllStudents(1,100).subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      this.studentList = data.payload;
+      // console.log('student list', this.studentList);
+    } else {
+      this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+    }
+  }, error => {
+    this.notifyService.publishMessages(error.errors, 'danger', 1);
   });
 }
 
