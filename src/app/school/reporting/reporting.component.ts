@@ -5,6 +5,7 @@ import { ReportingService } from 'src/services/data/reporting/reporting.service'
 
 import { StaffService } from 'src/services/data/staff/staff.service';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
+import { ParentsService } from 'src/services/data/parents/parents.service';
 
 import {TeacherService}from 'src/services/data/teacher/teacher.service';
 
@@ -78,12 +79,15 @@ export class ReportingComponent implements OnInit {
   subSlug = false;
   employeeList: any
   showExportBtn = false;
+  parentList : any
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
     private staffService: StaffService,
     private notifyService: NotificationsService,
-    private teacherService: TeacherService
+    private teacherService: TeacherService,
+    private parentService: ParentsService,
+
   ) { }
 
   ngOnInit() {
@@ -110,7 +114,10 @@ export class ReportingComponent implements OnInit {
       this.showNext = false;
       this.showExportBtn = true;
       // tslint:disable-next-line:max-line-length
-      event === 'teacherProfile' ? (this.subSlug = true, this.getAllTeachers()) : event === 'nonTeacherProfile' ? (this.subSlug = true, this.callNonTeacherEndPoint()) : this.subSlug = false
+      event === 'teacherProfile' ?  (this.subSlug = true, this.getAllTeachers()) : 
+      event === 'nonTeacherProfile' ?   (this.subSlug = true, this.callNonTeacherEndPoint()) :
+      event === 'parentProfile' ? (this.subSlug = true , this.getAllParents())
+      : this.subSlug = false
       // you can call user focused endpoints here
     } else if (this.selectedSlug === 'attendanceReport') {
       this.showNext = true;
@@ -179,6 +186,22 @@ callNonTeacherEndPoint() {
     this.notifyService.publishMessages(error.errors, 'danger', 1);
 
   });
+}
+
+getAllParents() {
+  this.parentService.getAllParentsInASchool(this.adminDetails.TenantId, 1, 100).subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      // (data);
+      this.parentList = data.payload;
+      // this.parentCount = data.totalCount;
+    } else {
+      this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+    }
+  },
+    error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
+    });
 }
 
 

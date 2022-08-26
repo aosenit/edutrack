@@ -243,6 +243,63 @@
             </div> -->
       </section>
     </ng-container>
+
+    <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'parentProfile'  ">
+      <section class="list table-responsive mb-5" >
+        <table class="table table-borderless client-table">
+          <thead>
+              <tr>
+                  <!-- <th scope="col" class="head ">
+                      <div class="custom-control custom-checkbox">
+                          <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                          <label class="custom-control-label" for="customCheckTh"></label>
+                      </div>
+                  </th> -->
+                  <th scope="col" class="head " >Full Name 
+               
+                  </th>
+                  <th scope="col">Parent ID </th>
+                 
+                  <th scope="col">Phone Number 
+                   
+                  </th>
+                  <th scope="col">Email 
+                  </th>
+  
+                  <th scope="col">Status 
+                 
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+
+              <tr class="pb-1" *ngFor="let parent of parentList  ">
+                  
+               
+                  <td class="user" >
+                      
+                      <div class="d-flex align-items-center">
+                          <img class="" *ngIf="parent.image" src="data:image/png;base64,{{parent.image}}" alt="schools log"
+                          class="mr-3 image-rounded" id="">
+                          <h6 class="fw-6 mb-0" >{{parent?.fullName | titlecase}} </h6>
+                      </div>
+                  </td>
+                  <td>{{parent?.parentCode}}</td>
+                  <td>{{parent?.phoneNumber}}</td>
+                  <td class="">{{parent?.email}}</td>
+                  <td class="rounded-right">
+                      <span class="status_active" *ngIf = "parent.status == true">Active</span>
+                      <span class="status_active" *ngIf = "parent.status == false">Inactive</span>
+                  </td>
+               
+              </tr>
+  
+  
+          </tbody>
+      </table>
+    
+      </section>
+    </ng-container>
    
   
   
