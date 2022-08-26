@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ClassService } from 'src/services/data/class/class.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { ReportingService } from 'src/services/data/reporting/reporting.service';
+
 import { StaffService } from 'src/services/data/staff/staff.service';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 
+import {TeacherService}from 'src/services/data/teacher/teacher.service';
 
 @Component({
   selector: 'app-reporting',
@@ -72,6 +74,7 @@ export class ReportingComponent implements OnInit {
   classList: any;
   selectedClass: any;
   selectedSlug: string;
+  teachersList : any;
   subSlug = false;
   employeeList: any
   constructor(
@@ -79,22 +82,21 @@ export class ReportingComponent implements OnInit {
     private reportService: ReportingService,
     private staffService: StaffService,
     private notifyService: NotificationsService,
+    private teacherService: TeacherService
   ) { }
 
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
-    console.log(this.adminDetails);
+  
     this.getAllClasses();
 
   }
 
   getReportType(event) {
-    console.log('event', event)
     this.reportingOptions.forEach(item => {
       if (item.slug === event) {
         this.selectedSlug = item.slug;
-        // console.log('I picked this slug', this.selectedSlug)
         this.selectedReportType = item.data;
         this.showTypes = true;
       }
@@ -106,7 +108,7 @@ export class ReportingComponent implements OnInit {
     if (this.selectedSlug === 'userReport') {
       this.showNext = false;
       // tslint:disable-next-line:max-line-length
-      event === 'teacherProfile' ? (this.subSlug = true, this.callTeahcerEndPoint()) : event === 'nonTeacherProfile' ? (this.subSlug = true, this.callNonTeacherEndPoint()) : this.subSlug = false
+      event === 'teacherProfile' ? (this.subSlug = true, this.getAllTeachers()) : event === 'nonTeacherProfile' ? (this.subSlug = true, this.callNonTeacherEndPoint()) : this.subSlug = false
       // you can call user focused endpoints here
     } else if (this.selectedSlug === 'attendanceReport') {
       this.showNext = true;
@@ -118,7 +120,6 @@ export class ReportingComponent implements OnInit {
   getAllClasses() {
       this.classService.getAllClasses().subscribe((res: any) => {
         if (res.hasErrors === false) {
-          console.log(res);
           this.classList = res.payload;
         }
       });
@@ -133,7 +134,6 @@ export class ReportingComponent implements OnInit {
   }
 
   selectClass(event) {
-    console.log(event);
     this.selectedClass = event;
     this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
   }
@@ -150,9 +150,21 @@ getEndDate(event) {
 
 //  this is where Judith
 
-callTeahcerEndPoint() {
-  console.log('I am been called by Judith')
-  // import th teacher service and call the right method
+// callTeahcerEndPoint() {
+//   console.log('I am been called by Judith')
+//   // import th teacher service and call the right method
+//   this.teacherService.getAllTeachers().subscribe((data: any)=>{
+//     console.log(data)
+//   })
+// }
+
+getAllTeachers() {
+  this.teacherService.getAllTeachers().subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      this.teachersList = data.payload;
+      // (this.teachersList);
+    }
+  });
 }
 
 callNonTeacherEndPoint() {
@@ -171,7 +183,18 @@ callNonTeacherEndPoint() {
     // tslint:disable-next-line:max-line-length
     this.reportService.exportAttance(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
-        console.log(res.payload);
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
+  downloadTeacherRecord() {
+    // tslint:disable-next-line:max-line-length
+    this.teacherService.exportEmployeeExcelFile(1).subscribe((res: any) => {
+      if (res.hasErrors === false) {
         const link = document.createElement('a');
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
         link.href = 'data:image/png;base64,' + res.payload.base64String;
@@ -181,5 +204,16 @@ callNonTeacherEndPoint() {
   }
 
 
+  downloadStaffRecord() {
+    // tslint:disable-next-line:max-line-length
+    this.teacherService.exportEmployeeExcelFile(2).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
 
 }
