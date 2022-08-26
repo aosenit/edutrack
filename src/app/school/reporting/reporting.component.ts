@@ -89,7 +89,7 @@ export class ReportingComponent implements OnInit {
   ngOnInit() {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
-  
+
     this.getAllClasses();
 
   }
@@ -186,7 +186,7 @@ callNonTeacherEndPoint() {
     // tslint:disable-next-line:max-line-length
     this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() : this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() : this.downloadAttendanceReport()
   }
-  
+
   downloadAttendanceReport() {
     // tslint:disable-next-line:max-line-length
     this.reportService.exportAttance(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
