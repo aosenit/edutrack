@@ -11,10 +11,10 @@ import { ReportingService } from 'src/services/data/reporting/reporting.service'
 export class ReportingComponent implements OnInit {
   reportingOptions = [
     {id: 1, title: 'User profile', slug: 'userReport', data : [
-      {id: 1, title: 'Export Student Profile'},
-      {id: 2, title: 'Teacher Profile'},
-      {id: 3, title: 'Non Teaching Staff profile'},
-      {id: 4, title: 'Parent Profile'},
+      {id: 1, title: 'Export Student Profile', subSlug: 'studentProfile'},
+      {id: 2, title: 'Teacher Profile', subSlug: 'teacherProfile'},
+      {id: 3, title: 'Non Teaching Staff profile', subSlug: 'nonTeacherProfile'},
+      {id: 4, title: 'Parent Profile', subSlug: 'parentProfile'},
 
     ]},
     {id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
@@ -68,6 +68,7 @@ export class ReportingComponent implements OnInit {
   classList: any;
   selectedClass: any;
   selectedSlug: string;
+  subSlug = false;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService
@@ -78,26 +79,33 @@ export class ReportingComponent implements OnInit {
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
     console.log(this.adminDetails);
     this.getAllClasses();
-    
+
   }
-  
+
   getReportType(event) {
+    console.log('event', event)
     this.reportingOptions.forEach(item => {
       if (item.slug === event) {
         this.selectedSlug = item.slug;
+        // console.log('I picked this slug', this.selectedSlug)
         this.selectedReportType = item.data;
+        this.showTypes = true;
       }
     });
-    this.showTypes = true;
   }
-  
-  selectReportType(event) {
-    this.showNext = true;
-    this.selectedSubReport = event;
-    // if (event === ) {
 
-    // }
-    this.fetchAttendanceRecord(this.adminDetails.TenantId);
+  selectReportType(event) {
+    this.selectedSubReport = event;
+    if (this.selectedSlug === 'userReport') {
+      this.showNext = false;
+      // tslint:disable-next-line:max-line-length
+      event === 'teacherProfile' ? (this.subSlug = true, this.callTeahcerEndPoint()) : event === 'nonTeacherProfile' ? (this.subSlug = true, this.callNonTeacherEndPoint()) : this.subSlug = false
+      // you can call user focused endpoints here
+    } else if (this.selectedSlug === 'attendanceReport') {
+      this.showNext = true;
+
+      this.fetchAttendanceRecord(this.adminDetails.TenantId);
+    }
   }
 
   getAllClasses() {
@@ -118,7 +126,7 @@ export class ReportingComponent implements OnInit {
   }
 
   selectClass(event) {
-    console.log(event)
+    console.log(event);
     this.selectedClass = event;
     this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
   }
@@ -131,6 +139,19 @@ getEndDate(event) {
   this.selectedEndDate = event;
   this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate);
  }
+
+
+//  this is where Judith
+
+callTeahcerEndPoint() {
+  console.log('I am been called by Judith')
+  // import th teacher service and call the right method
+}
+
+callNonTeacherEndPoint() {
+  console.log('I am been called by Helen')
+  // import th staff service and call the right method
+}
 
   downloadReport() {
     // tslint:disable-next-line:max-line-length

@@ -35,7 +35,7 @@
                 <label for="class" class="fs-12 fw-6">Report Type</label>
                 <select name="" id="" class="form-control form-control-lg" (change)="selectReportType($event.target.value)">
                   <option value="" selected>Report Type</option>
-                  <option [value]="report.id" *ngFor="let report of selectedReportType">{{report.title}}</option>
+                  <option [value]="report.subSlug" *ngFor="let report of selectedReportType">{{report.title}}</option>
   
   
                 </select>
@@ -127,12 +127,98 @@
     </ng-container>
 
 
-    <ng-container *ngIf="selectedSlug === 'userReport' ">
+    <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'teacherProfile' ">
       'Judith this is for you'
+      <section class="list table-responsive mb-5" >
+        <table class="table table-borderless client-table">
+          <thead>
+      
+            <th scope="col" class="">Student ID </th>
+            <th scope="col">Name </th>
+            <th scope="col">Class
+            </th>
+            <th scope="col">No of Time present
+            </th>
+            <th scope="col">No of Time absent
+            </th>
+      
+          </thead>
+          <tbody>
+            <tr class="pb-2" >
+              <td scope="row" class="school-logo rounded-left fc-lblue">
+               sdsdsd
+              </td>
+              <td> dsdsd </td>
+              <td> dsdsds </td>
+              <td>dsdsds</td>
+      
+              <td class="rounded-right ">
+                sdsds
+              </td>
+            </tr>
+      
+      
+      
+          </tbody>
+        </table>
+        <!-- <div class="d-flex justify-content-end">
+          <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+        </div> -->
+        <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                  <img src="assets/images/svg/no-result.svg" alt="no search result" class="my-4">
+                    <p class="mb-4 no-result">Sorry, no results found</p>
+                    <button class="btn btn-outline-orange  mx-2 mx-lg-3" >Go back </button>
+                </div>
+            </div> -->
+      </section>
     </ng-container>
-
-    <ng-container *ngIf="selectedSlug === 'userReport' ">
-      'Judith this is for you'
+    
+    <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'nonTeacherProfile'  ">
+      'Helen this is for you'
+      <section class="list table-responsive mb-5" >
+        <table class="table table-borderless client-table">
+          <thead>
+      
+            <th scope="col" class="">Student ID </th>
+            <th scope="col">Name </th>
+            <th scope="col">Class
+            </th>
+            <th scope="col">No of Time present
+            </th>
+            <th scope="col">No of Time absent
+            </th>
+      
+          </thead>
+          <tbody>
+            <tr class="pb-2" >
+              <td scope="row" class="school-logo rounded-left fc-lblue">
+               sdsdsd
+              </td>
+              <td> dsdsd </td>
+              <td> dsdsds </td>
+              <td>dsdsds</td>
+      
+              <td class="rounded-right ">
+                sdsds
+              </td>
+            </tr>
+      
+      
+      
+          </tbody>
+        </table>
+        <!-- <div class="d-flex justify-content-end">
+          <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+        </div> -->
+        <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                  <img src="assets/images/svg/no-result.svg" alt="no search result" class="my-4">
+                    <p class="mb-4 no-result">Sorry, no results found</p>
+                    <button class="btn btn-outline-orange  mx-2 mx-lg-3" >Go back </button>
+                </div>
+            </div> -->
+      </section>
     </ng-container>
    
   
