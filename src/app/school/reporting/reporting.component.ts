@@ -7,7 +7,7 @@ import { StaffService } from 'src/services/data/staff/staff.service';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { ParentsService } from 'src/services/data/parents/parents.service';
 
-import {TeacherService}from 'src/services/data/teacher/teacher.service';
+import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { StudentService } from 'src/services/data/student/student.service';
 
 @Component({
@@ -18,51 +18,55 @@ import { StudentService } from 'src/services/data/student/student.service';
 
 export class ReportingComponent implements OnInit {
   reportingOptions = [
-    {id: 1, title: 'User profile', slug: 'userReport', data : [
-      {id: 1, title: 'Export Student Profile', subSlug: 'studentProfile'},
-      {id: 2, title: 'Teacher Profile', subSlug: 'teacherProfile'},
-      {id: 3, title: 'Non Teaching Staff profile', subSlug: 'nonTeacherProfile'},
-      {id: 4, title: 'Parent Profile', subSlug: 'parentProfile'},
+    {
+      id: 1, title: 'User profile', slug: 'userReport', data: [
+        { id: 1, title: 'Export Student Profile', subSlug: 'studentProfile' },
+        { id: 2, title: 'Teacher Profile', subSlug: 'teacherProfile' },
+        { id: 3, title: 'Non Teaching Staff profile', subSlug: 'nonTeacherProfile' },
+        { id: 4, title: 'Parent Profile', subSlug: 'parentProfile' },
+
+      ]
+    },
+    {
+      id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
+        { id: 1, title: 'Student Attendance' },
+        { id: 2, title: 'Weekly Student Attendance' },
+        { id: 3, title: 'Term Student Attendance' },
+        { id: 4, title: 'Session Student Attendance' },
+
+      ]
+    },
+    {id: 3, title: 'Library Report', slug: 'libraryReport', data: [
+      {id: 1, title: 'Borrowed Book List'},
+      {id: 2, title: 'Borrowed Overdue List'},
 
     ]},
-    {id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
-      {id: 1, title: 'Student Attendance'},
-      {id: 2, title: 'Weekly Student Attendance'},
-      {id: 3, title: 'Term Student Attendance'},
-      {id: 4, title: 'Session Student Attendance'},
-
+    {id: 4, title: 'Finance Report', slug: 'financeReport', data: [
+      {id: 1, title: 'Journal Listing / Transactions'},
+      {id: 1, title: 'Monthly Depreciating Report'},
+      {id: 1, title: 'Annual Depreciating Report'},
+      {id: 1, title: 'Trial Balance'},
+      {id: 1, title: 'Profit & Loss Statement  '},
+      {id: 1, title: 'Balance Sheet  '},
+      {id: 1, title: 'Cash Book  '},
+      {id: 1, title: 'Vendor Line item Report  '},
+      {id: 1, title: 'Receivable Line item Report  '},
+      {id: 1, title: 'Asset Report  '},
+      {id: 1, title: 'Witholding Tax Report  '},
+      {id: 1, title: 'Inventory Report  '},
+      {id: 1, title: 'Parent Line item Report  '},
+      {id: 1, title: 'Spend Report  '},
+      {id: 1, title: 'Budget / Project Stewardship Report  '},
+      {id: 1, title: 'Project Line item Report  '}
     ]},
-    // {id: 3, title: 'Library Report', slug: 'libraryReport', data: [
-    //   {id: 1, title: 'Borrowed Book List'},
-    //   {id: 2, title: 'Borrowed Overdue List'},
-
-    // ]},
-    // {id: 4, title: 'Finance Report', slug: 'financeReport', data: [
-    //   {id: 1, title: 'Journal Listing / Transactions'},
-    //   {id: 1, title: 'Monthly Depreciating Report'},
-    //   {id: 1, title: 'Annual Depreciating Report'},
-    //   {id: 1, title: 'Trial Balance'},
-    //   {id: 1, title: 'Profit & Loss Statement  '},
-    //   {id: 1, title: 'Balance Sheet  '},
-    //   {id: 1, title: 'Cash Book  '},
-    //   {id: 1, title: 'Vendor Line item Report  '},
-    //   {id: 1, title: 'Receivable Line item Report  '},
-    //   {id: 1, title: 'Asset Report  '},
-    //   {id: 1, title: 'Witholding Tax Report  '},
-    //   {id: 1, title: 'Inventory Report  '},
-    //   {id: 1, title: 'Parent Line item Report  '},
-    //   {id: 1, title: 'Spend Report  '},
-    //   {id: 1, title: 'Budget / Project Stewardship Report  '},
-    //   {id: 1, title: 'Project Line item Report  '}
-    // ]},
   ];
 
 
   studentReport = [
   ];
   financeReport: [
-    {id: 1, title: 'Payment'},
-    {id: 1, title: 'Subscriptions'}
+    { id: 1, title: 'Payment' },
+    { id: 1, title: 'Subscriptions' }
   ];
   selectedReportType: any;
   showNext = false;
@@ -77,12 +81,12 @@ export class ReportingComponent implements OnInit {
   classList: any;
   selectedClass: any;
   selectedSlug: string;
-  teachersList : any;
+  teachersList: any;
   subSlug = false;
-  employeeList: any
+  employeeList: any;
   showExportBtn = false;
   studentList: any;
-  parentList : any
+  parentList: any;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -116,29 +120,26 @@ export class ReportingComponent implements OnInit {
     this.selectedSubReport = event;
     if (this.selectedSlug === 'userReport') {
       this.showNext = false;
-      this.showClass= true;
       this.showExportBtn = true;
-      // tslint:disable-next-line:max-line-length
-      event === 'teacherProfile' ?  (this.subSlug = true, this.getAllTeachers()) : 
-      event === 'nonTeacherProfile' ?   (this.subSlug = true, this.callNonTeacherEndPoint()) :
-      event === 'studentProfile' ? (this.subSlug = true , this.getAllStudents()):
-      event === 'parentProfile' ? (this.subSlug = true , this.getAllParents())
-      : this.subSlug = false
 
+      event === 'teacherProfile' ? (this.subSlug = true, this.getAllTeachers()) :
+        event === 'nonTeacherProfile' ? (this.subSlug = true, this.callNonTeacherEndPoint()) :
+          event === 'studentProfile' ? (this.subSlug = true, this.showClass = true, this.getAllStudents()) :
+            event === 'parentProfile' ? (this.subSlug = true, this.getAllParents())
+              : this.subSlug = false;
       // you can call user focused endpoints here
     } else if (this.selectedSlug === 'attendanceReport') {
       this.showNext = true;
-
       this.fetchAttendanceRecord(this.adminDetails.TenantId);
     }
   }
 
   getAllClasses() {
-      this.classService.getAllClasses().subscribe((res: any) => {
-        if (res.hasErrors === false) {
-          this.classList = res.payload;
-        }
-      });
+    this.classService.getAllClasses().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.classList = res.payload;
+      }
+    });
   }
 
   fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
@@ -154,86 +155,65 @@ export class ReportingComponent implements OnInit {
     this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
   }
 
- getStartDate(event) {
-  this.selectedStartDate = event;
-  this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate);
-}
-getEndDate(event) {
-  this.selectedEndDate = event;
-  this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate);
- }
+  getStartDate(event) {
+    this.selectedStartDate = event;
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate);
+  }
+  getEndDate(event) {
+    this.selectedEndDate = event;
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate);
+  }
 
 
-//  this is where Judith
-
-// callTeahcerEndPoint() {
-//   console.log('I am been called by Judith')
-//   // import th teacher service and call the right method
-//   this.teacherService.getAllTeachers().subscribe((data: any)=>{
-//     console.log(data)
-//   })
-// }
-
-getAllTeachers() {
-  this.teacherService.getAllTeachers().subscribe((data: any) => {
-    if (data.hasErrors === false) {
-      this.teachersList = data.payload;
-      // (this.teachersList);
-    }
-  });
-}
-
-callNonTeacherEndPoint() {
-  this.staffService.getAllStaffInSchool().subscribe( (data: any) => {
-    if (data.hasErrors === false) {
-      this.employeeList = data.payload;
-      // ('all employees', this.employeeList);
-    }
-  }, error => {
-    this.notifyService.publishMessages(error.errors, 'danger', 1);
-
-  });
-}
-getAllStudents() {
-  this.studentService.getAllStudents(1,100).subscribe((data: any) => {
-    if (data.hasErrors === false) {
-      this.studentList = data.payload;
-      // console.log('student list', this.studentList);
-    } else {
-      this.notifyService.publishMessages(data.errors, 'danger', 1);
-
-    }
-  }, error => {
-    this.notifyService.publishMessages(error.errors, 'danger', 1);
-  });
-}
-
-getAllParents() {
-  this.parentService.getAllParentsInASchool(this.adminDetails.TenantId, 1, 100).subscribe((data: any) => {
-    if (data.hasErrors === false) {
-      // (data);
-      this.parentList = data.payload;
-      // this.parentCount = data.totalCount;
-    } else {
-      this.notifyService.publishMessages(data.errors, 'danger', 1);
-
-    }
-  },
-    error => {
-      this.notifyService.publishMessages(error.message, 'danger', 1);
+  getAllTeachers() {
+    this.teacherService.getAllTeachers().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.teachersList = data.payload;
+      }
     });
-}
+  }
+
+  callNonTeacherEndPoint() {
+    this.staffService.getAllStaffInSchool().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.employeeList = data.payload;
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+  getAllStudents() {
+    this.studentService.getAllStudents(1, 100).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.studentList = data.payload;
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+    });
+  }
+
+  getAllParents() {
+    this.parentService.getAllParentsInASchool(this.adminDetails.TenantId, 1, 100).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.parentList = data.payload;
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+      }
+    },
+      error => {
+        this.notifyService.publishMessages(error.message, 'danger', 1);
+      });
+  }
 
 
   downloadReport() {
-    // tslint:disable-next-line:max-line-length
-    this.selectedSubReport === 'nonTeacherProfile' ? 
-    this.downloadStaffRecord() : 
-    this.selectedSubReport === 'teacherProfile' ? 
-    this.downloadTeacherRecord() : 
-    this.selectedSubReport === 'studentProfile' ? 
-    this.downloadStudentRecord() :
-    this.downloadAttendanceReport()
+    this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
+      this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
+        this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
+          this.downloadAttendanceReport();
   }
 
   downloadAttendanceReport() {
@@ -249,7 +229,6 @@ getAllParents() {
 
   }
   downloadTeacherRecord() {
-    // tslint:disable-next-line:max-line-length
     this.teacherService.exportEmployeeExcelFile(1).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
@@ -262,7 +241,6 @@ getAllParents() {
 
 
   downloadStaffRecord() {
-    // tslint:disable-next-line:max-line-length
     this.teacherService.exportEmployeeExcelFile(2).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
@@ -274,7 +252,6 @@ getAllParents() {
   }
 
   downloadStudentRecord() {
-    // tslint:disable-next-line:max-line-length
     this.studentService.exportStudentExcelFile(this.selectedClass).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
