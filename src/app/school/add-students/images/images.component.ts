@@ -88,7 +88,7 @@ DocumentTypes: number[] = [];
 
         }
       }, error => {
-        this.notifyService.publishMessages( error.errors, 'success', 1);
+        this.notifyService.publishMessages( error.errors, 'danger', 1);
       });
   }
 
