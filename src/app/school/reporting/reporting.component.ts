@@ -130,6 +130,7 @@ export class ReportingComponent implements OnInit {
       // you can call user focused endpoints here
     } else if (this.selectedSlug === 'attendanceReport') {
       this.showNext = true;
+      this.showClass = true
       this.fetchAttendanceRecord(this.adminDetails.TenantId);
     }
   }
