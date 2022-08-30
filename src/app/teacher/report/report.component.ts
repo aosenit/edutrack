@@ -11,22 +11,14 @@ import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { StudentService } from 'src/services/data/student/student.service';
 
 @Component({
-  selector: 'app-reporting',
-  templateUrl: './reporting.component.html',
-  styleUrls: ['./reporting.component.css']
+  selector: 'app-report',
+  templateUrl: './report.component.html',
+  styleUrls: ['./report.component.css']
 })
 
-export class ReportingComponent implements OnInit {
+export class ReportComponent implements OnInit {
   reportingOptions = [
-    {
-      id: 1, title: 'User profile', slug: 'userReport', data: [
-        { id: 1, title: 'Export Student Profile', subSlug: 'studentProfile' },
-        { id: 2, title: 'Teacher Profile', subSlug: 'teacherProfile' },
-        { id: 3, title: 'Non Teaching Staff profile', subSlug: 'nonTeacherProfile' },
-        { id: 4, title: 'Parent Profile', subSlug: 'parentProfile' },
-
-      ]
-    },
+  
     {
       id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
         { id: 1, title: 'Student Attendance' },
@@ -35,30 +27,7 @@ export class ReportingComponent implements OnInit {
         { id: 4, title: 'Session Student Attendance' },
 
       ]
-    },
-    {id: 3, title: 'Library Report', slug: 'libraryReport', data: [
-      {id: 1, title: 'Borrowed Book List'},
-      {id: 2, title: 'Borrowed Overdue List'},
-
-    ]},
-    {id: 4, title: 'Finance Report', slug: 'financeReport', data: [
-      {id: 1, title: 'Journal Listing / Transactions'},
-      {id: 1, title: 'Monthly Depreciating Report'},
-      {id: 1, title: 'Annual Depreciating Report'},
-      {id: 1, title: 'Trial Balance'},
-      {id: 1, title: 'Profit & Loss Statement  '},
-      {id: 1, title: 'Balance Sheet  '},
-      {id: 1, title: 'Cash Book  '},
-      {id: 1, title: 'Vendor Line item Report  '},
-      {id: 1, title: 'Receivable Line item Report  '},
-      {id: 1, title: 'Asset Report  '},
-      {id: 1, title: 'Witholding Tax Report  '},
-      {id: 1, title: 'Inventory Report  '},
-      {id: 1, title: 'Parent Line item Report  '},
-      {id: 1, title: 'Spend Report  '},
-      {id: 1, title: 'Budget / Project Stewardship Report  '},
-      {id: 1, title: 'Project Line item Report  '}
-    ]},
+    }
   ];
 
 
