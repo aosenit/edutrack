@@ -56,7 +56,7 @@ const routes: Routes = [
       { path: 'subject-attendance', component: SubjecAttendanceComponent },
       { path: 'class-attendance', component: ClassAttendanceComponent },
       { path: 'mark-attendance/:id', component: MarkAttendanceComponent },
-      {path: 'report', component: ReportComponent}
+      // {path: 'report', component: ReportComponent}
     ]
   }
 ];
