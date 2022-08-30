@@ -110,6 +110,7 @@ export class ClassAttendanceComponent implements OnInit {
     this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
       if (data.hasErrors === false) {
         // // (data.payload);
+        console.log(data.payload)
         this.classList = data.payload;
         // (this.classList);
       }

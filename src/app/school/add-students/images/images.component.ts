@@ -84,7 +84,7 @@ DocumentTypes: number[] = [];
           this.router.navigateByUrl('/school/students');
 
         } else {
-          this.notifyService.publishMessages( data.errors, 'success', 1);
+          this.notifyService.publishMessages( data.errors, 'danger', 1);
 
         }
       }, error => {
