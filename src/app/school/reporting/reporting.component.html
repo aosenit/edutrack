@@ -40,6 +40,8 @@
   
                 </select>
               </div>
+              
+
               <div class="col " *ngIf="showClass">
                 <label for="class" class="fs-12 fw-6">Class</label>
                 <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
@@ -56,6 +58,20 @@
               <div class="col " *ngIf="showNext">
                 <label for="class" class="fs-12 fw-6">End Date</label>
                 <input type="date" class="form-control" (change)="getEndDate($event.target.value)">
+              </div>
+              <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'teacherProfile' " >
+                
+                <label for="class" class="fs-12 fw-6 d-block">Total Teacher</label>
+                <button type="button" class="btn btn-primary d-block px-4">
+                  <span class="badge badge-light fs-3">{{totalTeacher}}</span>
+                </button>
+              </div>
+              <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'studentProfile' " >
+                
+                <label for="class" class="fs-12 fw-6 d-block">Total Student</label>
+                <button type="button" class="btn btn-primary d-block px-4">
+                  <span class="badge badge-light fs-3">{{totalStudent}}</span>
+                </button>
               </div>
               <!-- <div class="col ">
                       <label for="class" class="fs-12 fw-6">Class</label>
@@ -108,8 +124,6 @@
                 {{attendance.totalNumberOfTimeAbsent}}
               </td>
             </tr>
-      
-      
       
           </tbody>
         </table>
