@@ -10,6 +10,7 @@ import { ParentsService } from 'src/services/data/parents/parents.service';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { StudentService } from 'src/services/data/student/student.service';
 
+
 @Component({
   selector: 'app-reporting',
   templateUrl: './reporting.component.html',
@@ -20,7 +21,7 @@ export class ReportingComponent implements OnInit {
   reportingOptions = [
     {
       id: 1, title: 'User profile', slug: 'userReport', data: [
-        { id: 1, title: 'Export Student Profile', subSlug: 'studentProfile' },
+        { id: 1, title: 'Student Profile', subSlug: 'studentProfile' },
         { id: 2, title: 'Teacher Profile', subSlug: 'teacherProfile' },
         { id: 3, title: 'Non Teaching Staff profile', subSlug: 'nonTeacherProfile' },
         { id: 4, title: 'Parent Profile', subSlug: 'parentProfile' },
@@ -104,7 +105,7 @@ export class ReportingComponent implements OnInit {
       event === 'teacherProfile' ? (this.subSlug = true, this.showClass = false, this.getAllTeachers()) :
         event === 'nonTeacherProfile' ? (this.subSlug = true, this.showClass = false, this.callNonTeacherEndPoint()) :
           event === 'studentProfile' ? (this.subSlug = true, this.showClass = true, this.getAllStudents()) :
-            event === 'parentProfile' ? (this.subSlug = true, this.showClass = false, this.showExportBtn = false, this.getAllParents())
+            event === 'parentProfile' ? (this.subSlug = true, this.showClass = false, this.getAllParents())
               : this.subSlug = false;
       // you can call user focused endpoints here
     } else if (this.selectedSlug === 'attendanceReport') {
@@ -200,6 +201,8 @@ export class ReportingComponent implements OnInit {
     this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
       this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
         this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
+        this.selectedSubReport === 'parentProfile' ? this.downloadParentRecord() :
+
           this.downloadAttendanceReport();
   }
 
@@ -240,6 +243,18 @@ export class ReportingComponent implements OnInit {
 
   downloadStudentRecord() {
     this.studentService.exportStudentExcelFile(this.selectedClass).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
+  
+  downloadParentRecord() {
+    this.reportService.exportParentExcelSheet(this.adminDetails.TenantId).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
