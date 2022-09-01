@@ -65,6 +65,8 @@ export class ReportingComponent implements OnInit {
   showExportBtn = false;
   studentList: any;
   parentList: any;
+  totalTeacher: number;
+  totalStudent: number;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -100,15 +102,15 @@ export class ReportingComponent implements OnInit {
       this.showNext = false;
       this.showExportBtn = true;
 
-      event === 'teacherProfile' ? (this.subSlug = true, this.getAllTeachers()) :
-        event === 'nonTeacherProfile' ? (this.subSlug = true, this.callNonTeacherEndPoint()) :
+      event === 'teacherProfile' ? (this.subSlug = true, this.showClass = false, this.getAllTeachers()) :
+        event === 'nonTeacherProfile' ? (this.subSlug = true, this.showClass = false, this.callNonTeacherEndPoint()) :
           event === 'studentProfile' ? (this.subSlug = true, this.showClass = true, this.getAllStudents()) :
-            event === 'parentProfile' ? (this.subSlug = true, this.getAllParents())
+            event === 'parentProfile' ? (this.subSlug = true, this.showClass = false, this.showExportBtn = false, this.getAllParents())
               : this.subSlug = false;
       // you can call user focused endpoints here
     } else if (this.selectedSlug === 'attendanceReport') {
       this.showNext = true;
-      this.showClass = true
+      this.showClass = true;
       this.fetchAttendanceRecord(this.adminDetails.TenantId);
     }
   }
@@ -131,7 +133,12 @@ export class ReportingComponent implements OnInit {
 
   selectClass(event) {
     this.selectedClass = event;
-    this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
+    if (this.selectedSlug === 'attendanceReport') {
+
+      this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
+    } else if (this.selectedSlug === 'userReport' && this.selectedSubReport === 'studentProfile') {
+        this.getAllStudents()
+    }
   }
 
   getStartDate(event) {
@@ -148,6 +155,7 @@ export class ReportingComponent implements OnInit {
     this.teacherService.getAllTeachers().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.teachersList = data.payload;
+        this.totalTeacher = data.totalCount;
       }
     });
   }
@@ -163,9 +171,10 @@ export class ReportingComponent implements OnInit {
     });
   }
   getAllStudents() {
-    this.studentService.getAllStudents(1, 100).subscribe((data: any) => {
+    this.studentService.getAllStudents(1, 1000).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.studentList = data.payload;
+        this.totalStudent = data.totalCount;
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
