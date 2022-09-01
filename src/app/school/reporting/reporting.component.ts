@@ -21,7 +21,7 @@ export class ReportingComponent implements OnInit {
   reportingOptions = [
     {
       id: 1, title: 'User profile', slug: 'userReport', data: [
-        { id: 1, title: 'Export Student Profile', subSlug: 'studentProfile' },
+        { id: 1, title: 'Student Profile', subSlug: 'studentProfile' },
         { id: 2, title: 'Teacher Profile', subSlug: 'teacherProfile' },
         { id: 3, title: 'Non Teaching Staff profile', subSlug: 'nonTeacherProfile' },
         { id: 4, title: 'Parent Profile', subSlug: 'parentProfile' },
@@ -105,7 +105,7 @@ export class ReportingComponent implements OnInit {
       event === 'teacherProfile' ? (this.subSlug = true, this.showClass = false, this.getAllTeachers()) :
         event === 'nonTeacherProfile' ? (this.subSlug = true, this.showClass = false, this.callNonTeacherEndPoint()) :
           event === 'studentProfile' ? (this.subSlug = true, this.showClass = true, this.getAllStudents()) :
-            event === 'parentProfile' ? (this.subSlug = true, this.showClass = false, this.showExportBtn = false, this.getAllParents())
+            event === 'parentProfile' ? (this.subSlug = true, this.showClass = false, this.getAllParents())
               : this.subSlug = false;
       // you can call user focused endpoints here
     } else if (this.selectedSlug === 'attendanceReport') {
