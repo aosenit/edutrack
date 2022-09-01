@@ -73,6 +73,20 @@
                   <span class="badge badge-light fs-3">{{totalStudent}}</span>
                 </button>
               </div>
+              <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'parentProfile' " >
+                
+                <label for="class" class="fs-12 fw-6 d-block">Total Parent</label>
+                <button type="button" class="btn btn-primary d-block px-4">
+                  <span class="badge badge-light fs-3">{{totalParent}}</span>
+                </button>
+              </div>
+              <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'nonTeacherProfile' " >
+                
+                <label for="class" class="fs-12 fw-6 d-block">Total Non Teacher</label>
+                <button type="button" class="btn btn-primary d-block px-4">
+                  <span class="badge badge-light fs-3">{{totalNonTeacher}}</span>
+                </button>
+              </div>
               <!-- <div class="col ">
                       <label for="class" class="fs-12 fw-6">Class</label>
                       <select name="" id="" class="form-control form-control-lg" >
