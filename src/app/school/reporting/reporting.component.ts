@@ -139,16 +139,16 @@ export class ReportingComponent implements OnInit {
 
       this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
     } else if (this.selectedSlug === 'userReport' && this.selectedSubReport === 'studentProfile') {
-        this.getStudentInAClass(event)
+        this.getStudentInAClass(event);
     }
   }
   getStudentInAClass(id) {
-    this.studentService.getStudentInAClass(id).subscribe((data:any)=>{
+    this.studentService.getStudentInAClass(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.studentList = data.payload;
         this.totalStudent = data.totalCount;
       }
-    })
+    });
   }
   getStartDate(event) {
     this.selectedStartDate = event;
@@ -173,7 +173,7 @@ export class ReportingComponent implements OnInit {
     this.staffService.getAllStaffInSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.employeeList = data.payload;
-        this.totalNonTeacher = this.employeeList.length
+        this.totalNonTeacher = this.employeeList.length;
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -263,7 +263,7 @@ export class ReportingComponent implements OnInit {
     });
   }
 
-  
+
   downloadParentRecord() {
     this.reportService.exportParentExcelSheet(this.adminDetails.TenantId).subscribe((res: any) => {
       if (res.hasErrors === false) {
