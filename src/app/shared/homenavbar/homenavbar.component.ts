@@ -31,7 +31,7 @@ export class HomenavbarComponent implements OnInit {
     const domain = window.location.hostname;
     // // (domain)
     if (domain.indexOf('.') < 0 ||
-      domain.split('.')[0] === 'example' || domain.split('.')[0] === 'lvh' || domain.split('.')[0] === 'www') {
+      domain.split('.')[0] === 'example' || domain.split('.')[0] === 'lvh' || domain.split('.')[0] === 'www' || domain.split('.')[0] === 'myschooltrack') {
       this.subdomain = '';
       this.displayAdminLogin = true;
       this.displayOtherLogin = false;
