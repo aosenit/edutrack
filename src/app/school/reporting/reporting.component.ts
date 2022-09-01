@@ -10,6 +10,7 @@ import { ParentsService } from 'src/services/data/parents/parents.service';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { StudentService } from 'src/services/data/student/student.service';
 
+
 @Component({
   selector: 'app-reporting',
   templateUrl: './reporting.component.html',
@@ -191,6 +192,8 @@ export class ReportingComponent implements OnInit {
     this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
       this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
         this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
+        this.selectedSubReport === 'parentProfile' ? this.downloadParentRecord() :
+
           this.downloadAttendanceReport();
   }
 
@@ -231,6 +234,18 @@ export class ReportingComponent implements OnInit {
 
   downloadStudentRecord() {
     this.studentService.exportStudentExcelFile(this.selectedClass).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
+  
+  downloadParentRecord() {
+    this.reportService.exportParentExcelSheet(this.adminDetails.TenantId).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
