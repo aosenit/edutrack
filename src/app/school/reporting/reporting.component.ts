@@ -257,7 +257,7 @@ export class ReportingComponent implements OnInit {
     this.reportService.exportParentExcelSheet(this.adminDetails.TenantId).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
-        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.download = `Parent Report as at ${new Date().toLocaleString()}.xlsx`;
         link.href = 'data:image/png;base64,' + res.payload.base64String;
         link.click();
       }
