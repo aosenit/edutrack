@@ -56,6 +56,7 @@ export class ReportComponent implements OnInit {
   showExportBtn = false;
   studentList: any;
   parentList: any;
+  teachersId: any;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -71,7 +72,9 @@ export class ReportComponent implements OnInit {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
 
+    this.getTeacherDetailsByUserId()
     this.getAllClasses();
+  
 
   }
 
@@ -135,6 +138,16 @@ export class ReportComponent implements OnInit {
     });
   }
 
+
+  getTeacherDetailsByUserId(){
+    this.teacherService.getTeacherDetailsByUserId(this.adminDetails.sub).subscribe((data: any)=>{
+      if (data.hasErrors === false) {
+        this.teachersId = data.payload.teacherId
+        ;
+      }
+      
+    })
+  }
   callNonTeacherEndPoint() {
     this.staffService.getAllStaffInSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
