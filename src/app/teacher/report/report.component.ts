@@ -47,7 +47,7 @@ export class ReportComponent implements OnInit {
   selectedStartDate = '';
   selectedEndDate = '';
   studentAttendanceRecord: any;
-  classList: any;
+  classList = [];
   selectedClass: any;
   selectedSlug: string;
   teachersList: any;
@@ -56,7 +56,7 @@ export class ReportComponent implements OnInit {
   showExportBtn = false;
   studentList: any;
   parentList: any;
-  teachersId: any;
+  teacherId: any;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -72,8 +72,8 @@ export class ReportComponent implements OnInit {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
 
-    this.getTeacherDetailsByUserId()
-    this.getAllClasses();
+    this.getTeacherDetailsByUserId();
+
   
 
   }
@@ -98,21 +98,15 @@ export class ReportComponent implements OnInit {
   }
 
   getAllClasses() {
-    this.classService.getTeacherClassesByClassId(this.adminDetails.TeacherClassId).subscribe((data: any) => {
+    this.classService.getTeacherClassesByClassId(this.teacherId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.classList = data.payload;
+        this.classList.push(data.payload);
+        
+      
       }
+     
     }
     );
-  }
-
-  fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
-    // tslint:disable-next-line:max-line-length
-    this.reportService.GetClassAttendanceWithDateSummary(tenantId, this.adminDetails.TeacherClassId, startDate, endDate).subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        this.studentAttendanceRecord = res.payload;
-      }
-    });
   }
 
   selectClass(event) {
@@ -120,13 +114,24 @@ export class ReportComponent implements OnInit {
     this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
   }
 
+
+fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
+    // tslint:disable-next-line:max-line-length
+    this.reportService.GetClassAttendanceWithDateSummary(tenantId, classId, startDate, endDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.studentAttendanceRecord = res.payload;
+      }
+    });
+  }
+
+  
   getStartDate(event) {
     this.selectedStartDate = event;
-    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate);
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate);
   }
   getEndDate(event) {
     this.selectedEndDate = event;
-    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate, this.selectedEndDate);
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate);
   }
 
 
@@ -142,9 +147,11 @@ export class ReportComponent implements OnInit {
   getTeacherDetailsByUserId(){
     this.teacherService.getTeacherDetailsByUserId(this.adminDetails.sub).subscribe((data: any)=>{
       if (data.hasErrors === false) {
-        this.teachersId = data.payload.teacherId
-        ;
+        this.teacherId = data.payload.teacherId;
+        this.getAllClasses()
       }
+
+      
       
     })
   }
