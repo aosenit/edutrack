@@ -18,13 +18,13 @@ import { StudentService } from 'src/services/data/student/student.service';
 
 export class ReportComponent implements OnInit {
   reportingOptions = [
-  
+
     {
       id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
         { id: 1, title: 'Student Attendance' },
         { id: 2, title: 'Weekly Student Attendance' },
-        { id: 3, title: 'Term Student Attendance' },
-        { id: 4, title: 'Session Student Attendance' },
+        // { id: 3, title: 'Term Student Attendance' },
+        // { id: 4, title: 'Session Student Attendance' },
 
       ]
     }
@@ -87,33 +87,25 @@ export class ReportComponent implements OnInit {
 
   selectReportType(event) {
     this.selectedSubReport = event;
-    if (this.selectedSlug === 'userReport') {
-      this.showNext = false;
-      this.showExportBtn = true;
-
-      event === 'teacherProfile' ? (this.subSlug = true, this.getAllTeachers()) :
-        event === 'nonTeacherProfile' ? (this.subSlug = true, this.callNonTeacherEndPoint()) :
-          event === 'studentProfile' ? (this.subSlug = true, this.showClass = true, this.getAllStudents()) :
-            event === 'parentProfile' ? (this.subSlug = true, this.getAllParents())
-              : this.subSlug = false;
-      // you can call user focused endpoints here
-    } else if (this.selectedSlug === 'attendanceReport') {
+    if (this.selectedSlug === 'attendanceReport') {
       this.showNext = true;
-      this.showClass = true
+      this.showClass = true;
       this.fetchAttendanceRecord(this.adminDetails.TenantId);
     }
   }
 
   getAllClasses() {
-    this.classService.getAllClasses().subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        this.classList = res.payload;
+    this.classService.getTeacherClassesByClassId(this.adminDetails.TeacherClassId).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.classList = data.payload;
       }
-    });
+    }
+    );
   }
 
   fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
-    this.reportService.GetClassAttendanceWithDateSummary(tenantId, classId, startDate, endDate).subscribe((res: any) => {
+    // tslint:disable-next-line:max-line-length
+    this.reportService.GetClassAttendanceWithDateSummary(tenantId, this.adminDetails.TeacherClassId, startDate, endDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.studentAttendanceRecord = res.payload;
       }
@@ -127,11 +119,11 @@ export class ReportComponent implements OnInit {
 
   getStartDate(event) {
     this.selectedStartDate = event;
-    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate);
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate);
   }
   getEndDate(event) {
     this.selectedEndDate = event;
-    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate);
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate, this.selectedEndDate);
   }
 
 
@@ -180,55 +172,18 @@ export class ReportComponent implements OnInit {
 
 
   downloadReport() {
-    this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
-      this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
-        this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
-          this.downloadAttendanceReport();
+    // this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
+    //   this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
+    //     this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
+          // tslint:disable-next-line:max-line-length
+          this.reportService.exportAttance(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+            if (res.hasErrors === false) {
+              const link = document.createElement('a');
+              link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+              link.href = 'data:image/png;base64,' + res.payload.base64String;
+              link.click();
+            }
+          });
   }
 
-  downloadAttendanceReport() {
-    // tslint:disable-next-line:max-line-length
-    this.reportService.exportAttance(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        const link = document.createElement('a');
-        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
-        link.href = 'data:image/png;base64,' + res.payload.base64String;
-        link.click();
-      }
-    });
-
-  }
-  downloadTeacherRecord() {
-    this.teacherService.exportEmployeeExcelFile(1).subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        const link = document.createElement('a');
-        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
-        link.href = 'data:image/png;base64,' + res.payload.base64String;
-        link.click();
-      }
-    });
-  }
-
-
-  downloadStaffRecord() {
-    this.teacherService.exportEmployeeExcelFile(2).subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        const link = document.createElement('a');
-        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
-        link.href = 'data:image/png;base64,' + res.payload.base64String;
-        link.click();
-      }
-    });
-  }
-
-  downloadStudentRecord() {
-    this.studentService.exportStudentExcelFile(this.selectedClass).subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        const link = document.createElement('a');
-        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
-        link.href = 'data:image/png;base64,' + res.payload.base64String;
-        link.click();
-      }
-    });
-  }
 }
