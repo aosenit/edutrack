@@ -18,6 +18,7 @@ const routes = {
   getallclass: 'schtrack-auth/api/v1/Class/GetAllClasses',
   getclassbyid: 'schtrack-auth/api/v1/Class/GetClassById',
   getstudentclass: 'schtrack-auth/api/v1/Class/GetClassByIdWithStudents',
+  getTeacherclass: 'schtrack-auth/api/v1/Teacher/GetTeacherClass',
   deleteclass: 'schtrack-auth/api/v1/Class/DeleteClass',
   getClassAndSubjectForATeahcer: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
   getStudentInclass: 'schtrack-auth/api/v1/Student/GetStudentInClass',
@@ -124,6 +125,12 @@ export class ClassService {
 
   getClassAndSubjectForTeacherByTeacherId() {
     const url = `${this.baseUrl + routes.getClassAndSubjectForATeahcer}`;
+    // ('teacher for sucject', url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  getTeacherClassesByClassId(id: any) {
+    const url = `${this.baseUrl + routes.getTeacherclass}/${id}`;
     // ('teacher for sucject', url);
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }

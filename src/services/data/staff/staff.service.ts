@@ -249,7 +249,7 @@ export class StaffService {
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
-
+pe
   downloadSampleBulkSheet() {
     const url = `${this.baseUrl + routes.getBulkDdownload}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });

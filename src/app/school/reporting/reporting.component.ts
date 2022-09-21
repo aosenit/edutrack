@@ -67,6 +67,8 @@ export class ReportingComponent implements OnInit {
   parentList: any;
   totalTeacher: number;
   totalStudent: number;
+  totalParent: number;
+  totalNonTeacher: number;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -137,10 +139,17 @@ export class ReportingComponent implements OnInit {
 
       this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
     } else if (this.selectedSlug === 'userReport' && this.selectedSubReport === 'studentProfile') {
-        this.getAllStudents()
+        this.getStudentInAClass(event);
     }
   }
-
+  getStudentInAClass(id) {
+    this.studentService.getStudentInAClass(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.studentList = data.payload;
+        this.totalStudent = data.totalCount;
+      }
+    });
+  }
   getStartDate(event) {
     this.selectedStartDate = event;
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate);
@@ -164,6 +173,7 @@ export class ReportingComponent implements OnInit {
     this.staffService.getAllStaffInSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.employeeList = data.payload;
+        this.totalNonTeacher = this.employeeList.length;
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -187,6 +197,7 @@ export class ReportingComponent implements OnInit {
     this.parentService.getAllParentsInASchool(this.adminDetails.TenantId, 1, 100).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.parentList = data.payload;
+        this.totalParent = data.totalCount;
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
@@ -252,7 +263,7 @@ export class ReportingComponent implements OnInit {
     });
   }
 
-  
+
   downloadParentRecord() {
     this.reportService.exportParentExcelSheet(this.adminDetails.TenantId).subscribe((res: any) => {
       if (res.hasErrors === false) {
