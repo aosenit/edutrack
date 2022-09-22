@@ -31,9 +31,9 @@ export class ReportingComponent implements OnInit {
     {
       id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
         { id: 1, title: 'Student Attendance' },
-        { id: 2, title: 'Weekly Student Attendance' },
-        { id: 3, title: 'Term Student Attendance' },
-        { id: 4, title: 'Session Student Attendance' },
+        // { id: 2, title: 'Weekly Student Attendance' },
+        // { id: 3, title: 'Term Student Attendance' },
+        // { id: 4, title: 'Session Student Attendance' },
 
       ]
     }

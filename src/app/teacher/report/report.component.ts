@@ -22,7 +22,7 @@ export class ReportComponent implements OnInit {
     {
       id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
         { id: 1, title: 'Student Attendance' },
-        { id: 2, title: 'Weekly Student Attendance' },
+        // { id: 2, title: 'Weekly Student Attendance' },
         // { id: 3, title: 'Term Student Attendance' },
         // { id: 4, title: 'Session Student Attendance' },
 
@@ -57,6 +57,7 @@ export class ReportComponent implements OnInit {
   studentList: any;
   parentList: any;
   teacherId: any;
+  teacherClassId: any;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -93,7 +94,7 @@ export class ReportComponent implements OnInit {
     if (this.selectedSlug === 'attendanceReport') {
       this.showNext = true;
       this.showClass = true;
-      this.fetchAttendanceRecord(this.adminDetails.TenantId);
+      this.fetchAttendanceRecord(this.adminDetails.TenantId, this.teacherClassId);
     }
   }
 
@@ -101,10 +102,8 @@ export class ReportComponent implements OnInit {
     this.classService.getTeacherClassesByClassId(this.teacherId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classList.push(data.payload);
-        
-      
+        this.teacherClassId = data.payload.classId;
       }
-     
     }
     );
   }
@@ -196,7 +195,7 @@ fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
     //   this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
     //     this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
           // tslint:disable-next-line:max-line-length
-          this.reportService.exportAttance(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+          this.reportService.exportAttance(this.adminDetails.TenantId, this.teacherClassId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
             if (res.hasErrors === false) {
               const link = document.createElement('a');
               link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
