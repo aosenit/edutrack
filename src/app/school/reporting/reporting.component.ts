@@ -9,6 +9,7 @@ import { ParentsService } from 'src/services/data/parents/parents.service';
 
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { StudentService } from 'src/services/data/student/student.service';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 
 
 @Component({
@@ -30,10 +31,9 @@ export class ReportingComponent implements OnInit {
     },
     {
       id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
-        { id: 1, title: 'Student Attendance' },
-        { id: 2, title: 'Weekly Student Attendance' },
-        { id: 3, title: 'Term Student Attendance' },
-        { id: 4, title: 'Session Student Attendance' },
+        { id: 1, title: 'Student Attendance',subSlug: 'studentAttendance' },
+        { id: 2, title: 'Term Attendance',subSlug:'teramAttendance' },
+        { id: 3, title: 'Session Attendance',subSlug: 'sessionAtt' },
 
       ]
     }
@@ -51,6 +51,7 @@ export class ReportingComponent implements OnInit {
   showTypes = false;
   showSubReport = false;
   showClass = false;
+  showTerm = false;
   selectedSubReport: any;
   adminDetails: any;
   selectedStartDate = '';
@@ -69,6 +70,7 @@ export class ReportingComponent implements OnInit {
   totalStudent: number;
   totalParent: number;
   totalNonTeacher: number;
+  termList: any;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -77,6 +79,7 @@ export class ReportingComponent implements OnInit {
     private teacherService: TeacherService,
     private studentService: StudentService,
     private parentService: ParentsService,
+    private assessmentService: AssessmentService
 
   ) { }
 
@@ -108,13 +111,35 @@ export class ReportingComponent implements OnInit {
         event === 'nonTeacherProfile' ? (this.subSlug = true, this.showClass = false, this.callNonTeacherEndPoint()) :
           event === 'studentProfile' ? (this.subSlug = true, this.showClass = true, this.getAllStudents()) :
             event === 'parentProfile' ? (this.subSlug = true, this.showClass = false, this.getAllParents())
-              : this.subSlug = false;
-      // you can call user focused endpoints here
-    } else if (this.selectedSlug === 'attendanceReport') {
-      this.showNext = true;
-      this.showClass = true;
-      this.fetchAttendanceRecord(this.adminDetails.TenantId);
+            : this.subSlug = false;
+            // you can call user focused endpoints here
+          } else if (this.selectedSlug === 'attendanceReport') {
+            this.showNext = true;
+            this.showClass = true;
+            this.fetchAttendanceRecord(this.adminDetails.TenantId);
+            this.getAllTerm()
+            this.showTerm = true
+            // event === 'termAttendance' ? (this.subSlug = true, this.showClass = false,this.showTerm = true, console.log('hello'), this.getAllTerm())
     }
+  }
+
+  getAllTerm(){
+    this.assessmentService.getSchoolSessions().subscribe((data: any)=>{
+      if (data.hasErrors === false) {
+        // this.classList = data.payload;
+        this.termList = data.payload[0].terms
+        console.log(data.payload)
+      }
+    })
+  }
+
+  selectTerm(event: any){
+    console.log(event);
+    
+    const {startDate, endDate} = this.termList[event]
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
+
+
   }
 
   getAllClasses() {
