@@ -288,13 +288,11 @@ export class TeacherService {
 
   getTeacherAttachedToClass(id) {
     const url = `${this.baseUrl + routes.getClassTeacher}/${id}`;
-
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getTeacherDetailsByUserId(id){
     const url = `${this.baseUrl + routes.getTeacherDetailsByUserId}/${id}`;
-
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

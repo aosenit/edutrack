@@ -51,6 +51,15 @@
   
                 </select>
               </div>
+              <div class="col " *ngIf="showTerm">
+                <label for="class" class="fs-12 fw-6">Term</label>
+                <select name="" id="" class="form-control form-control-lg" (change)="selectTerm($event.target.value)">
+                  <option value="" selected>Select class</option>
+                  <option [value]="t" *ngFor="let term of termList;let t = index">{{term.name}}</option>
+  
+  
+                </select>
+              </div>
               <div class="col " *ngIf="showNext">
                 <label for="class" class="fs-12 fw-6">Start Date</label>
                 <input type="date" class="form-control" (change)="getStartDate($event.target.value)">
@@ -111,6 +120,11 @@
     </div>
   
     <ng-container *ngIf="selectedSlug === 'attendanceReport' ">
+      <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
+        <p class="text-center fs-24 ff-a">
+          No attendance record found
+        </p>
+      </div> 
       <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
         <table class="table table-borderless client-table">
           <thead>

@@ -9,6 +9,7 @@ import { ParentsService } from 'src/services/data/parents/parents.service';
 
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { StudentService } from 'src/services/data/student/student.service';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 
 
 @Component({
@@ -30,10 +31,9 @@ export class ReportingComponent implements OnInit {
     },
     {
       id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
-        { id: 1, title: 'Student Attendance' },
-        // { id: 2, title: 'Weekly Student Attendance' },
-        // { id: 3, title: 'Term Student Attendance' },
-        // { id: 4, title: 'Session Student Attendance' },
+        { id: 1, title: 'Student Attendance', subSlug: 'studentAttendance' },
+        { id: 2, title: 'Term Attendance', subSlug: 'termAttendance' },
+        { id: 3, title: 'Session Attendance', subSlug: 'sessionAtt' },
 
       ]
     }
@@ -51,6 +51,7 @@ export class ReportingComponent implements OnInit {
   showTypes = false;
   showSubReport = false;
   showClass = false;
+  showTerm = false;
   selectedSubReport: any;
   adminDetails: any;
   selectedStartDate = '';
@@ -69,6 +70,7 @@ export class ReportingComponent implements OnInit {
   totalStudent: number;
   totalParent: number;
   totalNonTeacher: number;
+  termList: any;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -77,6 +79,7 @@ export class ReportingComponent implements OnInit {
     private teacherService: TeacherService,
     private studentService: StudentService,
     private parentService: ParentsService,
+    private assessmentService: AssessmentService
 
   ) { }
 
@@ -103,7 +106,7 @@ export class ReportingComponent implements OnInit {
     if (this.selectedSlug === 'userReport') {
       this.showNext = false;
       this.showExportBtn = true;
-
+      this.showTerm = false;
       event === 'teacherProfile' ? (this.subSlug = true, this.showClass = false, this.getAllTeachers()) :
         event === 'nonTeacherProfile' ? (this.subSlug = true, this.showClass = false, this.callNonTeacherEndPoint()) :
           event === 'studentProfile' ? (this.subSlug = true, this.showClass = true, this.getAllStudents()) :
@@ -112,9 +115,26 @@ export class ReportingComponent implements OnInit {
       // you can call user focused endpoints here
     } else if (this.selectedSlug === 'attendanceReport') {
       this.showNext = true;
-      this.showClass = true;
+      event === 'termAttendance' ? (
+        this.subSlug = true, this.showClass = true, this.showTerm = true, this.showNext = false, this.getAllTerm()):
       this.fetchAttendanceRecord(this.adminDetails.TenantId);
     }
+  }
+
+  getAllTerm() {
+    this.assessmentService.getSchoolSessions().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        // this.classList = data.payload;
+        this.termList = data.payload[0].terms;
+      }
+    });
+  }
+
+  selectTerm(event: any) {
+    const { startDate, endDate } = this.termList[event];
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
+
+
   }
 
   getAllClasses() {
@@ -139,7 +159,7 @@ export class ReportingComponent implements OnInit {
 
       this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
     } else if (this.selectedSlug === 'userReport' && this.selectedSubReport === 'studentProfile') {
-        this.getStudentInAClass(event);
+      this.getStudentInAClass(event);
     }
   }
   getStudentInAClass(id) {
@@ -212,9 +232,9 @@ export class ReportingComponent implements OnInit {
     this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
       this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
         this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
-        this.selectedSubReport === 'parentProfile' ? this.downloadParentRecord() :
+          this.selectedSubReport === 'parentProfile' ? this.downloadParentRecord() :
 
-          this.downloadAttendanceReport();
+            this.downloadAttendanceReport();
   }
 
   downloadAttendanceReport() {
