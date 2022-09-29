@@ -33,7 +33,7 @@ export class ReportingComponent implements OnInit {
       id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
         { id: 1, title: 'Student Attendance', subSlug: 'studentAttendance' },
         { id: 2, title: 'Term Attendance', subSlug: 'termAttendance' },
-        { id: 3, title: 'Session Attendance', subSlug: 'sessionAtt' },
+        { id: 3, title: 'Session Attendance', subSlug: 'sessionAttendance' },
 
       ]
     }
@@ -52,6 +52,7 @@ export class ReportingComponent implements OnInit {
   showSubReport = false;
   showClass = false;
   showTerm = false;
+  showSession = false;
   selectedSubReport: any;
   adminDetails: any;
   selectedStartDate = '';
@@ -71,6 +72,7 @@ export class ReportingComponent implements OnInit {
   totalParent: number;
   totalNonTeacher: number;
   termList: any;
+  sessionList: any;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -114,10 +116,21 @@ export class ReportingComponent implements OnInit {
               : this.subSlug = false;
       // you can call user focused endpoints here
     } else if (this.selectedSlug === 'attendanceReport') {
+      this.fetchAttendanceRecord(this.adminDetails.TenantId);
       this.showNext = true;
       event === 'termAttendance' ? (
-        this.subSlug = true, this.showClass = true, this.showTerm = true, this.showNext = false, this.getAllTerm()):
+        this.subSlug = true, this.showExportBtn = true,
+        this.showClass = true, this.showTerm = true, this.showSession = false, this.showNext = false, this.getAllTerm()) :
+      event === 'sessionAttendance' ? (
+        this.subSlug = true, this.showExportBtn = true,
+        this.showClass = true, this.showTerm = false, this.showSession = true, this.showNext = false,
+        this.getAllTerm()) :
       this.fetchAttendanceRecord(this.adminDetails.TenantId);
+    } else {
+      this.showNext = false;
+      this.showExportBtn = false;
+      this.showTerm = false;
+      this.showSession = false;
     }
   }
 
@@ -125,6 +138,7 @@ export class ReportingComponent implements OnInit {
     this.assessmentService.getSchoolSessions().subscribe((data: any) => {
       if (data.hasErrors === false) {
         // this.classList = data.payload;
+        this.sessionList = data.payload;
         this.termList = data.payload[0].terms;
       }
     });
@@ -132,8 +146,16 @@ export class ReportingComponent implements OnInit {
 
   selectTerm(event: any) {
     const { startDate, endDate } = this.termList[event];
+    this.selectedStartDate = startDate;
+    this.selectedEndDate = endDate;
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
+  }
 
+  getSessionDates(event: any) {
+    const data = this.sessionList[event];
+    this.selectedStartDate = data.terms[0].startDate;
+    this.selectedEndDate = data.terms[2].endDate;
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate);
 
   }
 
