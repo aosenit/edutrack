@@ -243,7 +243,7 @@ export class ReportingComponent implements OnInit {
   }
 
   downloadReportInPdf() {
-    this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
+    this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecordInPdf() :
       this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecordInPdf() :
         this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecordInPdf() :
         this.selectedSubReport === 'parentProfile' ? this.downloadParentRecordInPdf() :
@@ -295,6 +295,19 @@ export class ReportingComponent implements OnInit {
       }
     });
   }
+
+  downloadStaffRecordInPdf() {
+    this.teacherService.exportEmployeePdfFile(2).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
+ 
 
   downloadStudentRecord() {
     this.studentService.exportStudentExcelFile(this.selectedClass).subscribe((res: any) => {
