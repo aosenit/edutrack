@@ -12,6 +12,7 @@ const routes = {
   getTeacherDetailsByUserId:'schtrack-auth/api/v1/Teacher/GetTeacherDetailsByUserId',
   getClassTeacher: 'schtrack-auth/api/v1/Teacher/GetTeacherClass',
   getBulkDdownload: 'schtrack-auth/api/v1/Teacher/GetTeachersExcelSheet',
+
   bulkUpload: 'schtrack-auth/api/v1/Teacher/BulkAddTeacher',
 
   getAllassignmentSubmission: 'schtrack-learning/api/v1/AssignmentAnswer/GetAllAssignmentAnswers',
@@ -20,7 +21,8 @@ const routes = {
   getteacherdesignation: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
   getsubjectAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject',
   getclassAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForClass',
-  downloadEmployeesData: 'schtrack-auth/api/v1/Teacher/GetTeachersDataInExcel'
+  downloadEmployeesData: 'schtrack-auth/api/v1/Teacher/GetTeachersDataInExcel',
+  downloadEmployeesDataInPdf:'schtrack-auth/api/v1/Teacher/GetTeachersDataInPDF'
 
 };
 @Injectable({
@@ -326,5 +328,11 @@ export class TeacherService {
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
+  exportEmployeePdfFile(staff) {
+    const url = `${this.baseUrl + routes.downloadEmployeesDataInPdf}?Staff=${staff}`;
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+  
 
 }
