@@ -248,7 +248,7 @@ export class ReportingComponent implements OnInit {
         this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecordInPdf() :
         this.selectedSubReport === 'parentProfile' ? this.downloadParentRecordInPdf() :
 
-          this.downloadAttendanceReport();
+          this.downloadAttendanceReportInPdf();
   }
 
   downloadAttendanceReport() {
@@ -262,7 +262,25 @@ export class ReportingComponent implements OnInit {
       }
     });
 
+    
+
   }
+  downloadAttendanceReportInPdf() {
+    // tslint:disable-next-line:max-line-length
+    this.reportService.exportAttendancePdf(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+
+    
+
+  }
+  
+
   downloadTeacherRecord() {
     this.teacherService.exportEmployeeExcelFile(1).subscribe((res: any) => {
       if (res.hasErrors === false) {
@@ -277,7 +295,7 @@ export class ReportingComponent implements OnInit {
     this.teacherService.exportEmployeePdfFile(1).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
-        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.download = `Teacher Data Report as at ${new Date().toLocaleString()}.pdf`;
         link.href = 'data:image/png;base64,' + res.payload.base64String;
         link.click();
       }
@@ -300,7 +318,7 @@ export class ReportingComponent implements OnInit {
     this.teacherService.exportEmployeePdfFile(2).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
-        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.download = `Non-Teaching Staff Data Report as at ${new Date().toLocaleString()}.pdf`;
         link.href = 'data:image/png;base64,' + res.payload.base64String;
         link.click();
       }
@@ -324,7 +342,7 @@ export class ReportingComponent implements OnInit {
     this.studentService.exportStudentPdf(this.selectedClass).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
-        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
         link.href = 'data:image/png;base64,' + res.payload.base64String;
         link.click();
       }

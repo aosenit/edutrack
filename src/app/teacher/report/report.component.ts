@@ -206,4 +206,19 @@ fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
           });
   }
 
+  downloadReportInPdf() {
+    // this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
+    //   this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
+    //     this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
+          // tslint:disable-next-line:max-line-length
+          this.reportService.exportAttendancePdf(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+            if (res.hasErrors === false) {
+              const link = document.createElement('a');
+              link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+              link.href = 'data:image/png;base64,' + res.payload.base64String;
+              link.click();
+            }
+          });
+  }
+
 }
