@@ -34,7 +34,6 @@ export class ReportingComponent implements OnInit {
         { id: 1, title: 'Student Attendance', subSlug: 'studentAttendance' },
         { id: 2, title: 'Term Attendance', subSlug: 'termAttendance' },
         { id: 3, title: 'Session Attendance', subSlug: 'sessionAttendance' },
-
       ]
     }
   ];
@@ -259,6 +258,15 @@ export class ReportingComponent implements OnInit {
             this.downloadAttendanceReport();
   }
 
+  downloadReportInPdf() {
+    this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecordInPdf() :
+      this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecordInPdf() :
+        this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecordInPdf() :
+        this.selectedSubReport === 'parentProfile' ? this.downloadParentRecordInPdf() :
+
+          this.downloadAttendanceReport();
+  }
+
   downloadAttendanceReport() {
     // tslint:disable-next-line:max-line-length
     this.reportService.exportAttance(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
@@ -281,6 +289,16 @@ export class ReportingComponent implements OnInit {
       }
     });
   }
+  downloadTeacherRecordInPdf() {
+    this.teacherService.exportEmployeePdfFile(1).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
 
 
   downloadStaffRecord() {
@@ -294,11 +312,35 @@ export class ReportingComponent implements OnInit {
     });
   }
 
+  downloadStaffRecordInPdf() {
+    this.teacherService.exportEmployeePdfFile(2).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
+ 
+
   downloadStudentRecord() {
     this.studentService.exportStudentExcelFile(this.selectedClass).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
+  downloadStudentRecordInPdf() {
+    this.studentService.exportStudentPdf(this.selectedClass).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
         link.href = 'data:image/png;base64,' + res.payload.base64String;
         link.click();
       }
@@ -316,4 +358,17 @@ export class ReportingComponent implements OnInit {
       }
     });
   }
+
+  downloadParentRecordInPdf() {
+    this.reportService.exportParentPdf(this.adminDetails.TenantId).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `Parent Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
+
 }

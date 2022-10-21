@@ -12,6 +12,7 @@
   bulkUpload: 'schtrack-auth/api/v1/Student/AddBulkStudent',
   searchStudent: 'schtrack-auth/api/v1/Student/GetStudentByName',
   downloadStudentsReport: 'schtrack-auth/api/v1/Student/GetStudentDataInExcel',
+  downloadStudentsReportInPdf:'schtrack-auth/api/v1/Student/GetStudentDataInPDF',
   getStudentInAClass : 'schtrack-auth/api/v1/Student/GetAllStudentInSchoolOrClass',
   getTotalUsersOnPlatform : 'schtrack-auth/api/v1/School/GetTotalUsersOnPlatform'
 };
@@ -208,6 +209,11 @@ export class StudentService {
 
     exportStudentExcelFile(classId) {
       const url = `${this.baseUrl + routes.downloadStudentsReport}?classId=${classId}`;
+      return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  
+    }
+    exportStudentPdf(classId) {
+      const url = `${this.baseUrl + routes.downloadStudentsReportInPdf}?classId=${classId}`;
       return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   
     }

@@ -5,7 +5,8 @@ const tenantId = '1';
 const routes = {
   getClassAttendanceWithDateSummary: 'schtrack-learning/api/v1/Attendance/GetClassAttendanceWithDateSummary',
   exportAttendance: 'schtrack-learning/api/v1/Attendance/AttendanceExport',
-  exportParentExcel: 'schtrack-auth/api/v1/Parent/GetParentDataInExcel'
+  exportParentExcel: 'schtrack-auth/api/v1/Parent/GetParentDataInExcel',
+  exportParentPdf:'schtrack-auth/api/v1/Parent/GetParentDataInPDF'
 
 };
 
@@ -33,4 +34,10 @@ export class ReportingService {
     const url = `${this.baseUrl + routes.exportParentExcel}?schoolId=${schoolId}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
+
+  exportParentPdf(schoolId) {
+    const url = `${this.baseUrl + routes.exportParentPdf}?schoolId=${schoolId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
 }
