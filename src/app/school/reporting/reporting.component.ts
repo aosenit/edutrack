@@ -267,7 +267,7 @@ export class ReportingComponent implements OnInit {
   }
   downloadAttendanceReportInPdf() {
     // tslint:disable-next-line:max-line-length
-    this.reportService.exportAttendancePdf(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+    this.reportService.exportAttendancePdf(this.adminDetails.TenantId,this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
