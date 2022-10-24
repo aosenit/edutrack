@@ -4,13 +4,15 @@
       <h6 class="banner__text-primary fw-6 "> Reports </h6>
       <p class=""> Directory of all reports </p>
     </div>
-    <!-- <div class="d-flex">
-          <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+    <div class="d-flex">
+          <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
             data-target="#exampleModalCenterUpload"> Bulk Upload </button>
     
           <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal" data-target="#selectionModal" (click)="clearData()"> Add New
+          </button> -->
+          <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReport()"> Export
           </button>
-        </div> -->
+        </div>
 
   </section>
 
@@ -22,15 +24,24 @@
           <div class="row">
 
 
-            <div class="col ">
+            <div class="col">
               <label for="class" class="fs-12 fw-6">Report Type</label>
-              <select name="" id="" class="form-control form-control-lg">
+              <select name="" id="" class="form-control form-control-lg" (change)="getReportType($event.target.value)">
                 <option value="" selected>Report Type</option>
-                <option [value]="report.id" *ngFor="let report of reportingOptions">{{report.title}}</option>
+                <option [value]="report.slug" *ngFor="let report of reportingOptions">{{report.title}}</option>
 
 
               </select>
             </div>
+            <div class="col " *ngIf="showTypes">
+                <label for="class" class="fs-12 fw-6">Report Type</label>
+                <select name="" id="" class="form-control form-control-lg" (change)="selectReportType($event.target.value)">
+                  <option value="" selected>Report Type</option>
+                  <option [value]="report.subSlug" *ngFor="let report of selectedReportType">{{report.title}}</option>
+  
+  
+                </select>
+              </div>
             <!-- <div class="col ">
                     <label for="class" class="fs-12 fw-6">Class</label>
                     <select name="" id="" class="form-control form-control-lg" >
@@ -41,101 +52,105 @@
           </div>
         </form>
       </div>
-      <div class="w-15">
+      <!-- <div class="w-15">
         <label for="">&nbsp;</label>
         <select name="" id="" class="form-control form-control-lg">
           <option value="" selected>Export as</option>
           <option value="">Excel</option>
           <option value="">CSV</option>
         </select>
-      </div>
+      </div> -->
       
 
 
     </div>
   </div>
 
-  <section class="list table-responsive">
-    <table class="table table-borderless client-table">
+  <ng-container *ngIf="selectedSlug === 'invoiceReport' && selectedSubReport === 'paidReport' ">
+    <section class="list table-responsive mb-5" >
+      <table class="table table-borderless client-table">
+        <thead>
+            <tr>
+               
+                <th scope="col" class="head " >School Name 
+             
+                </th>
+                <th scope="col">Paid Date </th>
+               
+                <th scope="col">Due Date
+                 
+                </th>
+                <th scope="col">Expected Students 
+                </th>
 
-      <thead>
-        
-        <th scope="col" class="head">Title </th>
-        <th scope="col">Users 
-        </th>
-        <th scope="col">State 
-        </th>
-        <th scope="col">Type 
-        </th>
-        <th scope="col">Status 
-        </th>
-        <th scope="col">Date Added 
-        </th>
+                <th scope="col">Paid 
+               
+                </th>
+            </tr>
+        </thead>
+        <tbody>
 
-      </thead>
-      <tbody>
-        <tr class="pb-2">
-          <td scope="row" class="school-logo rounded-left fc-lblue">
-            User 1
-
-          </td>
-          <td> sdds </td>
-          <td>dsds</td>
-          <td>ssdds</td>
-          <td>dsdsd</td>
-          
-          <td class="rounded-right ">
-            dsds
-          </td>
-        </tr>
-        <tr class="pb-2">
-          <td scope="row" class="school-logo rounded-left fc-lblue">
-            User 1
-
-          </td>
-          <td> sdds </td>
-          <td>dsds</td>
-          <td>ssdds</td>
-          <td>dsdsd</td>
-          
-          <td class="rounded-right ">
-            dsds
-          </td>
-        </tr>
-        <tr class="pb-2">
-          <td scope="row" class="school-logo rounded-left fc-lblue">
-            User 1
-
-          </td>
-          <td> sdds </td>
-          <td>dsds</td>
-          <td>ssdds</td>
-          <td>dsdsd</td>
-          
-          <td class="rounded-right ">
-            dsds
-          </td>
-        </tr>
+            <tr class="pb-1" *ngFor="let invoice of invoiceList  ">
+                
+                <td>{{invoice?.schoolName}}</td>
+                <td>{{invoice?.paidDate | date : 'MM-d-yyyy'}}</td>
+                <td class="">{{invoice?.dueDate | date : 'MM-d-yyyy'}}</td>
+                <td>{{invoice?.expectedStudent}}</td>
+                <td class="rounded-right">
+                    <span class="status_active" *ngIf = "invoice?.paid == true">Active</span>
+                    <span class="status_active" *ngIf = "invoice?.paid == false">Inactive</span>
+                </td>
+             
+            </tr>
 
 
-       
-
-      </tbody>
+        </tbody>
     </table>
-    <!-- <div class="d-flex justify-content-end">
-      <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
-    </div> -->
+  
+    </section>
+  </ng-container>
+  <ng-container *ngIf="selectedSlug === 'invoiceReport' && selectedSubReport === 'unpaidReport' ">
+    <section class="list table-responsive mb-5" >
+      <table class="table table-borderless client-table">
+        <thead>
+            <tr>
+               
+                <th scope="col" class="head " >School Name 
+             
+                </th>
+                <th scope="col">Paid Date </th>
+               
+                <th scope="col">Due Date
+                 
+                </th>
+                <th scope="col">Expected Students 
+                </th>
 
-    <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">
-            <div class="d-flex flex-column justify-content-center align-items-center">
-              <img src="assets/images/svg/no-result.svg" alt="no search result" class="my-4">
-                <p class="mb-4 no-result">Sorry, no results found</p>
-                <button class="btn btn-outline-orange  mx-2 mx-lg-3" >Go back </button>
-            </div>
-        </div> -->
+                <th scope="col">Paid 
+               
+                </th>
+            </tr>
+        </thead>
+        <tbody>
 
-  </section>
- 
+            <tr class="pb-1" *ngFor="let invoice of invoiceList  ">
+                
+                <td>{{invoice?.schoolName}}</td>
+                <td>{{invoice?.paidDate | date : 'MM-d-yyyy'}}</td>
+                <td class="">{{invoice?.dueDate | date : 'MM-d-yyyy'}}</td>
+                <td>{{invoice?.expectedStudent}}</td>
+                <td class="rounded-right">
+                    <span class="status_active" *ngIf = "invoice?.paid == true">Active</span>
+                    <span class="status_active" *ngIf = "invoice?.paid == false">Inactive</span>
+                </td>
+             
+            </tr>
 
 
+        </tbody>
+    </table>
+  
+    </section>
+  </ng-container>
+  
 </div>
