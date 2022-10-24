@@ -22,7 +22,7 @@ export class ReportComponent implements OnInit {
     {
       id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
         { id: 1, title: 'Student Attendance' },
-        { id: 2, title: 'Weekly Student Attendance' },
+        // { id: 2, title: 'Weekly Student Attendance' },
         // { id: 3, title: 'Term Student Attendance' },
         // { id: 4, title: 'Session Student Attendance' },
 
@@ -47,7 +47,7 @@ export class ReportComponent implements OnInit {
   selectedStartDate = '';
   selectedEndDate = '';
   studentAttendanceRecord: any;
-  classList: any;
+  classList = [];
   selectedClass: any;
   selectedSlug: string;
   teachersList: any;
@@ -56,6 +56,8 @@ export class ReportComponent implements OnInit {
   showExportBtn = false;
   studentList: any;
   parentList: any;
+  teacherId: any;
+  teacherClassId: any;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -71,7 +73,9 @@ export class ReportComponent implements OnInit {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
 
-    this.getAllClasses();
+    this.getTeacherDetailsByUserId();
+
+  
 
   }
 
@@ -90,26 +94,18 @@ export class ReportComponent implements OnInit {
     if (this.selectedSlug === 'attendanceReport') {
       this.showNext = true;
       this.showClass = true;
-      this.fetchAttendanceRecord(this.adminDetails.TenantId);
+      this.fetchAttendanceRecord(this.adminDetails.TenantId, this.teacherClassId);
     }
   }
 
   getAllClasses() {
-    this.classService.getTeacherClassesByClassId(this.adminDetails.TeacherClassId).subscribe((data: any) => {
+    this.classService.getTeacherClassesByClassId(this.teacherId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.classList = data.payload;
+        this.classList.push(data.payload);
+        this.teacherClassId = data.payload.classId;
       }
     }
     );
-  }
-
-  fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
-    // tslint:disable-next-line:max-line-length
-    this.reportService.GetClassAttendanceWithDateSummary(tenantId, this.adminDetails.TeacherClassId, startDate, endDate).subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        this.studentAttendanceRecord = res.payload;
-      }
-    });
   }
 
   selectClass(event) {
@@ -117,13 +113,24 @@ export class ReportComponent implements OnInit {
     this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
   }
 
+
+fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
+    // tslint:disable-next-line:max-line-length
+    this.reportService.GetClassAttendanceWithDateSummary(tenantId, classId, startDate, endDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.studentAttendanceRecord = res.payload;
+      }
+    });
+  }
+
+  
   getStartDate(event) {
     this.selectedStartDate = event;
-    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate);
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate);
   }
   getEndDate(event) {
     this.selectedEndDate = event;
-    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate, this.selectedEndDate);
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate);
   }
 
 
@@ -135,6 +142,18 @@ export class ReportComponent implements OnInit {
     });
   }
 
+
+  getTeacherDetailsByUserId(){
+    this.teacherService.getTeacherDetailsByUserId(this.adminDetails.sub).subscribe((data: any)=>{
+      if (data.hasErrors === false) {
+        this.teacherId = data.payload.teacherId;
+        this.getAllClasses()
+      }
+
+      
+      
+    })
+  }
   callNonTeacherEndPoint() {
     this.staffService.getAllStaffInSchool().subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -176,10 +195,25 @@ export class ReportComponent implements OnInit {
     //   this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
     //     this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
           // tslint:disable-next-line:max-line-length
-          this.reportService.exportAttance(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+          this.reportService.exportAttance(this.adminDetails.TenantId, this.teacherClassId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
             if (res.hasErrors === false) {
               const link = document.createElement('a');
               link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+              link.href = 'data:image/png;base64,' + res.payload.base64String;
+              link.click();
+            }
+          });
+  }
+
+  downloadReportInPdf() {
+    // this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
+    //   this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
+    //     this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
+          // tslint:disable-next-line:max-line-length
+          this.reportService.exportAttendancePdf(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+            if (res.hasErrors === false) {
+              const link = document.createElement('a');
+              link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
               link.href = 'data:image/png;base64,' + res.payload.base64String;
               link.click();
             }

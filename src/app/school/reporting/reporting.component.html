@@ -10,6 +10,8 @@
       
             <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReport()"> Export
             </button>
+            <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReportInPdf()"> Export PDF
+            </button>
           </div>
   
     </section>
@@ -34,7 +36,7 @@
               <div class="col " *ngIf="showTypes">
                 <label for="class" class="fs-12 fw-6">Report Type</label>
                 <select name="" id="" class="form-control form-control-lg" (change)="selectReportType($event.target.value)">
-                  <option value="" selected>Report Type</option>
+                  <option value="none" selected>Report Type</option>
                   <option [value]="report.subSlug" *ngFor="let report of selectedReportType">{{report.title}}</option>
   
   
@@ -47,6 +49,24 @@
                 <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
                   <option value="" selected>Select class</option>
                   <option [value]="class.id" *ngFor="let class of classList">{{class.classSection + ' ' + class.name}}</option>
+  
+  
+                </select>
+              </div>
+              <div class="col " *ngIf="showTerm">
+                <label for="class" class="fs-12 fw-6">Term</label>
+                <select name="" id="" class="form-control form-control-lg" (change)="selectTerm($event.target.value)">
+                  <option value="" selected>Select class</option>
+                  <option [value]="t" *ngFor="let term of termList;let t = index">{{term.name}}</option>
+  
+  
+                </select>
+              </div>
+              <div class="col " *ngIf="showSession">
+                <label for="class" class="fs-12 fw-6">Session</label>
+                <select name="" id="" class="form-control form-control-lg" (change)="getSessionDates($event.target.value)">
+                  <option value="" selected>Select session</option>
+                  <option [value]="s" *ngFor="let session of sessionList;let s = index">{{session.name}}</option>
   
   
                 </select>
@@ -111,6 +131,11 @@
     </div>
   
     <ng-container *ngIf="selectedSlug === 'attendanceReport' ">
+      <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
+        <p class="text-center fs-24 ff-a">
+          No attendance record found
+        </p>
+      </div> 
       <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
         <table class="table table-borderless client-table">
           <thead>

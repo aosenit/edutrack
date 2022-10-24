@@ -8,7 +8,9 @@
             <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
               data-target="#exampleModalCenterUpload"> Export </button> -->
       
-            <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReport()"> Export
+            <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReport()"> Export Excel
+            </button>
+            <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReportInPdf()"> Export PDF
             </button>
           </div>
   
@@ -44,7 +46,7 @@
                 <label for="class" class="fs-12 fw-6">Class</label>
                 <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
                   <option value="" selected>Select class</option>
-                  <option [value]="class.id" *ngFor="let class of classList">{{class.classSection + ' ' + class.name}}</option>
+                  <option [value]="class.classId" *ngFor="let class of classList">{{class.classSection + ' ' + class.className}}</option>
   
   
                 </select>

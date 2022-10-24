@@ -9,8 +9,10 @@ const routes = {
   updateteacherbyid: 'schtrack-auth/api/v1/Teacher/UpdateTeacher',
   deleteteacher: 'schtrack-auth/api/v1/Teacher/DeleteTeacher',
   attachteachertoclass: 'schtrack-auth/api/v1/Teacher/SetClassTeacher',
+  getTeacherDetailsByUserId:'schtrack-auth/api/v1/Teacher/GetTeacherDetailsByUserId',
   getClassTeacher: 'schtrack-auth/api/v1/Teacher/GetTeacherClass',
   getBulkDdownload: 'schtrack-auth/api/v1/Teacher/GetTeachersExcelSheet',
+
   bulkUpload: 'schtrack-auth/api/v1/Teacher/BulkAddTeacher',
 
   getAllassignmentSubmission: 'schtrack-learning/api/v1/AssignmentAnswer/GetAllAssignmentAnswers',
@@ -19,7 +21,9 @@ const routes = {
   getteacherdesignation: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
   getsubjectAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject',
   getclassAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForClass',
-  downloadEmployeesData: 'schtrack-auth/api/v1/Teacher/GetTeachersDataInExcel'
+  downloadEmployeesData: 'schtrack-auth/api/v1/Teacher/GetTeachersDataInExcel',
+  downloadEmployeesDataInPdf:'schtrack-auth/api/v1/Teacher/GetTeachersDataInPDF'
+
 };
 @Injectable({
   providedIn: 'root'
@@ -286,7 +290,11 @@ export class TeacherService {
 
   getTeacherAttachedToClass(id) {
     const url = `${this.baseUrl + routes.getClassTeacher}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
 
+  getTeacherDetailsByUserId(id){
+    const url = `${this.baseUrl + routes.getTeacherDetailsByUserId}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -320,5 +328,11 @@ export class TeacherService {
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
+  exportEmployeePdfFile(staff) {
+    const url = `${this.baseUrl + routes.downloadEmployeesDataInPdf}?Staff=${staff}`;
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+  
 
 }
