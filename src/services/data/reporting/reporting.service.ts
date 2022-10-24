@@ -38,11 +38,11 @@ export class ReportingService {
   
   // invoice endpoints
   getSchoolInvoiceReportView(invoiceStatus) {
-    const url = `${this.baseUrl + routes.getSchoolInvoiceReportView}/{invoiceStatus}`;
+    const url = `${this.baseUrl + routes.getSchoolInvoiceReportView}/${invoiceStatus}`;
     return this.http.get(url,{ headers: {Authorization: 'Bearer ' + localStorage.getItem('access_token')}} )
   }
   exportInvoiceReportExcel(invoiceStatus){
-    const url = `${this.baseUrl + routes.exportInvoiceReportExcel}/{invoiceStatus}`;
+    const url = `${this.baseUrl + routes.exportInvoiceReportExcel}/${invoiceStatus}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
   
