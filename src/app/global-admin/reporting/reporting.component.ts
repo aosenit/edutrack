@@ -76,7 +76,7 @@ export class ReportingComponent implements OnInit {
         this.showExportBtn = true;
       
         event === 'paidReport' ? (this.subSlug = true, this.getAllSchoolInvoiceReport(1)) :
-        event === 'unpaidReport' ? (this.subSlug = true, this.getAllSchoolInvoiceReport(2)) 
+        event === 'unpaidReport' ? (this.subSlug = true, this.getAllSchoolInvoiceReport(0)) 
         : this.subSlug = false;
       } 
       else if (this.selectedSlug === 'financeReport') {
@@ -111,7 +111,7 @@ downloadPaidInvoiceRecord() {
 }
 
 downloadUnpaidInvoiceRecord() {
-  this.reportingservice.exportInvoiceReportExcel(2).subscribe((res: any) => {
+  this.reportingservice.exportInvoiceReportExcel(0).subscribe((res: any) => {
     if (res.hasErrors === false) {
       const link = document.createElement('a');
       link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
