@@ -195,7 +195,7 @@ fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
     //   this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
     //     this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
           // tslint:disable-next-line:max-line-length
-          this.reportService.exportAttance(this.adminDetails.TenantId, this.teacherClassId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+          this.reportService.exportAttance(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
             if (res.hasErrors === false) {
               const link = document.createElement('a');
               link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
@@ -206,11 +206,7 @@ fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
   }
 
   downloadReportInPdf() {
-    // this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
-    //   this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
-    //     this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
-          // tslint:disable-next-line:max-line-length
-          this.reportService.exportAttendancePdf(this.adminDetails.TenantId, this.adminDetails.TeacherClassId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+          this.reportService.exportAttendancePdf(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
             if (res.hasErrors === false) {
               const link = document.createElement('a');
               link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
