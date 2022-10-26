@@ -83,7 +83,7 @@
                 <th scope="col">Expected Students 
                 </th>
 
-                <th scope="col">Paid 
+                <th scope="col">Status 
                
                 </th>
             </tr>
@@ -97,8 +97,8 @@
                 <td class="">{{invoice?.dueDate | date : 'MM-d-yyyy'}}</td>
                 <td>{{invoice?.expectedStudent}}</td>
                 <td class="rounded-right">
-                    <span class="status_active" *ngIf = "invoice?.paid == true">Active</span>
-                    <span class="status_active" *ngIf = "invoice?.paid == false">Inactive</span>
+                    <span class="status_active" *ngIf = "invoice?.paid == true">Paid</span>
+                    <span class="status_active" *ngIf = "invoice?.paid == false">Unpaid</span>
                 </td>
              
             </tr>
@@ -126,7 +126,7 @@
                 <th scope="col">Expected Students 
                 </th>
 
-                <th scope="col">Paid 
+                <th scope="col">Status 
                
                 </th>
             </tr>
@@ -140,8 +140,8 @@
                 <td class="">{{invoice?.dueDate | date : 'MM-d-yyyy'}}</td>
                 <td>{{invoice?.expectedStudent}}</td>
                 <td class="rounded-right">
-                    <span class="status_active" *ngIf = "invoice?.paid == true">Active</span>
-                    <span class="status_active" *ngIf = "invoice?.paid == false">Inactive</span>
+                    <span class="status_active" *ngIf = "invoice?.paid == true">Paid</span>
+                    <span class="status_active" *ngIf = "invoice?.paid == false">Unpaid</span>
                 </td>
              
             </tr>
