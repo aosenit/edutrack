@@ -12,6 +12,8 @@
           </button> -->
           <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReport()"> Export
           </button>
+          <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadInvoiceRecordPdf()"> Export PDF
+          </button>
         </div>
 
   </section>
@@ -83,7 +85,7 @@
                 <th scope="col">Expected Students 
                 </th>
 
-                <th scope="col">Paid 
+                <th scope="col">Status 
                
                 </th>
             </tr>
@@ -97,8 +99,8 @@
                 <td class="">{{invoice?.dueDate | date : 'MM-d-yyyy'}}</td>
                 <td>{{invoice?.expectedStudent}}</td>
                 <td class="rounded-right">
-                    <span class="status_active" *ngIf = "invoice?.paid == true">Active</span>
-                    <span class="status_active" *ngIf = "invoice?.paid == false">Inactive</span>
+                    <span class="status_active" *ngIf = "invoice?.paid == true">Paid</span>
+                    <span class="status_active" *ngIf = "invoice?.paid == false">Unpaid</span>
                 </td>
              
             </tr>
@@ -126,7 +128,7 @@
                 <th scope="col">Expected Students 
                 </th>
 
-                <th scope="col">Paid 
+                <th scope="col">Status 
                
                 </th>
             </tr>
@@ -140,8 +142,8 @@
                 <td class="">{{invoice?.dueDate | date : 'MM-d-yyyy'}}</td>
                 <td>{{invoice?.expectedStudent}}</td>
                 <td class="rounded-right">
-                    <span class="status_active" *ngIf = "invoice?.paid == true">Active</span>
-                    <span class="status_active" *ngIf = "invoice?.paid == false">Inactive</span>
+                    <span class="status_active" *ngIf = "invoice?.paid == true">Paid</span>
+                    <span class="status_active" *ngIf = "invoice?.paid == false">Unpaid</span>
                 </td>
              
             </tr>

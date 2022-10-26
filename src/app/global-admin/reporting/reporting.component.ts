@@ -76,7 +76,7 @@ export class ReportingComponent implements OnInit {
         this.showExportBtn = true;
 
         event === 'paidReport' ? (this.subSlug = true, this.getAllSchoolInvoiceReport(1)) :
-        event === 'unpaidReport' ? (this.subSlug = true, this.getAllSchoolInvoiceReport(2))
+        event === 'unpaidReport' ? (this.subSlug = true, this.getAllSchoolInvoiceReport(0)) 
         : this.subSlug = false;
       } else if (this.selectedSlug === 'financeReport') {
         this.showNext = true;
@@ -89,7 +89,6 @@ getAllSchoolInvoiceReport(invoiceStatus) {
   this.reportingservice.getSchoolInvoiceReportView(invoiceStatus).subscribe((data: any) => {
     if (data.hasErrors === false) {
       this.invoiceList = data.payload;
-      console.log(this.invoiceList);
     }
   });
 }
@@ -102,23 +101,51 @@ downloadPaidInvoiceRecord() {
   this.reportingservice.exportInvoiceReportExcel(1).subscribe((res: any) => {
     if (res.hasErrors === false) {
       const link = document.createElement('a');
-      link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+      link.download = `${res.payload.fileName} Paid invoice as at ${new Date().toLocaleString()}.xlsx`;
       link.href = 'data:image/png;base64,' + res.payload.base64String;
       link.click();
     }
   });
 }
-
 downloadUnpaidInvoiceRecord() {
-  this.reportingservice.exportInvoiceReportExcel(2).subscribe((res: any) => {
+  this.reportingservice.exportInvoiceReportExcel(0).subscribe((res: any) => {
     if (res.hasErrors === false) {
       const link = document.createElement('a');
-      link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+      link.download = `${res.payload.fileName} Unpaid invoice as at ${new Date().toLocaleString()}.xlsx`;
       link.href = 'data:image/png;base64,' + res.payload.base64String;
       link.click();
     }
   });
 }
 
+
+downloadInvoiceRecordPdf(){
+  this.selectedSubReport === 'paidReport' ? this.downloadPaidInvoiceRecordPdf() :
+  
+  this.downloadUnpaidInvoiceRecordPdf();
+}
+
+downloadPaidInvoiceRecordPdf(){
+  this.reportingservice.exportInvoiceReportPdf(1).subscribe((res: any) => {
+    if (res.hasErrors === false) {
+      const link = document.createElement('a');
+      link.download = `${res.payload.fileName} Paid Invoice Report as at ${new Date().toLocaleString()}.pdf`;
+      link.href = 'data:image/png;base64,' + res.payload.base64String;
+      link.click();
+    }
+  });
+ 
+}
+
+downloadUnpaidInvoiceRecordPdf(){
+  this.reportingservice.exportInvoiceReportPdf(0).subscribe((res: any) => {
+    if (res.hasErrors === false) {
+      const link = document.createElement('a');
+      link.download = `${res.payload.fileName} Unpaid Invoice Report as at ${new Date().toLocaleString()}.pdf`;
+      link.href = 'data:image/png;base64,' + res.payload.base64String;
+      link.click();
+    }
+  });
+}
 
 }
