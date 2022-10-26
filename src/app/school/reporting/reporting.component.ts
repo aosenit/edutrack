@@ -278,7 +278,6 @@ export class ReportingComponent implements OnInit {
       }
     });
 
-    
 
   }
   downloadAttendanceReportInPdf() {
@@ -292,7 +291,6 @@ export class ReportingComponent implements OnInit {
       }
     });
 
-    
 
   }
   
