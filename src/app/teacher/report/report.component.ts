@@ -9,6 +9,9 @@ import { ParentsService } from 'src/services/data/parents/parents.service';
 
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { StudentService } from 'src/services/data/student/student.service';
+import { AssessmentService } from 'src/services/data/assessment/assessment.service';
+import { SubjectService } from 'src/services/data/subject/subject.service';
+
 
 @Component({
   selector: 'app-report',
@@ -42,6 +45,8 @@ export class ReportComponent implements OnInit {
   showTypes = false;
   showSubReport = false;
   showClass = false;
+  showTerm = false;
+  showSubject =false;
   selectedSubReport: any;
   adminDetails: any;
   selectedStartDate = '';
@@ -57,6 +62,10 @@ export class ReportComponent implements OnInit {
   studentList: any;
   parentList: any;
   teacherId: any;
+ 
+  termList: any;
+  subjectList: any;
+  
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -65,6 +74,8 @@ export class ReportComponent implements OnInit {
     private teacherService: TeacherService,
     private studentService: StudentService,
     private parentService: ParentsService,
+    private assessmentService: AssessmentService,
+    private subjectService: SubjectService,
 
   ) { }
 
@@ -73,10 +84,41 @@ export class ReportComponent implements OnInit {
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
 
     this.getTeacherDetailsByUserId();
-
+    this.getAllSubjects()
   
 
   }
+
+  getAllTerm(){
+    this.assessmentService.getSchoolSessions().subscribe((data: any)=>{
+      if (data.hasErrors === false) {
+        // this.classList = data.payload;
+        this.termList = data.payload[0].terms
+        console.log(data.payload)
+      }
+    })
+  }
+
+  selectTerm(event: any){
+    console.log(event);
+    
+    const {startDate, endDate} = this.termList[event]
+    this.selectedStartDate = startDate
+    this.selectedEndDate = endDate
+    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
+
+
+  }
+  getAllSubjects(){
+    this.subjectService.getAllSubjects().subscribe((data: any)=>{
+      if (data.hasErrors === false) {
+        console.log(data.payload)
+        this.subjectList = data.payload
+        
+      }
+    })
+  }
+
 
   getReportType(event) {
     this.reportingOptions.forEach(item => {
@@ -93,6 +135,12 @@ export class ReportComponent implements OnInit {
     if (this.selectedSlug === 'attendanceReport') {
       this.showNext = true;
       this.showClass = true;
+      this.showTerm = true;
+      this.showSubject =true;
+      this.getAllTerm()
+      this.getAllSubjects()
+      
+      
       this.fetchAttendanceRecord(this.adminDetails.TenantId);
     }
   }
@@ -111,6 +159,7 @@ export class ReportComponent implements OnInit {
 
   selectClass(event) {
     this.selectedClass = event;
+    console.log(event)
     this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
   }
 

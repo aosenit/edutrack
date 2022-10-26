@@ -137,6 +137,8 @@ export class ReportingComponent implements OnInit {
     console.log(event);
     
     const {startDate, endDate} = this.termList[event]
+    this.selectedStartDate = startDate
+    this.selectedEndDate = endDate
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
 
 

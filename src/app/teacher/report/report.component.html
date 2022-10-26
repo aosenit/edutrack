@@ -46,7 +46,26 @@
                 <label for="class" class="fs-12 fw-6">Class</label>
                 <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
                   <option value="" selected>Select class</option>
-                  <option [value]="class.id" *ngFor="let class of classList">{{class.classSection + ' ' + class.className}}</option>
+                  <option [value]="class.classId" *ngFor="let class of classList">{{class.classSection + ' ' + class.className}}</option>
+  
+  
+                </select>
+              </div>
+              <div class="col " *ngIf="showTerm">
+                <label for="class" class="fs-12 fw-6">Term</label>
+                <select name="" id="" class="form-control form-control-lg" (change)="selectTerm($event.target.value)">
+                  <option value="" selected>Select term</option>
+                  <option [value]="t" *ngFor="let term of termList;let t = index">{{term.name}}</option>
+  
+  
+                </select>
+              </div>
+
+              <div class="col" *ngIf="showSubject">
+                <label for="class" class="fs-12 fw-6">Subject</label>
+                <select name="" id="" class="form-control form-control-lg">
+                  <option value="" selected>Select subject</option>
+                  <option [value]="subject.id"  *ngFor="let subject of subjectList">{{subject.name}}</option>
   
   
                 </select>
