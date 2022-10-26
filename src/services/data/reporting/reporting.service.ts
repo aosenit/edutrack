@@ -10,8 +10,9 @@ const routes = {
   exportParentPdf: 'schtrack-auth/api/v1/Parent/GetParentDataInPDF',
   // exportParentExcel: 'schtrack-auth/api/v1/Parent/GetParentDataInExcel',
   exportInvoiceReportExcel: 'schtrack-auth/api/v1/School/InvoiceExcelReport',
+  exportInvoiceReportPdf: 'schtrack-auth/api/v1/School/InvoicePdfReport',
   getSchoolInvoiceReportView: 'schtrack-auth/api/v1/School/GetSchoolInvoiceReportView',
-
+  
 };
 
 @Injectable({
@@ -54,7 +55,11 @@ export class ReportingService {
     return this.http.get(url, { headers: {Authorization: 'Bearer ' + localStorage.getItem('access_token')}} )
   }
   exportInvoiceReportExcel(invoiceStatus){
-    const url = `${this.baseUrl + routes.exportInvoiceReportExcel}/${invoiceStatus}`;
+    const url = `${this.baseUrl + routes.exportInvoiceReportExcel}?invoiceStatus=${invoiceStatus}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+  exportInvoiceReportPdf(invoiceStatus){
+    const url = `${this.baseUrl + routes.exportInvoiceReportPdf}?invoiceStatus=${invoiceStatus}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
   

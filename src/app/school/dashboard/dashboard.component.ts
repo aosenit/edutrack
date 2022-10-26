@@ -39,6 +39,7 @@ export class DashboardComponent implements OnInit {
   barDashboardDatas: string[];
   barDashboardDataKeys: string[];
   subscriptionStatus: any;
+  
 
 
 
@@ -67,7 +68,7 @@ export class DashboardComponent implements OnInit {
     this.getAllEmployees();
     this.getAllPayment();
     this.getAllClassesInSchool();
-    this.getSubscriptionStatus()
+    this.getSubscriptionStatus();
   }
 
   greeting() {

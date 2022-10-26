@@ -18,6 +18,8 @@ export class DashboardComponent implements OnInit {
   p = 1;
   itemsPerPage = 5;
   loginDate: string;
+  usersCount: any;
+  totalUser: any;
 
   constructor(private schoolService: SchoolService, private studentservice: StudentService) { }
 
@@ -29,14 +31,14 @@ export class DashboardComponent implements OnInit {
     this.greeting();
     this.getAllSchool();
     // this.getAllStudents();
-    this.getTotalUsersOnPlatform()
+    this.getTotalUsersOnPlatform();
   }
 
   getAllSchool() {
     this.schoolService.getAllSchools(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data) {
         this.registeredSchools = data.payload;
-        this.schoolCount = data.totalCount;
+        this.schoolCount = data.usersCount;
       }
     });
   }
@@ -49,10 +51,12 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
+ 
   getTotalUsersOnPlatform(){
     this.studentservice.getTotalUsersOnPlatform().subscribe(
       (res: any) => {
-        this.studentsOnPlatform = res.payload.totalStudents   
+        this.studentsOnPlatform = res.payload.totalStudents
+        this.totalUser = res.payload.totalUsers
       }
     );
   }
