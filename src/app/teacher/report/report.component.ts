@@ -100,7 +100,7 @@ export class ReportComponent implements OnInit {
   }
 
   selectTerm(event: any){
-    console.log(event);
+  
     
     const {startDate, endDate} = this.termList[event]
     this.selectedStartDate = startDate
@@ -112,12 +112,14 @@ export class ReportComponent implements OnInit {
   getAllSubjects(){
     this.subjectService.getAllSubjects().subscribe((data: any)=>{
       if (data.hasErrors === false) {
-        console.log(data.payload)
+        
         this.subjectList = data.payload
         
       }
     })
   }
+
+  
 
 
   getReportType(event) {
@@ -159,7 +161,6 @@ export class ReportComponent implements OnInit {
 
   selectClass(event) {
     this.selectedClass = event;
-    console.log(event)
     this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
   }
 
