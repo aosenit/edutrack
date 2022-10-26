@@ -134,7 +134,6 @@ downloadPaidInvoiceRecordPdf(){
       link.click();
     }
   });
- 
 }
 
 downloadUnpaidInvoiceRecordPdf(){
