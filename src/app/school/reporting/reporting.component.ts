@@ -143,10 +143,11 @@ export class ReportingComponent implements OnInit {
     });
   }
 
-  selectTerm(event: any) {
-    const { startDate, endDate } = this.termList[event];
-    this.selectedStartDate = startDate;
-    this.selectedEndDate = endDate;
+  selectTerm(event: any){
+    
+    const {startDate, endDate} = this.termList[event]
+    this.selectedStartDate = startDate
+    this.selectedEndDate = endDate
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
   }
 
