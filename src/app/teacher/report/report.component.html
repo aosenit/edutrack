@@ -47,11 +47,7 @@
                 <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
                   <option value="" selected>Select class</option>
                   <option [value]="class.classId" *ngFor="let class of classList">{{class.classSection + ' ' + class.className}}</option>
-<<<<<<< HEAD
-=======
-  
-  
-                </select>
+                  </select>
               </div>
               <div class="col " *ngIf="showTerm">
                 <label for="class" class="fs-12 fw-6">Term</label>
@@ -65,10 +61,10 @@
 
               <div class="col" *ngIf="showSubject">
                 <label for="class" class="fs-12 fw-6">Subject</label>
-                <select name="" id="" class="form-control form-control-lg">
+                <select name="" id="" class="form-control form-control-lg" (change)="selectSubject($event.target.value)">
                   <option value="" selected>Select subject</option>
                   <option [value]="subject.id"  *ngFor="let subject of subjectList">{{subject.name}}</option>
->>>>>>> 10caef8a56f033a9a2f5f2897f837e7ec7d375e3
+
   
   
                 </select>

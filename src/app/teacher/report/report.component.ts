@@ -110,11 +110,17 @@ export class ReportComponent implements OnInit {
     this.subjectService.getAllSubjects().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload
+        console.log(data.payload)
 
       }
     })
   }
-
+  selectSubject(event: any) {
+    console.log(event)
+   
+    this.fetchSubjectAttendanceRecord(this.adminDetails.TenantId,event, this.selectedStartDate, this.selectedEndDate);
+  }
+  
 
 
   getReportType(event) {
@@ -163,7 +169,19 @@ export class ReportComponent implements OnInit {
     this.reportService.GetClassAttendanceWithDateSummary(tenantId, classId, startDate, endDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.studentAttendanceRecord = res.payload;
+        console.log(res.payload);
       }
+    });
+  }
+
+  fetchSubjectAttendanceRecord(tenantId,subjectId?, startDate?, endDate?) {
+    // tslint:disable-next-line:max-line-length
+    this.reportService.getClassSubjectAttendanceWithDateSummary(tenantId,subjectId,startDate, endDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.studentAttendanceRecord = res.payload;
+        console.log(res.payload);
+      }
+      
     });
   }
 

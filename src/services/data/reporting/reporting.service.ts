@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 const tenantId = '1';
 const routes = {
   getClassAttendanceWithDateSummary: 'schtrack-learning/api/v1/Attendance/GetClassAttendanceWithDateSummary',
+  getClassSubjectAttendanceWithDateSummary:'schtrack-learning/api/v1/Attendance/GetClassSubjectAttendanceWithDateSummary',
   exportAttendance: 'schtrack-learning/api/v1/Attendance/AttendanceExport',
   exportAttendancePdf:'schtrack-learning/api/v1/Attendance/ClassAttendancePDFExport',
   exportSubjectAttendance:'schtract-learning/api/v1/Attendance/SubjectAttendanceExport',
@@ -31,13 +32,18 @@ export class ReportingService {
     const url = `${this.baseUrl + routes.getClassAttendanceWithDateSummary}?tenantId=${TenantId}&classId=${classId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
+
+  getClassSubjectAttendanceWithDateSummary(TenantId,subjectId?, startDate?, endDate?) {
+    const url = `${this.baseUrl + routes.getClassSubjectAttendanceWithDateSummary}?tenantId=${TenantId}&subjectId=${subjectId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
   exportAttance(TenantId, classId?, startDate?, endDate?) {
     const url = `${this.baseUrl + routes.exportAttendance}?tenantId=${TenantId}&classId=${classId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  exportSubjectAttendance(TenantId, classId?, startDate?, endDate?) {
-    const url = `${this.baseUrl + routes.exportSubjectAttendance}?tenantId=${TenantId}&classId=${classId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
+  exportSubjectAttendance(TenantId, classId?,subjectId?, startDate?, endDate?) {
+    const url = `${this.baseUrl + routes.exportSubjectAttendance}?tenantId=${TenantId}&classId=${classId}&subjectId=${subjectId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
