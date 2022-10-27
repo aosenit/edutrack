@@ -120,7 +120,6 @@
                 <th scope="col" class="head " >School Name 
              
                 </th>
-                <th scope="col">Paid Date </th>
                
                 <th scope="col">Due Date
                  
@@ -138,12 +137,11 @@
             <tr class="pb-1" *ngFor="let invoice of invoiceList  ">
                 
                 <td>{{invoice?.schoolName}}</td>
-                <td>{{invoice?.paidDate | date : 'MM-d-yyyy'}}</td>
                 <td class="">{{invoice?.dueDate | date : 'MM-d-yyyy'}}</td>
                 <td>{{invoice?.expectedStudent}}</td>
                 <td class="rounded-right">
                     <span class="status_active" *ngIf = "invoice?.paid == true">Paid</span>
-                    <span class="status_active" *ngIf = "invoice?.paid == false">Unpaid</span>
+                    <span class="status_inactive" *ngIf = "invoice?.paid == false">Unpaid</span>
                 </td>
              
             </tr>
