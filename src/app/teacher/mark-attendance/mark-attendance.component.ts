@@ -185,7 +185,7 @@ export class MarkAttendanceComponent implements OnInit {
   submitAttendance() {
     const { dates } = this.attendanceForm.value;
     const result = {
-      subjectId: this.subjectClass.classSubjectId,
+      subjectId: this.subjectClass.subjectId,
       date: dates,
       studentAttendanceVMs: this.studentAttendanceVMs
     };
