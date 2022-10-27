@@ -8,8 +8,12 @@ const routes = {
   exportAttendancePdf:'schtrack-learning/api/v1/Attendance/ClassAttendancePDFExport',
   exportSubjectAttendance:'schtract-learning/api/v1/Attendance/SubjectAttendanceExport',
   exportParentExcel: 'schtrack-auth/api/v1/Parent/GetParentDataInExcel',
-  exportParentPdf:'schtrack-auth/api/v1/Parent/GetParentDataInPDF'
-
+  exportParentPdf: 'schtrack-auth/api/v1/Parent/GetParentDataInPDF',
+  // exportParentExcel: 'schtrack-auth/api/v1/Parent/GetParentDataInExcel',
+  exportInvoiceReportExcel: 'schtrack-auth/api/v1/School/InvoiceExcelReport',
+  exportInvoiceReportPdf: 'schtrack-auth/api/v1/School/InvoicePdfReport',
+  getSchoolInvoiceReportView: 'schtrack-auth/api/v1/School/GetSchoolInvoiceReportView',
+  
 };
 
 @Injectable({
@@ -51,5 +55,18 @@ export class ReportingService {
     const url = `${this.baseUrl + routes.exportParentPdf}?schoolId=${schoolId}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
-
+  // invoice endpoints
+  getSchoolInvoiceReportView(invoiceStatus) {
+    const url = `${this.baseUrl + routes.getSchoolInvoiceReportView}/${invoiceStatus}`;
+    return this.http.get(url, { headers: {Authorization: 'Bearer ' + localStorage.getItem('access_token')}} )
+  }
+  exportInvoiceReportExcel(invoiceStatus){
+    const url = `${this.baseUrl + routes.exportInvoiceReportExcel}?invoiceStatus=${invoiceStatus}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+  exportInvoiceReportPdf(invoiceStatus){
+    const url = `${this.baseUrl + routes.exportInvoiceReportPdf}?invoiceStatus=${invoiceStatus}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+  
 }

@@ -25,7 +25,7 @@ export class ReportComponent implements OnInit {
     {
       id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
         { id: 1, title: 'Student Attendance' },
-        { id: 2, title: 'Weekly Student Attendance' },
+        // { id: 2, title: 'Weekly Student Attendance' },
         // { id: 3, title: 'Term Student Attendance' },
         // { id: 4, title: 'Session Student Attendance' },
 
@@ -46,7 +46,7 @@ export class ReportComponent implements OnInit {
   showSubReport = false;
   showClass = false;
   showTerm = false;
-  showSubject =false;
+  showSubject = false;
   selectedSubReport: any;
   adminDetails: any;
   selectedStartDate = '';
@@ -62,10 +62,10 @@ export class ReportComponent implements OnInit {
   studentList: any;
   parentList: any;
   teacherId: any;
- 
+
   termList: any;
   subjectList: any;
-  
+
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -85,12 +85,12 @@ export class ReportComponent implements OnInit {
 
     this.getTeacherDetailsByUserId();
     this.getAllSubjects()
-  
+
 
   }
 
-  getAllTerm(){
-    this.assessmentService.getSchoolSessions().subscribe((data: any)=>{
+  getAllTerm() {
+    this.assessmentService.getSchoolSessions().subscribe((data: any) => {
       if (data.hasErrors === false) {
         // this.classList = data.payload;
         this.termList = data.payload[0].terms
@@ -99,23 +99,25 @@ export class ReportComponent implements OnInit {
     })
   }
 
-  selectTerm(event: any){
-  const {startDate, endDate} = this.termList[event]
+  selectTerm(event: any) {
+    const { startDate, endDate } = this.termList[event]
     this.selectedStartDate = startDate
     this.selectedEndDate = endDate
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
 }
 
-  getAllSubjects(){
-    this.subjectService.getAllSubjects().subscribe((data: any)=>{
+  getAllSubjects() {
+    this.subjectService.getAllSubjects().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload
-        
+
       }
     })
   }
 
-   getReportType(event) {
+
+
+  getReportType(event) {
     this.reportingOptions.forEach(item => {
       if (item.slug === event) {
         this.selectedSlug = item.slug;
@@ -131,11 +133,11 @@ export class ReportComponent implements OnInit {
       this.showNext = true;
       this.showClass = true;
       this.showTerm = true;
-      this.showSubject =true;
+      this.showSubject = true;
       this.getAllTerm()
       this.getAllSubjects()
-      
-      
+
+
       this.fetchAttendanceRecord(this.adminDetails.TenantId);
     }
   }
@@ -144,6 +146,7 @@ export class ReportComponent implements OnInit {
     this.classService.getTeacherClassesByClassId(this.teacherId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classList.push(data.payload);
+        // this.teacherClassId = data.payload.classId;
       }
     }
     );
@@ -155,7 +158,7 @@ export class ReportComponent implements OnInit {
   }
 
 
-fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
+  fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
     // tslint:disable-next-line:max-line-length
     this.reportService.GetClassAttendanceWithDateSummary(tenantId, classId, startDate, endDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
@@ -164,7 +167,7 @@ fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
     });
   }
 
-  
+
   getStartDate(event) {
     this.selectedStartDate = event;
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate);
@@ -184,15 +187,13 @@ fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
   }
 
 
-  getTeacherDetailsByUserId(){
-    this.teacherService.getTeacherDetailsByUserId(this.adminDetails.sub).subscribe((data: any)=>{
+  getTeacherDetailsByUserId() {
+    this.teacherService.getTeacherDetailsByUserId(this.adminDetails.sub).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.teacherId = data.payload.teacherId;
         this.getAllClasses()
       }
 
-      
-      
     })
   }
   callNonTeacherEndPoint() {
@@ -235,27 +236,27 @@ fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
     // this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
     //   this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
     //     this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
-          // tslint:disable-next-line:max-line-length
-          this.reportService.exportAttance(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
-            if (res.hasErrors === false) {
-              const link = document.createElement('a');
-              link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
-              link.href = 'data:image/png;base64,' + res.payload.base64String;
-              link.click();
-            }
-          });
+    // tslint:disable-next-line:max-line-length
+    this.reportService.exportAttance(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
   }
 
   downloadReportInPdf() {
-    
-          this.reportService.exportAttendancePdf(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
-            if (res.hasErrors === false) {
-              const link = document.createElement('a');
-              link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
-              link.href = 'data:image/png;base64,' + res.payload.base64String;
-              link.click();
-            }
-          });
+    // tslint:disable-next-line:max-line-length
+    this.reportService.exportAttendancePdf(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
   }
 
 }
