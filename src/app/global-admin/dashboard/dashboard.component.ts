@@ -38,7 +38,8 @@ export class DashboardComponent implements OnInit {
     this.schoolService.getAllSchools(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data) {
         this.registeredSchools = data.payload;
-        this.schoolCount = data.usersCount;
+        console.log(data)
+        this.schoolCount = data.payload.length;
       }
     });
   }
@@ -55,8 +56,8 @@ export class DashboardComponent implements OnInit {
   getTotalUsersOnPlatform(){
     this.studentservice.getTotalUsersOnPlatform().subscribe(
       (res: any) => {
-        this.studentsOnPlatform = res.payload.totalStudents
-        this.totalUser = res.payload.totalUsers
+        this.studentsOnPlatform = res.payload.totalStudents;
+        this.totalUser = res.payload.totalUsers;
       }
     );
   }
