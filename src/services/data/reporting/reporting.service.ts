@@ -5,7 +5,8 @@ const tenantId = '1';
 const routes = {
   getClassAttendanceWithDateSummary: 'schtrack-learning/api/v1/Attendance/GetClassAttendanceWithDateSummary',
   exportAttendance: 'schtrack-learning/api/v1/Attendance/AttendanceExport',
-  exportAttendancePdf: 'schtrack-learning/api/v1/Attendance/ClassAttendancePDFExport',
+  exportAttendancePdf:'schtrack-learning/api/v1/Attendance/ClassAttendancePDFExport',
+  exportSubjectAttendance:'schtract-learning/api/v1/Attendance/SubjectAttendanceExport',
   exportParentExcel: 'schtrack-auth/api/v1/Parent/GetParentDataInExcel',
   exportParentPdf: 'schtrack-auth/api/v1/Parent/GetParentDataInPDF',
   // exportParentExcel: 'schtrack-auth/api/v1/Parent/GetParentDataInExcel',
@@ -32,6 +33,11 @@ export class ReportingService {
   }
   exportAttance(TenantId, classId?, startDate?, endDate?) {
     const url = `${this.baseUrl + routes.exportAttendance}?tenantId=${TenantId}&classId=${classId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
+  exportSubjectAttendance(TenantId, classId?, startDate?, endDate?) {
+    const url = `${this.baseUrl + routes.exportSubjectAttendance}?tenantId=${TenantId}&classId=${classId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

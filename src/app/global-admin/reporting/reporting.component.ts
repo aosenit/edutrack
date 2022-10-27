@@ -11,22 +11,22 @@ export class ReportingComponent implements OnInit {
 
   reportingOptions = [
     {id: 1, title: 'Invoice Report', slug: 'invoiceReport', data: [
-      {id: 1, title: 'Paid Report',subSlug: 'paidReport'},
+      {id: 1, title: 'Paid Report', subSlug: 'paidReport'},
       {id: 2, title: 'Unpaid Report', subSlug: 'unpaidReport'}
     ]},
-        
+
     {id: 2, title: 'Finance Report', slug: 'financeReport', data : [
         {id: 1, title: 'Payment'},
         {id: 1, title: 'Subscriptions'}
     ]},
-  ]
+  ];
 
   // userReport = [
   //     {id: 1, title: 'Total users', subslug: 'totalUsers'},
   //     // {id: 2, title: 'Total Teachers Report', subslug: 'totalTeacherReport'},
   //     // {id: 3, title: 'Total Non Teaching Staffs Report', subslug: 'totalStaffReport'},
   //     // {id: 4, title: 'Total Parents Report', subslug: 'totalParentReport'},
-    
+
   // ]
   // schoolReport = [
   //   {id: 1, title: 'Daily Student Attendance'},
@@ -43,7 +43,7 @@ export class ReportingComponent implements OnInit {
   financeReport: [
     {id: 1, title: 'Payment'},
     {id: 1, title: 'Subscriptions'}
-  ]
+  ];
   selectedSlug: string;
   selectedReportType: any;
   showTypes: boolean;
@@ -53,13 +53,13 @@ export class ReportingComponent implements OnInit {
   unpaidInvoiceList: any;
   showExportBtn: boolean;
   subSlug: boolean;
-  constructor( private reportingservice : ReportingService) { }
+  constructor( private reportingservice: ReportingService) { }
 
   ngOnInit() {
-    
+
   }
 
- 
+
   getReportType(event) {
     this.reportingOptions.forEach(item => {
       if (item.slug === event) {
@@ -71,17 +71,16 @@ export class ReportingComponent implements OnInit {
   }
   selectReportType(event) {
     this.selectedSubReport = event;
-      if (this.selectedSlug === 'invoiceReport') {
+    if (this.selectedSlug === 'invoiceReport') {
         this.showNext = false;
         this.showExportBtn = true;
-      
+
         event === 'paidReport' ? (this.subSlug = true, this.getAllSchoolInvoiceReport(1)) :
         event === 'unpaidReport' ? (this.subSlug = true, this.getAllSchoolInvoiceReport(0)) 
         : this.subSlug = false;
-      } 
-      else if (this.selectedSlug === 'financeReport') {
+      } else if (this.selectedSlug === 'financeReport') {
         this.showNext = true;
-       
+
       }
 }
 
@@ -95,7 +94,7 @@ getAllSchoolInvoiceReport(invoiceStatus) {
 }
 downloadReport() {
   this.selectedSubReport === 'paidReport' ? this.downloadPaidInvoiceRecord() :
-  
+
   this.downloadUnpaidInvoiceRecord();
 }
 downloadPaidInvoiceRecord() {
@@ -135,7 +134,6 @@ downloadPaidInvoiceRecordPdf(){
       link.click();
     }
   });
- 
 }
 
 downloadUnpaidInvoiceRecordPdf(){
