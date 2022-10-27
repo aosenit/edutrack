@@ -94,35 +94,28 @@ export class ReportComponent implements OnInit {
       if (data.hasErrors === false) {
         // this.classList = data.payload;
         this.termList = data.payload[0].terms
-        console.log(data.payload)
+        
       }
     })
   }
 
   selectTerm(event: any){
-  
-    
-    const {startDate, endDate} = this.termList[event]
+  const {startDate, endDate} = this.termList[event]
     this.selectedStartDate = startDate
     this.selectedEndDate = endDate
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
+}
 
-
-  }
   getAllSubjects(){
     this.subjectService.getAllSubjects().subscribe((data: any)=>{
       if (data.hasErrors === false) {
-        
         this.subjectList = data.payload
         
       }
     })
   }
 
-  
-
-
-  getReportType(event) {
+   getReportType(event) {
     this.reportingOptions.forEach(item => {
       if (item.slug === event) {
         this.selectedSlug = item.slug;
@@ -151,10 +144,7 @@ export class ReportComponent implements OnInit {
     this.classService.getTeacherClassesByClassId(this.teacherId).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classList.push(data.payload);
-        
-      
       }
-     
     }
     );
   }
