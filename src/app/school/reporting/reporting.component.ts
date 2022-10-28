@@ -38,7 +38,7 @@ export class ReportingComponent implements OnInit {
     }
   ];
 
-
+ 
   studentReport = [
   ];
   financeReport: [

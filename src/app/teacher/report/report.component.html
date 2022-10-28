@@ -8,9 +8,9 @@
             <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
               data-target="#exampleModalCenterUpload"> Export </button> -->
       
-            <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReport()"> Export Excel
+            <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReportOption()"> Export Excel
             </button>
-            <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReportInPdf()"> Export PDF
+            <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)=" downloadReportOptionPdf()"> Export PDF
             </button>
           </div>
   
@@ -49,15 +49,7 @@
                   <option [value]="class.classId" *ngFor="let class of classList">{{class.classSection + ' ' + class.className}}</option>
                   </select>
               </div>
-              <div class="col " *ngIf="showTerm">
-                <label for="class" class="fs-12 fw-6">Term</label>
-                <select name="" id="" class="form-control form-control-lg" (change)="selectTerm($event.target.value)">
-                  <option value="" selected>Select term</option>
-                  <option [value]="t" *ngFor="let term of termList;let t = index">{{term.name}}</option>
-  
-  
-                </select>
-              </div>
+              
 
               <div class="col" *ngIf="showSubject">
                 <label for="class" class="fs-12 fw-6">Subject</label>
@@ -65,6 +57,16 @@
                   <option value="" selected>Select subject</option>
                   <option [value]="subject.id"  *ngFor="let subject of subjectList">{{subject.name}}</option>
 
+  
+  
+                </select>
+              </div>
+
+              <div class="col " *ngIf="showTerm">
+                <label for="class" class="fs-12 fw-6">Term</label>
+                <select name="" id="" class="form-control form-control-lg" (change)="selectTerm($event.target.value)">
+                  <option value="" selected>Select term</option>
+                  <option [value]="t" *ngFor="let term of termList;let t = index">{{term.name}}</option>
   
   
                 </select>
@@ -100,7 +102,7 @@
       </div>
     </div>
   
-    <ng-container *ngIf="selectedSlug === 'attendanceReport' ">
+    <ng-container *ngIf="selectedSubReport === 'classAttendance'">
       <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
         <table class="table table-borderless client-table">
           <thead>
@@ -122,6 +124,43 @@
               </td>
               <td> {{attendance.fullName}} </td>
               <td> {{attendance.className}} </td>
+              <td>{{attendance.totalNumberOfTimePresent}}</td>
+      
+              <td class="rounded-right ">
+                {{attendance.totalNumberOfTimeAbsent}}
+              </td>
+            </tr>
+      
+      
+      
+          </tbody>
+        </table>
+      
+      </section>
+    </ng-container>
+
+    <ng-container *ngIf=" selectedSubReport === 'subjectAttendance'">
+      <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
+        <table class="table table-borderless client-table">
+          <thead>
+      
+            <th scope="col" class="">Student ID </th>
+            <th scope="col">Name </th>
+            <th scope="col">Subject
+            </th>
+            <th scope="col">No of Time present
+            </th>
+            <th scope="col">No of Time absent
+            </th>
+      
+          </thead>
+          <tbody>
+            <tr class="pb-2" *ngFor="let attendance of studentAttendanceRecord">
+              <td scope="row" class="school-logo rounded-left fc-lblue">
+               {{attendance.studentId}}
+              </td>
+              <td> {{attendance.fullName}} </td>
+              <td> {{attendance.subjectName}} </td>
               <td>{{attendance.totalNumberOfTimePresent}}</td>
       
               <td class="rounded-right ">
