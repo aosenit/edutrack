@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 const tenantId = '1';
 const routes = {
+  getStudentSubjectAttendance:'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject',
+  getStudentClassAttendance:'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForClass',
+  getStudentAttendanceSummary:'schtrack-learning/api/v1/Attendance/GetStudentAttendanceSummary',
   getClassAttendanceWithDateSummary: 'schtrack-learning/api/v1/Attendance/GetClassAttendanceWithDateSummary',
   getClassSubjectAttendanceWithDateSummary:'schtrack-learning/api/v1/Attendance/GetClassSubjectAttendanceWithDateSummary',
   exportAttendance: 'schtrack-learning/api/v1/Attendance/AttendanceExport',
@@ -29,6 +32,19 @@ export class ReportingService {
 
   constructor(private http: HttpClient) { }
 
+
+  getStudentAttendanceSummary(studentId, classId){
+    const url = `${this.baseUrl + routes.getStudentAttendanceSummary}?studentId=${studentId}&classId=${classId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+  getStudentAttendanceForClass(StudentId, ClassId?, FromDate?, ToDate?){
+    const url = `${this.baseUrl + routes.getStudentClassAttendance}?StudentId=${StudentId}&StudentUserId=${StudentId}&ClassId=${ClassId}&FromDate=${FromDate}&ToDate=${ToDate}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+  getStudentAttendanceForSubject(studentId, studentUserId?,subjectId?, date?){
+    const url = `${this.baseUrl + routes.getStudentSubjectAttendance}?studentId=${studentId}&studentUserId=${studentUserId}&subjectId=${subjectId}&date=${date}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
   GetClassAttendanceWithDateSummary(TenantId, classId?, startDate?, endDate?) {
     const url = `${this.baseUrl + routes.getClassAttendanceWithDateSummary}?tenantId=${TenantId}&classId=${classId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });

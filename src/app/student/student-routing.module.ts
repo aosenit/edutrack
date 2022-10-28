@@ -10,6 +10,7 @@ import { FileManagerComponent } from './file-manager/file-manager.component';
 import { FileStorageComponent } from './file-storage/file-storage.component';
 import { FilesComponent } from './files/files.component';
 import { NotificationPageComponent } from './notification-page/notification-page.component';
+import { ReportComponent } from './report/report.component';
 import { SessionComponent } from './session/session.component';
 import { StudentAttendanceComponent } from './student-attendance/student-attendance.component';
 import { StudentProfileComponent } from './student-profile/student-profile.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
     {path: 'notification/:id', component: NotificationPageComponent},
     {path: 'preview/:id', component: TaskPreviewComponent},
     {path: 'file-storage/:id', component: FileStorageComponent},
+    {path: 'report', component:ReportComponent}
   ]},
   { path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule) },
 

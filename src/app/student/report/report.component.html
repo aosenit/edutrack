@@ -1,0 +1,161 @@
+<div class="main mx-5">
+    <section class="banner mb-4 pb-3">
+        <div class="pt-5 pl-3 content ">
+          <h6 class="banner__text-primary fw-6 "> Reports </h6>
+          <p class=""> Directory of all reports </p>
+        </div>
+        <div class="d-flex">
+              <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Export
+              </button>
+              <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Export PDF
+              </button>
+            </div>
+    </section>
+    <div class="card  bg-white mt-5 px-3 pb-3">
+
+        <div class="d-flex justify-content-between align-items-center pt-3   mb-4">
+          <div>
+            <form>
+              <div class="row">
+    
+    
+                <div class="col">
+                  <label for="class" class="fs-12 fw-6">Report Type</label>
+                  <select name="" id="" class="form-control form-control-lg" (change)="getReportType($event.target.value)">
+                    <option value="" selected>Report Type</option>
+                    <option [value]="report.slug" *ngFor="let report of reportingOptions">{{report.title}}</option>
+    
+    
+                  </select>
+                </div>
+                <div class="col " *ngIf="showTypes">
+                    <label for="class" class="fs-12 fw-6">Report Type</label>
+                    <select name="" id="" class="form-control form-control-lg" (change)="selectReportType($event.target.value)">
+                      <option value="" selected>Report Type</option>
+                      <option [value]="report.subSlug" *ngFor="let report of selectedReportType">{{report.title}}</option>
+      
+      
+                    </select>
+                </div>
+                <div class="col " *ngIf="showClass">
+                    <label for="class" class="fs-12 fw-6">Class</label>
+                    <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
+                      <option value="" selected>Select class</option>
+                      <option [value]="class.classId" *ngFor="let class of classList">{{class.className}}</option>
+                      </select>
+                </div>
+
+                <div class="col" *ngIf="showSubject">
+                    <label for="class" class="fs-12 fw-6">Subject</label>
+                    <select name="" id="" class="form-control form-control-lg" (change)="selectSubject($event.target.value)">
+                      <option value="" selected>Select subject</option>
+                      <option [value]="subject.id"  *ngFor="let subject of subjectList">{{subject.name}}</option>
+    
+                    </select>
+                  </div>
+
+                <div class="col " *ngIf="showNext">
+                    <label for="class" class="fs-12 fw-6">Start Date</label>
+                    <input type="date" class="form-control" (change)="getStartDate($event.target.value)">
+                  </div>
+                  <div class="col " *ngIf="showNext">
+                    <label for="class" class="fs-12 fw-6">End Date</label>
+                    <input type="date" class="form-control" (change)="getEndDate($event.target.value)">
+                  </div>
+                </div>
+            </form>
+          </div>
+          <!-- <div class="w-15">
+            <label for="">&nbsp;</label>
+            <select name="" id="" class="form-control form-control-lg">
+              <option value="" selected>Export as</option>
+              <option value="">Excel</option>
+              <option value="">CSV</option>
+            </select>
+          </div> -->
+          
+    
+    
+        </div>
+    </div>
+    <ng-container *ngIf="selectedSlug === 'attendanceReport' && selectedSubReport === 'classAttendance' ">
+        <section class="list table-responsive mb-5" >
+          <table class="table table-borderless client-table">
+            <thead>
+                <tr>
+                   
+                    <th scope="col" class="head">Attendance Date 
+                 
+                    </th>
+                    <th scope="col">Reasons 
+                    </th>
+    
+                    <th scope="col">Status 
+                   
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+    
+                <tr class="pb-1">
+                    
+                    <td>{{invoice?.schoolName}}</td>
+                    <td>{{invoice?.paidDate | date : 'MM-d-yyyy'}}</td>
+                    <td class="">{{invoice?.dueDate | date : 'MM-d-yyyy'}}</td>
+                    <td>{{invoice?.expectedStudent}}</td>
+                    <td class="rounded-right">
+                        <span class="status_active" *ngIf = "invoice?.paid == true">Paid</span>
+                        <span class="status_active" *ngIf = "invoice?.paid == false">Unpaid</span>
+                    </td>
+                 
+                </tr>
+    
+    
+            </tbody>
+        </table>
+      
+        </section>
+    </ng-container> 
+    <ng-container *ngIf="selectedSlug === 'attendanceReport' && selectedSubReport === 'subjectAttendance' ">
+        <section class="list table-responsive mb-5" >
+          <table class="table table-borderless client-table">
+            <thead>
+                <tr>
+                   
+                    <th scope="col" class="head " >Subject Name 
+                 
+                    </th>
+                   
+                    <th scope="col">No. of times held
+                     
+                    </th>
+                    <th scope="col">No. of time attended 
+                    </th>
+    
+                    <th scope="col">Percentage 
+                   
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+    
+                <tr class="pb-1" *ngFor="let invoice of invoiceList  ">
+                    
+                    <td>{{invoice?.schoolName}}</td>
+                    <td class="">{{invoice?.dueDate | date : 'MM-d-yyyy'}}</td>
+                    <td>{{invoice?.expectedStudent}}</td>
+                    <td class="rounded-right">
+                        <span class="status_active" *ngIf = "invoice?.paid == true">Paid</span>
+                        <span class="status_inactive" *ngIf = "invoice?.paid == false">Unpaid</span>
+                    </td>
+                 
+                </tr>
+    
+    
+            </tbody>
+        </table>
+      
+        </section>
+      </ng-container>
+      
+</div>
