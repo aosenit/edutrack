@@ -48,7 +48,6 @@ export class ReportComponent implements OnInit {
   selectedClass: any;
   termList: any;
   showClass: boolean;
-  showTerm: boolean;
   subjectList: any;
   studentAttendanceRecord: any;
   classList: any;
@@ -93,8 +92,7 @@ export class ReportComponent implements OnInit {
         this.selectedSlug = item.slug;
         this.selectedReportType = item.data;
         this.showTypes = true;
-        this.getStudentAttendanceSummary()
-
+        this.getStudentAttendanceSummary();
       }
     });
   }
@@ -108,7 +106,6 @@ export class ReportComponent implements OnInit {
         ? ((this.subSlug = true),
           (this.showExportBtn = true),
           (this.showClass = false),
-          (this.showTerm = true),
           (this.showSubject = false),
           // this.getAllClasses(),
           this.getStudentClassAttendance())
@@ -138,11 +135,7 @@ export class ReportComponent implements OnInit {
     this.subjectId = event;
     this.getSubjectAttendance(this.id, this.id, event, this.selectedStartDate);
   }
-  selectTerm(event: any) {
-    const { startDate, endDate } = this.termList[event];
-    this.selectedStartDate = startDate;
-    this.selectedEndDate = endDate;
-  }
+
   selectClass(event: any) {
     this.selectedClass = event;
     this.fetchStudentAttendanceRecord(this.id, this.classId);
@@ -173,27 +166,23 @@ export class ReportComponent implements OnInit {
       });
   }
   
-  fetchSubjectAttendanceRecord(tenantId, subjectId?, startDate?, endDate?) {
-    // tslint:disable-next-line:max-line-length
-    this.reportService.getClassSubjectAttendanceWithDateSummary(
-        tenantId,
-        subjectId,
-        startDate,
-        endDate
-      )
-      .subscribe((res: any) => {
-        if (res.hasErrors === false) {
-          this.studentAttendanceRecord = res.payload;
-        }
-      });
-  }
+  // fetchSubjectAttendanceRecord(tenantId, subjectId?, startDate?, endDate?) {
+  //   // tslint:disable-next-line:max-line-length
+  //   this.reportService.getClassSubjectAttendanceWithDateSummary(
+  //       tenantId,
+  //       subjectId,
+  //       startDate,
+  //       endDate
+  //     )
+  //     .subscribe((res: any) => {
+  //       if (res.hasErrors === false) {
+  //         this.studentAttendanceRecord = res.payload;
+  //       }
+  //     });
+  // }
 
   getStudentClassAttendance() {
-    this.reportService.getStudentAttendanceForClass(
-        this.id,
-        this.studentClassId,
-        this.selectedStartDate,
-        this.selectedEndDate
+    this.reportService.getStudentAttendanceForClass(this.id,this.studentClassId,this.selectedStartDate,this.selectedEndDate
       )
       .subscribe((data: any) => {
         if (data.hasErrors === false) {
@@ -205,7 +194,61 @@ export class ReportComponent implements OnInit {
   getStudentAttendanceSummary() {
     this.reportService.getStudentAttendanceSummary(this.id, this.studentClassId).subscribe((res:any)=>{
       if (res.hasErrors === false) {
+        console.log(res)
         this.studentAttendanceRecord = res.payload;
+      }
+    });
+  }
+  downloadStudentAttendanceReport(){
+    this.selectedSubReport === 'classAttendance' ? this.downloadStudentAttendanceByClassReport() :
+
+    this.downloadStudentAttendanceBySubjectReport();
+  }
+
+  downloadStudentAttendanceByClassReport(){
+    this.reportingservice.exportSingleStudentAttendanceByClassExcel().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Class Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+  downloadStudentAttendanceBySubjectReport(){
+    this.reportingservice.exportSingleStudentAttendanceBySubjectExcel().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Subject Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
+  downloadStudentAttendanceReportInPdf(){
+    this.selectedSubReport === 'classAttendance' ? this.downloadStudentAttendanceByClassReport() :
+
+    this.downloadStudentAttendanceBySubjectReport();
+  }
+
+  downloadStudentAttendanceReportByClassInPdf(){
+    this.reportingservice.exportSingleStudentAttendanceByClassPdf().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Class Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+  downloadStudentAttendanceReportBySubjectInPdf(){
+    this.reportingservice.exportSingleStudentAttendanceBySubjectPdf().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Subject Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
       }
     });
   }

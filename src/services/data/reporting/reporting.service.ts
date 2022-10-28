@@ -13,6 +13,10 @@ const routes = {
   exportSubjectAttendance:'schtract-learning/api/v1/Attendance/SubjectAttendanceExport',
   exportParentExcel: 'schtrack-auth/api/v1/Parent/GetParentDataInExcel',
   exportParentPdf: 'schtrack-auth/api/v1/Parent/GetParentDataInPDF',
+  exportSingleStudentAttendanceForClassPdf:'schtrack-learning/api/v1/Attendance/ExportSingleStudentAttendanceForClassPDF',
+  exportSingleStudentAttendanceForSubjectPdf:'schtrack-learning/api/v1/Attendance/ExportSingleStudentAttendanceForSubjectPDF',
+  exportSingleStudentAttendanceForClassExcel:'schtrack-learning/api/v1/Attendance/ExportSingleStudentAttendanceForClassExcel',
+  exportSingleStudentAttendanceForSubjectExcel:'schtrack-learning/api/v1/Attendance/ExportSingleStudentAttendanceForSubjectExcel',
   // exportParentExcel: 'schtrack-auth/api/v1/Parent/GetParentDataInExcel',
   exportInvoiceReportExcel: 'schtrack-auth/api/v1/School/InvoiceExcelReport',
   exportInvoiceReportPdf: 'schtrack-auth/api/v1/School/InvoicePdfReport',
@@ -89,6 +93,22 @@ export class ReportingService {
   exportInvoiceReportPdf(invoiceStatus){
     const url = `${this.baseUrl + routes.exportInvoiceReportPdf}?invoiceStatus=${invoiceStatus}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+  exportSingleStudentAttendanceByClassExcel(){
+    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForClassExcel}`;
+    return this.http.get(url, { headers: { Authorization : 'Bearer' + localStorage.getItem('accessToken') }})
+  }
+  exportSingleStudentAttendanceByClassPdf(){
+    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForClassPdf}`;
+    return this.http.get(url, { headers: { Authorization : 'Bearer' + localStorage.getItem('accessToken') }})
+  }
+  exportSingleStudentAttendanceBySubjectExcel(){
+    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForSubjectExcel}`;
+    return this.http.get(url, { headers: { Authorization : 'Bearer' + localStorage.getItem('accessToken') }})
+  }
+  exportSingleStudentAttendanceBySubjectPdf(){
+    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForSubjectPdf}`;
+    return this.http.get(url, { headers: { Authorization : 'Bearer' + localStorage.getItem('accessToken') }})
   }
   
 }
