@@ -32,7 +32,6 @@ import { ReportCardComponent } from './report-card/report-card.component';
 import { SubjecAttendanceComponent } from './subjec-attendance/subjec-attendance.component';
 import { ClassAttendanceComponent } from './class-attendance/class-attendance.component';
 import { ViewReportCardComponent } from './view-report-card/view-report-card.component';
-import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -60,7 +59,7 @@ import { ReportComponent } from './report/report.component';
     SubjecAttendanceComponent,
     ClassAttendanceComponent,
     ViewReportCardComponent,
-    ReportComponent],
+  ],
   imports: [
     CommonModule,
     CKEditorModule,
@@ -70,7 +69,7 @@ import { ReportComponent } from './report/report.component';
     FormsModule,
     SharedModule,
     HttpClientModule,
-    TeacherRoutingModule
+    TeacherRoutingModule,
   ]
 })
 export class TeacherModule { }
