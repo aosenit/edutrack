@@ -10,6 +10,7 @@ import { ParentsService } from 'src/services/data/parents/parents.service';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { StudentService } from 'src/services/data/student/student.service';
 import { AssessmentService } from 'src/services/data/assessment/assessment.service';
+import { SubjectService } from 'src/services/data/subject/subject.service';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class ReportingComponent implements OnInit {
         { id: 1, title: 'Student Attendance', subSlug: 'studentAttendance' },
         { id: 2, title: 'Term Attendance', subSlug: 'termAttendance' },
         { id: 3, title: 'Session Attendance', subSlug: 'sessionAttendance' },
+        { id: 4, title: 'Subject Attendance', subSlug: 'subjectAttendance' },
       ]
     }
   ];
@@ -72,6 +74,9 @@ export class ReportingComponent implements OnInit {
   totalNonTeacher: number;
   termList: any;
   sessionList: any;
+  subjectId: any;
+  subjectList: any;
+  showSubject: boolean;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -80,7 +85,8 @@ export class ReportingComponent implements OnInit {
     private teacherService: TeacherService,
     private studentService: StudentService,
     private parentService: ParentsService,
-    private assessmentService: AssessmentService
+    private assessmentService: AssessmentService,
+    private subjectService: SubjectService
 
   ) { }
 
@@ -89,6 +95,7 @@ export class ReportingComponent implements OnInit {
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
 
     this.getAllClasses();
+  
 
   }
 
@@ -124,6 +131,10 @@ export class ReportingComponent implements OnInit {
         this.subSlug = true, this.showExportBtn = true,
         this.showClass = true, this.showTerm = false, this.showSession = true, this.showNext = false,
         this.getAllTerm()) :
+        event === 'subjectAttendance' ? (
+          this.subSlug = true, this.showExportBtn = true,
+          this.showClass = false, this.showTerm = true, this.showSession = false, this.showNext = true, this.showSubject = true,
+          this.getAllTerm(), this.getAllSubjects()) :
       this.fetchAttendanceRecord(this.adminDetails.TenantId);
     } else {
       this.showNext = false;
@@ -150,6 +161,33 @@ export class ReportingComponent implements OnInit {
     this.selectedEndDate = endDate
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
   }
+
+  getAllSubjects() {
+    this.subjectService.getAllSubjects().subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.subjectList = data.payload
+        
+
+      }
+    })
+  }
+
+  selectSubject(event: any) {
+    this.subjectId = event
+  this.fetchSubjectAttendanceRecord(this.adminDetails.TenantId,event, this.selectedStartDate, this.selectedEndDate);
+  }
+
+  fetchSubjectAttendanceRecord(tenantId,subjectId?, startDate?, endDate?) {
+    // tslint:disable-next-line:max-line-length
+    this.reportService.getClassSubjectAttendanceWithDateSummary(tenantId,subjectId,startDate, endDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.studentAttendanceRecord = res.payload;
+        
+      }
+      
+    });
+  }
+  
 
   getSessionDates(event: any) {
     const data = this.sessionList[event];
@@ -249,7 +287,7 @@ export class ReportingComponent implements OnInit {
       });
   }
 
-
+// user profile export
   downloadReport() {
     this.selectedSubReport === 'nonTeacherProfile' ? this.downloadStaffRecord() :
       this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
@@ -266,6 +304,26 @@ export class ReportingComponent implements OnInit {
         this.selectedSubReport === 'parentProfile' ? this.downloadParentRecordInPdf() :
 
           this.downloadAttendanceReportInPdf();
+  }
+
+// attendance export
+  downloadattendanceReport() {
+    this.selectedSubReport === 'studentAttendance' ? this. downloadAttendanceReport() :
+      this.selectedSubReport === 'termAttendance' ? this. downloadAttendanceReport() :
+        this.selectedSubReport === 'sessionAttendance' ? this. downloadAttendanceReport() :
+         
+
+            this.downloadSubjectAttendance();
+  }
+
+
+  downloadattendanceReportPdf() {
+    this.selectedSubReport === 'studentAttendance' ? this.downloadAttendanceReportInPdf() :
+      this.selectedSubReport === 'termAttendance' ? this.downloadAttendanceReportInPdf()  :
+        this.selectedSubReport === 'sessionAttendance' ? this.downloadAttendanceReportInPdf()  :
+         
+
+            this.downloadSubjectInPdf();
   }
 
   downloadAttendanceReport() {
@@ -386,6 +444,30 @@ export class ReportingComponent implements OnInit {
       }
     });
   }
+
+  downloadSubjectAttendance(){
+    this.reportService.exportSubjectAttendance(this.adminDetails.TenantId,this.subjectId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
+  downloadSubjectInPdf() {
+    // tslint:disable-next-line:max-line-length
+    this.reportService.exportSubjectAttendancePdf(this.adminDetails.TenantId,this.subjectId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
 
 
 }

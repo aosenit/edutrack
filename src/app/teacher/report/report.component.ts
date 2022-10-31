@@ -39,7 +39,7 @@ export class ReportComponent implements OnInit {
   ];
   financeReport: [
     { id: 1, title: 'Payment' },
-    { id: 1, title: 'Subscriptions' }
+    { id: 1, title: 'Subscriptions' } 
   ];
   selectedReportType: any;
   showNext = false;
