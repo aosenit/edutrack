@@ -60,7 +60,8 @@ import { ReportComponent } from './report/report.component';
     SubjecAttendanceComponent,
     ClassAttendanceComponent,
     ViewReportCardComponent,
-    ReportComponent],
+    ReportComponent
+  ],
   imports: [
     CommonModule,
     CKEditorModule,
@@ -70,7 +71,7 @@ import { ReportComponent } from './report/report.component';
     FormsModule,
     SharedModule,
     HttpClientModule,
-    TeacherRoutingModule
+    TeacherRoutingModule,
   ]
 })
 export class TeacherModule { }

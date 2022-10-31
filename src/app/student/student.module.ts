@@ -19,6 +19,7 @@ import { SharedModule } from '../shared/shared.module';
 import { FileStorageComponent } from './file-storage/file-storage.component';
 import { StudentAttendanceComponent } from './student-attendance/student-attendance.component';
 import { StudentReportComponent } from './student-report/student-report.component';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { StudentReportComponent } from './student-report/student-report.componen
     TaskPreviewComponent,
     FileStorageComponent,
     StudentAttendanceComponent,
-    StudentReportComponent],
+    StudentReportComponent,
+    ReportComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
