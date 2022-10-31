@@ -21,26 +21,15 @@ import { SubjectService } from 'src/services/data/subject/subject.service';
 
 export class ReportComponent implements OnInit {
   reportingOptions = [
-
     {
       id: 2, title: 'Attendance Report', slug: 'attendanceReport', data: [
         { id: 1, title: 'Class Attendance', subSlug: 'classAttendance' },
-        { id: 2, title: 'Subject Attendance',subSlug: 'subjectAttendance' },
-        // { id: 2, title: 'Weekly Student Attendance' },
-        // { id: 3, title: 'Term Student Attendance' },
-        // { id: 4, title: 'Session Student Attendance' },
+        { id: 2, title: 'Subject Attendance', subSlug: 'subjectAttendance' }
 
       ]
     }
   ];
 
-
-  studentReport = [
-  ];
-  financeReport: [
-    { id: 1, title: 'Payment' },
-    { id: 1, title: 'Subscriptions' }
-  ];
   selectedReportType: any;
   showNext = false;
   showTypes = false;
@@ -86,23 +75,22 @@ export class ReportComponent implements OnInit {
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
 
     this.getTeacherDetailsByUserId();
-    this.getAllSubjects()
-
+    this.getAllSubjects();
 
   }
 
-  
+
   downloadReportOption() {
-    this.selectedSubReport === 'classAttendance' ? this.downloadReport() : 
-      this.selectedSubReport === 'subjectAttendance' ? this. downloadSubjectAttendance() : ""
-    
+    this.selectedSubReport === 'classAttendance' ? this.downloadReport() :
+      this.selectedSubReport === 'subjectAttendance' ? this.downloadSubjectAttendance() : ""
+
   }
 
-   
+
   downloadReportOptionPdf() {
-    this.selectedSubReport === 'classAttendance' ? this.downloadReportInPdf() : 
+    this.selectedSubReport === 'classAttendance' ? this.downloadReportInPdf() :
       this.selectedSubReport === 'subjectAttendance' ? this.downloadSubjectInPdf() : ""
-    
+
   }
 
   getAllTerm() {
@@ -110,7 +98,7 @@ export class ReportComponent implements OnInit {
       if (data.hasErrors === false) {
         // this.classList = data.payload;
         this.termList = data.payload[0].terms
-        
+
       }
     })
   }
@@ -120,22 +108,22 @@ export class ReportComponent implements OnInit {
     this.selectedStartDate = startDate
     this.selectedEndDate = endDate
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
-}
+  }
 
   getAllSubjects() {
     this.subjectService.getAllSubjects().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload
-        
+
 
       }
     })
   }
   selectSubject(event: any) {
     this.subjectId = event
-  this.fetchSubjectAttendanceRecord(this.adminDetails.TenantId,event, this.selectedStartDate, this.selectedEndDate);
+    this.fetchSubjectAttendanceRecord(this.adminDetails.TenantId, event, this.selectedStartDate, this.selectedEndDate);
   }
-  
+
 
 
   getReportType(event) {
@@ -144,7 +132,7 @@ export class ReportComponent implements OnInit {
         this.selectedSlug = item.slug;
         this.selectedReportType = item.data;
         this.showTypes = true;
-       
+
       }
     });
   }
@@ -166,7 +154,7 @@ export class ReportComponent implements OnInit {
   //           this.showTerm = true;
   //           this.getAllTerm()
   //           this.getAllSubjects()
-            
+
   //   }
   // }
 
@@ -176,17 +164,17 @@ export class ReportComponent implements OnInit {
     if (this.selectedSubReport === 'attendanceReport') {
       this.fetchAttendanceRecord(this.adminDetails.TenantId);
       this.showNext = true;
-  
-    } 
+
+    }
     event === 'classAttendance' ? (
       this.subSlug = true, this.showExportBtn = true,
-      this.showClass = true, this.showTerm = true, this.showSubject =false, this.showNext = true, this.getAllTerm(),
-      this.fetchAttendanceRecord(this.adminDetails.TenantId) ) :
-    event === 'subjectAttendance' ? (
-      this.subSlug = true, this.showExportBtn = true,
-      this.showClass = false, this.showTerm = true, this.showSubject = true, this.showNext = true,
-      this.getAllTerm(), this.getAllSubjects() ) :
-    this.fetchAttendanceRecord(this.adminDetails.TenantId);
+      this.showClass = true, this.showTerm = true, this.showSubject = false, this.showNext = true, this.getAllTerm(),
+      this.fetchAttendanceRecord(this.adminDetails.TenantId)) :
+      event === 'subjectAttendance' ? (
+        this.subSlug = true, this.showExportBtn = true,
+        this.showClass = false, this.showTerm = true, this.showSubject = true, this.showNext = true,
+        this.getAllTerm(), this.getAllSubjects()) :
+        this.fetchAttendanceRecord(this.adminDetails.TenantId);
     // else {
     //   this.showNext = false;
     //   this.showExportBtn = false;
@@ -217,19 +205,19 @@ export class ReportComponent implements OnInit {
     this.reportService.GetClassAttendanceWithDateSummary(tenantId, classId, startDate, endDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.studentAttendanceRecord = res.payload;
-        
+
       }
     });
   }
 
-  fetchSubjectAttendanceRecord(tenantId,subjectId?, startDate?, endDate?) {
+  fetchSubjectAttendanceRecord(tenantId, subjectId?, startDate?, endDate?) {
     // tslint:disable-next-line:max-line-length
-    this.reportService.getClassSubjectAttendanceWithDateSummary(tenantId,subjectId,startDate, endDate).subscribe((res: any) => {
+    this.reportService.getClassSubjectAttendanceWithDateSummary(tenantId, subjectId, startDate, endDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.studentAttendanceRecord = res.payload;
-        
+
       }
-      
+
     });
   }
 
@@ -312,7 +300,7 @@ export class ReportComponent implements OnInit {
       }
     });
   }
-  
+
 
   downloadReportInPdf() {
     // tslint:disable-next-line:max-line-length
@@ -326,8 +314,9 @@ export class ReportComponent implements OnInit {
     });
   }
 
-  downloadSubjectAttendance(){
-    this.reportService.exportSubjectAttendance(this.adminDetails.TenantId,this.subjectId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+  downloadSubjectAttendance() {
+    // tslint:disable-next-line:max-line-length
+    this.reportService.exportSubjectAttendance(this.adminDetails.TenantId, this.subjectId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
@@ -339,7 +328,7 @@ export class ReportComponent implements OnInit {
 
   downloadSubjectInPdf() {
     // tslint:disable-next-line:max-line-length
-    this.reportService.exportSubjectAttendancePdf(this.adminDetails.TenantId,this.subjectId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+    this.reportService.exportSubjectAttendancePdf(this.adminDetails.TenantId, this.subjectId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
