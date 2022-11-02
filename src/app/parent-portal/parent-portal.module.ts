@@ -16,6 +16,7 @@ import { ViewReportCardComponent } from './view-report-card/view-report-card.com
 import { SharedModule } from '../shared/shared.module';
 import { ViewReportSheetComponent } from './view-report-sheet/view-report-sheet.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ChildAttendanceComponent,
     ViewBillingComponent,
     ViewReportCardComponent,
-    ViewReportSheetComponent],
+    ViewReportSheetComponent,
+    ReportComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

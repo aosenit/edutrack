@@ -34,7 +34,7 @@ export class ReportComponent implements OnInit {
   selectedReportType: any;
   showNext = false;
   showTypes = false;
-  showSubReport = false;
+  showSubReport = false; 
   showClass = false;
   showTerm = false;
   showSubject = false;

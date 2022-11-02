@@ -97,7 +97,7 @@ export class ParentsService {
   getAllParents(p, perpage) {
 
     const url = `${this.baseUrl + routes.getallparent}?PageIndex=${p}&PageSize=${perpage}`;
-    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+    return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }}); 
   }
 
   getAllParentsInASchool(schoolId, p, perpage) {
