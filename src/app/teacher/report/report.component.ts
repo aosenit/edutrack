@@ -75,6 +75,7 @@ export class ReportComponent implements OnInit {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
 
+    console.log(this.adminDetails)
     this.getTeacherDetailsByUserId();
     this.getAllSubjects();
 

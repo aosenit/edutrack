@@ -5,9 +5,9 @@
           <p class=""> Directory of all reports </p>
         </div>
         <div class="d-flex">
-              <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Export
+              <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="downloadStudentAttendanceReport()"> Export
               </button>
-              <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Export PDF
+              <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="downloadStudentAttendanceReportInPdf()"> Export PDF
               </button>
             </div>
     </section>
@@ -37,13 +37,13 @@
       
                     </select>
                 </div>
-                <div class="col " *ngIf="showClass">
+                <!-- <div class="col " *ngIf="showClass">
                     <label for="class" class="fs-12 fw-6">Class</label>
                     <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
                       <option value="" selected>Select class</option>
                       <option [value]="class.classId" *ngFor="let class of classList">{{class.className}}</option>
                       </select>
-                </div>
+                </div> -->
 
                 <div class="col" *ngIf="showSubject">
                     <label for="class" class="fs-12 fw-6">Subject</label>
@@ -78,6 +78,38 @@
     
         </div>
     </div>
+    <ng-container *ngIf="selectedSlug === 'attendanceReport' && NotClassNorSubject">
+      <section class="list table-responsive mb-5" *ngIf="studentRecord">
+        <table class="table table-borderless client-table">
+          <thead>
+      
+            <th scope="col" class="">Student ID </th>
+            <th scope="col">No of Time Present
+            </th>
+            <th scope="col">No of Time Absent
+            </th>
+            <th scope="col">Total No of School Days
+            </th>
+      
+          </thead>
+          <tbody>
+            <tr class="pb-2" *ngFor="let attendance of studentRecord">
+              <td scope="row" class="school-logo rounded-left fc-lblue">
+               {{attendance.studentId}}
+              </td>
+              <td>{{attendance.noOfTimesPresent}}</td>
+      
+              <td class="rounded-right">
+                {{attendance.noOfTimesAbsent}}
+              </td>
+              <td>{{attendance.totalNoOfSchoolDays}}</td>
+            </tr>
+          </tbody>
+        </table>
+      
+      </section>
+    </ng-container>
+
     <ng-container *ngIf="selectedSlug === 'attendanceReport' && selectedSubReport === 'classAttendance' ">
         <section class="list table-responsive mb-5" >
           <table class="table table-borderless client-table">
@@ -97,17 +129,12 @@
             </thead>
             <tbody>
     
-                <tr class="pb-1">
+                <tr class="pb-1" *ngFor="let attendance of classAttendance ">
                     
-                    <td>{{invoice?.schoolName}}</td>
-                    <td>{{invoice?.paidDate | date : 'MM-d-yyyy'}}</td>
-                    <td class="">{{invoice?.dueDate | date : 'MM-d-yyyy'}}</td>
-                    <td>{{invoice?.expectedStudent}}</td>
-                    <td class="rounded-right">
-                        <span class="status_active" *ngIf = "invoice?.paid == true">Paid</span>
-                        <span class="status_active" *ngIf = "invoice?.paid == false">Unpaid</span>
-                    </td>
-                 
+                    <td>{{attendance?.attendanceDate | date}}</td>
+                    <td class="">{{attendance?.attendanceStatus}}</td>
+                    <td>{{attendance?.reason}}</td>
+                    <td></td>
                 </tr>
     
     
@@ -131,24 +158,15 @@
                     </th>
                     <th scope="col">No. of time attended 
                     </th>
-    
-                    <th scope="col">Percentage 
-                   
-                    </th>
                 </tr>
             </thead>
             <tbody>
     
-                <tr class="pb-1" *ngFor="let invoice of invoiceList  ">
+                <tr class="pb-1" *ngFor="let subject of subjectRecord ">
                     
-                    <td>{{invoice?.schoolName}}</td>
-                    <td class="">{{invoice?.dueDate | date : 'MM-d-yyyy'}}</td>
-                    <td>{{invoice?.expectedStudent}}</td>
-                    <td class="rounded-right">
-                        <span class="status_active" *ngIf = "invoice?.paid == true">Paid</span>
-                        <span class="status_inactive" *ngIf = "invoice?.paid == false">Unpaid</span>
-                    </td>
-                 
+                  <td>{{subject?.subjectName}}</td>
+                    <td>{{subject?.noOfTImesHeld}}</td>
+                    <td class="">{{subject?.noOfTimesAttended}}</td>
                 </tr>
     
     

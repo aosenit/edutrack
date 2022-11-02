@@ -1,11 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { JwtHelperService } from "@auth0/angular-jwt";
-import { AssessmentService } from "src/services/data/assessment/assessment.service";
 import { ReportingService } from "src/services/data/reporting/reporting.service";
-import { SubjectService } from "src/services/data/subject/subject.service";
-import { ClassService } from "src/services/data/class/class.service";
-import { TeacherService } from "src/services/data/teacher/teacher.service";
 import { StudentService } from "src/services/data/student/student.service";
+import { SubjectService } from "src/services/data/subject/subject.service";
+
 
 @Component({
   selector: "app-report",
@@ -21,17 +19,8 @@ export class ReportComponent implements OnInit {
       data: [
         { id: 1, title: "Class Attendance", subSlug: "classAttendance" },
         { id: 2, title: "Subject Attendance", subSlug: "subjectAttendance" },
-      ],
-    },
-    {
-      id: 2,
-      title: "Finance Report",
-      slug: "financeReport",
-      data: [
-        { id: 1, title: "Payment" },
-        { id: 1, title: "Subscriptions" },
-      ],
-    },
+      ]
+    }
   ];
   selectedSlug: string;
   selectedReportType: any;
@@ -48,9 +37,9 @@ export class ReportComponent implements OnInit {
   selectedClass: any;
   termList: any;
   showClass: boolean;
-  showTerm: boolean;
   subjectList: any;
   studentAttendanceRecord: any;
+  studentRecord: any;
   classList: any;
   teacherId: any;
   classId: any;
@@ -65,26 +54,35 @@ export class ReportComponent implements OnInit {
   subjectId: any;
   studentClassId: any;
   userId: any;
+  studentUserId: any;
+  studentSubjectRecord: any;
+  subjectRecord: any;
+  NotClassNorSubject: boolean = true;
 
   constructor(
-    private reportingservice: ReportingService,
     private reportService: ReportingService,
     private subjectService: SubjectService,
-    private assessmentService: AssessmentService,
-    private classService: ClassService,
-    private teacherService: TeacherService,
     private studentService: StudentService
+    
   ) {}
 
   ngOnInit() {
     this.getStudentByID();
+    this.fetchStudentbyId();
   }
 
   getStudentByID() {
     const helper = new JwtHelperService();
     this.studentId = helper.decodeToken(localStorage.getItem("access_token"));
-    this.id = this.studentId.sub;
+    this.studentUserId = this.studentId.sub;
     this.studentClassId = this.studentId.StudentClassId;
+  }
+  fetchStudentbyId(){
+    this.studentService.getStudentProfile(this.studentUserId).subscribe((res:any)=>{
+      if (res.hasErrors === false) {
+        this.id = res.payload.id
+      }
+    });
   }
   
   getReportType(event) {
@@ -93,41 +91,38 @@ export class ReportComponent implements OnInit {
         this.selectedSlug = item.slug;
         this.selectedReportType = item.data;
         this.showTypes = true;
-        this.getStudentAttendanceSummary()
-
+        this.getStudentAttendanceSummary();
       }
     });
+    
   }
   selectReportType(event) {
     this.selectedSubReport = event;
-    if (this.selectedSlug === "attendanceReport") {
-      // this.getStudentByID();
+    if (this.selectedSlug === "attendanceReport"){
       this.showNext = true;
-
-      event === "classAttendance"
-        ? ((this.subSlug = true),
-          (this.showExportBtn = true),
-          (this.showClass = false),
-          (this.showTerm = true),
+    
+      event === "classAttendance" ? ((this.subSlug = true),
+          this.showExportBtn = true,
           (this.showSubject = false),
-          // this.getAllClasses(),
-          this.getStudentClassAttendance())
+          this.getStudentClassAttendance(),
+          this.NotClassNorSubject =false
+          )
         : event === "subjectAttendance"
-        ? ((this.subSlug = true),
-          (this.showExportBtn = true),
-          (this.showSubject = true),
-          (this.showClass = false),
-          this.getAllSubjects())
-        : // this.getSubjectAttendance()
-          (this.subSlug = false);
-    } else if (this.selectedSlug === "financeReport") {
-      this.showNext = true;
-    }
+        ? (
+          this.showExportBtn = true,
+          this.showSubject = true,
+          this.getAllSubjects(),
+          this.getSubjectAttendance(),
+          this.NotClassNorSubject = false
+          ) : (this.showNext = false)
+         
+    } 
   }
 
   getStartDate(event) {
     this.selectedStartDate = event;
     this.getStudentClassAttendance();
+    this.getSubjectAttendance();
   }
   getEndDate(event) {
     this.selectedEndDate = event;
@@ -136,18 +131,12 @@ export class ReportComponent implements OnInit {
 
   selectSubject(event: any) {
     this.subjectId = event;
-    this.getSubjectAttendance(this.id, this.id, event, this.selectedStartDate);
-  }
-  selectTerm(event: any) {
-    const { startDate, endDate } = this.termList[event];
-    this.selectedStartDate = startDate;
-    this.selectedEndDate = endDate;
-  }
-  selectClass(event: any) {
-    this.selectedClass = event;
-    this.fetchStudentAttendanceRecord(this.id, this.classId);
+    this.getSubjectAttendance();
   }
 
+ 
+
+ 
   getAllSubjects() {
     this.subjectService.getAllSubjects().subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -155,58 +144,88 @@ export class ReportComponent implements OnInit {
       }
     });
   }
-  getSubjectAttendance(studentId, studentUserId, subjectId, date) {
-    this.reportService.getStudentAttendanceForSubject(studentId, studentUserId, subjectId, date)
+  getSubjectAttendance() {
+    this.reportService.getStudentAttendanceForSubject(this.id,this.studentUserId, this.subjectId, this.selectedStartDate)
       .subscribe((data: any) => {
         if (data.hasErrors === false) {
-          this.studentAttendanceRecord = data.payload;
+          this.subjectRecord = data.payload;
         }
       });
   }
   
-  fetchStudentAttendanceRecord(studentId, classId?) {
-    this.reportService.getStudentAttendanceSummary(this.id, this.classId)
+  
+  getStudentClassAttendance() {
+    this.reportService.getStudentAttendanceForClass(this.id,this.studentUserId,this.studentClassId,this.selectedStartDate,this.selectedEndDate)
       .subscribe((data: any) => {
         if (data.hasErrors === false) {
-          this.studentAttendance = data.payload;
-        }
-      });
-  }
-  
-  fetchSubjectAttendanceRecord(tenantId, subjectId?, startDate?, endDate?) {
-    // tslint:disable-next-line:max-line-length
-    this.reportService.getClassSubjectAttendanceWithDateSummary(
-        tenantId,
-        subjectId,
-        startDate,
-        endDate
-      )
-      .subscribe((res: any) => {
-        if (res.hasErrors === false) {
-          this.studentAttendanceRecord = res.payload;
+          this.classAttendance = data.payload[0].attendanceClassVms;
         }
       });
   }
 
-  getStudentClassAttendance() {
-    this.reportService.getStudentAttendanceForClass(
-        this.id,
-        this.studentClassId,
-        this.selectedStartDate,
-        this.selectedEndDate
-      )
-      .subscribe((data: any) => {
-        if (data.hasErrors === false) {
-          this.classAttendance = data.payload;
-        }
-      });
-  }
 
   getStudentAttendanceSummary() {
     this.reportService.getStudentAttendanceSummary(this.id, this.studentClassId).subscribe((res:any)=>{
       if (res.hasErrors === false) {
-        this.studentAttendanceRecord = res.payload;
+        this.studentRecord = res.payload;
       }
     });
   }
+
+  downloadStudentAttendanceReport(){
+    this.selectedSubReport === 'classAttendance' ? this.downloadStudentAttendanceByClassReport() :
+
+    this.downloadStudentAttendanceBySubjectReport();
+  }
+
+  downloadStudentAttendanceByClassReport(){
+    this.reportService.exportSingleStudentAttendanceByClassExcel(this.id, this.studentUserId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+  downloadStudentAttendanceBySubjectReport(){
+    this.reportService.exportSingleStudentAttendanceBySubjectExcel(this.id, this.studentUserId, this.subjectId, this.selectedStartDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+
+  downloadStudentAttendanceReportInPdf(){
+    this.selectedSubReport === 'classAttendance' ? this.downloadStudentAttendanceByClassReport() :
+
+    this.downloadStudentAttendanceBySubjectReport();
+  }
+
+  downloadStudentAttendanceReportByClassInPdf(){
+    this.reportService.exportSingleStudentAttendanceByClassPdf(this.id, this.studentUserId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+  downloadStudentAttendanceReportBySubjectInPdf(){
+    this.reportService.exportSingleStudentAttendanceBySubjectPdf(this.id, this.studentUserId, this.subjectId, this.selectedStartDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+  
+  
 }
+
