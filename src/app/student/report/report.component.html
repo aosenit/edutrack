@@ -78,12 +78,7 @@
     
         </div>
     </div>
-    <ng-container *ngIf="selectedSlug === 'attendanceReport' ">
-      <div class="empty-state" *ngIf="studentRecord?.length == 0">
-        <p class="text-center fs-24 ff-a">
-          No attendance record found
-        </p>
-      </div> 
+    <ng-container *ngIf="selectedSlug === 'attendanceReport' && NotClassNorSubject">
       <section class="list table-responsive mb-5" *ngIf="studentRecord">
         <table class="table table-borderless client-table">
           <thead>
@@ -114,7 +109,7 @@
       
       </section>
     </ng-container>
-    
+
     <ng-container *ngIf="selectedSlug === 'attendanceReport' && selectedSubReport === 'classAttendance' ">
         <section class="list table-responsive mb-5" >
           <table class="table table-borderless client-table">
@@ -136,7 +131,7 @@
     
                 <tr class="pb-1" *ngFor="let attendance of classAttendance ">
                     
-                    <td>{{attendance?.attendanceDate}}</td>
+                    <td>{{attendance?.attendanceDate | date}}</td>
                     <td class="">{{attendance?.attendanceStatus}}</td>
                     <td>{{attendance?.reason}}</td>
                     <td></td>

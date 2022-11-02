@@ -57,6 +57,7 @@ export class ReportComponent implements OnInit {
   studentUserId: any;
   studentSubjectRecord: any;
   subjectRecord: any;
+  NotClassNorSubject: boolean = true;
 
   constructor(
     private reportService: ReportingService,
@@ -98,22 +99,24 @@ export class ReportComponent implements OnInit {
   selectReportType(event) {
     this.selectedSubReport = event;
     if (this.selectedSlug === "attendanceReport"){
-
       this.showNext = true;
     
       event === "classAttendance" ? ((this.subSlug = true),
           this.showExportBtn = true,
           (this.showSubject = false),
-          this.getStudentClassAttendance())
+          this.getStudentClassAttendance(),
+          this.NotClassNorSubject =false
+          )
         : event === "subjectAttendance"
         ? (
           this.showExportBtn = true,
           this.showSubject = true,
-          this.getAllSubjects())
-        : this.getSubjectAttendance();
-    } else {
-      this. showNext = false;
-    }
+          this.getAllSubjects(),
+          this.getSubjectAttendance(),
+          this.NotClassNorSubject = false
+          ) : (this.showNext = false)
+         
+    } 
   }
 
   getStartDate(event) {
@@ -155,7 +158,7 @@ export class ReportComponent implements OnInit {
     this.reportService.getStudentAttendanceForClass(this.id,this.studentUserId,this.studentClassId,this.selectedStartDate,this.selectedEndDate)
       .subscribe((data: any) => {
         if (data.hasErrors === false) {
-          this.classAttendance = data.payload.attendanceClassVms;
+          this.classAttendance = data.payload[0].attendanceClassVms;
         }
       });
   }
