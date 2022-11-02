@@ -34,7 +34,7 @@ export class ReportComponent implements OnInit {
   selectedReportType: any;
   showNext = false;
   showTypes = false;
-  showSubReport = false; 
+  showSubReport = false;
   showClass = false;
   showTerm = false;
   showSubject = false;
@@ -105,16 +105,16 @@ export class ReportComponent implements OnInit {
   }
 
   selectTerm(event: any) {
-    const { startDate, endDate } = this.termList[event]
-    this.selectedStartDate = startDate
-    this.selectedEndDate = endDate
+    const { startDate, endDate } = this.termList[event];
+    this.selectedStartDate = startDate;
+    this.selectedEndDate = endDate;
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
   }
 
   getAllSubjects() {
     this.subjectService.getAllSubjects().subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.subjectList = data.payload
+        this.subjectList = data.payload;
 
 
       }

@@ -36,7 +36,7 @@ export class ReportComponent implements OnInit {
   selectedReportType: any;
   showNext = false;
   showTypes = false;
-  showSubReport = false; 
+  showSubReport = false;
   showClass = false;
   showTerm = false;
   showSubject = false;
@@ -55,9 +55,9 @@ export class ReportComponent implements OnInit {
   studentList: any;
   parentList: any;
   teacherId: any;
-  showWards : boolean = false
-  wardId : any;
-  wardClassId : any
+  showWards = false;
+  wardId: any;
+  wardClassId: any;
 
   termList: any;
   subjectList: any;
@@ -83,34 +83,34 @@ export class ReportComponent implements OnInit {
 
     const helper = new JwtHelperService();
     this.parentDetails = helper.decodeToken(localStorage.getItem('access_token'));
-   
-    
+
+
   }
 
 
   getChildInSelectedSchool() {
     this.parentService.getChildInASchoolForParent().subscribe((data: any) => {
-      if (data.hasErrors === false ) {
+      if (data.hasErrors === false) {
         // // (data.payload);
         this.childrenList = data.payload;
       }
     });
   }
 
-selectWard(event) {
-  this.childrenList.filter((item)=>{
-    if(item.id === +event) {
-      
-      this.wardId = item.id
-      this.wardClassId = item.classID
-    }
-  })
-  // this.getClassAttendanceForStudent()
- this.getSubjectAttendance()
-}
+  selectWard(event) {
+    this.childrenList.filter((item) => {
+      if (item.id === +event) {
+
+        this.wardId = item.id;
+        this.wardClassId = item.classID;
+      }
+    });
+    // this.getClassAttendanceForStudent()
+    this.getSubjectAttendance();
+  }
 
 
-  
+
 
   // getAllTerm() {
   //   this.assessmentService.getSchoolSessions().subscribe((data: any) => {
@@ -136,7 +136,7 @@ selectWard(event) {
       if (data.hasErrors === false) {
         // (data.payload);
         this.attendanceList = data.payload;
-        
+
 
 
       }
@@ -156,13 +156,13 @@ selectWard(event) {
 
       }
     });
-    if(event === "attendanceReport") {
-      this.getChildInSelectedSchool()
-      this.showWards = true
+    if (event === 'attendanceReport') {
+      this.getChildInSelectedSchool();
+      this.showWards = true;
     }
   }
 
- 
+
 
 
   selectReportType(event) {
@@ -175,13 +175,13 @@ selectWard(event) {
       this.subSlug = true, this.showExportBtn = true,
       this.showClass = false, this.showTerm = false, this.showSubject = false, this.showNext = false,
       this.getClassAttendanceForStudent()
-      ):
+    ) :
       event === 'subjectAttendance' ? (
         this.subSlug = true, this.showExportBtn = true,
         this.showClass = false, this.showTerm = false, this.showSubject = false, this.showNext = false,
         this.getSubjectAttendance()
-        ) :
-        ""
+      ) :
+        '';
   }
 
 
@@ -233,10 +233,10 @@ selectWard(event) {
   }
 
 
- 
 
 
- 
+
+
   getAllStudents() {
     this.studentService.getAllStudents(1, 100).subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -268,7 +268,7 @@ selectWard(event) {
       if (data.hasErrors === false) {
         this.classAttendanceList = data.payload[0].attendanceClassVms
 
-        ;
+          ;
       }
     });
   }
