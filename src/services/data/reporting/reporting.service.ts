@@ -36,15 +36,15 @@ export class ReportingService {
   constructor(private http: HttpClient) { }
 
 
-  getStudentAttendanceSummary(studentId, classId){
+  getStudentAttendanceSummary(studentId?, classId?){
     const url = `${this.baseUrl + routes.getStudentAttendanceSummary}?studentId=${studentId}&classId=${classId}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
-  getStudentAttendanceForClass(StudentId, ClassId?, FromDate?, ToDate?){
-    const url = `${this.baseUrl + routes.getStudentClassAttendance}?StudentId=${StudentId}&StudentUserId=${StudentId}&ClassId=${ClassId}&FromDate=${FromDate}&ToDate=${ToDate}`;
+  getStudentAttendanceForClass(StudentId?,StudentUserId?, ClassId?, FromDate?, ToDate?){
+    const url = `${this.baseUrl + routes.getStudentClassAttendance}?StudentId=${StudentId}&StudentUserId=${StudentUserId}&ClassId=${ClassId}&FromDate=${FromDate}&ToDate=${ToDate}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
-  getStudentAttendanceForSubject(studentId, studentUserId?,subjectId?, date?){
+  getStudentAttendanceForSubject(studentId?,studentUserId?,subjectId?, date?){
     const url = `${this.baseUrl + routes.getStudentSubjectAttendance}?studentId=${studentId}&studentUserId=${studentUserId}&subjectId=${subjectId}&date=${date}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
@@ -94,21 +94,21 @@ export class ReportingService {
     const url = `${this.baseUrl + routes.exportInvoiceReportPdf}?invoiceStatus=${invoiceStatus}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
-  exportSingleStudentAttendanceByClassExcel(){
-    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForClassExcel}`;
-    return this.http.get(url, { headers: { Authorization : 'Bearer' + localStorage.getItem('accessToken') }})
+  exportSingleStudentAttendanceByClassExcel(StudentId?,StudentUserId?, ClassId?, FromDate?, ToDate?){
+    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForClassExcel}?StudentId=${StudentId}&StudentUserId=${StudentUserId}&ClassId=${ClassId}&FromDate=${FromDate}&ToDate=${ToDate}`;
+    return this.http.get(url,{ headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } })
   }
-  exportSingleStudentAttendanceByClassPdf(){
-    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForClassPdf}`;
-    return this.http.get(url, { headers: { Authorization : 'Bearer' + localStorage.getItem('accessToken') }})
+  exportSingleStudentAttendanceByClassPdf(StudentId?,StudentUserId?, ClassId?, FromDate?, ToDate?){
+    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForClassPdf}?StudentId=${StudentId}&StudentUserId=${StudentUserId}&ClassId=${ClassId}&FromDate=${FromDate}&ToDate=${ToDate}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } })
   }
-  exportSingleStudentAttendanceBySubjectExcel(){
-    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForSubjectExcel}`;
-    return this.http.get(url, { headers: { Authorization : 'Bearer' + localStorage.getItem('accessToken') }})
+  exportSingleStudentAttendanceBySubjectExcel(studentId?,studentUserId?,subjectId?, date?){
+    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForSubjectExcel}?studentId=${studentId}&studentUserId=${studentUserId}&subjectId=${subjectId}&date=${date}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } })
   }
-  exportSingleStudentAttendanceBySubjectPdf(){
-    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForSubjectPdf}`;
-    return this.http.get(url, { headers: { Authorization : 'Bearer' + localStorage.getItem('accessToken') }})
+  exportSingleStudentAttendanceBySubjectPdf(studentId?,studentUserId?,subjectId?, date?){
+    const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForSubjectPdf}?studentId=${studentId}&studentUserId=${studentUserId}&subjectId=${subjectId}&date=${date}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } })
   }
   
 }
