@@ -60,19 +60,19 @@
                 </select>
               </div>
 
-              <div class="col " *ngIf="showClass">
+              <!-- <div class="col " *ngIf="showClass">
                 <label for="class" class="fs-12 fw-6">Class</label>
                 <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
                   <option value="" selected>Select class</option>
                   <option [value]="class.classId" *ngFor="let class of classList">{{class.classSection + ' ' +
                     class.className}}</option>
                 </select>
-              </div>
+              </div> -->
   
   
               
   
-              <!-- <div class="col " *ngIf="showTerm">
+              <div class="col " *ngIf="showTerm">
                 <label for="class" class="fs-12 fw-6">Term</label>
                 <select name="" id="" class="form-control form-control-lg" (change)="selectTerm($event.target.value)">
                   <option value="" selected>Select term</option>
@@ -80,7 +80,7 @@
   
   
                 </select>
-              </div> -->
+              </div> 
               <div class="col " *ngIf="showNext">
                 <label for="class" class="fs-12 fw-6">Start Date</label>
                 <input type="date" class="form-control" (change)="getStartDate($event.target.value)">

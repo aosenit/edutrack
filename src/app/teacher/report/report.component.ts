@@ -235,7 +235,7 @@ export class ReportComponent implements OnInit {
 
   getAllTeachers() {
     this.teacherService.getAllTeachers().subscribe((data: any) => {
-      if (data.hasErrors === false) {
+      if (data.hasErrors === false) { 
         this.teachersList = data.payload;
       }
     });
