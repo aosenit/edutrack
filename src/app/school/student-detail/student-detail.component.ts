@@ -27,7 +27,7 @@ studentDetails: any;
 
   getStudentByID() {
     this.studentService.getStudentById(this.id).subscribe((data: any) => {
-      // console.log('ssasasa', data);
+      console.log('ssasasa', data);
       if (data.hasErrors === false ) {
         this.studentDetails = data.payload;
       }

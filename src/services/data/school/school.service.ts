@@ -15,6 +15,7 @@ const routes = {
   getAllGroupSchools: 'schtrack-auth/api/v1/SchoolGroup/GetSchoolGroups',
   getSchoolGroupById: 'schtrack-auth/api/v1/SchoolGroup/GetSchoolGroupsById',
   getSchoolGroupAnalytics: 'schtrack-auth/api/v1/SchoolGroup/GetSchoolGroupAnalytics',
+  getSchoolOfSchoolsSchoolData: 'schtrack-auth/api/v1/School/GetGroupOfSchoolSchoolsData',
 
 
   // others
@@ -110,6 +111,9 @@ export class SchoolService {
   getSchoolSubscriptionStatusById(id) {
     const url = `${this.baseUrl + routes.getSubscriptionStatus}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+  getGroupOfSchoolsSchoolData(){
+    
   }
 
   uploadBulkDocument(bulkUpload) {

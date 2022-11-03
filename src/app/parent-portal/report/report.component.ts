@@ -34,7 +34,7 @@ export class ReportComponent implements OnInit {
   selectedReportType: any;
   showNext = false;
   showTypes = false;
-  showSubReport = false; 
+  showSubReport = false;
   showClass = false;
   showTerm = false;
   showSubject = false;
@@ -51,9 +51,9 @@ export class ReportComponent implements OnInit {
   studentList: any;
   parentList: any;
   teacherId: any;
-  showWards : boolean = false
-  wardId : any;
-  wardClassId : any
+  showWards = false;
+  wardId: any;
+  wardClassId: any;
 
   termList: any;
   subjectList: any;
@@ -79,12 +79,16 @@ export class ReportComponent implements OnInit {
     this.parentDetails = helper.decodeToken(localStorage.getItem('access_token'));
    this.getAllTerm();
     
+
+
+
+
   }
 
 
   getChildInSelectedSchool() {
     this.parentService.getChildInASchoolForParent().subscribe((data: any) => {
-      if (data.hasErrors === false ) {
+      if (data.hasErrors === false) {
         // // (data.payload);
         this.childrenList = data.payload;
       }
@@ -117,6 +121,11 @@ getAllTerm() {
     }
   })
 }
+  
+
+
+
+
 
 
   selectTerm(event: any) {
@@ -134,7 +143,7 @@ getAllTerm() {
       if (data.hasErrors === false) {
         // (data.payload);
         this.attendanceList = data.payload;
-        
+
 
 
       }
@@ -150,13 +159,14 @@ getAllTerm() {
 
       }
     });
-    if(event === "attendanceReport") {
-      this.getChildInSelectedSchool()
+
+  if (event === 'attendanceReport') {
+      this.getChildInSelectedSchool();
       this.showWards = true;
     }
   }
 
- 
+
 
 
   selectReportType(event) {
@@ -171,12 +181,13 @@ getAllTerm() {
       this.getClassAttendanceForStudent()
      
       ):
-      event === 'subjectAttendance' ? (
+
+    event === 'subjectAttendance' ? (
         this.subSlug = true, this.showExportBtn = true,
         this.showClass = false, this.showTerm = true, this.showSubject = false, this.showNext = true, this.getAllTerm(),
         this.getSubjectAttendance()
-        ) :
-        ""
+      ) :
+        '';
   }
 
 
@@ -232,6 +243,13 @@ getAllTerm() {
   }
 
 
+
+
+
+
+
+
+
   getAllStudents() {
     this.studentService.getAllStudents(1, 100).subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -276,6 +294,7 @@ getAllTerm() {
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
         link.href = 'data:image/png;base64,' + res.payload.base64String;
         link.click();
+          ;
       }
     });
   }
