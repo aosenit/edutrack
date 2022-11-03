@@ -10,7 +10,8 @@ const routes = {
   getClassSubjectAttendanceWithDateSummary:'schtrack-learning/api/v1/Attendance/GetClassSubjectAttendanceWithDateSummary',
   exportAttendance: 'schtrack-learning/api/v1/Attendance/AttendanceExport',
   exportAttendancePdf:'schtrack-learning/api/v1/Attendance/ClassAttendancePDFExport',
-  exportSubjectAttendance:'schtract-learning/api/v1/Attendance/SubjectAttendanceExport',
+  exportSubjectAttendance:'schtrack-learning/api/v1/Attendance/SubjectAttendanceExport',
+  exportSubjectAttendancePdf:'schtrack-learning/api/v1/Attendance/SubjectPDFAttendanceExport',
   exportParentExcel: 'schtrack-auth/api/v1/Parent/GetParentDataInExcel',
   exportParentPdf: 'schtrack-auth/api/v1/Parent/GetParentDataInPDF',
   exportSingleStudentAttendanceForClassPdf:'schtrack-learning/api/v1/Attendance/ExportSingleStudentAttendanceForClassPDF',
@@ -62,14 +63,19 @@ export class ReportingService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  exportSubjectAttendance(TenantId, classId?,subjectId?, startDate?, endDate?) {
-    const url = `${this.baseUrl + routes.exportSubjectAttendance}?tenantId=${TenantId}&classId=${classId}&subjectId=${subjectId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
+  exportSubjectAttendance(TenantId,subjectId?, startDate?, endDate?) {
+    const url = `${this.baseUrl + routes.exportSubjectAttendance}?tenantId=${TenantId}&subjectId=${subjectId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   exportAttendancePdf(TenantId, classId?, startDate?, endDate?) {
     const url = `${this.baseUrl + routes.exportAttendancePdf}?tenantId=${TenantId}&classId=${classId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+  exportSubjectAttendancePdf(TenantId,subjectId?, startDate?, endDate?){
+    const url = `${this.baseUrl + routes.exportSubjectAttendancePdf}?tenantId=${TenantId}&subjectId=${subjectId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;
+      return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    
   }
 
   exportParentExcelSheet(schoolId) {
