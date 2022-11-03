@@ -4,6 +4,7 @@ import { NotificationsService } from 'src/services/classes/notifications/notific
 import { SchoolService } from 'src/services/data/school/school.service';
 import { StudentService } from 'src/services/data/student/student.service';
 import { Chart } from 'chart.js';
+import { ReportingService } from 'src/services/data/reporting/reporting.service';
 
 
 @Component({
@@ -27,12 +28,16 @@ export class SchoolManagerDashboardComponent implements OnInit {
 
 
   @ViewChild('barChart', { static: true }) barChartRef: ElementRef;
+  studentsOnPlatform: any;
+  totalUser: any;
+  totalStaffs: any;
+  totalStudents: any;
 
 
   constructor(
     private schoolService: SchoolService,
     private studentservice: StudentService,
-    private notifyService: NotificationsService
+    private notifyService: NotificationsService,
     ) { }
 
   ngOnInit() {
@@ -42,6 +47,7 @@ export class SchoolManagerDashboardComponent implements OnInit {
 
     this.greeting();
     this.getAllSchool();
+    this.getTotalUsersOnPlatform()
 
   }
 
@@ -75,7 +81,8 @@ export class SchoolManagerDashboardComponent implements OnInit {
     this.schoolService.getAllGroupsInASchool(this.p, this.itemsPerPage, this.adminDetails.SchGroupId).subscribe((data: any) => {
       if (data) {
         this.registeredSchools = data.payload;
-        this.schoolCount = data.totalCount;
+        // this.schoolCount = data.totalCount;
+        this.schoolCount = data.payload.length;
         // this.clientList.reverse();
       }
     }, error => {
@@ -84,6 +91,24 @@ export class SchoolManagerDashboardComponent implements OnInit {
     });
   }
 
+  getAllStudents() {
+    this.studentservice.getAllStudents(this.p, this.itemsPerPage).subscribe(
+      (res: any) => {
+        this.studentCount = res.totalCount;
+        
+      }
+    );
+  }
+ 
+  getTotalUsersOnPlatform(){
+    this.studentservice.getTotalUsersOnPlatform().subscribe(
+      (res: any) => {
+        this.totalStudents = res.payload.totalStudents;
+        this.totalUser = res.payload.totalUsers;
+        this.totalStaffs = res.payload.totalStaffs;
+      }
+    );
+  }
 
   createBarChart() {
 
