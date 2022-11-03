@@ -123,8 +123,7 @@ getAllTerm() {
     const { startDate, endDate } = this.termList[event]
     this.selectedStartDate = startDate;
     this.selectedEndDate = endDate;
-    this.getClassAttendanceForStudent();
-    this.getSubjectAttendance();
+   
     // this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
   }
 
