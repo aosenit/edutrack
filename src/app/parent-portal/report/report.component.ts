@@ -5,10 +5,8 @@ import { AssessmentService } from 'src/services/data/assessment/assessment.servi
 import { ClassService } from 'src/services/data/class/class.service';
 import { ParentsService } from 'src/services/data/parents/parents.service';
 import { ReportingService } from 'src/services/data/reporting/reporting.service';
-import { StaffService } from 'src/services/data/staff/staff.service';
 import { StudentService } from 'src/services/data/student/student.service';
 import { SubjectService } from 'src/services/data/subject/subject.service';
-import { TeacherService } from 'src/services/data/teacher/teacher.service';
 
 @Component({
   selector: 'app-report',
@@ -48,9 +46,7 @@ export class ReportComponent implements OnInit {
   classList = [];
   selectedClass: any;
   selectedSlug: string;
-  teachersList: any;
   subSlug = false;
-  employeeList: any;
   showExportBtn = false;
   studentList: any;
   parentList: any;
@@ -69,9 +65,7 @@ export class ReportComponent implements OnInit {
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
-    private staffService: StaffService,
     private notifyService: NotificationsService,
-    private teacherService: TeacherService,
     private studentService: StudentService,
     private parentService: ParentsService,
     private assessmentService: AssessmentService,
@@ -101,8 +95,8 @@ selectWard(event) {
   this.childrenList.filter((item)=>{
     if(item.id === +event) {
       
-      this.wardId = item.id
-      this.wardClassId = item.classID
+      this.wardId = item.id;
+      this.wardClassId = item.classID;
     }
   })
   // this.getClassAttendanceForStudent()
@@ -143,10 +137,6 @@ selectWard(event) {
     });
   }
 
-
-
-
-
   getReportType(event) {
     this.reportingOptions.forEach(item => {
       if (item.slug === event) {
@@ -158,7 +148,7 @@ selectWard(event) {
     });
     if(event === "attendanceReport") {
       this.getChildInSelectedSchool()
-      this.showWards = true
+      this.showWards = true;
     }
   }
 
@@ -233,10 +223,6 @@ selectWard(event) {
   }
 
 
- 
-
-
- 
   getAllStudents() {
     this.studentService.getAllStudents(1, 100).subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -266,9 +252,8 @@ selectWard(event) {
   getClassAttendanceForStudent() {
     this.parentService.getClassAttendance(this.wardId, this.wardClassId).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        this.classAttendanceList = data.payload[0].attendanceClassVms
+        this.classAttendanceList = data.payload[0].attendanceClassVms;
 
-        ;
       }
     });
   }
