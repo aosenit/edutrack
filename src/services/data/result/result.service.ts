@@ -16,7 +16,8 @@ const routes = {
   getapprovedResult: 'schtrack-assessment/api/v1/Result/GetApprovedStudentReportSheet',
   getapprovedStudentResult: 'schtrack-assessment/api/v1/Result/GetStudentsWithApprovedResult',
   mailreportsheet: 'schtrack-assessment/api/v1/Result/PostMailResult',
-
+  exportBroadSheetExcel:'schtrack-assessment/api/v1/Result/ExportBroadSheetExcel',
+  exportBroadSheetPdf:'schtrack-assessment/api/v1/Result/ExportBroadSheetPDF',
   viewAllClassApprovalStatus: 'schtrack-assessment/api/v1/Result/GetClassesResultApproval'
 };
 @Injectable({
@@ -138,6 +139,16 @@ export class ResultService {
     const url = `${this.baseUrl + routes.viewAllClassApprovalStatus}?curSessionId=${curSessionId}&termSequenceNumber=${termSequenceNumber}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
+  }
+
+  exportBroadsheetExcel(id){
+    const url = `${this.baseUrl + routes.exportBroadSheetExcel}?id=${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+  exportBroadsheetPdf(id){
+    const url = `${this.baseUrl + routes.exportBroadSheetPdf}?id=${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
 }
