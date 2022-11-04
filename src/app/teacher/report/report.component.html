@@ -106,7 +106,13 @@
     </div>
   </div>
 
-  <ng-container *ngIf="selectedSubReport === 'classAttendance'">
+  <ng-container *ngIf="selectedSubReport === 'classAttendance'"> 
+    <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        No attendance record found
+      </p>
+    </div> 
+
     <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
       <table class="table table-borderless client-table">
         <thead>

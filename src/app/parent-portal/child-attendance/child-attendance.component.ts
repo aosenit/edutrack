@@ -90,7 +90,7 @@ export class ChildAttendanceComponent implements OnInit {
   }
 
   getClassAttendanceForStudent() {
-    this.parentService.getClassAttendance(this.wardDetail.id, this.wardDetail.classID).subscribe((data: any) => {
+    this.parentService.getClassAttendance(this.wardDetail.id, this.wardDetail.classID,'','').subscribe((data: any) => {
       if (data.hasErrors === false) {
         const AttendanceList: any = data.payload;
         // tslint:disable-next-line:prefer-for-of

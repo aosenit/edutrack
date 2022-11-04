@@ -77,7 +77,6 @@ export class ReportingService {
       return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
     
   }
-
   exportParentExcelSheet(schoolId) {
     const url = `${this.baseUrl + routes.exportParentExcel}?schoolId=${schoolId}`; 
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } }); 
