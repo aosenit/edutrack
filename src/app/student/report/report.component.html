@@ -71,7 +71,12 @@
                     <label for="class" class="fs-12 fw-6">End Date</label>
                     <input type="date" class="form-control" (change)="getEndDate($event.target.value)">
                   </div>
+                  <div class="col " *ngIf="showDate">
+                    <label for="class" class="fs-12 fw-6">Date</label>
+                    <input type="date" class="form-control" (change)="getDate($event.target.value)">
+                  </div>
                 </div>
+               
             </form>
           </div>
           <!-- <div class="w-15">
@@ -162,47 +167,12 @@
       
         </section>
       </ng-container>
-      <ng-container *ngIf="selectedSlug === 'attendanceReport' && selectedSubReport === 'termAttendance' ">
-        <div class="empty-state" *ngIf="classAttendance?.length == 0">
+      <ng-container *ngIf="selectedSlug === 'attendanceReport' && selectedSubReport === 'attendanceSummary' ">
+        <div class="empty-state" *ngIf="!studentRecord || !studentRecord.length">
           <p class="text-center fs-24 ff-a">
             No attendance record found
           </p>
-        </div> 
-        <section class="list table-responsive mb-5 mt-3" >
-          <table class="table table-borderless client-table">
-            <thead>
-                <tr>
-                   
-                    <th scope="col" class="head">Attendance Date 
-                 
-                    </th>
-                    <th scope="col">Status 
-                    </th>
-    
-                    <th scope="col">Reason 
-                   
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-    
-                <tr class="pb-1" *ngFor="let attendance of classAttendance ">
-                    
-                    <td>{{attendance?.attendanceDate | date}}</td>
-                    <td class="rounded-right">
-                      <span class="status_active" *ngIf = "attendance?.attendanceStatus == 1">Present</span>
-                      <span class="status_inactive" *ngIf = "attendance?.attendanceStatus == 2">Absent</span>
-                    </td>
-                    <td>{{attendance?.reason}}</td>
-                </tr>
-    
-    
-            </tbody>
-        </table>
-      
-        </section>
-    </ng-container> 
-      <ng-container *ngIf="selectedSlug === 'attendanceReport' && selectedSubReport === 'attendanceSummary' ">
+        </div>
         <section class="list table-responsive mb-5 mt-3" *ngIf="studentRecord">
           <table class="table table-borderless client-table">
             <thead>

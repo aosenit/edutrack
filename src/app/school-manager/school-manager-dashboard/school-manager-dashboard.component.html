@@ -1,6 +1,6 @@
 <div class=" main  ">
     <div class="mt-2 mb-3  d-flex justify-content-end">
-        <select class="form-control w-25 school-drop" (change)="switchSwitchSchoolGroup($event.target.value)">
+        <select class="form-control w-25 school-drop" (change)="switchSwitchSchoolGroup($event.target.value) ; switchSwitch($event.target.value)">
             <option value="" selected>Select school</option>
             <option [value]="school.id" *ngFor="let school of registeredSchools">{{school.name}}</option>
         </select>

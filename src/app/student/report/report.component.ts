@@ -21,8 +21,7 @@ export class ReportComponent implements OnInit {
       data: [
         { id: 1, title: 'Class Attendance', subSlug: 'classAttendance' },
         { id: 2, title: 'Subject Attendance', subSlug: 'subjectAttendance' },
-        { id: 3, title: 'Term Attendance', subSlug: 'termAttendance' },
-        { id: 4, title: 'Attendance Summary', subSlug: 'attendanceSummary' }
+        { id: 3, title: 'Attendance Summary', subSlug: 'attendanceSummary' }
       ]
     }
   ];
@@ -64,6 +63,8 @@ export class ReportComponent implements OnInit {
   sessions: any;
   showTerm: boolean;
   tenantId: any;
+  selectedDate: any;
+  showDate: boolean;
 
   constructor(
     private reportService: ReportingService,
@@ -114,27 +115,26 @@ export class ReportComponent implements OnInit {
         (this.showSubject = false),
         this.getStudentClassAttendance(),
         this.showNext = true,
-        this.showTerm = false
+        this.showTerm = true,
+        this.getAllTerm()
+
       )
         : event === 'subjectAttendance'
           ? (
             this.showExportBtn = true,
             this.showSubject = true,
-            this.showTerm = false,
             this.getAllSubjects(),
+            this.showTerm = true,
             this.getSubjectAttendance(),
-            this.showNext = true
-          ) : event === 'termAttendance' ?
-            (this.showTerm = true,
-              this.showSubject = false,
-              this.showNext = false,
-              this.showExportBtn = true,
-              this.getAllTerm()
-            )
-            : event === 'attendanceSummary' ? (
+            this.showNext = false,
+            this.showDate = true,
+            this.getAllTerm()
+          ) : event === 'attendanceSummary' ? (
               this.showExportBtn = false,
               this.showSubject = false,
               this.showNext = false,
+              this.showTerm = true,
+              this.getAllTerm(),
               this.getStudentAttendanceSummary()
             ) : (this.showNext = false);
 
@@ -144,13 +144,15 @@ export class ReportComponent implements OnInit {
   getStartDate(event) {
     this.selectedStartDate = event;
     this.getStudentClassAttendance();
-    this.getSubjectAttendance();
   }
   getEndDate(event) {
     this.selectedEndDate = event;
     this.getStudentClassAttendance();
   }
-
+  getDate(event){
+    this.selectedDate = event;
+    this.getSubjectAttendance();
+  }
   selectSubject(event: any) {
     this.subjectId = event;
     this.getSubjectAttendance();
@@ -161,7 +163,9 @@ export class ReportComponent implements OnInit {
     const { startDate, endDate } = this.termList[event];
     this.selectedStartDate = startDate;
     this.selectedEndDate = endDate;
+    this.selectedDate = startDate;
     this.getStudentClassAttendance();
+    this.getSubjectAttendance();
   }
 
 
@@ -175,7 +179,7 @@ export class ReportComponent implements OnInit {
     });
   }
   getSubjectAttendance() {
-    this.reportService.getStudentAttendanceForSubject(this.id, this.studentUserId, this.subjectId, this.selectedStartDate)
+    this.reportService.getStudentAttendanceForSubject(this.id, this.studentUserId, this.subjectId, this.selectedDate)
       .subscribe((data: any) => {
         if (!data.hasErrors) {
           this.subjectRecord = data.payload;
@@ -219,11 +223,11 @@ export class ReportComponent implements OnInit {
   downloadStudentAttendanceReport() {
     this.selectedSubReport === 'classAttendance' ? this.downloadStudentAttendanceByClassReport() :
 
-      this.selectedSubReport === 'subjectAttendance' ? this.downloadStudentAttendanceBySubjectReport() : this.downloadAttendanceByTerm();
+     this.downloadStudentAttendanceBySubjectReport();
   }
 
   downloadStudentAttendanceByClassReport() {
-    this.reportService.exportSingleStudentAttendanceByClassExcel(this.id, this.studentUserId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+    this.reportService.exportSingleStudentAttendanceByClassExcel(this.id, this.studentUserId,this.classId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
@@ -233,7 +237,7 @@ export class ReportComponent implements OnInit {
     });
   }
   downloadStudentAttendanceBySubjectReport() {
-    this.reportService.exportSingleStudentAttendanceBySubjectExcel(this.id, this.studentUserId, this.subjectId, this.selectedStartDate).subscribe((res: any) => {
+    this.reportService.exportSingleStudentAttendanceBySubjectExcel(this.id, this.studentUserId, this.subjectId, this.selectedDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
@@ -242,25 +246,16 @@ export class ReportComponent implements OnInit {
       }
     });
   }
-  downloadAttendanceByTerm() {
-    this.reportService.exportSingleStudentAttendanceByClassExcel(this.id, this.studentUserId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        const link = document.createElement('a');
-        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
-        link.href = 'data:image/png;base64,' + res.payload.base64String;
-        link.click();
-      }
-    });
-  }
+  
 
   downloadStudentAttendanceReportInPdf() {
     this.selectedSubReport === 'classAttendance' ? this.downloadStudentAttendanceReportByClassInPdf() :
 
-      this.selectedSubReport === 'subjectAttendance' ? this.downloadStudentAttendanceReportBySubjectInPdf() : this.downloadAttendanceByTermInPdf();
+      this.downloadStudentAttendanceReportBySubjectInPdf();
   }
 
   downloadStudentAttendanceReportByClassInPdf() {
-    this.reportService.exportSingleStudentAttendanceByClassPdf(this.id, this.studentUserId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+    this.reportService.exportSingleStudentAttendanceByClassPdf(this.id, this.studentUserId,this.classId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
@@ -270,7 +265,7 @@ export class ReportComponent implements OnInit {
     });
   }
   downloadStudentAttendanceReportBySubjectInPdf() {
-    this.reportService.exportSingleStudentAttendanceBySubjectPdf(this.id, this.studentUserId, this.subjectId, this.selectedStartDate).subscribe((res: any) => {
+    this.reportService.exportSingleStudentAttendanceBySubjectPdf(this.id, this.studentUserId,this.subjectId, this.selectedDate).subscribe((res: any) => {
       if (res.hasErrors === false) {
         const link = document.createElement('a');
         link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
@@ -279,16 +274,7 @@ export class ReportComponent implements OnInit {
       }
     });
   }
-  downloadAttendanceByTermInPdf() {
-    this.reportService.exportSingleStudentAttendanceByClassPdf(this.id, this.studentUserId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        const link = document.createElement('a');
-        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
-        link.href = 'data:image/png;base64,' + res.payload.base64String;
-        link.click();
-      }
-    });
-  }
+  
 
 }
 
