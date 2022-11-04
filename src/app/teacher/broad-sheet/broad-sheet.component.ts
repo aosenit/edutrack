@@ -96,6 +96,7 @@ export class BroadSheetComponent implements OnInit {
   }
 
   downloadBroadsheetInExcel(){
+    
     sessionStorage.getItem(this.Classid);
 
     this.resultService.exportBroadsheetExcel(this.Classid).subscribe((res: any) => {
@@ -108,6 +109,7 @@ export class BroadSheetComponent implements OnInit {
     });
   }
   downloadBroadsheetInPdf(){
+
     sessionStorage.getItem(this.Classid);
 
     this.resultService.exportBroadsheetPdf(this.Classid).subscribe((res: any) => {

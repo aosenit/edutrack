@@ -88,7 +88,12 @@
         </div>
     </div>
     <ng-container *ngIf="selectedSlug === 'attendanceReport' && selectedSubReport === 'classAttendance' ">
-        <section class="list table-responsive mb-5" >
+      <div class="empty-state" *ngIf="!classAttendance || classAttendance.length === 0">
+        <p class="text-center fs-24 ff-a">
+          No attendance record found
+        </p>
+      </div>   
+      <section class="list table-responsive mb-5" *ngIf="classAttendance && classAttendance.length" >
           <table class="table table-borderless client-table">
             <thead>
                 <tr>
@@ -96,10 +101,10 @@
                     <th scope="col" class="head">Attendance Date 
                  
                     </th>
-                    <th scope="col">Reasons 
+                    <th scope="col">Status 
                     </th>
     
-                    <th scope="col">Status 
+                    <th scope="col">Reason
                    
                     </th>
                 </tr>
@@ -123,7 +128,12 @@
         </section>
     </ng-container> 
     <ng-container *ngIf="selectedSlug === 'attendanceReport' && selectedSubReport === 'subjectAttendance' ">
-        <section class="list table-responsive mb-5" >
+      <div class="empty-state" *ngIf="!subjectRecord || !subjectRecord.length">
+        <p class="text-center fs-24 ff-a">
+          No attendance record found
+        </p>
+      </div>  
+      <section class="list table-responsive mb-5 mt-3" *ngIf="subjectRecord?.length " >
           <table class="table table-borderless client-table">
             <thead>
                 <tr>
@@ -153,7 +163,12 @@
         </section>
       </ng-container>
       <ng-container *ngIf="selectedSlug === 'attendanceReport' && selectedSubReport === 'termAttendance' ">
-        <section class="list table-responsive mb-5" >
+        <div class="empty-state" *ngIf="classAttendance?.length == 0">
+          <p class="text-center fs-24 ff-a">
+            No attendance record found
+          </p>
+        </div> 
+        <section class="list table-responsive mb-5 mt-3" >
           <table class="table table-borderless client-table">
             <thead>
                 <tr>
@@ -161,10 +176,10 @@
                     <th scope="col" class="head">Attendance Date 
                  
                     </th>
-                    <th scope="col">Reasons 
+                    <th scope="col">Status 
                     </th>
     
-                    <th scope="col">Status 
+                    <th scope="col">Reason 
                    
                     </th>
                 </tr>
@@ -188,7 +203,7 @@
         </section>
     </ng-container> 
       <ng-container *ngIf="selectedSlug === 'attendanceReport' && selectedSubReport === 'attendanceSummary' ">
-        <section class="list table-responsive mb-5" *ngIf="studentRecord">
+        <section class="list table-responsive mb-5 mt-3" *ngIf="studentRecord">
           <table class="table table-borderless client-table">
             <thead>
         
