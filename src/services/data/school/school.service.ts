@@ -112,8 +112,9 @@ export class SchoolService {
     const url = `${this.baseUrl + routes.getSubscriptionStatus}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
-  getGroupOfSchoolsSchoolData(){
-    
+  getGroupOfSchoolsSchoolData(groupId, id){
+    const url = `${this.baseUrl + routes.getSchoolOfSchoolsSchoolData}?groupId=${groupId}&id=${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   uploadBulkDocument(bulkUpload) {
