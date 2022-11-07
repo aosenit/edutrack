@@ -1,6 +1,6 @@
 <div class=" main  ">
     <div class="mt-2 mb-3  d-flex justify-content-end">
-        <select class="form-control w-25 school-drop" (change)="switchSwitch($event.target.value)">
+        <select class="form-control w-25 school-drop" (change)="switchSwitchSchoolGroup($event.target.value)">
             <option value="" selected>Select school</option>
             <option [value]="school.id" *ngFor="let school of registeredSchools">{{school.name}}</option>
         </select>
@@ -22,7 +22,7 @@
             <p>Revenue Generated</p>
         </div>
         <div class="schools">
-            <img src="assets/images/svg/schools.svg" alt="card school icon">
+            <img src="assets/images/svg/students-number.svg" alt="card school icon">
             <div class="revenue__text ">
                 <h6 class="pt-3 pr-4">{{totalStudents}} </h6>
             </div>
@@ -37,7 +37,7 @@
             <p>No. of Employees</p>
         </div>
         <div class="sms">
-            <img src="assets/images/svg/sms-used.svg" alt="total sms used icon">
+            <img src="assets/images/svg/students-number.svg" alt="total sms used icon">
             <div class="revenue__text ">
                 <h6 class="pt-3 pr-4">{{totalUser}}</h6>
             </div>

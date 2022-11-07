@@ -47,7 +47,7 @@ export class ReportingService {
   }
   getStudentAttendanceForSubject(studentId?,studentUserId?,subjectId?, date?){
     const url = `${this.baseUrl + routes.getStudentSubjectAttendance}?studentId=${studentId}&studentUserId=${studentUserId}&subjectId=${subjectId}&date=${date}`;
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId} });
   }
   GetClassAttendanceWithDateSummary(TenantId, classId?, startDate?, endDate?) {
     const url = `${this.baseUrl + routes.getClassAttendanceWithDateSummary}?tenantId=${TenantId}&classId=${classId}&AttendanceStartDate=${startDate}&AttendanceEndDate=${endDate}`;

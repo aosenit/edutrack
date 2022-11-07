@@ -177,8 +177,10 @@ export class ReportComponent implements OnInit {
   getSubjectAttendance() {
     this.reportService.getStudentAttendanceForSubject(this.id, this.studentUserId, this.subjectId, this.selectedStartDate)
       .subscribe((data: any) => {
-        if (data.hasErrors === false) {
+        if (!data.hasErrors) {
           this.subjectRecord = data.payload;
+        }else {
+          this.subjectRecord = undefined
         }
       });
   }
@@ -187,8 +189,10 @@ export class ReportComponent implements OnInit {
   getStudentClassAttendance() {
     this.reportService.getStudentAttendanceForClass(this.id, this.studentUserId, this.studentClassId, this.selectedStartDate, this.selectedEndDate)
       .subscribe((data: any) => {
-        if (data.hasErrors === false) {
+        if (data.hasErrors === false && data.payload.length !== 0) {
           this.classAttendance = data.payload[0].attendanceClassVms;
+        } else {
+          this.classAttendance = undefined
         }
       });
   }

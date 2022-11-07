@@ -95,4 +95,30 @@ export class BroadSheetComponent implements OnInit {
     sessionStorage.setItem('student-details', JSON.stringify(this.studentData[u]) );
   }
 
+  downloadBroadsheetInExcel(){
+    
+    sessionStorage.getItem(this.Classid);
+
+    this.resultService.exportBroadsheetExcel(this.Classid).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+  downloadBroadsheetInPdf(){
+
+    sessionStorage.getItem(this.Classid);
+
+    this.resultService.exportBroadsheetPdf(this.Classid).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
 }

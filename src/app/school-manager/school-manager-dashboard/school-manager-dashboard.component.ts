@@ -5,6 +5,7 @@ import { SchoolService } from 'src/services/data/school/school.service';
 import { StudentService } from 'src/services/data/student/student.service';
 import { Chart } from 'chart.js';
 import { ReportingService } from 'src/services/data/reporting/reporting.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -32,6 +33,9 @@ export class SchoolManagerDashboardComponent implements OnInit {
   totalUser: any;
   totalStaffs: any;
   totalStudents: any;
+  groupId: any;
+  schoolDetail: any;
+  id: any;
 
 
   constructor(
@@ -44,13 +48,16 @@ export class SchoolManagerDashboardComponent implements OnInit {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
     this.loginDate =  this.adminDetails.last_login_time + ' ' + 'UTC';
+    this.groupId = this.adminDetails.SchGroupId;
+
+    console.log(this.adminDetails)
 
     this.greeting();
     this.getAllSchool();
-    this.getTotalUsersOnPlatform()
-
+    this.getGroupOfSchoolsData(this.groupId, this.id)
   }
 
+  
   getAllSchool() {
     this.schoolService.getAllGroupsInASchool(this.p, this.itemsPerPage, this.adminDetails.SchGroupId).subscribe((data: any) => {
       if (data) {
@@ -68,6 +75,20 @@ export class SchoolManagerDashboardComponent implements OnInit {
     this.schoolService.getSchoolGroupAnalytics(id).subscribe( (data: any) => {
       if (data.hasErrors === false) {
         this.schoolCount = data.payload.studentsCount;
+        // this.clientList.reverse();
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+  switchSwitchSchoolGroup(id) {
+    this.schoolService.getGroupOfSchoolsSchoolData(this.groupId,id).subscribe( (data: any) => {
+      if (data.hasErrors === false) {
+        this.totalStudents = data.payload.totalStudents;
+        this.totalStaffs = data.payload.totalStaffs;
+        this.totalUser  = data.payload.totalUsers;
         // this.clientList.reverse();
 
       }
@@ -100,15 +121,17 @@ export class SchoolManagerDashboardComponent implements OnInit {
     );
   }
  
-  getTotalUsersOnPlatform(){
-    this.studentservice.getTotalUsersOnPlatform().subscribe(
-      (res: any) => {
+
+  getGroupOfSchoolsData(groupId,id){
+    this.schoolService.getGroupOfSchoolsSchoolData(this.groupId, this.id).subscribe((res:any) =>
+    {
+      console.log(res)
         this.totalStudents = res.payload.totalStudents;
         this.totalUser = res.payload.totalUsers;
-        this.totalStaffs = res.payload.totalStaffs;
-      }
-    );
+        this.totalStaffs = res.payload.totalStaffs; 
+    })
   }
+  
 
   createBarChart() {
 
