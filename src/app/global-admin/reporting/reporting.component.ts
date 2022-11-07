@@ -15,10 +15,10 @@ export class ReportingComponent implements OnInit {
       {id: 2, title: 'Unpaid Report', subSlug: 'unpaidReport'}
     ]},
 
-    {id: 2, title: 'Finance Report', slug: 'financeReport', data : [
-        {id: 1, title: 'Payment'},
-        {id: 1, title: 'Subscriptions'}
-    ]},
+    // {id: 2, title: 'Finance Report', slug: 'financeReport', data : [
+    //     {id: 1, title: 'Payment'},
+    //     {id: 1, title: 'Subscriptions'}
+    // ]},
   ];
 
   // userReport = [
