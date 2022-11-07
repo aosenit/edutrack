@@ -5,10 +5,8 @@ import { AssessmentService } from 'src/services/data/assessment/assessment.servi
 import { ClassService } from 'src/services/data/class/class.service';
 import { ParentsService } from 'src/services/data/parents/parents.service';
 import { ReportingService } from 'src/services/data/reporting/reporting.service';
-import { StaffService } from 'src/services/data/staff/staff.service';
 import { StudentService } from 'src/services/data/student/student.service';
 import { SubjectService } from 'src/services/data/subject/subject.service';
-import { TeacherService } from 'src/services/data/teacher/teacher.service';
 
 @Component({
   selector: 'app-report',
@@ -48,9 +46,7 @@ export class ReportComponent implements OnInit {
   classList = [];
   selectedClass: any;
   selectedSlug: string;
-  teachersList: any;
   subSlug = false;
-  employeeList: any;
   showExportBtn = false;
   studentList: any;
   parentList: any;
@@ -66,12 +62,14 @@ export class ReportComponent implements OnInit {
   childrenList: any;
   classAttendanceList: any;
   attendanceList: any;
+  userId: any;
+  wardDetail: any;
+  assignmentCount: any;
+  subjectRecord: any;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
-    private staffService: StaffService,
     private notifyService: NotificationsService,
-    private teacherService: TeacherService,
     private studentService: StudentService,
     private parentService: ParentsService,
     private assessmentService: AssessmentService,
@@ -83,69 +81,108 @@ export class ReportComponent implements OnInit {
 
     const helper = new JwtHelperService();
     this.parentDetails = helper.decodeToken(localStorage.getItem('access_token'));
-
-
-  }
+      this.userId = this.parentDetails.sub
+   this.getAllTerm();
+   this. getChildInSelectedSchool()
+   this.getAllSubjects()
+   
+    
+}
 
 
   getChildInSelectedSchool() {
     this.parentService.getChildInASchoolForParent().subscribe((data: any) => {
       if (data.hasErrors === false) {
+       
         // // (data.payload);
         this.childrenList = data.payload;
       }
     });
   }
 
-  selectWard(event) {
-    this.childrenList.filter((item) => {
-      if (item.id === +event) {
-
-        this.wardId = item.id;
-        this.wardClassId = item.classID;
-      }
-    });
-    // this.getClassAttendanceForStudent()
-    this.getSubjectAttendance();
-  }
-
-
+selectWard(event) {
+  this.childrenList.filter((item)=>{
+    if(item.id === +event) {
+      
+      this.wardId = item.id;
+      this.wardClassId = item.classID;
+    }
+  })
+ this.getSubjectAttendance();
+ 
+}
 
 
-  // getAllTerm() {
-  //   this.assessmentService.getSchoolSessions().subscribe((data: any) => {
-  //     if (data.hasErrors === false) {
-  //       // this.classList = data.payload;
-  //       this.termList = data.payload[0].terms
+  
+getAllTerm() {
+  this.parentService.getSchoolSessions().subscribe((data: any) => {
+    
+    if (data.hasErrors === false) {
+      
+      // this.classList = data.payload;
+     this.termList = data.payload[0].terms;
+    }
+  })
+}
 
-  //     }
-  //   })
-  // }
+selectTerm(event: any) {
+  const { startDate, endDate } = this.termList[event]
+  this.selectedStartDate = startDate;
+  this.selectedEndDate = endDate;
+  
+  this.selectedSubReport === 'classAttendance' ?   this.getClassAttendanceForStudent()
+  :this.getSubjectAttendance();
+  
 
-  // selectTerm(event: any) {
-  //   const { startDate, endDate } = this.termList[event]
-  //   this.selectedStartDate = startDate
-  //   this.selectedEndDate = endDate
-  //   this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, startDate, endDate);
-  // }
+}
+
+getAllSubjects() {
+  this.parentService.getAllSubjects().subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      this.subjectList = data.payload;
+   
+    }
+  })
+}
+  
+
+selectSubject(event: any) {
+  this.subjectId = event
+  this.getSubjectAttendance();
+ 
+}
+
+getClassAttendanceForStudent() {
+  this.parentService.getClassAttendance(this.wardId, this.wardClassId, this.selectedStartDate, this.selectedEndDate).subscribe((data: any) => {
+    if (data.hasErrors === false) {
+      this.classAttendanceList = data.payload[0].attendanceClassVms;
+
+    }
+    
+  });
+}
 
 
-
-  getSubjectAttendance() {
-    this.parentService.getSubjectAttendance(this.wardId).subscribe((data: any) => {
+getSubjectAttendance() {
+  this.parentService.getStudentAttendanceForSubject(this.wardId,"",this.subjectId, this.selectedStartDate)
+    .subscribe((data: any) => {
       if (data.hasErrors === false) {
-        // (data.payload);
-        this.attendanceList = data.payload;
-
-
-
+        this.subjectRecord = data.payload;
       }
     });
-  }
+}
 
 
-
-
+// getSubjectAttendance() {
+//     this.parentService.getSubjectAttendance(this.wardId).subscribe((data: any) => {
+  
+//       if (data.hasErrors === false) {
+//         // (data.payload);
+//         this.attendanceList = data.payload;
+      
+//     } 
+//     });
+//   }
 
   getReportType(event) {
     this.reportingOptions.forEach(item => {
@@ -156,14 +193,12 @@ export class ReportComponent implements OnInit {
 
       }
     });
-    if (event === 'attendanceReport') {
+
+  if (event === 'attendanceReport') {
       this.getChildInSelectedSchool();
       this.showWards = true;
     }
   }
-
-
-
 
   selectReportType(event) {
     this.selectedSubReport = event;
@@ -173,71 +208,95 @@ export class ReportComponent implements OnInit {
     }
     event === 'classAttendance' ? (
       this.subSlug = true, this.showExportBtn = true,
-      this.showClass = false, this.showTerm = false, this.showSubject = false, this.showNext = false,
+      this.showClass = false, this.showTerm = true, this.showSubject = false, this.showNext =true, this.getAllTerm(),
       this.getClassAttendanceForStudent()
-    ) :
-      event === 'subjectAttendance' ? (
+     
+      ):
+
+    event === 'subjectAttendance' ? (
         this.subSlug = true, this.showExportBtn = true,
-        this.showClass = false, this.showTerm = false, this.showSubject = false, this.showNext = false,
+        this.showClass = false, this.showTerm = true, this.showSubject = true, this.showNext = true, this.getAllTerm(),this.getAllSubjects,
         this.getSubjectAttendance()
       ) :
         '';
   }
 
-
-  getAllClasses() {
-    this.classService.getTeacherClassesByClassId(this.teacherId).subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.classList.push(data.payload);
-        // this.teacherClassId = data.payload.classId;
-      }
-    }
-    );
-  }
-
-  selectClass(event) {
-    this.selectedClass = event;
-    this.fetchAttendanceRecord(this.adminDetails.TenantId, event);
-  }
-
-
-  fetchAttendanceRecord(tenantId, classId?, startDate?, endDate?) {
-    // tslint:disable-next-line:max-line-length
-    this.reportService.GetClassAttendanceWithDateSummary(tenantId, classId, startDate, endDate).subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        this.studentAttendanceRecord = res.payload;
-
-      }
-    });
-  }
-
-  fetchSubjectAttendanceRecord(tenantId, subjectId?, startDate?, endDate?) {
-    // tslint:disable-next-line:max-line-length
-    this.reportService.getClassSubjectAttendanceWithDateSummary(tenantId, subjectId, startDate, endDate).subscribe((res: any) => {
-      if (res.hasErrors === false) {
-        this.studentAttendanceRecord = res.payload;
-
-      }
-
-    });
-  }
-
+ 
 
   getStartDate(event) {
     this.selectedStartDate = event;
-    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate);
+    this.selectedSubReport === 'classAttendance' ? this.getClassAttendanceForStudent() :
+
+    this.selectedSubReport === 'subjectAttendance' ? this.getSubjectAttendance(): ""  
   }
+ 
   getEndDate(event) {
     this.selectedEndDate = event;
-    this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate);
+    this.selectedSubReport === 'classAttendance' ? this.getClassAttendanceForStudent() :
+
+    this.selectedSubReport === 'subjectAttendance' ? this.getSubjectAttendance(): ""  
+  }
+
+// excelsheet
+  downloadStudentAttendanceReport() {
+    this.selectedSubReport === 'classAttendance' ? this.downloadStudentAttendanceByClassReport() :
+
+    this.selectedSubReport === 'subjectAttendance' ? this.downloadStudentAttendanceBySubjectReport(): ""  
+}
+
+downloadStudentAttendanceByClassReport() {
+  this.parentService.exportSingleStudentAttendanceByClassExcel(this.wardId, "", this.wardClassId,this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+    if (res.hasErrors === false) {
+      const link = document.createElement('a');
+      link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+      link.href = 'data:image/png;base64,' + res.payload.base64String;
+      link.click();
+    }
+  });
+}
+downloadStudentAttendanceBySubjectReport() {
+  this.parentService.exportSingleStudentAttendanceBySubjectExcel(this.wardId,"",this.subjectId, this.selectedStartDate).subscribe((res: any) => {
+    if (res.hasErrors === false) {
+      const link = document.createElement('a');
+      link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+      link.href = 'data:image/png;base64,' + res.payload.base64String;
+      link.click();
+    }
+  });
+} 
+
+// pdf file
+
+ downloadStudentAttendanceReportInPdf() {
+    this.selectedSubReport === 'classAttendance' ? this.downloadStudentAttendanceReportByClassInPdf() :
+
+      this.selectedSubReport === 'subjectAttendance' ? this.downloadStudentAttendanceReportBySubjectInPdf() :""
+  }
+
+  downloadStudentAttendanceReportByClassInPdf() {
+    this.parentService.exportSingleStudentAttendanceByClassPdf(this.wardId, "", this.wardClassId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
+  downloadStudentAttendanceReportBySubjectInPdf() {
+    this.parentService.exportSingleStudentAttendanceBySubjectPdf(this.wardId, "", this.subjectId, this.selectedStartDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
   }
 
 
-
-
-
-
-  getAllStudents() {
+ 
+   getAllStudents() {
     this.studentService.getAllStudents(1, 100).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.studentList = data.payload;
@@ -261,66 +320,6 @@ export class ReportComponent implements OnInit {
         this.notifyService.publishMessages(error.message, 'danger', 1);
       });
   }
-
-
-  getClassAttendanceForStudent() {
-    this.parentService.getClassAttendance(this.wardId, this.wardClassId).subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.classAttendanceList = data.payload[0].attendanceClassVms
-
-          ;
-      }
-    });
-  }
-
-
-  // downloadReport() {
-  //   this.reportService.exportAttance(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
-  //     if (res.hasErrors === false) {
-  //       const link = document.createElement('a');
-  //       link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
-  //       link.href = 'data:image/png;base64,' + res.payload.base64String;
-  //       link.click();
-  //     }
-  //   });
-  // }
-
-
-  // downloadReportInPdf() {
-  //   // tslint:disable-next-line:max-line-length
-  //   this.reportService.exportAttendancePdf(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
-  //     if (res.hasErrors === false) {
-  //       const link = document.createElement('a');
-  //       link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
-  //       link.href = 'data:image/png;base64,' + res.payload.base64String;
-  //       link.click();
-  //     }
-  //   });
-  // }
-
-  // downloadSubjectAttendance() {
-  //   // tslint:disable-next-line:max-line-length
-  //   this.reportService.exportSubjectAttendance(this.adminDetails.TenantId, this.subjectId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
-  //     if (res.hasErrors === false) {
-  //       const link = document.createElement('a');
-  //       link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
-  //       link.href = 'data:image/png;base64,' + res.payload.base64String;
-  //       link.click();
-  //     }
-  //   });
-  // }
-
-  // downloadSubjectInPdf() {
-  //   // tslint:disable-next-line:max-line-length
-  //   this.reportService.exportSubjectAttendancePdf(this.adminDetails.TenantId, this.subjectId, this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
-  //     if (res.hasErrors === false) {
-  //       const link = document.createElement('a');
-  //       link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
-  //       link.href = 'data:image/png;base64,' + res.payload.base64String;
-  //       link.click();
-  //     }
-  //   });
-  // }
 
 
 }

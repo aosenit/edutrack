@@ -75,7 +75,6 @@ export class ReportComponent implements OnInit {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
 
-    console.log(this.adminDetails)
     this.getTeacherDetailsByUserId();
     this.getAllSubjects();
 
@@ -236,7 +235,7 @@ export class ReportComponent implements OnInit {
 
   getAllTeachers() {
     this.teacherService.getAllTeachers().subscribe((data: any) => {
-      if (data.hasErrors === false) {
+      if (data.hasErrors === false) { 
         this.teachersList = data.payload;
       }
     });

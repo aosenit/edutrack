@@ -27,7 +27,7 @@
 
 
             <div class="col ">
-              <label for="class" class="fs-12 fw-6">Report Type121</label>
+              <label for="class" class="fs-12 fw-6">Report Type</label>
               <select name="" id="" class="form-control form-control-lg" (change)="getReportType($event.target.value)">
                 <option value="" selected>Report Type</option>
                 <option [value]="report.slug" *ngFor="let report of reportingOptions">{{report.title}}</option>
@@ -106,7 +106,13 @@
     </div>
   </div>
 
-  <ng-container *ngIf="selectedSubReport === 'classAttendance'">
+  <ng-container *ngIf="selectedSubReport === 'classAttendance'"> 
+    <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        No attendance record found
+      </p>
+    </div> 
+
     <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
       <table class="table table-borderless client-table">
         <thead>

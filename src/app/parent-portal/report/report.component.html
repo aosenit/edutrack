@@ -9,10 +9,10 @@
                 data-target="#exampleModalCenterUpload"> Export </button> -->
   
         <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
-          > Export Excel
+        (click)="downloadStudentAttendanceReport()"> Export Excel
         </button>
         <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
-          > Export PDF
+        (click)="downloadStudentAttendanceReportInPdf()" > Export PDF
         </button>
       </div>
   
@@ -60,19 +60,19 @@
                 </select>
               </div>
 
-              <div class="col " *ngIf="showClass">
+              <!-- <div class="col " *ngIf="showClass">
                 <label for="class" class="fs-12 fw-6">Class</label>
                 <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
                   <option value="" selected>Select class</option>
                   <option [value]="class.classId" *ngFor="let class of classList">{{class.classSection + ' ' +
                     class.className}}</option>
                 </select>
-              </div>
+              </div> -->
   
   
               
   
-              <!-- <div class="col " *ngIf="showTerm">
+              <div class="col " *ngIf="showTerm">
                 <label for="class" class="fs-12 fw-6">Term</label>
                 <select name="" id="" class="form-control form-control-lg" (change)="selectTerm($event.target.value)">
                   <option value="" selected>Select term</option>
@@ -80,7 +80,16 @@
   
   
                 </select>
-              </div> -->
+              </div> 
+              <div class="col" *ngIf="showSubject">
+                <label for="class" class="fs-12 fw-6">Subject</label>
+                <select name="" id="" class="form-control form-control-lg" (change)="selectSubject($event.target.value)">
+                  <option value="" selected>Select subject</option>
+                  <option [value]="subject.id"  *ngFor="let subject of subjectList">{{subject.name}}</option>
+
+                </select>
+              </div>
+
               <div class="col " *ngIf="showNext">
                 <label for="class" class="fs-12 fw-6">Start Date</label>
                 <input type="date" class="form-control" (change)="getStartDate($event.target.value)">
@@ -113,7 +122,8 @@
     </div>
   
     <ng-container   *ngIf="selectedSubReport === 'classAttendance'">
-      <section class="list table-responsive mb-5">
+      
+      <section class="list table-responsive mb-5"  >
         <table class="table table-borderless client-table">
           <thead>
   
@@ -126,17 +136,16 @@
           </thead>
           <tbody>
             <tr class="pb-2" *ngFor="let attendance of classAttendanceList">
+              
               <td scope="row" class="school-logo rounded-left fc-lblue">
                 {{attendance.attendanceDate | date }}
               </td>
-              <td> {{attendance.attendanceStatus === 1? 'Present' : "Absent"
-            }} </td>
+              <td> <span class="status_active" *ngIf = "attendance?.attendanceStatus == 1">Present</span>
+                <span class="status_inactive" *ngIf = "attendance?.attendanceStatus == 2">Absent</span>
+                <!-- {{attendance.attendanceStatus === 1? 'Present' : "Absent" -->
+             </td>
               <td> {{attendance.reason}} </td>
-              <!-- <td>{{attendance.totalNumberOfTimePresent}}</td>
-  
-              <td class="rounded-right ">
-                {{attendance.totalNumberOfTimeAbsent}}
-              </td> -->
+              
             </tr>
   
   
@@ -149,7 +158,8 @@
 
 
     <ng-container *ngIf="selectedSubReport === 'subjectAttendance'" >
-        <section class="list table-responsive mb-5" >
+      
+        <section class="list table-responsive mb-5"   >
           <table class="table table-borderless client-table">
             <thead>
     
@@ -162,9 +172,9 @@
     
             </thead>
             <tbody>
-              <tr class="pb-2" *ngFor="let attendance of attendanceList">
+              <tr class="pb-2" *ngFor="let attendance of subjectRecord">
                 <td scope="row" class="school-logo rounded-left fc-lblue">
-                  {{attendance.subjectName }}
+                  {{attendance.subjectName}}
                 </td>
                 <td scope="row" class="school-logo rounded-left fc-lblue">
                     {{attendance.noOfTImesHeld
