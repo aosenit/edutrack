@@ -214,6 +214,8 @@ export class DashboardComponent implements OnInit  {
     });
   }
 
+  
+
   createLineChart(dashboardData: any) {
     const keys = [];
     const chartKey = this.dashboardDataKeys.forEach( element => {
