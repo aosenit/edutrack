@@ -466,10 +466,9 @@
                   <th scope="col">Date of Birth</th>
                   <th scope="col">Level</th>
                   <th scope="col">Class</th>
-  
-                  <th scope="col">Status 
-                  </th>
-                  
+                  <th scope="col">Status</th>
+                  <th scope="col">Parent Name</th>
+                  <th scope="col">Contact</th>
               </tr>
           </thead>
           <tbody>
@@ -489,7 +488,12 @@
                   <td class="">{{student?.dateOfBirth | date : 'mediumDate'}}</td>
                   <td class="">{{student?.section}}</td>
                   <td class="">{{student?.class}}</td>
-                  <td class="rounded-right"><span class="status_active">Active</span></td>
+                  <td class="rounded-right">
+                    <span class="status_active" *ngIf = "student?.isActive == true">Active</span>
+                    <span class="status_inactive" *ngIf = "student?.isActive == false">Inactive</span>
+                  </td>
+                  <td class="">{{student?.parentName}}</td>
+                  <td class="">{{student?.parent_PNum}}</td>
               </tr>
   
               
