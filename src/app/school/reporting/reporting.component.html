@@ -1,505 +1,549 @@
 <div>
-    <section class="banner mb-4 pb-3">
-      <div class="pt-5 pl-3 content ">
-        <h6 class="banner__text-primary fw-6 "> Reports </h6>
-        <p class=""> Directory of all reports </p>
-      </div>
-      <div class="d-flex">
-            <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+  <section class="banner mb-4 pb-3">
+    <div class="pt-5 pl-3 content ">
+      <h6 class="banner__text-primary fw-6 "> Reports </h6>
+      <p class=""> Directory of all reports </p>
+    </div>
+    <div class="d-flex">
+      <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
               data-target="#exampleModalCenterUpload"> Export </button> -->
-      
-            <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReport()"> Export
-            </button>
-            <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"  (click)="downloadReportInPdf()"> Export PDF
-            </button>
-          </div>
-  
-    </section>
-  
-    <div class="card  bg-white mt-5 px-3 pb-3">
-  
-      <div class="d-flex justify-content-between align-items-center pt-3   mb-4">
-        <div>
-          <form>
-            <div class="row">
-  
-  
-              <div class="col ">
-                <label for="class" class="fs-12 fw-6">Report Type</label>
-                <select name="" id="" class="form-control form-control-lg" (change)="getReportType($event.target.value)" >
-                  <option value="" selected>Report Type</option>
-                  <option [value]="report.slug" *ngFor="let report of reportingOptions">{{report.title}}</option>
-  
-  
-                </select>
-              </div>
-              <div class="col " *ngIf="showTypes">
-                <label for="class" class="fs-12 fw-6">Report Type</label>
-                <select name="" id="" class="form-control form-control-lg" (change)="selectReportType($event.target.value)">
-                  <option value="none" selected>Report Type</option>
-                  <option [value]="report.subSlug" *ngFor="let report of selectedReportType">{{report.title}}</option>
-  
-  
-                </select>
-              </div>
-              
 
-              <div class="col " *ngIf="showClass">
-                <label for="class" class="fs-12 fw-6">Class</label>
-                <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
-                  <option value="" selected>Select class</option>
-                  <option [value]="class.id" *ngFor="let class of classList">{{class.classSection + ' ' + class.name}}</option>
-  
-  
-                </select>
-              </div>
+      <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
+        (click)="downloadReport()"> Export
+      </button>
+      <button *ngIf="showNext || showExportBtn" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
+        (click)="downloadReportInPdf()"> Export PDF
+      </button>
+    </div>
 
-              <div class="col" *ngIf="showSubject">
-                <label for="class" class="fs-12 fw-6">Subject</label>
-                <select name="" id="" class="form-control form-control-lg" (change)="selectSubject($event.target.value)">
-                  <option value="" selected>Select subject</option>
-                  <option [value]="subject.id"  *ngFor="let subject of subjectList">{{subject.name}}</option>
+  </section>
 
-  
-  
-                </select>
-              </div>
-              <div class="col " *ngIf="showTerm">
-                <label for="class" class="fs-12 fw-6">Term</label>
-                <select name="" id="" class="form-control form-control-lg" (change)="selectTerm($event.target.value)">
-                  <option value="" selected>Select term</option>
-                  <option [value]="t" *ngFor="let term of termList;let t = index">{{term.name}}</option>
-  
-  
-                </select>
-              </div>
-              <div class="col " *ngIf="showSession">
-                <label for="class" class="fs-12 fw-6">Session</label>
-                <select name="" id="" class="form-control form-control-lg" (change)="getSessionDates($event.target.value)">
-                  <option value="" selected>Select session</option>
-                  <option [value]="s" *ngFor="let session of sessionList;let s = index">{{session.name}}</option>
-  
-  
-                </select>
-              </div>
-              <div class="col " *ngIf="showNext">
-                <label for="class" class="fs-12 fw-6">Start Date</label>
-                <input type="date" class="form-control" (change)="getStartDate($event.target.value)">
-              </div>
-              <div class="col " *ngIf="showNext">
-                <label for="class" class="fs-12 fw-6">End Date</label>
-                <input type="date" class="form-control" (change)="getEndDate($event.target.value)">
-              </div>
-              <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'teacherProfile' " >
-                
-                <label for="class" class="fs-12 fw-6 d-block">Total Teacher</label>
-                <button type="button" class="btn btn-primary d-block px-4">
-                  <span class="badge badge-light fs-3">{{totalTeacher}}</span>
-                </button>
-              </div>
-              <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'studentProfile' " >
-                
-                <label for="class" class="fs-12 fw-6 d-block">Total Student</label>
-                <button type="button" class="btn btn-primary d-block px-4">
-                  <span class="badge badge-light fs-3">{{totalStudent}}</span>
-                </button>
-              </div>
-              <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'parentProfile' " >
-                
-                <label for="class" class="fs-12 fw-6 d-block">Total Parent</label>
-                <button type="button" class="btn btn-primary d-block px-4">
-                  <span class="badge badge-light fs-3">{{totalParent}}</span>
-                </button>
-              </div>
-              <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'nonTeacherProfile' " >
-                
-                <label for="class" class="fs-12 fw-6 d-block">Total Non Teacher</label>
-                <button type="button" class="btn btn-primary d-block px-4">
-                  <span class="badge badge-light fs-3">{{totalNonTeacher}}</span>
-                </button>
-              </div>
-              <!-- <div class="col ">
+  <div class="card  bg-white mt-5 px-3 pb-3">
+
+    <div class="d-flex justify-content-between align-items-center pt-3   mb-4">
+      <div>
+        <form>
+          <div class="row">
+
+
+            <div class="col ">
+              <label for="class" class="fs-12 fw-6">Report Type</label>
+              <select name="" id="" class="form-control form-control-lg" (change)="getReportType($event.target.value)">
+                <option value="" selected>Report Type</option>
+                <option [value]="report.slug" *ngFor="let report of reportingOptions">{{report.title}}</option>
+
+
+              </select>
+            </div>
+            <div class="col " *ngIf="showTypes">
+              <label for="class" class="fs-12 fw-6">Report Type</label>
+              <select name="" id="" class="form-control form-control-lg"
+                (change)="selectReportType($event.target.value)">
+                <option value="none" selected>Report Type</option>
+                <option [value]="report.subSlug" *ngFor="let report of selectedReportType">{{report.title}}</option>
+
+
+              </select>
+            </div>
+
+
+            <div class="col " *ngIf="showClass">
+              <label for="class" class="fs-12 fw-6">Class</label>
+              <select name="" id="" class="form-control form-control-lg" (change)="selectClass($event.target.value)">
+                <option value="" selected>Select class</option>
+                <option [value]="class.id" *ngFor="let class of classList">{{class.classSection + ' ' + class.name}}
+                </option>
+
+
+              </select>
+            </div>
+
+            <div class="col" *ngIf="showSubject">
+              <label for="class" class="fs-12 fw-6">Subject</label>
+              <select name="" id="" class="form-control form-control-lg" (change)="selectSubject($event.target.value)">
+                <option value="" selected>Select subject</option>
+                <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.name}}</option>
+
+
+
+              </select>
+            </div>
+            <div class="col " *ngIf="showTerm">
+              <label for="class" class="fs-12 fw-6">Term</label>
+              <select name="" id="" class="form-control form-control-lg" (change)="selectTerm($event.target.value)">
+                <option value="" selected>Select term</option>
+                <option [value]="t" *ngFor="let term of termList;let t = index">{{term.name}}</option>
+
+
+              </select>
+            </div>
+            <div class="col " *ngIf="showSession">
+              <label for="class" class="fs-12 fw-6">Session</label>
+              <select name="" id="" class="form-control form-control-lg"
+                (change)="getSessionDates($event.target.value)">
+                <option value="" selected>Select session</option>
+                <option [value]="s" *ngFor="let session of sessionList;let s = index">{{session.name}}</option>
+
+
+              </select>
+            </div>
+            <div class="col " *ngIf="showNext">
+              <label for="class" class="fs-12 fw-6">Start Date</label>
+              <input type="date" class="form-control" (change)="getStartDate($event.target.value)">
+            </div>
+            <div class="col " *ngIf="showNext">
+              <label for="class" class="fs-12 fw-6">End Date</label>
+              <input type="date" class="form-control" (change)="getEndDate($event.target.value)">
+            </div>
+            <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'teacherProfile' ">
+
+              <label for="class" class="fs-12 fw-6 d-block">Total Teacher</label>
+              <button type="button" class="btn btn-primary d-block px-4">
+                <span class="badge badge-light fs-3">{{totalTeacher}}</span>
+              </button>
+            </div>
+            <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'studentProfile' ">
+
+              <label for="class" class="fs-12 fw-6 d-block">Total Student</label>
+              <button type="button" class="btn btn-primary d-block px-4">
+                <span class="badge badge-light fs-3">{{totalStudent}}</span>
+              </button>
+            </div>
+            <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'parentProfile' ">
+
+              <label for="class" class="fs-12 fw-6 d-block">Total Parent</label>
+              <button type="button" class="btn btn-primary d-block px-4">
+                <span class="badge badge-light fs-3">{{totalParent}}</span>
+              </button>
+            </div>
+            <div class="col " *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'nonTeacherProfile' ">
+
+              <label for="class" class="fs-12 fw-6 d-block">Total Non Teacher</label>
+              <button type="button" class="btn btn-primary d-block px-4">
+                <span class="badge badge-light fs-3">{{totalNonTeacher}}</span>
+              </button>
+            </div>
+            <!-- <div class="col ">
                       <label for="class" class="fs-12 fw-6">Class</label>
                       <select name="" id="" class="form-control form-control-lg" >
                         <option value="">Select class</option>
           
                       </select>
                     </div> -->
-            </div>
-          </form>
-        </div>
-        <!-- <div class="w-15">
+          </div>
+        </form>
+      </div>
+      <!-- <div class="w-15">
           <label for="">&nbsp;</label>
           <select name="" id="" class="form-control form-control-lg" (change)="downloadReport($event.target.value)">
             <option value="" selected>Export as</option>
             <option value="excel">Excel</option>
           </select>
         </div> -->
-        
-  
-  
-      </div>
+
+
+
     </div>
-  
-    <ng-container *ngIf="selectedSlug === 'attendanceReport'&& selectedSubReport === 'studentAttendance' ">
-      <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
-        <p class="text-center fs-24 ff-a">
-          No attendance record found
-        </p>
-      </div> 
-      <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
-        <table class="table table-borderless client-table">
-          <thead>
-      
-            <th scope="col" class="">Student ID </th>
-            <th scope="col">Name </th>
-            <th scope="col">Class
-            </th>
-            <th scope="col">No of Time present
-            </th>
-            <th scope="col">No of Time absent
-            </th>
-      
-          </thead>
-          <tbody>
-            <tr class="pb-2" *ngFor="let attendance of studentAttendanceRecord">
-              <td scope="row" class="school-logo rounded-left fc-lblue">
-               {{attendance.studentId}}
-              </td>
-              <td> {{attendance.fullName}} </td>
-              <td> {{attendance.className}} </td>
-              <td>{{attendance.totalNumberOfTimePresent}}</td>
-      
-              <td class="rounded-right ">
-                {{attendance.totalNumberOfTimeAbsent}}
-              </td>
-            </tr>
-      
-          </tbody>
-        </table>
-      
-      </section>
-    </ng-container>
+  </div>
 
-    <ng-container *ngIf="selectedSlug === 'attendanceReport'&& selectedSubReport === 'termAttendance'">
-      <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
-        <p class="text-center fs-24 ff-a">
-          No attendance record found
-        </p>
-      </div> 
-      <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
-        <table class="table table-borderless client-table">
-          <thead>
-      
-            <th scope="col" class="">Student ID </th>
-            <th scope="col">Name </th>
-            <th scope="col">Class
-            </th>
-            <th scope="col">No of Time present
-            </th>
-            <th scope="col">No of Time absent
-            </th>
-      
-          </thead>
-          <tbody>
-            <tr class="pb-2" *ngFor="let attendance of studentAttendanceRecord">
-              <td scope="row" class="school-logo rounded-left fc-lblue">
-               {{attendance.studentId}}
-              </td>
-              <td> {{attendance.fullName}} </td>
-              <td> {{attendance.className}} </td>
-              <td>{{attendance.totalNumberOfTimePresent}}</td>
-      
-              <td class="rounded-right ">
-                {{attendance.totalNumberOfTimeAbsent}}
-              </td>
-            </tr>
-      
-          </tbody>
-        </table>
-      
-      </section>
-    </ng-container>
+  <ng-container *ngIf="selectedSlug === 'attendanceReport'&& selectedSubReport === 'studentAttendance' ">
+    <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        No attendance record found
+      </p>
+    </div>
+    <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
+      <table class="table table-borderless client-table">
+        <thead>
 
+          <th scope="col" class="">Student ID </th>
+          <th scope="col">Name </th>
+          <th scope="col">Class
+          </th>
+          <th scope="col">No of Time present
+          </th>
+          <th scope="col">No of Time absent
+          </th>
 
-    <ng-container *ngIf="selectedSlug === 'attendanceReport'&& selectedSubReport === 'sessionAttendance'">
-      <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
-        <p class="text-center fs-24 ff-a">
-          No attendance record found
-        </p>
-      </div> 
-      <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
-        <table class="table table-borderless client-table">
-          <thead>
-      
-            <th scope="col" class="">Student ID </th>
-            <th scope="col">Name </th>
-            <th scope="col">Class
-            </th>
-            <th scope="col">No of Time present
-            </th>
-            <th scope="col">No of Time absent
-            </th>
-      
-          </thead>
-          <tbody>
-            <tr class="pb-2" *ngFor="let attendance of studentAttendanceRecord">
-              <td scope="row" class="school-logo rounded-left fc-lblue">
-               {{attendance.studentId}}
-              </td>
-              <td> {{attendance.fullName}} </td>
-              <td> {{attendance.className}} </td>
-              <td>{{attendance.totalNumberOfTimePresent}}</td>
-      
-              <td class="rounded-right ">
-                {{attendance.totalNumberOfTimeAbsent}}
-              </td>
-            </tr>
-      
-          </tbody>
-        </table>
-      
-      </section>
-    </ng-container>
+        </thead>
+        <tbody>
+          <tr class="pb-2" *ngFor="let attendance of studentAttendanceRecord">
+            <td scope="row" class="school-logo rounded-left fc-lblue">
+              {{attendance.studentId}}
+            </td>
+            <td> {{attendance.fullName}} </td>
+            <td> {{attendance.className}} </td>
+            <td>{{attendance.totalNumberOfTimePresent}}</td>
 
-    <ng-container *ngIf="selectedSlug === 'attendanceReport'&& selectedSubReport === 'subjectAttendance'">
-      <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
-        <p class="text-center fs-24 ff-a">
-          No attendance record found
-        </p>
-      </div> 
-      <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
-        <table class="table table-borderless client-table">
-          <thead>
-      
-            <th scope="col" class="">Student ID </th>
-            <th scope="col">Name </th>
-            <th scope="col">Subject
-            </th>
-            <th scope="col">No of Time present
-            </th>
-            <th scope="col">No of Time absent
-            </th>
-      
-          </thead>
-          <tbody>
-            <tr class="pb-2" *ngFor="let attendance of studentAttendanceRecord">
-              <td scope="row" class="school-logo rounded-left fc-lblue">
-               {{attendance.studentId}}
-              </td>
-              <td> {{attendance.fullName}} </td>
-              <td> {{attendance.subjectName}} </td>
-              <td>{{attendance.totalNumberOfTimePresent}}</td>
-      
-              <td class="rounded-right ">
-                {{attendance.totalNumberOfTimeAbsent}}
-              </td>
-            </tr>
-      
-          </tbody>
-        </table>
-      
-      </section>
-    </ng-container>
-
-
-
-    
-
-
-    <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'teacherProfile' ">
-      
-      <section class="list table-responsive mb-5" >
-        <table class="table table-borderless client-table">
-          <thead>
-              <tr>
-                 
-                  <th scope="col" class="head" >Full Name 
-                    
-                  </th>
-                  <th scope="col">Staff Number </th>
-                 
-                  <th scope="col">Status 
-                      
-                  </th>
-                  
-              </tr>
-          </thead>
-          <tbody>
-              <tr class="pb-1" *ngFor = "let teacher of teachersList">
-                  
-                  <td class="user check rounded-left" >
-                      
-                      <div class="d-flex align-items-center">
-                          <img src="assets/images/svg/dummy_user.png" alt="schools log" class="mr-3  image-rounded" >
-                          <h6 class="fw-6 mb-0" >{{teacher?.firstName + ' ' + teacher?.lastName | titlecase}} </h6>
-                      </div>
-                  </td>
-                  <td>{{teacher?.staffNumber}}</td>
-                  
-                  <td class="rounded-right "><span class="status_active">Active</span></td>
-                
-              </tr>
-  
-              
-  
-  
-  
-          </tbody>
-      </table>
-  
-      </section>
-    </ng-container>
-    
-    <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'nonTeacherProfile'  ">
-      <section class="list table-responsive mb-5" >
-        <table class="table table-borderless client-table">
-          <thead>
-      
-            <th scope="col" class="">Full Name </th>
-            <th scope="col">Staff Number </th>
-            <th scope="col">Phone Number
-            </th>
-            <th scope="col">Email
-            </th>
-            <th scope="col">Status
-            </th>
-      
-          </thead>
-          <tbody>
-            <tr class="pb-1" *ngFor="let staff of employeeList ">
-                
-              <td class="user check rounded-left" >
-                  
-                  <div class="d-flex align-items-center">
-                      <img src="assets/images/svg/dummy_user.png" alt="schools log" class="mr-3  image-rounded" >
-                      <h6 class="fw-6 mb-0" >{{staff?.firstName + ' ' + staff?.lastName | titlecase}} </h6>
-                  </div>
-              </td>
-              <td>{{staff?.staffNumber}}</td>
-              <td> {{staff.phoneNumber}} </td>
-              <td> {{staff?.email}} </td>
-              
-              <td><span class="status_active">Active</span></td>
-           
+            <td class="rounded-right ">
+              {{attendance.totalNumberOfTimeAbsent}}
+            </td>
           </tr>
-      
-      
-      
-          </tbody>
-        </table>
-        <!-- <div class="d-flex justify-content-end">
+
+        </tbody>
+      </table>
+
+    </section>
+  </ng-container>
+
+  <ng-container *ngIf="selectedSlug === 'attendanceReport'&& selectedSubReport === 'termAttendance'">
+    <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        No attendance record found
+      </p>
+    </div>
+    <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
+      <table class="table table-borderless client-table">
+        <thead>
+
+          <th scope="col" class="">Student ID </th>
+          <th scope="col">Name </th>
+          <th scope="col">Class
+          </th>
+          <th scope="col">No of Time present
+          </th>
+          <th scope="col">No of Time absent
+          </th>
+
+        </thead>
+        <tbody>
+          <tr class="pb-2" *ngFor="let attendance of studentAttendanceRecord">
+            <td scope="row" class="school-logo rounded-left fc-lblue">
+              {{attendance.studentId}}
+            </td>
+            <td> {{attendance.fullName}} </td>
+            <td> {{attendance.className}} </td>
+            <td>{{attendance.totalNumberOfTimePresent}}</td>
+
+            <td class="rounded-right ">
+              {{attendance.totalNumberOfTimeAbsent}}
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </section>
+  </ng-container>
+
+
+  <ng-container *ngIf="selectedSlug === 'attendanceReport'&& selectedSubReport === 'sessionAttendance'">
+    <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        No attendance record found
+      </p>
+    </div>
+    <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
+      <table class="table table-borderless client-table">
+        <thead>
+
+          <th scope="col" class="">Student ID </th>
+          <th scope="col">Name </th>
+          <th scope="col">Class
+          </th>
+          <th scope="col">No of Time present
+          </th>
+          <th scope="col">No of Time absent
+          </th>
+
+        </thead>
+        <tbody>
+          <tr class="pb-2" *ngFor="let attendance of studentAttendanceRecord">
+            <td scope="row" class="school-logo rounded-left fc-lblue">
+              {{attendance.studentId}}
+            </td>
+            <td> {{attendance.fullName}} </td>
+            <td> {{attendance.className}} </td>
+            <td>{{attendance.totalNumberOfTimePresent}}</td>
+
+            <td class="rounded-right ">
+              {{attendance.totalNumberOfTimeAbsent}}
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </section>
+  </ng-container>
+
+  <ng-container *ngIf="selectedSlug === 'attendanceReport'&& selectedSubReport === 'subjectAttendance'">
+    <div class="empty-state" *ngIf="studentAttendanceRecord?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        No attendance record found
+      </p>
+    </div>
+    <section class="list table-responsive mb-5" *ngIf="studentAttendanceRecord">
+      <table class="table table-borderless client-table">
+        <thead>
+
+          <th scope="col" class="">Student ID </th>
+          <th scope="col">Name </th>
+          <th scope="col">Subject
+          </th>
+          <th scope="col">No of Time present
+          </th>
+          <th scope="col">No of Time absent
+          </th>
+
+        </thead>
+        <tbody>
+          <tr class="pb-2" *ngFor="let attendance of studentAttendanceRecord">
+            <td scope="row" class="school-logo rounded-left fc-lblue">
+              {{attendance.studentId}}
+            </td>
+            <td> {{attendance.fullName}} </td>
+            <td> {{attendance.subjectName}} </td>
+            <td>{{attendance.totalNumberOfTimePresent}}</td>
+
+            <td class="rounded-right ">
+              {{attendance.totalNumberOfTimeAbsent}}
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </section>
+  </ng-container>
+
+
+
+
+
+
+  <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'teacherProfile' ">
+
+    <section class="list table-responsive mb-5">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+
+            <th scope="col" class="head">Full Name
+
+            </th>
+            <th scope="col">Staff Number </th>
+
+            <th scope="col">Status
+
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1" *ngFor="let teacher of teachersList">
+
+            <td class="user check rounded-left">
+
+              <div class="d-flex align-items-center">
+                <img src="assets/images/svg/dummy_user.png" alt="schools log" class="mr-3  image-rounded">
+                <h6 class="fw-6 mb-0">{{teacher?.firstName + ' ' + teacher?.lastName | titlecase}} </h6>
+              </div>
+            </td>
+            <td>{{teacher?.staffNumber}}</td>
+
+            <td class="rounded-right "><span class="status_active">Active</span></td>
+
+          </tr>
+
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </ng-container>
+
+  <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'nonTeacherProfile'  ">
+    <section class="list table-responsive mb-5">
+      <table class="table table-borderless client-table">
+        <thead>
+
+          <th scope="col" class="">Full Name </th>
+          <th scope="col">Staff Number </th>
+          <th scope="col">Phone Number
+          </th>
+          <th scope="col">Email
+          </th>
+          <th scope="col">Status
+          </th>
+
+        </thead>
+        <tbody>
+          <tr class="pb-1" *ngFor="let staff of employeeList ">
+
+            <td class="user check rounded-left">
+
+              <div class="d-flex align-items-center">
+                <img src="assets/images/svg/dummy_user.png" alt="schools log" class="mr-3  image-rounded">
+                <h6 class="fw-6 mb-0">{{staff?.firstName + ' ' + staff?.lastName | titlecase}} </h6>
+              </div>
+            </td>
+            <td>{{staff?.staffNumber}}</td>
+            <td> {{staff.phoneNumber}} </td>
+            <td> {{staff?.email}} </td>
+
+            <td><span class="status_active">Active</span></td>
+
+          </tr>
+
+
+
+        </tbody>
+      </table>
+      <!-- <div class="d-flex justify-content-end">
           <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
         </div> -->
-        <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">
+      <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">
                 <div class="d-flex flex-column justify-content-center align-items-center">
                   <img src="assets/images/svg/no-result.svg" alt="no search result" class="my-4">
                     <p class="mb-4 no-result">Sorry, no results found</p>
                     <button class="btn btn-outline-orange  mx-2 mx-lg-3" >Go back </button>
                 </div>
             </div> -->
-      </section>
-    </ng-container>
+    </section>
+  </ng-container>
 
-    <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'parentProfile'  ">
-      <section class="list table-responsive mb-5" >
-        <table class="table table-borderless client-table">
+  <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'parentProfile'  ">
+    <section class="list table-responsive mb-5">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+
+            <th scope="col" class="text-center">Full Name
+
+            </th>
+            <th scope="col" class="text-center">Parent ID </th>
+
+            <th scope="col" class="text-center">Phone Number
+
+            </th>
+            <th scope="col" class="text-center">Email
+            </th>
+
+            <th scope="col" class="text-center">Number of Ward(s)
+            </th>
+
+            <th scope="col" class="text-center">Status
+
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="pb-1" *ngFor="let parent of parentList" data-toggle="modal" data-target="#exampleModal"
+            (click)="displayChildrenNamesInsideModal(parent?.fullName, parent?.childDetails)">
+
+
+            <td class="user">
+              <div class="d-flex align-items-center">
+                <img class="" *ngIf="parent.image" src="data:image/png;base64,{{parent.image}}" alt="schools log"
+                  class="mr-3 image-rounded" id="">
+                <h6 class="fw-6 mb-0 cursor-pointer">{{parent?.fullName | titlecase}} </h6>
+              </div>
+            </td>
+            <td>{{parent?.parentCode}}</td>
+            <td>{{parent?.phoneNumber}}</td>
+            <td class="">{{parent?.email}}</td>
+            <td class="">{{parent?.totalKidsInSchool}}</td>
+            <td class="rounded-right">
+              <span class="status_active" *ngIf="parent.status == true">Active</span>
+              <span class="status_active" *ngIf="parent.status == false">Inactive</span>
+            </td>
+
+          </tr>
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </ng-container>
+
+  <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'studentProfile'  ">
+    <section class="list table-responsive mb-5">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head">Student Name
+            </th>
+            <th scope="col">Student Number </th>
+
+            <th scope="col">Gender</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Level</th>
+            <th scope="col">Class</th>
+
+            <th scope="col">Status
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1" *ngFor="let student of studentList ">
+            <td class="user">
+
+              <div class="d-flex align-items-center">
+                <img class="" *ngIf="student.image" src="data:image/png;base64,{{student.image}}" alt="schools log"
+                  class="mr-3 image-rounded" id="">
+                <img class="" *ngIf="student.image == null" src="assets/images/svg/companyalt.svg" alt="schools log"
+                  class="mr-3 image-rounded" id="">
+                <h6 class="fw-6 mb-0">{{student?.firstName + ' ' + student?.lastName | titlecase}} </h6>
+              </div>
+            </td>
+            <td>{{student?.studentNumber}}</td>
+            <td>{{student?.sex | titlecase}}</td>
+            <td class="">{{student?.dateOfBirth | date : 'mediumDate'}}</td>
+            <td class="">{{student?.section}}</td>
+            <td class="">{{student?.class}}</td>
+            <td class="rounded-right"><span class="status_active">Active</span></td>
+          </tr>
+
+
+
+
+
+        </tbody>
+      </table>
+    </section>
+  </ng-container>
+
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{parentNameInModal | titlecase}}'s Ward(s)</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body parent-children">
+        <table>
           <thead>
-              <tr>
-                 
-                  <th scope="col" class="head " >Full Name 
-               
-                  </th>
-                  <th scope="col">Parent ID </th>
-                 
-                  <th scope="col">Phone Number 
-                   
-                  </th>
-                  <th scope="col">Email 
-                  </th>
-  
-                  <th scope="col">Status 
-                 
-                  </th>
-              </tr>
+            <tr>
+              <th class="pr-10">Student Name</th>
+              <th class="">Class</th>
+            </tr>
           </thead>
           <tbody>
-
-              <tr class="pb-1" *ngFor="let parent of parentList  ">
-                  
-               
-                  <td class="user" >
-                      
-                      <div class="d-flex align-items-center">
-                          <img class="" *ngIf="parent.image" src="data:image/png;base64,{{parent.image}}" alt="schools log"
-                          class="mr-3 image-rounded" id="">
-                          <h6 class="fw-6 mb-0" >{{parent?.fullName | titlecase}} </h6>
-                      </div>
-                  </td>
-                  <td>{{parent?.parentCode}}</td>
-                  <td>{{parent?.phoneNumber}}</td>
-                  <td class="">{{parent?.email}}</td>
-                  <td class="rounded-right">
-                      <span class="status_active" *ngIf = "parent.status == true">Active</span>
-                      <span class="status_active" *ngIf = "parent.status == false">Inactive</span>
-                  </td>
-               
-              </tr>
-  
-  
+            <tr *ngFor="let child of childrenNamesInModal">
+              <td> {{child.studentName | titlecase}} </td>
+              <td> {{child.className | titlecase}} </td>
+            </tr>
           </tbody>
-      </table>
-    
-      </section>
-    </ng-container>
-   
-    <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'studentProfile'  ">
-      <section class="list table-responsive mb-5" >
-        <table class="table table-borderless client-table">
-          <thead>
-              <tr>
-                  <th scope="col" class="head" >Student Name 
-                  </th>
-                  <th scope="col">Student Number </th>
-                 
-                  <th scope="col">Gender</th>
-                  <th scope="col">Date of Birth</th>
-                  <th scope="col">Level</th>
-                  <th scope="col">Class</th>
-  
-                  <th scope="col">Status 
-                  </th>
-                  
-              </tr>
-          </thead>
-          <tbody>
-              <tr class="pb-1" *ngFor="let student of studentList ">
-                  <td class="user" >
-                      
-                      <div class="d-flex align-items-center">
-                          <img class="" *ngIf="student.image" src="data:image/png;base64,{{student.image}}" alt="schools log"
-                          class="mr-3 image-rounded" id="">
-                        <img class="" *ngIf="student.image == null" src="assets/images/svg/companyalt.svg" alt="schools log"
-                          class="mr-3 image-rounded" id="">
-                          <h6 class="fw-6 mb-0" >{{student?.firstName + ' ' + student?.lastName | titlecase}} </h6>
-                      </div>
-                  </td>
-                  <td>{{student?.studentNumber}}</td>
-                  <td>{{student?.sex | titlecase}}</td>
-                  <td class="">{{student?.dateOfBirth | date : 'mediumDate'}}</td>
-                  <td class="">{{student?.section}}</td>
-                  <td class="">{{student?.class}}</td>
-                  <td class="rounded-right"><span class="status_active">Active</span></td>
-              </tr>
-  
-              
-  
-  
-  
-          </tbody>
-      </table>
-      </section>
-    </ng-container>
-  
-  
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
+</div>

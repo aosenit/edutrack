@@ -131,3 +131,16 @@ table.client-table {
     object-fit: cover;
 
 }
+
+.parent-children {
+    padding: 10px 30px;
+    gap: 10px;
+}
+
+.parent-children div {
+    padding: 0 20px;
+}
+
+.pr-10 {
+    padding-right: 100px;
+}

@@ -25,7 +25,7 @@ const routes = {
   
 };
 
-@Injectable({
+@Injectable({ 
   providedIn: 'root'
 })
 export class ReportingService {
