@@ -144,3 +144,11 @@ table.client-table {
 .pr-10 {
     padding-right: 100px;
 }
+.school-color{
+    color: #014D94;
+}
+
+.modal-btn-text{
+    color:#ffffff;
+    background: #014D94
+}
