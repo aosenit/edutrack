@@ -144,6 +144,7 @@ export class SchoolService {
     formData.append('ContactLastName', updateSchoolForm.ContactLastName);
     formData.append('ContactPhoneNo', updateSchoolForm.ContactPhoneNo);
     formData.append('ContactEmail', updateSchoolForm.ContactEmail);
+    formData.append('ContactEmailPassword', updateSchoolForm.ContactEmailPassword);
     const url = `${this.baseUrl + routes.updateschoolbyid}/${id}`;
     return this.http.put(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
