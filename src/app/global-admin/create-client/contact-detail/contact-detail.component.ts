@@ -37,6 +37,7 @@ export class ContactDetailComponent implements OnInit {
       this.getAActiveTab();
   }
 
+  
   populateSchoolDetails() {
     this.schooldetailsForm = this.fb.group({
       Country : ['', Validators.required],
