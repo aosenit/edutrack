@@ -540,60 +540,6 @@
             </tr>
           </tbody>
         </table>
-
-        </section>
-
-        <ng-container *ngIf="selectedSlug === 'userReport' && selectedSubReport === 'studentProfile'  ">
-          <section class="list table-responsive mb-5">
-            <table class="table table-borderless client-table">
-              <thead>
-                <tr>
-                  <th scope="col" class="head">Student Name
-                  </th>
-                  <th scope="col">Student Number </th>
-
-                  <th scope="col">Gender</th>
-                  <th scope="col">Date of Birth</th>
-                  <th scope="col">Level</th>
-                  <th scope="col">Class</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Parent Name</th>
-                  <th scope="col">Contact</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="pb-1" *ngFor="let student of studentList ">
-                  <td class="user">
-
-                    <div class="d-flex align-items-center">
-                      <img class="" *ngIf="student.image" src="data:image/png;base64,{{student.image}}"
-                        alt="schools log" class="mr-3 image-rounded" id="">
-                      <img class="" *ngIf="student.image == null" src="assets/images/svg/companyalt.svg"
-                        alt="schools log" class="mr-3 image-rounded" id="">
-                      <h6 class="fw-6 mb-0">{{student?.firstName + ' ' + student?.lastName | titlecase}} </h6>
-                    </div>
-                  </td>
-                  <td>{{student?.studentNumber}}</td>
-                  <td>{{student?.sex | titlecase}}</td>
-                  <td class="">{{student?.dateOfBirth | date : 'mediumDate'}}</td>
-                  <td class="">{{student?.section}}</td>
-                  <td class="">{{student?.class}}</td>
-                  <td class="rounded-right">
-                    <span class="status_active" *ngIf="student?.isActive == true">Active</span>
-                    <span class="status_inactive" *ngIf="student?.isActive == false">Inactive</span>
-                  </td>
-                  <td class="">{{student?.parentName}}</td>
-                  <td class="">{{student?.parent_PNum}}</td>
-                </tr>
-
-
-
-
-
-              </tbody>
-            </table>
-          </section>
-        </ng-container>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn school-color modal-btn-text" data-dismiss="modal">Close</button>
