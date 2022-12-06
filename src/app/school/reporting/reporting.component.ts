@@ -77,6 +77,8 @@ export class ReportingComponent implements OnInit {
   subjectId: any;
   subjectList: any;
   showSubject: boolean;
+  childrenNamesInModal !:any[]
+  parentNameInModal: any;
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -469,5 +471,10 @@ export class ReportingComponent implements OnInit {
   }
 
 
+  displayChildrenNamesInsideModal(parentName: string, childrenList: any) {
+    this.parentNameInModal = parentName;
+    this.childrenNamesInModal = childrenList
+  }
 
+  
 }
