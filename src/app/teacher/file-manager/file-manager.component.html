@@ -31,30 +31,30 @@
 
             <div>
                 <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
-                    <li class="nav-item d-flex align-items-center mr-3">
+                    <li class="nav-item d-flex align-items-center mr-3" (click)="getAllLessonNotesByTeacher()">
                         <a class="nav-link active" id="pills-notes-tab" data-toggle="pill" href="#pills-notes"
                             role="tab" aria-controls="pills-notes" aria-selected="true">
                             <img src="assets/images/svg/file-tab-1.svg" alt="new client" class="mr-3">
                             Class Notes</a>
                     </li>
-                    <li class="nav-item d-flex mr-3">
+                    <li class="nav-item d-flex mr-3" (click)="getAllAssignmentsByTeacher()">
                         <a class="nav-link" id="pills-assignment-tab" data-toggle="pill" href="#pills-assignment"
                             role="tab" aria-controls="pills-assignment" aria-selected="false">
                             <img src="assets/images/svg/file-tab-2.svg" alt="new client" class="mr-3">
                             Assignment</a>
                     </li>
-                    <li class="nav-item d-flex mr-3">
+                    <li class="nav-item d-flex mr-3" (click)="getAllClassWorkByTeacher()">
                         <a class="nav-link" id="pills-work-tab" data-toggle="pill" href="#pills-work" role="tab"
                             aria-controls="pills-work" aria-selected="false">
                             <img src="assets/images/svg/file-tab-4.svg" alt="new client" class="mr-3">
                             Class work</a>
                     </li>
-                    <li class="nav-item d-flex">
+                    <!-- <li class="nav-item d-flex">
                         <a class="nav-link" id="pills-media-tab" data-toggle="pill" href="#pills-media" role="tab"
                             aria-controls="pills-media" aria-selected="false">
                             <img src="assets/images/svg/file-tab-3.svg" alt="new client" class="mr-3">
                             Media</a>
-                    </li>
+                    </li> -->
 
                 </ul>
 
@@ -71,10 +71,10 @@
                             <p class="mb-0 fw-6">Class notes</p>
             
                             <div>
-                                <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
-                                <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
+                                <!-- <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3"> -->
+                                <!-- <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
                                     type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
+                                    aria-expanded="false"> -->
                                 <!-- ================ DROPDOWN ==================== -->
                                 <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
                                     <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
@@ -90,7 +90,14 @@
                                 </div>
                             </div>
                         </div>
-                    <section class="list">
+
+                        <div *ngIf="allLessonNote?.length === 0" class=" mh-100 bg-white d-flex flex-column justify-content-center align-items-center mt-3" style="height: 78vh"> 
+                            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+                            <p class="fw-6 cursor-pointer" >
+                            No class note yet
+                          </p>
+                        </div>
+                    <section class="list" *ngIf="allLessonNote?.length > 0">
                         <table class="table table-borderless client-table">
                             <thead>
                                 <tr>
@@ -158,10 +165,10 @@
                         <p class="mb-0 fw-6">Assignment</p>
         
                         <div>
-                            <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                            <!-- <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
                             <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
                                 type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                                aria-expanded="false"> -->
                             <!-- ================ DROPDOWN ==================== -->
                             <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
@@ -177,7 +184,14 @@
                             </div>
                         </div>
                     </div>
-                <section class="list">
+
+                    <div *ngIf="assignmentlist?.length === 0" class=" mh-100 bg-white d-flex flex-column justify-content-center align-items-center mt-3" style="height: 78vh"> 
+                        <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+                        <p class="fw-6 cursor-pointer" >
+                        No assignment yet
+                      </p>
+                    </div>
+                <section class="list" *ngIf="assignmentlist?.length > 0">
                     <table class="table table-borderless client-table">
                         <thead>
                             <tr>
@@ -250,10 +264,10 @@
                         <p class="mb-0 fw-6">Class Work</p>
         
                         <div>
-                            <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
+                            <!-- <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
                             <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
                                 type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                                aria-expanded="false"> -->
                             <!-- ================ DROPDOWN ==================== -->
                             <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
@@ -269,7 +283,15 @@
                             </div>
                         </div>
                     </div>
-                <section class="list">
+
+                    <div *ngIf="classworkList?.length === 0" class=" mh-100 bg-white d-flex flex-column justify-content-center align-items-center mt-3" style="height: 78vh"> 
+                        <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+                        <p class="fw-6 cursor-pointer" >
+                        No classwork yet
+                      </p>
+                    </div>
+
+                <section class="list" *ngIf="classworkList?.length > 0">
                     <table class="table table-borderless client-table">
                         <thead>
                             <tr>
@@ -556,7 +578,7 @@
                         </button>
                     </div>
                     <div class="line">
-                        <p class="pb-3">Uplaod Class Note</p>
+                        <p class="pb-3">Upload Class Note</p>
                     </div>
                 </div>
                 <div class="modal-body client-modal">
@@ -593,9 +615,10 @@
                         </div>
 
                         <div class="form-group file-upload mb-5">
-                            <label for="fileupload">Drag files to upload or click</label>
-                            <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)">
-                            <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                            <label for="fileupload" class="fs-12"*ngIf="assignmentFile === null" >Drag files to upload or click</label>
+                            <label for="fileupload" class="fs-12"*ngIf="assignmentFile !== null" >{{assignmentFile}}</label>
+                              <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)" accept="application/pdf">
+                            <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
                         </div>
 
                         <div class="form-group mb-3">
@@ -604,7 +627,7 @@
                         </div>
 
                         <div class="d-flex justify-content-end mb-3">
-                            <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+                            <button type="button " class="btn-blue  mb-3 " [disabled]="uploadClassNoteForm.invalid">Upload Files </button>
                         </div>
 
                     </form>
@@ -659,9 +682,10 @@
                  </div>
 
                  <div class="form-group file-upload mb-5">
-                     <label for="fileupload">Drag files to upload or click</label>
-                     <input type="file" class="file-input" id="fileupload" (change)="handleClassWorkUpload($event)">
-                     <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                    <label for="fileupload" class="fs-12"*ngIf="assignmentFile === null" >Drag files to upload or click</label>
+                    <label for="fileupload" class="fs-12"*ngIf="assignmentFile !== null" >{{assignmentFile}}</label>
+               <input type="file" class="file-input" id="fileupload" (change)="handleClassWorkUpload($event)" accept="application/pdf">
+                     <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
                  </div>
 
                  <div class="form-group mb-3">
@@ -670,7 +694,7 @@
                  </div>
 
                  <div class="d-flex justify-content-end mb-3">
-                     <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+                     <button type="button " class="btn-blue  mb-3 " [disabled]="uploadClassWorkForm.invalid">Upload Files </button>
                  </div>
 
              </form>
@@ -706,7 +730,7 @@
                                 <div class="form-row">
             
                                     <div class="form-group col-md-3">
-                                        <select class="form-control" formControlName="classId" (change)="getSubjects($event.target.value)" >
+                                        <select class="form-control" formControlName="classId" (change)="getSubjects($event.target.value) " accept="application/pdf" >
                                             <option selected>Select Class</option>
                                             <option [value]="class.id" *ngFor="let class of classList">{{class?.name}}{{class?.classGroup}}</option>
                                             
@@ -733,8 +757,9 @@
                         </div>
                         
                         <div class="form-group file-upload mb-5">
-                            <label for="fileupload">Drag files to upload or click</label>
-                            <input type="file" class="file-input" id="fileupload" (change)="handleAssignmentUpload($event)">
+                            <label for="fileupload" class="fs-12"*ngIf="assignmentFile === null" >Drag files to upload or click</label>
+                            <label for="fileupload" class="fs-12"*ngIf="assignmentFile !== null" >{{assignmentFile}}</label>
+                              <input type="file" class="file-input" id="fileupload" (change)="handleAssignmentUpload($event)">
                             <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
                         </div>
 
@@ -744,7 +769,7 @@
                         </div>
 
                         <div class="d-flex justify-content-end mb-3">
-                            <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+                            <button type="button " class="btn-blue  mb-3 " [disabled]="uploadAssignmentForm.invalid">Upload Files </button>
                         </div>
 
                     </form>

@@ -115,6 +115,9 @@ toggleState = false;
         // // (data);
         this.notifyService.publishMessages('Assessment setup successfully', 'success', 1);
         location.reload();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -173,6 +176,9 @@ toggleState = false;
         // (data);
         this.notifyService.publishMessages('Grade setup successfully', 'success', 1);
         this.getAllGrade();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

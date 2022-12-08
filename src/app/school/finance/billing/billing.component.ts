@@ -11,6 +11,8 @@ import html2pdf from 'html2pdf.js';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 // import * as html2pdf from 'h'
+import * as es6printJS from 'print-js';
+
 
 @Component({
   selector: 'app-billing',
@@ -521,7 +523,7 @@ export class BillingComponent implements OnInit, OnDestroy {
   // });
   // }
 
-  print() {
+  downlaodTemplate() {
     const data = document.getElementById('invoice');
     html2canvas(data).then(canvas => {
 
@@ -538,9 +540,39 @@ export class BillingComponent implements OnInit, OnDestroy {
     });
 
 
+
   }
 
-  multPrintPDF() {
+
+  print(divName) {
+    es6printJS({
+      printable: divName,
+      type: 'html',
+      targetStyles: ['*'],
+    });
+  //   const data = document.getElementById('invoice');
+
+  //   const opt = {
+  //   margin: 1,
+  //   filename: 'Invoices.pdf',
+  //   image: { type: 'jpeg', quality: 0.98 },
+  //   html2canvas: { scale: 2 },
+  //   jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+  // };
+  //   const pages = document.getElementsByClassName('invoice-print');
+  //   let worker = html2pdf().set(opt).from(pages[0]).toPdf();
+  // // tslint:disable-next-line:prefer-for-of
+  //   for (let i = 0; i < pages.length; i++) {
+  //   worker = worker.set(opt).from(pages[i]).toContainer().toCanvas().toPdf().get('pdf').then((pdf) => {
+  //     pdf.autoPrint();
+  //     window.open(pdf.output('bloburl'), '_blank');
+  // });
+
+  // }
+  }
+
+
+  multDownloadPDF() {
     const element = document.getElementById('element-to-print');
     const opt = {
       margin: 1,
@@ -556,9 +588,29 @@ export class BillingComponent implements OnInit, OnDestroy {
         if (i < pages.length - 1) { // Bump cursor ahead to new page until on last page
           pdf.addPage();
         }
-        pdf.save();
       });
+    }
+    worker.save();
+  }
 
+  multiplePrintPdF() {
+    const element = document.getElementById('element-to-print');
+    const opt = {
+      margin: 1,
+      filename: 'Invoices.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+    };
+    const pages = document.getElementsByClassName('toPdfPage');
+    let worker = html2pdf().set(opt).from(pages[0]).toPdf();
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < pages.length; i++) {
+      worker = worker.set(opt).from(pages[i]).toContainer().toCanvas().toPdf().get('pdf').then((pdf) => {
+        pdf.addPage();
+        window.open(pdf.output('bloburl'), '_blank');
+        pdf.autoPrint();
+    });
 
     }
   }

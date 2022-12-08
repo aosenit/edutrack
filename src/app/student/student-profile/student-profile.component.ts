@@ -23,9 +23,7 @@ export class StudentProfileComponent implements OnInit {
     const helper = new JwtHelperService();
     this.studentId = helper.decodeToken(localStorage.getItem('access_token'));
     this.id = this.studentId.sub;
-    // (this.id);
     this.studentService.getStudentProfile(this.id).subscribe((data: any) => {
-      // ('ssasasa', data);
       if (data.hasErrors === false ) {
         this.studentDetails = data.payload;
       }

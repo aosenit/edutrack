@@ -50,7 +50,14 @@
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-class" role="tabpanel" aria-labelledby="pills-class-tab">
-    <section class="list">
+    
+    <div class="empty-state" *ngIf="accountClassList?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any record 
+      </p>
+    </div>
+
+    <section class="list" *ngIf="accountClassList?.length > 0">
       <table class="table table-borderless client-table">
         <thead>
           <tr>
@@ -113,7 +120,12 @@
     </section>
   </div>
   <div class="tab-pane fade " id="pills-type" role="tabpanel" aria-labelledby="pills-type-tab">
-    <section class="list">
+    <div class="empty-state" *ngIf="accountTypeList?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any record 
+      </p>
+    </div>
+    <section class="list"  *ngIf="accountTypeList?.length > 0">
       <table class="table table-borderless client-table">
         <thead>
           <tr>

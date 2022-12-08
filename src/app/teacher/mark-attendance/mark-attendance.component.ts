@@ -185,7 +185,7 @@ export class MarkAttendanceComponent implements OnInit {
   submitAttendance() {
     const { dates } = this.attendanceForm.value;
     const result = {
-      subjectId: this.subjectClass.classSubjectId,
+      subjectId: this.subjectClass.subjectId,
       date: dates,
       studentAttendanceVMs: this.studentAttendanceVMs
     };
@@ -197,6 +197,9 @@ export class MarkAttendanceComponent implements OnInit {
         this.notifyService.publishMessages('Attendance saved', 'success', 1);
         // this.studentList = data.payload;
         // // (this.classList);
+      } else {
+        this.notifyService.publishMessages(data.errors, 'success', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

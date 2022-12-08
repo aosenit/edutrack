@@ -48,6 +48,7 @@ export class EmailVerifiedComponent implements OnInit {
           this.router.navigateByUrl('/reset-password');
         }, 2000);
       } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
         // (data);
       }
     }, error => {

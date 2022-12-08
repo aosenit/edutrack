@@ -29,6 +29,7 @@ export class NextOfKinComponent implements OnInit {
       if (!param.id) {
         this.populateNextofKinForm();
       } else {
+        this.sendChildName.emit('Next Of Kin Information');
         this.getProfileInformation();
 
       }
@@ -43,7 +44,7 @@ export class NextOfKinComponent implements OnInit {
       NextKinOtherName: [''],
       NextKinRelationship: ['', Validators.required],
       NextKinOccupation: [''],
-      NextKinPhone: ['', [Validators.required, Validators.minLength(11)]],
+      NextKinPhone: ['', [Validators.required, Validators.minLength(11), Validators.pattern('(0[7-9][0-1][0-9]{8})|(0[1-4][0-9]{7})+$')]],
       NextKinCountry: ['', Validators.required],
       NextKinAddress: ['', Validators.required],
       NextKinState: ['', Validators.required],

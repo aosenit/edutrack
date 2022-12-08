@@ -1,0 +1,83 @@
+<div class="basic-details">
+
+    <form [formGroup]="profileForm">
+      <div class="form-row my-5 ">
+        <div class=" ">
+          <label for="client" class="fw-6">Client Name <span class="text-danger">*</span></label>
+          <input 
+          type="text" 
+          class="form-control form-control-lg" 
+          id="client" 
+          placeholder="Enter Client Name"
+          formControlName="Name" required>
+          <div *ngIf="profileForm.controls.Name.touched && profileForm.controls.Name.errors" class="error">
+            <small *ngIf="profileForm.controls.Name.errors.required" class="text-danger">Field is required</small>
+            <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+          </div>
+        </div>
+
+
+        <div class="  ">
+          <label for="website" class="fw-6">Official Website <span class="text-danger">*</span></label>
+
+          <input type="url" class="form-control form-control-lg" 
+          id="website" 
+          placeholder="Enter school wesbite" formControlName="WebsiteAddress" required>
+
+           <div *ngIf="profileForm.controls.WebsiteAddress.touched && profileForm.controls.WebsiteAddress.errors" class="error">
+            <small *ngIf="profileForm.controls.WebsiteAddress.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="profileForm.controls.WebsiteAddress.errors.pattern" class="text-danger">Invalid url</small>
+          </div>
+        </div>
+
+
+        <!-- <div class=" ">
+          <label for="domain" class="fw-6">Domain Name <span class="text-danger">*</span></label>
+          <input 
+          type="text" 
+          class="form-control form-control-lg" 
+          id="domain" 
+          placeholder="Enter Domain Name"
+          formControlName="DomainName" required>
+          <div *ngIf="profileForm.controls.DomainName.touched && profileForm.controls.DomainName.errors" class="error">
+            <small *ngIf="profileForm.controls.DomainName.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="profileForm.controls.DomainName.errors.cannotContainSpace" class="text-danger">Domain name cannot contain space </small>
+          </div>
+        </div> -->
+
+      </div>
+
+      <!-- <div class="form-row my-5 ">
+        
+        <div class="  ">
+          <label for="website" class="fw-6">Official Website <span class="text-danger">*</span></label>
+
+          <input type="url" class="form-control form-control-lg" 
+          id="website" 
+          placeholder="Enter school wesbite" formControlName="WebsiteAddress" required>
+
+           <div *ngIf="profileForm.controls.WebsiteAddress.touched && profileForm.controls.WebsiteAddress.errors" class="error">
+            <small *ngIf="profileForm.controls.WebsiteAddress.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="profileForm.controls.WebsiteAddress.errors.pattern" class="text-danger">Invalid url</small>
+          </div>
+        </div>
+
+        
+
+        
+      </div> -->
+
+      
+
+      
+
+
+    </form>
+
+
+    <div class=" d-flex justify-content-center mt-5 mb-5">
+      <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="back()"> Cancel </button>
+      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' [disabled]="profileForm.invalid"> Next </button>
+
+    </div>
+  </div>

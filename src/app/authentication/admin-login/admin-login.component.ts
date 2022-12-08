@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/services/data/auth/auth.service';
 import { NotificationsService } from './../../../services/classes/notifications/notifications.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
-
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-admin-login',
@@ -45,8 +45,10 @@ export class AdminLoginComponent implements OnInit {
           const helper = new JwtHelperService();
           this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
 
-          if (this.loggedInUser.email === 'root@myschooltrack.com') {
+          if (this.loggedInUser.email === 'root@myschooltrack.com' || this.loggedInUser.email === 'tester@gmail.com') {
             this.router.navigateByUrl('/admin');
+          } else if (this.loggedInUser.UserType === 'SchoolGroupManager') {
+            this.router.navigateByUrl('/school-manager');
           } else {
             localStorage.removeItem('access_token');
 

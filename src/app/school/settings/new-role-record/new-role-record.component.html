@@ -56,9 +56,10 @@
         </div>
       </div>
 
+
       <div class="tab-content" id="v-pills-tabContent">
         <div class="tab-pane fade show active" id="v-pills-record" role="tabpanel" aria-labelledby="v-pills-record-tab">
-          <div class="user__permission">
+          <div class="user__permission" *ngIf="!roleId">
             <table class="table table-borderless client-table">
               <thead>
                 <tr>
@@ -97,7 +98,52 @@
 
             <div class="d-flex justify-content-center align-items-center">
               <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [hidden]="roleId"  (click)="createRoles()"> Create </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [hidden]="roleId" [disabled]="roleData.name == '' "  (click)="createRoles()"> Create </button>
+
+            </div>
+          </div>
+          <div class="user__permission" *ngIf="roleId">
+            <table class="table table-borderless client-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="head ">PERMISSION
+                  </th>
+                  <th scope="col"> Create </th>
+                  <th scope="col"> Access </th>
+                  <th scope="col"> Modify </th>
+                  <th scope="col"> Delete </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="pb-2" *ngFor = "let role of newList; let i = index">
+                  <td scope="row" class="user rounded-left">
+                    {{role[0]}}
+                  </td>
+                  <td class="" *ngFor="let permission of role[1]; let i = index">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck{{permission.id}}" 
+                      [value]="permission.id" 
+                      (change)="getID($event.target.checked, permission.id)"
+                      [checked]="permission.checked === true" >
+                      <label class="custom-control-label " for="customCheck{{permission.id}}"></label>
+              </div>
+                  </td>
+                  
+
+                </tr>
+
+
+
+
+
+
+
+
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
               <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [hidden]="!roleId"  (click)="updateRoles()"> Update </button>
 
             </div>

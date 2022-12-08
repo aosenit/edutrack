@@ -19,6 +19,9 @@ export class BasicDetailsComponent implements OnInit {
   parents: any;
   basicDetails: any;
   studentid: any;
+  currentYear: string;
+  dropdownSettings = {};
+  selectedParent: any;
 
   constructor(
     private home: AddStudentsComponent,
@@ -28,8 +31,22 @@ export class BasicDetailsComponent implements OnInit {
     private notifyService: NotificationsService) { }
 
   ngOnInit() {
+    const cyear = new Date(new Date().getFullYear() - 1, 0, 1);
+    this.currentYear = moment(cyear).format('YYYY-MM-DD');
     this.studentid = this.route.snapshot.params.id;
     this.createStudentData();
+
+    this.dropdownSettings = {
+      singleSelection: true,
+      idField: 'id',
+      textField: 'name',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 5,
+      allowSearchFilter: true,
+      allowRemoteDataSearch: true,
+
+    };
     this.route.params.subscribe((param: Params) => {
       if (!param.id) {
         this.createStudentData();
@@ -41,6 +58,16 @@ export class BasicDetailsComponent implements OnInit {
 
     this.getAllParents();
     this.getActivetab();
+  }
+
+  get(e) {
+    console.log(e);
+  }
+
+  onItemSelect(event) {
+    console.log(event);
+    // this.selectedParent = event;
+    // this.basicDetailsForm.controls.parentId.setValue(this.selectedParent.id);
   }
 
   createStudentData() {
@@ -63,6 +90,9 @@ export class BasicDetailsComponent implements OnInit {
     this.home.stepper(2);
     // tslint:disable-next-line:max-line-length
     const {FirstName, LastName, OtherNames, MothersMaidenName, Sex, DateOfBirth, Religion, Nationality, parentId, StateOfOrigin, LocalGovt, TransportRoute  } = this.basicDetailsForm.value;
+    // const parent = parentId.map((data: any) => {
+    //   return data.id;
+    // });
     const result = {
       FirstName,
       LastName,
@@ -73,7 +103,7 @@ export class BasicDetailsComponent implements OnInit {
       Religion,
       Nationality,
       // tslint:disable-next-line:radix
-      ParentId: parseInt(parentId),
+      ParentId: parentId,
       StateOfOrigin,
       LocalGovt,
       TransportRoute
@@ -97,7 +127,35 @@ export class BasicDetailsComponent implements OnInit {
       (res: any) => {
        if (res.hasErrors === false) {
         this.parents = res.payload;
+        const arr = [];
+        res.payload.forEach(item => {
+          arr.push({
+            id: item.id,
+            name: item.fullName
+          });
+        });
+        this.parents = arr;
+       }
+      }, error => {
+        this.notifyService.publishMessages( error.errors, 'danger', 1);
+
+      } );
+  }
+
+  searchParents(event) {
+    this.parentService.getParentByFirstName(event).subscribe(
+      (res: any) => {
+       if (res.hasErrors === false) {
+        this.parents = res.payload;
         // // (this.parents);
+        const arr = [];
+        res.payload.forEach(item => {
+          arr.push({
+            id: item.id,
+            name: item.fullName
+          });
+        });
+        this.parents = arr;
        }
       }, error => {
         this.notifyService.publishMessages( error.errors, 'danger', 1);
@@ -116,6 +174,12 @@ export class BasicDetailsComponent implements OnInit {
           // // (this.states)
         }
       }
+      // const parent = [];
+      // parent.push({
+      //   id: this.basicDetails.ParentId,
+      //   name: this.basicDetails.parentName
+      // });
+      // console.log(parent)
       this.basicDetailsForm.patchValue({
         FirstName: this.basicDetails.FirstName,
         LastName: this.basicDetails.LastName,
@@ -144,6 +208,12 @@ export class BasicDetailsComponent implements OnInit {
         // // (this.states)
       }
     }
+    const parent = [];
+    parent.push({
+        id: payload.parentId,
+        name: payload.parentName
+      });
+      console.log(parent)
     this.basicDetailsForm.patchValue({
       FirstName: payload.firstName,
       LastName: payload.lastName,
@@ -153,7 +223,7 @@ export class BasicDetailsComponent implements OnInit {
       DateOfBirth: moment(payload.dateOfBirth).format('YYYY-MM-DD'),
       Religion: payload.religion,
       Nationality: payload.nationality,
-      parentId: payload.parentId,
+      parentId: parent,
       StateOfOrigin: payload.stateOfOrigin,
       // LocalGovt: [''],
       TransportRoute: payload.transportRoute

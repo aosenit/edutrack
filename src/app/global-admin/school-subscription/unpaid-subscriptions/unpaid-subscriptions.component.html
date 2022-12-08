@@ -1,0 +1,242 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+    <li class="breadcrumb-item a1 " aria-current="page" (click)="back()">
+      <a>Back</a>
+    </li>
+  </ol>
+
+
+</nav>
+
+<section class="client" *ngIf="unpaidInvoice?.length === 0" >
+  <img src="assets/images/svg/institution.svg" alt="new client" class="">
+  <!-- <h6 class="pt-5">Create your first Subscription</h6> -->
+  <p class="text-center pt-1">It looks like you haven’t generated any invoice yet. </p>
+ 
+
+</section>
+
+
+<div class="main" *ngIf="unpaidInvoice?.length > 0" >
+  <section class="banner mb-4 pb-3">
+    <div class="pt-5 pl-3 content ">
+      <h6 class="banner__text-primary fw-6 "> Invoice </h6>
+      <p class=""> Directory of all unpaid invoice </p>
+    </div>
+    <div class="d-flex">
+      <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"routerLink="/admin/subscription/unpaid-invoice" > View Invoices </button> -->
+  
+    </div>
+
+  </section>
+
+
+
+  <section class="list table-responsive" *ngIf="unpaidInvoice?.length > 0">
+    <table class="table table-borderless client-table">
+
+      <thead>
+        <th scope="col" class="head">School
+          <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle" type="button"
+            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         
+        </th>
+        <th scope="col">End Date
+        </th>
+        <th scope="col">No of Student
+        </th>
+        <th scope="col">Price Per Student
+        </th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+
+      </thead>
+      <tbody>
+        <tr class="pb-2" *ngFor="let client of unpaidInvoice; let i = index">
+          <td scope="row" class="school-logo rounded-left fc-lblue">
+            {{client.schoolName}}
+
+
+          </td>
+
+          <td>{{client?.dueDate |   date: 'dd/MM/y'}}</td>
+          <td>{{client?.numberOfStudent}}</td>
+          <td>{{client?.amountPerStudent}}</td>
+          <td>{{client?.paid === true ? 'Paid' : 'Unpaid'}}</td>
+
+          <td class="rounded-right ">
+            <div class="d-flex">
+              <div class="activated__date-switch">
+                  <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" id="{{i}}"
+                      (change)="confirmToPay($event.target.checked, i)"
+                       [checked]="client?.paid === true">
+                      <label class="custom-control-label" for="{{i}}" ></label>
+                  </div>
+              
+              </div>
+              <span class="cursor-pointer ml-3 d-flex align-items-center" (click)="previewInvoice(i) " data-toggle="modal" data-target="#previewInvoiceModal">
+                <svg class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z" fill="#A4A5A8"/>
+                  </svg>
+                  Preview
+              
+              </span>
+            </div>
+          </td>
+         
+        </tr>
+
+
+      
+
+      </tbody>
+    </table>
+   
+
+    <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">
+              <div class="d-flex flex-column justify-content-center align-items-center">
+                <img src="assets/images/svg/no-result.svg" alt="no search result" class="my-4">
+                  <p class="mb-4 no-result">Sorry, no results found</p>
+                  <button class="btn btn-outline-orange  mx-2 mx-lg-3" >Go back </button>
+              </div>
+          </div> -->
+
+  </section>
+</div>
+
+
+
+
+<button
+  id="popupBtn"
+  data-target="#selectionModal"
+  data-toggle="modal"
+  style="display: none;"
+  
+></button>
+
+
+
+<!-- school selection Modal -->
+<div class="modal fade" id="selectionModal" tabindex="-1" role="dialog"
+  aria-labelledby="selectionModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Mark Invoice as Paid</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <p>Are you sure you want to mark this invoice as paid? </p>
+       
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+            data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="markPaid()" > Yes, continue</button>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+<!-- end of time table modal -->
+
+
+
+
+<!-- Preview  Modal -->
+<div class="modal fade" id="previewInvoiceModal" tabindex="-1" role="dialog"
+  aria-labelledby="previewInvoiceModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" style="width: 60%;" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">{{selectedInvoice?.schoolName}} Invoice {{selectedInvoice?.invoiceId}}  </h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <div class="">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+              <div>
+                  <img src="assets/images/svg/logo.svg" alt="">
+                  <div>
+                    <p>
+                      www.myschooltrack.com
+                      <br>
+                      info@myschooltrack.com
+                    </p>
+                  </div>
+              </div>
+              <h4 class="fw-6 invoice-title">Invoice</h4>
+          </div>
+          <div class="invoice-line mb-4">&nbsp;</div>
+          
+          <div class="d-flex justify-content-between ">
+            <div>
+              <h5> Invoice to: </h5>
+              <p class="fw-6"> {{selectedInvoice?.schoolName}}</p>
+            </div>
+            <div>
+              <p class="invoice-p mb-0"> Invoice Date: {{selectedInvoice?.dueDate | date: 'mediumDate'}} </p>
+            </div>
+          </div>
+          <div class="invoice table-responsive mt-2">
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th class="border-bottom">Name</th>
+                  <th class="border-bottom">End Date</th>
+                  <th class="border-bottom ">Expected Students</th>
+                  <th class="border-bottom text-right">Price Per User</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> {{selectedInvoice?.schoolName}}</td>
+                  <td>{{selectedInvoice?.dueDate | date: 'mediumDate'}}</td>
+                  <td> {{selectedInvoice?.numberOfStudent}}</td>
+                  <td class="text-right"> {{selectedInvoice?.amountPerStudent}}</td>
+                </tr>
+                <tr class="totals">
+                  <td class="border-top">&nbsp;</td>
+                  <td class="border-top">&nbsp;</td>
+                  <td class="border-top">Subtotal</td>
+                  <td class="border-top text-right"> {{selectedInvoice?.amountToBePaid}}</td>
+                </tr>
+                <tr class="totals">
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td class="subtotal">Total</td>
+                  <td class="subtotal text-right"> {{selectedInvoice?.amountToBePaid}} </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="d-flex justify-content-center align-items-center py-4 invoice-footer mb-4">
+              <p> <span class="fw-6">Need Help?</span> info@myschooltrack.com </p>
+          </div>
+      </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+<!-- end of preview modal -->

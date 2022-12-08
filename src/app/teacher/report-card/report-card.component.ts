@@ -180,6 +180,8 @@ export class ReportCardComponent implements OnInit {
     } else {
 
       this.notifyService.publishMessages(data.errors, 'danger', 1);
+      this.noData = true;
+      this.displayData = false;
     }
   }, error => {
     this.notifyService.publishMessages(error.errors[0], 'danger', 1);

@@ -39,7 +39,7 @@
                 <div *ngIf="contactPersonForm.controls.ContactPhoneNo.touched && contactPersonForm.controls.ContactPhoneNo.errors" class="error">
                     <small *ngIf="contactPersonForm.controls.ContactPhoneNo.errors.required" class="text-danger">Field is required</small>
                     <small *ngIf="contactPersonForm.controls.ContactPhoneNo.errors.minlength" class="text-danger">Invalid number length (must be 11 digit)</small>
-                    <small *ngIf="contactPersonForm.controls.ContactPhoneNo.errors.pattern" class="text-danger">Invalid number character</small>
+                    <small *ngIf="contactPersonForm.controls.ContactPhoneNo.errors.pattern" class="text-danger">Invalid number pattern</small>
                 </div>
             </div>
             <div class=" ">
@@ -55,8 +55,24 @@
     
     
         </div>
+
+        <div class="form-row my-5 ">
+            <div class=" ">
+                <label for="tel" class="fw-6">Email Password <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-lg" id="tel" 
+                placeholder="Enter email password" formControlName="ContactEmailPassword" 
+                 required>
+                <div *ngIf="contactPersonForm.controls.ContactEmailPassword.touched && contactPersonForm.controls.ContactEmailPassword.errors" class="error">
+                    <small *ngIf="contactPersonForm.controls.ContactEmailPassword.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="contactPersonForm.controls.ContactEmailPassword.errors.minlength" class="text-danger">Invalid number length (must be 11 digit)</small> -->
+                </div>
+            </div>
+            
+        
     
+        </div>
     
+        
     </div>
 </form>
                 <div class=" d-flex justify-content-center mb-5">

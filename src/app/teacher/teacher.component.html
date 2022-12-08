@@ -103,6 +103,7 @@
                     </span>
                     Grade Book
                 </a>
+                
                 <ul class="collapse list-unstyled" id="gradebook-submenu">
                     <li class="  text-white  d-flex justify-content-center align-items-center">
                         <div class="ellipse bg-white mr-3 ml-5"> &nbsp; </div>
@@ -112,19 +113,19 @@
                         <div class="ellipse bg-white mr-3 ml-5"> &nbsp; </div>
                         <a href="" [routerLink]="['/teacher/student-score-sheet']" routerLinkActive ="active" class="" > Student Score Sheet</a>
                     </li> -->
-                    <li class="  text-white  d-flex justify-content-start align-items-center" >
+                    <li class="  text-white  d-flex justify-content-start align-items-center" *ngIf="hide !== true" >
                         <div class="ellipse bg-white mr-3 ml-5"> &nbsp; </div>
                         <a href="" [routerLink]="['/teacher/student-score-sheet']" routerLinkActive ="active" class="" > Student Score Sheet</a>
                     </li>
-                    <li class="  text-white  d-flex justify-content-start align-items-center" >
+                    <li class="  text-white  d-flex justify-content-start align-items-center" *ngIf="hide !== true">
                         <div class="ellipse bg-white mr-3 ml-5"> &nbsp; </div>
                         <a href="" [routerLink]="['/teacher/broad-sheet']" routerLinkActive ="active" class="" > Broad Sheet</a>
                     </li>
-                    <li class="  text-white  d-flex justify-content-start align-items-center" >
+                    <li class="  text-white  d-flex justify-content-start align-items-center" *ngIf="hide !== true" >
                         <div class="ellipse bg-white mr-3 ml-5"> &nbsp; </div>
                         <a href="" [routerLink]="['/teacher/report-card']" routerLinkActive ="active" class="" >Report Card</a>
                     </li>
-                    <li class="  text-white  d-flex justify-content-start align-items-center" >
+                    <li class="  text-white  d-flex justify-content-start align-items-center" *ngIf="hide !== true" >
                         <div class="ellipse bg-white mr-3 ml-5"> &nbsp; </div>
                         <a href="" [routerLink]="['/teacher/mail-card']" routerLinkActive ="active" class="" > Mail Report Card</a>
                     </li>
@@ -191,7 +192,18 @@
 
 
                     </span>
-                   Attedance
+                   Attendance
+                </a>
+            </li>
+
+            <li class="nav-item mb-2">
+                <a class="nav-link" [routerLink]="['/teacher/report']" [routerLinkActive]="['active']">
+                    <span class="ico">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.33301 6.13203H5.33301V12.6654H3.33301V6.13203ZM7.06634 3.33203H8.93301V12.6654H7.06634V3.33203ZM10.7997 8.66536H12.6663V12.6654H10.7997V8.66536Z" fill="#94B3D1" fill-opacity="0.4"/>
+                            </svg>
+                    </span>
+                   Report
                 </a>
             </li>
         </ul>

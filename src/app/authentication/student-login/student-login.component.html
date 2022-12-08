@@ -20,8 +20,8 @@
                             <div class="col-lg-12">
                                 <form [formGroup]= "studentLoginForm" (ngSubmit)="submit()">
                                     <div class="col-lg-12 mb-3">
-                                        <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Username </p>
-                                        <small class="fs-12 ff-n fc-dark mb-3">Please enter your username in the box
+                                        <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Reg Number </p>
+                                        <small class="fs-12 ff-n fc-dark mb-3">Please enter your reg number in the box
                                             below.</small>
                                         <input type="text" class="form-control reg-form" formControlName = "username">
                                         <div *ngIf="submitted && studentLoginForm.controls.username.errors" class="error">

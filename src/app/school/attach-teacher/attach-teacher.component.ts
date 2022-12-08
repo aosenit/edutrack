@@ -166,6 +166,9 @@ attachedSubjectlist: any;
         document.getElementById('myModal').click();
         this.getAttachedSubject();
         this.notifyService.publishMessages('Subject successfully attached to teacher ', 'info', 1);
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -201,6 +204,9 @@ attachedSubjectlist: any;
         document.getElementById('classteacherModal').click();
         this.getAttachedTeacher();
         this.notifyService.publishMessages('Teacher successfully attached to class ', 'info', 1);
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -213,6 +219,9 @@ attachedSubjectlist: any;
       // console.log(data);
       if (data.hasErrors === false ) {
         this.classTeacherDetails = data.payload;
+      } else {
+
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

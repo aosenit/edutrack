@@ -6,7 +6,7 @@
         </div>
     </section>
 
-    <section class="cards mb-4">
+    <section class="cards mb-4" [hidden]="adminDetails?.UserType !== 'SchoolAdmin' ">
         <div class="revenue">
             <img src="assets/images/svg/school-amount.png" alt="card revenue icon" class="justify-items-end">
             <div class="revenue__text pt-4">
@@ -113,4 +113,39 @@
               </div>
         </div>
     </section>
+
+    <button
+    id="popupBtn"
+    data-target="#advertModal"
+    data-toggle="modal"
+    style="display: none;"
+    
+  ></button>
+
+    <!-- time table Modal -->
+<div class="modal fade" id="advertModal" tabindex="-1" role="dialog"
+aria-labelledby="advertModalTitle" aria-hidden="true" data-backdrop="static">
+<div class="modal-dialog modal-dialog-centered modal-length" role="document">
+  <div class="modal-content">
+
+    <div class="modal-head mb-4">
+      <div class="d-flex justify-content-between align-items-center ">
+        <h6 class="modal-title fc-lblue"></h6>
+        <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myModal" data-dismiss="modal"
+          aria-label="Close" class="close mr-4 mt-4">
+
+      </div>
+
+    </div>
+    <div class="modal-body h-50 d-flex justify-content-between align-items-center client-modal">
+      <h1   class="text-danger text-center mb-5" > {{subscriptionStatus}} </h1>
+
+    </div>
+
+
+
+  </div>
+</div>
+</div>
+<!-- end of time table modal -->
 </div>

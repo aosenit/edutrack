@@ -110,8 +110,9 @@
 
             <div class=" d-flex justify-content-center mt-5">
               <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
-              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.invalid"> Save </button>
-              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.valid"> Update </button>
+              <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.invalid"> Save </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.valid"> Update </button> -->
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [disabled]="schoolPropertyForm.invalid"> {{schoolPropertyButton}} </button>
 
             </div>
         </form>
@@ -255,20 +256,26 @@
               Add New </button>
             </div>
             
-            <div class="mt-4 w-50 table-responsive">
+            <div class="mt-4 w-75 table-responsive">
               <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">Session</th>
                     <th scope="col">Start Date</th>
                     <th scope="col">End Date</th>
+                    <th scope="col"> Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let session of sessionList">
+                  <tr *ngFor="let session of sessionList; let i = index">
                     <td > {{session?.name}} </td>
                     <td > {{session?.terms[0].startDate | date : 'mediumDate'}} </td>
                     <td > {{session?.terms[2].endDate | date : 'mediumDate'}} </td>
+                    <td> 
+                      <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+                      data-toggle="modal" data-target="#exampleModalCenterUpload"
+                          (click)="getTermDetails(i, session?.id)"> Edit Term</button>  
+                    </td>
                   </tr>
                   
                 </tbody>
@@ -299,7 +306,7 @@
 
       <div class="modal-head mb-4">
         <div class="d-flex justify-content-between align-items-center ">
-          <h6 class="modal-title fc-lblue">New Session </h6>
+          <h6 class="modal-title fc-lblue">{{modalTitle}} </h6>
             <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal"
               aria-label="Close" class="close" id="mySessionModal">
 
@@ -346,7 +353,7 @@
             <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
               data-dismiss="modal">Cancel
             </button>
-            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="sessionForm.invalid"> Add term</button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="sessionForm.invalid"> {{createTermButton}}</button>
           </div>
         </form>
       </div>

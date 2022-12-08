@@ -26,11 +26,11 @@
             </div>
         </form>
       </div>
-    <button class="btn btn-orange-two  px-5 " (click)="createTimeTableCell()"> Publish </button>
+    <button class="btn btn-orange-two  px-5 " (click)="createTimeTableCell()" [disabled]="tableCells?.length === 0"> Publish </button>
     
     
 </div>
-        <div class="mt-5">
+        <div class="my-5">
             <div class="row mb-2 text-center" >
                 <div class="col-md-2">
                     
@@ -51,7 +51,7 @@
                     <div class="col-md-2 pb-2 border d-flex flex-column justify-content-center" *ngFor = "let day of days; let i = index" >
                       <div class="d-flex">
                         <img class="my-5" src="assets/images/svg/time-table.svg" alt="time table button" id="addCellButton" data-toggle="modal"
-                        data-target="#exampleModalCenterLevel" (click)="getDay(day.id, period.id)"   > 
+                        data-target="#exampleModalCenterLevel" (click)="getDay(day.id, period.id, period.name)"   > 
                       </div>
                         <div class="d-flex flex-column" *ngFor = "let time of timeTableCells; let z = index"> 
                           <p class="mb-0 fw-6 fc-lblue" *ngIf = "period?.name === time.periodName && day?.id === time?.day">  {{time?.subjectName | titlecase}} </p>
@@ -94,7 +94,45 @@
 
       </div>
       <div class="modal-body client-modal">
-        <form >
+        <form  [formGroup]="timetableCellForm">
+
+
+          
+         
+          <div class="form-group mb-4">
+            <label for="level" class="">Subject </label>
+            <select name="" id="level" class="form-control" (change)="getTeacherBySubjectId($event.target.value)"  required>
+              <option value=""> Select</option>
+              <option [value]="s" *ngFor="let subject of subjectList; let s = index">{{subject.subject}}</option>
+
+            </select>
+          </div>
+          <div class="form-group mb-4">
+            <label for="level" class="">Teacher </label>
+            <select name="" id="level" class="form-control" (change)="setTeacherData($event.target.value)"    required>
+              <option value=""> Select</option>
+              <option [value]="t" *ngFor="let teacher of teachersList; let t = index">{{teacher?.teacher}}</option>
+
+            </select>
+          </div>
+          
+          <div class="custom-control custom-checkbox" (change)="checkVirtual($event.target.checked)">
+            <input type="checkbox" class="custom-control-input" id="customCheckTh"  formControlName="hasVirtual" >
+            <label class="custom-control-label" for="customCheckTh">Virtual Classroom</label>
+          </div>
+         
+          
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="addCellToTimeTable()" [disabled]="timetableCellForm.invalid "> Add Class</button>
+          </div>
+        </form>
+
+        <!-- <form >
 
 
           
@@ -109,15 +147,16 @@
           </div>
           <div class="form-group mb-4">
             <label for="level" class="">Teacher </label>
-            <select name="" id="level" class="form-control" [(ngModel)]= "addCell.teacherClassSubjectId" name = "teacherClassSubjectId"   required>
+            <select name="" id="level" class="form-control" (change)="getTeacherDetails($event.target.value)"  required>
               <option value=""> Select</option>
-              <option [value]="teacher?.id" *ngFor="let teacher of teachersList">{{teacher?.teacher}}</option>
+              <option [value]="t" *ngFor="let teacher of teachersList; let t = index">{{teacher?.teacher}}</option>
 
             </select>
           </div>
+         
           <div class="custom-control custom-checkbox" (change)="checkVirtual($event.target.checked)">
             <input type="checkbox" class="custom-control-input" id="customCheckTh"  [(ngModel)]= "addCell.HasVirtual" name = "HasVirtual">
-            <label class="custom-control-label" for="customCheckTh">Vitual Classroom</label>
+            <label class="custom-control-label" for="customCheckTh">Virtual Classroom</label>
           </div>
          
           
@@ -127,9 +166,9 @@
             <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
               data-dismiss="modal">Cancel
             </button>
-            <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="addCellToTimeTable()"> Add Class</button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="addCellToTimeTable()" [disabled]="addCell.teacherClassSubjectId == '' "> Add Class</button>
           </div>
-        </form>
+        </form> -->
       </div>
 
 

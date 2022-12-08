@@ -55,15 +55,6 @@
     color: #aaa;
 }
 
-input[type="text"] {
-    width: 125%;
-}
-
-
-
-
-
-
 
 /* ================= table ====================== */
 table.client-table {
@@ -142,9 +133,9 @@ td {
     /* padding: 0rem 2.7rem; */
 }
 
-.btn-outline-orange {
+/* .btn-outline-orange {
 
-}
+} */
 
 
 .list .table tbody .status_inactive {

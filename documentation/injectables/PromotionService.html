@@ -1,0 +1,1361 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li >PromotionService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/services/data/promotion/promotion.service.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#baseUrl" >baseUrl</a>
+                            </li>
+                            <li>
+                                <a href="#baseUrl2" >baseUrl2</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#curateActualPromotion" >curateActualPromotion</a>
+                            </li>
+                            <li>
+                                <a href="#getAllTerminalClasses" >getAllTerminalClasses</a>
+                            </li>
+                            <li>
+                                <a href="#getClassPool" >getClassPool</a>
+                            </li>
+                            <li>
+                                <a href="#getPromotionHighlight" >getPromotionHighlight</a>
+                            </li>
+                            <li>
+                                <a href="#getPromotionMethod" >getPromotionMethod</a>
+                            </li>
+                            <li>
+                                <a href="#getPromotionSetup" >getPromotionSetup</a>
+                            </li>
+                            <li>
+                                <a href="#getPromotionType" >getPromotionType</a>
+                            </li>
+                            <li>
+                                <a href="#getRepeatersList" >getRepeatersList</a>
+                            </li>
+                            <li>
+                                <a href="#getWithdrawalSetup" >getWithdrawalSetup</a>
+                            </li>
+                            <li>
+                                <a href="#getWithDrawnList" >getWithDrawnList</a>
+                            </li>
+                            <li>
+                                <a href="#postReasons" >postReasons</a>
+                            </li>
+                            <li>
+                                <a href="#submitAllResultsForPromotion" >submitAllResultsForPromotion</a>
+                            </li>
+                            <li>
+                                <a href="#updatePromotionSetup" >updatePromotionSetup</a>
+                            </li>
+                            <li>
+                                <a href="#updateTerminalClassSetup" >updateTerminalClassSetup</a>
+                            </li>
+                            <li>
+                                <a href="#updateWithdrawalSetup" >updateWithdrawalSetup</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/services/data/promotion/promotion.service.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="curateActualPromotion"></a>
+                    <span class="name">
+                        <span ><b>curateActualPromotion</b></span>
+                        <a href="#curateActualPromotion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>curateActualPromotion(payload)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="104"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:104</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>payload</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllTerminalClasses"></a>
+                    <span class="name">
+                        <span ><b>getAllTerminalClasses</b></span>
+                        <a href="#getAllTerminalClasses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllTerminalClasses()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="36"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:36</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClassPool"></a>
+                    <span class="name">
+                        <span ><b>getClassPool</b></span>
+                        <a href="#getClassPool"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClassPool(sessionId, classId?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:74</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sessionId</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>classId</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPromotionHighlight"></a>
+                    <span class="name">
+                        <span ><b>getPromotionHighlight</b></span>
+                        <a href="#getPromotionHighlight"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPromotionHighlight(sessionId, classId?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:89</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sessionId</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>classId</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPromotionMethod"></a>
+                    <span class="name">
+                        <span ><b>getPromotionMethod</b></span>
+                        <a href="#getPromotionMethod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPromotionMethod()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPromotionSetup"></a>
+                    <span class="name">
+                        <span ><b>getPromotionSetup</b></span>
+                        <a href="#getPromotionSetup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPromotionSetup()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:49</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPromotionType"></a>
+                    <span class="name">
+                        <span ><b>getPromotionType</b></span>
+                        <a href="#getPromotionType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPromotionType()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:41</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRepeatersList"></a>
+                    <span class="name">
+                        <span ><b>getRepeatersList</b></span>
+                        <a href="#getRepeatersList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRepeatersList(sessionId, classId?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="79"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:79</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sessionId</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>classId</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWithdrawalSetup"></a>
+                    <span class="name">
+                        <span ><b>getWithdrawalSetup</b></span>
+                        <a href="#getWithdrawalSetup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getWithdrawalSetup()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWithDrawnList"></a>
+                    <span class="name">
+                        <span ><b>getWithDrawnList</b></span>
+                        <a href="#getWithDrawnList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getWithDrawnList(sessionId, classId?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="84"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:84</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>sessionId</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>classId</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="postReasons"></a>
+                    <span class="name">
+                        <span ><b>postReasons</b></span>
+                        <a href="#postReasons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>postReasons(payload)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:94</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>payload</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitAllResultsForPromotion"></a>
+                    <span class="name">
+                        <span ><b>submitAllResultsForPromotion</b></span>
+                        <a href="#submitAllResultsForPromotion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitAllResultsForPromotion(payload)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="99"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:99</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>payload</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatePromotionSetup"></a>
+                    <span class="name">
+                        <span ><b>updatePromotionSetup</b></span>
+                        <a href="#updatePromotionSetup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updatePromotionSetup(payload)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="59"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:59</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>payload</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTerminalClassSetup"></a>
+                    <span class="name">
+                        <span ><b>updateTerminalClassSetup</b></span>
+                        <a href="#updateTerminalClassSetup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateTerminalClassSetup(payload)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:69</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>payload</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateWithdrawalSetup"></a>
+                    <span class="name">
+                        <span ><b>updateWithdrawalSetup</b></span>
+                        <a href="#updateWithdrawalSetup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateWithdrawalSetup(payload)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/services/data/promotion/promotion.service.ts:64</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>payload</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseUrl"></a>
+                    <span class="name">
+                        <span ><b>baseUrl</b></span>
+                        <a href="#baseUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment.serverUrl</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/services/data/promotion/promotion.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseUrl2"></a>
+                    <span class="name">
+                        <span ><b>baseUrl2</b></span>
+                        <a href="#baseUrl2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment.demourl</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/services/data/promotion/promotion.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+
+const routes &#x3D; {
+  termianlClasses: &#x27;schtrack-auth/api/v1/Class/GetClassesWithoutArm&#x27;,
+  promotionMethod: &#x27;schtrack-assessment/api/v1/Enums/PromotionMethod&#x27;,
+  promotionType: &#x27;schtrack-assessment/api/v1/Enums/PromotionType&#x27;,
+  promotionSetup: &#x27;schtrack-assessment/api/v1/PromotionSetup/GetPromotionSetup&#x27;,
+  withdrawalSetup: &#x27;schtrack-assessment/api/v1/PromotionSetup/GetWithdrawalSetup&#x27;,
+  editPromotionSetup: &#x27;schtrack-assessment/api/v1/PromotionSetup/AddOrUpdatePromotionSetup&#x27;,
+  editWithdrawalSetup: &#x27;schtrack-assessment/api/v1/PromotionSetup/AddOrUpdateWithdrawalSetup&#x27;,
+  editTerminalclasses: &#x27;schtrack-auth/api/v1/Class/UpdateClassSequenceAndTerminal&#x27;,
+
+  classPool: &#x27;schtrack-auth/api/v1/Promotion/GetClassPool&#x27;,
+  repeatList: &#x27;schtrack-auth/api/v1/Promotion/GetRepeatList&#x27;,
+  withdrawnList: &#x27;schtrack-auth/api/v1/Promotion/GetWithdrawnList&#x27;,
+  promotionHighlight: &#x27;schtrack-auth/api/v1/Promotion/GetPromotionHighlight&#x27;,
+  submitReasons: &#x27;schtrack-auth/api/v1/Promotion/PostClassPool&#x27;,
+
+  submitResultsForPromotion: &#x27;schtrack-assessment/api/v1/Promotion&#x27;,
+  promoteAllStudents: &#x27;schtrack-auth/api/v1/Promotion/PromoteAllStudent&#x27;,
+};
+
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class PromotionService {
+
+  baseUrl: string &#x3D; environment.serverUrl;
+  baseUrl2: string &#x3D; environment.demourl;
+
+  constructor(private http: HttpClient) { }
+
+  getAllTerminalClasses() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.termianlClasses}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  getPromotionType() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.promotionType}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+  getPromotionMethod() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.promotionMethod}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+  getPromotionSetup() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.promotionSetup}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  getWithdrawalSetup() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.withdrawalSetup}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  updatePromotionSetup(payload) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.editPromotionSetup}&#x60;;
+    return this.http.post(url, payload, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  updateWithdrawalSetup(payload) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.editWithdrawalSetup}&#x60;;
+    return this.http.post(url, payload, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  updateTerminalClassSetup(payload) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.editTerminalclasses}&#x60;;
+    return this.http.put(url, payload, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  getClassPool(sessionId, classId?: any) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.classPool}/${sessionId}?classId&#x3D;${classId}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  getRepeatersList(sessionId,  classId?: any) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.repeatList}/${sessionId}?classId&#x3D;${classId}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  getWithDrawnList(sessionId,  classId?: any) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.withdrawnList}/${sessionId}?classId&#x3D;${classId}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  getPromotionHighlight(sessionId, classId?: any) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.promotionHighlight}/${sessionId}?classId&#x3D;${classId}&#x60;;
+    return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  postReasons(payload) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.submitReasons}&#x60;;
+    return this.http.post(url, payload, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  submitAllResultsForPromotion(payload) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.submitResultsForPromotion}&#x60;;
+    return this.http.post(url, payload, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+  }
+
+  curateActualPromotion(payload) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.promoteAllStudents}&#x60;;
+    return this.http.post(url, payload, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'PromotionService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

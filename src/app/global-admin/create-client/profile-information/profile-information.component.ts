@@ -16,6 +16,8 @@ export class ProfileInformationComponent implements OnInit {
   profileInfo: any;
   id: any;
   schoolProfile: any;
+  url = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+
 
   constructor(
     private home: CreateClientComponent,
@@ -50,8 +52,8 @@ export class ProfileInformationComponent implements OnInit {
 
       Name: ['', Validators.required],
       DomainName: ['', [Validators.required, NoSpaceValidator.cannotContainSpace]],
-      WebsiteAddress: ['', Validators.required],
-      Username: ['', Validators.required],
+      WebsiteAddress: ['', [Validators.required, Validators.pattern(this.url)]],
+      Username: ['', [Validators.required, NoSpaceValidator.cannotContainSpace]],
 
     });
   }

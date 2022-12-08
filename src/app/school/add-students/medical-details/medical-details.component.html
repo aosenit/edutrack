@@ -95,12 +95,12 @@
                 <div class="row mb-5" >
                     <div class="col-md-3">
                         <label for="">Immunization {{i + 1}} <span class="text-danger">*</span> </label>
-                        <input type="date" class="form-control form-control-lg"  formControlName="date">
+                        <input type="date" (change)="getAge($event.target.value, i)" class="form-control form-control-lg"  formControlName="date">
                     </div>
                     <div class="col-md-3 ">
                         <label for="">&nbsp;</label>
             
-                        <input type="number" class="form-control form-control-lg" placeholder="Age" formControlName="age">
+                        <input type="number"  class="form-control form-control-lg" placeholder="Age" formControlName="age">
             
                     </div>
                     <div class="col-md-5 ">

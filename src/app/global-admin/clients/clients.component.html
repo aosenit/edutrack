@@ -1,16 +1,16 @@
-<section class="client" *ngIf="clientCount === 0">
+<section class="client" *ngIf="clientList?.length === 0 || null">
   <img src="assets/images/svg/institution.svg" alt="new client" class="">
   <h6 class="pt-5">Create your first client</h6>
   <p class="text-center pt-1">It looks like you haven’t created a client yet. Get started by <br> clicking the button
     below.</p>
-  <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/admin/create-client']">
+  <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal" data-target="#selectionModal" (click)="clearData()" >
     Add New </button>
   <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal" data-target="#exampleModalCenterUpload">Bulk
     Upload</button>
 </section>
 
 
-<div class="main" *ngIf="clientCount !== 0">
+<div class="main" *ngIf="clientList?.length > 0">
   <section class="banner mb-4 pb-3">
     <div class="pt-5 pl-3 content ">
       <h6 class="banner__text-primary fw-6 "> Clients </h6>
@@ -20,7 +20,7 @@
       <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
         data-target="#exampleModalCenterUpload"> Bulk Upload </button>
 
-      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/admin/create-client" (click)="clearData()"> Add New
+      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal" data-target="#selectionModal" (click)="clearData()"> Add New
       </button>
     </div>
 
@@ -52,7 +52,8 @@
     <table class="table table-borderless client-table">
 
       <thead>
-        <th scope="col" class="head">Clients <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+        <th scope="col" class="head">Clients 
+          <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
             class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
           <!-- ================ DROPDOWN ==================== -->
@@ -87,6 +88,8 @@
             <a class="dropdown-item" href="#">Lagos </a>
             <a class="dropdown-item" href="#">Ogun </a>
           </div> -->
+        </th>
+        <th scope="col">Type <img src="assets/images/svg/table-sort.svg" alt="table sort icon" >
         </th>
         <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle"
             type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -141,6 +144,7 @@
               *ngIf="client?.clientCode == null">NA</span></td>
           <td>{{client?.usersCount}}</td>
           <td>{{client?.state}}</td>
+          <td>{{client?.schoolGroupId === null ? 'Single' : 'Group'}}</td>
           <td>
             <span *ngIf="client.status === false; then inactive; else active">{{client?.status}}</span>
             <ng-template #inactive>
@@ -162,7 +166,7 @@
           <td class="rounded-right ">
             <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle drop-bg pt-3" type="button"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" >
 
               <a class="dropdown-item " (click)="editClient(client.id)"> <img src="assets/images/svg/edit-role.svg"
                   alt="schools log" class="mr-3"> Edit</a>
@@ -258,3 +262,54 @@
 </div>
 
 <!-- end of Bulk uplaod modal -->
+
+
+
+<!-- school selection Modal -->
+<div class="modal fade" id="selectionModal" tabindex="-1" role="dialog"
+  aria-labelledby="selectionModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Select School Type</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <p> Please select the type of school you want to add </p>
+        <form [formGroup]="schoolSelection" (ngSubmit)="selectSchool()">
+
+
+          <div class="custom-control custom-radio mb-3">
+            <input type="radio" class="custom-control-input" id="single" name="school" formControlName="school" [value]="1">
+            <label class="custom-control-label" for="single">Single School</label>
+          </div>
+          <div class="custom-control custom-radio mb-3">
+            <input type="radio" class="custom-control-input" id="group" name="school" formControlName="school" [value]="2" >
+            <label class="custom-control-label" for="group">Group of Schools</label>
+          </div>
+         
+         
+          
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="schoolSelection.invalid" > Continue</button>
+          </div>
+        </form>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+<!-- end of time table modal -->

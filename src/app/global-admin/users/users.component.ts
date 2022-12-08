@@ -53,6 +53,9 @@ export class UsersComponent implements OnInit {
         this.adminList = data.payload;
         this.adminList = this.adminList.reverse();
         // // (this.adminList);
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -82,6 +85,8 @@ export class UsersComponent implements OnInit {
 
         // (data.payload);
         this.showAllAdmin();
+      } else {
+
       }
     });
   }

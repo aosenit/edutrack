@@ -83,9 +83,12 @@ DocumentTypes: number[] = [];
           sessionStorage.removeItem('student-medical-details');
           this.router.navigateByUrl('/school/students');
 
+        } else {
+          this.notifyService.publishMessages( data.errors, 'danger', 1);
+
         }
       }, error => {
-        this.notifyService.publishMessages( error.errors, 'success', 1);
+        this.notifyService.publishMessages( error.errors, 'danger', 1);
       });
   }
 
@@ -106,7 +109,7 @@ DocumentTypes: number[] = [];
       DocumentTypes: this.DocumentTypes
     };
     // console.log('VERIFY PARENT ID', result.ParentId);
-    // console.log('result', result);
+    console.log('result', result);
     this.studentService.updateStudent(this.studentid, result).subscribe((data: any) => {
         // console.log('student updated', data);
         if ( data.hasErrors === false) {

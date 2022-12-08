@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 // import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { TeacherRoutingModule } from './teacher-routing.module';
@@ -33,6 +32,7 @@ import { ReportCardComponent } from './report-card/report-card.component';
 import { SubjecAttendanceComponent } from './subjec-attendance/subjec-attendance.component';
 import { ClassAttendanceComponent } from './class-attendance/class-attendance.component';
 import { ViewReportCardComponent } from './view-report-card/view-report-card.component';
+import { ReportComponent } from './report/report.component';
 
 
 @NgModule({
@@ -59,7 +59,9 @@ import { ViewReportCardComponent } from './view-report-card/view-report-card.com
     ReportCardComponent,
     SubjecAttendanceComponent,
     ClassAttendanceComponent,
-    ViewReportCardComponent],
+    ViewReportCardComponent,
+    ReportComponent
+  ],
   imports: [
     CommonModule,
     CKEditorModule,
@@ -69,7 +71,7 @@ import { ViewReportCardComponent } from './view-report-card/view-report-card.com
     FormsModule,
     SharedModule,
     HttpClientModule,
-    TeacherRoutingModule
+    TeacherRoutingModule,
   ]
 })
 export class TeacherModule { }

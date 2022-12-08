@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-const routes = {
+  import { Injectable } from '@angular/core';
+  import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+  import { environment } from 'src/environments/environment';
+  const routes = {
   addstudent: 'schtrack-auth/api/v1/Student/AddStudent',
   getallstudent: 'schtrack-auth/api/v1/Student/GetAllStudent',
   viewstudentdetails: 'schtrack-auth/api/v1/Student/GetStudentProfile',
@@ -9,10 +9,15 @@ const routes = {
   updatestudentbyid: 'schtrack-auth/api/v1/Student/UpdateStudent',
   deletestudent: 'schtrack-auth/api/v1/Student/DeleteStudent',
   getBulkDdownload: 'schtrack-auth/api/v1/Student/GetStudentsExcelSheet',
-  bulkUpload: 'schtrack-auth/api/v1/Student/BulkAddSchool'
+  bulkUpload: 'schtrack-auth/api/v1/Student/AddBulkStudent',
+  searchStudent: 'schtrack-auth/api/v1/Student/GetStudentByName',
+  downloadStudentsReport: 'schtrack-auth/api/v1/Student/GetStudentDataInExcel',
+  downloadStudentsReportInPdf:'schtrack-auth/api/v1/Student/GetStudentDataInPDF',
+  getStudentInAClass : 'schtrack-auth/api/v1/Student/GetAllStudentInSchoolOrClass',
+  getTotalUsersOnPlatform : 'schtrack-auth/api/v1/School/GetTotalUsersOnPlatform'
 };
 
-@Injectable({
+  @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
@@ -32,7 +37,7 @@ export class StudentService {
     body.append('DateOfBirth', studentForm.DateOfBirth);
     body.append('Religion', studentForm.Religion);
     body.append('Nationality', studentForm.Nationality);
-    body.append('ParentId', studentForm.ParentId);
+    body.append('ParentId', studentForm.ParentId[0].id);
     body.append('StateOfOrigin', studentForm.StateOfOrigin);
     body.append('LocalGovt', studentForm.LocalGovt);
     body.append('TransportRoute', studentForm.TransportRoute);
@@ -75,6 +80,12 @@ export class StudentService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
+  searchSingleStudent(name: string) {
+    const url = `${this.baseUrl + routes.searchStudent}/${name}`;
+    // console.log(url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
 
   updateStudent(id, updateStudentForm) {
     const { immunizationVms } = updateStudentForm;
@@ -89,7 +100,7 @@ export class StudentService {
       body.append('DateOfBirth', updateStudentForm.DateOfBirth);
       body.append('Religion', updateStudentForm.Religion);
       body.append('Nationality', updateStudentForm.Nationality);
-      body.append('ParentId', updateStudentForm.ParentId);
+      body.append('ParentId', updateStudentForm.ParentId[0].id);
       body.append('StateOfOrigin', updateStudentForm.StateOfOrigin);
       body.append('LocalGovt', updateStudentForm.LocalGovt);
       body.append('TransportRoute', updateStudentForm.TransportRoute);
@@ -130,7 +141,7 @@ export class StudentService {
       body.append('DateOfBirth', updateStudentForm.DateOfBirth);
       body.append('Religion', updateStudentForm.Religion);
       body.append('Nationality', updateStudentForm.Nationality);
-      body.append('ParentId', updateStudentForm.ParentId);
+      body.append('ParentId', updateStudentForm.ParentId[0].id);
       body.append('StateOfOrigin', updateStudentForm.StateOfOrigin);
       body.append('LocalGovt', updateStudentForm.LocalGovt);
       body.append('TransportRoute', updateStudentForm.TransportRoute);
@@ -162,9 +173,16 @@ export class StudentService {
 
   }
 
-    deleteStudentById(id) {
-    const url = `${this.baseUrl + routes.deletestudent}/${id}`;
-    return this.http.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    deleteStudentById(id, payload) {
+      const body = new FormData();
+      body.append('sessionName', payload.sessionName);
+      body.append('DeactivationReason', payload.DeactivationReason.reason);
+      const options = {
+        headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token')},
+        body
+      };
+      const url = `${this.baseUrl + routes.deletestudent}/${id}`;
+      return this.http.delete(url, options);
 
   }
 
@@ -177,15 +195,35 @@ export class StudentService {
     downloadSampleBulkSheet() {
       const url = `${this.baseUrl + routes.getBulkDdownload}`;
       return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
-  
+
     }
 
     uploadBulkDocument(payload) {
       const body = new FormData();
-      body.append('Files', payload.Document);
+      body.append('File', payload.Document);
 
       const url = `${this.baseUrl + routes.bulkUpload}`;
       return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
-   
+
     }
+
+    exportStudentExcelFile(classId) {
+      const url = `${this.baseUrl + routes.downloadStudentsReport}?classId=${classId}`;
+      return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  
+    }
+    exportStudentPdf(classId) {
+      const url = `${this.baseUrl + routes.downloadStudentsReportInPdf}?classId=${classId}`;
+      return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  
+    }
+    getStudentInAClass(classId){
+      const url = `${this.baseUrl + routes.getStudentInAClass}?classId=${classId}`;
+      return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    }
+    getTotalUsersOnPlatform(){
+      const url = `${this.baseUrl + routes.getTotalUsersOnPlatform}`;
+      return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    }
+
 }

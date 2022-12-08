@@ -40,6 +40,10 @@ import { SchoolManagerComponent } from './settings/school-manager/school-manager
 import { ResultSettingsComponent } from './settings/result-settings/result-settings.component';
 import { StudentSettingsComponent } from './settings/student-settings/student-settings.component';
 import { PayrollSetttingsComponent } from './settings/payroll-setttings/payroll-setttings.component';
+import { AdminAlumniCreateEventComponent } from './alumni/admin-alumni-create-event/admin-alumni-create-event.component';
+import { AdminAlumniEventsComponent } from './alumni/admin-alumni-events/admin-alumni-events.component';
+import { AdminAlumniListComponent } from './alumni/admin-alumni-list/admin-alumni-list.component';
+import { AdminAddAlumniComponent } from './alumni/admin-add-alumni/admin-add-alumni.component';
 @NgModule({
   declarations: [SchoolComponent,
                  SchoolAdminComponent,
@@ -60,6 +64,10 @@ import { PayrollSetttingsComponent } from './settings/payroll-setttings/payroll-
                  StudentSheetComponent,
                  StudentResultSheetComponent,
                  ComingSoonComponent,
+                 AdminAlumniCreateEventComponent,
+                 AdminAlumniEventsComponent,
+                 AdminAlumniListComponent,
+                 AdminAddAlumniComponent
                  //  AccountSettingsComponent,
                  //  NewRoleRecordComponent,
                  //  SchoolSettingsComponent,

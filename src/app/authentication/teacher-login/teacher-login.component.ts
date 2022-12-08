@@ -45,7 +45,7 @@ export class TeacherLoginComponent implements OnInit {
         // // (data.payload);
         this.matchedSchoolDetail = data.payload;
       } else {
-        this.notifyService.publishMessages('School doesnt exist', 'danger', 1);
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
         setTimeout(() => {
           // this.router.navigateByUrl('/');
 

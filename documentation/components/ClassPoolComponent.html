@@ -1,0 +1,1522 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  ClassPoolComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/school/promotion/class-pool/class-pool.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-class-pool</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./class-pool.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./class-pool.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#classList" >classList</a>
+                            </li>
+                            <li>
+                                <a href="#classPoolList" >classPoolList</a>
+                            </li>
+                            <li>
+                                <a href="#currentSesion" >currentSesion</a>
+                            </li>
+                            <li>
+                                <a href="#levels" >levels</a>
+                            </li>
+                            <li>
+                                <a href="#noData" >noData</a>
+                            </li>
+                            <li>
+                                <a href="#showData" >showData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getAllLevels" >getAllLevels</a>
+                            </li>
+                            <li>
+                                <a href="#getClasseInLevel" >getClasseInLevel</a>
+                            </li>
+                            <li>
+                                <a href="#getClassPoolList" >getClassPoolList</a>
+                            </li>
+                            <li>
+                                <a href="#getCurrentSession" >getCurrentSession</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#sortPoolByClass" >sortPoolByClass</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(promotionService: <a href="../injectables/PromotionService.html" target="_self">PromotionService</a>, notificationService: <a href="../injectables/NotificationsService.html" target="_self">NotificationsService</a>, assessment: <a href="../injectables/AssessmentService.html" target="_self">AssessmentService</a>, levelService: <a href="../injectables/SchoolSectionService.html" target="_self">SchoolSectionService</a>, classService: <a href="../injectables/ClassService.html" target="_self">ClassService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>promotionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PromotionService.html" target="_self" >PromotionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>notificationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NotificationsService.html" target="_self" >NotificationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>assessment</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AssessmentService.html" target="_self" >AssessmentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>levelService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolSectionService.html" target="_self" >SchoolSectionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>classService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ClassService.html" target="_self" >ClassService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllLevels"></a>
+                    <span class="name">
+                        <span ><b>getAllLevels</b></span>
+                        <a href="#getAllLevels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllLevels()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClasseInLevel"></a>
+                    <span class="name">
+                        <span ><b>getClasseInLevel</b></span>
+                        <a href="#getClasseInLevel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClasseInLevel(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:56</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClassPoolList"></a>
+                    <span class="name">
+                        <span ><b>getClassPoolList</b></span>
+                        <a href="#getClassPoolList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClassPoolList(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:67</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCurrentSession"></a>
+                    <span class="name">
+                        <span ><b>getCurrentSession</b></span>
+                        <a href="#getCurrentSession"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCurrentSession()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sortPoolByClass"></a>
+                    <span class="name">
+                        <span ><b>sortPoolByClass</b></span>
+                        <a href="#sortPoolByClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sortPoolByClass(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:77</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="classList"></a>
+                    <span class="name">
+                        <span ><b>classList</b></span>
+                        <a href="#classList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="classPoolList"></a>
+                    <span class="name">
+                        <span ><b>classPoolList</b></span>
+                        <a href="#classPoolList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentSesion"></a>
+                    <span class="name">
+                        <span ><b>currentSesion</b></span>
+                        <a href="#currentSesion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="levels"></a>
+                    <span class="name">
+                        <span ><b>levels</b></span>
+                        <a href="#levels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="noData"></a>
+                    <span class="name">
+                        <span ><b>noData</b></span>
+                        <a href="#noData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showData"></a>
+                    <span class="name">
+                        <span ><b>showData</b></span>
+                        <a href="#showData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/school/promotion/class-pool/class-pool.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { NotificationsService } from &#x27;src/services/classes/notifications/notifications.service&#x27;;
+import { AssessmentService } from &#x27;src/services/data/assessment/assessment.service&#x27;;
+import { ClassService } from &#x27;src/services/data/class/class.service&#x27;;
+import { PromotionService } from &#x27;src/services/data/promotion/promotion.service&#x27;;
+import { SchoolSectionService } from &#x27;src/services/data/school-section/school-section.service&#x27;;
+
+@Component({
+  selector: &#x27;app-class-pool&#x27;,
+  templateUrl: &#x27;./class-pool.component.html&#x27;,
+  styleUrls: [&#x27;./class-pool.component.css&#x27;]
+})
+export class ClassPoolComponent implements OnInit {
+  classPoolList: any;
+  currentSesion: any;
+  levels: any;
+  classList: any;
+  noData &#x3D; true;
+  showData &#x3D; false;
+  constructor(
+    private promotionService: PromotionService,
+    private notificationService: NotificationsService,
+    private assessment: AssessmentService,
+    private levelService: SchoolSectionService,
+    private classService: ClassService
+  ) { }
+
+  ngOnInit() {
+    this.getAllLevels();
+    this.getCurrentSession();
+  }
+
+
+  getAllLevels() {
+    this.levelService.getSection().subscribe((res: any) &#x3D;&gt; {
+      if (res.hasErrors &#x3D;&#x3D;&#x3D; false ) {
+        this.levels &#x3D; res.payload;
+      } else {
+        this.notificationService.publishMessages(res.errors, &#x27;danger&#x27;, 1);
+
+      }
+    });
+  }
+
+
+  getCurrentSession() {
+    this.assessment.getCurrentSession().subscribe((res: any) &#x3D;&gt; {
+      if (res.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.currentSesion &#x3D; res.payload.id;
+        console.log(this.currentSesion);
+        this.getClassPoolList(this.currentSesion)
+      }
+    });
+  }
+
+  getClasseInLevel(event) {
+    this.classService.getClassBySection(event).subscribe((res: any) &#x3D;&gt; {
+      if (res.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.classList &#x3D; res.payload;
+      } else {
+        this.notificationService.publishMessages(res.errors, &#x27;danger&#x27;, 1);
+
+      }
+    });
+  }
+
+  getClassPoolList(id) {
+    this.promotionService.getClassPool(id, &#x27;&#x27;).subscribe((res: any) &#x3D;&gt; {
+      if (res.hasErrors &#x3D;&#x3D;&#x3D; false ) {
+        this.classPoolList &#x3D; res.payload;
+      } else {
+        this.notificationService.publishMessages(res.errors, &#x27;danger&#x27;, 1);
+      }
+    });
+  }
+
+  sortPoolByClass(event) {
+    this.promotionService.getClassPool(this.currentSesion, event).subscribe((res: any) &#x3D;&gt; {
+      if (res.hasErrors &#x3D;&#x3D;&#x3D; false ) {
+        this.noData &#x3D; false;
+        this.showData &#x3D; true;
+        this.classPoolList &#x3D; res.payload;
+      } else {
+        this.notificationService.publishMessages(res.errors, &#x27;danger&#x27;, 1);
+      }
+    });
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;client&quot; *ngIf&#x3D;&quot;classPoolList?.length &#x3D;&#x3D;&#x3D; 0 || null&quot;&gt;
+  &lt;img src&#x3D;&quot;assets/images/svg/institution.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;&quot;&gt;
+  &lt;h6 class&#x3D;&quot;pt-5&quot;&gt;View class pool&lt;/h6&gt;
+  &lt;p class&#x3D;&quot;text-center pt-1&quot;&gt;It looks like you dont have any record here&lt;/p&gt;
+  &lt;!-- &lt;button class&#x3D;&quot;btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3&quot; routerLink&#x3D;&quot;/school-manager/create-school&quot;  &gt;
+    Add New &lt;/button&gt; --&gt;
+  &lt;!-- &lt;button class&#x3D;&quot;btn btn-outline-orange  mx-2 mx-lg-3&quot; data-toggle&#x3D;&quot;modal&quot; data-target&#x3D;&quot;#exampleModalCenterUpload&quot;&gt;Bulk
+    Upload&lt;/button&gt; --&gt;
+&lt;/section&gt;
+
+
+
+
+
+
+
+&lt;div &gt;
+    
+    &lt;section class&#x3D;&quot;banner mb-4 pb-3&quot;&gt;
+        &lt;div class&#x3D;&quot;pt-5 pl-3 content &quot;&gt;
+            &lt;h6 class&#x3D;&quot;banner__text-primary fw-6 &quot;&gt; Class Pool &lt;/h6&gt;
+            &lt;p class&#x3D;&quot;text-white&quot;&gt; Assign promoted students to classes &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;!-- &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+            &lt;button class&#x3D;&quot;btn btn-outline-orange  mx-2 mx-lg-3 px-5 mb-4 mt-3&quot; data-toggle&#x3D;&quot;modal&quot;
+                data-target&#x3D;&quot;#exampleModalCenterUpload&quot;&gt;Bulk
+                Upload&lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3&quot; routerLink&#x3D;&quot;/school/add-student&quot; &gt; Add New &lt;/button&gt;
+        &lt;/div&gt; --&gt;
+    
+    &lt;/section&gt;
+    
+    
+    &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center bg-white p-3  mb-2&quot;&gt;
+        &lt;div&gt;
+          &lt;form&gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+              
+              &lt;div class&#x3D;&quot;col &quot;&gt;
+                &lt;label for&#x3D;&quot;class&quot; class&#x3D;&quot;fs-12 fw-6&quot;&gt;Level&lt;/label&gt;
+                &lt;select name&#x3D;&quot;&quot; id&#x3D;&quot;&quot; class&#x3D;&quot;form-control&quot; (change)&#x3D;&quot;getClasseInLevel($event.target.value)&quot;&gt;
+                  &lt;option value&#x3D;&quot;&quot;&gt;Level&lt;/option&gt;
+                  &lt;option [value]&#x3D;&quot;level.id&quot; *ngFor&#x3D;&quot;let level of levels&quot;&gt; {{level.name}}&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;col &quot;&gt;
+                &lt;label for&#x3D;&quot;class&quot; class&#x3D;&quot;fs-12 fw-6&quot;&gt;Class&lt;/label&gt;
+                &lt;select name&#x3D;&quot;&quot; id&#x3D;&quot;&quot; class&#x3D;&quot;form-control&quot; (change)&#x3D;&quot;sortPoolByClass($event.target.value)&quot;  &gt;
+                  &lt;option value&#x3D;&quot;&quot;&gt;Select class&lt;/option&gt;
+                  &lt;option [value]&#x3D;&quot;class.id&quot; *ngFor&#x3D;&quot;let class of classList&quot;&gt;{{class.name}}&lt;/option&gt;
+    
+    
+                &lt;/select&gt;
+              &lt;/div&gt;
+              &lt;!-- &lt;button class&#x3D;&quot;btn btn-outline-orange&quot;&gt;Search&lt;/button&gt; --&gt;
+            &lt;/div&gt;
+          &lt;/form&gt;
+        &lt;/div&gt;
+    
+    
+      &lt;/div&gt;
+    
+    
+      &lt;div class&#x3D;&quot;file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 &quot;
+      style&#x3D;&quot;height: 85vh; width: 100%;&quot; *ngIf&#x3D;&quot;noData&quot;&gt;
+      &lt;div class&#x3D;&quot;d-flex flex-column text-center&quot;&gt;
+        &lt;img src&#x3D;&quot;assets/images/svg/sad-face.svg&quot; alt&#x3D;&quot;table sort icon&quot; class&#x3D;&quot;mb-3&quot;&gt;
+        &lt;p class&#x3D;&quot;fw-6 fs-24&quot; style&#x3D;&quot;color:#BAB9C1;&quot;&gt;Select level and class to display &lt;br&gt; information&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;/div&gt;
+    
+    &lt;section class&#x3D;&quot;list table-responsive mb-4&quot; *ngIf&#x3D;&quot;showData&quot;&gt;
+        &lt;table class&#x3D;&quot;table table-borderless client-table&quot;&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th scope&#x3D;&quot;col&quot; class&#x3D;&quot;head &quot;&gt;
+                        &lt;div class&#x3D;&quot;custom-control custom-checkbox&quot;&gt;
+                            &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;customCheckTh&quot;&gt;
+                            &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customCheckTh&quot;&gt;&lt;/label&gt;
+                        &lt;/div&gt;
+                    &lt;/th&gt;
+                    &lt;th scope&#x3D;&quot;col&quot; class&#x3D;&quot;text-center&quot; &gt;Student Name 
+                        &lt;!-- &lt;img src&#x3D;&quot;assets/images/svg/table-sort.svg&quot;
+                            alt&#x3D;&quot;table sort icon&quot; class&#x3D;&quot;dropdown-toggle&quot; type&#x3D;&quot;button&quot; id&#x3D;&quot;dropdownMenuButton&quot;
+                            data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot; aria-expanded&#x3D;&quot;false&quot;&gt; --&gt;
+                        &lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; DROPDOWN &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
+                        &lt;!-- &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;dropdownMenuButton&quot;&gt;
+                            
+                            &lt;a class&#x3D;&quot;dropdown-item fc-orange&quot; href&#x3D;&quot;#&quot;&gt;All &lt;/a&gt;
+                            &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;A - Z &lt;/a&gt;
+                            &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;Z - A &lt;/a&gt;
+                        &lt;/div&gt; --&gt;
+                    &lt;/th&gt;
+                    &lt;th scope&#x3D;&quot;col&quot;&gt;Student Number &lt;/th&gt;
+                   
+                    &lt;th scope&#x3D;&quot;col&quot;&gt;Level&lt;/th&gt;
+                    &lt;th scope&#x3D;&quot;col&quot;&gt;Previous Class&lt;/th&gt;
+                    &lt;th scope&#x3D;&quot;col&quot;&gt;% Average&lt;/th&gt;
+    
+                    
+                    &lt;th scope&#x3D;&quot;col&quot;&gt;&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr class&#x3D;&quot;&quot; &gt;
+                    &lt;td scope&#x3D;&quot;row&quot; class&#x3D;&quot;check rounded-left&quot;&gt;
+                        &lt;div class&#x3D;&quot;custom-control custom-checkbox&quot; &gt;
+                            &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;&quot;&gt;
+                            &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;&quot;&gt;&lt;/label&gt;
+                        &lt;/div&gt;
+                    &lt;/td&gt;
+                    &lt;td class&#x3D;&quot;user&quot; &gt;
+                        
+                        &lt;div class&#x3D;&quot;d-flex align-items-center&quot;&gt;
+                            &lt;img src&#x3D;&quot;assets/images/svg/companyalt.svg&quot; alt&#x3D;&quot;schools log&quot; class&#x3D;&quot;mr-3  image-rounded&quot;&gt;
+                            &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot; &gt;Master John Boyeja &lt;/h6&gt;
+                        &lt;/div&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;TAC/STN/2020/0001&lt;/td&gt;
+                    &lt;td&gt;Primary 1A&lt;/td&gt;
+                    &lt;td class&#x3D;&quot;&quot;&gt;Nursery 1A&lt;/td&gt;
+                    &lt;td class&#x3D;&quot;&quot;&gt;90%&lt;/td&gt;
+                    &lt;td&gt;&lt;span class&#x3D;&quot;action btn-outline-orange px-3 py-2&quot;&gt;Assign a class&lt;/span&gt;&lt;/td&gt;
+                   
+                &lt;/tr&gt;
+                &lt;tr class&#x3D;&quot;&quot; &gt;
+                    &lt;td scope&#x3D;&quot;row&quot; class&#x3D;&quot;check rounded-left&quot;&gt;
+                        &lt;div class&#x3D;&quot;custom-control custom-checkbox&quot; &gt;
+                            &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;&quot;&gt;
+                            &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;&quot;&gt;&lt;/label&gt;
+                        &lt;/div&gt;
+                    &lt;/td&gt;
+                    &lt;td class&#x3D;&quot;user&quot; &gt;
+                        
+                        &lt;div class&#x3D;&quot;d-flex align-items-center&quot;&gt;
+                            &lt;img src&#x3D;&quot;assets/images/svg/companyalt.svg&quot; alt&#x3D;&quot;schools log&quot; class&#x3D;&quot;mr-3  image-rounded&quot;&gt;
+                            &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot; &gt;Master John Boyeja &lt;/h6&gt;
+                        &lt;/div&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;TAC/STN/2020/0001&lt;/td&gt;
+                    &lt;td&gt;Primary 1A&lt;/td&gt;
+                    &lt;td class&#x3D;&quot;&quot;&gt;Nursery 1A&lt;/td&gt;
+                    &lt;td class&#x3D;&quot;&quot;&gt;90%&lt;/td&gt;
+                    &lt;td&gt;&lt;span class&#x3D;&quot;action  px-3 py-2&quot; data-toggle&#x3D;&quot;modal&quot; data-target&#x3D;&quot;#exampleModalCenterSubject&quot;&gt;Assign a class&lt;/span&gt;&lt;/td&gt;
+                   
+                &lt;/tr&gt;
+                &lt;tr class&#x3D;&quot;&quot; &gt;
+                    &lt;td scope&#x3D;&quot;row&quot; class&#x3D;&quot;check rounded-left&quot;&gt;
+                        &lt;div class&#x3D;&quot;custom-control custom-checkbox&quot; &gt;
+                            &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;&quot;&gt;
+                            &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;&quot;&gt;&lt;/label&gt;
+                        &lt;/div&gt;
+                    &lt;/td&gt;
+                    &lt;td class&#x3D;&quot;user&quot; &gt;
+                        
+                        &lt;div class&#x3D;&quot;d-flex align-items-center&quot;&gt;
+                            &lt;img src&#x3D;&quot;assets/images/svg/companyalt.svg&quot; alt&#x3D;&quot;schools log&quot; class&#x3D;&quot;mr-3  image-rounded&quot;&gt;
+                            &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot; &gt;Master John Boyeja &lt;/h6&gt;
+                        &lt;/div&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;TAC/STN/2020/0001&lt;/td&gt;
+                    &lt;td&gt;Primary 1A&lt;/td&gt;
+                    &lt;td class&#x3D;&quot;&quot;&gt;Nursery 1A&lt;/td&gt;
+                    &lt;td class&#x3D;&quot;&quot;&gt;90%&lt;/td&gt;
+                    &lt;td&gt;&lt;span class&#x3D;&quot;action outline-orange px-3 py-2 cursor-pointer&quot; data-toggle&#x3D;&quot;modal&quot; data-target&#x3D;&quot;#exampleModalCenterSubject&quot;&gt;Assign a class&lt;/span&gt;&lt;/td&gt;
+                   
+                &lt;/tr&gt;
+    
+                
+    
+    
+    
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+        &lt;div class&#x3D;&quot;d-flex justify-content-end&quot;&gt;
+            &lt;!-- &lt;pagination-controls (pageChange)&#x3D;&quot;getPage(p &#x3D; $event)&quot; class&#x3D;&quot;text-center&quot;&gt;&lt;/pagination-controls&gt; --&gt;
+          &lt;/div&gt;
+    
+    &lt;/section&gt;
+&lt;/div&gt;
+
+
+
+    
+
+
+
+
+
+
+  &lt;!-- Attach Subject Modal --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;exampleModalCenterSubject&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot;
+aria-labelledby&#x3D;&quot;exampleModalCenterSubjectTitle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+&lt;div class&#x3D;&quot;modal-dialog modal-dialog-centered modal-length&quot; role&#x3D;&quot;document&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+
+    &lt;div class&#x3D;&quot;modal-head mb-3 d-flex justify-content-between&quot;&gt;
+      &lt;h6 class&#x3D;&quot;modal-title fc-lblue &quot;&gt;Assign a class&lt;/h6&gt;
+      &lt;img src&#x3D;&quot;assets/images/svg/close-modal.svg&quot; alt&#x3D;&quot;modal close button&quot; id&#x3D;&quot;myModal&quot; data-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot;
+        class&#x3D;&quot;close&quot;&gt;
+
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-body client-modal&quot;&gt;
+        &lt;p&gt;
+            &lt;span class&#x3D;&quot;fw-6&quot;&gt;Master John Boyega&lt;/span&gt; is being promoted to &lt;span class&#x3D;&quot;fw-6&quot;&gt;SS1&lt;/span&gt;.
+        &lt;/p&gt;
+        &lt;p&gt;Please select a class arm in &lt;span class&#x3D;&quot;fw-6&quot;&gt;SS1&lt;/span&gt; below.&lt;/p&gt;
+      &lt;form class&#x3D;&quot;&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group mb-3 mt-3 &quot;&gt;
+          &lt;!-- &lt;label for&#x3D;&quot;level&quot; class&#x3D;&quot;fw-6&quot;&gt;Level &lt;/label&gt; --&gt;
+          &lt;select id&#x3D;&quot;level&quot; class&#x3D;&quot;form-control&quot; &gt;
+            &lt;option value&#x3D;&quot;&quot; selected&gt; Select Arm&lt;/option&gt;
+            &lt;option &gt; A &lt;/option&gt;
+
+          &lt;/select&gt;
+        &lt;/div&gt;
+
+        
+       
+
+
+
+
+        &lt;div class&#x3D;&quot;d-flex align-items-center justify-content-center mb-5&quot;&gt;
+          &lt;button class&#x3D;&quot;btn btn-outline-orange  px-5 mb-4 mt-3 mr-3&quot; data-dismiss&#x3D;&quot;modal&quot;&gt; Cancel &lt;/button&gt;
+          &lt;button class&#x3D;&quot;btn btn-orange-two  px-5 mb-4 mt-3&quot;&gt; Assign class &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- end of Attach Subject modal --&gt;
+
+   </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./class-pool.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.client {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.client h6 {
+    color: #0A1128;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+
+.banner {
+    width: 100%;
+    background-image: url(&quot;../../../../assets/images/svg/client-banner.svg&quot;);
+    background-repeat: no-repeat;
+    background-color: #422610;
+
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1.5rem;
+    color: #ffffff;
+    position: relative;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    backdrop-filter: opacity(.4);
+}
+
+
+
+.banner__text-primary {
+    font-size: 36px;
+}
+
+
+.btn-orange-two {
+    background: #fb882c;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #ffffff;
+}
+
+
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+input[type&#x3D;&quot;text&quot;] {
+    width: 125%;
+}
+
+
+
+
+
+
+
+/* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; table &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+table.client-table {
+    border-collapse: separate;
+    border-spacing: 0 .5em;
+}
+
+.list .table thead {
+    color: #4c75bd;
+}
+
+.list .table thead tr th {
+    font-weight: 600;
+    padding-bottom: 0;
+}
+
+table tr,
+td {
+    padding: 15px;
+}
+.list .table thead .head {
+    /* display: flex;
+      align-items: center;
+      color: #0a1128;
+      font-weight: 600; */
+    padding-left: 3.5rem;
+}
+
+.list .table tbody .check {
+    padding-left: 1.5rem;
+    padding-left: 3.5rem;
+}
+
+.list .table tbody .user span {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+}
+
+
+
+.list .table tbody .user div h6 {
+    color: #355691;
+    font-size: 14px;
+    /* opacity: none; */
+}
+
+
+
+.list .table tbody tr {
+    background: #ffffff;
+    box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
+    border-radius: 5px;
+}
+
+.list .table tbody td:not(:first-child) {
+    color: #0a1128;
+    /* opacity: 0.6; */
+}
+
+.list .table tbody .action {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #FB882C;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    /* line-height: 19px; */
+    color: #FB882C;
+    /* padding: 0rem 2.7rem; */
+}
+
+.btn-outline-orange {
+
+}
+
+
+.list .table tbody .status_inactive {
+    background: #fae5e7;
+    border-radius: 10px;
+    color: #d72638;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+
+.modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+
+}
+
+
+.modal-head {
+    padding: 20px 40px;
+    background: #EBF0F5;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
+
+.client-modal {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 40px;
+
+}
+
+form {
+    width: 100%;
+}
+
+
+
+textarea {
+    height: 150px;
+}
+
+
+h6 {
+    font-weight: bold;
+    font-weight: 600;
+}
+
+p {
+    color: #000000;
+    font-size: 14px;
+}
+
+.form-count {
+    color: #BEC4D5;
+    font-size: 14px;
+}
+
+.text-black {
+    color: #000000;
+}
+
+
+
+.btn-outline-orange {
+    border: 1px solid #FB882C;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    color: #FB882C;
+    padding: 0rem 2.7rem;
+
+}
+
+
+
+.modal-content1 {
+    border-radius: 17px;
+    border: none;
+    position: relative;
+    background: #FFFFFF;
+    width: 100%;
+
+}
+
+
+.modal-content1 .modal-head {
+    /* background: #EBF0F5; */
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.modal-content1 .client-modal {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+
+}
+
+
+.download { 
+    cursor: pointer;
+}
+
+.image-rounded {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+
+input[type&#x3D;&quot;text&quot;] {
+    background: #FFFFFF;
+    /* Color/Neutral/4 - Grey 25% */
+    
+    border: 1px solid #ECEBED;
+    box-sizing: border-box;
+    /* Dropshadow 1 */
+    
+    box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
+    border-radius: 6px;
+}
+
+input::placeholder {
+    color: #D0C9D6;
+    font-size: 15px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="client" *ngIf="classPoolList?.length === 0 || null">  <img src="assets/images/svg/institution.svg" alt="new client" class="">  <h6 class="pt-5">View class pool</h6>  <p class="text-center pt-1">It looks like you dont have any record here</p>  <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school-manager/create-school"  >    Add New </button> -->  <!-- <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal" data-target="#exampleModalCenterUpload">Bulk    Upload</button> --></section><div >        <section class="banner mb-4 pb-3">        <div class="pt-5 pl-3 content ">            <h6 class="banner__text-primary fw-6 "> Class Pool </h6>            <p class="text-white"> Assign promoted students to classes </p>        </div>        <!-- <div class="d-flex">            <button class="btn btn-outline-orange  mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"                data-target="#exampleModalCenterUpload">Bulk                Upload</button>            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student" > Add New </button>        </div> -->        </section>            <div class="d-flex justify-content-between align-items-center bg-white p-3  mb-2">        <div>          <form>            <div class="row">                            <div class="col ">                <label for="class" class="fs-12 fw-6">Level</label>                <select name="" id="" class="form-control" (change)="getClasseInLevel($event.target.value)">                  <option value="">Level</option>                  <option [value]="level.id" *ngFor="let level of levels"> {{level.name}}</option>                </select>              </div>              <div class="col ">                <label for="class" class="fs-12 fw-6">Class</label>                <select name="" id="" class="form-control" (change)="sortPoolByClass($event.target.value)"  >                  <option value="">Select class</option>                  <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>                        </select>              </div>              <!-- <button class="btn btn-outline-orange">Search</button> -->            </div>          </form>        </div>              </div>              <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "      style="height: 85vh; width: 100%;" *ngIf="noData">      <div class="d-flex flex-column text-center">        <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">        <p class="fw-6 fs-24" style="color:#BAB9C1;">Select level and class to display <br> information</p>      </div>      </div>        <section class="list table-responsive mb-4" *ngIf="showData">        <table class="table table-borderless client-table">            <thead>                <tr>                    <th scope="col" class="head ">                        <div class="custom-control custom-checkbox">                            <input type="checkbox" class="custom-control-input" id="customCheckTh">                            <label class="custom-control-label" for="customCheckTh"></label>                        </div>                    </th>                    <th scope="col" class="text-center" >Student Name                         <!-- <img src="assets/images/svg/table-sort.svg"                            alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->                        <!-- ================ DROPDOWN ==================== -->                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                                                        <a class="dropdown-item fc-orange" href="#">All </a>                            <a class="dropdown-item" href="#">A - Z </a>                            <a class="dropdown-item" href="#">Z - A </a>                        </div> -->                    </th>                    <th scope="col">Student Number </th>                                       <th scope="col">Level</th>                    <th scope="col">Previous Class</th>                    <th scope="col">% Average</th>                                            <th scope="col"></th>                </tr>            </thead>            <tbody>                <tr class="" >                    <td scope="row" class="check rounded-left">                        <div class="custom-control custom-checkbox" >                            <input type="checkbox" class="custom-control-input" id="">                            <label class="custom-control-label" for=""></label>                        </div>                    </td>                    <td class="user" >                                                <div class="d-flex align-items-center">                            <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">                            <h6 class="fw-6 mb-0" >Master John Boyeja </h6>                        </div>                    </td>                    <td>TAC/STN/2020/0001</td>                    <td>Primary 1A</td>                    <td class="">Nursery 1A</td>                    <td class="">90%</td>                    <td><span class="action btn-outline-orange px-3 py-2">Assign a class</span></td>                                   </tr>                <tr class="" >                    <td scope="row" class="check rounded-left">                        <div class="custom-control custom-checkbox" >                            <input type="checkbox" class="custom-control-input" id="">                            <label class="custom-control-label" for=""></label>                        </div>                    </td>                    <td class="user" >                                                <div class="d-flex align-items-center">                            <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">                            <h6 class="fw-6 mb-0" >Master John Boyeja </h6>                        </div>                    </td>                    <td>TAC/STN/2020/0001</td>                    <td>Primary 1A</td>                    <td class="">Nursery 1A</td>                    <td class="">90%</td>                    <td><span class="action  px-3 py-2" data-toggle="modal" data-target="#exampleModalCenterSubject">Assign a class</span></td>                                   </tr>                <tr class="" >                    <td scope="row" class="check rounded-left">                        <div class="custom-control custom-checkbox" >                            <input type="checkbox" class="custom-control-input" id="">                            <label class="custom-control-label" for=""></label>                        </div>                    </td>                    <td class="user" >                                                <div class="d-flex align-items-center">                            <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">                            <h6 class="fw-6 mb-0" >Master John Boyeja </h6>                        </div>                    </td>                    <td>TAC/STN/2020/0001</td>                    <td>Primary 1A</td>                    <td class="">Nursery 1A</td>                    <td class="">90%</td>                    <td><span class="action outline-orange px-3 py-2 cursor-pointer" data-toggle="modal" data-target="#exampleModalCenterSubject">Assign a class</span></td>                                   </tr>                                            </tbody>        </table>        <div class="d-flex justify-content-end">            <!-- <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls> -->          </div>        </section></div>      <!-- Attach Subject Modal --><div class="modal fade" id="exampleModalCenterSubject" tabindex="-1" role="dialog"aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-length" role="document">  <div class="modal-content">    <div class="modal-head mb-3 d-flex justify-content-between">      <h6 class="modal-title fc-lblue ">Assign a class</h6>      <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myModal" data-dismiss="modal" aria-label="Close"        class="close">    </div>    <div class="modal-body client-modal">        <p>            <span class="fw-6">Master John Boyega</span> is being promoted to <span class="fw-6">SS1</span>.        </p>        <p>Please select a class arm in <span class="fw-6">SS1</span> below.</p>      <form class="">        <div class="form-group mb-3 mt-3 ">          <!-- <label for="level" class="fw-6">Level </label> -->          <select id="level" class="form-control" >            <option value="" selected> Select Arm</option>            <option > A </option>          </select>        </div>                       <div class="d-flex align-items-center justify-content-center mb-5">          <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>          <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Assign class </button>        </div>      </form>    </div>  </div></div></div><!-- end of Attach Subject modal -->   </div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AccountMappingComponent', 'selector': 'app-account-mapping'},{'name': 'AccountPanelComponent', 'selector': 'app-account-panel'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AdminAlumniCreateEventComponent', 'selector': 'app-admin-alumni-create-event'},{'name': 'AdminAlumniEventsComponent', 'selector': 'app-admin-alumni-events'},{'name': 'AdminAlumniListComponent', 'selector': 'app-admin-alumni-list'},{'name': 'AdminLoginComponent', 'selector': 'app-admin-login'},{'name': 'AlumniAlumniComponent', 'selector': 'app-alumni-alumni'},{'name': 'AlumniComponent', 'selector': 'app-alumni'},{'name': 'AlumniEventDetailComponent', 'selector': 'app-alumni-event-detail'},{'name': 'AlumniEventsComponent', 'selector': 'app-alumni-events'},{'name': 'AlumniHomeComponent', 'selector': 'app-alumni-home'},{'name': 'AlumniProfileComponent', 'selector': 'app-alumni-profile'},{'name': 'AlumniRecordsComponent', 'selector': 'app-alumni-records'},{'name': 'AlumniTranscriptComponent', 'selector': 'app-alumni-transcript'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentsComponent', 'selector': 'app-assignments'},{'name': 'AttachTeacherComponent', 'selector': 'app-attach-teacher'},{'name': 'AttendanceComponent', 'selector': 'app-attendance'},{'name': 'BankAccountsComponent', 'selector': 'app-bank-accounts'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BranchContactPersonComponent', 'selector': 'app-branch-contact-person'},{'name': 'BranchDetailComponent', 'selector': 'app-branch-detail'},{'name': 'BranchInformationComponent', 'selector': 'app-branch-information'},{'name': 'BranchLocationComponent', 'selector': 'app-branch-location'},{'name': 'BroadSheetComponent', 'selector': 'app-broad-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ChartOfAccountComponent', 'selector': 'app-chart-of-account'},{'name': 'ChildAssignmentComponent', 'selector': 'app-child-assignment'},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ClassAttendanceComponent', 'selector': 'app-class-attendance'},{'name': 'ClassPoolComponent', 'selector': 'app-class-pool'},{'name': 'ClassRepeatComponent', 'selector': 'app-class-repeat'},{'name': 'ClassScheduleComponent', 'selector': 'app-class-schedule'},{'name': 'ClientDetailComponent', 'selector': 'app-client-detail'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'ContactDetailComponent', 'selector': 'app-contact-detail'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactPersonComponent', 'selector': 'app-contact-person'},{'name': 'CreateAssignmentComponent', 'selector': 'app-create-assignment'},{'name': 'CreateBranchComponent', 'selector': 'app-create-branch'},{'name': 'CreateClientComponent', 'selector': 'app-create-client'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoComponent', 'selector': 'app-demo'},{'name': 'DiscountsComponent', 'selector': 'app-discounts'},{'name': 'EditUserComponent', 'selector': 'app-edit-user'},{'name': 'EducationComponent', 'selector': 'app-education'},{'name': 'EmailVerifiedComponent', 'selector': 'app-email-verified'},{'name': 'EmployeeComponent', 'selector': 'app-employee'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeListComponent', 'selector': 'app-employee-list'},{'name': 'FacilitySettingsComponent', 'selector': 'app-facility-settings'},{'name': 'FaqsComponent', 'selector': 'app-faqs'},{'name': 'FeeComponent', 'selector': 'app-fee'},{'name': 'FeeComponentComponent', 'selector': 'app-fee-component'},{'name': 'FeeTypeComponent', 'selector': 'app-fee-type'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FilesComponent', 'selector': 'app-files'},{'name': 'FileStorageComponent', 'selector': 'app-file-storage'},{'name': 'FinanceSettingsComponent', 'selector': 'app-finance-settings'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAdminComponent', 'selector': 'app-global-admin'},{'name': 'GradebookComponent', 'selector': 'app-gradebook'},{'name': 'GradingComponent', 'selector': 'app-grading'},{'name': 'GroupedSchoolsComponent', 'selector': 'app-grouped-schools'},{'name': 'HomenavbarComponent', 'selector': 'app-homenavbar'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LandingScreenComponent', 'selector': 'app-landing-screen'},{'name': 'LaterThingsComponent', 'selector': 'app-later-things'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'MailReportCardComponent', 'selector': 'app-mail-report-card'},{'name': 'MarkAttendanceComponent', 'selector': 'app-mark-attendance'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MedicalDetailsComponent', 'selector': 'app-medical-details'},{'name': 'NewAccountChartComponent', 'selector': 'app-new-account-chart'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewFeeComponent', 'selector': 'app-new-fee'},{'name': 'NewroleComponent', 'selector': 'app-newrole'},{'name': 'NewRoleRecordComponent', 'selector': 'app-new-role-record'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NewVendorsComponent', 'selector': 'app-new-vendors'},{'name': 'NextOfKinComponent', 'selector': 'app-next-of-kin'},{'name': 'NoRecordComponent', 'selector': 'app-no-record'},{'name': 'NotificationPageComponent', 'selector': 'app-notification-page'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ParentComponent', 'selector': 'app-parent'},{'name': 'ParentDetailsComponent', 'selector': 'app-parent-details'},{'name': 'ParentListComponent', 'selector': 'app-parent-list'},{'name': 'ParentLoginComponent', 'selector': 'app-parent-login'},{'name': 'ParentPortalComponent', 'selector': 'app-parent-portal'},{'name': 'PayrollAccountsComponent', 'selector': 'app-payroll-accounts'},{'name': 'PayrollSetttingsComponent', 'selector': 'app-payroll-setttings'},{'name': 'PeriodComponent', 'selector': 'app-period'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'PersonalSettingsComponent', 'selector': 'app-personal-settings'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileInformationComponent', 'selector': 'app-profile-information'},{'name': 'PromotionDashboardComponent', 'selector': 'app-promotion-dashboard'},{'name': 'PromotionSettingsComponent', 'selector': 'app-promotion-settings'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResultSettingsComponent', 'selector': 'app-result-settings'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'SchoolAdminComponent', 'selector': 'app-school-admin'},{'name': 'SchoolBranchManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolComponent', 'selector': 'app-school'},{'name': 'SchoolContactPersonComponent', 'selector': 'app-school-contact-person'},{'name': 'SchoolGradeBookComponent', 'selector': 'app-school-grade-book'},{'name': 'SchoolInformationComponent', 'selector': 'app-school-information'},{'name': 'SchoolLoginComponent', 'selector': 'app-school-login'},{'name': 'SchoolManagerBranchComponent', 'selector': 'app-school-manager-branch'},{'name': 'SchoolManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolManagerDashboardComponent', 'selector': 'app-school-manager-dashboard'},{'name': 'SchoolManagerSettingsComponent', 'selector': 'app-school-manager-settings'},{'name': 'SchoolMediaComponent', 'selector': 'app-school-media'},{'name': 'SchoolSettingsComponent', 'selector': 'app-school-settings'},{'name': 'ScoreSheetComponent', 'selector': 'app-score-sheet'},{'name': 'ScoreSheetDetailsPageComponent', 'selector': 'app-score-sheet-details-page'},{'name': 'SessionComponent', 'selector': 'app-session'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'StudentAttendanceComponent', 'selector': 'app-student-attendance'},{'name': 'StudentComponent', 'selector': 'app-student'},{'name': 'StudentDetailComponent', 'selector': 'app-student-detail'},{'name': 'StudentListComponent', 'selector': 'app-student-list'},{'name': 'StudentLoginComponent', 'selector': 'app-student-login'},{'name': 'StudentProfileComponent', 'selector': 'app-student-profile'},{'name': 'StudentReportComponent', 'selector': 'app-student-report'},{'name': 'StudentResultSheetComponent', 'selector': 'app-student-result-sheet'},{'name': 'StudentScoreSheetComponent', 'selector': 'app-student-score-sheet'},{'name': 'StudentSettingsComponent', 'selector': 'app-student-settings'},{'name': 'StudentSheetComponent', 'selector': 'app-student-sheet'},{'name': 'SubjecAttendanceComponent', 'selector': 'app-subjec-attendance'},{'name': 'SubscriptionInvoiceArreasComponent', 'selector': 'app-subscription-invoice-arreas'},{'name': 'SubscriptionInvoiceComponent', 'selector': 'app-subscription-invoice'},{'name': 'SubscriptionListsComponent', 'selector': 'app-subscription-lists'},{'name': 'SubscriptionPageComponent', 'selector': 'app-subscription-page'},{'name': 'TaskPreviewComponent', 'selector': 'app-task-preview'},{'name': 'TeacherComponent', 'selector': 'app-teacher'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'},{'name': 'TeachersComponent', 'selector': 'app-teachers'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'UnpaidSubscriptionsComponent', 'selector': 'app-unpaid-subscriptions'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VendorsComponent', 'selector': 'app-vendors'},{'name': 'ViewAssignmentComponent', 'selector': 'app-view-assignment'},{'name': 'ViewBillingComponent', 'selector': 'app-view-billing'},{'name': 'ViewFileComponent', 'selector': 'app-view-file'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportSheetComponent', 'selector': 'app-view-report-sheet'},{'name': 'VirtualClassComponent', 'selector': 'app-virtual-class'},{'name': 'VirtualClassroomComponent', 'selector': 'app-virtual-classroom'},{'name': 'VirtualSessionComponent', 'selector': 'app-virtual-session'},{'name': 'WithdrawalListComponent', 'selector': 'app-withdrawal-list'},{'name': 'WorkExperienceComponent', 'selector': 'app-work-experience'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ClassPoolComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ClassPoolComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<section class="add-employee" *ngIf="alumniList?.length === 0" >
+    <img src="assets/images/svg/add-student.svg" alt="new employee" class="">
+    <p class="text-center fw-6 pt-5">It looks like you dont have any Alumni yet. </p>
+</section>
+
+<div *ngIf="alumniList?.length !== 0">
+    <section class="banner mb-4 pb-3">
+        <div class="pt-5 pl-3 content ">
+            <h6 class="banner__text-primary fw-6 "> Alumnis </h6>
+            <p class="text-white"> Directory of all registered alumni </p>
+        </div>
+    
+    
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-alumni" > Add New </button>
+    </section>
+    
+    <section class="d-flex align-items-center justify-content-between mb-4 mt-5">
+        <div class="search__input has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
+        </div>
+    
+    </section>
+    
+    
+    <section class="list table-responsive mb-4">
+        <table class="table table-borderless client-table">
+            <thead>
+                <tr>
+                    <!-- <th scope="col" class="head ">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                            <label class="custom-control-label" for="customCheckTh"></label>
+                        </div>
+                    </th> -->
+                    <th scope="col" class="head" >Alumni Name
+    
+                    </th>
+                    <th scope="col">Student Number </th>
+    
+                    <th scope="col">Gender</th>
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">Date Created</th>
+    
+                    <th scope="col">Status
+    
+                    </th>
+                    <!-- <th scope="col"></th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pb-1" *ngFor="let record of alumniList | tableSearch : 'firstName' : searchString" >
+                    <!-- <td scope="row" class="check rounded-left">
+                        <div class="custom-control custom-checkbox" >
+                            <input type="checkbox" class="custom-control-input" id="id1">
+                            <label class="custom-control-label" for="id1}}"></label>
+                        </div>
+                    </td> -->
+                    <td class="user" >
+    
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
+                            <h6 class="fw-6 mb-0" > {{record?.firstName + ' ' + record?.lastName}}  </h6>
+                        </div>
+                    </td>
+                    <td>{{ record?.regNumber}} </td>
+                    <td> {{record?.sex}}  </td>
+                    <td class=""> {{record?.dateOfBirth | date: 'mediumDate'}} </td>
+                    <td class=""> {{record?.dateCreated | date: 'mediumDate'}} </td>
+                    <td><span class="status_inactive">{{record?.status === false ? 'Inactive' : 'Active'}}</span></td>
+                    <!-- <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
+                            alt="schools log" class="dropdown-toggle mt-3       " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#" [routerLink]="['/school', 'student-detail',2]">View</a>
+    
+                              </div>
+                        </td> -->
+                </tr>
+    
+    
+    
+    
+    
+    
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-end">
+            <!-- <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls> -->
+          </div>
+    
+    </section>
+</div>

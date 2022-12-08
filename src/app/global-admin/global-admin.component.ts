@@ -9,7 +9,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class GlobalAdminComponent implements OnInit {
 adminDetails: any;
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router
+    ) { }
 
   ngOnInit() {
     const helper = new JwtHelperService();

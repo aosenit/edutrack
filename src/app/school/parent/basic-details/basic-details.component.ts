@@ -48,7 +48,7 @@ export class BasicDetailsComponent implements OnInit {
       LastName: ['', Validators.required],
       OtherName: [''],
       Sex: ['', Validators.required],
-      Occupation: [''],
+      Occupation: ['', Validators.required],
       ModeOfIdentification: ['', Validators.required],
       Status: false,
       IdentificationNumber: ['', Validators.required],

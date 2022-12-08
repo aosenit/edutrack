@@ -26,7 +26,7 @@
         <div class="tab-pane bg-white fade show active" id="pills-upload" role="tabpanel"
           aria-labelledby="pills-upload-tab">
     
-          <section class="list">
+          <section class="list" *ngIf="attendanceList?.length > 0">
             <table class="table table-borderless client-table">
               <thead>
                 <tr>
@@ -65,6 +65,10 @@
             </table>
     
           </section>
+
+          <div *ngIf="attendanceList?.length === 0">
+            <p>No attendace record found</p>
+          </div>
     
         </div>
         <div class="tab-pane bg-white w-100 br-10 fade " id="pills-record" role="tabpanel"

@@ -33,6 +33,7 @@ export class EmployeeDetailsComponent implements OnInit {
       if (!param.id) {
         this.populateEmployeeDetailsForm();
       } else {
+        this.sendChildName.emit('Employee Details');
         this.getProfileInformation();
 
       }
@@ -54,7 +55,7 @@ export class EmployeeDetailsComponent implements OnInit {
       EmploymentStatus: ['', Validators.required],
       HighestQualification: ['', Validators.required],
       JobTitle: ['', Validators.required],
-      DepartmentId: [''],
+      DepartmentId: ['', Validators.required],
       PayGrade: ['', Validators.required],
       EmploymentDate: ['', Validators.required],
       ResumptionDate: ['', Validators.required]

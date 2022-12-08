@@ -76,7 +76,7 @@ export class FeeComponentComponent implements OnInit {
         this.bankAccountList = data.payload;
       }
     }, error => {
-      this.notifyService.publishMessages('Banc Account creation failed', 'danger', 1);
+      // this.notifyService.publishMessages('Banc Account creation failed', 'danger', 1);
 
     });
   }
@@ -129,6 +129,9 @@ export class FeeComponentComponent implements OnInit {
         document.getElementById('mySubjectModal').click();
         this.componentForm.reset();
         this.getAllComponent();
+        } else {
+
+          this.notifyService.publishMessages(data.errors, 'danger', 1);
         }
     }, error => {
       this.notifyService.publishMessages(error.message, 'danger', 1);
@@ -142,7 +145,7 @@ export class FeeComponentComponent implements OnInit {
         this.components = data.payload;
       }
   }, error => {
-    this.notifyService.publishMessages(error.message, 'danger', 1);
+    // this.notifyService.publishMessages(error.message, 'danger', 1);
   });
   }
 
@@ -196,7 +199,7 @@ export class FeeComponentComponent implements OnInit {
         });
       }
   }, error => {
-    this.notifyService.publishMessages(error.message, 'danger', 1);
+    // this.notifyService.publishMessages(error.message, 'danger', 1);
   });
   }
 
@@ -222,6 +225,9 @@ export class FeeComponentComponent implements OnInit {
         document.getElementById('closeEditComponent').click();
         this.componentForm.reset();
         this.getAllComponent();
+        } else {
+
+          this.notifyService.publishMessages(data.errors, 'danger', 1);
         }
     }, error => {
       this.notifyService.publishMessages(error.message, 'danger', 1);

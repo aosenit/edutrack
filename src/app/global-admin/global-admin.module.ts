@@ -29,7 +29,8 @@ import { LaterThingsComponent } from './later-things/later-things.component';
     UsersComponent,
     GlobalAdminComponent,
     NewroleComponent,
-    LaterThingsComponent],
+    LaterThingsComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,

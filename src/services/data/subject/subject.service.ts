@@ -4,10 +4,11 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   addsubject: 'schtrack-learning/api/v1/Subject/NewSubject',
-  getallSubjects: 'schtrack-learning/api/v1/Subject/GetAllSubjects ',
+  addsubjectToClass: 'schtrack-learning/api/v1/ClassSubject/AddSubjectsToClass',
+  getallSubjects: 'schtrack-learning/api/v1/Subject/GetAllSubjects',
   // getsinglesubject: 'schtrack-learning/api/v1/Subject/GetAllSubjects ',
   getPaginatedSubject: 'schtrack-learning/api/v1/Subject/GetSubjects',
-
+  editsubject: 'schtrack-learning/api/v1/Subject/UpdateSubject'
 };
 
 @Injectable({
@@ -22,12 +23,11 @@ export class SubjectService {
   constructor(private http: HttpClient) { }
 
   addNewSubject(result) {
-    // const body = new FormData();
-    // body.append('ClassIds', result.ClassIds);
-    // body.append('Name', result.Name);
-
-    // body.append('IsActive', result.IsActive);
     const url = `${this.baseUrl + routes.addsubject}`;
+    return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+  addNewSubjectToClass(result) {
+    const url = `${this.baseUrl + routes.addsubjectToClass}`;
     return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -36,10 +36,22 @@ export class SubjectService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
+  getAllSubjectsNoPagination() {
+    const url = `${this.baseUrl + routes.getPaginatedSubject}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
 
   getPaginatedSubject(p, perpage) {
     const url = `${this.baseUrl + routes.getPaginatedSubject}?PageIndex=${p}&PageSize=${perpage}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+
+  updateSubjects(payload) {
+    const url = `${this.baseUrl + routes.editsubject}`;
+    return this.http.put(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 }

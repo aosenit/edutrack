@@ -1,0 +1,3575 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li >FinanceService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/services/data/finance/finance.service.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#baseUrl" >baseUrl</a>
+                            </li>
+                            <li>
+                                <a href="#baseUrl2" >baseUrl2</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ApproveRejectTransactionReceipt" >ApproveRejectTransactionReceipt</a>
+                            </li>
+                            <li>
+                                <a href="#createFee" >createFee</a>
+                            </li>
+                            <li>
+                                <a href="#createFeeGroup" >createFeeGroup</a>
+                            </li>
+                            <li>
+                                <a href="#createNewAccountClass" >createNewAccountClass</a>
+                            </li>
+                            <li>
+                                <a href="#createNewAccountType" >createNewAccountType</a>
+                            </li>
+                            <li>
+                                <a href="#createNewBankAccount" >createNewBankAccount</a>
+                            </li>
+                            <li>
+                                <a href="#createNewChartAccount" >createNewChartAccount</a>
+                            </li>
+                            <li>
+                                <a href="#createNewComponent" >createNewComponent</a>
+                            </li>
+                            <li>
+                                <a href="#createNewTransaction" >createNewTransaction</a>
+                            </li>
+                            <li>
+                                <a href="#generteInvoices" >generteInvoices</a>
+                            </li>
+                            <li>
+                                <a href="#getAccountClassById" >getAccountClassById</a>
+                            </li>
+                            <li>
+                                <a href="#getAccountTypeById" >getAccountTypeById</a>
+                            </li>
+                            <li>
+                                <a href="#getAccountTypesByAccountClass" >getAccountTypesByAccountClass</a>
+                            </li>
+                            <li>
+                                <a href="#getAccountTypewithId" >getAccountTypewithId</a>
+                            </li>
+                            <li>
+                                <a href="#getAllAccountClass" >getAllAccountClass</a>
+                            </li>
+                            <li>
+                                <a href="#getAllAccountType" >getAllAccountType</a>
+                            </li>
+                            <li>
+                                <a href="#getAllBankAccount" >getAllBankAccount</a>
+                            </li>
+                            <li>
+                                <a href="#getAllChartOfAccount" >getAllChartOfAccount</a>
+                            </li>
+                            <li>
+                                <a href="#getAllCretedInvoices" >getAllCretedInvoices</a>
+                            </li>
+                            <li>
+                                <a href="#getAllCretedInvoicesWithPagination" >getAllCretedInvoicesWithPagination</a>
+                            </li>
+                            <li>
+                                <a href="#getAllFeeGroup" >getAllFeeGroup</a>
+                            </li>
+                            <li>
+                                <a href="#getAllFees" >getAllFees</a>
+                            </li>
+                            <li>
+                                <a href="#getAllPendingTransactions" >getAllPendingTransactions</a>
+                            </li>
+                            <li>
+                                <a href="#getAllTransactionHistory" >getAllTransactionHistory</a>
+                            </li>
+                            <li>
+                                <a href="#getAllTransactions" >getAllTransactions</a>
+                            </li>
+                            <li>
+                                <a href="#getAllTransactionsAwaitingApproval" >getAllTransactionsAwaitingApproval</a>
+                            </li>
+                            <li>
+                                <a href="#getBankAccountById" >getBankAccountById</a>
+                            </li>
+                            <li>
+                                <a href="#getChartAccountByID" >getChartAccountByID</a>
+                            </li>
+                            <li>
+                                <a href="#getComponent" >getComponent</a>
+                            </li>
+                            <li>
+                                <a href="#getComponentById" >getComponentById</a>
+                            </li>
+                            <li>
+                                <a href="#getFeeGroupById" >getFeeGroupById</a>
+                            </li>
+                            <li>
+                                <a href="#getFeesById" >getFeesById</a>
+                            </li>
+                            <li>
+                                <a href="#getFiles" >getFiles</a>
+                            </li>
+                            <li>
+                                <a href="#getInvoicePaymentHistory" >getInvoicePaymentHistory</a>
+                            </li>
+                            <li>
+                                <a href="#getInvoices" >getInvoices</a>
+                            </li>
+                            <li>
+                                <a href="#getInvoicesById" >getInvoicesById</a>
+                            </li>
+                            <li>
+                                <a href="#getPaymentInvoices" >getPaymentInvoices</a>
+                            </li>
+                            <li>
+                                <a href="#getPendingInvoicePayment" >getPendingInvoicePayment</a>
+                            </li>
+                            <li>
+                                <a href="#getTransactionBYId" >getTransactionBYId</a>
+                            </li>
+                            <li>
+                                <a href="#updateAccountClassById" >updateAccountClassById</a>
+                            </li>
+                            <li>
+                                <a href="#updateAccountTypeById" >updateAccountTypeById</a>
+                            </li>
+                            <li>
+                                <a href="#updateBankAccountById" >updateBankAccountById</a>
+                            </li>
+                            <li>
+                                <a href="#updateChartAccountByID" >updateChartAccountByID</a>
+                            </li>
+                            <li>
+                                <a href="#updateComponentById" >updateComponentById</a>
+                            </li>
+                            <li>
+                                <a href="#UpdateFeeById" >UpdateFeeById</a>
+                            </li>
+                            <li>
+                                <a href="#UpdateFeeGroupByID" >UpdateFeeGroupByID</a>
+                            </li>
+                            <li>
+                                <a href="#updateSelectedInvoice" >updateSelectedInvoice</a>
+                            </li>
+                            <li>
+                                <a href="#updateTransactionReceipt" >updateTransactionReceipt</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/services/data/finance/finance.service.ts:62</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApproveRejectTransactionReceipt"></a>
+                    <span class="name">
+                        <span ><b>ApproveRejectTransactionReceipt</b></span>
+                        <a href="#ApproveRejectTransactionReceipt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ApproveRejectTransactionReceipt(transactionData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="310"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:310</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>transactionData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createFee"></a>
+                    <span class="name">
+                        <span ><b>createFee</b></span>
+                        <a href="#createFee"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createFee(newAccountData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="194"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:194</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newAccountData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createFeeGroup"></a>
+                    <span class="name">
+                        <span ><b>createFeeGroup</b></span>
+                        <a href="#createFeeGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createFeeGroup(feegroupdata)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:152</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>feegroupdata</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewAccountClass"></a>
+                    <span class="name">
+                        <span ><b>createNewAccountClass</b></span>
+                        <a href="#createNewAccountClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewAccountClass(newAccountData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:86</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newAccountData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewAccountType"></a>
+                    <span class="name">
+                        <span ><b>createNewAccountType</b></span>
+                        <a href="#createNewAccountType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewAccountType(newAccountData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:106</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newAccountData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewBankAccount"></a>
+                    <span class="name">
+                        <span ><b>createNewBankAccount</b></span>
+                        <a href="#createNewBankAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewBankAccount(newAccountData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newAccountData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewChartAccount"></a>
+                    <span class="name">
+                        <span ><b>createNewChartAccount</b></span>
+                        <a href="#createNewChartAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewChartAccount(newAccountData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newAccountData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewComponent"></a>
+                    <span class="name">
+                        <span ><b>createNewComponent</b></span>
+                        <a href="#createNewComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewComponent(componentData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="174"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:174</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>componentData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createNewTransaction"></a>
+                    <span class="name">
+                        <span ><b>createNewTransaction</b></span>
+                        <a href="#createNewTransaction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createNewTransaction(transactionData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="263"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:263</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>transactionData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generteInvoices"></a>
+                    <span class="name">
+                        <span ><b>generteInvoices</b></span>
+                        <a href="#generteInvoices"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>generteInvoices(newAccountData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="216"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:216</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>newAccountData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAccountClassById"></a>
+                    <span class="name">
+                        <span ><b>getAccountClassById</b></span>
+                        <a href="#getAccountClassById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAccountClassById(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:96</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAccountTypeById"></a>
+                    <span class="name">
+                        <span ><b>getAccountTypeById</b></span>
+                        <a href="#getAccountTypeById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAccountTypeById(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="120"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:120</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAccountTypesByAccountClass"></a>
+                    <span class="name">
+                        <span ><b>getAccountTypesByAccountClass</b></span>
+                        <a href="#getAccountTypesByAccountClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAccountTypesByAccountClass(accountClassId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="258"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:258</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>accountClassId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAccountTypewithId"></a>
+                    <span class="name">
+                        <span ><b>getAccountTypewithId</b></span>
+                        <a href="#getAccountTypewithId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAccountTypewithId(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="116"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:116</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllAccountClass"></a>
+                    <span class="name">
+                        <span ><b>getAllAccountClass</b></span>
+                        <a href="#getAllAccountClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllAccountClass()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:91</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllAccountType"></a>
+                    <span class="name">
+                        <span ><b>getAllAccountType</b></span>
+                        <a href="#getAllAccountType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllAccountType()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="111"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:111</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllBankAccount"></a>
+                    <span class="name">
+                        <span ><b>getAllBankAccount</b></span>
+                        <a href="#getAllBankAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllBankAccount(p, perpage)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="71"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:71</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>p</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>perpage</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllChartOfAccount"></a>
+                    <span class="name">
+                        <span ><b>getAllChartOfAccount</b></span>
+                        <a href="#getAllChartOfAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllChartOfAccount()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="135"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:135</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllCretedInvoices"></a>
+                    <span class="name">
+                        <span ><b>getAllCretedInvoices</b></span>
+                        <a href="#getAllCretedInvoices"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllCretedInvoices()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="226"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:226</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllCretedInvoicesWithPagination"></a>
+                    <span class="name">
+                        <span ><b>getAllCretedInvoicesWithPagination</b></span>
+                        <a href="#getAllCretedInvoicesWithPagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllCretedInvoicesWithPagination(p, perpage)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="231"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:231</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>p</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>perpage</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllFeeGroup"></a>
+                    <span class="name">
+                        <span ><b>getAllFeeGroup</b></span>
+                        <a href="#getAllFeeGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllFeeGroup()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="157"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:157</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllFees"></a>
+                    <span class="name">
+                        <span ><b>getAllFees</b></span>
+                        <a href="#getAllFees"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllFees()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="199"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:199</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllPendingTransactions"></a>
+                    <span class="name">
+                        <span ><b>getAllPendingTransactions</b></span>
+                        <a href="#getAllPendingTransactions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllPendingTransactions(StudentId)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="279"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:279</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>StudentId</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllTransactionHistory"></a>
+                    <span class="name">
+                        <span ><b>getAllTransactionHistory</b></span>
+                        <a href="#getAllTransactionHistory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllTransactionHistory()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="284"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:284</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllTransactions"></a>
+                    <span class="name">
+                        <span ><b>getAllTransactions</b></span>
+                        <a href="#getAllTransactions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllTransactions()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="269"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:269</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllTransactionsAwaitingApproval"></a>
+                    <span class="name">
+                        <span ><b>getAllTransactionsAwaitingApproval</b></span>
+                        <a href="#getAllTransactionsAwaitingApproval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllTransactionsAwaitingApproval()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="274"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:274</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBankAccountById"></a>
+                    <span class="name">
+                        <span ><b>getBankAccountById</b></span>
+                        <a href="#getBankAccountById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getBankAccountById(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="76"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:76</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getChartAccountByID"></a>
+                    <span class="name">
+                        <span ><b>getChartAccountByID</b></span>
+                        <a href="#getChartAccountByID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getChartAccountByID(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="140"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:140</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getComponent"></a>
+                    <span class="name">
+                        <span ><b>getComponent</b></span>
+                        <a href="#getComponent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getComponent()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="179"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:179</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getComponentById"></a>
+                    <span class="name">
+                        <span ><b>getComponentById</b></span>
+                        <a href="#getComponentById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getComponentById(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="184"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:184</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFeeGroupById"></a>
+                    <span class="name">
+                        <span ><b>getFeeGroupById</b></span>
+                        <a href="#getFeeGroupById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFeeGroupById(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="162"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:162</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFeesById"></a>
+                    <span class="name">
+                        <span ><b>getFeesById</b></span>
+                        <a href="#getFeesById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFeesById(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="204"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:204</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFiles"></a>
+                    <span class="name">
+                        <span ><b>getFiles</b></span>
+                        <a href="#getFiles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFiles(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="315"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:315</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInvoicePaymentHistory"></a>
+                    <span class="name">
+                        <span ><b>getInvoicePaymentHistory</b></span>
+                        <a href="#getInvoicePaymentHistory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInvoicePaymentHistory()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="236"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:236</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInvoices"></a>
+                    <span class="name">
+                        <span ><b>getInvoices</b></span>
+                        <a href="#getInvoices"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInvoices()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="252"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:252</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInvoicesById"></a>
+                    <span class="name">
+                        <span ><b>getInvoicesById</b></span>
+                        <a href="#getInvoicesById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInvoicesById(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="221"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:221</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPaymentInvoices"></a>
+                    <span class="name">
+                        <span ><b>getPaymentInvoices</b></span>
+                        <a href="#getPaymentInvoices"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPaymentInvoices()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="246"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:246</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPendingInvoicePayment"></a>
+                    <span class="name">
+                        <span ><b>getPendingInvoicePayment</b></span>
+                        <a href="#getPendingInvoicePayment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPendingInvoicePayment()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="241"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:241</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTransactionBYId"></a>
+                    <span class="name">
+                        <span ><b>getTransactionBYId</b></span>
+                        <a href="#getTransactionBYId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTransactionBYId(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="289"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:289</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateAccountClassById"></a>
+                    <span class="name">
+                        <span ><b>updateAccountClassById</b></span>
+                        <a href="#updateAccountClassById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateAccountClassById(updateDataForm)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>updateDataForm</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateAccountTypeById"></a>
+                    <span class="name">
+                        <span ><b>updateAccountTypeById</b></span>
+                        <a href="#updateAccountTypeById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateAccountTypeById(id, updateDataForm)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:125</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>updateDataForm</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateBankAccountById"></a>
+                    <span class="name">
+                        <span ><b>updateBankAccountById</b></span>
+                        <a href="#updateBankAccountById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateBankAccountById(id, updateDataForm)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="81"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:81</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>updateDataForm</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateChartAccountByID"></a>
+                    <span class="name">
+                        <span ><b>updateChartAccountByID</b></span>
+                        <a href="#updateChartAccountByID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateChartAccountByID(id, formBody)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:146</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>formBody</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateComponentById"></a>
+                    <span class="name">
+                        <span ><b>updateComponentById</b></span>
+                        <a href="#updateComponentById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateComponentById(id, formBody)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:189</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>formBody</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UpdateFeeById"></a>
+                    <span class="name">
+                        <span ><b>UpdateFeeById</b></span>
+                        <a href="#UpdateFeeById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>UpdateFeeById(id, formdata)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="210"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:210</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>formdata</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UpdateFeeGroupByID"></a>
+                    <span class="name">
+                        <span ><b>UpdateFeeGroupByID</b></span>
+                        <a href="#UpdateFeeGroupByID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>UpdateFeeGroupByID(id, bodyData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="168"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:168</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>bodyData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateSelectedInvoice"></a>
+                    <span class="name">
+                        <span ><b>updateSelectedInvoice</b></span>
+                        <a href="#updateSelectedInvoice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateSelectedInvoice(formBody)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="295"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:295</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>formBody</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTransactionReceipt"></a>
+                    <span class="name">
+                        <span ><b>updateTransactionReceipt</b></span>
+                        <a href="#updateTransactionReceipt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateTransactionReceipt(transactionData)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="301"
+                            class="link-to-prism">src/services/data/finance/finance.service.ts:301</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>transactionData</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseUrl"></a>
+                    <span class="name">
+                        <span ><b>baseUrl</b></span>
+                        <a href="#baseUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment.serverUrl</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/services/data/finance/finance.service.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="baseUrl2"></a>
+                    <span class="name">
+                        <span ><b>baseUrl2</b></span>
+                        <a href="#baseUrl2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>environment.demourl</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/services/data/finance/finance.service.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+
+const routes &#x3D; {
+  addBankAccount: &#x27;schtrack-finance/api/v1/BankAccount/NewBankAccount&#x27;,
+  getbankAccount: &#x27;schtrack-finance/api/v1/BankAccount/GetBankAccounts&#x27;,
+  getbankAccountwithId: &#x27;schtrack-finance/api/v1/BankAccount/GetBankAccount&#x27;,
+  udatebankAccountwithId: &#x27;schtrack-finance/api/v1/BankAccount/UpdateBankAccount&#x27;,
+  addAccountclass: &#x27;schtrack-finance/api/v1/AccountClass/NewAccountClass&#x27;,
+  getAccountclass: &#x27;schtrack-finance/api/v1/AccountClass/GetAccountClasses&#x27;,
+  getAccountclassByid: &#x27;schtrack-finance/api/v1/AccountClass/GetAccountClass&#x27;,
+  editAccountclassByid: &#x27;schtrack-finance/api/v1/AccountClass/UpdateAccountClass&#x27;,
+  addAccounttype: &#x27;schtrack-finance/api/v1/AccountType/NewAccountType&#x27;,
+  getAccountTypes: &#x27;schtrack-finance/api/v1/AccountType/GetAccountTypes&#x27;,
+  getAccountTypewithId: &#x27;schtrack-finance/api/v1/AccountType/GetAccountType&#x27;,
+  getAccountTypesbyId: &#x27;schtrack-finance/api/v1/AccountType/GetAccountTypes&#x27;,
+  editAccountTypesbyId: &#x27;schtrack-finance/api/v1/AccountType/UpdateAccountType&#x27;,
+  viewAccounttypesbyClass: &#x27;schtrack-finance/api/v1/AccountType/GetAccountTypes&#x27;,
+  createAccount: &#x27;schtrack-finance/api/v1/Account/NewAccount&#x27;,
+  getChartAccount: &#x27;schtrack-finance/api/v1/Account/GetAccounts&#x27;,
+  getChartAccountWithId: &#x27;schtrack-finance/api/v1/Account/GetAccount&#x27;,
+  editChartAccount: &#x27;schtrack-finance/api/v1/Account/UpdateAccount&#x27;,
+  addfeeGruop: &#x27;schtrack-finance/api/v1/FeeGroup/NewFeeGroup&#x27;,
+  getallfeeGruop: &#x27;schtrack-finance/api/v1/FeeGroup/GetFeeGroups&#x27;,
+  getfeeGruopById: &#x27;schtrack-finance/api/v1/FeeGroup/GetFeeGroup&#x27;,
+  updatefeeGruopById: &#x27;schtrack-finance/api/v1/FeeGroup/UpdateFeeGroup&#x27;,
+  createComponent: &#x27;schtrack-finance/api/v1/Component/NewComponent&#x27;,
+  fetchComponent: &#x27;schtrack-finance/api/v1/Component/GetComponents&#x27;,
+  fetchComponentwithId: &#x27;schtrack-finance/api/v1/Component/GetComponent&#x27;,
+  editComponent: &#x27;schtrack-finance/api/v1/Component/UpdateComponent&#x27;,
+  addNewFee: &#x27;schtrack-finance/api/v1/Fee/NewFee&#x27;,
+  viewAllfee: &#x27;schtrack-finance/api/v1/Fee/GetFees&#x27;,
+  viewfeeById: &#x27;schtrack-finance/api/v1/Fee/GetFee&#x27;,
+  editfeeById: &#x27;schtrack-finance/api/v1/Fee/UpdateFee&#x27;,
+  createInvoice: &#x27;schtrack-finance/api/v1/Invoice/GenerateInvoice&#x27;,
+  getAllInvoices: &#x27;schtrack-finance/api/v1/Invoice/GetAllInvoices&#x27;,
+  getInvoicepaymenthistory: &#x27;schtrack-finance/api/v1/Invoice/GetPaymentHistoryInvoices&#x27;,
+  getpendingInvoicepaymen: &#x27;schtrack-finance/api/v1/Invoice/GetPendingPaymentInvoices&#x27;,
+  getInvocesbyId: &#x27;schtrack-finance/api/v1/Invoice/GetInvoice&#x27;,
+  getpaymentinvoices: &#x27;schtrack-finance/api/v1/Invoice/GetPaymentInvoices&#x27;,
+  getinvoices: &#x27;schtrack-finance/api/v1/Invoice/GetInvoices&#x27;,
+  updateinvoices: &#x27;schtrack-finance/api/v1/Invoice/UpdateInvoiceSelection&#x27;,
+  createTransaction: &#x27;schtrack-finance/api/v1/Transaction/NewTransaction&#x27;,
+  viewAllTransaction: &#x27;schtrack-finance/api/v1/Transaction/GetAllTransactions&#x27;,
+  viewAwaitingApprovalTransaction: &#x27;schtrack-finance/api/v1/Transaction/GetAllAwaitingApprovalTransactions&#x27;,
+  viewPendingTransaction: &#x27;schtrack-finance/api/v1/Transaction/GetAllPendingTransactions&#x27;,
+  viewTransactionHistory: &#x27;schtrack-finance/api/v1/Transaction/GetTransactionHistory&#x27;,
+  editTransactionReciept: &#x27;schtrack-finance/api/v1/Transaction/UploadTransactionReceipt&#x27;,
+  rejectTransaction: &#x27;schtrack-finance/api/v1/Transaction/ApproveRejectTransaction&#x27;,
+  viewtransactionId: &#x27;schtrack-finance/api/v1/Transaction/GetTransaction&#x27;,
+  viewfile: &#x27;schtrack-finance/api/v1/Files/GetFile&#x27;,
+
+
+};
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class FinanceService {
+  baseUrl: string &#x3D; environment.serverUrl;
+  baseUrl2: string &#x3D; environment.demourl;
+
+  constructor(private http: HttpClient) { }
+
+  createNewBankAccount(newAccountData) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.addBankAccount}&#x60;;
+    return this.http.post(url, newAccountData,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllBankAccount(p, perpage) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getbankAccount}?PageIndex&#x3D;${p}&amp;PageSize&#x3D;${perpage}&#x60;;
+    return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getBankAccountById(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getbankAccountwithId}/${id}&#x60;;
+    return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  updateBankAccountById(id, updateDataForm) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.udatebankAccountwithId}/${id}&#x60;;
+    return this.http.put(url, updateDataForm, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  createNewAccountClass(newAccountData) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.addAccountclass}&#x60;;
+    return this.http.post(url, newAccountData,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllAccountClass() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getAccountclass}&#x60;;
+    return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAccountClassById(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getAccountclassByid}/${id}&#x60;;
+    return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  updateAccountClassById(updateDataForm) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.editAccountclassByid}&#x60;;
+    return this.http.put(url, updateDataForm, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  createNewAccountType(newAccountData) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.addAccounttype}&#x60;;
+    return this.http.post(url, newAccountData,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllAccountType() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getAccountTypes}&#x60;;
+    return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAccountTypewithId(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getAccountTypewithId}/${id}&#x60;;
+    return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+  getAccountTypeById(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getAccountTypesbyId}/${id}&#x60;;
+    return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  updateAccountTypeById(id, updateDataForm) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.editAccountTypesbyId}/${id}&#x60;;
+    return this.http.put(url, updateDataForm, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  createNewChartAccount(newAccountData) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.createAccount}&#x60;;
+    return this.http.post(url, newAccountData,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllChartOfAccount() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getChartAccount}&#x60;;
+    return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getChartAccountByID(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getChartAccountWithId}/${id}&#x60;;
+    return this.http.get(url, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+  updateChartAccountByID(id, formBody) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.editChartAccount}/${id}&#x60;;
+    return this.http.put(url, formBody, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+  createFeeGroup(feegroupdata) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.addfeeGruop}&#x60;;
+    return this.http.post(url, feegroupdata,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllFeeGroup() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getallfeeGruop}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getFeeGroupById(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getfeeGruopById}/${id}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+  UpdateFeeGroupByID(id, bodyData) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.updatefeeGruopById}/${id}&#x60;;
+    return this.http.put(url, bodyData, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+  createNewComponent(componentData) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.createComponent}&#x60;;
+    return this.http.post(url, componentData,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getComponent() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.fetchComponent}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getComponentById(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.fetchComponentwithId}/${id}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  updateComponentById(id, formBody) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.editComponent}/${id}&#x60;;
+    return this.http.put(url, formBody,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  createFee(newAccountData) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.addNewFee}&#x60;;
+    return this.http.post(url, newAccountData,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllFees() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.viewAllfee}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+  getFeesById(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.viewfeeById}/${id}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+  UpdateFeeById(id, formdata) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.editfeeById}/${id}&#x60;;
+    return this.http.put(url, formdata,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+  generteInvoices(newAccountData) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.createInvoice}&#x60;;
+    return this.http.post(url, newAccountData,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getInvoicesById(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getInvocesbyId}/${id}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllCretedInvoices() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getAllInvoices}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllCretedInvoicesWithPagination(p, perpage) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getAllInvoices}?PageIndex&#x3D;${p}&amp;PageSize&#x3D;${perpage}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getInvoicePaymentHistory() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getInvoicepaymenthistory}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getPendingInvoicePayment() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.viewPendingTransaction}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getPaymentInvoices() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getpaymentinvoices}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+  getInvoices() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.getinvoices}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+  getAccountTypesByAccountClass(accountClassId) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.viewAccounttypesbyClass}/${accountClassId}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  createNewTransaction(transactionData) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.createTransaction}&#x60;;
+    return this.http.post(url, transactionData, {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+
+  }
+
+  getAllTransactions() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.viewAllTransaction}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllTransactionsAwaitingApproval() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.viewAwaitingApprovalTransaction}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllPendingTransactions(StudentId) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.viewPendingTransaction}/${StudentId}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getAllTransactionHistory() {
+    const url &#x3D; &#x60;${this.baseUrl + routes.viewTransactionHistory}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+  getTransactionBYId(id) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.viewtransactionId}/${id}&#x60;;
+    return this.http.get(url,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+
+  updateSelectedInvoice(formBody) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.updateinvoices}&#x60;;
+    return this.http.put(url, formBody,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+
+  updateTransactionReceipt(transactionData) {
+    const body &#x3D; new FormData();
+    body.append(&#x27;TransactionId&#x27;, transactionData.TransactionId) ;
+    body.append(&#x27;Document&#x27;, transactionData.Document);
+    const url &#x3D; &#x60;${this.baseUrl + routes.editTransactionReciept}&#x60;;
+    return this.http.put(url, body,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+
+  ApproveRejectTransactionReceipt(transactionData) {
+    const url &#x3D; &#x60;${this.baseUrl + routes.rejectTransaction}&#x60;;
+    return this.http.put(url, transactionData,  {headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) }});
+  }
+
+getFiles(id) {
+  const url &#x3D; &#x60;${this.baseUrl + routes.viewfile}/${id}&#x60;;
+  return this.http.get(url, { headers: { Authorization: &#x27;Bearer &#x27; + localStorage.getItem(&#x27;access_token&#x27;) } });
+}
+
+ }
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'FinanceService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

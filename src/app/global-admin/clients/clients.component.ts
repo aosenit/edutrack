@@ -19,11 +19,12 @@ export class ClientsComponent implements OnInit {
   imagesrc: any;
   tableImg: any;
   bulkUpload: FormGroup;
+  schoolSelection: FormGroup;
   filename = null;
   profileInfo: any;
   searchString: string;
   p = 1;
-  itemsPerPage = 5;
+  itemsPerPage = 10;
   // DocumentTypes: number[] = [];
 
   constructor(
@@ -39,12 +40,14 @@ export class ClientsComponent implements OnInit {
       bulkFile: []
     });
     this.getAllSchools();
+    this.schoolSelection = this.fb.group({
+      school: ['', Validators.required]
+    });
   }
 
   getAllSchools() {
     this.schoolServices.getAllSchools(this.p, this.itemsPerPage).subscribe((data: any) => {
       if (data) {
-        // // ('all schools', data);
         this.clientList = data.payload;
         this.clientCount = data.totalCount;
         // this.clientList.reverse();
@@ -84,8 +87,13 @@ export class ClientsComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       // // (file);
-      this.filename = file.name;
-      this.bulkUpload.get('bulkFile').setValue(file);
+      if (file.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ) {
+        this.notifyService.publishMessages('Invalid format! Please select only excel file', 'danger', 1);
+        return;
+      } else {
+        this.filename = file.name;
+        this.bulkUpload.get('bulkFile').setValue(file);
+      }
       // this.DocumentTypes.push(0);
     }
   }
@@ -133,6 +141,19 @@ export class ClientsComponent implements OnInit {
 
       }
     });
+  }
+
+
+  selectSchool() {
+    console.log(this.schoolSelection.value);
+    const {school} = this.schoolSelection.value;
+    if ( school === 1) {
+      document.getElementById('close').click();
+      this.router.navigateByUrl('/admin/create-client');
+    } else {
+      document.getElementById('close').click();
+      this.router.navigateByUrl('/admin/group-of-schools');
+    }
   }
 
   clearData() {

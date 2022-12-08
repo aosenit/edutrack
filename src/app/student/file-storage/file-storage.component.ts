@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 import { ClassWorkService } from 'src/services/data/class-work/class-work.service';
 import { FilesService } from 'src/services/data/files/files.service';
@@ -15,19 +15,23 @@ id: any;
 allLessonNote: any;
 assignmentlist: any;
 classWorks: any;
+  assignmentDetails: any;
+  lessonNoteDetails: any;
+  classWorkDetails: any;
   constructor(
     private route: ActivatedRoute,
     private lessonNoteService: LessonNoteService,
     private classWorkService: ClassWorkService,
     private assignmentServie: AssignmentService,
-    private fileService: FilesService
+    private fileService: FilesService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.params.id;
     this.getLessNotes();
-    this.getClassWork();
-    this.getAssignments();
+    // this.getClassWork();
+    // this.getAssignments();
   }
 
   getLessNotes() {
@@ -61,6 +65,22 @@ classWorks: any;
     this.fileService.getFileUpload(fileId).subscribe((data: any) => {
       // (data);
     });
+  }
+
+  openLessonPreview(id, i) {
+    this.lessonNoteDetails = this.allLessonNote[i];
+    sessionStorage.setItem('student-assignment', JSON.stringify(this.lessonNoteDetails));
+    this.router.navigateByUrl('/student/preview/' + id );
+  }
+  openAssignmentPreview(id, i) {
+    this.assignmentDetails = this.assignmentlist[i];
+    sessionStorage.setItem('student-assignment', JSON.stringify(this.assignmentDetails));
+    this.router.navigateByUrl('/student/preview/' + id );
+  }
+  openClassWorkPreview(id, i) {
+    this.classWorkDetails = this.classWorks[i];
+    sessionStorage.setItem('student-assignment', JSON.stringify(this.classWorkDetails));
+    this.router.navigateByUrl('/student/preview/' + id );
   }
 
 }

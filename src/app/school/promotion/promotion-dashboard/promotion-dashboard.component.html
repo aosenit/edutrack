@@ -36,29 +36,22 @@
               
               <div class="col ">
                 <label for="class" class="fs-12 fw-6">Level</label>
-                <select name="" id="" class="form-control" >
-                  <option value="">Select Level</option>
-                  <option value="Secondary"> Secondary</option>
+                <select name="" id="" class="form-control " (change)="getClassBySectionId($event.target.value )" >
+                  <option value="">Select level</option>
+                  <option [value]="level?.id" *ngFor="let level of levels; let u = index " >{{level?.name}}</option>
+    
+    
                 </select>
               </div>
               <div class="col ">
                 <label for="class" class="fs-12 fw-6">Class</label>
-                <select name="" id="" class="form-control"  >
+                <select name="" id="" class="form-control " (change)="getPromotionHightlights( currentSesion, $event.target.value)">
                   <option value="">Select class</option>
-                  <option value="SS1">SS1</option>
-    
-    
-                </select>
-              </div>
-              <div class="col ">
-                <label for="class" class="fs-12 fw-6">Class Arm</label>
-                <select name="" id="" class="form-control"  >
-                  <option value="">Select arm</option>
-                  <option value="SS1">A</option>
-    
+                  <option [value]="class?.id" *ngFor="let class of classList; let u = index"> {{class.name}}{{class?.classGroup}}  </option>
     
                 </select>
               </div>
+              
               <!-- <button class="btn btn-outline-orange">Search</button> -->
             </div>
           </form>

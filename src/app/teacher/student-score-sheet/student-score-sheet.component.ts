@@ -136,6 +136,8 @@ export class StudentScoreSheetComponent implements OnInit {
         // (data.payload);
         this.studentList = data.payload;
         // // (this.classList);
+      } else {
+
       }
     });
 
@@ -166,6 +168,9 @@ export class StudentScoreSheetComponent implements OnInit {
         this.noData = false;
         this.displayData = true;
         this.getTotalSubjectInAClass();
+      } else {
+
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);

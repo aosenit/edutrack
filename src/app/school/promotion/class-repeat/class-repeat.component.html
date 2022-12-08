@@ -1,11 +1,5 @@
-<!-- <section class="add-student" >
-    <img src="assets/images/svg/add-student.svg" alt="new student" class="">
-    <p class="text-center fw-6 pt-5">It looks like you are yet to create a student.You can do <br> that by clicking any of the buttons below.
-        below.</p>
-    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-student']" >
-        Add New </button>
-   
-</section> -->
+
+
 
 
 
@@ -35,17 +29,17 @@
             <div class="row">
               
               <div class="col ">
-                <label for="class" class="fs-12 fw-6">Term</label>
-                <select name="" id="" class="form-control" >
+                <label for="class" class="fs-12 fw-6">Level</label>
+                <select name="" id="" class="form-control" (change)="getClasseInLevel($event.target.value)">
                   <option value="">Level</option>
-                  <option value="Secondary"> Secondary</option>
+                  <option [value]="level.id" *ngFor="let level of levels"> {{level.name}}</option>
                 </select>
               </div>
               <div class="col ">
-                <label for="class" class="fs-12 fw-6">From</label>
-                <select name="" id="" class="form-control"  >
+                <label for="class" class="fs-12 fw-6">Class</label>
+                <select name="" id="" class="form-control" (change)="sortByClass($event.target.value)"  >
                   <option value="">Select class</option>
-                  <option value="SS1">SS1</option>
+                  <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
     
     
                 </select>
@@ -59,8 +53,17 @@
       </div>
     
     
+      <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "
+      style="height: 85vh; width: 100%;" *ngIf="repeatList?.length === 0">
+      <div class="d-flex flex-column text-center">
+        <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+        <p class="fw-6 fs-24" style="color:#BAB9C1;">No data to display <br> Select level and class to display <br> record</p>
+      </div>
+      </div>
+
+      
     
-    <section class="list table-responsive mb-4">
+    <section class="list table-responsive mb-4" *ngIf="repeatList?.length > 0">
         <table class="table table-borderless client-table">
             <thead>
                 <tr>
@@ -71,16 +74,6 @@
                         </div>
                     </th>
                     <th scope="col" class="" >Student Name 
-                        <!-- <img src="assets/images/svg/table-sort.svg"
-                            alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-                        <!-- ================ DROPDOWN ==================== -->
-                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            
-                            <a class="dropdown-item fc-orange" href="#">All </a>
-                            <a class="dropdown-item" href="#">A - Z </a>
-                            <a class="dropdown-item" href="#">Z - A </a>
-                        </div> -->
                     </th>
                     <th scope="col">Student Number </th>
                    
@@ -93,7 +86,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="" >
+                <tr class="" *ngFor="let repeater of repeatList; let i = index" >
                     <td scope="row" class="check rounded-left">
                         <div class="custom-control custom-checkbox" >
                             <input type="checkbox" class="custom-control-input" id="">
@@ -104,58 +97,26 @@
                         
                         <div class="d-flex align-items-center">
                             <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
-                            <h6 class="fw-6 mb-0" >Master John Boyeja </h6>
+                            <h6 class="fw-6 mb-0" >{{repeater?.studentName}}</h6>
                         </div>
                     </td>
-                    <td>TAC/STN/2020/0001</td>
-                    <td>Primary 1A</td>
-                    <td class="">Nursery 1A</td>
-                    <td class="">30%</td>
+                    <td>{{repeater?.regNumber}}</td>
+                    <td>{{repeater?.level}}</td>
+                    <td class="">{{repeater?.previousClass}} </td>
+                    <td class=""> {{repeater?.average}} </td>
                     <td class="rounded-right cursor-pointer">
                         <img src="assets/images/svg/more-action.svg" alt="schools log" class="cursor-pointer dropdown-toggle drop-bg pt-3" type="button"
                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="dropdown-menu">
             
-                          <a class="dropdown-item " data-toggle="modal" data-target="#exampleModalCenterSubject"> Promote on trial</a>
-                          <a class="dropdown-item " data-toggle="modal" data-target="#exampleModalCenterWithdraw"> Withdraw</a>
+                          <a class="dropdown-item " data-toggle="modal" data-target="#exampleModalCenterSubject" (click)="selectedStudentId(repeater?.id, i)"> Promote on trial</a>
+                          <a class="dropdown-item " data-toggle="modal" data-target="#exampleModalCenterWithdraw" (click)="selectedStudentId(repeater?.id, i)"> Withdraw</a>
                          
                         </div>
                        
                       </td>
                 </tr>
-                <tr class="" >
-                    <td scope="row" class="check rounded-left">
-                        <div class="custom-control custom-checkbox" >
-                            <input type="checkbox" class="custom-control-input" id="">
-                            <label class="custom-control-label" for=""></label>
-                        </div>
-                    </td>
-                    <td class="user" >
-                        
-                        <div class="d-flex align-items-center">
-                            <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
-                            <h6 class="fw-6 mb-0" >Master John Boyeja </h6>
-                        </div>
-                    </td>
-                    <td>TAC/STN/2020/0001</td>
-                    <td>Primary 1A</td>
-                    <td class="">Nursery 1A</td>
-                    <td class="">30%</td>
-                    <td class="rounded-right cursor-pointer">
-                        <img src="assets/images/svg/more-action.svg" alt="schools log" class="cursor-pointer dropdown-toggle drop-bg pt-3" type="button"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="dropdown-menu">
-            
-                          <a class="dropdown-item " data-toggle="modal" data-target="#exampleModalCenterSubject"> Reinstate</a>
-                          <a class="dropdown-item " data-toggle="modal" data-target="#exampleModalCenterWithdraw"> Withdraw</a>
-
-                        </div>
-                       
-                      </td>
-                </tr>
                
-    
-                
     
     
     
@@ -185,7 +146,7 @@ aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
 
     <div class="modal-head mb-3 d-flex justify-content-between">
       <h6 class="modal-title fc-lblue ">Promote on trial</h6>
-      <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myModal" data-dismiss="modal" aria-label="Close"
+      <img src="assets/images/svg/close-modal.svg" id="closeTrialModal" alt="modal close button" id="myModal" data-dismiss="modal" aria-label="Close"
         class="close">
 
     </div>
@@ -193,17 +154,24 @@ aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
         <p>
             Please give a reason for promoting the student
         </p>
-      <form class="" [formGroup]="promoteOntrialForm">
-        <div class="form-group mb-3 mt-3 " >
-          <label for="level" class="fw-6">Reason </label>
-          <!-- <select id="level" class="form-control" formControlName="reason" >
-            <option value="" selected> Select Reason</option>
-            <option value="j" > Jagidijagan </option>
-
-          </select> -->
-          <input type="text" class="form-control" placeholder="Enter reason" formControlName="reason" >
+      <form class="" [formGroup]="promoteOntrialForm" (ngSubmit)="submitPromotionOnTrialReason()">
+        <div class="form-group mb-3">
+          <label for="class" class="fs-12 fw-6">Level</label>
+          <select name="" id="" class="form-control" (change)="getClasseInLevel($event.target.value)"
+            formControlName="level">
+            <option value="">Level</option>
+            <option [value]="level.id" *ngFor="let level of levels"> {{level.name}}</option>
+          </select>
         </div>
-       
+        <div class="form-group mb-3">
+          <label for="level" class="fw-6">Class </label>
+          <select name="" id="" class="form-control" formControlName="Class">
+            <option value="">Select class</option>
+            <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
+
+
+          </select>
+        </div>
         <div class="d-flex align-items-center justify-content-center mb-5" >
           <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
           <button class="btn btn-orange-two  px-5 mb-4 mt-3"[disabled]="promoteOntrialForm.invalid">Promote </button>
@@ -226,7 +194,7 @@ aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
   
       <div class="modal-head mb-3 d-flex justify-content-between">
         <h6 class="modal-title fc-lblue ">Withdraw</h6>
-        <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myModal" data-dismiss="modal" aria-label="Close"
+        <img src="assets/images/svg/close-modal.svg" id="closeWithdrawModal" alt="modal close button" id="myModal" data-dismiss="modal" aria-label="Close"
           class="close">
   
       </div>
@@ -234,14 +202,10 @@ aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
           <p>
             Please give a reason for withdrawaing the student         
          </p>
-        <form class="" [formGroup]="withdrawalForm">
+        <form class="" [formGroup]="withdrawalForm" (ngSubmit)="submitWithDrawalReason()">
           <div class="form-group mb-3 mt-3 " >
             <label for="level" class="fw-6">Reason </label>
-            <select id="level" class="form-control" formControlName="reason" >
-              <option value="" selected> Select Reason</option>
-              <option value="j" > Jagidijagan </option>
-  
-            </select>
+           <input type="text" class="form-control" formControlName="reason">
           </div>
          
           <div class="d-flex align-items-center justify-content-center mb-5" >

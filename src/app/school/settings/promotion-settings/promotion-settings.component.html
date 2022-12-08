@@ -15,9 +15,13 @@
         <a class="nav-link active" id="pills-department-tab" data-toggle="pill" href="#pills-department" role="tab"
           aria-controls="pills-department" aria-selected="true">Promotion</a>
       </li>
-      <li class="nav-item mr-5">
+      <li class="nav-item mr-5" (click)="getWithdrawalSetups()">
         <a class="nav-link" id="pills-title-tab" data-toggle="pill" href="#pills-title" role="tab"
           aria-controls="pills-title" aria-selected="false">Withdrawal</a>
+      </li>
+      <li class="nav-item mr-5" (click)="getTerminalClass()">
+        <a class="nav-link" id="pills-terminal-tab" data-toggle="pill" href="#pills-terminal" role="tab"
+          aria-controls="pills-terminal" aria-selected="false">Terminal Classes</a>
       </li>
 
 
@@ -29,90 +33,151 @@
 </div>
 
 
-<div class="tab-content bg-white p-5 mb-5" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-department" role="tabpanel" aria-labelledby="pills-department-tab">
+<div class="tab-content " id="pills-tabContent">
+  <div class="tab-pane fade show active bg-white p-5 mb-5" id="pills-department" role="tabpanel"
+    aria-labelledby="pills-department-tab">
 
 
 
 
-    <form>
-        <div class="form-row mb-4">
+    <form [formGroup]="promotionForm" (ngSubmit)="creationPromotionSetup()">
+      <div class="form-row mb-4">
 
-            <div class="col-md-6 col-sm-12">
-                <p for="">Preferred Promotion Method <span class="text-danger">*</span></p>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" class="custom-control-input" id="customControlValidation1" name="type-stacked"
-                    required>
-                  <label class="custom-control-label" for="customControlValidation1">Based on terms completed</label>
-                </div>
-                <div class="custom-control custom-radio custom-control-inline">
-                  <input type="radio" class="custom-control-input" id="customControlValidation2" name="type-stacked"
-                    required>
-                  <label class="custom-control-label" for="customControlValidation2">Based On School Session</label>
-                </div>
-              </div>
-
-          <div class="col-md-6 col-sm-12">
-            <p for="">Promotion Type <span class="text-danger">*</span></p>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="customControlValidation3" name="type-stacked"
-                required>
-              <label class="custom-control-label" for="customControlValidation3">Manual Promotion</label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-              <input type="radio" class="custom-control-input" id="customControlValidation4" name="type-stacked"
-                required>
-              <label class="custom-control-label" for="customControlValidation4">Automatic Promotion</label>
-            </div>
+        <div class="col-md-6 col-sm-12">
+          <p for="">Preferred Promotion Method <span class="text-danger">*</span></p>
+          <div class="custom-control custom-radio custom-control-inline"
+            *ngFor="let method of promotionMethods; let i = index">
+            <input type="radio" class="custom-control-input" id="customControlValidation{{i}}" name="promotionmethod"
+              [value]="method.val"
+              [checked]="method.val"
+               formControlName="promotionmethod" required>
+            <label class="custom-control-label" for="customControlValidation{{i}}">{{method.name}}</label>
           </div>
 
         </div>
-        
-        <div class="form-row mb-4">
-            <div class="col-md-6 col-sm-12">
-                <label for="average">Minimum Cummulative Average for promotion  <span class="text-danger">*</span></label>
-                <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                      <div class="input-group-text">%</div>
-                    </div>
-                    <input type="number" class="form-control" id="average" placeholder="50">
-                    
-                  </div>
-            </div>
-            <div class="col-md-6 col-sm-12">
-              
-            </div>
-        </div>
 
-        <div class="d-flex justify-content-center align-items-center">
-            <button class="btn btn-orange-two px-5 mb-4 mt-3" > Save settings </button>
+        <div class="col-md-6 col-sm-12">
+          <p for="">Promotion Type <span class="text-danger">*</span></p>
+          <div class="custom-control custom-radio custom-control-inline"
+            *ngFor="let types of promotionTypes; let i = index">
+            <input type="radio" class="custom-control-input" id="customControlValidations{{i}}" name="promotiontype"
+              [value]="types.val"
+              [checked]="types.val"
+               formControlName="promotiontype" required>
+
+            <label class="custom-control-label" for="customControlValidations{{i}}">{{types.name}}</label>
+          </div>
 
         </div>
+
+      </div>
+
+      <div class="form-row mb-4">
+        <div class="col-md-6 col-sm-12">
+          <label for="average">Minimum Cummulative Average for promotion <span class="text-danger">*</span></label>
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">%</div>
+            </div>
+            <input type="number" class="form-control" id="average" placeholder="50" formControlName="promotionscore"
+              required>
+
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center align-items-center">
+        <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="promotionForm.invalid"> Save settings </button>
+
+      </div>
     </form>
   </div>
 
-  <div class="tab-pane fade " id="pills-title" role="tabpanel" aria-labelledby="pills-title-tab">
-    <form>
-       
-        
-        <div class="row ">
-            <div class="col-md-6 col-sm-12  mb-4">
-                <label for="repeats">Maximum number of repeats per student  <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="repeats" placeholder="Enter number. E.g 2"
-                (keypress)="allowNumbersOnly($event)">
-            </div>
-            <div class="col-md-6 col-sm-12 mb-4">
-                <label for="">Withdraw Reasons  <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Jagidijagan">
+  <div class="tab-pane fade bg-white p-5 mb-5 " id="pills-title" role="tabpanel" aria-labelledby="pills-title-tab">
+    <form [formGroup]="withdrawalForm" (ngSubmit)="createWithdrawalMethod()">
 
-            </div>
+
+      <div class="row ">
+        <div class="col-md-6 col-sm-12  mb-4">
+          <label for="repeats">Maximum number of repeats per student <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="repeats" placeholder="Enter number. E.g 2"
+            formControlName="maxrepeat" (keypress)="allowNumbersOnly($event)">
         </div>
 
-        <div class="d-flex justify-content-center align-items-center">
-            <button class="btn btn-orange-two px-5 mb-4 mt-3" > Save settings </button>
+      </div>
 
-        </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="withdrawalForm.invalid"> Save settings </button>
+
+      </div>
     </form>
+  </div>
+
+
+  <div class="tab-pane fade " id="pills-terminal" role="tabpanel" aria-labelledby="pills-terminal-tab">
+    <section class="list table-responsive mb-4">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col">Sequence </th>
+            <th scope="col" class=""> Name
+
+            </th>
+            <th scope="col">Level </th>
+            <th scope="col">Terminal </th>
+
+
+
+
+          </tr>
+        </thead>
+        <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+          <tr class="pb-1 drag" *ngFor="let class of terminalClasses; let i = index" cdkDrag cdkDragLockAxis="y">
+            <td>
+              <div class="d-flex align-items-center">
+                <svg class="bi bi-list handle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd"
+                    d="M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z"
+                    clip-rule="evenodd" />
+                </svg>
+
+                <span class="ml-3">{{i + 1}}</span>
+              </div>
+            </td>
+            <td class="user">
+
+              <div class="d-flex align-items-center">
+                <h6 class="fw-6 mb-0">{{class.name}} </h6>
+              </div>
+            </td>
+            <td>{{class.section}}</td>
+            <td scope="row" class=" rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" value="class.isTerminal" id="{{i}}"
+                  (change)="setTerminal($event.target.checked, i)"
+                  [checked]="class.isTerminal === true"
+                  >
+                <label class="custom-control-label" for="{{i}}"></label>
+              </div>
+            </td>
+
+
+          </tr>
+
+        </tbody>
+      </table>
+
+
+      <div class="d-flex justify-content-end align-items-center">
+        <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="saveArrangement()"> Save </button>
+
+      </div>
+
+    </section>
   </div>
 
 

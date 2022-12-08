@@ -8,7 +8,9 @@ const routes = {
   getstaffbyid: 'schtrack-auth/api/v1/Staff/GetStaffById',
   updatestaffbyid: 'schtrack-auth/api/v1/Staff/UpdateStaff',
   deletestaff: 'schtrack-auth/api/v1/Staff/DeleteStaff',
-  staffSignature: 'schtrack-auth/api/v1/Staff/GetStaffNameAndSignatureByUserId'
+  staffSignature: 'schtrack-auth/api/v1/Staff/GetStaffNameAndSignatureByUserId',
+  getBulkDdownload: 'schtrack-auth/api/v1/Staff/GetStaffsExcelSheet',
+  bulkUpload: 'schtrack-auth/api/v1/Staff/BulkAddStaff'
 };
 
 
@@ -82,7 +84,7 @@ export class StaffService {
       body.append('EducationExperienceVMs[' + i + '].endDate', EducationExperienceVMs[i].endDate);
     }
     const url = `${this.baseUrl + routes.addstaff}`;
-    
+
     // (body);
     return this.http.post(url, body, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
@@ -247,5 +249,21 @@ export class StaffService {
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
+pe
+  downloadSampleBulkSheet() {
+    const url = `${this.baseUrl + routes.getBulkDdownload}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  uploadBulkDocument(payload) {
+    const body = new FormData();
+    body.append('File', payload.Document);
+
+    const url = `${this.baseUrl + routes.bulkUpload}`;
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+  
 
 }

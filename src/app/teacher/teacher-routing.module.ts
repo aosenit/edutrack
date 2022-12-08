@@ -15,6 +15,7 @@ import { GradingComponent } from './grading/grading.component';
 import { MailReportCardComponent } from './mail-report-card/mail-report-card.component';
 import { MarkAttendanceComponent } from './mark-attendance/mark-attendance.component';
 import { ReportCardComponent } from './report-card/report-card.component';
+import { ReportComponent } from './report/report.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ScoreSheetDetailsPageComponent } from './score-sheet-details-page/score-sheet-details-page.component';
 import { ScoreSheetComponent } from './score-sheet/score-sheet.component';
@@ -55,6 +56,7 @@ const routes: Routes = [
       { path: 'subject-attendance', component: SubjecAttendanceComponent },
       { path: 'class-attendance', component: ClassAttendanceComponent },
       { path: 'mark-attendance/:id', component: MarkAttendanceComponent },
+      {path: 'report', component: ReportComponent}
     ]
   }
 ];

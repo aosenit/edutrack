@@ -18,6 +18,8 @@ import { MediaComponent } from './media/media.component';
     ReactiveFormsModule, FormsModule,
     HttpClientModule,
     CreateClientRoutingModule
+  ], exports: [
+    ProfileInformationComponent, ContactDetailComponent, ContactPersonComponent, MediaComponent
   ]
 })
 export class CreateClientModule { }

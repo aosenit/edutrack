@@ -18,6 +18,8 @@ export class NewRoleRecordComponent implements OnInit {
     permissions: [],
 
   };
+  prefillPermission: any;
+  checkBox = false;
 
 
   constructor(
@@ -78,7 +80,6 @@ export class NewRoleRecordComponent implements OnInit {
     // (event, id);
     if (event === true) {
       this.roleData.permissions.push(id);
-      // (this.roleData.permissions);
     } else {
       const index = this.roleData.permissions.indexOf(id);
       if (index > -1) {
@@ -86,12 +87,6 @@ export class NewRoleRecordComponent implements OnInit {
         // (this.roleData.permissions);
       }
     }
-    this.route.params.subscribe((param: Params) => {
-      if (!param.id) {
-      } else {
-
-      }
-    });
   }
 
   createRoles() {
@@ -105,7 +100,7 @@ export class NewRoleRecordComponent implements OnInit {
     // // (this.roleData);
     this.adminService.createRoles(result).subscribe((data: any) => {
       // // (data);
-      this.notifyService.publishMessages('Roles created successfully', 'info', 1);
+      this.notifyService.publishMessages('Role created successfully', 'info', 1);
       this.router.navigateByUrl('/school/settings/account-settings');
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -117,9 +112,8 @@ export class NewRoleRecordComponent implements OnInit {
       if (data.hasErrors === false) {
           // (data.payload);
           this.roleData.name = data.payload.roleName;
-          // this.roleData.permissions = data.payload.permission;
-
-          const tires = [];
+          this.prefillPermission = data.payload.permissions;
+          const roleList = [];
 
           from(this.allRoles)
           .pipe(
@@ -129,17 +123,27 @@ export class NewRoleRecordComponent implements OnInit {
             mergeMap(group => zip(of(group.key), group.pipe(toArray())))
           )
           .subscribe(xy => {
-            // ('levels', ...xy);
 
-            tires.push(xy);
+            roleList.push(xy);
           });
-          const newList2 = tires;
-          // // (newList2);
+          const newList2 = roleList;
           // tslint:disable-next-line:prefer-for-of
-          // for (let i = 0; i < newList2.length; i++) {
-          //   // (newList2[i][0]);
-          //   if (newList2[i][0] && newList2[i][1].id === )
-          // }
+          for (let i = 0; i < newList2.length; i++) {
+              const nextiteration = newList2[i][1];
+              // tslint:disable-next-line:prefer-for-of
+              for (let index = 0; index < nextiteration.length; index++) {
+              // tslint:disable-next-line:forin
+              for (const key in this.prefillPermission) {
+                if (this.newList[i][1][index].id === this.prefillPermission[key].id) {
+
+                  this.newList[i][1][index].checked = true;
+                  this.roleData.permissions.push(this.prefillPermission[key].id);
+
+                 }
+              }
+
+            }
+          }
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
 
@@ -159,17 +163,23 @@ export class NewRoleRecordComponent implements OnInit {
     const  permissionIds = permissions.map((i) => Number(i));
     // (permissionIds);
     const result = {
-      name,
+      roleId: parseInt(this.roleId),
       permissionIds
     };
-    // (result);
-    // this.adminService.createRoles(result).subscribe((data: any) => {
-    //   // // (data);
-    //   this.notifyService.publishMessages('Roles created successfully', 'info', 1);
-    //   this.router.navigateByUrl('/school/account-settings');
-    // }, error => {
-    //   this.notifyService.publishMessages(error.errors, 'danger', 1);
-    // });
+    // console.log(result);
+    this.adminService.updateRoles(result).subscribe((data: any) => {
+      // // (data);
+      if (data.hasErrors === false) {
+        this.notifyService.publishMessages('Role successfully updated', 'info', 1);
+        this.router.navigateByUrl('/school/settings/account-settings');
+
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+    });
   }
 
 

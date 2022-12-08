@@ -3,12 +3,9 @@ import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-// const routes = {
-//   addschoolLevel: 'schtrack-auth/api/v1/SchoolSection/AddSection',
-//   getallSchoolLevels: 'schtrack-auth/api/v1/SchoolSection/GetAllSections',
-//   updateclassarm: 'ClassArm/UpdateClassArm',
-//   deleteclassarm: 'ClassArm/DeleteClassArm'
-// };
+const routes = {
+  editlevel: 'schtrack-auth/api/v1/SchoolSection/UpdateSection'
+};
 
 @Injectable({
   providedIn: 'root'
@@ -20,25 +17,24 @@ export class SchoolSectionService {
   constructor(private http: HttpClient) { }
 
   addSection(Name) {
-    return this.http.post(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', Name, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') } });
+    return this.http.post(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/AddSection', Name, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getSection() {
-    return this.http.get(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/GetAllSections', { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') } });
+    return this.http.get(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/GetAllSections', { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
-  getSectionById(id){
-    return this.http.get(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/GetSectionById/' + id, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') } });
+  getSectionById(id) {
+    return this.http.get(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/GetSectionById/' + id, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  updateSection(result) {
-    // const body = new FormData();
-    // body.append('Id', id);
-    // body.append('Name', name);
-    return this.http.put(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/UpdateSection', result, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') } });
+  updateSection(id, result) {
+    const url = `${this.baseUrl + routes.editlevel}/${id}`;
+    return this.http.put(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
   }
 
   deleteSection(id) {
-    return this.http.delete(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/DeleteSection/' + id, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem('access_token') } });
+    return this.http.delete(this.baseUrl + 'schtrack-auth/api/v1/SchoolSection/DeleteSection/' + id, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
   // addlevel(levelForm) {
   //   const url = `${this.baseUrl + routes.addschoolLevel}`;
@@ -51,4 +47,5 @@ export class SchoolSectionService {
   //   return this.http.get(url, { headers: { tenantId } });
 
   // }
+  
 }

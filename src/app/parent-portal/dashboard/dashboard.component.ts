@@ -126,7 +126,6 @@ export class DashboardComponent implements OnInit  {
     this.getAllSubjects();
     this.getSubjectAttendance();
 
-
     this.assignmentCount = 0;
   }
 
@@ -207,12 +206,14 @@ export class DashboardComponent implements OnInit  {
   }
 
   getClassAttendanceForStudent() {
-    this.parentService.getClassAttendance(this.wardDetail.id, this.wardDetail.classID).subscribe((data: any) => {
+    this.parentService.getClassAttendance(this.wardDetail.id, this.wardDetail.classID, '','').subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.classAttendanceList = data.payload;
       }
     });
   }
+
+  
 
   createLineChart(dashboardData: any) {
     const keys = [];

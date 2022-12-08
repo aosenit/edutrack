@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AttendanceService } from 'src/services/data/attendance/attendance.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 
 @Component({
   selector: 'app-student-attendance',
@@ -15,7 +16,9 @@ export class StudentAttendanceComponent implements OnInit {
 
 
   constructor(
-    private attendance: AttendanceService
+    private attendance: AttendanceService,
+    private notifyService: NotificationsService,
+
   ) { }
 
   ngOnInit() {
@@ -42,6 +45,9 @@ export class StudentAttendanceComponent implements OnInit {
     this.attendance.getSubjectAttendance(this.studentDetails.sub).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.attendanceList = data.payload;
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     });
   }
@@ -55,6 +61,9 @@ export class StudentAttendanceComponent implements OnInit {
           // (AttendanceList[i]);
           this.classAttendanceList = AttendanceList[i].attendanceClassVms;
         }
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     });
   }

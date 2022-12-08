@@ -313,3 +313,14 @@ align-items: center;
 
 color: #111118;
 }
+
+
+@media print {
+    button {
+      display: none;
+    }
+
+    
+
+    
+  }

@@ -42,7 +42,7 @@
 
              <div *ngIf="profileForm.controls.WebsiteAddress.touched && profileForm.controls.WebsiteAddress.errors" class="error">
               <small *ngIf="profileForm.controls.WebsiteAddress.errors.required" class="text-danger">Field is required</small>
-              <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+              <small *ngIf="profileForm.controls.WebsiteAddress.errors.pattern" class="text-danger">Invalid URL</small>
             </div>
           </div>
 
@@ -54,7 +54,7 @@
             placeholder="Enter school username" formControlName="Username" required>
              <div *ngIf="profileForm.controls.Username.touched && profileForm.controls.Username.errors" class="error">
               <small *ngIf="profileForm.controls.Username.errors.required" class="text-danger">Field is required</small>
-              <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+              <small *ngIf="profileForm.controls.Username.errors.cannotContainSpace" class="text-danger">User name cannot contain space </small>
             </div>
           </div>
 

@@ -7,6 +7,7 @@ const routes = {
   uploadPeriod : 'schtrack-learning/api/v1/TimeTable/UploadPeriod',
   getPeriods : 'schtrack-learning/api/v1/TimeTable/GetPeriods',
   addTimeTableCell: 'schtrack-learning/api/v1/TimeTable/AddNewTimetableCell',
+  addTimeTableBulk: 'schtrack-learning/api/v1/TimeTable/AddTimetableCells',
   getTableforteacher: 'schtrack-learning/api/v1/TimeTable/GetTimetableForTeacher',
   getTableforTeacherByDay: 'schtrack-learning/api/v1/TimeTable/GetAllClassesForTeacherByDay',
   getTableforClassByDay: 'schtrack-learning/api/v1/TimeTable/GetAllClassesForClassToday',
@@ -56,6 +57,11 @@ export class TimeTableService {
     return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
+  AddTimeTableCellBulk(result) {
+    const url = `${this.baseUrl + routes.addTimeTableBulk}`;
+    return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
+
   getTimeTableForTeacher() {
     const tenantId = '1'; // just a temporary header till email services is ready
 
@@ -68,7 +74,7 @@ export class TimeTableService {
     // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getTableforClassByClassId}`;
-    
+
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -76,7 +82,7 @@ export class TimeTableService {
     // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getTableforClassByClassId}?classId=${id}`;
-    
+
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -98,7 +104,7 @@ export class TimeTableService {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getNextClassesforTeacherByDay}?teacherId=${teacherId}&day=${day}`;
-    
+
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -106,7 +112,7 @@ export class TimeTableService {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getNextClassesforClassByDay}?classid=${classid}&day=${day}`;
-    
+
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

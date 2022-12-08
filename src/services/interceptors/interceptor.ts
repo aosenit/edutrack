@@ -52,7 +52,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                         }
                         case 400: {
                             this.errorMessage = 'An Error Occured While Processing Your Request. Please Try Again';
-                            if (error.error.error == "invalid_grant") {
+                            if (error.error.error == "invalid_grant" || "access_denied") {
                                 this.notification.publishMessages(error.error['errorDescription'], 'danger', 1)
                             } else {
                                 this.notification.publishMessages(this.errorMessage, 'danger', 1)

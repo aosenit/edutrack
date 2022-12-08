@@ -17,6 +17,7 @@ export class AssignmentsComponent implements OnInit {
   assignmentCount: number;
   changetext: any;
   assignment = {};
+  selectedSubject: any;
 
   constructor(
     private assignmentService: AssignmentService,
@@ -76,8 +77,15 @@ export class AssignmentsComponent implements OnInit {
     }
   }
 
-  getElementId(event) {
-    // (event);
+  getElementId(event, i) {
+    if (event === true) {
+      this.view = true;
+      this.selectedSubject = this.assignmentLists[i];
+      this.clipnote = false;
+    } else {
+      this.view = false;
+      this.clipnote = true;
+    }
   }
 
 }

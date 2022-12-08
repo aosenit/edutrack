@@ -251,4 +251,26 @@ color: #243C67;
   grid-template-columns: 1fr;
 }
 
+
+
+.modal-head {
+  padding: 20px 40px;
+  background: #EBF0F5;
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+
+
+.modal-content {
+  border-radius: 0 !important;
+  border: none;
+  position: relative;
+
+}
+
+.close {
+  cursor: pointer;
+}
+
 }

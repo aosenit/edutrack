@@ -6,6 +6,7 @@ import { ResultService } from 'src/services/data/result/result.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { PromotionService } from 'src/services/data/promotion/promotion.service';
 // import * as $ from 'jquery';
 declare var $: any;
 
@@ -36,6 +37,9 @@ export class SchoolGradeBookComponent implements OnInit {
   selectedTermId: any;
   studentBehaviour: any;
   selectedStudentId: any;
+  allResultStatus: any;
+  curSessionId: any;
+  allApproved = false;
 
 
 
@@ -46,7 +50,8 @@ export class SchoolGradeBookComponent implements OnInit {
     private resultService: ResultService,
     private notifyService: NotificationsService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private promotion: PromotionService
 
 
 
@@ -56,7 +61,7 @@ export class SchoolGradeBookComponent implements OnInit {
 
   ngOnInit() {
 
-   
+
 
     this.getCurrentSesion();
     this.generateGradeSetup();
@@ -69,13 +74,14 @@ export class SchoolGradeBookComponent implements OnInit {
     this.rejectionForm = this.fb.group({
       headTeacherRejectionComment: ['', Validators.required]
     });
-  }
-
-  showToolTip() {
-    $('[data-toggle=tooltip]').tooltip('show');
-    // $('[data-toggle="tooltip"]').tooltip({placement: 'top'});
 
   }
+
+  // showToolTip() {
+  //   $('[data-toggle=tooltip]').tooltip('show');
+  //   $('[data-toggle="tooltip"]').tooltip({placement: 'top'});
+
+  // }
 
   generateGradeSetup() {
     this.assessmentService.getAllGradeSetupForSchool().subscribe((data: any) => {
@@ -90,6 +96,7 @@ export class SchoolGradeBookComponent implements OnInit {
     this.assessmentService.getCurrentSession().subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.sessions = data.payload;
+        this.curSessionId = data.payload.id;
         this.terms = data.payload.terms;
       }
     });
@@ -141,6 +148,7 @@ export class SchoolGradeBookComponent implements OnInit {
   selectedTerm(event) {
     this.termName = this.terms[event];
     this.selectedTermId = this.terms[event].sequenceNumber;
+    this.getAllClassesResultWithApprovalStatus();
 
 
    }
@@ -189,6 +197,10 @@ export class SchoolGradeBookComponent implements OnInit {
       // (data);
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result approved', 'success', 1);
+        document.getElementById('closeModel').click();
+        location.reload();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
 
       }
     }, error => {
@@ -216,6 +228,11 @@ export class SchoolGradeBookComponent implements OnInit {
       // (data);
       if (data.hasErrors === false) {
         this.notifyService.publishMessages('Result rejected', 'success', 1);
+        document.getElementById('closeModel').click();
+        location.reload();
+
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
 
       }
     }, error => {
@@ -238,9 +255,6 @@ export class SchoolGradeBookComponent implements OnInit {
 
       this.router.navigateByUrl('/school/student-sheet/' + this.selectedStudentId);
     }, 2000);
-
-
-
     // tslint:disable-next-line:max-line-length
     this.resultService.getStudentBehviour(this.sessions.id, this.selectedTermId, this.Classid, this.selectedStudentId ).subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -254,6 +268,52 @@ export class SchoolGradeBookComponent implements OnInit {
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
 
+    });
+  }
+
+  getAllClassesResultWithApprovalStatus() {
+    this.resultService.GetAllClassResultApprovalStatus(this.curSessionId, this.selectedTermId).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        console.log(res);
+        this.allResultStatus = res.payload;
+        // tslint:disable-next-line:prefer-for-of
+        for (let index = 0; index < this.allResultStatus.length; index++) {
+          if ( this.allResultStatus[index].isApproved === false) {
+            console.log(`${this.allResultStatus[index].isApproved} is still false`);
+            return;
+
+            } else {
+            this.allApproved = true;
+
+          }
+
+        }
+
+      }
+    });
+  }
+
+  applyForPromotion() {
+    this.promotion.submitAllResultsForPromotion('').subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.performActualPromotion(res.payload);
+      } else {
+        this.notifyService.publishMessages(res.errors, 'danger', 1);
+
+      }
+    });
+  }
+
+  performActualPromotion(data) {
+    this.promotion.curateActualPromotion(data).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        console.log(res);
+        this.notifyService.publishMessages('Successful', 'success', 1);
+
+      } else {
+        this.notifyService.publishMessages(res.errors, 'danger', 1);
+
+      }
     });
   }
 

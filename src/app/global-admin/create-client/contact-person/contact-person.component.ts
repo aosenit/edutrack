@@ -38,7 +38,8 @@ export class ContactPersonComponent implements OnInit {
     this.contactPersonForm = this.fb.group({
       ContactFirstName : ['', Validators.required],
       ContactLastName: ['', Validators.required],
-      ContactPhoneNo: ['', [Validators.required, Validators.minLength(11), Validators.pattern('^[0-9]{0,11}$')]],
+      ContactEmailPassword : ['', Validators.required],
+      ContactPhoneNo: ['', [Validators.required, Validators.minLength(11), Validators.pattern('(0[7-9][0-1][0-9]{8})|(0[1-4][0-9]{7})+$')]],
       ContactEmail: ['', [Validators.email, Validators.required]]
     });
   }
@@ -61,6 +62,7 @@ export class ContactPersonComponent implements OnInit {
     this.contactPersonForm.patchValue({
           ContactFirstName: payload.contactFirstName,
           ContactLastName: payload.contactLastName,
+          ContactEmailPassword : payload.contactEmailPassword ,
           ContactPhoneNo: payload.contactPhone,
           ContactEmail: payload.contactEmail
         });
@@ -75,6 +77,7 @@ export class ContactPersonComponent implements OnInit {
       this.contactPersonForm.patchValue({
         ContactFirstName: this.contactPerson.ContactFirstName,
         ContactLastName: this.contactPerson.ContactLastName,
+        ContactEmailPassword : this.contactPerson.ContactEmailPassword,
         ContactPhoneNo: this.contactPerson.ContactPhoneNo,
         ContactEmail: this.contactPerson.ContactEmail
       });
@@ -87,7 +90,7 @@ export class ContactPersonComponent implements OnInit {
     const ev = e || window.event;
     const charcode = ev.which ? ev.which : ev.keycode;
     if (charcode > 31 && (charcode < 48 || charcode > 57) && charcode !== 46) {
-      e.preventDefault()
+      e.preventDefault();
       return false;
     }
     return true;

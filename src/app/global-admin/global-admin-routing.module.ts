@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
+import { GlobalAdminGuard } from 'src/services/guards/global/global-admin.guard';
 import { TeacherGuard } from 'src/services/guards/teacher.guard';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientsComponent } from './clients/clients.component';
@@ -16,7 +17,7 @@ import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
-    path: '', component: GlobalAdminComponent, canActivate: [AuthGuardGuard], canActivateChild: [TeacherGuard],
+    path: '', component: GlobalAdminComponent, canActivate: [AuthGuardGuard], canActivateChild: [GlobalAdminGuard],
     children: [
       { path: '', component: DashboardComponent },
       { path: 'newclient', component: NewClientComponent },
@@ -29,8 +30,13 @@ const routes: Routes = [
       { path: 'new-role', component: NewroleComponent },
       {path: 'edit-user', component: EditUserComponent},
       {path: 'coming-soon', component: LaterThingsComponent},
+      // {path: 'subscription', component: SubscriptionPageComponent},
+      // tslint:disable-next-line:max-line-length
+      {path: 'subscription', loadChildren: () => import('./school-subscription/school-subscription.module').then(m => m.SchoolSubscriptionModule)},
       {path: 'create-client', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
+      {path: 'group-of-schools', loadChildren: () => import('./grouped-schools/grouped-schools.module').then(m => m.GroupedSchoolsModule)},
       {path: 'edit-client/:id', loadChildren: () => import('./create-client/create-client.module').then(m => m.CreateClientModule)},
+      {path: 'reports', loadChildren: () => import('./reporting/reporting.module').then(m => m.ReportingModule)},
 
 
     ]

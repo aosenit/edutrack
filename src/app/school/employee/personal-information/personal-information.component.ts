@@ -33,6 +33,7 @@ export class PersonalInformationComponent implements OnInit {
       if (!param.id) {
         this.populatePersonalDataForm();
       } else {
+        this.sendChildName.emit('Personal Information');
         this.getProfileInformation();
 
       }

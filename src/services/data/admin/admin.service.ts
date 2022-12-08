@@ -9,6 +9,7 @@ const routes = {
   getAdmins: 'schtrack-auth/api/v1/Admin',
   getAllPermissions: 'schtrack-auth/api/v1/Role/GetAllPermissions',
   createRoles: 'schtrack-auth/api/v1/Role/CreateRole',
+  editRoles: 'schtrack-auth/api/v1/Role/UpdatePermissionsToRole',
   getRoles: 'schtrack-auth/api/v1/Role/GetRoles',
   assignRoles: 'schtrack-auth/api/v1/Role/AddUserToRole',
   deleteRoleById: 'schtrack-auth/api/v1/Role/RemoveRole',
@@ -42,18 +43,18 @@ export class AdminService {
     userForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     body.append('phoneNumber', userForm.phoneNumber);
     const url = `${this.baseUrl + routes.newAdmin}`;
-    return this.http.put(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } }  );
+    return this.http.put(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getAdminByID(id) {
     const url = `${this.baseUrl + routes.getAdmins}/${id}`;
-    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 
   getAllAdmin() {
     const url = `${this.baseUrl + routes.getAdmins}`;
-    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   updateAdmin(id, userForm) {
@@ -66,12 +67,12 @@ export class AdminService {
     userForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     body.append('phoneNumber', userForm.phoneNumber);
     const url = `${this.baseUrl + routes.newAdmin}/${id}`;
-    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } }  );
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   deleteAdmin(id) {
     const url = `${this.baseUrl + routes.getAdmins}/${id}`;
-    return this.http.delete(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+    return this.http.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 
@@ -81,10 +82,16 @@ export class AdminService {
   }
 
   createRoles(roleData) {
-    const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.createRoles}`;
-    return this.http.post(url, roleData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+    return this.http.post(url, roleData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  updateRoles(roleData) {
+
+    const url = `${this.baseUrl + routes.editRoles}`;
+    return this.http.post(url, roleData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 
@@ -92,24 +99,24 @@ export class AdminService {
     // const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.getRoles}`;
-    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   assignRolesToUsers(form) {
     const tenantId = '1'; // just a temporary header till email services is ready
 
     const url = `${this.baseUrl + routes.assignRoles}`;
-    return this.http.post(url, form,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }} );
+    return this.http.post(url, form, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   deleteRoles(id) {
     const url = `${this.baseUrl + routes.deleteRoleById}/${id}`;
-    return this.http.delete(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }} );
+    return this.http.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getAllPermissionForRoleById(id) {
     const url = `${this.baseUrl + routes.getRolePermissions}/${id}`;
-    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }} );
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
 }

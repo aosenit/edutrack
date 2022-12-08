@@ -12,223 +12,202 @@
 
 
 
-<div >
-    
-    <section class="banner mb-4 pb-3">
-        <div class="pt-5 pl-3 content ">
-            <h6 class="banner__text-primary fw-6 "> Withdrawal List </h6>
-            <p class="text-white"> This is a list of students withdrawn from your school </p>
-        </div>
-        <!-- <div class="d-flex">
+<div>
+
+  <section class="banner mb-4 pb-3">
+    <div class="pt-5 pl-3 content ">
+      <h6 class="banner__text-primary fw-6 "> Withdrawal List </h6>
+      <p class="text-white"> This is a list of students withdrawn from your school </p>
+    </div>
+    <!-- <div class="d-flex">
             <button class="btn btn-outline-orange  mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
                 data-target="#exampleModalCenterUpload">Bulk
                 Upload</button>
             <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student" > Add New </button>
         </div> -->
-    
-    </section>
-    
-    
-    <div class="d-flex justify-content-between align-items-center bg-white p-3  mb-2">
-        <div>
-          <form>
-            <div class="row">
-              
-              <div class="col ">
-                <label for="class" class="fs-12 fw-6">Term</label>
-                <select name="" id="" class="form-control" >
-                  <option value="">Level</option>
-                  <option value="Secondary"> Secondary</option>
-                </select>
-              </div>
-              <div class="col ">
-                <label for="class" class="fs-12 fw-6">From</label>
-                <select name="" id="" class="form-control"  >
-                  <option value="">Select class</option>
-                  <option value="SS1">SS1</option>
-    
-    
-                </select>
-              </div>
-              <!-- <button class="btn btn-outline-orange">Search</button> -->
-            </div>
-          </form>
-        </div>
-    
-    
-      </div>
-    
-    
-    
-    <section class="list table-responsive mb-4">
-        <table class="table table-borderless client-table">
-            <thead>
-                <tr>
-                    <th scope="col" class="head ">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                            <label class="custom-control-label" for="customCheckTh"></label>
-                        </div>
-                    </th>
-                    <th scope="col" class="" >Student Name 
-                        <!-- <img src="assets/images/svg/table-sort.svg"
-                            alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-                        <!-- ================ DROPDOWN ==================== -->
-                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            
-                            <a class="dropdown-item fc-orange" href="#">All </a>
-                            <a class="dropdown-item" href="#">A - Z </a>
-                            <a class="dropdown-item" href="#">Z - A </a>
-                        </div> -->
-                    </th>
-                    <th scope="col">Student Number </th>
-                   
-                    <th scope="col">Level</th>
-                    <th scope="col">Class</th>
-                    <th scope="col">Reason</th>
-    
-                    
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="" >
-                    <td scope="row" class="check rounded-left">
-                        <div class="custom-control custom-checkbox" >
-                            <input type="checkbox" class="custom-control-input" id="">
-                            <label class="custom-control-label" for=""></label>
-                        </div>
-                    </td>
-                    <td class="user" >
-                        
-                        <div class="d-flex align-items-center">
-                            <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
-                            <h6 class="fw-6 mb-0" >Master John Boyeja </h6>
-                        </div>
-                    </td>
-                    <td>TAC/STN/2020/0001</td>
-                    <td>Primary 1A</td>
-                    <td class="">Nursery 1A</td>
-                    <td class="">Fighting</td>
-                    <td class="rounded-right cursor-pointer">
-                        <img src="assets/images/svg/more-action.svg" alt="schools log" class="cursor-pointer dropdown-toggle drop-bg pt-3" type="button"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="dropdown-menu">
-            
-                          <a class="dropdown-item " data-toggle="modal" data-target="#exampleModalCenterSubject"> Reinstate</a>
-                         
-                        </div>
-                       
-                      </td>
-                </tr>
-                <tr class="" >
-                    <td scope="row" class="check rounded-left">
-                        <div class="custom-control custom-checkbox" >
-                            <input type="checkbox" class="custom-control-input" id="">
-                            <label class="custom-control-label" for=""></label>
-                        </div>
-                    </td>
-                    <td class="user" >
-                        
-                        <div class="d-flex align-items-center">
-                            <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
-                            <h6 class="fw-6 mb-0" >Master John Boyeja </h6>
-                        </div>
-                    </td>
-                    <td>TAC/STN/2020/0001</td>
-                    <td>Primary 1A</td>
-                    <td class="">Nursery 1A</td>
-                    <td class="">Fighting</td>
-                    <td class="rounded-right cursor-pointer">
-                        <img src="assets/images/svg/more-action.svg" alt="schools log" class="cursor-pointer dropdown-toggle drop-bg pt-3" type="button"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="dropdown-menu">
-            
-                          <a class="dropdown-item " data-toggle="modal" data-target="#exampleModalCenterSubject"> Reinstate</a>
-                         
-                        </div>
-                       
-                      </td>
-                </tr>
-               
-    
-                
-    
-    
-    
-            </tbody>
-        </table>
-        <div class="d-flex justify-content-end">
-            <!-- <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls> -->
+
+  </section>
+
+
+  <div class="d-flex justify-content-between align-items-center bg-white p-3  mb-2">
+    <div>
+      <form>
+        <div class="row">
+
+          <div class="col ">
+            <label for="class" class="fs-12 fw-6">Level</label>
+            <select name="" id="" class="form-control" (change)="getClasseInLevel($event.target.value)">
+              <option value="">Level</option>
+              <option [value]="level.id" *ngFor="let level of levels"> {{level.name}}</option>
+            </select>
           </div>
-    
-    </section>
-</div>
+          <div class="col ">
+            <label for="class" class="fs-12 fw-6">Class</label>
+            <select name="" id="" class="form-control" (change)="sortByClass($event.target.value)">
+              <option value="">Select class</option>
+              <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
 
 
-
-    
-
-
-
-
-
-
-  <!-- Attach Subject Modal -->
-<div class="modal fade" id="exampleModalCenterSubject" tabindex="-1" role="dialog"
-aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-length" role="document">
-  <div class="modal-content">
-
-    <div class="modal-head mb-3 d-flex justify-content-between">
-      <h6 class="modal-title fc-lblue ">Re-instate Student</h6>
-      <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myModal" data-dismiss="modal" aria-label="Close"
-        class="close">
-
-    </div>
-    <div class="modal-body client-modal">
-        <p>
-            You are about to re-instate <span class="fw-6">Master John Boyega</span>. Are you sure you <br> want to carry out this action?
-        </p>
-      <form class="" [formGroup]="withdrawalForm">
-        <div class="form-group mb-3 mt-3 " *ngIf="previous">
-          <label for="level" class="fw-6">Reason </label>
-          <select id="level" class="form-control" formControlName="reason" >
-            <option value="" selected> Select Reason</option>
-            <option value="j" > Jagidijagan </option>
-
-          </select>
+            </select>
+          </div>
+          <!-- <button class="btn btn-outline-orange">Search</button> -->
         </div>
-        <div class="form-group mb-3 mt-3 " *ngIf="continue">
-          <label for="level" class="fw-6">Class </label>
-          <select id="level" class="form-control" >
-            <option value="" selected> Select class</option>
-            <option value="jss2" > JSS2A </option>
-
-          </select>
-        </div>
-
-        
-       
-
-
-
-
-    </form>
-    <div class="d-flex align-items-center justify-content-center mb-5" *ngIf="previous">
-      <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
-      <button class="btn btn-orange-two  px-5 mb-4 mt-3" (click)="next('yes')" [disabled]="withdrawalForm.invalid">Continue </button>
+      </form>
     </div>
-    <div class="d-flex align-items-center justify-content-center mb-5" *ngIf="continue">  
-      <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
-      <button class="btn btn-orange-two  px-5 mb-4 mt-3">Continue </button>
-    </div>
-    </div>
+
 
   </div>
+
+
+  <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "
+  style="height: 85vh; width: 100%;" *ngIf="noData">
+  <div class="d-flex flex-column text-center">
+    <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+    <p class="fw-6 fs-24" style="color:#BAB9C1;">Select level and class to display <br> information</p>
+  </div>
+  </div>
+
+  <section class="list table-responsive mb-4" *ngIf="showData">
+    <table class="table table-borderless client-table">
+      <thead>
+        <tr>
+          <th scope="col" class="head ">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheckTh">
+              <label class="custom-control-label" for="customCheckTh"></label>
+            </div>
+          </th>
+          <th scope="col" class="">Student Name
+          </th>
+          <th scope="col">Student Number </th>
+
+          <th scope="col">Level</th>
+          <th scope="col">Class</th>
+          <th scope="col">Reason</th>
+
+
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="" *ngFor="let record of withdrawalList">
+          <td scope="row" class="check rounded-left">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="">
+              <label class="custom-control-label" for=""></label>
+            </div>
+          </td>
+          <td class="user">
+
+            <div class="d-flex align-items-center">
+              <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
+              <h6 class="fw-6 mb-0">{{record?.studentName}} </h6>
+            </div>
+          </td>
+          <td>{{record?.regNumber}}</td>
+          <td class="">{{record?.level}}</td>
+          <td>{{record?.previousClass}}</td>
+          <td class="">{{record?.withdrawalReason}}</td>
+          <td class="rounded-right cursor-pointer">
+            <img src="assets/images/svg/more-action.svg" alt="schools log"
+              class="cursor-pointer dropdown-toggle drop-bg pt-3" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown-menu">
+
+              <a class="dropdown-item " (click)="selectedStudentId(record?.id)" data-toggle="modal" data-target="#exampleModalCenterSubject"> Reinstate</a>
+
+            </div>
+
+            
+          </td>
+        </tr>
+      
+
+
+
+
+
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-end">
+      <!-- <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls> -->
+    </div>
+
+  </section>
 </div>
+
+
+
+
+
+
+
+
+
+
+<!-- Attach Subject Modal -->
+<div class="modal fade" id="exampleModalCenterSubject" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-3 d-flex justify-content-between">
+        <h6 class="modal-title fc-lblue ">Re-instate Student</h6>
+        <img src="assets/images/svg/close-modal.svg" id="closeModal" alt="modal close button" id="myModal" data-dismiss="modal"
+          aria-label="Close" class="close">
+
+      </div>
+      <div class="modal-body client-modal">
+        <p>
+          You are about to re-instate <span class="fw-6">Master John Boyega</span>. Are you sure you <br> want to carry
+          out this action?
+        </p>
+        <form class="" [formGroup]="withdrawalForm">
+          <div class="form-group mb-3 mt-3 " *ngIf="previous">
+            <label for="level" class="fw-6">Reason </label>
+            <input type="text" name="" id="" class="form-control" formControlName="reason">
+
+          </div>
+          <div class="form-group mb-3 mt-3 " *ngIf="continue">
+            <div class="form-group mb-3">
+              <label for="class" class="fs-12 fw-6">Level</label>
+              <select name="" id="" class="form-control" (change)="getClasseInLevel($event.target.value)"
+                formControlName="level">
+                <option value="">Level</option>
+                <option [value]="level.id" *ngFor="let level of levels"> {{level.name}}</option>
+              </select>
+            </div>
+            <div class="form-group mb-3">
+              <label for="level" class="fw-6">Class </label>
+              <select name="" id="" class="form-control" formControlName="Class">
+                <option value="">Select class</option>
+                <option [value]="class.id" *ngFor="let class of classList">{{class.name}}</option>
+
+
+              </select>
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+        </form>
+        <div class="d-flex align-items-center justify-content-center mb-5" *ngIf="previous">
+          <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
+          <button class="btn btn-orange-two  px-5 mb-4 mt-3" (click)="next('yes')"
+            [disabled]="withdrawalForm.invalid">Continue </button>
+        </div>
+        <div class="d-flex align-items-center justify-content-center mb-5" *ngIf="continue">
+          <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" (click)="next('no')"> Back </button>
+          <button class="btn btn-orange-two  px-5 mb-4 mt-3" (click)="submitReason()">Continue </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 <!-- end of Attach Subject modal -->
-
-   

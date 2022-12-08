@@ -3,14 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 const routes = {
-  addteacher: 'schtrack-auth/api/v1/Teacher/AddTeacher ',
+  addteacher: 'schtrack-auth/api/v1/Teacher/AddTeacher',
   getallteacher: 'schtrack-auth/api/v1/Teacher/GetTeachers',
   getteacherbyid: 'schtrack-auth/api/v1/Teacher/GetTeachers',
   updateteacherbyid: 'schtrack-auth/api/v1/Teacher/UpdateTeacher',
   deleteteacher: 'schtrack-auth/api/v1/Teacher/DeleteTeacher',
   attachteachertoclass: 'schtrack-auth/api/v1/Teacher/SetClassTeacher',
+  getTeacherDetailsByUserId:'schtrack-auth/api/v1/Teacher/GetTeacherDetailsByUserId',
   getClassTeacher: 'schtrack-auth/api/v1/Teacher/GetTeacherClass',
+  getBulkDdownload: 'schtrack-auth/api/v1/Teacher/GetTeachersExcelSheet',
 
+  bulkUpload: 'schtrack-auth/api/v1/Teacher/BulkAddTeacher',
 
   getAllassignmentSubmission: 'schtrack-learning/api/v1/AssignmentAnswer/GetAllAssignmentAnswers',
 
@@ -18,6 +21,8 @@ const routes = {
   getteacherdesignation: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
   getsubjectAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject',
   getclassAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForClass',
+  downloadEmployeesData: 'schtrack-auth/api/v1/Teacher/GetTeachersDataInExcel',
+  downloadEmployeesDataInPdf:'schtrack-auth/api/v1/Teacher/GetTeachersDataInPDF'
 
 };
 @Injectable({
@@ -285,7 +290,11 @@ export class TeacherService {
 
   getTeacherAttachedToClass(id) {
     const url = `${this.baseUrl + routes.getClassTeacher}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+  }
 
+  getTeacherDetailsByUserId(id){
+    const url = `${this.baseUrl + routes.getTeacherDetailsByUserId}/${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -298,5 +307,32 @@ export class TeacherService {
     const url = `${this.baseUrl + routes.getsubjectAttendance}?SubjectId=${SubjectId}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
+
+  downloadSampleBulkSheet() {
+    const url = `${this.baseUrl + routes.getBulkDdownload}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  uploadBulkDocument(payload) {
+    const body = new FormData();
+    body.append('File', payload.Document);
+
+    const url = `${this.baseUrl + routes.bulkUpload}`;
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  exportEmployeeExcelFile(staff) {
+    const url = `${this.baseUrl + routes.downloadEmployeesData}?Staff=${staff}`;
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+  exportEmployeePdfFile(staff) {
+    const url = `${this.baseUrl + routes.downloadEmployeesDataInPdf}?Staff=${staff}`;
+    return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+  
 
 }

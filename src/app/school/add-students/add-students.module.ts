@@ -9,13 +9,16 @@ import { ContactDetailsComponent } from './contact-details/contact-details.compo
 import { MedicalDetailsComponent } from './medical-details/medical-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImagesComponent } from './images/images.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 
 @NgModule({
-  declarations: [AddStudentsComponent, BasicDetailsComponent, SocialDetailsComponent, ContactDetailsComponent, MedicalDetailsComponent, ImagesComponent],
+  declarations: [
+    AddStudentsComponent, BasicDetailsComponent, SocialDetailsComponent, ContactDetailsComponent, MedicalDetailsComponent, ImagesComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    NgMultiSelectDropDownModule,
     FormsModule,
     AddStudentsRoutingModule
   ]

@@ -24,6 +24,10 @@ export class SchoolManagerSettingsComponent implements OnInit {
   dateCheck: any;
   date1: any;
   date2: any;
+  schoolPropertyButton = 'Create';
+  modalTitle = 'Add New Term';
+  createTermButton = 'Add Term';
+  selectedterm: any;
   constructor(
     private fb: FormBuilder,
     private propertyService: PropertyService,
@@ -99,7 +103,10 @@ export class SchoolManagerSettingsComponent implements OnInit {
       if (data.hasErrors === false) {
         // (data);
         this.notifyService.publishMessages('School Property saved successfully', 'success', 1);
-        this.getSession();
+        this.getProperty();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -120,6 +127,7 @@ export class SchoolManagerSettingsComponent implements OnInit {
           numberOfTerms: this.fillProperty.numberOfTerms,
           ClassDays: this.fillProperty.classDays
         });
+        this.schoolPropertyButton = 'Update';
         this.termCount = this.fillProperty.numberOfTerms - 1;
         this.addTerm();
       }
@@ -130,16 +138,53 @@ export class SchoolManagerSettingsComponent implements OnInit {
 
   createSession() {
     // (this.sessionForm);
-    this.assessmentService.addProperty(this.sessionForm.value).subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.notifyService.publishMessages('Term & Session created successfully', 'success', 1);
-        // (data);
-        document.getElementById('mySessionModal').click();
-        this.getSession();
+    const {sessionName, isCurrent, terms} = this.sessionForm.value;
+    const newterm = [];
+      // tslint:disable-next-line:prefer-for-of
+    for (let index = 0; index < terms.length; index++) {
+        const element = terms[index];
+        newterm.push({
+          name: element.name,
+          sequenceNumber: element.sequenceNumber,
+          startDate: element.startDate,
+          endDate: `${element.endDate + 'T23:59'}`
+        });
       }
-    }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
-    });
+    const result = {
+      sessionName,
+      isCurrent,
+      terms: newterm
+    };
+    if (this.createTermButton === 'Add Term') {
+
+      this.assessmentService.addProperty(result).subscribe((data: any) => {
+        if (data.hasErrors === false) {
+          this.notifyService.publishMessages('Term & Session created successfully', 'success', 1);
+          // (data);
+          document.getElementById('mySessionModal').click();
+          this.getSession();
+        } else {
+
+          this.notifyService.publishMessages(data.errors, 'danger', 1);
+        }
+      }, error => {
+        this.notifyService.publishMessages(error.errors, 'danger', 1);
+      });
+    } else {
+      this.assessmentService.updateProperty(this.selectedterm.id, result).subscribe((data: any) => {
+        if (data.hasErrors === false) {
+          this.notifyService.publishMessages('Term & Session created successfully', 'success', 1);
+          // (data);
+          document.getElementById('mySessionModal').click();
+          this.getSession();
+        } else {
+
+          this.notifyService.publishMessages(data.errors, 'danger', 1);
+        }
+      }, error => {
+        this.notifyService.publishMessages(error.errors, 'danger', 1);
+      });
+    }
   }
 
   getSession() {
@@ -163,6 +208,36 @@ export class SchoolManagerSettingsComponent implements OnInit {
       // ('ko possinle na');
     }
   }
+
+  getTermDetails(index, id) {
+    this.selectedterm = this.sessionList[index];
+    const selectedterm = this.sessionList[index];
+    this.modalTitle = 'Update Term';
+    this.createTermButton = 'Update Term';
+    this.sessionForm.patchValue({
+      sessionName: selectedterm.name,
+      isCurrent: selectedterm.isCurrent
+    });
+    this.sessionForm.setControl('terms', this.setExistingComponent(selectedterm.terms));
+
+  }
+
+  setExistingComponent(data: any) {
+    const payload: any = JSON.parse(sessionStorage.getItem('all-employee-info'));
+
+    const formArray = new FormArray([]);
+    for (const x of data) {
+      // // (x);
+      formArray.push(this.fb.group({
+        name: x.name,
+      sequenceNumber: x.sequenceNumber,
+      startDate: moment(x.startDate).format('YYYY-MM-DD'),
+      endDate: moment(x.endDate).format('YYYY-MM-DD'),
+     }));
+   }
+
+    return formArray;
+ }
 
 
 }

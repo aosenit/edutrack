@@ -1,0 +1,83 @@
+<form [formGroup]="contactPersonForm"  >
+    <div class="contact-details">
+    
+        <div class="form-row my-5 ">
+            <div class=" ">
+                <label for="fname" class="fw-6">First Name  <span class="text-danger">*</span> </label>
+                <input type="text" 
+                class="form-control form-control-lg" 
+                id="fname" 
+                placeholder="Enter first Name"
+                formControlName = "ContactFirstName">
+                <div *ngIf="contactPersonForm.controls.ContactFirstName.touched && contactPersonForm.controls.ContactFirstName.errors" class="error">
+                    <small *ngIf="contactPersonForm.controls.ContactFirstName.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
+
+            </div>
+            <div class=" ">
+                <label for="lname" class="fw-6">Last Name <span class="text-danger">*</span></label>
+                <input type="text  " class="form-control form-control-lg" id="lname" 
+                placeholder="Enter last name" formControlName = "ContactLastName">
+                <div *ngIf="contactPersonForm.controls.ContactLastName.touched && contactPersonForm.controls.ContactLastName.errors" class="error">
+                    <small *ngIf="contactPersonForm.controls.ContactLastName.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
+
+            </div>
+    
+    
+        </div>
+    
+        <div class="form-row my-5 ">
+            <div class=" ">
+                <label for="tel" class="fw-6">Phone number <span class="text-danger">*</span></label>
+                <input type="tel" class="form-control form-control-lg" id="tel" 
+                placeholder="Enter phone number" formControlName="ContactPhoneNo" 
+                maxlength="11"
+                (keypress)="allowNumbersOnly($event)" required>
+                <div *ngIf="contactPersonForm.controls.ContactPhoneNo.touched && contactPersonForm.controls.ContactPhoneNo.errors" class="error">
+                    <small *ngIf="contactPersonForm.controls.ContactPhoneNo.errors.required" class="text-danger">Field is required</small>
+                    <small *ngIf="contactPersonForm.controls.ContactPhoneNo.errors.minlength" class="text-danger">Invalid number length (must be 11 digit)</small>
+                    <small *ngIf="contactPersonForm.controls.ContactPhoneNo.errors.pattern" class="text-danger">Invalid number pattern</small>
+                </div>
+            </div>
+            <div class=" ">
+                <label for="email" class="fw-6">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control form-control-lg" 
+                id="email" placeholder="Enter email" formControlName="ContactEmail">
+                <div *ngIf="contactPersonForm.controls.ContactEmail.touched && contactPersonForm.controls.ContactEmail.errors" class="error">
+                    <small *ngIf="contactPersonForm.controls.ContactEmail.errors.required" class="text-danger">Field is required</small>
+                    <small *ngIf="contactPersonForm.controls.ContactEmail.errors.email" class="text-danger">Invalid email pattern</small>
+                  </div>
+    
+            </div>
+    
+    
+        </div>
+
+
+        <div class="form-row my-5 ">
+            <div class=" ">
+                <label for="tel" class="fw-6">Email Password <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-lg" id="tel" 
+                placeholder="Enter email password" formControlName="ContactEmailPassword" 
+                required>
+                <div *ngIf="contactPersonForm.controls.ContactEmailPassword.touched && contactPersonForm.controls.ContactEmailPassword.errors" class="error">
+                    <small *ngIf="contactPersonForm.controls.ContactEmailPassword.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="contactPersonForm.controls.ContactEmailPassword.errors.minlength" class="text-danger">Invalid number length (must be 11 digit)</small> -->
+                </div>
+            </div>
+            
+        
+    
+        </div>
+        
+    
+    </div>
+</form>
+                <div class=" d-flex justify-content-center mb-5">
+                    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='prevStep() '> Back </button>
+                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' [disabled]="contactPersonForm.invalid" > Next </button>
+            
+                </div>

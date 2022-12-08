@@ -260,7 +260,8 @@
             <ng-template #bulkFile class="mt-5">
               <label for="fileupload"> {{assignmentFile}} </label>
             </ng-template>
-            <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)">
+            <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)"
+            accept="application/pdf" >
             <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
           </div>
 
@@ -272,7 +273,7 @@
 
           <div class="d-flex justify-content-between mb-3">
             <button type="button" class="close close-text" data-dismiss="modal" aria-label="Close" id="closeAssignmentModal">Cancel </button>
-            <button type="button " class="btn-blue  mb-3 ">Upload Files </button>
+            <button type="button " class="btn-blue  mb-3 " [disabled]="uploadAssignmentForm.invalid">Upload Files </button>
           </div>
 
         </form>

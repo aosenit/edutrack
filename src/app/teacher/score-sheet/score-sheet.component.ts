@@ -60,7 +60,7 @@ export class ScoreSheetComponent implements OnInit {
 
   ngOnInit() {
     // tslint:disable-next-line:only-arrow-functions
-    $('#dropdownMenuLink').on('show.bs.dropdown', function() {
+    $('#dropdownMenuLink').on('show.bs.dropdown', function () {
       $(`#dropdownMenuLink`).show();
 
     });
@@ -82,7 +82,7 @@ export class ScoreSheetComponent implements OnInit {
 
   populateBulkUpload() {
     this.bulkUpload = this.fb.group({
-      bulkFile: []
+      bulkFile: [null, Validators.required]
     });
   }
 
@@ -236,9 +236,14 @@ export class ScoreSheetComponent implements OnInit {
   handleBulkUpload(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      // // (file);
-      this.filename = file.name;
-      this.bulkUpload.get('bulkFile').setValue(file);
+      if (file.type !== 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ) {
+        this.notifyService.publishMessages('Invalid format! Please select only excel file', 'danger', 1);
+        return;
+      } else {
+
+        this.filename = file.name;
+        this.bulkUpload.get('bulkFile').setValue(file);
+      }
       // this.DocumentTypes.push(0);
     }
   }
@@ -267,7 +272,6 @@ export class ScoreSheetComponent implements OnInit {
         this.notifyService.publishMessages('Result uploaded successfully', 'info', 1);
         document.getElementById('myModelClose').click();
         location.reload();
-        // this.getAllSchools();
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
 
@@ -282,20 +286,18 @@ export class ScoreSheetComponent implements OnInit {
 
 
   submitGrade(studentId, u) {
-    // // ('u', u);
-    // // (studentId);
     this.checkTableCellStatus();
 
     const check = this.newList[u];
-    // // (check);
+    // console.log(check);
     const { assessmentId, score } = this.addGradeForm.value;
-    // // ('assessmentId', assessmentId);
-    // // ('assessment score', score);
-    // // ('checkId', check.id);
+    // console.log('assessmentId', assessmentId);
+    // console.log('assessment score', score);
+    // console.log('checkId', check.id);
     // tslint:disable-next-line:triple-equals
-    if (check.id == studentId  && score > this.AssessmentScore) {
+    if (check.id == studentId && score > this.AssessmentScore) {
       this.notifyService.publishMessages('Score cannot be greater than max score', 'danger', 1);
-      // // ('ikoja aye');
+      // console.log('ikoja aye');
       return;
     }
 
@@ -318,9 +320,9 @@ export class ScoreSheetComponent implements OnInit {
     const newCumm = JSON.parse(sessionStorage.getItem('tired'));
     let testScore = 0;
     // tslint:disable-next-line:forin
-    for ( const key in newCumm) {
-      // // (newCumm[key]);
-      if (typeof(newCumm[key]) === 'object') {
+    for (const key in newCumm) {
+      // console.log(newCumm[key]);
+      if (typeof (newCumm[key]) === 'object') {
         testScore += newCumm[key].Score;
         // (testScore);
         this.scoreResult[studentId].cummulative = testScore;
@@ -341,12 +343,12 @@ export class ScoreSheetComponent implements OnInit {
 
     const keyValue = (input) => Object.entries(input).forEach(([key, value]) => {
       const hold: any = value;
-      // // (hold);
+      // console.log(hold);
       if (this.scoreResult[studentId].cummulative >= hold.lowerBound) {
         this.scoreResult[studentId].gradeIntepretation = hold.interpretation;
         this.scoreResult[studentId].studentGrade = hold.grade;
         // tslint:disable-next-line:no-string-literal
-        // (key['interpretation'].interpretation);
+        console.log(key['interpretation'].interpretation); // Please dont touch this line
       } else {
         return;
       }
@@ -355,8 +357,7 @@ export class ScoreSheetComponent implements OnInit {
     $(`#dropdownMenuLink${u}`).toggleClass('show-pop');
     keyValue(this.gradeSetup);
     // this.omo = this.scoreResult[studentId];
-    const arr = [];
-
+    // const arr = [];
     // this.displayStudentGradeInterpretation(studentId);
   }
 
@@ -368,7 +369,7 @@ export class ScoreSheetComponent implements OnInit {
           // tslint:disable-next-line:radix
           studentId: parseInt(value),
           // tslint:disable-next-line:max-line-length
-          assessmentAndScores: Object.keys(this.scoreResult[value]).filter((id) => id !== 'cummulative' &&  id !== 'gradeIntepretation' && id !== 'studentGrade').map((id) => ({
+          assessmentAndScores: Object.keys(this.scoreResult[value]).filter((id) => id !== 'cummulative' && id !== 'gradeIntepretation' && id !== 'studentGrade').map((id) => ({
             // tslint:disable-next-line:radix
             assessmentId: parseInt(this.scoreResult[value][id].assesmentId),
             assessmentName: id,
@@ -405,10 +406,10 @@ export class ScoreSheetComponent implements OnInit {
   getAssessmentName(event, u) {
     this.AssesmentId = this.assessmentList[event].id;
     this.AssessmentName = this.assessmentList[event].name;
-    // // (this.AssessmentName);
+    console.log(this.AssessmentName);
     this.AssessmentSequence = this.assessmentList[event].sequenceNumber;
     this.AssessmentScore = this.assessmentList[event].maxScore;
-    // // ('assessment score', this.AssessmentScore)
+    console.log('assessment score', this.AssessmentScore);
     $(`#dropdownMenuLink${u}`).addClass('show-pop');
 
   }
@@ -419,7 +420,7 @@ export class ScoreSheetComponent implements OnInit {
   }
 
   saveStudentDetails(u) {
-    // (this.studentList[u]);
+    console.log(this.studentList[u]);
     sessionStorage.setItem('student-details', JSON.stringify(this.studentList[u]));
   }
 

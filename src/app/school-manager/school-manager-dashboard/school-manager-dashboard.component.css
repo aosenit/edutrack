@@ -1,0 +1,282 @@
+.main {
+  
+}
+
+.main .banner {
+  width: 100%;
+  background-image: url("../../../assets/images/svg/banner.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.banner .banner__text-primary {
+  color: #fb882c;
+  font-size: 32px;
+  font-family: Nunito;
+  font-weight: 200;
+
+}
+.banner .banner__text-primary span {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.last-login {
+  color: #ffffff;
+  font-size: 14px;
+  font-family: Nunito;
+
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  justify-content: space-between;
+  margin-top: 2.2rem;
+
+}
+
+.cards > div {
+    padding: 1.9rem 1.5rem 1rem;
+    font-family: Nunito;
+
+}
+
+.cards .revenue {
+  background: #0b8e88;
+  box-shadow: 0px 10px 20px rgba(11, 142, 136, 0.2);
+  border-radius: 10px;
+  color: #D9FCFA;
+}
+.revenue__text {
+    display: flex;
+    align-items: center;
+}
+.revenue__text h6 {
+    font-weight: bold;
+font-size: 32px;
+line-height: 44px;
+}
+
+.cards .schools {
+  background: #018fcb;
+  box-shadow: 0px 10px 20px rgba(1, 143, 203, 0.2);
+  border-radius: 10px;
+  color: #D6F3FF;
+}
+
+
+.cards .students {
+  background: #e78413;
+  box-shadow: 0px 10px 20px rgba(1, 143, 203, 0.2);
+  border-radius: 10px;
+  color: #FDF5ED;
+}
+
+.cards .sms {
+    background: #F05F5C;
+  box-shadow: 0px 10px 20px rgba(1, 143, 203, 0.2);
+  border-radius: 10px;
+  color: #FDE8E8;
+
+}
+
+.info {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    grid-gap: 1rem;
+    justify-content: space-between;
+    margin-top: 2.2rem;
+    
+
+}
+
+.info > div:first-child {
+    background: #FFFFFF;
+box-shadow: 0px 20px 40px rgba(211, 220, 231, 0.4);
+border-radius: 10px;
+font-family: Nunito;
+
+}
+
+
+.def {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-gap: 1rem;
+}
+
+.def > div {
+  background: #FFFFFF;
+  box-shadow: 0px 20px 40px rgba(211, 220, 231, 0.4);
+  border-radius: 10px;
+  font-family: Nunito;
+}
+
+.info__school .info__school-info, .info__chart .info__chart-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1.5rem 1rem;
+
+}
+
+.info__school .info__school-info h6, .info__chart .info__chart-info h6 {
+  color: #0A1128;
+  font-weight: 600;
+  font-size: 18px;
+
+}
+.info__school .info__school-info p, .info__chart .info__chart-info p {
+  
+  color: #0A1128;
+  font-weight: normal;
+  font-size: 14px;
+
+}
+
+.info__school-info .btn-see-all {
+    background: #F0F1F4;
+border-radius: 100px;
+border: none;
+outline: none;
+padding: 2px 25px;
+color: #243C67;
+
+}
+
+
+.info__school .info__school-info .line {
+  position: relative;
+  width: 80%;
+}
+
+
+.info__school .info__school-info .line::before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  background: #FB882C;
+  left: 0;
+  bottom: 0;
+}
+
+.info__school .info__school-info .line::after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(251, 136, 44, 0.3);
+  left: 0;
+  bottom: 0;
+}
+
+
+.info__school table tbody .logo {
+  display: flex;
+  align-items: center;
+  color: #0A1128;
+  font-weight: 600;
+  padding-left: 1.5rem;
+}
+.info__school table tbody p {
+  display: flex;
+  align-items: center;
+  color: #0A1128;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.info__school table thead {
+  border-bottom: 1px solid #E1E3EA;
+  color: #133960;
+  opacity: 0.6;
+  font-weight: normal;
+}
+.info__school table thead .head {
+  padding-left: 1.5rem;
+  font-weight: normal;
+}
+
+.info__school table tbody 
+  tr:nth-child(even) {
+    background: #F6F7F9;
+  
+}
+
+.info__chart .info__chart-info .line2 {
+  position: relative;
+  width: 100%;
+}
+
+.info__chart .info__chart-info .line2::before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  background: #FB882C;
+  left: 0;
+  bottom: 0;
+}
+
+.info__chart .info__chart-info .line2 div {
+  position: absolute;
+  width: 88%;
+  height: 2px;
+  background: rgba(251, 136, 44, 0.3);
+  left: 34px;
+  bottom: 0;
+}
+
+.row-sizing {
+  padding: 1.5rem 4rem 1rem 2rem;
+}
+
+.image-rounded {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+
+}
+
+
+.school-drop {
+  border-radius: 5px;
+  background: #243c67;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.reports    {
+  border-radius: 8px;
+  
+}
+
+.present {
+  background: #E7FEF8;
+}
+
+.absent {
+  background: #F8E2E4;
+  
+}
+
+.leave {
+  background: #FBEAD0;
+  
+}
+
+
+@media screen and (max-width: 600px) {
+   
+  .cards, .info {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  }

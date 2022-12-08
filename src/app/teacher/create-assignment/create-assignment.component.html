@@ -55,7 +55,7 @@
           </div>
   
         </div>
-      </div>
+    </div>
       <div class="col-12 ">
           <div class="row no-gutters bg-white text-editor">
               <div class="col-md-9">
@@ -76,7 +76,7 @@
               </div>
               <div class="col-md-12 pl-3 py-2 text-editor-bottom">
                   <button class="btn-upload-top bg-lblue mr-3" (click)="convertFile('assignment')">Convert File</button>
-                  <button class="btn-upload-top bg-lblue" (click)="submitAssignment()">Create</button>
+                  <button class="btn-upload-top bg-lblue" (click)="submitAssignment()" [disabled]="createAssignmentmentForm.invalid">Create</button>
               </div>
           </div>
       </div>

@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardGuard } from 'src/services/guards/auth-guard.guard';
+import { SchoolGuard } from 'src/services/guards/school/school.guard';
 import { TeacherGuard } from 'src/services/guards/teacher.guard';
+import { AdminAddAlumniComponent } from './alumni/admin-add-alumni/admin-add-alumni.component';
+import { AdminAlumniCreateEventComponent } from './alumni/admin-alumni-create-event/admin-alumni-create-event.component';
+import { AdminAlumniEventsComponent } from './alumni/admin-alumni-events/admin-alumni-events.component';
+import { AdminAlumniListComponent } from './alumni/admin-alumni-list/admin-alumni-list.component';
 import { AttachTeacherComponent } from './attach-teacher/attach-teacher.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ComingSoonComponent } from './coming-soon/coming-soon.component';
@@ -22,7 +27,7 @@ import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
-    path: '', component: SchoolComponent, canActivate: [AuthGuardGuard], canActivateChild: [TeacherGuard],
+    path: '', component: SchoolComponent, canActivate: [AuthGuardGuard], canActivateChild: [SchoolGuard],
     children: [
       { path: '', component: DashboardComponent },
       { path: 'students', component: StudentListComponent },
@@ -40,6 +45,11 @@ const routes: Routes = [
       { path: 'coming-soon', component: ComingSoonComponent },
       { path: 'grade-book', component: SchoolGradeBookComponent },
       { path: 'student-sheet/:id', component: StudentSheetComponent },
+      { path: 'create-event', component: AdminAlumniCreateEventComponent },
+      { path: 'edit-event/:id', component: AdminAlumniCreateEventComponent },
+      { path: 'alumni-list', component: AdminAlumniListComponent },
+      { path: 'add-alumni', component: AdminAddAlumniComponent },
+      { path: 'alumni-events', component: AdminAlumniEventsComponent },
       { path: 'add-student', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },
       { path: 'edit-student/:id', loadChildren: () => import('./add-students/add-students.module').then(m => m.AddStudentsModule) },
       { path: 'add-parents', loadChildren: () => import('./parent/parent.module').then(m => m.ParentModule) },
@@ -49,13 +59,11 @@ const routes: Routes = [
       { path: 'finance-setting', loadChildren: () => import('./finance-setting/finance-setting.module').then(m => m.FinanceSettingModule) },
       { path: 'finance', loadChildren: () => import('./finance/finance.module').then(m => m.FinanceModule) },
       { path: 'promotion', loadChildren: () => import('./promotion/promotion.module').then(m => m.PromotionModule) },
+      { path: 'report', loadChildren: () => import('./reporting/reporting.module').then(m => m.ReportingModule) },
       { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
-
-
-
     ]
+
   },
-  {path: 'alumni', loadChildren: () => import('./alumni/alumni.module').then(m => m.AlumniModule)},
 ];
 
 @NgModule({

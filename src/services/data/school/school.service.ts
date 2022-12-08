@@ -4,14 +4,29 @@ import { environment } from 'src/environments/environment';
 
 const routes = {
   addschool: 'schtrack-auth/api/v1/School/AddSchool ',
-  getallschool: 'schtrack-auth/api/v1/School/GetSchools',
-  // getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
   getschoolbyid: 'schtrack-auth/api/v1/School/GetSchool',
+  getallschool: 'schtrack-auth/api/v1/School/GetSchools',
+  getSubscriptionStatus: 'schtrack-auth/api/v1/School/NotifySubcriptionExpirationDateToAdmin',
+  // getallschool: 'api/v1/School/GetSchools?PageIndex=1&PageSize=10',
+
+  //  grouped schools
+  addGroupedSchools: 'schtrack-auth/api/v1/SchoolGroup/AddSchoolGroup ',
+  getGroupSchools: 'schtrack-auth/api/v1/SchoolGroup/GetAllSchoolsInGroup',
+  getAllGroupSchools: 'schtrack-auth/api/v1/SchoolGroup/GetSchoolGroups',
+  getSchoolGroupById: 'schtrack-auth/api/v1/SchoolGroup/GetSchoolGroupsById',
+  getSchoolGroupAnalytics: 'schtrack-auth/api/v1/SchoolGroup/GetSchoolGroupAnalytics',
+  getSchoolOfSchoolsSchoolData: 'schtrack-auth/api/v1/School/GetGroupOfSchoolSchoolsData',
+
+
+  // others
   bulkUplaod: 'schtrack-auth/api/v1/School/BulkAddSchool',
   updateschoolbyid: 'schtrack-auth/api/v1/School/UpdateSchool',
   deleteschool: 'schtrack-auth/api/v1/School/DeleteSchool',
   viewSchoolproperty: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogo',
-  getSchoolDomain: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogoByDomain'
+  getSchoolDomain: 'schtrack-auth/api/v1/School/GetSchoolNameAndLogoByDomain',
+
+  activateschool: 'schtrack-auth/api/v1/School/EnableSchool',
+  deactivateschool: 'schtrack-auth/api/v1/School/DisableSchool'
 };
 
 @Injectable({
@@ -25,39 +40,80 @@ export class SchoolService {
 
 
   addSchool(schoolFinalStep) {
-    const formData = new FormData();
-    formData.append('Name', schoolFinalStep.Name);
-    formData.append('DomainName', schoolFinalStep.DomainName);
-    formData.append('WebsiteAddress', schoolFinalStep.WebsiteAddress);
-    formData.append('Username', schoolFinalStep.Username);
-    formData.append('Files', schoolFinalStep.logo);
-    formData.append('Files', schoolFinalStep.icon);
-    formData.append('PrimaryColor', schoolFinalStep.PrimaryColor);
-    formData.append('SecondaryColor', schoolFinalStep.SecondaryColor);
-    // formData.append('DocumentTypes', schoolFinalStep.DocumentTypes);
-    schoolFinalStep.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
-    formData.append('Country', schoolFinalStep.Country);
-    formData.append('Address', schoolFinalStep.Address);
-    formData.append('State', schoolFinalStep.State);
-    formData.append('City', schoolFinalStep.City);
-    formData.append('ContactFirstName', schoolFinalStep.ContactFirstName);
-    formData.append('ContactLastName', schoolFinalStep.ContactLastName);
-    formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
-    formData.append('ContactEmail', schoolFinalStep.ContactEmail);
-    const url = `${this.baseUrl + routes.addschool}`;
-    // // ('asasas', schoolFinalStep);
-    return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+    const {GroupId} = schoolFinalStep;
+    if (schoolFinalStep.GroupId !== null || undefined) {
+      const formData = new FormData();
+      formData.append('Name', schoolFinalStep.Name);
+      formData.append('DomainName', schoolFinalStep.DomainName);
+      formData.append('WebsiteAddress', schoolFinalStep.WebsiteAddress);
+      formData.append('Username', schoolFinalStep.Username);
+      formData.append('Files', schoolFinalStep.logo);
+      formData.append('Files', schoolFinalStep.icon);
+      formData.append('PrimaryColor', schoolFinalStep.PrimaryColor);
+      formData.append('SecondaryColor', schoolFinalStep.SecondaryColor);
+      // formData.append('DocumentTypes', schoolFinalStep.DocumentTypes);
+      schoolFinalStep.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
+      formData.append('Country', schoolFinalStep.Country);
+      formData.append('Address', schoolFinalStep.Address);
+      formData.append('State', schoolFinalStep.State);
+      formData.append('City', schoolFinalStep.City);
+      formData.append('ContactFirstName', schoolFinalStep.ContactFirstName);
+      formData.append('ContactLastName', schoolFinalStep.ContactLastName);
+      formData.append('ContactEmailPassword', schoolFinalStep.ContactEmailPassword);
+      formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
+      formData.append('ContactEmail', schoolFinalStep.ContactEmail);
+      formData.append('IsActive', schoolFinalStep.isActive);
+      formData.append('GroupId', schoolFinalStep.GroupId);
+      const url = `${this.baseUrl + routes.addschool}`;
+      // // ('asasas', schoolFinalStep);
+      return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+    } else {
+      const formData = new FormData();
+      formData.append('Name', schoolFinalStep.Name);
+      formData.append('DomainName', schoolFinalStep.DomainName);
+      formData.append('WebsiteAddress', schoolFinalStep.WebsiteAddress);
+      formData.append('Username', schoolFinalStep.Username);
+      formData.append('Files', schoolFinalStep.logo);
+      formData.append('Files', schoolFinalStep.icon);
+      formData.append('PrimaryColor', schoolFinalStep.PrimaryColor);
+      formData.append('SecondaryColor', schoolFinalStep.SecondaryColor);
+      // formData.append('DocumentTypes', schoolFinalStep.DocumentTypes);
+      schoolFinalStep.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
+      formData.append('Country', schoolFinalStep.Country);
+      formData.append('Address', schoolFinalStep.Address);
+      formData.append('State', schoolFinalStep.State);
+      formData.append('City', schoolFinalStep.City);
+      formData.append('ContactFirstName', schoolFinalStep.ContactFirstName);
+      formData.append('ContactLastName', schoolFinalStep.ContactLastName);
+      formData.append('ContactEmailPassword', schoolFinalStep.ContactEmailPassword);
+      formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
+      formData.append('ContactEmail', schoolFinalStep.ContactEmail);
+      formData.append('IsActive', schoolFinalStep.isActive);
+      // formData.append('GroupId', schoolFinalStep.GroupId);
+      const url = `${this.baseUrl + routes.addschool}`;
+      // // ('asasas', schoolFinalStep);
+      return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+
+    }
   }
 
   getAllSchools( p, perpage ) {
     // const url = `${this.baseUrl + routes.getallschool}`;
     const url = `${this.baseUrl + routes.getallschool}?PageIndex=${p}&PageSize=${perpage}`;
-
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
   getSchoolById(id) {
     const url = `${this.baseUrl + routes.getschoolbyid}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getSchoolSubscriptionStatusById(id) {
+    const url = `${this.baseUrl + routes.getSubscriptionStatus}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+  getGroupOfSchoolsSchoolData(groupId, id){
+    const url = `${this.baseUrl + routes.getSchoolOfSchoolsSchoolData}?groupId=${groupId}&id=${id}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 
@@ -88,9 +144,9 @@ export class SchoolService {
     formData.append('ContactLastName', updateSchoolForm.ContactLastName);
     formData.append('ContactPhoneNo', updateSchoolForm.ContactPhoneNo);
     formData.append('ContactEmail', updateSchoolForm.ContactEmail);
+    formData.append('ContactEmailPassword', updateSchoolForm.ContactEmailPassword);
     const url = `${this.baseUrl + routes.updateschoolbyid}/${id}`;
     return this.http.put(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
-
   }
 
   deleteSchoolById(userid) {
@@ -108,5 +164,55 @@ export class SchoolService {
     const url = `${this.baseUrl + routes.getSchoolDomain}/${domain}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
 
+  }
+
+
+  addSchoolGroup(schoolFinalStep) {
+    const formData = new FormData();
+    formData.append('Name', schoolFinalStep.Name);
+    formData.append('WebsiteAddress', schoolFinalStep.WebsiteAddress);
+    formData.append('Files', schoolFinalStep.logo);
+    formData.append('Files', schoolFinalStep.icon);
+    formData.append('PrimaryColor', schoolFinalStep.PrimaryColor);
+    formData.append('SecondaryColor', schoolFinalStep.SecondaryColor);
+    // formData.append('DocumentTypes', schoolFinalStep.DocumentTypes);
+    schoolFinalStep.DocumentTypes.forEach((item) => formData.append('DocumentTypes', item));
+    formData.append('ContactFirstName', schoolFinalStep.ContactFirstName);
+    formData.append('ContactLastName', schoolFinalStep.ContactLastName);
+    formData.append('ContactEmailPassword', schoolFinalStep.ContactEmailPassword);
+    formData.append('ContactPhoneNo', schoolFinalStep.ContactPhoneNo);
+    formData.append('ContactEmail', schoolFinalStep.ContactEmail);
+    formData.append('IsActive', schoolFinalStep.isActive);
+    const url = `${this.baseUrl + routes.addGroupedSchools}`;
+    return this.http.post(url, formData, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getAllGroupsInASchool( p, perpage, groupId ) {
+    const url = `${this.baseUrl + routes.getGroupSchools}?PageIndex=${p}&PageSize=${perpage}&groupId=${groupId}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getSchoolGroupByItsId(id ) {
+    const url = `${this.baseUrl + routes.getSchoolGroupById}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getAllGroupSchools() {
+    const url = `${this.baseUrl + routes.getAllGroupSchools}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  getSchoolGroupAnalytics(id) {
+    const url = `${this.baseUrl + routes.getSchoolGroupAnalytics}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+
+  activateSchool(id) {
+    const url = `${this.baseUrl + routes.activateschool}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
+  }
+  deactivateSchool(id) {
+    const url = `${this.baseUrl + routes.deactivateschool}/${id}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } } );
   }
 }

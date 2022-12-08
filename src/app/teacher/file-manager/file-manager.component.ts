@@ -55,15 +55,15 @@ export class FileManagerComponent implements OnInit {
 
     this.getAllClasses();
     this.getAllLessonNotesByTeacher();
-    this.getAllClassWorkByTeacher();
-    this.getAllAssignmentsByTeacher();
+    // this.getAllClassWorkByTeacher();
+    // this.getAllAssignmentsByTeacher();
   }
 
   populateClassNoteForm() {
     this.uploadClassNoteForm = this.fb.group({
       subjectId: ['', Validators.required],
-      Comment: ['', Validators.required],
-      FileObj: [null]
+      Comment: [''],
+      FileObj: [null, Validators.required]
 
     });
   }
@@ -71,8 +71,8 @@ export class FileManagerComponent implements OnInit {
   populateClassWorkForm() {
     this.uploadClassWorkForm = this.fb.group({
       subjectId: ['', Validators.required],
-      Comment: ['', Validators.required],
-      FileObj: [null]
+      Comment: [''],
+      FileObj: [null, Validators.required]
 
     });
   }
@@ -85,7 +85,7 @@ export class FileManagerComponent implements OnInit {
       DueDate: ['', Validators.required],
       TotalScore: ['', Validators.required],
       Comment: ['', Validators.required],
-      Document: null,
+      Document: [null, Validators.required],
     });
   }
 
@@ -116,8 +116,13 @@ export class FileManagerComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       // ('file', file);
-      this.assignmentFile = file.name;
-      this.uploadClassNoteForm.get('FileObj').setValue(file);
+      if (file.type !== 'application/pdf') {
+        this.notifyService.publishMessages('File must be a pdf', 'danger', 1);
+        return;
+      } else {
+        this.assignmentFile = file.name;
+        this.uploadClassNoteForm.get('FileObj').setValue(file);
+      }
       // this.iconname = this.icon.name;
     }
   }
@@ -125,9 +130,13 @@ export class FileManagerComponent implements OnInit {
     const reader = new FileReader();
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      // ('file', file);
-      this.assignmentFile = file.name;
-      this.uploadClassWorkForm.get('FileObj').setValue(file);
+      if (file.type !== 'application/pdf') {
+        this.notifyService.publishMessages('File must be a pdf', 'danger', 1);
+        return;
+      } else {
+        this.assignmentFile = file.name;
+        this.uploadClassWorkForm.get('FileObj').setValue(file);
+      }
       // this.iconname = this.icon.name;
     }
   }
@@ -135,9 +144,14 @@ export class FileManagerComponent implements OnInit {
     const reader = new FileReader();
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      // ('file', file);
-      this.assignmentFile = file.name;
-      this.uploadAssignmentForm.get('Document').setValue(file);
+
+      if (file.type !== 'application/pdf') {
+        this.notifyService.publishMessages('File must be a pdf', 'danger', 1);
+        return;
+      } else {
+        this.assignmentFile = file.name;
+        this.uploadAssignmentForm.get('Document').setValue(file);
+      }
       // this.iconname = this.icon.name;
     }
   }

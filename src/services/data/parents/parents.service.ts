@@ -8,11 +8,21 @@ const routes = {
   getallparent: 'schtrack-auth/api/v1/Parent/GetAllParents',
   getallparentinASchool: 'schtrack-auth/api/v1/Parent/GetAllParentsInSchool',
   getparentbyid: 'schtrack-auth/api/v1/Parent/GetParentById',
+  getparentbyname: 'schtrack-auth/api/v1/Parent/GetParentByFirstName',
   getstudentparent: 'schtrack-auth/api/v1/Parent/GetParentsForStudent',
   updateparentbyid: 'schtrack-auth/api/v1/Parent/UpdateParent',
   deleteparent: 'schtrack-auth/api/v1/Parent/DeleteParent',
   getstudentSchools: 'schtrack-auth/api/v1/Parent/GetStudentsSchools',
   getstudentInASchoolsForParent: 'schtrack-auth/api/v1/Parent/GetStudentsInSchool',
+  searchParent: 'schtrack-auth/api/v1/Parent/GetParentBySchoolIdAndName',
+
+  exportSingleStudentAttendanceForClassPdf:'schtrack-learning/api/v1/Attendance/ExportSingleStudentAttendanceForClassPDF',
+  exportSingleStudentAttendanceForSubjectPdf:'schtrack-learning/api/v1/Attendance/ExportSingleStudentAttendanceForSubjectPDF',
+  exportSingleStudentAttendanceForClassExcel:'schtrack-learning/api/v1/Attendance/ExportSingleStudentAttendanceForClassExcel',
+  exportSingleStudentAttendanceForSubjectExcel:'schtrack-learning/api/v1/Attendance/ExportSingleStudentAttendanceForSubjectExcel',
+  getallSubjects: 'schtrack-learning/api/v1/Subject/GetAllSubjects',
+  getBulkDdownload: 'schtrack-auth/api/v1/Parent/GetParentsExcelSheet',
+  bulkUpload: 'schtrack-auth/api/v1/Parent/AddBulkParent',
 
   // All endpoint below are exclusively for the parent portal
   getTableforClassByClassId: 'schtrack-learning/api/v1/TimeTable/GetTimetableForClass',
@@ -50,16 +60,8 @@ const routes = {
 
   getassessmentsetup: 'schtrack-assessment/api/v1/AssessmentSetup/GetAllAssessmentSetup',
 
-  staffSignature: 'schtrack-auth/api/v1/Staff/GetStaffNameAndSignatureByUserId'
-
-
-
-
-
-
-
-
-
+  staffSignature: 'schtrack-auth/api/v1/Staff/GetStaffNameAndSignatureByUserId',
+  getStudentSubjectAttendance:'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject',
 
 
 };
@@ -104,9 +106,8 @@ export class ParentsService {
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
-  getAllParentsInASchool(p, perpage) {
-    const url = `${this.baseUrl + routes.getallparentinASchool}?PageIndex=${p}&PageSize=${perpage}`;
-    
+  getAllParentsInASchool(schoolId, p, perpage) {
+    const url = `${this.baseUrl + routes.getallparentinASchool}/${schoolId}?PageIndex=${p}&PageSize=${perpage}`;
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
   getAllParentsWithName() {
@@ -118,8 +119,20 @@ export class ParentsService {
   getParentById(id) {
 
     const url = `${this.baseUrl + routes.getparentbyid}/${id}`;
-    
     return this.http.get(url,   {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  getParentByFirstName(name) {
+
+    const url = `${this.baseUrl + routes.getparentbyname}/${name}`;
+    return this.http.get(url,   {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+  }
+
+  searchSingleParent(name: string, schoolId: string) {
+    const url = `${this.baseUrl + routes.searchParent}?Name=${name}&SchoolId=${schoolId}`;
+    // console.log(url);
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
   }
 
   getParentForStudent(studid) {
@@ -157,6 +170,20 @@ export class ParentsService {
 
   }
 
+  downloadSampleBulkSheet() {
+    const url = `${this.baseUrl + routes.getBulkDdownload}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  uploadBulkDocument(payload) {
+    const body = new FormData();
+    body.append('File', payload.Document);
+
+    const url = `${this.baseUrl + routes.bulkUpload}`;
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
 
   // Endpoints designnated for parent portal
 
@@ -189,7 +216,6 @@ export class ParentsService {
     // const id = sessionStorage.getItem('tenant');
     // const tenantId = id;
     const url = `${this.baseUrl + routes.getTableforClassByClassId}?classId=${classId}`;
-    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
@@ -208,12 +234,16 @@ export class ParentsService {
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  } });
   }
 
+  getAllSubjects() {
+    const url = `${this.baseUrl + routes.getallSubjects}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'),tenantId  } });
+
+  }
 
   getAllSubjectsInAClassWithAssignmentCountByClassID(classId) {
     // const id = sessionStorage.getItem('tenant');
     // const tenantId = id;
     const url = `${this.baseUrl + routes.getallsubjectsWithAssignmentforclass}?classId=${classId}`;
-    
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
@@ -221,7 +251,6 @@ export class ParentsService {
     // const id = sessionStorage.getItem('tenant');
     // const tenantId = id;
     const url = `${this.baseUrl + routes.getAssignmentByClassSubject}?classSubjectId=${classSubjectId}`;
-    
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
@@ -236,8 +265,12 @@ export class ParentsService {
     const url = `${this.baseUrl + routes.getsubjectAttendance}?StudentId=${StudentId}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
-  getClassAttendance(StudentId, ClassId ) {
-    const url = `${this.baseUrl + routes.getclassAttendance}?StudentId=${StudentId}&ClassId=${ClassId}`;
+  getStudentAttendanceForSubject(studentId?,studentUserId?,subjectId?, date?) {
+    const url = `${this.baseUrl + routes.getStudentSubjectAttendance}?studentId=${studentId}&studentUserId=${studentUserId}&subjectId=${subjectId}&date=${date}`;
+    return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'),tenantId  } });
+  }
+  getClassAttendance(StudentId, ClassId, FromDate, ToDate) {
+    const url = `${this.baseUrl + routes.getclassAttendance}?StudentId=${StudentId}&ClassId=${ClassId}&FromDate=${FromDate}&ToDate=${ToDate}`;
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId } });
   }
 
@@ -344,5 +377,23 @@ getStaffSignature(userId) {
   return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  }});
 
 }
+
+exportSingleStudentAttendanceByClassExcel(StudentId?,StudentUserId?, ClassId?, FromDate?, ToDate?) {
+  const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForClassExcel}?StudentId=${StudentId}&StudentUserId=${StudentUserId}&ClassId=${ClassId}&FromDate=${FromDate}&ToDate=${ToDate}`;
+  return this.http.get(url,{ headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'),tenantId  } });
+}
+exportSingleStudentAttendanceByClassPdf(StudentId?,StudentUserId?, ClassId?, FromDate?, ToDate?) {
+  const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForClassPdf}?StudentId=${StudentId}&StudentUserId=${StudentUserId}&ClassId=${ClassId}&FromDate=${FromDate}&ToDate=${ToDate}`;
+  return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'),tenantId  } });
+}
+exportSingleStudentAttendanceBySubjectExcel(studentId?,studentUserId?,subjectId?, date?) {
+  const url =`${this.baseUrl + routes.exportSingleStudentAttendanceForSubjectExcel}?studentId=${studentId}&studentUserId=${studentUserId}&subjectId=${subjectId}&date=${date}`;
+  return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'),tenantId  } });
+}
+exportSingleStudentAttendanceBySubjectPdf(studentId?, studentUserId?, subjectId?, date?) {
+  const url = `${this.baseUrl + routes.exportSingleStudentAttendanceForSubjectPdf}?studentId=${studentId}&studentUserId=${studentUserId}&subjectId=${subjectId}&date=${date}`;
+  return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token'), tenantId  } });
+}
+
 
 }

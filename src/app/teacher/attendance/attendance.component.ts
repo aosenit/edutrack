@@ -58,7 +58,7 @@ export class AttendanceComponent implements OnInit {
     this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.subjectList = data.payload;
-        // // (this.subjectList.subject);
+       // // (this.subjectList.subject);
       }
     }
     );

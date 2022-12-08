@@ -15,7 +15,7 @@
                 <p class="mb-0">Score</p>
                 <form class="pl-2 form-inline" [formGroup]="scoreForm" (ngSubmit)="submitScore()">
                   <input type="number" id="" class="form-control " formControlName="score">
-                  <button class="btn regrade  ml-2">Submit</button>
+                  <button class="btn regrade  ml-2" [disabled]="scoreForm.invalid">Submit</button>
                 </form>
               </div>
             </div>

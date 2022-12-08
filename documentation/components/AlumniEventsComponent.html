@@ -1,0 +1,777 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  AlumniEventsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/student/alumni/alumni-events/alumni-events.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-alumni-events</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./alumni-events.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./alumni-events.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#eventLists" >eventLists</a>
+                            </li>
+                            <li>
+                                <a href="#schoolname" >schoolname</a>
+                            </li>
+                            <li>
+                                <a href="#studentDetails" >studentDetails</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getAllAlumiEvents" >getAllAlumiEvents</a>
+                            </li>
+                            <li>
+                                <a href="#getSchoolProperties" >getSchoolProperties</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(alumni: <a href="../injectables/AlumniService.html" target="_self">AlumniService</a>, school: <a href="../injectables/SchoolService.html" target="_self">SchoolService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/student/alumni/alumni-events/alumni-events.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>alumni</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AlumniService.html" target="_self" >AlumniService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>school</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolService.html" target="_self" >SchoolService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllAlumiEvents"></a>
+                    <span class="name">
+                        <span ><b>getAllAlumiEvents</b></span>
+                        <a href="#getAllAlumiEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllAlumiEvents()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/student/alumni/alumni-events/alumni-events.component.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSchoolProperties"></a>
+                    <span class="name">
+                        <span ><b>getSchoolProperties</b></span>
+                        <a href="#getSchoolProperties"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSchoolProperties()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/student/alumni/alumni-events/alumni-events.component.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/student/alumni/alumni-events/alumni-events.component.ts:22</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eventLists"></a>
+                    <span class="name">
+                        <span ><b>eventLists</b></span>
+                        <a href="#eventLists"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/student/alumni/alumni-events/alumni-events.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="schoolname"></a>
+                    <span class="name">
+                        <span ><b>schoolname</b></span>
+                        <a href="#schoolname"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/student/alumni/alumni-events/alumni-events.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="studentDetails"></a>
+                    <span class="name">
+                        <span ><b>studentDetails</b></span>
+                        <a href="#studentDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/student/alumni/alumni-events/alumni-events.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { JwtHelperService } from &#x27;@auth0/angular-jwt&#x27;;
+import { AlumniService } from &#x27;src/services/data/alumni/alumni.service&#x27;;
+import { SchoolService } from &#x27;src/services/data/school/school.service&#x27;;
+
+@Component({
+  selector: &#x27;app-alumni-events&#x27;,
+  templateUrl: &#x27;./alumni-events.component.html&#x27;,
+  styleUrls: [&#x27;./alumni-events.component.css&#x27;]
+})
+export class AlumniEventsComponent implements OnInit {
+  eventLists: any;
+  studentDetails: any;
+  schoolname: any;
+
+  constructor(
+    private alumni: AlumniService,
+    private school: SchoolService
+
+  ) { }
+
+  ngOnInit() {
+    this.getAllAlumiEvents();
+    const helper &#x3D; new JwtHelperService();
+    this.studentDetails &#x3D; helper.decodeToken(localStorage.getItem(&#x27;access_token&#x27;));
+    this.getSchoolProperties();
+  }
+
+  getAllAlumiEvents() {
+    this.alumni.getAllEvents().subscribe((res: any) &#x3D;&gt; {
+      if (res.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        console.log(&#x27;events&#x27;, res.payload);
+        this.eventLists &#x3D; res.payload;
+      }
+    });
+  }
+
+  getSchoolProperties() {
+    this.school.getSchoolLogo(this.studentDetails.TenantId).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        // (data.paylaod);
+        this.schoolname &#x3D; data.payload.schoolName;
+      }
+    });
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row ml-3&quot;&gt;
+
+    &lt;div class&#x3D;&quot;col-md-12 mb-3&quot;&gt;
+      &lt;div class&#x3D;&quot; alumni-card d-flex justify-content-between align-items-center bg-white p-3 &quot;&gt;
+        &lt;p class&#x3D;&quot;fw-6 mb-0&quot;&gt; {{schoolname}} &lt;/p&gt; 
+         &lt;!-- &lt;span class&#x3D;&quot;new p-1 fw-6&quot;&gt;45,623&lt;/span&gt; --&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  
+    &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
+        &lt;div class&#x3D;&quot;row&quot;&gt;
+            &lt;div class&#x3D;&quot;col-md-4 mb-3&quot; *ngFor&#x3D;&quot;let event of eventLists&quot;&gt;
+                &lt;div class&#x3D;&quot;alumni-cards&quot;&gt;   
+                    &lt;img src&#x3D;&quot;assets/images/svg/event.jpg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot; cursor-pointer alumni-user&quot; routerLink&#x3D;&quot;/school/alumni/event-detail/{{event.id}}&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;
+                    &lt;div class&#x3D;&quot;bg-white alumni__card-content px-3 pb-3 pt-3&quot;&gt;
+                        &lt;p class&#x3D;&quot;mb-0 fw-7 card-name pb-1&quot;&gt;{{event.startDate | date: &#x27;EEE&#x27; + &#x27;,&#x27;}} {{event.startDate | date : &#x27;mediumDate&#x27; }} - {{event.endDate | date: &#x27;mediumDate&#x27; }} &lt;/p&gt;
+                        &lt;p class&#x3D;&quot;mb-0 fw-7 card-name cursor-pointer&quot; routerLink&#x3D;&quot;/school/alumni/event-detail/{{event.id}}&quot; routerLinkActive&#x3D;&quot;active&quot;&gt;{{event.name}}&lt;/p&gt;
+                        &lt;!-- &lt;p class&#x3D;&quot;mb-0 fw-4 my-2 card-course&quot;&gt;Mfonobong Bella Umodia&lt;/p&gt; --&gt;
+                        &lt;!-- &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center my-3&quot;&gt;
+                            &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                                &lt;span class&#x3D;&quot;mr-3&quot;&gt;
+                                    &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;17&quot; viewBox&#x3D;&quot;0 0 16 17&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
+                                        &lt;g clip-path&#x3D;&quot;url(#clip0)&quot;&gt;
+                                        &lt;path d&#x3D;&quot;M6.31579 7.93753C8.17347 7.93753 9.68421 6.42679 9.68421 4.5691C9.68421 2.71142 8.17347 1.20068 6.31579 1.20068C4.45811 1.20068 2.94737 2.71142 2.94737 4.5691C2.94737 6.42679 4.45811 7.93753 6.31579 7.93753ZM7.57895 8.77963H5.05263C2.26611 8.77963 0 11.0457 0 13.8323V14.6744H12.6316V13.8323C12.6316 11.0457 10.3655 8.77963 7.57895 8.77963Z&quot; fill&#x3D;&quot;#2D3A4F&quot;/&gt;
+                                        &lt;path d&#x3D;&quot;M12.2985 7.13579C12.8114 6.26176 13.0329 5.24721 12.9309 4.23895C12.7802 2.73663 11.9415 1.40863 10.5705 0.5L9.64 1.90295C10.5823 2.52779 11.1558 3.4179 11.2552 4.40737C11.301 4.86724 11.2437 5.33154 11.0876 5.76651C10.9314 6.20148 10.6803 6.59617 10.3524 6.92189L9.34863 7.92568L10.7112 8.32569C14.2749 9.3699 14.3162 12.9539 14.3162 12.9901H16.0004C16.0004 11.4836 15.1954 8.53958 12.2985 7.13579Z&quot; fill&#x3D;&quot;#2D3A4F&quot;/&gt;
+                                        &lt;/g&gt;
+                                        &lt;defs&gt;
+                                        &lt;clipPath id&#x3D;&quot;clip0&quot;&gt;
+                                        &lt;rect width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;white&quot; transform&#x3D;&quot;translate(0 0.5)&quot;/&gt;
+                                        &lt;/clipPath&gt;
+                                        &lt;/defs&gt;
+                                        &lt;/svg&gt;
+                                &lt;/span&gt;
+                                &lt;p class&#x3D;&quot;mb-0 card-count&quot;&gt;56 people are attending&lt;/p&gt;
+                                
+                            &lt;/div&gt;
+                           
+                        &lt;/div&gt; --&gt;
+                        &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center my-3&quot;&gt;
+                            &lt;button class&#x3D;&quot;btn btn-alumni w-100&quot; routerLink&#x3D;&quot;/student/alumni/event-detail/{{event.id}}&quot;&gt;
+                                View Event
+                            &lt;/button&gt;
+                            
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            
+
+            
+            
+        &lt;/div&gt;
+    &lt;/div&gt;
+  
+  &lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./alumni-events.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.alumni-card, .alumni-cards {
+    border-radius: 8px;
+}
+
+
+
+.new {
+    font-size: 15px;
+    color: #1666C5;
+    border-radius: 8px;
+    background: rgba(22, 102, 197, 0.1);
+
+}
+
+.alumni-user {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px 8px 0px 0px;
+}
+
+.alumni__card-content {
+    border-radius: 0px 0px 8px 8px;
+
+}
+
+.card-name {
+    color: #2D3A4F;
+    font-size: 15px;
+    font-family: Nunito;
+    
+}
+
+.card-course {
+    font-size: 13px;
+    color: #9EA9B8;
+    
+}
+
+.card-job {
+    color: #9EA9B8;
+    
+    
+}
+
+.card-count {
+    color: #0052B4;
+    font-family: Nunito;
+
+}
+
+.btn-alumni {
+    color: #ffffff;
+    background: #1666C5;
+    border-radius: 8px;
+    font-size: 15px;
+    /* font-weight: bold; */
+    font-family: Nunito;
+    padding: .5rem 0 !important;
+}
+
+.btn-share {
+    /* color: #0052B4; */
+    background: rgba(22, 102, 197, 0.1);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: .5rem 0 !important;
+}
+
+.send {
+    background: rgba(9, 183, 138, 0.06);
+    color: #09B78A;
+    ;
+}
+
+.cancel {
+    background: rgba(216, 0, 39, 0.06);
+    color: #D80027;
+
+}
+
+.images { 
+    width: 120px;
+    position: relative;
+}
+.images .student-img {
+    position: absolute;
+    top: -16px;
+    left: 55px;
+    z-index: 999;
+}
+.images .student-img2 {
+    position: absolute;
+    top: -16px;
+    left: 73px;
+    z-index: 99;
+}
+.images .student-img3 {
+    position: absolute;
+    top: -16px;
+    left: 92px;
+    z-index: 9;
+}
+
+.images .img-width {
+    width: 22px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="row ml-3">    <div class="col-md-12 mb-3">      <div class=" alumni-card d-flex justify-content-between align-items-center bg-white p-3 ">        <p class="fw-6 mb-0"> {{schoolname}} </p>          <!-- <span class="new p-1 fw-6">45,623</span> -->      </div>    </div>      <div class="col-md-12">        <div class="row">            <div class="col-md-4 mb-3" *ngFor="let event of eventLists">                <div class="alumni-cards">                       <img src="assets/images/svg/event.jpg" alt="" class=" cursor-pointer alumni-user" routerLink="/school/alumni/event-detail/{{event.id}}" routerLinkActive="active">                    <div class="bg-white alumni__card-content px-3 pb-3 pt-3">                        <p class="mb-0 fw-7 card-name pb-1">{{event.startDate | date: \'EEE\' + \',\'}} {{event.startDate | date : \'mediumDate\' }} - {{event.endDate | date: \'mediumDate\' }} </p>                        <p class="mb-0 fw-7 card-name cursor-pointer" routerLink="/school/alumni/event-detail/{{event.id}}" routerLinkActive="active">{{event.name}}</p>                        <!-- <p class="mb-0 fw-4 my-2 card-course">Mfonobong Bella Umodia</p> -->                        <!-- <div class="d-flex justify-content-between align-items-center my-3">                            <div class="d-flex">                                <span class="mr-3">                                    <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">                                        <g clip-path="url(#clip0)">                                        <path d="M6.31579 7.93753C8.17347 7.93753 9.68421 6.42679 9.68421 4.5691C9.68421 2.71142 8.17347 1.20068 6.31579 1.20068C4.45811 1.20068 2.94737 2.71142 2.94737 4.5691C2.94737 6.42679 4.45811 7.93753 6.31579 7.93753ZM7.57895 8.77963H5.05263C2.26611 8.77963 0 11.0457 0 13.8323V14.6744H12.6316V13.8323C12.6316 11.0457 10.3655 8.77963 7.57895 8.77963Z" fill="#2D3A4F"/>                                        <path d="M12.2985 7.13579C12.8114 6.26176 13.0329 5.24721 12.9309 4.23895C12.7802 2.73663 11.9415 1.40863 10.5705 0.5L9.64 1.90295C10.5823 2.52779 11.1558 3.4179 11.2552 4.40737C11.301 4.86724 11.2437 5.33154 11.0876 5.76651C10.9314 6.20148 10.6803 6.59617 10.3524 6.92189L9.34863 7.92568L10.7112 8.32569C14.2749 9.3699 14.3162 12.9539 14.3162 12.9901H16.0004C16.0004 11.4836 15.1954 8.53958 12.2985 7.13579Z" fill="#2D3A4F"/>                                        </g>                                        <defs>                                        <clipPath id="clip0">                                        <rect width="16" height="16" fill="white" transform="translate(0 0.5)"/>                                        </clipPath>                                        </defs>                                        </svg>                                </span>                                <p class="mb-0 card-count">56 people are attending</p>                                                            </div>                                                   </div> -->                        <div class="d-flex justify-content-between align-items-center my-3">                            <button class="btn btn-alumni w-100" routerLink="/student/alumni/event-detail/{{event.id}}">                                View Event                            </button>                                                    </div>                    </div>                </div>            </div>                                            </div>    </div>    </div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AccountMappingComponent', 'selector': 'app-account-mapping'},{'name': 'AccountPanelComponent', 'selector': 'app-account-panel'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AdminAlumniCreateEventComponent', 'selector': 'app-admin-alumni-create-event'},{'name': 'AdminAlumniEventsComponent', 'selector': 'app-admin-alumni-events'},{'name': 'AdminAlumniListComponent', 'selector': 'app-admin-alumni-list'},{'name': 'AdminLoginComponent', 'selector': 'app-admin-login'},{'name': 'AlumniAlumniComponent', 'selector': 'app-alumni-alumni'},{'name': 'AlumniComponent', 'selector': 'app-alumni'},{'name': 'AlumniEventDetailComponent', 'selector': 'app-alumni-event-detail'},{'name': 'AlumniEventsComponent', 'selector': 'app-alumni-events'},{'name': 'AlumniHomeComponent', 'selector': 'app-alumni-home'},{'name': 'AlumniProfileComponent', 'selector': 'app-alumni-profile'},{'name': 'AlumniRecordsComponent', 'selector': 'app-alumni-records'},{'name': 'AlumniTranscriptComponent', 'selector': 'app-alumni-transcript'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentsComponent', 'selector': 'app-assignments'},{'name': 'AttachTeacherComponent', 'selector': 'app-attach-teacher'},{'name': 'AttendanceComponent', 'selector': 'app-attendance'},{'name': 'BankAccountsComponent', 'selector': 'app-bank-accounts'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BranchContactPersonComponent', 'selector': 'app-branch-contact-person'},{'name': 'BranchDetailComponent', 'selector': 'app-branch-detail'},{'name': 'BranchInformationComponent', 'selector': 'app-branch-information'},{'name': 'BranchLocationComponent', 'selector': 'app-branch-location'},{'name': 'BroadSheetComponent', 'selector': 'app-broad-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ChartOfAccountComponent', 'selector': 'app-chart-of-account'},{'name': 'ChildAssignmentComponent', 'selector': 'app-child-assignment'},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ClassAttendanceComponent', 'selector': 'app-class-attendance'},{'name': 'ClassPoolComponent', 'selector': 'app-class-pool'},{'name': 'ClassRepeatComponent', 'selector': 'app-class-repeat'},{'name': 'ClassScheduleComponent', 'selector': 'app-class-schedule'},{'name': 'ClientDetailComponent', 'selector': 'app-client-detail'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'ContactDetailComponent', 'selector': 'app-contact-detail'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactPersonComponent', 'selector': 'app-contact-person'},{'name': 'CreateAssignmentComponent', 'selector': 'app-create-assignment'},{'name': 'CreateBranchComponent', 'selector': 'app-create-branch'},{'name': 'CreateClientComponent', 'selector': 'app-create-client'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoComponent', 'selector': 'app-demo'},{'name': 'DiscountsComponent', 'selector': 'app-discounts'},{'name': 'EditUserComponent', 'selector': 'app-edit-user'},{'name': 'EducationComponent', 'selector': 'app-education'},{'name': 'EmailVerifiedComponent', 'selector': 'app-email-verified'},{'name': 'EmployeeComponent', 'selector': 'app-employee'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeListComponent', 'selector': 'app-employee-list'},{'name': 'FacilitySettingsComponent', 'selector': 'app-facility-settings'},{'name': 'FaqsComponent', 'selector': 'app-faqs'},{'name': 'FeeComponent', 'selector': 'app-fee'},{'name': 'FeeComponentComponent', 'selector': 'app-fee-component'},{'name': 'FeeTypeComponent', 'selector': 'app-fee-type'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FilesComponent', 'selector': 'app-files'},{'name': 'FileStorageComponent', 'selector': 'app-file-storage'},{'name': 'FinanceSettingsComponent', 'selector': 'app-finance-settings'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAdminComponent', 'selector': 'app-global-admin'},{'name': 'GradebookComponent', 'selector': 'app-gradebook'},{'name': 'GradingComponent', 'selector': 'app-grading'},{'name': 'GroupedSchoolsComponent', 'selector': 'app-grouped-schools'},{'name': 'HomenavbarComponent', 'selector': 'app-homenavbar'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LandingScreenComponent', 'selector': 'app-landing-screen'},{'name': 'LaterThingsComponent', 'selector': 'app-later-things'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'MailReportCardComponent', 'selector': 'app-mail-report-card'},{'name': 'MarkAttendanceComponent', 'selector': 'app-mark-attendance'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MedicalDetailsComponent', 'selector': 'app-medical-details'},{'name': 'NewAccountChartComponent', 'selector': 'app-new-account-chart'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewFeeComponent', 'selector': 'app-new-fee'},{'name': 'NewroleComponent', 'selector': 'app-newrole'},{'name': 'NewRoleRecordComponent', 'selector': 'app-new-role-record'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NewVendorsComponent', 'selector': 'app-new-vendors'},{'name': 'NextOfKinComponent', 'selector': 'app-next-of-kin'},{'name': 'NoRecordComponent', 'selector': 'app-no-record'},{'name': 'NotificationPageComponent', 'selector': 'app-notification-page'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ParentComponent', 'selector': 'app-parent'},{'name': 'ParentDetailsComponent', 'selector': 'app-parent-details'},{'name': 'ParentListComponent', 'selector': 'app-parent-list'},{'name': 'ParentLoginComponent', 'selector': 'app-parent-login'},{'name': 'ParentPortalComponent', 'selector': 'app-parent-portal'},{'name': 'PayrollAccountsComponent', 'selector': 'app-payroll-accounts'},{'name': 'PayrollSetttingsComponent', 'selector': 'app-payroll-setttings'},{'name': 'PeriodComponent', 'selector': 'app-period'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'PersonalSettingsComponent', 'selector': 'app-personal-settings'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileInformationComponent', 'selector': 'app-profile-information'},{'name': 'PromotionDashboardComponent', 'selector': 'app-promotion-dashboard'},{'name': 'PromotionSettingsComponent', 'selector': 'app-promotion-settings'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResultSettingsComponent', 'selector': 'app-result-settings'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'SchoolAdminComponent', 'selector': 'app-school-admin'},{'name': 'SchoolBranchManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolComponent', 'selector': 'app-school'},{'name': 'SchoolContactPersonComponent', 'selector': 'app-school-contact-person'},{'name': 'SchoolGradeBookComponent', 'selector': 'app-school-grade-book'},{'name': 'SchoolInformationComponent', 'selector': 'app-school-information'},{'name': 'SchoolLoginComponent', 'selector': 'app-school-login'},{'name': 'SchoolManagerBranchComponent', 'selector': 'app-school-manager-branch'},{'name': 'SchoolManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolManagerDashboardComponent', 'selector': 'app-school-manager-dashboard'},{'name': 'SchoolManagerSettingsComponent', 'selector': 'app-school-manager-settings'},{'name': 'SchoolMediaComponent', 'selector': 'app-school-media'},{'name': 'SchoolSettingsComponent', 'selector': 'app-school-settings'},{'name': 'ScoreSheetComponent', 'selector': 'app-score-sheet'},{'name': 'ScoreSheetDetailsPageComponent', 'selector': 'app-score-sheet-details-page'},{'name': 'SessionComponent', 'selector': 'app-session'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'StudentAttendanceComponent', 'selector': 'app-student-attendance'},{'name': 'StudentComponent', 'selector': 'app-student'},{'name': 'StudentDetailComponent', 'selector': 'app-student-detail'},{'name': 'StudentListComponent', 'selector': 'app-student-list'},{'name': 'StudentLoginComponent', 'selector': 'app-student-login'},{'name': 'StudentProfileComponent', 'selector': 'app-student-profile'},{'name': 'StudentReportComponent', 'selector': 'app-student-report'},{'name': 'StudentResultSheetComponent', 'selector': 'app-student-result-sheet'},{'name': 'StudentScoreSheetComponent', 'selector': 'app-student-score-sheet'},{'name': 'StudentSettingsComponent', 'selector': 'app-student-settings'},{'name': 'StudentSheetComponent', 'selector': 'app-student-sheet'},{'name': 'SubjecAttendanceComponent', 'selector': 'app-subjec-attendance'},{'name': 'SubscriptionInvoiceArreasComponent', 'selector': 'app-subscription-invoice-arreas'},{'name': 'SubscriptionInvoiceComponent', 'selector': 'app-subscription-invoice'},{'name': 'SubscriptionListsComponent', 'selector': 'app-subscription-lists'},{'name': 'SubscriptionPageComponent', 'selector': 'app-subscription-page'},{'name': 'TaskPreviewComponent', 'selector': 'app-task-preview'},{'name': 'TeacherComponent', 'selector': 'app-teacher'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'},{'name': 'TeachersComponent', 'selector': 'app-teachers'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'UnpaidSubscriptionsComponent', 'selector': 'app-unpaid-subscriptions'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VendorsComponent', 'selector': 'app-vendors'},{'name': 'ViewAssignmentComponent', 'selector': 'app-view-assignment'},{'name': 'ViewBillingComponent', 'selector': 'app-view-billing'},{'name': 'ViewFileComponent', 'selector': 'app-view-file'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportSheetComponent', 'selector': 'app-view-report-sheet'},{'name': 'VirtualClassComponent', 'selector': 'app-virtual-class'},{'name': 'VirtualClassroomComponent', 'selector': 'app-virtual-classroom'},{'name': 'VirtualSessionComponent', 'selector': 'app-virtual-session'},{'name': 'WithdrawalListComponent', 'selector': 'app-withdrawal-list'},{'name': 'WorkExperienceComponent', 'selector': 'app-work-experience'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AlumniEventsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AlumniEventsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

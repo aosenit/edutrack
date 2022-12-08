@@ -5,7 +5,7 @@
   border: 1px solid #d7dadf;
   box-sizing: border-box;
   border-radius: 10px;
-  padding: 1rem 1.8rem;
+  /* padding: 1rem 1.8rem; */
   backdrop-filter: opacity(0.9);
 }
 

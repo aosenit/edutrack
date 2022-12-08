@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { from, zip, of } from 'rxjs';
+import { from, zip, of, forkJoin } from 'rxjs';
 import { groupBy, mergeMap, toArray } from 'rxjs/operators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AdminService } from 'src/services/data/admin/admin.service';
@@ -40,7 +40,7 @@ export class AccountSettingsComponent implements OnInit {
     this.populateAssignRoleForm();
     this.getRolesPermissions();
     this.getRoles();
-    this.getStaffs();
+    // this.getStaffs();
 
     this.dropdownSettings = {
       singleSelection: false,
@@ -127,7 +127,11 @@ export class AccountSettingsComponent implements OnInit {
 
   getStaffs() {
     const arr = [];
-
+    // const teacher$ = this.teacherService.getAllTeachers();
+    // const staff$ = this.staffServie.getAllStaffInSchool();
+    // forkJoin(teacher$, staff$).subscribe((teacher, staff) => {
+    //   console.log(teacher, staff);
+    // });
     this.teacherService.getAllTeachers().subscribe((data: any) => {
       if (data.hasErrors === false) {
         const allTeacher: any = data.payload;
@@ -191,6 +195,8 @@ export class AccountSettingsComponent implements OnInit {
         this.notifyService.publishMessages('roles successfully assigned', 'info', 1);
         document.getElementById('close').click();
         // // (data);
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
@@ -215,11 +221,12 @@ export class AccountSettingsComponent implements OnInit {
   }
 
 
+
+
   // getRolePermissionsByRoleId(id) {
   //   this.adminService.getAllPermissionForRoleById(id).subscribe((data: any) => {
   //     if (data.hasErrors === false) {
 
-  //       // (data.payload);
   //     } else {
   //       this.notifyService.publishMessages(data.errors, 'danger', 1);
 

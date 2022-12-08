@@ -33,7 +33,7 @@ export class AuthService {
 
   resetPassword(resetPasswordForm) {
     const body = new FormData();
-    body.append('email', resetPasswordForm.email);
+    body.append('username', resetPasswordForm.username);
     const url = `${this.baseUrl + routes.forgotPassword}`;
     return this.http.post(url, body);
 

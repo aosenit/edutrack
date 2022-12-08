@@ -39,7 +39,7 @@ export class ResetPasswordComponent implements OnInit {
     }
     // this.validationToken = sessionStorage.getItem('tk');
     this.resetPasswordForm = this.fb.group({
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required]
     }, {
       validator: MustMatch('password', 'confirmPassword')
@@ -58,6 +58,8 @@ export class ResetPasswordComponent implements OnInit {
         // (data.payload);
         this.notifyService.publishMessages(data.description, 'success', 1);
         this.router.navigateByUrl('/');
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
     }, error => {
       // // (error);

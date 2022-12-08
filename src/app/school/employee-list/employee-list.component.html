@@ -17,8 +17,8 @@
         <p class=""> Directory of all registered employees </p>
     </div>
     <div class="d-flex">
-                    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
-            data-target="#exampleModalCenterUpload"> Bulk Upload </button> -->
+                    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+            data-target="#exampleModalCenterUpload"> Bulk Upload </button>
         <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-employee" (click)="clearData()"> Add New </button>
     </div>
 
@@ -40,13 +40,8 @@
     <table class="table table-borderless client-table">
         <thead>
             <tr>
-                <th scope="col" class="head ">
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheckTh">
-                        <label class="custom-control-label" for="customCheckTh"></label>
-                    </div>
-                </th>
-                <th scope="col" >Full Name 
+               
+                <th scope="col" class="head" >Full Name 
                     <!-- <img src="assets/images/svg/table-sort.svg"
                         alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
@@ -79,13 +74,8 @@
         </thead>
         <tbody>
             <tr class="pb-1" *ngFor="let staff of employeeList | tableSearch : 'firstName' : searchString">
-                <td scope="row" class="check rounded-left">
-                    <div class="custom-control custom-checkbox" >
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1"></label>
-                    </div>
-                </td>
-                <td class="user" >
+                
+                <td class="user check rounded-left" >
                     
                     <div class="d-flex align-items-center">
                         <img src="assets/images/svg/dummy_user.png" alt="schools log" class="mr-3  image-rounded" >
@@ -132,21 +122,24 @@
               
           </div>
           <div class="modal-body client-modal">
-              <form>
+              <form [formGroup]="staffUploadForm" (ngSubmit)="createStafftBulkUpload()">
                   <div class="form-group file-upload mt-4 mb-3">
-                      <label for="fileupload">Drag files to upload or click</label>
-                      <input type="file" class="file-input" id="fileupload">
-                      <button type="button " class="btn-upload  mb-3 ">Upload Files </button>
+                    <label for="fileupload" class="mt-3 fw-6" *ngIf="filename !== null">{{filename}}</label>
+                    <label for="fileupload" *ngIf="filename === null">Drag files to upload or click</label>
+                     <input type="file" class="file-input" id="fileupload"
+                            accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                            (change)="handleBulkUpload($event)">
+                      <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
                       <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
                           file. To import
                           more than 5000 records at a time, use a .csv file.</p>
                   </div>
 
-                  <p class="mb-5 download">Click <span class="fc-lblue">here</span> to download sample file</p>
+                  <p class="mb-5 download" (click)="downloadAdminSampleFile()"  >Click <span class="fc-lblue">here</span> to download sample file</p>
 
                   <div class="modal-btn d-flex justify-content-end mb-5">
                       <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
-                      <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add New </button>
+                      <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Upload File </button>
                   </div>
 
               </form>

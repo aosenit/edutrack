@@ -1,0 +1,205 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb" (click) = "back()">
+      <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+      <li class="breadcrumb-item a1 " aria-current="page">
+          <a>Back</a>
+      </li>
+
+
+  </ol>
+
+
+</nav>
+
+<div class=" bg-white" *ngIf="newEvent">
+
+  <form class="pt-5" [formGroup]="newAlumniform" (ngSubmit)="createEvent()">
+
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <label for="domain" class="fw-6">Event Name </label>
+        <input type="text" class="form-control" placeholder="Event name" id="amount" formControlName="name">
+
+
+      </div>
+      <div class="col-md-6">
+        <label for="amount" class="fw-6">Event Type </label>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="type" (change)="getEventType($event.target.checked)">
+          <label class="custom-control-label" for="customSwitch1">Virtual</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <label for="domain" class="fw-6">Location </label>
+        <input type="text" class="form-control" placeholder="Enter location" id="amount" formControlName="location">
+
+
+      </div>
+
+    </div>
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <label for="domain" class="fw-6">Event Description </label>
+        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Enter Description" formControlName="description"></textarea>
+
+
+      </div>
+
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <label for="domain" class="fw-6">Start Date </label>
+        <input type="datetime-local" class="form-control"  id="amount" formControlName="startDate">
+
+
+      </div>
+      <div class="col-md-6">
+        <label for="amount" class="fw-6">End Date </label>
+        <input type="date" class="form-control"  id="amount" formControlName="endDate">
+      </div>
+    </div>
+    <div class="row mb-5">
+     
+      <!-- <div class="col-md-6">
+        <label for="amount" class="fw-6"> Status </label>
+        <select name="" id="" class="form-control" formControlName="status">
+          <option value="" selected>Select</option>
+          <option value="Ongoing">Ongoing</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div> -->
+      <div class="col-md-6">
+        <label for="amount" class="fw-6">Tags  </label>
+        <input type="text" class="form-control" placeholder="Enter tags" id="amount" formControlName="tags">
+        <small class="text-danger"> separate tags with comma</small>
+      </div>
+    </div>
+
+
+    <div class="row mb-4 px-3">
+        <div class="col-md-12 attach-file">
+            <label for="amount" class="fw-6">Upload Image
+
+            </label>
+            <input type="file" class="form-control file-upload" placeholder="Enter amount" id="amount"
+            accept="image/png, image/jpeg"
+                    (change)="handleFileInput($event)" >
+          </div>
+
+          <div class="col-md-12 " *ngIf="imageSrc">
+            <img [src]="imageSrc" class=" imgPreview" alt="..." />
+
+          </div>
+
+    </div>
+
+
+    <div class=" d-flex justify-content-start mt-5">
+      <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="newAlumniform.invalid"> Create Event </button>
+      <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Create Event </button> -->
+
+    </div>
+  </form>
+
+</div>
+
+
+<div class=" bg-white" *ngIf="editEvent">
+
+  <form class="pt-5" [formGroup]="editAlumniform" (ngSubmit)="updateEvent()">
+
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <label for="domain" class="fw-6">Event Name </label>
+        <input type="text" class="form-control" placeholder="Event name" id="amount" formControlName="name">
+
+
+      </div>
+      <div class="col-md-6">
+        <label for="amount" class="fw-6">Event Type </label>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="type" (change)="getEventType($event.target.checked)" [checked]="checkEventType === true">
+          <label class="custom-control-label" for="customSwitch1">Virtual</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <label for="domain" class="fw-6">Location </label>
+        <input type="text" class="form-control" placeholder="Enter location" id="amount" formControlName="location">
+
+
+      </div>
+
+    </div>
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <label for="domain" class="fw-6">Event Description </label>
+        <textarea name="" id="" cols="30" rows="5" class="form-control" placeholder="Enter Description" formControlName="description"></textarea>
+
+
+      </div>
+
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <label for="domain" class="fw-6">Start Date </label>
+        <input type="datetime-local" class="form-control"  id="amount" formControlName="startDate">
+
+
+      </div>
+      <div class="col-md-6">
+        <label for="amount" class="fw-6">End Date </label>
+        <input type="date" class="form-control"  id="amount" formControlName="endDate">
+      </div>
+    </div>
+    <div class="row mb-5">
+     
+      <!-- <div class="col-md-6">
+        <label for="amount" class="fw-6"> Status </label>
+        <select name="" id="" class="form-control" formControlName="status">
+          <option value="" selected>Select</option>
+          <option value="Ongoing">Ongoing</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div> -->
+      <div class="col-md-6">
+        <label for="amount" class="fw-6">Tags  </label>
+        <input type="text" class="form-control" placeholder="Enter tags" id="amount" formControlName="tags">
+        <small class="text-danger"> separate tags with comma</small>
+      </div>
+    </div>
+
+
+    <div class="row mb-4 px-3">
+        <div class="col-md-12 attach-file">
+            <label for="amount" class="fw-6">Upload Image
+
+            </label>
+            <input type="file" class="form-control file-upload" placeholder="Enter amount" id="amount"
+            accept="image/png, image/jpeg"
+                    (change)="handleFileInput($event)" >
+          </div>
+
+          <div class="col-md-12 " *ngIf="imageSrc">
+            <img [src]="imageSrc" class=" imgPreview" alt="..." />
+
+          </div>
+
+    </div>
+
+
+    <div class=" d-flex justify-content-start mt-5">
+      <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="editAlumniform.invalid"> Update Event </button>
+      <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Create Event </button> -->
+
+    </div>
+  </form>
+
+</div>

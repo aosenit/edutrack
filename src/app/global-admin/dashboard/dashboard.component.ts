@@ -12,11 +12,14 @@ export class DashboardComponent implements OnInit {
   adminDetails: any;
   registeredSchools: any;
   schoolCount: any;
+  studentsOnPlatform: any;
   studentCount: any;
   greet: any;
   p = 1;
   itemsPerPage = 5;
   loginDate: string;
+  usersCount: any;
+  totalUser: any;
 
   constructor(private schoolService: SchoolService, private studentservice: StudentService) { }
 
@@ -27,7 +30,8 @@ export class DashboardComponent implements OnInit {
 
     this.greeting();
     this.getAllSchool();
-    this.getAllStudents();
+    // this.getAllStudents();
+    this.getTotalUsersOnPlatform();
   }
 
   getAllSchool() {
@@ -35,7 +39,6 @@ export class DashboardComponent implements OnInit {
       if (data) {
         this.registeredSchools = data.payload;
         this.schoolCount = data.totalCount;
-        // (this.registeredSchools);
       }
     });
   }
@@ -44,7 +47,16 @@ export class DashboardComponent implements OnInit {
     this.studentservice.getAllStudents(this.p, this.itemsPerPage).subscribe(
       (res: any) => {
         this.studentCount = res.totalCount;
-        // (this.studentCount);
+        
+      }
+    );
+  }
+ 
+  getTotalUsersOnPlatform(){
+    this.studentservice.getTotalUsersOnPlatform().subscribe(
+      (res: any) => {
+        this.studentsOnPlatform = res.payload.totalStudents;
+        this.totalUser = res.payload.totalUsers;
       }
     );
   }

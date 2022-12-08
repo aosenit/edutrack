@@ -12,9 +12,9 @@
                   </div>
         
                 </div>
-                <button class="btn-upload-top bg-lblue " type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                <!-- <button class="btn-upload-top bg-lblue " type="button" id="dropdownMenuButton" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false"> <img src="assets/images/svg/upload.svg" alt="new client"
-                    class="mr-2"> Upload </button>
+                    class="mr-2"> Upload </button> -->
                 <!-- <button class="btn-upload-top bg-lblue "> <img
                                 src="assets/images/svg/upload.svg" alt="new client" class="mr-2"> Upload </button> -->
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -30,30 +30,30 @@
         
               <div>
                 <ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
-                  <li class="nav-item d-flex align-items-center mr-3">
+                  <li class="nav-item d-flex align-items-center mr-3" (click)="getLessNotes()">
                     <a class="nav-link active" id="pills-notes-tab" data-toggle="pill" href="#pills-notes" role="tab"
                       aria-controls="pills-notes" aria-selected="true">
                       <img src="assets/images/svg/file-tab-1.svg" alt="new client" class="mr-3">
                       Class Notes</a>
                   </li>
-                  <li class="nav-item d-flex mr-3">
+                  <li class="nav-item d-flex mr-3" (click)="getAssignments()">
                     <a class="nav-link" id="pills-assignment-tab" data-toggle="pill" href="#pills-assignment" role="tab"
                       aria-controls="pills-assignment" aria-selected="false">
                       <img src="assets/images/svg/file-tab-2.svg" alt="new client" class="mr-3">
                       Assignment</a>
                   </li>
-                  <li class="nav-item d-flex mr-3">
+                  <li class="nav-item d-flex mr-3" (click)="getClassWork()">
                     <a class="nav-link" id="pills-work-tab" data-toggle="pill" href="#pills-work" role="tab"
                       aria-controls="pills-work" aria-selected="false">
                       <img src="assets/images/svg/file-tab-4.svg" alt="new client" class="mr-3">
                       Class work</a>
                   </li>
-                  <li class="nav-item d-flex">
+                  <!-- <li class="nav-item d-flex">
                     <a class="nav-link" id="pills-media-tab" data-toggle="pill" href="#pills-media" role="tab"
                       aria-controls="pills-media" aria-selected="false">
                       <img src="assets/images/svg/file-tab-3.svg" alt="new client" class="mr-3">
                       Media</a>
-                  </li>
+                  </li> -->
         
                 </ul>
         
@@ -68,12 +68,12 @@
                   <div class="d-flex justify-content-between align-items-center mt-3 ">
                     <p class="mb-0 fw-6">Class notes</p>
         
-                    <div>
+                    <!-- <div>
                       <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
                       <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
                         type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <!-- ================ DROPDOWN ==================== -->
-                      <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
+
+                        <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-black " href="#">Ascending </a>
@@ -85,9 +85,15 @@
                         <a class="dropdown-item text-black " href="#">Modified </a>
                         <a class="dropdown-item text-black " href="#">Date Created </a>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
-                  <section class="list">
+                  <div *ngIf="allLessonNote?.length === 0" class="client">
+                    <img src="assets/images/svg/institution.svg" alt="new client" class="">
+                    <p class="text-center pt-4">No lesson note record 
+                      </p>
+                  
+                  </div>
+                  <section class="list" *ngIf="allLessonNote?.length > 0">
                     <table class="table table-borderless client-table">
                       <thead>
                         <tr>
@@ -135,7 +141,7 @@
                           <td>{{lesson?.className}}</td>
                           <td>{{lesson?.creationDate | date: 'longDate'}}</td>
                           <td>
-                            <span [ngStyle]="{cursor: 'pointer'}" class="status"> Download </span>
+                            <span [ngStyle]="{cursor: 'pointer'}" class="status" (click)="openLessonPreview(lesson?.id, i)"> Preview </span>
                           </td>
                           <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
         
@@ -152,11 +158,10 @@
                   <div class="d-flex justify-content-between align-items-center mt-3 ">
                     <p class="mb-0 fw-6">Assignment</p>
         
-                    <div>
+                    <!-- <div>
                       <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
                       <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
                         type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <!-- ================ DROPDOWN ==================== -->
                       <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
                         <div class="dropdown-divider"></div>
@@ -169,9 +174,17 @@
                         <a class="dropdown-item text-black " href="#">Modified </a>
                         <a class="dropdown-item text-black " href="#">Date Created </a>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
-                  <section class="list">
+
+                  <div *ngIf="assignmentlist?.length === 0" class="client">
+                    <img src="assets/images/svg/institution.svg" alt="new client" class="">
+                    <p class="text-center pt-4">No Assignment record 
+                      </p>
+                  
+                  </div>
+
+                  <section class="list" *ngIf="assignmentlist?.length > 0">
                     <table class="table table-borderless client-table">
                       <thead>
                         <tr>
@@ -200,7 +213,7 @@
                       </thead>
                       <tbody>
                         <tr class="pb-2"
-                          *ngFor="let assignment of assignmentlist ">
+                          *ngFor="let assignment of assignmentlist; let i = index">
                           <td scope="row" class="school-logo rounded-left">
                             <div class="custom-control custom-checkbox" >
                               <input type="checkbox" class="custom-control-input" id="customChecks{{assignment?.id}}">
@@ -219,7 +232,7 @@
                           <td>{{assignment?.className}}</td>
                           <td>{{assignment?.creationDate | date : 'longDate'}}</td>
                           <td >
-                            <span [ngStyle]="{cursor: 'pointer'}" class="status" >Download</span>
+                            <span [ngStyle]="{cursor: 'pointer'}" class="status" (click)="openAssignmentPreview(assignment?.id, i)" >Preview</span>
                           </td>
                           <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
         
@@ -241,11 +254,10 @@
                   <div class="d-flex justify-content-between align-items-center mt-3 ">
                     <p class="mb-0 fw-6">Class Work</p>
         
-                    <div>
+                    <!-- <div>
                       <img src="assets/images/svg/file-manager-search.svg" alt="new client" class="mr-3">
                       <img src="assets/images/svg/file-manager-filter.svg" alt="new client" class="dropdown-toggle"
                         type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <!-- ================ DROPDOWN ==================== -->
                       <div class="dropdown-menu pb-4" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item  fc-lblue" href="#">ORDER BY</a>
                         <div class="dropdown-divider"></div>
@@ -258,9 +270,15 @@
                         <a class="dropdown-item text-black " href="#">Modified </a>
                         <a class="dropdown-item text-black " href="#">Date Created </a>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
-                  <section class="list">
+                  <div *ngIf="classWorks?.length === 0" class="client">
+                    <img src="assets/images/svg/institution.svg" alt="new client" class="">
+                    <p class="text-center pt-4">No classword record 
+                      </p>
+                  
+                  </div>
+                  <section class="list" *ngIf="classWorks?.length > 0">
                     <table class="table table-borderless client-table">
                       <thead>
                         <tr>
@@ -308,7 +326,7 @@
                           <td>{{classWork?.creationDate | date: 'longDate'}}</td>
                           <td >
                             <span [ngStyle]="{cursor: 'pointer'}" class="status"
-                              (click)="downloadClassWork(classWork?.fileId)" >Download</span>
+                            (click)="openClassWorkPreview(classWork?.id, i)" >Preview</span>
                           </td>
                           <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>
         

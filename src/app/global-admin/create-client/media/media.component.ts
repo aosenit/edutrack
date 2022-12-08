@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { CreateClientComponent } from '../create-client.component';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Component({
@@ -23,6 +24,8 @@ export class MediaComponent implements OnInit {
   };
   currentStep: any;
   step: any;
+  routeUrl: string;
+  adminDetails: any;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -32,6 +35,11 @@ export class MediaComponent implements OnInit {
     private home: CreateClientComponent) { }
 
   ngOnInit() {
+    const helper = new JwtHelperService();
+    this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
+    console.log(this.adminDetails.SchGroupId);
+    this.routeUrl = this.router.url;
+
     this.id = this.route.snapshot.params.id;
     // // ('page id', this.id);
     this.route.params.subscribe((param: Params) => {
@@ -54,8 +62,8 @@ export class MediaComponent implements OnInit {
 
   createMediaForm() {
     this.mediaForm = this.fb.group({
-      logo: [null],
-      icon: [null],
+      logo: [null, Validators.required],
+      icon: [null, Validators.required],
       PrimaryColor: [''],
       SecondaryColor: ['']
     });
@@ -79,12 +87,13 @@ export class MediaComponent implements OnInit {
     const details = JSON.parse(sessionStorage.getItem('school-details'));
     const contactperson =  JSON.parse(sessionStorage.getItem('contact-person'));
     const finalstep = this.mediaForm.value;
+    const isActive = true;
+    const GroupId = this.adminDetails.SchGroupId;
 
     // const formData = new FormData();
     // this.DocumentTypes.forEach((item: any) => formData.append('DocumentTypes', item));
 
-
-    const result = {...profile, ...details, ...contactperson, ...finalstep, DocumentTypes: this.DocumentTypes};
+    const result = {...profile, ...details, ...contactperson, isActive, GroupId: null, ...finalstep, DocumentTypes: this.DocumentTypes};
 
     if (this.formBtn.type === 'create') {
       this.schoolServies.addSchool(result).subscribe( (data: any) => {
@@ -94,7 +103,13 @@ export class MediaComponent implements OnInit {
             sessionStorage.removeItem('profile-info');
             sessionStorage.removeItem('school-details');
             sessionStorage.removeItem('contact-person');
-            this.router.navigateByUrl('/admin/clients');
+            if ( this.routeUrl === '/school-manager/create-school' ) {
+              this.router.navigateByUrl('/school-manager/branches');
+              // console.log('school manager');
+            } else {
+              // console.log('ADMIN');
+              this.router.navigateByUrl('/admin/clients');
+            }
         } else {
           // console.log(data);
           this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -112,7 +127,15 @@ export class MediaComponent implements OnInit {
             sessionStorage.removeItem('profile-info');
             sessionStorage.removeItem('school-details');
             sessionStorage.removeItem('contact-person');
-            this.router.navigateByUrl('/admin/clients');
+            if ( this.routeUrl === '/school-manager/create-school' ) {
+              this.router.navigateByUrl('/school-manager/branches');
+            } else {
+              console.log('ADMIN');
+              this.router.navigateByUrl('/admin/clients');
+            }
+        } else {
+
+          this.notifyService.publishMessages(data.errors, 'danger', 1);
         }
       }, error => {
         this.notifyService.publishMessages(error.errors, 'danger', 1);

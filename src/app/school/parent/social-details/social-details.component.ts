@@ -37,10 +37,10 @@ export class SocialDetailsComponent implements OnInit {
 
   populateSocialDetailsForm() {
     this.socialDetailsForm = this.fb.group({
-      PhoneNumber: ['', Validators.required],
-      SecondaryPhoneNumber: [''],
+      PhoneNumber: ['', [Validators.required, Validators.pattern('(0[7-9][0-1][0-9]{8})|(0[1-4][0-9]{7})+$')]],
+      SecondaryPhoneNumber: ['', Validators.pattern('(0[7-9][0-1][0-9]{8})|(0[1-4][0-9]{7})+$')],
       EmailAddress: ['', [Validators.required, Validators.email]],
-      SecondaryEmailAddress: [''],
+      SecondaryEmailAddress: ['', Validators.email],
       HomeAddress: ['', Validators.required],
       OfficeAddress: ['', Validators.required],
 
@@ -93,6 +93,26 @@ export class SocialDetailsComponent implements OnInit {
         HomeAddress: payload.contactHomeAddress,
         OfficeAddress: payload.officeHomeAddress,
     });
+  }
+
+  allowNumbersOnly(e) {
+    const ev = e || window.event;
+    const charcode = ev.which ? ev.which : ev.keycode;
+    if (charcode > 31 && (charcode < 48 || charcode > 57) && charcode !== 46) {
+      e.preventDefault();
+      return false;
+    }
+    return true;
+  }
+
+  allowNumbersOnly2(e) {
+    const ev = e || window.event;
+    const charcode = ev.which ? ev.which : ev.keycode;
+    if (charcode > 31 && (charcode < 48 || charcode > 57) && charcode !== 46) {
+      e.preventDefault();
+      return false;
+    }
+    return true;
   }
 
 

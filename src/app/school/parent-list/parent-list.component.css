@@ -185,6 +185,23 @@ td {
 }
 
 
+/* sms modal  */
+.modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+
+}
+
+
+.modal-head {
+    padding: 20px 40px;
+    background: #EBF0F5;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
 .modal-content1 {
     border-radius: 0 !important;
     border: none;
@@ -195,7 +212,7 @@ td {
 }
 
 
-.modal-head {
+.modal-content1 .modal-head {
     background: #EBF0F5;
     padding: 20px 40px;
     display: flex;

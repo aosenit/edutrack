@@ -65,13 +65,14 @@
 
         <div class=" ">
             <label for="tel" class="fw-6">Phone Number  <span class="text-danger">*</span></label>
-          <input type="tel" id="tel" class="form-control form-control-lg" placeholder="Ener phone number" formControlName="NextKinPhone" 
+          <input type="tel" id="tel" class="form-control form-control-lg" placeholder="Enter phone number" formControlName="NextKinPhone" 
           required maxlength="11"
           (keypress)="allowNumbersOnly($event)">
 
           <div *ngIf="nextOfKinForm.controls.NextKinPhone.touched && nextOfKinForm.controls.NextKinPhone.errors" class="error">
             <small *ngIf="nextOfKinForm.controls.NextKinPhone.errors.required" class="text-danger">Field is required</small>
             <small *ngIf="nextOfKinForm.controls.NextKinPhone.errors.minlength" class="text-danger">Invalid phone number length</small>
+            <small *ngIf="nextOfKinForm.controls.NextKinPhone.errors.patter" class="text-danger">Invalid phone number pattern</small>
           </div>
           </div>
 
