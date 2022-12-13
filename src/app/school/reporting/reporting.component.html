@@ -510,6 +510,154 @@
     </section>
   </ng-container>
 
+  <ng-container *ngIf="selectedSlug === 'invoiceReport'&& selectedSubReport === 'pending' ">
+    <div class="empty-state" *ngIf="invoiceList?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        No invoice found
+      </p>
+    </div>
+    <section class="list table-responsive mb-5" *ngIf="invoiceList?.length !== 0">
+      <table class="table table-borderless client-table">
+        <thead>
+
+          <th scope="col" class="">Invoice #</th>
+          <th scope="col">Amount </th>
+          <th scope="col">Description
+          </th>
+          <th scope="col">Fee Type
+          </th>
+          <th scope="col">StudentRegNumber</th>
+          <th scope="col">Total Amount</th>
+          <th scope="col">Status</th>
+
+        </thead>
+        <tbody>
+          <tr class="pb-2" *ngFor="let invoice of invoiceList">
+            <td class="fs-14"> {{invoice.invoiceNumber}} </td>
+            <td class="fs-14">{{invoice.totalAmount}}</td>
+            <td class="fs-14"> {{invoice.description}} </td>
+            <td class="fs-14"> {{invoice.feeType}} </td>
+            <td class="fs-14"> {{invoice.StudentRegNumber}}</td>
+            <td class="fs-14">{{invoice.totalAmount}}</td>
+            <td class="fs-14 "> <span class="rounded-right status_pending"> {{invoice.status}} </span> </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </section>
+  </ng-container>
+  <ng-container *ngIf="selectedSlug === 'invoiceReport'&& selectedSubReport === 'awaitingApproval' ">
+    <div class="empty-state" *ngIf="invoiceList?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        No invoice found
+      </p>
+    </div>
+    <section class="list table-responsive mb-5" *ngIf="invoiceList?.length !== 0">
+      <table class="table table-borderless client-table">
+        <thead>
+
+          <th scope="col" class="">Invoice #</th>
+          <th scope="col">Amount </th>
+          <th scope="col">Description
+          </th>
+          <th scope="col">Fee Type
+          </th>
+          <th scope="col">StudentRegNumber</th>
+          <th scope="col">Total Amount</th>
+          <th scope="col">Status</th>
+
+        </thead>
+        <tbody>
+          <tr class="pb-2" *ngFor="let invoice of invoiceList">
+            <td class="fs-14"> {{invoice.invoiceNumber}} </td>
+            <td class="fs-14">{{invoice.totalAmount}}</td>
+            <td class="fs-14"> {{invoice.description}} </td>
+            <td class="fs-14"> {{invoice.feeType}} </td>
+            <td class="fs-14"> {{invoice.StudentRegNumber}}</td>
+            <td class="fs-14">{{invoice.totalAmount}}</td>
+            <td class="fs-14 "> <span class="rounded-right status_awaiting"> {{invoice.status}} </span> </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </section>
+  </ng-container>
+  <ng-container *ngIf="selectedSlug === 'invoiceReport'&& selectedSubReport === 'rejected' ">
+    <div class="empty-state" *ngIf="invoiceList?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        No invoice found
+      </p>
+    </div>
+    <section class="list table-responsive mb-5" *ngIf="invoiceList?.length !== 0">
+      <table class="table table-borderless client-table">
+        <thead>
+
+          <th scope="col" class="">Invoice #</th>
+          <th scope="col">Amount </th>
+          <th scope="col">Description
+          </th>
+          <th scope="col">Fee Type
+          </th>
+          <th scope="col">StudentRegNumber</th>
+          <th scope="col">Total Amount</th>
+          <th scope="col">Status</th>
+
+        </thead>
+        <tbody>
+          <tr class="pb-2" *ngFor="let invoice of invoiceList">
+            <td class="fs-14"> {{invoice.invoiceNumber}} </td>
+            <td class="fs-14">{{invoice.totalAmount}}</td>
+            <td class="fs-14"> {{invoice.description}} </td>
+            <td class="fs-14"> {{invoice.feeType}} </td>
+            <td class="fs-14"> {{invoice.StudentRegNumber}}</td>
+            <td class="fs-14">{{invoice.totalAmount}}</td>
+            <td class="fs-14 "> <span class="rounded-right status_inactive"> {{invoice.status}} </span> </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </section>
+  </ng-container>
+  <ng-container *ngIf="selectedSlug === 'invoiceReport'&& selectedSubReport === 'paid' ">
+    <div class="empty-state" *ngIf="invoiceList?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        No invoice found
+      </p>
+    </div>
+    <section class="list table-responsive mb-5" *ngIf="invoiceList?.length !== 0">
+      <table class="table table-borderless client-table">
+        <thead>
+
+          <th scope="col" class="">Invoice #</th>
+          <th scope="col">Amount </th>
+          <th scope="col">Description
+          </th>
+          <th scope="col">Fee Type
+          </th>
+          <th scope="col">StudentRegNumber</th>
+          <th scope="col">Total Amount</th>
+          <th scope="col">Status</th>
+
+        </thead>
+        <tbody>
+          <tr class="pb-2" *ngFor="let invoice of invoiceList">
+            <td class="fs-14"> {{invoice.invoiceNumber}} </td>
+            <td class="fs-14">{{invoice.totalAmount}}</td>
+            <td class="fs-14"> {{invoice.description}} </td>
+            <td class="fs-14"> {{invoice.feeType}} </td>
+            <td class="fs-14"> {{invoice.studentRegNumber}}</td>
+            <td class="fs-14">{{invoice.totalAmount}}</td>
+            <td class="fs-14 "> <span class="rounded-right status_active"> {{invoice.status}} </span> </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </section>
+  </ng-container>
 
 </div>
 
