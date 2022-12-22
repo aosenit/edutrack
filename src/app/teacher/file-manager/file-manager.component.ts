@@ -86,7 +86,7 @@ export class FileManagerComponent implements OnInit {
       TotalScore: ['', Validators.required],
       Comment: ['', Validators.required],
       Document: [null, Validators.required],
-    });
+    }); 
   }
 
 
@@ -334,6 +334,14 @@ export class FileManagerComponent implements OnInit {
   reverseText(id) {
     if (id) {
       this.changetext = true;
+    }
+  }
+
+  selectAllCheckbox(event : any ){
+    if(event === true){
+      document.querySelectorAll('.individual-checkbox').forEach(item => item.checked = true)
+    } else {
+      document.querySelectorAll('.individual-checkbox').forEach(item => item.checked = false)
     }
   }
 

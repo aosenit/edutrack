@@ -32,7 +32,7 @@
             <tr>
               <th scope="col " class="head">
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                  <input type="checkbox" class="custom-control-input" id="customCheckTh" (change)="selectAllCheckbox($event.target.checked)">
                   <label class="custom-control-label" for="customCheckTh"></label>
                 </div>
               </th>
@@ -62,7 +62,7 @@
               <td scope="row" class="school-logo rounded-left">
                 <!-- <div class="custom-control custom-checkbox" (change)="checked($event.target.checked)"> -->
                 <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheck{{assignment?.id}}"
+                  <input type="checkbox" class="custom-control-input individual-checkbox" id="customCheck{{assignment?.id}}"
                     [value]="assignment?.id" (change)="getElementId($event.target.checked, i)">
                   <label class="custom-control-label" for="customCheck{{assignment?.id}}"></label>
                 </div>
