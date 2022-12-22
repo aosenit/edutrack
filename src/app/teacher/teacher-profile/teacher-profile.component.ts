@@ -16,7 +16,7 @@ export class TeacherProfileComponent implements OnInit {
   constructor(private teacherService: TeacherService) { }
 
   ngOnInit() {
-    this.getTeacherDetailsById()
+    this.getTeacherDetailsById();
   }
  
 
@@ -27,22 +27,20 @@ export class TeacherProfileComponent implements OnInit {
   getTeacherDetailsById() {
     const helper = new JwtHelperService();
     this.teacherId = helper.decodeToken(localStorage.getItem('access_token'));
-    this.id = this.teacherId.sub
+    this.id = this.teacherId.sub;
     this.teacherService.getTeacherDetailsByUserId(this.id).subscribe((data: any) => {
       if (data.hasErrors === false) {
-        const teacherId = data.payload.teacherId
+        const teacherId = data.payload.teacherId;
         
         this.teacherService. getTeacherById(teacherId).subscribe((data:any)=>{
           if(data.hasErrors===false){
-            this.teacherDetails = data.payload
-            console.log(this.teacherDetails)
+            this.teacherDetails = data.payload;
     
           }
         },error=>{
     
         })
     
-        // (this.teachersList);
       }
     });
   }

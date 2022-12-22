@@ -29,7 +29,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     const helper = new JwtHelperService();
     this.teacherDetails = helper.decodeToken(localStorage.getItem('access_token'));
-    console.log(this.teacherDetails)
     this.getClassesForTeacherByDay();
     this.getNextClassesForTeacherByDay();
     this.getSession();
