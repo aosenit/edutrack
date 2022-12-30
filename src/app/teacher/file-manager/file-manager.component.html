@@ -6,9 +6,9 @@
             <div class="d-flex justify-content-between align-items-end mt-5 mb-5">
 
                 <div class="search d-flex flex-column  ">
-                    <h6 class=" fs-20 fw-6 pb-2 "> File Manager </h6>
+                    <h6 class=" fs-20 fw-6 pb-2 "> File Manager </h6> 
 
-                    <div class="search__input has-search">
+                    <div class="search__input has-search"  >
                         <span class="fa fa-search form-control-feedback"></span>
                         <input type="text" class="form-control" placeholder="Search your files">
                     </div>
@@ -103,7 +103,7 @@
                                 <tr>
                                     <th scope="col " class="head">
                                         <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                                            <input type="checkbox" class="custom-control-input" id="customCheckTh" (change)="selectAllCheckbox($event.target.checked)">
                                             <label class="custom-control-label" for="customCheckTh"></label>
                                         </div>
                                     </th>
@@ -129,7 +129,7 @@
                                     <td scope="row" class="school-logo rounded-left">
                                         <div class="custom-control custom-checkbox"
                                         (change)="getLessonDetails($event, i)">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck{{lesson?.id}}" [value]="lesson?.id">
+                                        <input type="checkbox" class="custom-control-input individual-checkbox" id="customCheck{{lesson?.id}}" [value]="lesson?.id" (change)="getElementId($event.target.checked, i)">
                                         <label class="custom-control-label" for="customCheck{{lesson?.id}}"></label>
                                     </div>
                                     </td>
@@ -197,7 +197,7 @@
                             <tr>
                                 <th scope="col " class="head">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheckTh12">
+                                        <input type="checkbox" class="custom-control-input" id="customCheckTh12" (change)="selectAllCheckbox($event.target.checked)">
                                         <label class="custom-control-label" for="customCheckTh12"></label>
                                     </div>
                                 </th>
@@ -223,7 +223,7 @@
                                 <td scope="row" class="school-logo rounded-left">
                                     <div class="custom-control custom-checkbox"
                                         (change)="getAssignmentDetails($event, i)">
-                                        <input type="checkbox" class="custom-control-input" id="customChecks{{assignment?.id}}">
+                                        <input type="checkbox" class="custom-control-input individual-checkbox" id="customChecks{{assignment?.id}}"  (change)="getElementId($event.target.checked, i)">
                                         <label class="custom-control-label" for="customChecks{{assignment?.id}}"></label>
                                     </div>
                                 </td>
