@@ -63,9 +63,9 @@ export class AssignmentComponent implements OnInit {
 
   selectAllCheckbox(event : any ){
     if(event === true){
-      document.querySelectorAll('.individual-checkbox').forEach(item => item.checked = true)
+      document.querySelectorAll('.individual-checkbox').forEach((item: any) => item.checked = true)
     } else {
-      document.querySelectorAll('.individual-checkbox').forEach(item => item.checked = false)
+      document.querySelectorAll('.individual-checkbox').forEach((item: any) => item.checked = false)
     }
   }
 
