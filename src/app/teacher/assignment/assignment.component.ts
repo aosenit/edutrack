@@ -61,4 +61,12 @@ export class AssignmentComponent implements OnInit {
     window.history.back();
   }
 
+  selectAllCheckbox(event : any ){
+    if(event === true){
+      document.querySelectorAll('.individual-checkbox').forEach(item => item.checked = true)
+    } else {
+      document.querySelectorAll('.individual-checkbox').forEach(item => item.checked = false)
+    }
+  }
+
 }
