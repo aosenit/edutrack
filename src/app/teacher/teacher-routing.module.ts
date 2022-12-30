@@ -21,6 +21,7 @@ import { ScoreSheetDetailsPageComponent } from './score-sheet-details-page/score
 import { ScoreSheetComponent } from './score-sheet/score-sheet.component';
 import { StudentScoreSheetComponent } from './student-score-sheet/student-score-sheet.component';
 import { SubjecAttendanceComponent } from './subjec-attendance/subjec-attendance.component';
+import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 import { TeacherComponent } from './teacher.component';
 import { ViewFileComponent } from './view-file/view-file.component';
 import { VirtualClassComponent } from './virtual-class/virtual-class.component';
@@ -56,7 +57,9 @@ const routes: Routes = [
       { path: 'subject-attendance', component: SubjecAttendanceComponent },
       { path: 'class-attendance', component: ClassAttendanceComponent },
       { path: 'mark-attendance/:id', component: MarkAttendanceComponent },
-      {path: 'report', component: ReportComponent}
+      {path: 'report', component: ReportComponent},
+      {path: 'profile', component: TeacherProfileComponent},
+
     ]
   }
 ];

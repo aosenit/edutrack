@@ -32,7 +32,7 @@
         <tr>
           <th scope="col " class="head">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <input type="checkbox" class="custom-control-input" id="customCheck1" (change)="selectAllCheckbox($event.target.checked)">
               <label class="custom-control-label" for="customCheck1"></label>
             </div>
           </th>
@@ -76,7 +76,7 @@
         <tr class="pb-2" *ngFor="let assignment of studentAssignmentList; let i = index">
           <td scope="row" class="school-logo rounded-left">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <input type="checkbox" class="custom-control-input individual-checkbox" id="customCheck1"  (change)="getElementId($event.target.checked, i)">
               <label class="custom-control-label" for="customCheck1"></label>
             </div>
           </td>
