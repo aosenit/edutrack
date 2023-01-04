@@ -129,7 +129,7 @@
                                     <td scope="row" class="school-logo rounded-left">
                                         <div class="custom-control custom-checkbox"
                                         (change)="getLessonDetails($event, i)">
-                                        <input type="checkbox" class="custom-control-input individual-checkbox" id="customCheck{{lesson?.id}}" [value]="lesson?.id" (change)="getElementId($event.target.checked, i)">
+                                        <input type="checkbox" class="custom-control-input individual-checkbox" id="customCheck{{lesson?.id}}" [value]="lesson?.id" >
                                         <label class="custom-control-label" for="customCheck{{lesson?.id}}"></label>
                                     </div>
                                     </td>
@@ -223,7 +223,7 @@
                                 <td scope="row" class="school-logo rounded-left">
                                     <div class="custom-control custom-checkbox"
                                         (change)="getAssignmentDetails($event, i)">
-                                        <input type="checkbox" class="custom-control-input individual-checkbox" id="customChecks{{assignment?.id}}"  (change)="getElementId($event.target.checked, i)">
+                                        <input type="checkbox" class="custom-control-input individual-checkbox" id="customChecks{{assignment?.id}}"  >
                                         <label class="custom-control-label" for="customChecks{{assignment?.id}}"></label>
                                     </div>
                                 </td>
