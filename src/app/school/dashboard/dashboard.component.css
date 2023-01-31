@@ -168,7 +168,7 @@ color: #243C67;
   font-weight: 600;
   padding-left: 1.5rem;
 }
-.info__school table tbody p {
+ table tbody p {
   display: flex;
   align-items: center;
   color: #0A1128;
@@ -176,18 +176,19 @@ color: #243C67;
   font-weight: 600;
 }
 
-.info__school table thead {
+ table thead {
   border-bottom: 1px solid #E1E3EA;
   color: #133960;
   opacity: 0.6;
   font-weight: normal;
+  display: none;
 }
-.info__school table thead .head {
+ table thead .head {
   padding-left: 1.5rem;
   font-weight: normal;
 }
 
-.info__school table tbody 
+ table tbody 
   tr:nth-child(even) {
     background: #F6F7F9;
   

@@ -35,7 +35,7 @@
             <p class="active">Created on {{schoolDetail?.dateCreated | date: 'dd/MM/y'}} </p>
             <div class="activated__date-switch">
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="customSwitch1" [checked]="schoolDetail?.status === true">
+                    <input type="checkbox" class="custom-control-input" disabled id="customSwitch1" [checked]="schoolDetail?.status === true">
                     <label class="custom-control-label" for="customSwitch1" ></label>
                 </div>
                 <p class="activated__date-title">{{schoolDetail?.status === true ? 'Activated' : 'Deactivated'}}</p>
@@ -60,7 +60,7 @@
                 <div class="link mr-5 ml-4">
                     <p>Official Website</p>
                     <p class="fw-6">{{schoolDetail?.websiteAddress}}
-                        <img src="assets/images/svg/external-link.svg" class="mr-3" alt="..." />
+                        <a [href]="schoolDetail?.websiteAddress" target="_blank"><img src="assets/images/svg/external-link.svg" class="mr-3" alt="..." /></a>
                     </p>
                 </div>
             </div>
