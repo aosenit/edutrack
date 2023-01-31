@@ -59,9 +59,10 @@
                 </div>
                 <div class="link mr-5 ml-4">
                     <p>Official Website</p>
-                    <p class="fw-6">{{schoolDetail?.websiteAddress}}
+                    <a [href]="schoolDetail?.websiteAddress" target="_blank" class="fw-6 text-black no-underline">
+                        {{schoolDetail?.websiteAddress}}
                         <img src="assets/images/svg/external-link.svg" class="mr-3" alt="..." />
-                    </p>
+                    </a>
                 </div>
             </div>
 
