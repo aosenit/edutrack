@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { parse } from 'querystring';
+// import { parse } from 'querystring';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { FinanceService } from 'src/services/data/finance/finance.service';
 
