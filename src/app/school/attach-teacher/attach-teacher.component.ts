@@ -177,8 +177,7 @@ attachedSubjectlist: any;
   }
 
   remove(subject) {
-  
-    
+
     this.teacherService.removeTeacherFromSubject(subject.id).subscribe((data: any) => {
       if (data.hasErrors === false ) {
         // console.log(data);

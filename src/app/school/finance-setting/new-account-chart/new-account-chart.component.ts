@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { parse } from 'querystring';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { FinanceService } from 'src/services/data/finance/finance.service';
 
@@ -178,6 +177,7 @@ export class NewAccountChartComponent implements OnInit {
 
     });
   }
+  
 
   updateChartOfAccount() {
     const {AccountNumber, AccountTypeId, cashPostable, description, isActive, name  } = this.editChartAccountForm.value;

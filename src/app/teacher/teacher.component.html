@@ -11,9 +11,39 @@
                 <div class="d-flex row align-center justify-content-end ">
                     <img src="assets/images/svg/bell-nav.svg" alt="new client" class="mr-4">
                     <img src="assets/images/svg/notice.svg" alt="new client" class="mr-4">
+<<<<<<< HEAD
                     <img src="assets/images/svg/dummy_user.png" alt="new client" class="mr-2 image-rounded" >
 
 
+=======
+                    <!-- <img src="assets/images/svg/dummy_user.png" alt="new client" class="mr-2 image-rounded" > -->
+
+                    <div class="d-flex row align-center justify-content-end align-items-center ">
+                        <img src="assets/images/svg/dummy_user.png" alt="new client" class="mr-2 image-rounded" >
+                        <div class="info">
+                                <p class="mb-0">{{loggedInUser ?.given_name + ' '  + loggedInUser ?.family_name | titlecase}}</p>
+                                <small>{{loggedInUser ?.name}}</small>
+                            </div>
+                            <img src="assets/images/svg/caret.svg" alt="country flag" class="ml-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <!-- ================ DROPDOWN ==================== -->
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="" routerLink = "/teacher/profile">
+                                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path id="icon" d="M10.0052 10.8C12.9652 10.8 15.3852 8.38002 15.3852 5.40002C15.3852 2.42002 12.9652 1.95313e-05 10.0052 1.95313e-05C7.04518 1.95313e-05 4.62518 2.42002 4.62518 5.40002C4.62518 8.38002 7.04518 10.8 10.0052 10.8ZM10.0052 1.58C12.0852 1.58 13.7852 3.28 13.7852 5.38C13.7852 7.48 12.0852 9.18 10.0052 9.18C7.92518 9.18 6.22518 7.48 6.22518 5.38C6.22518 3.28 7.92518 1.58 10.0052 1.58ZM12.5052 11.32C12.2452 11.24 11.9452 11.3 11.7452 11.48L10.0052 12.96L8.26517 11.48C8.04517 11.3 7.76518 11.24 7.50518 11.32C6.38518 11.68 0.805176 13.6 0.805176 16.38C0.805176 16.82 1.16518 17.18 1.60518 17.18H18.4052C18.8452 17.18 19.2052 16.82 19.2052 16.38C19.2052 13.6 13.6252 11.68 12.5052 11.32ZM2.82518 15.58C3.70518 14.64 5.82517 13.6 7.58517 13L9.48518 14.62C9.78517 14.88 10.2252 14.88 10.5252 14.62L12.4252 13C14.1852 13.62 16.3052 14.66 17.1852 15.58H2.82518Z" fill="#0052B4"/>
+                                        </svg>
+                                         Profile </a>
+                                <a class="dropdown-item" href="" (click)="logOut()">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path id="icon" d="M6.82741 12.59L8.18519 14L13 9L8.18519 4L6.82741 5.41L9.31185 8H0V10H9.31185L6.82741 12.59Z" fill="#D72638"/>
+                                        <path id="icon" d="M16 0H2C0.89 0 0 0.9 0 2V6H2V2H16V16H2V12H0V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V2C18 0.9 17.1 0 16 0Z" fill="#D72638"/>
+                                        </svg>
+                                         Logout </a>
+                              </div>
+                            
+    
+                           
+                    </div>
+>>>>>>> 0756a103f0b125aa5aa62fb78e745bdb5dc940eb
 
 
                 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { parse } from 'querystring';
+// import { parse } from 'querystring';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 import { ClassWorkService } from 'src/services/data/class-work/class-work.service';
@@ -86,7 +86,8 @@ export class FileManagerComponent implements OnInit {
       TotalScore: ['', Validators.required],
       Comment: ['', Validators.required],
       Document: [null, Validators.required],
-    });
+
+    }); 
   }
 
 
@@ -334,6 +335,15 @@ export class FileManagerComponent implements OnInit {
   reverseText(id) {
     if (id) {
       this.changetext = true;
+    }
+  }
+
+ 
+  selectAllCheckbox(event : any ){
+    if(event === true){
+      document.querySelectorAll('.individual-checkbox').forEach((item: any) => item.checked = true)
+    } else {
+      document.querySelectorAll('.individual-checkbox').forEach((item: any) => item.checked = false)
     }
   }
 

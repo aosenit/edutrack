@@ -9,6 +9,7 @@ import { ClassService } from 'src/services/data/class/class.service';
 import { AttendanceService } from 'src/services/data/attendance/attendance.service';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { SchoolService } from 'src/services/data/school/school.service';
+import { AlumniService } from 'src/services/data/alumni/alumni.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -39,7 +40,9 @@ export class DashboardComponent implements OnInit {
   barDashboardDatas: string[];
   barDashboardDataKeys: string[];
   subscriptionStatus: any;
-  
+  allowFinanceModule = false;
+
+  eventLists: any;
 
 
 
@@ -51,10 +54,8 @@ export class DashboardComponent implements OnInit {
     private classService: ClassService,
     private attendance: AttendanceService,
     private notifyService: NotificationsService,
-    private school: SchoolService
-
-
-
+    private school: SchoolService,
+    private alumni: AlumniService
 
   ) { }
 
@@ -62,13 +63,36 @@ export class DashboardComponent implements OnInit {
     const helper = new JwtHelperService();
     this.adminDetails = helper.decodeToken(localStorage.getItem('access_token'));
     this.loginDate =  this.adminDetails.last_login_time + ' ' + 'UTC';
-
     this.greeting();
     this.getAllStudents();
     this.getAllEmployees();
     this.getAllPayment();
     this.getAllClassesInSchool();
     this.getSubscriptionStatus();
+    this.getAllAlumiEvents();
+
+
+    if (this.adminDetails.UserType === 'SchoolAdmin') {
+      this.allowFinanceModule = true;
+    }
+    const finance = [
+      'FINANCE_CREATE',
+      'FINANCE_READ',
+      'FINANCE_UPDATE',
+      'FINANCE_DELETE'
+  ];
+    if (this.adminDetails.Permission !== null || this.adminDetails.Permission !== undefined) {
+      // tslint:disable-next-line:prefer-for-of
+    for (let index = 0; index < finance.length; index++) {
+      const element = finance[index];
+
+      if (this.adminDetails.Permission.includes(element) && this.adminDetails.UserType === 'NonTeachingStaff') {
+        this.allowFinanceModule = true;
+      }
+    }
+    }
+
+    console.log(this.allowFinanceModule)
   }
 
   greeting() {
@@ -176,6 +200,15 @@ export class DashboardComponent implements OnInit {
           this.barDashboardDataKeys = Object.keys(newData);
           this.createBarChart(this.barDashboardDatas);
         }
+      }
+    });
+  }
+
+  getAllAlumiEvents() {
+    this.alumni.getAllEvents().subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        console.log('events', res.payload);
+        this.eventLists = res.payload;
       }
     });
   }

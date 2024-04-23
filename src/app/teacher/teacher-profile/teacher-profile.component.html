@@ -1,0 +1,313 @@
+<div class="container pt-5">
+    <div class="activated mb-4 mt-2 d-flex justify-content-between align-items-center align-items-center">
+        <div class="activated__image ">
+            <!-- <img class="" src="data:image/png;base64," alt="schools log" class="mr-3 school-logo" id=""> -->
+
+            <img src="assets/images/svg/dummy_user.png" class="mr-3 avatar school-logo" alt="..." />
+            <div>
+                <p class="activated__title fw-6 fc-lblue"> </p>
+                <p class="activated__code"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class=" informations d-flex justify-content-between ">
+        <!-- Personal details -->
+        <div>
+            <div class="personal item ">
+                <div class="d-flex  justify-content-between align-items-center">
+                    <div class="line">
+                        <h6> Personal Information</h6>
+                    </div>
+                    <!-- <img src="assets/images/svg/edit.svg"  alt="..." /> -->
+                </div>
+                <div class="d-flex justify-content-between mt-5">
+                    <div class="link">
+                        <p class="mb-0">First Name</p>
+                        <p class="fw-6">{{teacherDetails?.firstName}}</p>
+                    </div>
+                    <div class="link mr-5 ml-4">
+                        <p class="mb-0">Last Name</p>
+                        <p class="fw-6">{{teacherDetails?.lastName}}</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="link">
+                        <p class="mb-0">Marital status</p>
+                        <p class="fw-6"></p>
+                    </div>
+                    <div class="link mr-5 ml-4">
+                        <p class="mb-0">Gender</p>
+                        <p class="fw-6">{{teacherDetails?.sex}}
+                        </p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="link">
+                        <p class="mb-0">Date of Birth</p>
+                        <p class="fw-6">{{teacherDetails?.dateOfBirth| date:'longDate'}}</p>
+                    </div>
+                    <div class="link mr-5 ml-4">
+                        <p class="mb-0">Blood Group</p>
+                        <p class="fw-6">{{teacherDetails?.bloodGroup}}</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="link">
+                        <p class="mb-0">Nationalityt</p>
+                        <p class="fw-6">{{teacherDetails?.nationality}}</p>
+                    </div>
+                    <div class="link mr-5 ml-4">
+                        <p class="mb-0">Religion</p>
+                        <p class="fw-6">{{teacherDetails?.religion}}</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="link">
+                        <p class="mb-0">State of Origin</p>
+                        <p class="fw-6">{{teacherDetails?.stateOfOrigin}}</p>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <!-- contact details -->
+            <div class="contact item ">
+                <div class="d-flex  justify-content-between align-items-center">
+                    <div class="line">
+                        <h6> Contact Details </h6>
+                    </div>
+                    <!-- <img src="assets/images/svg/edit.svg"  alt="..." /> -->
+                </div>
+
+                <div class="d-flex justify-content-between mt-5 ">
+                    <div class="link">
+                        <p class="mb-0">Phone Number</p>
+                        <p class="fw-6">{{teacherDetails?.contactDetails?.phoneNumber}}</p>
+                    </div>
+                    <div class="link mr-5 ml-4">
+                        <p class="mb-0">Email Address</p>
+                        <p class="fw-6">{{teacherDetails?.contactDetails?.emailAddress}}</p>
+
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between mt-3 ">
+                    <div class="link">
+                        <p class="mb-0">Country</p>
+                        <p class="fw-6">{{teacherDetails?.contactDetails?.country}}</p>
+                    </div>
+                    <div class="link mr-5 ml-4">
+                        <p class="mb-0">Home Address</p>
+                        <p class="fw-6">{{teacherDetails?.contactDetails?.address}}</p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between mt-3 ">
+                    <div class="link">
+                        <p class="mb-0">City/Town</p>
+                        <p class="fw-6">{{teacherDetails?.contactDetails?.town}}</p>
+                    </div>
+                    <div class="link mr-5 ml-4">
+                        <p class="mb-0">State</p>
+                        <p class="fw-6">{{teacherDetails?.contactDetails?.state}}</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+        <div>
+            <!-- Education -->
+            <div class="education item ">
+                <div class="d-flex  justify-content-between align-items-center">
+                    <div class="line">
+                        <h6> Education </h6>
+                    </div>
+                    <!-- <img src="assets/images/svg/edit.svg"  alt="..." /> -->
+                </div>
+                <div *ngFor="let education of teacherDetails?.educationExperienceVMs">
+                    <div class="d-flex justify-content-between mt-5 ">
+                        <div class="link">
+                            <p class="mb-0">School Name</p>
+                            <p class="fw-6">{{education?.educationSchoolName}}</p>
+                        </div>
+                        <div class="link">
+                            <p class="mb-0"> Date </p>
+                            <p class="fw-6">
+                                <span>{{education?.startDate | date:'mediumDate'}}</span>-
+                                <span>{{education?.endDate | date:'mediumDate'}}</span>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="d-flex justify-content-between mt-3 ">
+                        <div class="link">
+                            <p class="mb-0">School Qualification</p>
+                            <p class="fw-6">{{education?.educationSchoolQualification}}</p>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+
+
+            </div>
+            <!-- Employee Details -->
+            <div class="medical item ">
+                <div class="d-flex  justify-content-between align-items-center">
+                    <div class="line">
+                        <h6> Employee Details </h6>
+                    </div>
+                    <!-- <img src="assets/images/svg/edit.svg"  alt="..." /> -->
+                </div>
+
+                <div class="d-flex justify-content-between mt-5 ">
+                    <div class="link">
+                        <p class="mb-0">Staff Type</p>
+                        <p class="fw-6">{{teacherDetails?.employmentDetails?.staffType}}</p>
+                    </div>
+
+                    <div class="link">
+                        <p class="mb-0">Employment Status</p>
+                        <p class="fw-6">{{teacherDetails?.employmentDetails?.employmentStatus}}</p>
+                    </div>
+
+                </div>
+
+
+                <div class="d-flex justify-content-between mt-5 ">
+                    <div class="link">
+                        <p class="mb-0">Highest Qualification</p>
+                        <p class="fw-6">{{teacherDetails?.employmentDetails?.highestQualification}}</p>
+                    </div>
+
+                    <div class="link">
+                        <p class="mb-0">Job Title</p>
+                        <p class="fw-6">{{teacherDetails?.employmentDetails?.jobTitle}}</p>
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-between mt-5 ">
+                    <div class="link">
+                        <p class="mb-0">Pay Grade</p>
+                        <p class="fw-6">{{teacherDetails?.employmentDetails?.payGrade}}</p>
+                    </div>
+
+                    <div class="link">
+                        <p class="mb-0">Employment Date</p>
+                        <p class="fw-6">{{teacherDetails?.employmentDetails?.employmentDate | date:'longDate'}}</p>
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-between mt-5 ">
+                   
+
+                    <div class="link">
+                        <p class="mb-0">Resumption Date</p>
+                        <p class="fw-6">{{teacherDetails?.employmentDetails?.resumptionDate | date:'longDate'}}</p>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+            <!-- Next of kin Details -->
+            <div class="medical item ">
+                <div class="d-flex  justify-content-between align-items-center">
+                    <div class="line">
+                        <h6>Next of Kin Details </h6>
+                    </div>
+                    <!-- <img src="assets/images/svg/edit.svg"  alt="..." /> -->
+                </div>
+
+                <div class="d-flex justify-content-between mt-5 ">
+                    <div class="link">
+                        <p class="mb-0">First Name</p>
+                        <p class="fw-6">{{teacherDetails?.nextOfKin?.nextKinFirstName}}</p>
+                    </div>
+
+                    <div class="link">
+                        <p class="mb-0">Last Name</p>
+                        <p class="fw-6">{{teacherDetails?.nextOfKin?.nextKinLastName}}</p>
+                    </div>
+
+                </div>
+
+
+                <div class="d-flex justify-content-between mt-5 ">
+                    <div class="link">
+                        <p class="mb-0">Relationship</p>
+                        <p class="fw-6">{{teacherDetails?.nextOfKin?.nextKinRelationship}}</p>
+                    </div>
+
+                    <div class="link">
+                        <p class="mb-0">Occupation</p>
+                        <p class="fw-6">{{teacherDetails?.nextOfKin?.nextKinOccupation}}</p>
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-between mt-5 ">
+                    <div class="link">
+                        <p class="mb-0">Phone Number </p>
+                        <p class="fw-6">{{teacherDetails?.nextOfKin?.nextKinPhone}}</p>
+                    </div>
+
+                    <div class="link">
+                        <p class="mb-0">Country </p>
+                        <p class="fw-6">{{teacherDetails?.nextOfKin?.nextKinCountry}}</p>
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-between mt-5 ">
+                    <div class="link">
+                        <p class="mb-0">Address</p>
+                        <p class="fw-6">{{teacherDetails?.nextOfKin?.nextKinOccupation}}</p>
+                    </div>
+
+                    <div class="link">
+                        <p class="mb-0">State</p>
+                        <p class="fw-6">{{teacherDetails?.nextOfKin?.nextKinState}}</p>
+                    </div>
+
+                </div>
+
+                <div class="d-flex justify-content-between mt-5 ">
+                    <div class="link">
+                        <p class="mb-0">Town/City</p>
+                        <p class="fw-6">{{teacherDetails?.nextOfKin?.nextKinTown}}</p>
+                    </div>
+
+                    <div class="link">
+                        <p class="mb-0"></p>
+                        <p class="fw-6"></p>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>

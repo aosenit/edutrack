@@ -103,7 +103,6 @@ toggleState = false;
     };
     this.assessmentForm.reset();
     this.allAssessment.push(result);
-    // ('All assessments', this.allAssessment);
     const countArray = [];
     // tslint:disable-next-line:forin
     for (const unit in this.assessments) {
@@ -164,8 +163,7 @@ toggleState = false;
     }
 
 
-
-getAllAssessmentSetup() {
+  getAllAssessmentSetup() {
     this.allAssessment.pop();
     this.assessmentService.getAllAssessmentSetup().subscribe((data: any) => {
       if (data.hasErrors === false) {
@@ -186,7 +184,8 @@ getAllAssessmentSetup() {
 
   }
 
-submitGrade() {
+
+  submitGrade() {
       // (this.gradeForm.value);
       const sequenceNumber = this.sequenceCount++;
       const {grade, interpretation, lowerBound, upperBound, isActive} = this.gradeForm.value;
@@ -210,7 +209,8 @@ submitGrade() {
 
   }
 
-publishGrade() {
+
+  publishGrade() {
     this.gradeService.addGrade(this.grades).subscribe((data: any) => {
       if (data.hasErrors === false) {
         // (data);
@@ -225,7 +225,8 @@ publishGrade() {
     });
   }
 
-getAllGrade() {
+
+  getAllGrade() {
     this.gradeService.getAllGrades().subscribe((data: any) => {
       if (data.hasErrors === false ) {
         // (data);

@@ -19,6 +19,8 @@ export class AssignmentsComponent implements OnInit {
   assignment = {};
   selectedSubject: any;
 
+  individualCheckbox: any;
+
   constructor(
     private assignmentService: AssignmentService,
 
@@ -85,6 +87,15 @@ export class AssignmentsComponent implements OnInit {
     } else {
       this.view = false;
       this.clipnote = true;
+    }
+  }
+
+
+  selectAllCheckbox(event : any ){
+    if(event === true){
+      document.querySelectorAll('.individual-checkbox').forEach((item: any) => item.checked = true)
+    } else {
+      document.querySelectorAll('.individual-checkbox').forEach((item: any) => item.checked = false)
     }
   }
 

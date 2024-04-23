@@ -111,5 +111,4 @@ export class ContactDetailComponent implements OnInit {
   }
 
 
-  
 }

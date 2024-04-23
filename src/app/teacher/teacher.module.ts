@@ -33,6 +33,7 @@ import { SubjecAttendanceComponent } from './subjec-attendance/subjec-attendance
 import { ClassAttendanceComponent } from './class-attendance/class-attendance.component';
 import { ViewReportCardComponent } from './view-report-card/view-report-card.component';
 import { ReportComponent } from './report/report.component';
+import { TeacherProfileComponent } from './teacher-profile/teacher-profile.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { ReportComponent } from './report/report.component';
     SubjecAttendanceComponent,
     ClassAttendanceComponent,
     ViewReportCardComponent,
-    ReportComponent
+    ReportComponent,
+    TeacherProfileComponent
   ],
   imports: [
     CommonModule,

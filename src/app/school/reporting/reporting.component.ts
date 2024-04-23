@@ -11,6 +11,7 @@ import { TeacherService } from 'src/services/data/teacher/teacher.service';
 import { StudentService } from 'src/services/data/student/student.service';
 import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 import { SubjectService } from 'src/services/data/subject/subject.service';
+import { FinanceService } from 'src/services/data/finance/finance.service';
 
 
 @Component({
@@ -36,6 +37,14 @@ export class ReportingComponent implements OnInit {
         { id: 2, title: 'Term Attendance', subSlug: 'termAttendance' },
         { id: 3, title: 'Session Attendance', subSlug: 'sessionAttendance' },
         { id: 4, title: 'Subject Attendance', subSlug: 'subjectAttendance' },
+      ]
+    },
+    {
+      id: 2, title: 'Invoice Report', slug: 'invoiceReport', data: [
+        { id: 1, title: 'Pending', subSlug: 'pending'},
+        { id: 2, title: 'Awaiting Approval', subSlug: 'awaitingApproval'},
+        { id: 3, title: 'Rejected', subSlug: 'rejected'},
+        { id: 4, title: 'Paid', subSlug: 'paid'}
       ]
     }
   ];
@@ -79,6 +88,10 @@ export class ReportingComponent implements OnInit {
   showSubject: boolean;
   childrenNamesInModal !:any[]
   parentNameInModal: any;
+  invoiceList: any;
+  p = 1;
+  itemsPerPage = 10;
+  status! : number 
   constructor(
     private classService: ClassService,
     private reportService: ReportingService,
@@ -88,7 +101,8 @@ export class ReportingComponent implements OnInit {
     private studentService: StudentService,
     private parentService: ParentsService,
     private assessmentService: AssessmentService,
-    private subjectService: SubjectService
+    private subjectService: SubjectService,
+    private financeService : FinanceService
 
   ) { }
 
@@ -138,12 +152,18 @@ export class ReportingComponent implements OnInit {
           this.showClass = false, this.showTerm = true, this.showSession = false, this.showNext = true, this.showSubject = true,
           this.getAllTerm(), this.getAllSubjects()) :
       this.fetchAttendanceRecord(this.adminDetails.TenantId);
-    } else {
-      this.showNext = false;
-      this.showExportBtn = false;
-      this.showTerm = false;
-      this.showSession = false;
-    }
+    }  else if (this.selectedSlug === 'invoiceReport'){
+      this.showNext = true;
+      event === 'pending' ? (this.subSlug = true, this.status = 0, this.getAllTransactionByStatus( 0,this.p, this.itemsPerPage, this.selectedStartDate, this.selectedEndDate, "","")) :
+      event === 'awaitingApproval' ? (this.subSlug = true, this.status = 1, this.getAllTransactionByStatus(1,this.p, this.itemsPerPage, this.selectedStartDate, this.selectedEndDate, "","")) :
+      event === 'rejected' ? (this.subSlug = true, this.status = 2, this.getAllTransactionByStatus(2,this.p, this.itemsPerPage, this.selectedStartDate, this.selectedEndDate, "","")) :
+      event === 'paid' ? (this.subSlug = true, this.status = 3, this.getAllTransactionByStatus(3,this.p, this.itemsPerPage, this.selectedStartDate, this.selectedEndDate, "","")) 
+      : this.subSlug = false;
+      (
+      this.subSlug = true, 
+      this.showExportBtn = true,
+      this.showClass = false) 
+    } 
   }
 
   getAllTerm() {
@@ -235,10 +255,12 @@ export class ReportingComponent implements OnInit {
   getStartDate(event) {
     this.selectedStartDate = event;
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate);
+    this.getAllTransactionByStatus(this.status,this.p, this.itemsPerPage, this.selectedStartDate, this.selectedEndDate,"","");
   }
   getEndDate(event) {
     this.selectedEndDate = event;
     this.fetchAttendanceRecord(this.adminDetails.TenantId, this.selectedClass, this.selectedStartDate, this.selectedEndDate);
+    this.getAllTransactionByStatus(this.status,this.p, this.itemsPerPage, this.selectedStartDate, this.selectedEndDate,"","");
   }
 
 
@@ -288,6 +310,7 @@ export class ReportingComponent implements OnInit {
         this.notifyService.publishMessages(error.message, 'danger', 1);
       });
   }
+ 
 
 // user profile export
   downloadReport() {
@@ -295,6 +318,10 @@ export class ReportingComponent implements OnInit {
       this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecord() :
         this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecord() :
           this.selectedSubReport === 'parentProfile' ? this.downloadParentRecord() :
+          this.selectedSubReport === 'pending' ? this.downloadInvoiceInExcel(0) :
+          this.selectedSubReport === 'awaitingApproval' ? this.downloadInvoiceInExcel(1) :
+          this.selectedSubReport === 'rejected' ? this.downloadInvoiceInExcel(2) :
+          this.selectedSubReport === 'paid' ? this.downloadInvoiceInExcel(3) :
 
             this.downloadAttendanceReport();
   }
@@ -304,6 +331,10 @@ export class ReportingComponent implements OnInit {
       this.selectedSubReport === 'teacherProfile' ? this.downloadTeacherRecordInPdf() :
         this.selectedSubReport === 'studentProfile' ? this.downloadStudentRecordInPdf() :
         this.selectedSubReport === 'parentProfile' ? this.downloadParentRecordInPdf() :
+        this.selectedSubReport === 'pending' ? this.downloadInvoiceInPDF(0) :
+        this.selectedSubReport === 'awaitingApproval' ? this.downloadInvoiceInPDF(1) :
+        this.selectedSubReport === 'rejected' ? this.downloadInvoiceInPDF(2) :
+        this.selectedSubReport === 'paid' ? this.downloadInvoiceInPDF(3) :
 
           this.downloadAttendanceReportInPdf();
   }
@@ -476,5 +507,39 @@ export class ReportingComponent implements OnInit {
     this.childrenNamesInModal = childrenList
   }
 
+  getAllTransactionByStatus(status,p, itemsPerPage,fromDate, endDate, keyword?,filter?){
+    this.financeService.getAllTransactionByStatus(this.p, this.itemsPerPage, status ,keyword ,filter, this.selectedStartDate, this.selectedEndDate ).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        this.invoiceList = data.payload;
+        // this.totalParent = data.totalCount;
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+      }
+    },
+      error => {
+        this.notifyService.publishMessages(error.message, 'danger', 1);
+      });
+  }
+  // download invoice report
+  downloadInvoiceInExcel(status){
+    this.financeService.exportInvoiceInExcel(status,this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.xlsx`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
   
+  downloadInvoiceInPDF(status){
+    this.financeService.exportInvoiceInPDF(status,this.selectedStartDate, this.selectedEndDate).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        const link = document.createElement('a');
+        link.download = `${res.payload.fileName} Report as at ${new Date().toLocaleString()}.pdf`;
+        link.href = 'data:image/png;base64,' + res.payload.base64String;
+        link.click();
+      }
+    });
+  }
 }

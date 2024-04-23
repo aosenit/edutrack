@@ -152,3 +152,54 @@ table.client-table {
     color:#ffffff;
     background: #014D94
 }
+.list .table tbody .status_active {
+    background: #ebfffa;
+    border-radius: 10px;
+    color: #09b78a;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+.list .table tbody .status_inactive {
+    background: #FAE5E7;
+    border-radius: 10px;
+    color: #D72638;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+   
+}
+.list .table tbody .status_awaiting {
+    background: #ebfffa;
+    border-radius: 10px;
+    color: #f0e806;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+.list .table tbody .status_pending {
+    background: #FAE5E7;
+    border-radius: 10px;
+    color: #dfc118;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
