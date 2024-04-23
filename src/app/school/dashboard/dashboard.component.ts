@@ -57,9 +57,6 @@ export class DashboardComponent implements OnInit {
     private school: SchoolService,
     private alumni: AlumniService
 
-
-
-
   ) { }
 
   ngOnInit() {

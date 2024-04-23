@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { parse } from 'querystring';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
@@ -533,10 +532,34 @@ export class SchoolSettingsComponent implements OnInit, OnDestroy {
   }
 
   deleteClass(id) {
-    this.classService.deleteClassById(id).subscribe(
-      res => {
-        this.notification.publishMessages('You have successfully deleted a class', 'info', 0);
-        this.getClasses();
+    this.classService.deleteClassById(id)
+    .pipe(takeUntil(this.ngUnsubscribe)).subscribe(
+      (res: any) => {
+        if (res.hasErrors === false) {
+          
+          this.notification.publishMessages('You have successfully deleted a class', 'info', 0);
+          this.getClasses();
+        } else {
+          this.notification.publishMessages(res.errors[0], 'danger', 1);
+        }
+      }, error => {
+
+      }
+    );
+  }
+  deleteSubject(id) {
+    this.classService.deleteClassById(id)
+    .pipe(takeUntil(this.ngUnsubscribe)).subscribe(
+      (res: any) => {
+        if (res.hasErrors === false) {
+          
+          this.notification.publishMessages('You have successfully deleted a class', 'info', 0);
+          this.getClasses();
+        } else {
+          this.notification.publishMessages(res.errors[0], 'danger', 1);
+        }
+      }, error => {
+
       }
     );
   }

@@ -90,6 +90,7 @@ export class AssignmentsComponent implements OnInit {
     }
   }
 
+
   selectAllCheckbox(event : any ){
     if(event === true){
       document.querySelectorAll('.individual-checkbox').forEach((item: any) => item.checked = true)

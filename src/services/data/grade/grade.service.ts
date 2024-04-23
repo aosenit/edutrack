@@ -5,6 +5,8 @@ import { environment } from 'src/environments/environment';
 const routes = {
   addgrade: 'schtrack-assessment/api/v1/GradeSetup/AddGradeSetup',
   getAllgrades: 'schtrack-assessment/api/v1/GradeSetup/GetAllGradeForSchoolSetup',
+  updategrade: 'schtrack-assessment/api/v1/GradeSetup/UpdateGradeSetup',
+  deletegrade: 'schtrack-assessment/api/v1/GradeSetup/RemoveGradeSetup',
 };
 
 @Injectable({
@@ -25,6 +27,18 @@ export class GradeService {
   getAllGrades() {
     const url = `${this.baseUrl + routes.getAllgrades}`;
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  updateGradeSetup(payload) {
+    const url = `${this.baseUrl + routes.updategrade}`;
+    return this.http.put(url, payload, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  deleteGradeSetup(id) {
+    const url = `${this.baseUrl + routes.deletegrade}?id=${id}`;
+    return this.http.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 }

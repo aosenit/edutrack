@@ -72,15 +72,13 @@
             <table class="table table-borderless client-table">
                 <thead>
                     <tr>
-                        <th scope="col" class="head ">
+                        <!-- <th scope="col" class="head ">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="customCheckTh">
                                 <label class="custom-control-label" for="customCheckTh"></label>
                             </div>
-                        </th>
-                        <th scope="col"  >Grade <img src="assets/images/svg/table-sort.svg"
-                                alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </th> -->
+                        <th scope="col"  >Grade 
                             <!-- ================ DROPDOWN ==================== -->
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                
@@ -108,12 +106,12 @@
                 </thead>
                 <tbody>
                     <tr class="pb-1" *ngFor = "let grade of grades">
-                        <td scope="row" class="check rounded-left">
+                        <!-- <td scope="row" class="check rounded-left">
                             <div class="custom-control custom-checkbox" >
                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                                 <label class="custom-control-label" for="customCheck1"></label>
                             </div>
-                        </td>
+                        </td> -->
                         <td class="user" >
                             <h6 class="fw-6 mb-0" > {{grade?.grade}} </h6>
                         </td>
@@ -122,8 +120,14 @@
                         <td>
                           <span class="status_active" *ngIf = "grade?.isActive == true">Active</span>
                           <span class="status_inactive" *ngIf = "grade?.isActive == false">Inactive</span></td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
+                          <td class="rounded-right ">
+                            <img src="assets/images/svg/more-action.svg" alt="schools log" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item cursor-pointer" (click)="edit(grade)"  data-toggle="modal"
+                              data-target="#exampleModalCenterGrade22">Edit</a>
+                              <a class="dropdown-item cursor-pointer" (click)="delete(grade)" >Delete</a>
+                            </div>
+                           </td>
                     </tr>
         
                    
@@ -148,12 +152,12 @@
             <table class="table table-borderless client-table">
                 <thead>
                     <tr>
-                        <th scope="col" class="head ">
+                        <!-- <th scope="col" class="head ">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="customCheckTh">
                                 <label class="custom-control-label" for="customCheckTh"></label>
                             </div>
-                        </th>
+                        </th> -->
                         <th scope="col"  >Title <img src="assets/images/svg/table-sort.svg">  </th>
                         <th scope="col"  >Max Score <img src="assets/images/svg/table-sort.svg">  </th>
                         <th scope="col" class="text-center"  >Sequence <img src="assets/images/svg/table-sort.svg">  </th>
@@ -162,20 +166,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="pb-1" *ngFor = "let assessment of allAssessment">
-                        <td scope="row" class="check rounded-left">
+                    <tr class="pb-1" *ngFor = "let assessment of allAssessment; let i = index">
+                        <!-- <td scope="row" class="check rounded-left">
                             <div class="custom-control custom-checkbox" >
                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                                 <label class="custom-control-label" for="customCheck1"></label>
                             </div>
-                        </td>
+                        </td> -->
                         <td class="user" >
                             <h6 class="fw-6 mb-0" >{{assessment.name}}  </h6>
                         </td>
                         <td class="">{{assessment?.maxScore}}</td>
                         <td class="text-center"> {{assessment?.sequenceNumber}} </td>
-                        <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
-                                alt="schools log"> </td>
+                        <td class="rounded-right ">
+                          <img src="assets/images/svg/more-action.svg" alt="schools log" ype="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" data-toggle="modal"
+                            data-target="#exampleModalCenterTypeEdit" (click)="editAssessment(assessment, i)" >Edit</a>
+                            <!-- <a class="dropdown-item" (click)="delete(assessment)" >Delete</a> -->
+                          </div>
+                         </td>
                     </tr>
         
                 </tbody>
@@ -183,7 +193,8 @@
         
             <div class="d-flex justify-content-end mb-3">
               
-              <button class="btn btn-orange-two px-5 mb-4 mt-3" [hidden]= "allAssessment?.length === 0 || assessmentCount === 100 " (click)="publishAssessment()"> Publish </button>
+              <button class="btn btn-orange-two px-5 mb-4 mt-3" *ngIf="!isEditingAssessment" [hidden]= "allAssessment?.length === 0 || assessmentCount < 100 " (click)="publishAssessment()"> Publish </button>
+              <button class="btn btn-orange-two px-5 mb-4 mt-3" *ngIf="isEditingAssessment" [hidden]= "allAssessment?.length === 0 || assessmentCount < 100 " (click)="publishAssessmentUpdates()"> Publish Updates </button>
             </div>
             
         </section>
@@ -369,8 +380,67 @@ aria-labelledby="exampleModalCenterGradeTitle" aria-hidden="true">
 </div>
 <!-- end of Grade modal -->
 
+  <!-- edit Grade Modal -->
+<div class="modal fade" id="exampleModalCenterGrade22" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterGrade22Title" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-length" role="document">
+  <div class="modal-content">
 
-  <!-- Domain Type Modal -->
+    <div class="modal-head mb-4">
+      <div class="d-flex justify-content-between align-items-center ">
+        <h6 class="modal-title fc-lblue">Edit Grade</h6>
+        <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close" id="editGradeModal">
+
+      </div>
+
+    </div>
+    <div class="modal-body client-modal">
+      <form [formGroup]="gradeForm" (ngSubmit)="updateGrade()">
+
+
+        <div class="form-group mb-4">
+          <label for="grade" class="">Grade <span class="text-danger">*</span></label>
+          <input type="text" id="grade" class="form-control" placeholder="Enter grade" formControlName="grade">
+        </div>
+        <div class="form-group mb-4">
+          <label for="interpretation" class="">Interpretation <span class="text-danger">*</span></label>
+          <input type="text" id="interpretation" class="form-control" placeholder="Enter grade interpretation" formControlName="interpretation">
+        </div>
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <label for="lower" class="">Range<span class="text-danger">*</span> </label>
+              <input type="number" class="form-control " placeholder="Lower Bound" id="lower" formControlName="lowerBound">
+            </div>
+            <div class="col-md-6">
+              <label for="upper" class=""> &nbsp; </label>
+              <input type="number" class="form-control " placeholder="Upper Bound" id="upper" formControlName="upperBound">
+            </div>
+            <span class="small text-danger pl-3" *ngIf="errorLabel !== null"> {{ errorLabel }} </span>
+        </div>
+        <!-- <div class="form-group mb-5">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch1" formControlName="isActive" (change)="getStatus($event.target.checked)">
+            <label class="custom-control-label" for="customSwitch1" *ngIf="toggleState === false"> Inactive</label>
+            <label class="custom-control-label" for="customSwitch1" *ngIf="toggleState === true" > Active</label>
+          </div>
+        </div> -->
+
+
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="gradeForm.invalid"> Update Grade</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
+</div>
+<!-- end of edit Grade modal -->
+
+
+  <!-- Add Assessment Type Modal -->
 <div class="modal fade" id="exampleModalCenterType" tabindex="-1" role="dialog"
 aria-labelledby="exampleModalCenterTypeTitle" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered modal-length" role="document">
@@ -415,7 +485,55 @@ aria-labelledby="exampleModalCenterTypeTitle" aria-hidden="true">
   </div>
 </div>
 </div>
-<!-- end of Domain Type modal -->
+<!-- end of Assessment Type modal -->
+
+
+  <!-- Add Edit Assessment Type Modal -->
+  <div class="modal fade" id="exampleModalCenterTypeEdit" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTypeEditTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+  
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Assessment</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close" id="assessmentModalEdit">
+  
+        </div>
+  
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="assessmentForm" (ngSubmit)="updateAssessment()">
+  
+  
+          <div class="form-group mb-4">
+            <label for="grade" class="">Title <span class="text-danger">*</span></label>
+            <input type="text" id="grade" class="form-control" placeholder="Enter title" formControlName="name">
+          </div>
+          <div class="form-group mb-4">
+            <label for="interpretation" class="">Max Score <span class="text-danger">*</span></label>
+            <input type="number" id="interpretation" class="form-control" placeholder="Enter max score" formControlName="maxScore">
+          </div>
+          
+          <div class=" form-group mb-4">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckThExamCheck" formControlName="isExam">
+                <label class="custom-control-label" for="customCheckThExamCheck"> Examination</label>
+            </div>
+        </div>
+  
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]= assessmentForm.invalid> Update assessment</button>
+          </div>
+        </form>
+      </div>
+  
+    </div>
+  </div>
+  </div>
+  <!-- end of edit Assessment Type modal -->
 
   <!-- Domain Modal -->
 <div class="modal fade" id="exampleModalCenterDomain" tabindex="-1" role="dialog"

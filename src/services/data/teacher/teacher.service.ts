@@ -18,6 +18,7 @@ const routes = {
   getAllassignmentSubmission: 'schtrack-learning/api/v1/AssignmentAnswer/GetAllAssignmentAnswers',
 
   attachteachertosubject: 'schtrack-learning/api/v1/TeacherClassSubject/AddClassSubjectsToTeacher',
+  removeteacherfromsubject: 'schtrack-learning/api/v1/TeacherClassSubject/RemoveTeacherToCLassSubject',
   getteacherdesignation: 'schtrack-learning/api/v1/TeacherClassSubject/GetAllClassSubjectsForTeacher',
   getsubjectAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForSubject',
   getclassAttendance: 'schtrack-learning/api/v1/Attendance/GetStudentAttendanceForClass',
@@ -262,6 +263,18 @@ export class TeacherService {
     const url = `${this.baseUrl + routes.attachteachertosubject}`;
 
     return this.http.post(url, result, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+
+  }
+
+  removeTeacherFromSubject(id) {
+    // const tenantId = '1'; // just a temporary header till email services is ready
+
+    // const body = new FormData();
+    // body.append('TeacherId', result.TeacherId);
+    // body.append('ClassSubjectIds', result.ClassSubjectIds);
+    const url = `${this.baseUrl + routes.removeteacherfromsubject}?id=${id}`;
+
+    return this.http.delete(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
 

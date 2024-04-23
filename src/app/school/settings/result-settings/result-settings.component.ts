@@ -22,6 +22,10 @@ errorLabel = null;
 assessments: any;
 assessmentCount: number;
 toggleState = false;
+  currentGradeId: any;
+  selectedSequence: any;
+  selectedAssessmentIndex: any;
+  isEditingAssessment = false;
 
   constructor(
     private fb: FormBuilder,
@@ -99,7 +103,12 @@ toggleState = false;
     };
     this.assessmentForm.reset();
     this.allAssessment.push(result);
-    // ('All assessments', this.allAssessment);
+    const countArray = [];
+    // tslint:disable-next-line:forin
+    for (const unit in this.assessments) {
+      countArray.push(this.assessments[unit].maxScore);
+      this.assessmentCount = countArray.reduce((a, b) => a + b, 0);
+    }
     document.getElementById('assessmentModal').click();
     this.assessmentForm.setValue({
       isExam : false,
@@ -125,6 +134,35 @@ toggleState = false;
 
   }
 
+  publishAssessmentUpdates() {
+    console.log(this.allAssessment);
+    const payload = this.allAssessment.map((x: any, i) => {
+      return {
+            id: x.id,
+            sequenceNumber: x.sequenceNumber,
+            name: x.name,
+            maxScore: x.maxScore,
+            isExam: x.isExam,
+            tenantId: x.tenantId ? x.tenantId : this.allAssessment[1].tenantId
+      };
+    });
+    console.log(payload);
+
+    this.assessmentService.updateAssessment(this.allAssessment).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        // // (data);
+        this.notifyService.publishMessages('Assessment setup successfully', 'success', 1);
+        location.reload();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+    });
+    }
+
+
   getAllAssessmentSetup() {
     this.allAssessment.pop();
     this.assessmentService.getAllAssessmentSetup().subscribe((data: any) => {
@@ -145,6 +183,7 @@ toggleState = false;
     });
 
   }
+
 
   submitGrade() {
       // (this.gradeForm.value);
@@ -167,8 +206,9 @@ toggleState = false;
       this.grades.push(result);
       // (this.grades);
       this.gradeForm.reset();
-    
+
   }
+
 
   publishGrade() {
     this.gradeService.addGrade(this.grades).subscribe((data: any) => {
@@ -185,6 +225,7 @@ toggleState = false;
     });
   }
 
+
   getAllGrade() {
     this.gradeService.getAllGrades().subscribe((data: any) => {
       if (data.hasErrors === false ) {
@@ -195,5 +236,89 @@ toggleState = false;
       //   // (element.lowerBound);
       // });
     });
+  }
+
+edit(data) {
+    console.log(data);
+    this.currentGradeId = data.id;
+    this.selectedSequence = data.sequence;
+    this.gradeForm.patchValue({
+      grade: data.grade,
+      interpretation: data.interpretation,
+      lowerBound: data.lowerBound,
+      upperBound: data.upperBound,
+      isActive: data.isActive
+    });
+    // document.getElementById('exampleModalCenterGrade22').click();
+  }
+
+updateGrade() {
+    this.gradeService.updateGradeSetup({id: this.currentGradeId, sequence: this.selectedSequence, ...this.gradeForm.value}).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        // (data);
+        document.getElementById('editGradeModal').click();
+
+        this.notifyService.publishMessages('Grade updated successfully', 'success', 1);
+
+        this.getAllGrade();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+    });
+  }
+
+delete(grade) {
+    this.gradeService.deleteGradeSetup(grade.id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        // (data);
+
+        this.notifyService.publishMessages(data.payload, 'success', 1);
+
+        this.getAllGrade();
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+    });
+
+  }
+
+  editAssessment(data, index) {
+    this.selectedAssessmentIndex = index;
+    this.assessmentForm.setValue({
+      isExam : data.isExam,
+      name: data.name ,
+      maxScore: data.maxScore
+    });
+    this.isEditingAssessment = true;
+  }
+
+updateAssessment() {
+    const {name, maxScore, isExam} = this.assessmentForm.value;
+    this.allAssessment[this.selectedAssessmentIndex].name = name;
+    this.allAssessment[this.selectedAssessmentIndex].maxScore = maxScore;
+    // this.allAssessment[this.selectedAssessmentIndex].sequence = this.allAssessment[this.allAssessment.length - 1].sequence + 1;
+    // console.log(this.allAssessment);
+    const countArray = [];
+    // tslint:disable-next-line:forin
+    for (const unit in this.assessments) {
+      countArray.push(this.assessments[unit].maxScore);
+      this.assessmentCount = countArray.reduce((a, b) => a + b, 0);
+    }
+    if (this.assessmentCount > 100) {
+      this.notifyService.publishMessages('Percentage cant be more than 100', 'info', 0);
+    } else {
+      document.getElementById('assessmentModalEdit').click();
+      this.assessmentForm.setValue({
+        isExam : false,
+        name: '',
+        maxScore: ''
+      });
+    }
   }
 }

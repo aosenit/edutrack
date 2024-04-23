@@ -176,6 +176,23 @@ attachedSubjectlist: any;
     });
   }
 
+  remove(subject) {
+
+    this.teacherService.removeTeacherFromSubject(subject.id).subscribe((data: any) => {
+      if (data.hasErrors === false ) {
+        // console.log(data);
+        this.getAttachedSubject();
+        this.notifyService.publishMessages(data.payload, 'success', 1);
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
+
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
+    });
+  }
+
   getAttachedSubject() {
     // console.log(this.id);
     this.teacherService.getAttachedSubjects(this.id).subscribe((data: any) => {

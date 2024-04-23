@@ -50,6 +50,7 @@ const routes = {
   rejectTransaction: 'schtrack-finance/api/v1/Transaction/ApproveRejectTransaction',
   viewtransactionId: 'schtrack-finance/api/v1/Transaction/GetTransaction',
   viewfile: 'schtrack-finance/api/v1/Files/GetFile',
+
   getAllTransactionByStatus: 'schtrack-finance/api/v1/Transaction/GetAllTransactionsByStatus',
   exportInvoiceInExcel: 'schtrack-finance/api/v1/Transaction/ExportInvoiceReportExcel',
   exportInvoiceInPDF: 'schtrack-finance/api/v1/Transaction/ExportInvoiceReportPDF'
@@ -319,6 +320,7 @@ getFiles(id) {
   const url = `${this.baseUrl + routes.viewfile}/${id}`;
   return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 }
+
 getAllTransactionByStatus(p, perpage,status,keyword?,filter?, FromDate?, ToDate?){
   const url = `${this.baseUrl + routes.getAllTransactionByStatus}?Keyword=${keyword}&Filter=${filter}&PageIndex=${p}&PageSize=${perpage}&Status=${status}&From=${FromDate}&To=${ToDate}`;
   return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
