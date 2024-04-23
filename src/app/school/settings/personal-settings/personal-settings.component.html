@@ -1,0 +1,892 @@
+<section class="banner mb-4 pb-3" *ngIf="dept">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary  "> Personal Settings </h6>
+    <p class=""> Adjust Your Personal Settings </p>
+  </div>
+  <div class="d-flex">
+    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+    data-target="#exampleModalCenterDept"> Add New </button>
+  </div>
+
+</section>
+
+<section class="banner mb-4 pb-3" *ngIf="job">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary  "> Personal Settings </h6>
+    <p class=""> Adjust your personal settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+    data-target="#exampleModalCenterJob"> Add New </button>
+  </div>
+
+</section>
+
+<section class="banner mb-4 pb-3" *ngIf="employment">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary  "> Personal Settings </h6>
+    <p class=""> Adjust your personal settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+    data-target="#exampleModalCenterStatus"> Add New </button>
+  </div>
+
+</section>
+
+<section class="banner mb-4 pb-3" *ngIf="qualification">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary  "> Personal Settings </h6>
+    <p class=""> Adjust your personal settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+    data-target="#exampleModalCenterQualification"> Add New </button>
+  </div>
+
+</section>
+<section class="banner mb-4 pb-3" *ngIf="occupation">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary  "> Personal Settings </h6>
+    <p class=""> Adjust your personal settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+    data-target="#exampleModalCenterOccupation"> Add New </button>
+  </div>
+
+</section>
+
+<div class="d-flex mt-5 mb-3">
+
+  <div class="searchpills-bar">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item mr-5" (click)="showStatus('dept')">
+        <a class="nav-link active" id="pills-department-tab" data-toggle="pill" href="#pills-department" role="tab"
+          aria-controls="pills-department" aria-selected="true">Department</a>
+      </li>
+      <!-- <li class="nav-item mr-5" (click)="showStatus('job')">
+        <a class="nav-link" id="pills-title-tab" data-toggle="pill" href="#pills-title" role="tab"
+          aria-controls="pills-title" aria-selected="false">Job Titles</a>
+      </li>
+      <li class="nav-item mr-5" (click)="showStatus('employment')">
+        <a class="nav-link" id="pills-employment-tab" data-toggle="pill" href="#pills-employment" role="tab"
+          aria-controls="pills-employment" aria-selected="false">Employment Status</a>
+      </li>
+      <li class="nav-item mr-5" (click)="showStatus('qualification')">
+        <a class="nav-link" id="pills-qualification-tab" data-toggle="pill" href="#pills-qualification" role="tab"
+          aria-controls="pills-qualification" aria-selected="false">Qualifications</a>
+      </li>
+      <li class="nav-item mr-5" (click)="showStatus('occupation')">
+        <a class="nav-link" id="pills-occupation-tab" data-toggle="pill" href="#pills-occupation" role="tab"
+          aria-controls="pills-occupation" aria-selected="false">Occupations</a>
+      </li> -->
+
+    </ul>
+
+  </div>
+
+  <div class="search__input has-search ml-auto">
+    <span class="fa fa-search form-control-feedback"></span>
+    <input type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-department" role="tabpanel" aria-labelledby="pills-department-tab">
+    <div class="empty-state" *ngIf="departmentList?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any Department
+      </p>
+    </div>
+    <section class="list" *ngIf="departmentList?.length > 0">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th>
+            <th scope="col" class="w-60">Department <img src="assets/images/svg/table-sort.svg"></th>
+
+            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item fc-orange" href="#">All </a>
+                <a class="dropdown-item" href="#">Active </a>
+                <a class="dropdown-item" href="#">Inactive </a>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1" *ngFor = "let department of departmentList">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">{{department.name}} </p>
+            </td>
+            <td>
+              <span class="status_active" *ngIf ="department.status == true">Active</span>
+              <span class="status_inactive" *ngIf ="department.status == false">Inactive</span>
+            </td>
+            <td class="rounded-right ">
+              <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle" type="button"
+                id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                <!-- <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditArm"
+                  (click)="getArmById(arm.id)">Edit Arm </a> -->
+                <a class="dropdown-item" (click)="deleteDepartment(department?.id)">Delete</a>
+              </div>
+            </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+
+  <div class="tab-pane fade " id="pills-title" role="tabpanel" aria-labelledby="pills-title-tab">
+    <section class="list">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th>
+            <th scope="col">Job Title <img src="assets/images/svg/table-sort.svg"> </th>
+            <th scope="col">Department <img src="assets/images/svg/table-sort.svg"> </th>
+
+            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Principal </p>
+            </td>
+            <td class="">Administration</td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Vice Principal </p>
+            </td>
+            <td class="">Administration</td>
+            <td><span class="status_active">Active</span></td>
+
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Bursar </p>
+            </td>
+            <td class="">Administration</td>
+            <td><span class="status_active">Active</span></td>
+
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Cleaner </p>
+            </td>
+            <td class="">Non-Academic</td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Security Guard </p>
+            </td>
+            <td class="">Non-Academic</td>
+            <td><span class="status_inactive">Inactive</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-right">
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Science Tutor </p>
+            </td>
+            <td class="">Academic</td>
+            <td><span class="status_active">Active</span></td>
+
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+
+  <div class="tab-pane fade " id="pills-employment" role="tabpanel" aria-labelledby="pills-employment-tab">
+    <section class="list">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th>
+            <th scope="col" class="w-60">Department <img src="assets/images/svg/table-sort.svg"></th>
+
+            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item fc-orange" href="#">All </a>
+                <a class="dropdown-item" href="#">Active </a>
+                <a class="dropdown-item" href="#">Inactive </a>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Administration </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Academic </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-right">
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Non- Academic </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+
+
+  <div class="tab-pane fade " id="pills-qualification" role="tabpanel" aria-labelledby="pills-qualification-tab">
+    <section class="list">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th>
+            <th scope="col" class="w-60">Qualification <img src="assets/images/svg/table-sort.svg"></th>
+
+            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item fc-orange" href="#">All </a>
+                <a class="dropdown-item" href="#">Active </a>
+                <a class="dropdown-item" href="#">Inactive </a>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">PGDE </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">MBA </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">BA </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">BSc. </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">HND </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">NCE </p>
+            </td>
+            <td> <span class="status_inactive">Inctive</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-right">
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">BA </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+
+  <div class="tab-pane fade " id="pills-occupation" role="tabpanel" aria-labelledby="pills-occupation-tab">
+    <section class="list">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th>
+            <th scope="col">Occupation <img src="assets/images/svg/table-sort.svg"></th>
+
+            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item fc-orange" href="#">All </a>
+                <a class="dropdown-item" href="#">Active </a>
+                <a class="dropdown-item" href="#">Inactive </a>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Teacher </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Teacher </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Doctor </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Civil Servant </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Enterprenuer </p>
+            </td>
+            <td> <span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Legal Officer </p>
+            </td>
+            <td> <span class="status_inactive">Inactive</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+          <tr class="pb-1">
+            <td scope="row" class="check rounded-right">
+
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td>
+            <td class="user">
+              <p class=" mb-0">Consultant </p>
+            </td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log"> </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+</div>
+
+
+<!-- Dept Modal -->
+<div class="modal fade" id="exampleModalCenterDept" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterLevelTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Department</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="closeModal" data-dismiss="modal" aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="departmentForm" (ngSubmit)="createDepartment()">
+
+
+          <div class="form-group mb-5">
+            <label for="dept" class="">Department <span class="text-danger">*</span></label>
+            <input type="text" id="dept" class="form-control" placeholder="Enter department" formControlName = "name">
+          </div>
+          
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="getStatus($event.target.checked)" formControlName = "isActive">
+              <label class="custom-control-label" for="customSwitch1"
+                *ngIf="toggleState === false; then inactive; else active;"> {{toggleState}} </label>
+              <ng-template #active>
+                <label class="custom-control-label" for="customSwitch1">Active </label>
+              </ng-template>
+              <ng-template #inactive>
+                <label class="custom-control-label" for="customSwitch1"> Inactive </label>
+              </ng-template>
+            </div>
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="departmentForm.invalid"> Add Department</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Dept modal -->
+
+<!-- Job Modal -->
+<div class="modal fade" id="exampleModalCenterJob" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterLevelTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Job Title</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form>
+
+            <div class="form-group mb-4">
+                <label for="dept" class="">Department <span class="text-danger">*</span></label>
+                <select name="" id="dept" class="form-control">
+                  <option value="">Administration</option>
+                </select>
+              </div>
+
+          <div class="form-group mb-4">
+            <label for="title" class="">Job Title <span class="text-danger">*</span></label>
+            <input type="text" id="title" class="form-control" placeholder="Enter department">
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="description" class="">Job Description <span class="text-danger">*</span></label>
+            <textarea  id="description" class="form-control" placeholder="Enter description"></textarea>
+          </div>
+          
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1">Active</label>
+            </div>
+          </div>
+
+
+        </form>
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Job</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Job modal -->
+
+
+<!-- Status Modal -->
+<div class="modal fade" id="exampleModalCenterStatus" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterLevelTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Status</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form>
+
+
+          <div class="form-group mb-5">
+            <label for="status" class="">Employment Status <span class="text-danger">*</span></label>
+            <select name="" id="status" class="form-control">
+                <option value="">Select</option>
+              </select>
+          </div>
+          
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1">Active</label>
+            </div>
+          </div>
+
+
+        </form>
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Status</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Status modal -->
+
+
+<!-- Qualification Modal -->
+<div class="modal fade" id="exampleModalCenterQualification" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterLevelTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Qualification</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form>
+
+
+          <div class="form-group mb-5">
+            <label for="qualification" class="">Qualification  <span class="text-danger">*</span></label>
+            <input type="text" id="qualification" class="form-control" placeholder="Enter qualification">
+
+          </div>
+          
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1">Active</label>
+            </div>
+          </div>
+
+
+        </form>
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Qualification</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Qualification modal -->
+
+
+<!-- Occupation Modal -->
+<div class="modal fade" id="exampleModalCenterOccupation"
+  aria-labelledby="exampleModalCenterOccupationTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Occupation</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form>
+
+
+          <div class="form-group mb-5">
+            <label for="status" class="">Occupation  <span class="text-danger">*</span></label>
+            <input type="text" id="occupation" class="form-control" placeholder="Enter occupation">
+          </div>
+          
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1">Active</label>
+            </div>
+          </div>
+
+
+        </form>
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3"> Add Occupation</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Occupation modal -->

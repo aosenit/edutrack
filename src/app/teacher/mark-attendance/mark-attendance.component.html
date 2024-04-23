@@ -1,0 +1,98 @@
+<div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-md-12 mt-5">
+  
+       
+        <section class="banner mb-4 pb-3" >
+          <div class="pt-5 pl-3 content ">
+            <h6 class="banner__text-primary fw-6 "> Subject Attendance </h6>
+            <p class=""> {{subjectClass?.subject | titlecase}} </p>
+          </div>
+          <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/teacher/mark-attendance']">
+            Take Attendance </button> -->
+  
+        </section>
+        
+       
+        <form [formGroup]="attendanceForm">
+          <div class="d-flex justify-content-between  align-items-center mb-4">
+            <div class="col-md-12 col-sm-12">
+                <div class="row">
+                  <div class="col-md-3 col-sm-12 mb-4 ">
+                    <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)" formControlName="class" >
+                      <option value="" selected>Select Subject</option>
+                      <option value={{class.classId}} *ngFor="let class of classList; let i = index">{{class.subject | titlecase}}</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3 col-sm-12 mb-4 ">
+                    <input type="date" class="form-control" formControlName="dates" name="date" (change)="compareDate($event.target.value)" >
+                 </div>
+                 <div class="col-md-2 offset-md-2"></div>
+                 <div class="col-md-2 col-sm-12 mb-4 justify-content-end">
+                  <button  class="btn bg-lblue-2  px-5  " *ngIf="invalidate" (click)="submitAttendance()" >
+                    Update </button>
+                </div>
+                </div>
+            </div>
+            
+          
+          </div>
+            
+            <div class="row" >
+              <div class="col-md-3 mb-4 " *ngFor="let student of studentList; let d = index">
+                <div class=" bg-white br-10 p-3 d-flex justify-content-between align-items-center">
+                  <div class="d-flex align-items-center">
+                   <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
+                   <div>
+                     <p class="attendance__student_name  mb-0">{{student?.firstName + ' ' + student?.lastName}}</p>
+                     <p class="attendance__student_reg mb-0">
+                         <span *ngIf="student?.studentNumber">{{student?.studentNumber}}</span>
+                         <span *ngIf="student?.studentNumber === null"> N/A</span>
+                       </p>
+                   </div>
+                  </div>
+                  <div class="d-flex flex-column justify-content-between align-items-center">
+                     <p class="attendance__student_percentage mb-5">&nbsp;</p>
+                     <!-- <p class="attendance__student_percentage mb-5">0%</p> -->
+                     <div class="custom-control custom-switch">
+                       <input type="checkbox" class="custom-control-input" id="customSwitch{{d}}"
+                       formControlName="attendanceStatus"
+                        (change)="getStatus($event, student?.id, d)">
+                       <label class="custom-control-label" for="customSwitch{{d}}"></label>
+                   </div>
+                   <button class="btn btn-secondary dropdown-toggle"  type="button" id="absentDrop{{d}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: none;">
+                    Dropdown button
+                  </button>
+                   <div class="dropdown-menu drop-down2 px-3" id="dropdownMenuLink{{d}}" aria-labelledby="absentDrop">
+                    <a class="dropdown-item">Select reason for absence</a>
+                    <div class="dropdown-divider"></div>
+                    <div class="form-group">
+                      <select name="" id="" class="form-control" formControlName="Remark" (change)="getAssessmentName($event.target.value, d)" (click)="holdDropDown(d)">
+                        <option value="" selected>Select..</option>
+                        <option value="Health">Health</option>
+                        <option value="Disciplinary">Disciplinary</option>
+                        <option value="Event">Event</option>
+                        <option value="Others">Others</option>
+                      </select>
+                        <div class="form-group">
+                          <button class="btn bg-lblue-2" (click)="closeDropdown(d)"  >Submit</button>
+                        </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+               </div>
+          
+          
+            </div>
+        </form>
+  
+     
+  
+      </div>
+     
+    </div>
+  
+  
+  </div>
+  

@@ -1,0 +1,63 @@
+<div class="">
+    <div class="login">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-5 m-auto">
+                    <div class="whitediv d-flex justify-content-center align-items-center p-lg-5 p-3 mt-lg-5">
+                        <div class="row">
+                            <div class="col-lg-12 d-flex justify-content-center mb-5">
+
+                                <div>
+                                    
+                                    <!-- <img src="assets/images/svg/student-login-logo.svg" alt=""> -->
+                                    <img class="" *ngIf="matchedSchoolDetail" src="data:image/png;base64,{{matchedSchoolDetail.logo}}" alt="schools log" class="mr-3 school-logo" id="">
+    
+                                    <h6 class="fs-30 text-center ">Student Login</h6>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <form [formGroup]= "studentLoginForm" (ngSubmit)="submit()">
+                                    <div class="col-lg-12 mb-3">
+                                        <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Reg Number </p>
+                                        <small class="fs-12 ff-n fc-dark mb-3">Please enter your reg number in the box
+                                            below.</small>
+                                        <input type="text" class="form-control reg-form" formControlName = "username">
+                                        <div *ngIf="submitted && studentLoginForm.controls.username.errors" class="error">
+                                            <div *ngIf="studentLoginForm.controls.username.errors.required" class="text-danger">Username is required</div>
+                                          </div>
+                                    </div>
+                                    <div class="col-lg-12 mb-3">
+                                        <p for="" class="fs-16 ff-n fw-6 fc-dark m-0">Password</p>
+                                        <small class="fs-12 ff-n fc-dark mb-3">Please enter your password in the box
+                                            below.</small>
+                                        <input type="password" class="form-control reg-form mb-2" formControlName = "password">
+                                        <div *ngIf="submitted && studentLoginForm.controls.password.errors" class="error">
+                                            <div *ngIf="studentLoginForm.controls.password.errors.required" class="text-danger">Password is required</div>
+                                            <div *ngIf="studentLoginForm.controls.password.errors.minlength" class="text-danger">Password must be at least 5 characters</div>
+                                          </div>
+                                        <p class="text-right">
+                                            <a routerLink="/forgotpassword" class="fc-lblue fs-14 fw-6 ff-n">Forgot
+                                                Password?</a>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 mb-3">
+                                        <button class="btn btn-blue w-100" >
+                                            Login
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot bg-dark py-3">
+        <p class="fc-grey ff-a fs-12 m-0 text-center">© 2020. <span class="fw-6 ls-7">SchoolTrack</span> - All rights
+            reserved </p>
+    </div>
+</div>

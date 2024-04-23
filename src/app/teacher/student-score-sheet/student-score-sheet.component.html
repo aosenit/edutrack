@@ -1,0 +1,350 @@
+<div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between  align-items-center mb-4">
+        <div>
+          <form>
+            <div class="row">
+              <!-- <div class="col options">
+                <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)" >
+                  <option value="">Select Class</option>
+                  <option value={{i}} *ngFor="let class of classList; let i = index">{{class.class}}</option>
+                </select>
+              </div> -->
+              <div class="col options">
+                <select name="" id="" class="form-control" (change)="selectedTerm($event.target.value)" >
+                  <option value="">Term</option>
+                  <option [value]= "t" *ngFor="let term of terms; let t = index"> {{term?.name}}</option>
+                </select>
+              </div>
+              <div class="col-5 options">
+                <select name="" id="" class="form-control" (change)="getStudentRecord($event.target.value)" >
+                  <option value="">Select student name</option>
+                  <option [value]= "std" *ngFor="let student of studentList; let std = index"> {{student?.firstName + ' ' + student?.lastName}}</option>
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+    
+      </div>
+    
+      <div class="bg-white py-5 px-4 d-flex justify-content-center align-items-center" *ngIf="noData">
+        <div class="d-flex flex-column text-center">
+          <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+          <p class="fw-6 fs-24" style="color:#BAB9C1;">Select class, term  and student name to display <br> information</p>
+        </div>
+      </div>
+
+
+      <div class="bg-white py-5 px-4" *ngIf="displayData">
+        <div class="row mb-1">
+            <div class="col-md-6 col-sm-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th >  Student Name </th>
+                        <th>Registration</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td >  {{selectedStudent?.firstName + ' ' + selectedStudent?.lastName  | titlecase}} </td>
+                        <td>{{selectedStudent?.studentNumber}}</td>
+                        <td>
+                          <span *ngIf="selectedStudent?.sex === 'male' ">M</span>
+                          <span *ngIf="selectedStudent?.sex === 'female' ">F</span>
+                        </td>
+                        <td>{{getAge(selectedStudent?.dateOfBirth) + ' ' + 'Years Old'}}</td>
+                      </tr>
+              
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        <div class="row mb-1">
+            <div class="col-md-4 col-sm-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th >  Class </th>
+                        <th>Session</th>
+                        <th>Term</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td >{{classList?.name | titlecase}}</td>
+                        <td>{{sessions?.name}}</td>
+                        <td>{{termName?.name}}</td>
+                      </tr>
+              
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col-md-5 col-sm-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th > Total Subjects </th>
+                        <th>Subjects Offered</th>
+                        <th>Total in Class</th>
+                        <th>Position</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td >{{totalSubjectCount}}</td>
+                        <td>{{studentRecord?.length}}</td>
+                        <td>{{studentList?.length}}</td>
+                        <td></td>
+                      </tr>
+              
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+
+        <div class="row mb-1">
+            <div class="col-md-8 col-sm-12">
+<table class="table">
+                    <thead>
+                      <tr>
+                        <th class="w-50" >  Subject </th>
+                        <th *ngFor="let assessment of assessments" >  {{assessment?.assessmentName}} </th>
+                        <th>Cummulative<br> Score</th>
+                        <th>Grade</th>
+                        <th>Interpretation</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor = "let subject of studentRecord; let i = index">
+                        <td class="subject-info" >{{subject?.subjectName | titlecase}}</td>
+                        <td *ngFor = "let assessment of studentRecord[i].assesmentAndScores"> {{assessment?.studentScore}} </td>
+                        <td> {{subject?.cummulativeScore}} </td>
+                        <td> {{subject?.grade}} </td>
+                        <td>
+                          <span class="fs-14 interpretation " >  {{subject?.interpretation}} </span>
+                          <!-- <span class="fs-14 interpretation excellent" *ngIf="subject?.interpretation == 'Excellent '">  {{subject?.interpretation}} </span>
+                          <span class="fs-14 interpretation very-good" *ngIf="subject?.interpretation == 'Very Good'">  {{subject?.interpretation}} </span>
+                          <span class="fs-14 interpretation good" *ngIf="subject?.interpretation == 'Good'">  {{subject?.interpretation}} </span>
+                          <span class="fs-14 interpretation fail" *ngIf="subject?.interpretation == 'Fail'">  {{subject?.interpretation}} </span>
+                          <span class="fs-14 interpretation fair" *ngIf="subject?.interpretation == 'Fair'">  {{subject?.interpretation}} </span> -->
+                
+                        </td>
+                      </tr>
+
+                      
+              
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="row">
+                    <div class="col-md-12 mb-2">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th > Grade Scale </th>
+                                <th></th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let grade of gradeSetup; let g = index" >
+                                <td class="text-left" >{{grade?.lowerBound + ' - ' + grade?.upperBound}} </td>
+                                <td> {{grade?.grade}} </td>
+                                <td>{{grade?.interpretation}}</td>
+                              </tr>
+                             
+                            </tbody>
+                          </table>
+                    </div>
+                    <div class="col-md-12 col-sm-12 mb-2">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th class="w-30" > Cognitive </th>
+                                <th class="text-left"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let cog of cognitive; let co = index" >
+                                <td class="text-left" >{{cog.name}}</td>
+                                <td>  
+                                    <a href="#" class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    id="dropdownMenuLink">
+                                    <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2  cursor-pointer ">
+                                  </a>
+                                  <div class="dropdown-menu omo p-3  " id="dropdownMenuLink{{co}}">
+                                    <form [formGroup]="cognitiveForm" > 
+                                      <div class="form-group">
+                                        <label for="cont">Type</label>
+                                        <select id="cont" class="form-control" #ans formControlName="cognit"  (change)="getAssessmentName($event.target.value, co)" 
+                                           (click)="holdDropDown(co)">
+                                          <option value="">Select</option>
+                                          <option [value]="grade.grade"  *ngFor="let grade of gradeSetup">{{grade?.grade}} </option>
+                                         
+                        
+                                        </select>
+                                      </div>
+                                      <div class="form-group">
+                                        <button class="btn bg-lblue-2" (click)="close(co)">Add</button>
+                                      </div>
+                                      <!-- <div class="form-group">
+                                        <label for="type">Score</label>
+                                        <input type="number" class="form-control" >
+                                      </div> -->
+                                    </form>
+                                  </div>
+                                  <span>{{ans.value}}</span>
+                                </td>
+                              </tr>
+                             
+                              
+                            </tbody>
+                          </table>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 mb-2">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th class="w-50" > Affective or feeling </th>
+                                <th class="text-left"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let feel of affective; let f = index"  >
+                                <td class="text-left" >{{feel?.name}}</td>
+                                <td>  
+                                  <a href="#" class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    id="dropdownMenuLink2">
+                                    <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2  cursor-pointer ">
+                                  </a>
+                                  <div class="dropdown-menu omo p-3  " id="dropdownMenuLink2{{f}}">
+                                    <form [formGroup]="affectiveForm" > 
+                                      <div class="form-group">
+                                        <label for="cont">Type</label>
+                                        <select id="cont" class="form-control" #fe formControlName="feeling"  (change)="getFeelingValue($event.target.value, f)" 
+                                           (click)="holdDropDownFeeling(f)">
+                                          <option value="">Select</option>
+                                          <option [value]="grade.grade"  *ngFor="let grade of gradeSetup">{{grade?.grade}} </option>
+                                         
+                        
+                                        </select>
+                                      </div>
+                                      <div class="form-group">
+                                        <button class="btn bg-lblue-2" (click)="closeFeeling(f)">Add</button>
+                                      </div>
+                                      <!-- <div class="form-group">
+                                        <label for="type">Score</label>
+                                        <input type="number" class="form-control" >
+                                      </div> -->
+                                    </form>
+                                  </div>
+                                  <span>{{fe.value}}</span>
+                                </td>
+                              </tr>
+                              
+                              
+                            </tbody>
+                          </table>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12 mb-2">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th class="w-60" >Psychomotor or Kinesthetic </th>
+                                <th class="text-left"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let psycho of Psycomotor; let psy = index" >
+                                <td class="text-left" >{{psycho?.name}}</td>
+                                <td>  
+                                  <a href="#" class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    id="dropdownMenuLink3">
+                                    <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2  cursor-pointer ">
+                                  </a>
+                                  <div class="dropdown-menu omo p-3  " id="dropdownMenuLink3{{psy}}">
+                                    <form [formGroup]="psychomotorForm" > 
+                                      <div class="form-group">
+                                        <label for="cont">Type</label>
+                                        <select id="cont" class="form-control" #kink formControlName="kinetics"  (change)="getPyschomotoroValue($event.target.value, psy)" 
+                                           (click)="holdDropDownPsycho(psy)">
+                                          <option value="">Select</option>
+                                          <option [value]="grade.grade"  *ngFor="let grade of gradeSetup">{{grade?.grade}} </option>
+                                         
+                        
+                                        </select>
+                                      </div>
+                                      <div class="form-group">
+                                        <button class="btn bg-lblue-2" (click)="closePsychomotor(psy)">Add</button>
+                                      </div>
+                                      <!-- <div class="form-group">
+                                        <label for="type">Score</label>
+                                        <input type="number" class="form-control" >
+                                      </div> -->
+                                    </form>
+                                  </div>
+                                  <span>{{kink.value}}</span>
+                                 </td>
+                              </tr>
+                              
+                              
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+                      <!-- <div class="divider w-100 mx-5 border">&nbsp;</div> -->
+  <div class="col-md-6 ml-5 mb-5">
+    <div class="form-group mb-4">
+      <label for="" class="fw-6 fs-16">Class Teacher's Comment</label>
+      <input type="text " class="form-control class-teacher" placeholder="Enter comment"  [(ngModel)]="teacherComment.comment" name="comment"  >
+    </div>
+    <div class="form-group mb-4">
+      <label for="" class="fw-6 fs-16">Head Teacher's Comment</label>
+      <input type="text " class="form-control head-teacher" placeholder="enter comment" readonly>
+    </div>
+    <div class="d-flex">
+      <div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class=" col-md-6 ml-5 d-flex justify-content-between">
+      <div>
+          <p class="fw-6 mb-3">Signature</p>
+          <div class="breaks mb-1">&nbsp;</div>
+          <p>(Head Teacher)</p>
+      </div>
+      <div>
+          <p class="fw-6 mb-3">Signature</p>
+          <div class="breaks mb-1">&nbsp;</div>
+          <p>(Class Teacher)</p>
+      </div>
+  </div>
+
+
+  
+
+
+
+
+  
+        </div>
+
+        <div class="d-flex justify-content-center my-5">
+            <button class="btn-upload-top bg-lblue w-40" type="button" (click)="createResult()" [disabled]="teacherComment.comment === '' " > Submit </button>
+          </div>
+      </div>
+</div>

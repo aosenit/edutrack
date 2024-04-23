@@ -1,0 +1,1740 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  DashboardComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/teacher/dashboard/dashboard.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dashboard</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./dashboard.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./dashboard.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#currentTerm" >currentTerm</a>
+                            </li>
+                            <li>
+                                <a href="#myDate" >myDate</a>
+                            </li>
+                            <li>
+                                <a href="#sessionList" >sessionList</a>
+                            </li>
+                            <li>
+                                <a href="#studentAssignmentList" >studentAssignmentList</a>
+                            </li>
+                            <li>
+                                <a href="#subjectAndTime" >subjectAndTime</a>
+                            </li>
+                            <li>
+                                <a href="#teacherDetails" >teacherDetails</a>
+                            </li>
+                            <li>
+                                <a href="#weekday" >weekday</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getClassesForTeacherByDay" >getClassesForTeacherByDay</a>
+                            </li>
+                            <li>
+                                <a href="#getNextClassesForTeacherByDay" >getNextClassesForTeacherByDay</a>
+                            </li>
+                            <li>
+                                <a href="#getSession" >getSession</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#save" >save</a>
+                            </li>
+                            <li>
+                                <a href="#showPop" >showPop</a>
+                            </li>
+                            <li>
+                                <a href="#showPop2" >showPop2</a>
+                            </li>
+                            <li>
+                                <a href="#timeConvert" >timeConvert</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(timeTableService: <a href="../injectables/TimeTableService.html" target="_self">TimeTableService</a>, teacherService: <a href="../injectables/TeacherService.html" target="_self">TeacherService</a>, assessmentService: <a href="../injectables/AssessmentService.html" target="_self">AssessmentService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>timeTableService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TimeTableService.html" target="_self" >TimeTableService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>teacherService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TeacherService.html" target="_self" >TeacherService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>assessmentService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AssessmentService.html" target="_self" >AssessmentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClassesForTeacherByDay"></a>
+                    <span class="name">
+                        <span ><b>getClassesForTeacherByDay</b></span>
+                        <a href="#getClassesForTeacherByDay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClassesForTeacherByDay()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="67"
+                            class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:67</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getNextClassesForTeacherByDay"></a>
+                    <span class="name">
+                        <span ><b>getNextClassesForTeacherByDay</b></span>
+                        <a href="#getNextClassesForTeacherByDay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getNextClassesForTeacherByDay()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:88</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSession"></a>
+                    <span class="name">
+                        <span ><b>getSession</b></span>
+                        <a href="#getSession"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSession()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="135"
+                            class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:135</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="save"></a>
+                    <span class="name">
+                        <span ><b>save</b></span>
+                        <a href="#save"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>save(i)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>i</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showPop"></a>
+                    <span class="name">
+                        <span ><b>showPop</b></span>
+                        <a href="#showPop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showPop()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showPop2"></a>
+                    <span class="name">
+                        <span ><b>showPop2</b></span>
+                        <a href="#showPop2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showPop2()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:43</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="timeConvert"></a>
+                    <span class="name">
+                        <span ><b>timeConvert</b></span>
+                        <a href="#timeConvert"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>timeConvert(input)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="110"
+                            class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:110</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>input</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentTerm"></a>
+                    <span class="name">
+                        <span ><b>currentTerm</b></span>
+                        <a href="#currentTerm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="myDate"></a>
+                    <span class="name">
+                        <span ><b>myDate</b></span>
+                        <a href="#myDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Date()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sessionList"></a>
+                    <span class="name">
+                        <span ><b>sessionList</b></span>
+                        <a href="#sessionList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="studentAssignmentList"></a>
+                    <span class="name">
+                        <span ><b>studentAssignmentList</b></span>
+                        <a href="#studentAssignmentList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subjectAndTime"></a>
+                    <span class="name">
+                        <span ><b>subjectAndTime</b></span>
+                        <a href="#subjectAndTime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="teacherDetails"></a>
+                    <span class="name">
+                        <span ><b>teacherDetails</b></span>
+                        <a href="#teacherDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="weekday"></a>
+                    <span class="name">
+                        <span ><b>weekday</b></span>
+                        <a href="#weekday"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/teacher/dashboard/dashboard.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, HostListener, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { JwtHelperService } from &#x27;@auth0/angular-jwt&#x27;;
+import { AssessmentService } from &#x27;src/services/data/assessment/assessment.service&#x27;;
+import { TeacherService } from &#x27;src/services/data/teacher/teacher.service&#x27;;
+import { TimeTableService } from &#x27;src/services/data/time-table/time-table.service&#x27;;
+
+@Component({
+  selector: &#x27;app-dashboard&#x27;,
+  templateUrl: &#x27;./dashboard.component.html&#x27;,
+  styleUrls: [&#x27;./dashboard.component.css&#x27;]
+})
+export class DashboardComponent implements OnInit {
+
+  subjectAndTime: any;
+  weekday: any;
+  teacherDetails: any;
+  myDate &#x3D; new Date();
+  studentAssignmentList: any;
+  sessionList: any;
+  currentTerm: any;
+
+  constructor(
+    private timeTableService: TimeTableService,
+    private teacherService: TeacherService,
+    private assessmentService: AssessmentService
+
+  ) { }
+
+  ngOnInit() {
+    const helper &#x3D; new JwtHelperService();
+    this.teacherDetails &#x3D; helper.decodeToken(localStorage.getItem(&#x27;access_token&#x27;));
+    this.getClassesForTeacherByDay();
+    this.getNextClassesForTeacherByDay();
+    this.getSession();
+  }
+
+  showPop() {
+    const popcard &#x3D; document.querySelector(&#x27;.pop-card-holder&#x27;);
+    popcard.classList.toggle(&#x27;show-pop&#x27;);
+  }
+
+
+  showPop2() {
+    const popcard &#x3D; document.querySelector(&#x27;.pop-card-holder2&#x27;);
+    popcard.classList.toggle(&#x27;show-pop&#x27;);
+  }
+
+  save(i) {
+    // (i);
+    // (this.subjectAndTime[i]);
+    sessionStorage.setItem(&#x27;current-class&#x27;, JSON.stringify(this.subjectAndTime[i]));
+  }
+
+
+
+  //   getTimeTableForTeacher() {
+  //     this.timeTableService.getTimeTableForTeacher().subscribe((data: any) &#x3D;&gt; {
+  //       if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+  //         this.subjectAndTime &#x3D; data.payload;
+  //         // (this.subjectAndTime);
+  //      }
+  //   }, error &#x3D;&gt; {
+  //     // (error);
+  //   });
+  // }
+
+  getClassesForTeacherByDay() {
+    const weekday &#x3D; [
+      { id: 0, day: &#x27;Monday&#x27; },
+      { id: 1, day: &#x27;Tuesday&#x27; },
+      { id: 2, day: &#x27;Wednesday&#x27; },
+      { id: 3, day: &#x27;Thursday&#x27; },
+      { id: 4, day: &#x27;Friday&#x27; },
+    ][new Date().getDay() - 1];
+    const day &#x3D; weekday.id;
+
+
+    this.timeTableService.getAllClassesForTeacherByDay( day).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.subjectAndTime &#x3D; data.payload;
+        // (this.subjectAndTime);
+      }
+    }, error &#x3D;&gt; {
+      // (error);
+    });
+  }
+
+  getNextClassesForTeacherByDay() {
+    // const teacherId &#x3D; 3;
+    // const weekday &#x3D; [
+    //   { id: 0, day: &#x27;Monday&#x27; },
+    //   { id: 1, day: &#x27;Tuesday&#x27; },
+    //   { id: 2, day: &#x27;Wednesday&#x27; },
+    //   { id: 3, day: &#x27;Thursday&#x27; },
+    //   { id: 4, day: &#x27;Friday&#x27; },
+    // ][new Date().getDay() + 1];
+    // const day &#x3D; weekday.id;
+    // // (day);
+
+
+    // this.timeTableService.getNextClassessForTeacherByDay(teacherId, 4).subscribe((data: any) &#x3D;&gt; {
+    //   if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+    //   //  // (data);
+    //   }
+    // }, error &#x3D;&gt; {
+    //   // (error);
+    // });
+  }
+
+  timeConvert(input) {
+    // tslint:disable-next-line:prefer-const
+    let num &#x3D; input;
+    const hours &#x3D; (num / 60);
+    // tslint:disable-next-line:prefer-const
+    let newHours &#x3D; Math.floor(hours);
+    // tslint:disable-next-line:prefer-const
+    let minutes &#x3D; (hours - newHours) * 60;
+    // tslint:disable-next-line:prefer-const
+    let newMinutes &#x3D; Math.round(minutes);
+    return newHours + &#x27; hr(s) and &#x27; + newMinutes + &#x27;mins&#x27; ;
+    }
+
+    // getAssignmentSubmission() {
+    //   this.teacherService.getAllAssignmentSubmissionForASubject(this.id).subscribe((data: any) &#x3D;&gt; {
+    //     // (data);
+    //     if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+    //       // (&#x27;asasasa&#x27;, data);
+    //       this.studentAssignmentList &#x3D; data.payload;
+    //     }
+    //   }, error &#x3D;&gt; {
+    //     // (error);
+    //   });
+    // }
+
+    getSession() {
+      this.assessmentService.getCurrentSession().subscribe((data: any) &#x3D;&gt; {
+        if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+          // (data);
+          this.sessionList &#x3D; data.payload;
+          const term: any &#x3D; this.sessionList.terms;
+          // tslint:disable-next-line:prefer-for-of
+          for (let i &#x3D; 0; i &lt; term.length; i++) {
+            // (term[i]);
+            if (term[i].isCurrent) {
+              this.currentTerm  &#x3D; term[i].name;
+  
+          }
+        }}
+      });
+    }
+  
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+  &lt;div class&#x3D;&quot;row &quot;&gt;
+    &lt;div class&#x3D;&quot;col-md-9 mt-5 pr-3 &quot;&gt;
+      &lt;div class&#x3D;&quot;profile mb-5&quot;&gt;
+        &lt;div class&#x3D;&quot;profile__teacher bg-white p-4&quot;&gt;
+          &lt;div class&#x3D;&quot;d-flex mb-5&quot;&gt;
+            &lt;img src&#x3D;&quot;assets/images/svg/dummy_user.png&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;mr-2 image-rounded&quot; &gt;
+
+            &lt;div class&#x3D;&quot;ml-3&quot;&gt;
+              &lt;p class&#x3D;&quot;mb-0 fw-6&quot;&gt;{{teacherDetails?.given_name}} &lt;br&gt; {{teacherDetails?.family_name }}&lt;/p&gt;
+              &lt;p class&#x3D;&quot;mb-0&quot;&gt;{{teacherDetails?.name}}&lt;/p&gt;
+              &lt;p class&#x3D;&quot;mb-0 fc-lblue fw-6&quot;&gt; &amp;nbsp; &lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;!-- &lt;button class&#x3D;&quot;bg-lblue-2 btn-block  btn-teacher p-2&quot;&gt;View Profile&lt;/button&gt; --&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;profile__hero&quot;&gt;
+          &lt;div class&#x3D;&quot;profile__hero--intro bg-white br-10 pt-4 pb-2 px-3 mb-3&quot;&gt;
+            &lt;h5 class&#x3D;&quot;fs-32 fc-lblue intro-text&quot;&gt;Hello {{teacherDetails?.given_name}}!&lt;/h5&gt;
+            &lt;p&gt;You have just &lt;b class&#x3D;&quot;text-danger&quot;&gt;{{subjectAndTime?.length}}&lt;/b&gt; classes to teach today and pending
+              assignments to mark.&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;profile__cards&quot;&gt;
+            &lt;div class&#x3D;&quot;card1 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card&quot;
+            [routerLink]&#x3D;&quot;[&#x27;/teacher/attendance&#x27;]&quot;&gt;
+              &lt;img src&#x3D;&quot;assets/images/svg/attendance.svg&quot; alt&#x3D;&quot;student card&quot; class&#x3D;&quot;mr-2&quot;&gt;
+              &lt;p class&#x3D;&quot;mb-0 fw-6&quot;&gt;Attendance &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;card2 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card&quot;
+              [routerLink]&#x3D;&quot;[&#x27;/teacher/score-sheet&#x27;]&quot;&gt;
+              &lt;img src&#x3D;&quot;assets/images/svg/assignment.svg&quot; alt&#x3D;&quot;student card&quot; class&#x3D;&quot;mr-2&quot;&gt;
+              &lt;p class&#x3D;&quot;mb-0 fw-6&quot;&gt;Grade Book&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;card3 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card&quot;
+              [routerLink]&#x3D;&quot;[&#x27;/teacher/filemanager&#x27;]&quot;&gt;
+              &lt;img src&#x3D;&quot;assets/images/svg/upload.svg&quot; alt&#x3D;&quot;student card&quot; class&#x3D;&quot;mr-2&quot;&gt;
+              &lt;p class&#x3D;&quot;mb-0 fw-6&quot;&gt;File Manager&lt;/p&gt;
+            &lt;/div&gt;
+
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;classes mb-5&quot;&gt;
+        &lt;div class&#x3D;&quot;classes__upcoming p-4 pt-4 &quot;&gt;
+          &lt;div class&#x3D;&quot;d-flex justify-content-between&quot;&gt;
+            &lt;h6 class&#x3D;&quot;fw-6&quot;&gt;Upcoming Class&lt;/h6&gt;
+            &lt;p class&#x3D;&quot;fc-lblue view&quot; [routerLink]&#x3D;&quot;[&#x27;/teacher/schedule&#x27;]&quot;&gt;View All&lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div *ngFor&#x3D;&quot;let table of subjectAndTime | slice:0:5; let i &#x3D; index&quot; class&#x3D;&quot;dropright&quot;&gt;
+            &lt;div class&#x3D;&quot;px-4 py-2 mb-4 bg-lblue-2 class br-10 d-flex justify-content-between align-items-center pop-card2&quot;
+              id&#x3D;&quot;dropdownMenuButton{{i}}&quot; data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+              &lt;div class&#x3D;&quot;&quot;&gt;
+                &lt;p class&#x3D;&quot;mb-0&quot;&gt;{{table?.className}} &lt;/p&gt;
+                &lt;p class&#x3D;&quot;fw-6 mb-0&quot;&gt;{{table?.subjectName | titlecase}}&lt;/p&gt;
+                &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                  &lt;!-- &lt;p class&#x3D;&quot;mb-0&quot;&gt;09:00 - 10:00 &lt;/p&gt; --&gt;
+                  &lt;p class&#x3D;&quot;mb-0&quot;&gt;{{table?.timeFrom.hours}}:{{table?.timeFrom.minutes}} -
+                    {{table?.timeTo.hours}}:{{table?.timeTo.minutes}} &lt;/p&gt;
+                  &lt;img src&#x3D;&quot;assets/images/svg/class-period3.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;ml-4&quot;
+                    *ngIf&#x3D;&quot;table?.hasVirtual &#x3D;&#x3D; true&quot;&gt;
+                  &lt;img src&#x3D;&quot;assets/images/svg/physical-class.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;ml-4&quot;
+                    *ngIf&#x3D;&quot;table?.hasVirtual &#x3D;&#x3D; false&quot;&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                &lt;p class&#x3D;&quot;mb-0&quot;&gt;{{table?.periodName}}&lt;/p&gt;
+                &lt;img src&#x3D;&quot;assets/images/svg/period.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;ml-4&quot;&gt;
+              &lt;/div&gt;
+
+              &lt;!-- &lt;div class&#x3D;&quot;pop-card-holder2 &quot; *ngIf&#x3D;&quot;table?.hasVirtual &#x3D;&#x3D; true&quot;  &gt;
+                                &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center mb-4&quot;&gt;
+                                    &lt;img src&#x3D;&quot;assets/images/svg/student-class-status.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                                    &lt;p class&#x3D;&quot;mb-0 fw-6&quot;&gt; {{table?.subjectName | titlecase}}&lt;/p&gt;    {{i}} 
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;br-10 bg-white p-3 mb-2 teacher-card d-flex align-items-center&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/teacher-img.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;&quot;&gt;
+                                        &lt;div class&#x3D;&quot;ml-3&quot;&gt;
+                                            &lt;p class&#x3D;&quot;mb-0 fw-6 fc-lblue&quot;&gt;Samuel Aliu&lt;/p&gt;
+                                            &lt;p class&#x3D;&quot;mb-0  &quot;&gt;English Teacher&lt;/p&gt;
+                                        &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;d-flex justify-content-start align-items-center mt-5 mb-4&quot;&gt;
+                                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;Classmates:&lt;/p&gt;
+                                    &lt;div class&#x3D;&quot;d-flex ml-3 images mx-3&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/student.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/student2.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img2&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/student3.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img3&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/student4.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img4&quot;&gt;
+                                    &lt;/div&gt;
+                                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;{{table?.noOfStudent}} Others&lt;/p&gt;
+    
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;d-flex align-items-center mt-3 mb-3&quot;&gt;
+                                    &lt;div class&#x3D;&quot;d-flex mr-4&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/calendar.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                                        &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+                                            &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot;&gt;{{myDate | date : &#x27;mediumDate&#x27;}}&lt;/h6&gt;
+                                            &lt;p class&#x3D;&quot;caption mb-0&quot;&gt;Date&lt;/p&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class&#x3D;&quot;d-flex mr-5&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/time.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                                        &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+                                            &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot;&gt;{{table?.timeFrom.hours}}:{{table?.timeFrom.minutes}}&lt;/h6&gt;
+                                            &lt;p class&#x3D;&quot;caption mb-0&quot;&gt;Time&lt;/p&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/duration.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                                        &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+                                            &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot;&gt;{{timeConvert(table?.durationInMinutes)}}&lt;/h6&gt;
+                                            &lt;p class&#x3D;&quot;caption mb-0&quot;&gt;Duration&lt;/p&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+    
+                                &lt;div class&#x3D;&quot;d-flex justify-content-center align-items-center&quot;&gt;
+                                    &lt;button class&#x3D;&quot;btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3&quot; [routerLink]&#x3D;&quot;[&#x27;/teacher&#x27;,&#x27;class&#x27;]&quot; &gt; Join Class &lt;/button&gt;
+    
+                                &lt;/div&gt;
+    
+                               
+                      
+                            &lt;/div&gt; --&gt;
+
+              &lt;div class&#x3D;&quot;dropdown-menu p-3&quot; aria-labelledby&#x3D;&quot;dropdownMenuButton&quot;&gt;
+                &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center mb-4&quot;&gt;
+                  &lt;img src&#x3D;&quot;assets/images/svg/class-period3.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;ml-4&quot;
+                    *ngIf&#x3D;&quot;table?.hasVirtual &#x3D;&#x3D; true&quot;&gt;
+                  &lt;img src&#x3D;&quot;assets/images/svg/class-period.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;ml-4&quot;
+                    *ngIf&#x3D;&quot;table?.hasVirtual &#x3D;&#x3D; false&quot;&gt;
+                  &lt;p class&#x3D;&quot;mb-0 fw-6&quot;&gt; {{table?.subjectName | titlecase}}&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;d-flex justify-content-start align-items-center mt-5 mb-4&quot;&gt;
+                  &lt;p class&#x3D;&quot;mb-0&quot;&gt;Classmates:&lt;/p&gt;
+                  &lt;div class&#x3D;&quot;d-flex ml-3 images mx-3&quot;&gt;
+                    &lt;img src&#x3D;&quot;assets/images/svg/student.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img&quot;&gt;
+                    &lt;img src&#x3D;&quot;assets/images/svg/student2.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img2&quot;&gt;
+                    &lt;img src&#x3D;&quot;assets/images/svg/student3.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img3&quot;&gt;
+                    &lt;img src&#x3D;&quot;assets/images/svg/student4.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img4&quot;&gt;
+                  &lt;/div&gt;
+                  &lt;p class&#x3D;&quot;mb-0&quot;&gt;{{table?.noOfStudent}} Others&lt;/p&gt;
+
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;d-flex align-items-center mt-3 mb-3&quot;&gt;
+                  &lt;div class&#x3D;&quot;d-flex mr-4&quot;&gt;
+                    &lt;img src&#x3D;&quot;assets/images/svg/calendar.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                    &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+                      &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot;&gt;{{myDate | date : &#x27;mediumDate&#x27;}}&lt;/h6&gt;
+                      &lt;p class&#x3D;&quot;caption mb-0&quot;&gt;Date&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;d-flex mr-5&quot;&gt;
+                    &lt;img src&#x3D;&quot;assets/images/svg/time.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                    &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+                      &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot;&gt;{{table?.timeFrom.hours}}:{{table?.timeFrom.minutes}}&lt;/h6&gt;
+                      &lt;p class&#x3D;&quot;caption mb-0&quot;&gt;Time&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                    &lt;img src&#x3D;&quot;assets/images/svg/duration.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                    &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+                      &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot;&gt;{{timeConvert(table?.durationInMinutes)}}&lt;/h6&gt;
+                      &lt;p class&#x3D;&quot;caption mb-0&quot;&gt;Duration&lt;/p&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;div class&#x3D;&quot;d-flex justify-content-center align-items-center&quot;&gt;
+                  &lt;button class&#x3D;&quot;btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3&quot; [routerLink]&#x3D;&quot;[&#x27;/teacher&#x27;,&#x27;class&#x27;]&quot;
+                    (click)&#x3D;&quot;save(i)&quot; [disabled]&#x3D;&quot;table?.hasVirtual &#x3D;&#x3D;&#x3D; false&quot;&gt; Join Class &lt;/button&gt;
+
+                &lt;/div&gt;
+
+              &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;!-- &lt;div
+                            class&#x3D;&quot;px-4 py-2 mb-4 bg-classes-white br-10 d-flex justify-content-between align-items-center&quot;&gt;
+                            &lt;div class&#x3D;&quot;&quot;&gt;
+                                &lt;p class&#x3D;&quot;mb-0&quot;&gt;JSS3&lt;/p&gt;
+                                &lt;p class&#x3D;&quot;fw-6 mb-0&quot;&gt;English Language&lt;/p&gt;
+                                &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;09:00 - 10:00 &lt;/p&gt;
+                                    &lt;img src&#x3D;&quot;assets/images/svg/class-period2.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;ml-4&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                                &lt;p class&#x3D;&quot;mb-0&quot;&gt;2nd Period&lt;/p&gt;
+                                &lt;img src&#x3D;&quot;assets/images/svg/period-2.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;ml-4&quot;&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt; --&gt;
+
+            &lt;!-- &lt;div class&#x3D;&quot;px-4 py-2 mb-4 bg-classes-white br-10 d-flex justify-content-between align-items-center pop-card&quot;
+                            (click)&#x3D;&quot;showPop()&quot;&gt;
+                            &lt;div class&#x3D;&quot;&quot;&gt;
+                                &lt;p class&#x3D;&quot;mb-0&quot;&gt;JSS3&lt;/p&gt;
+                                &lt;p class&#x3D;&quot;fw-6 mb-0&quot;&gt;English Language&lt;/p&gt;
+                                &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;09:00 - 10:00 &lt;/p&gt;
+                                    &lt;img src&#x3D;&quot;assets/images/svg/class-period.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;ml-4&quot;&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                                &lt;p class&#x3D;&quot;mb-0&quot;&gt;6th Period&lt;/p&gt;
+                                &lt;img src&#x3D;&quot;assets/images/svg/period-2.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;ml-4&quot;&gt;
+                            &lt;/div&gt;
+    
+                            &lt;div class&#x3D;&quot;pop-card-holder  p-3&quot;&gt;
+                                &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center mb-4&quot;&gt;
+                                    &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/pop-house.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                                        &lt;p class&#x3D;&quot;mb-0 fw-6&quot;&gt;Class 101&lt;/p&gt;
+                                    &lt;/div&gt;
+                                    &lt;p class&#x3D;&quot;mb-0 fw-6&quot;&gt; English Langauage&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;d-flex align-items-center mb-4&quot;&gt;
+                                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;Students:&lt;/p&gt;
+                                    &lt;div class&#x3D;&quot;d-flex ml-3 images mx-3&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/student.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/student2.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img2&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/student3.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img3&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/student4.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;student-img4&quot;&gt;
+                                    &lt;/div&gt;
+                                    &lt;p class&#x3D;&quot;mb-0&quot;&gt;+20 others&lt;/p&gt;
+    
+                                &lt;/div&gt;
+                                &lt;div class&#x3D;&quot;d-flex align-items-center mt-3
+                                &quot;&gt;
+                                    &lt;div class&#x3D;&quot;d-flex mr-4&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/calendar.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                                        &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+                                            &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot;&gt;28th June, 2020&lt;/h6&gt;
+                                            &lt;p class&#x3D;&quot;caption mb-0&quot;&gt;Date&lt;/p&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class&#x3D;&quot;d-flex mr-5&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/time.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                                        &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+                                            &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot;&gt;9 am&lt;/h6&gt;
+                                            &lt;p class&#x3D;&quot;caption mb-0&quot;&gt;Time&lt;/p&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                                        &lt;img src&#x3D;&quot;assets/images/svg/duration.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                                        &lt;div class&#x3D;&quot;d-flex flex-column&quot;&gt;
+                                            &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot;&gt;1 hr&lt;/h6&gt;
+                                            &lt;p class&#x3D;&quot;caption mb-0&quot;&gt;Duration&lt;/p&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt; --&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;pop br-10&quot;&gt;
+
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+
+
+        &lt;div class&#x3D;&quot;classes__notification p-4 pt-4&quot;&gt;
+          &lt;div class&#x3D;&quot;d-flex justify-content-between mb-3&quot;&gt;
+            &lt;h6 class&#x3D;&quot;fw-6&quot;&gt;Notification&lt;/h6&gt;
+            &lt;img src&#x3D;&quot;assets/images/svg/notifications_24px.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;&quot;&gt;
+
+          &lt;/div&gt;
+
+          &lt;!-- &lt;div class&#x3D;&quot;d-flex align-items-start notification-card mb-3 &quot;&gt;
+            &lt;img src&#x3D;&quot;assets/images/svg/class-user.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;mr-3&quot;&gt;
+            &lt;div class&#x3D;&quot;pb-3&quot;&gt;
+              &lt;p class&#x3D;&quot;mb-0&quot;&gt;Samuel made as submission of Assignment&lt;/p&gt;
+              &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center&quot;&gt;
+                &lt;div class&#x3D;&quot;d-flex assignment-file px-3 py-2 mt-2&quot;&gt;
+                  &lt;img src&#x3D;&quot;assets/images/svg/pdf-file.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                  &lt;p class&#x3D;&quot;mb-0&quot;&gt;Assignment.pdf&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;p class&#x3D;&quot;mb-0&quot;&gt;07:45&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt; --&gt;
+
+          &lt;!-- &lt;div class&#x3D;&quot;d-flex align-items-start notification-card mb-3 &quot;&gt;
+            &lt;img src&#x3D;&quot;assets/images/svg/class-user.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;mr-3&quot;&gt;
+            &lt;div class&#x3D;&quot;pb-3&quot;&gt;
+              &lt;p class&#x3D;&quot;mb-0&quot;&gt;Samuel made as submission of Assignment&lt;/p&gt;
+              &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center&quot;&gt;
+                &lt;div class&#x3D;&quot;d-flex assignment-file px-3 py-2 mt-2&quot;&gt;
+                  &lt;img src&#x3D;&quot;assets/images/svg/pdf-file.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                  &lt;p class&#x3D;&quot;mb-0&quot;&gt;Assignment.pdf&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;p class&#x3D;&quot;mb-0&quot;&gt;07:45&lt;/p&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt; --&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col-md-3 bg-white notice-board &quot; id&#x3D;&quot;announcement&quot;&gt;
+      &lt;h5 class&#x3D;&quot;fc-lblue mt-4 pb-1 &quot;&gt; 
+        &lt;span *ngIf&#x3D;&quot;sessionList?.name&quot;&gt;{{sessionList?.name + &#x27; &#x27; + currentTerm}}&lt;/span&gt;
+        &lt;span *ngIf&#x3D;&quot;sessionList?.name &#x3D;&#x3D;&#x3D; null&quot;&gt;Session not found &lt;/span&gt;
+       &lt;/h5&gt;
+
+      &lt;div class&#x3D;&quot;mb-5&quot;&gt;
+        &lt;!-- &lt;ejs-calendar&gt;&lt;/ejs-calendar&gt; --&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;notice-board-card ml-2 mr-3 mt-5 p-3 br-10&quot;&gt;
+        &lt;div class&#x3D;&quot;d-flex mb-4&quot;&gt;
+          &lt;img src&#x3D;&quot;assets/images/svg/notice-board.svg&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;mr-4&quot;&gt;
+          &lt;p class&#x3D;&quot;fw-6 mb-0&quot;&gt;Announcement&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;!-- &lt;div class&#x3D;&quot;d-flex mb-3 announcement-card py-4 pl-3&quot;&gt;
+          &lt;p class&#x3D;&quot;fw-6 mb-0 fs-14&quot;&gt;Countdown to CA Test&lt;/p&gt;
+        &lt;/div&gt; --&gt;
+        &lt;div class&#x3D;&quot;d-flex mb-3 announcement-card py-4 pl-3&quot;&gt;
+          &lt;p class&#x3D;&quot;fw-6 mb-0 fs-14&quot;&gt;No announcement yet&lt;/p&gt;
+        &lt;/div&gt; 
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./dashboard.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import url(&#x27;https://fonts.googleapis.com/css2?family&#x3D;Baloo+Bhai+2:wght@800&amp;display&#x3D;swap&#x27;);
+
+#announcement {
+    position: fixed;
+    height: 100vh;
+    z-index: 9;
+    margin: 0 auto;
+    right: -81px;
+    margin-right: auto;
+}
+
+.profile {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 2rem;
+    font-family: Nunito;
+
+}
+
+
+.profile .profile__teacher {
+    border: 0.5px solid #BED0E4;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 21px rgba(119, 119, 119, 0.21);
+    border-radius: 10px;
+}
+
+.profile .profile__teacher .btn-teacher {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.profile .profile__summary {
+    border: 0.5px solid #BED0E4;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 21px rgba(119, 119, 119, 0.21);
+    border-radius: 10px;
+    background: #FB7B04;
+}
+
+.profile .profile__summary .btn-teacher {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.profile .profile__cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+}
+
+.profile .profile__cards .profile__cards--card {
+    border-radius: 10px;
+}
+
+
+.profile .profile__hero .profile__hero--intro {
+    position: relative;
+}
+
+
+.profile__hero .profile__hero--intro .student-hero {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+}
+
+
+.profile__hero .profile__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.5rem;
+}
+
+
+.profile__cards--card {
+border-radius: 10px;
+color: #FFFFFF;
+cursor: pointer;
+outline: none;
+
+}
+
+.intro-text {
+    font-family: &#x27;Baloo Bhai 2&#x27;, cursive;
+}
+
+ .card1 {
+    background: #1B998B;
+}
+ .card2 {
+    background: #0089B4;
+}
+ .card3 {
+    background: #DA5D66;
+}
+ .card4 {
+    background: #F78762;
+}
+
+.classes {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    grid-gap: 2rem;
+    font-family: Nunito;
+
+}
+
+.classes .classes__upcoming,
+.classes__notification {
+    background: #FFFFFF;
+    border: 0.5px solid #BED0E4;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 8px rgba(119, 119, 119, 0.21);
+    border-radius: 10px;
+}
+
+.classes__upcoming .class {
+    cursor: pointer;
+}
+
+.classes__upcoming .view {
+    cursor: pointer;
+    outline: none;
+}
+.classes__upcoming .bg-classes-white {
+    background: #FFFFFF;
+    border: 1px solid #BED0E4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.classes__notification .notification-card {
+    border-bottom: 1px solid #BED0E4;
+}
+
+.classes__notification .assignment-file {
+    background: #FFFFFF;
+    border: 0.5px solid #FB7B04;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.pop-card {
+    position: relative;
+}
+
+
+
+.pop-card-holder {
+    position: absolute;
+    top: -35px;
+    right: -479px;
+    width: 98%;
+    background: #0052B4;
+    color: #FFFFFF;
+    font-family: nunito;
+    border-radius: 10px;
+    z-index: 999;
+    /* display: none; */
+
+}
+
+
+.pop-card-holder::before {
+    content: &#x27;&#x27;;
+    position: absolute;
+    top: 56px;
+    left: -23px;
+    width: 25px;
+    height: 45px;
+    margin: .3rem 0;
+    clip-path: polygon(100% 19%, 1% 45%, 100% 75%);
+    background: #0052B4;
+}
+
+.show-pop {
+    display: block;
+}
+
+.pop-card-holder .images {
+    position: relative;
+    width: 120px;
+}
+
+.pop-card-holder .caption {
+    color: #D1D9DF;
+}
+
+.images .student-img {
+    position: absolute;
+    top: -16px;
+    left: 0;
+    z-index: 999;
+}
+
+.images .student-img2 {
+    position: absolute;
+    top: -16px;
+    left: 28px;
+    z-index: 99;
+}
+
+.images .student-img3 {
+    position: absolute;
+    top: -16px;
+    left: 56px;
+    z-index: 9;
+}
+
+.images .student-img4 {
+    position: absolute;
+    top: -16px;
+    left: 84px;
+}
+
+
+
+.notice-board {
+    position: relative;
+    z-index: 89;
+}
+
+
+
+.notice-board .notice-board-card {
+    background: #FFFFFF;
+    /* border: 1px solid #BED0E4; */
+    box-sizing: border-box;
+    /* height: 170px; */
+    width: 255px;
+    z-index: 9009;
+}
+
+.announcement-card {
+    background: #FFFFFF;
+border: 1px solid #BED0E4;
+box-sizing: border-box;
+border-radius: 5px;
+border-left: 4px solid #EB6B04;
+box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+
+
+
+.pop-card2 {
+    position: relative;
+}
+
+.dropdown-menu {
+    background: #0052B4;
+    color: #FFFFFF;
+    font-family: nunito;
+    border-radius: 10px;
+}
+
+.dropdown-menu .images {
+    position: relative;
+    width: 120px;
+}
+.dropdown-menu.caption {
+    color: #D1D9DF;
+}
+.pop-card-holder2 {
+    position: absolute;
+    /* top: -35px; */
+    right: -458px;
+    /* width: 98%; */
+    background: #0052B4;
+    color: #FFFFFF;
+    font-family: nunito;
+    border-radius: 10px;
+    z-index: 999;
+    display: none;
+
+}
+/* 
+.dropdown-menu::before {
+    content: &#x27;&#x27;;
+    position: absolute;
+    top: 124px;
+    left: -23px;
+        width: 25px;
+        height: 45px;
+    margin: .3rem 0;
+    clip-path: polygon(100% 19%, 1% 45%, 100% 75%);
+    background: #0052B4;
+} */
+
+.show-pop {
+    display: block;
+}
+
+.pop-card-holder2 .images {
+    position: relative;
+    width: 120px;
+}
+
+.image-rounded {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(119, 119, 119, 0.21)
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid">  <div class="row ">    <div class="col-md-9 mt-5 pr-3 ">      <div class="profile mb-5">        <div class="profile__teacher bg-white p-4">          <div class="d-flex mb-5">            <img src="assets/images/svg/dummy_user.png" alt="new client" class="mr-2 image-rounded" >            <div class="ml-3">              <p class="mb-0 fw-6">{{teacherDetails?.given_name}} <br> {{teacherDetails?.family_name }}</p>              <p class="mb-0">{{teacherDetails?.name}}</p>              <p class="mb-0 fc-lblue fw-6"> &nbsp; </p>            </div>          </div>          <!-- <button class="bg-lblue-2 btn-block  btn-teacher p-2">View Profile</button> -->        </div>        <div class="profile__hero">          <div class="profile__hero--intro bg-white br-10 pt-4 pb-2 px-3 mb-3">            <h5 class="fs-32 fc-lblue intro-text">Hello {{teacherDetails?.given_name}}!</h5>            <p>You have just <b class="text-danger">{{subjectAndTime?.length}}</b> classes to teach today and pending              assignments to mark.</p>          </div>          <div class="profile__cards">            <div class="card1 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card"            [routerLink]="[\'/teacher/attendance\']">              <img src="assets/images/svg/attendance.svg" alt="student card" class="mr-2">              <p class="mb-0 fw-6">Attendance </p>            </div>            <div class="card2 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card"              [routerLink]="[\'/teacher/score-sheet\']">              <img src="assets/images/svg/assignment.svg" alt="student card" class="mr-2">              <p class="mb-0 fw-6">Grade Book</p>            </div>            <div class="card3 d-flex py-4 px-3 align-item-center justify-content-center profile__cards--card"              [routerLink]="[\'/teacher/filemanager\']">              <img src="assets/images/svg/upload.svg" alt="student card" class="mr-2">              <p class="mb-0 fw-6">File Manager</p>            </div>          </div>        </div>      </div>      <div class="classes mb-5">        <div class="classes__upcoming p-4 pt-4 ">          <div class="d-flex justify-content-between">            <h6 class="fw-6">Upcoming Class</h6>            <p class="fc-lblue view" [routerLink]="[\'/teacher/schedule\']">View All</p>          </div>          <div *ngFor="let table of subjectAndTime | slice:0:5; let i = index" class="dropright">            <div class="px-4 py-2 mb-4 bg-lblue-2 class br-10 d-flex justify-content-between align-items-center pop-card2"              id="dropdownMenuButton{{i}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">              <div class="">                <p class="mb-0">{{table?.className}} </p>                <p class="fw-6 mb-0">{{table?.subjectName | titlecase}}</p>                <div class="d-flex">                  <!-- <p class="mb-0">09:00 - 10:00 </p> -->                  <p class="mb-0">{{table?.timeFrom.hours}}:{{table?.timeFrom.minutes}} -                    {{table?.timeTo.hours}}:{{table?.timeTo.minutes}} </p>                  <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4"                    *ngIf="table?.hasVirtual == true">                  <img src="assets/images/svg/physical-class.svg" alt="new client" class="ml-4"                    *ngIf="table?.hasVirtual == false">                </div>              </div>              <div class="d-flex">                <p class="mb-0">{{table?.periodName}}</p>                <img src="assets/images/svg/period.svg" alt="new client" class="ml-4">              </div>              <!-- <div class="pop-card-holder2 " *ngIf="table?.hasVirtual == true"  >                                <div class="d-flex justify-content-between align-items-center mb-4">                                    <img src="assets/images/svg/student-class-status.svg" alt="" class="mr-3">                                    <p class="mb-0 fw-6"> {{table?.subjectName | titlecase}}</p>    {{i}}                                 </div>                                <div class="br-10 bg-white p-3 mb-2 teacher-card d-flex align-items-center">                                        <img src="assets/images/svg/teacher-img.svg" alt="new client" class="">                                        <div class="ml-3">                                            <p class="mb-0 fw-6 fc-lblue">Samuel Aliu</p>                                            <p class="mb-0  ">English Teacher</p>                                        </div>                                </div>                                <div class="d-flex justify-content-start align-items-center mt-5 mb-4">                                    <p class="mb-0">Classmates:</p>                                    <div class="d-flex ml-3 images mx-3">                                        <img src="assets/images/svg/student.svg" alt="" class="student-img">                                        <img src="assets/images/svg/student2.svg" alt="" class="student-img2">                                        <img src="assets/images/svg/student3.svg" alt="" class="student-img3">                                        <img src="assets/images/svg/student4.svg" alt="" class="student-img4">                                    </div>                                    <p class="mb-0">{{table?.noOfStudent}} Others</p>                                    </div>                                <div class="d-flex align-items-center mt-3 mb-3">                                    <div class="d-flex mr-4">                                        <img src="assets/images/svg/calendar.svg" alt="" class="mr-3">                                        <div class="d-flex flex-column">                                            <h6 class="fw-6 mb-0">{{myDate | date : \'mediumDate\'}}</h6>                                            <p class="caption mb-0">Date</p>                                        </div>                                    </div>                                    <div class="d-flex mr-5">                                        <img src="assets/images/svg/time.svg" alt="" class="mr-3">                                        <div class="d-flex flex-column">                                            <h6 class="fw-6 mb-0">{{table?.timeFrom.hours}}:{{table?.timeFrom.minutes}}</h6>                                            <p class="caption mb-0">Time</p>                                        </div>                                    </div>                                    <div class="d-flex">                                        <img src="assets/images/svg/duration.svg" alt="new client" class="mr-3">                                        <div class="d-flex flex-column">                                            <h6 class="fw-6 mb-0">{{timeConvert(table?.durationInMinutes)}}</h6>                                            <p class="caption mb-0">Duration</p>                                        </div>                                    </div>                                </div>                                    <div class="d-flex justify-content-center align-items-center">                                    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="[\'/teacher\',\'class\']" > Join Class </button>                                    </div>                                                                                     </div> -->              <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">                <div class="d-flex justify-content-between align-items-center mb-4">                  <img src="assets/images/svg/class-period3.svg" alt="new client" class="ml-4"                    *ngIf="table?.hasVirtual == true">                  <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4"                    *ngIf="table?.hasVirtual == false">                  <p class="mb-0 fw-6"> {{table?.subjectName | titlecase}}</p>                </div>                <div class="d-flex justify-content-start align-items-center mt-5 mb-4">                  <p class="mb-0">Classmates:</p>                  <div class="d-flex ml-3 images mx-3">                    <img src="assets/images/svg/student.svg" alt="" class="student-img">                    <img src="assets/images/svg/student2.svg" alt="" class="student-img2">                    <img src="assets/images/svg/student3.svg" alt="" class="student-img3">                    <img src="assets/images/svg/student4.svg" alt="" class="student-img4">                  </div>                  <p class="mb-0">{{table?.noOfStudent}} Others</p>                </div>                <div class="d-flex align-items-center mt-3 mb-3">                  <div class="d-flex mr-4">                    <img src="assets/images/svg/calendar.svg" alt="" class="mr-3">                    <div class="d-flex flex-column">                      <h6 class="fw-6 mb-0">{{myDate | date : \'mediumDate\'}}</h6>                      <p class="caption mb-0">Date</p>                    </div>                  </div>                  <div class="d-flex mr-5">                    <img src="assets/images/svg/time.svg" alt="" class="mr-3">                    <div class="d-flex flex-column">                      <h6 class="fw-6 mb-0">{{table?.timeFrom.hours}}:{{table?.timeFrom.minutes}}</h6>                      <p class="caption mb-0">Time</p>                    </div>                  </div>                  <div class="d-flex">                    <img src="assets/images/svg/duration.svg" alt="new client" class="mr-3">                    <div class="d-flex flex-column">                      <h6 class="fw-6 mb-0">{{timeConvert(table?.durationInMinutes)}}</h6>                      <p class="caption mb-0">Duration</p>                    </div>                  </div>                </div>                <div class="d-flex justify-content-center align-items-center">                  <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="[\'/teacher\',\'class\']"                    (click)="save(i)" [disabled]="table?.hasVirtual === false"> Join Class </button>                </div>              </div>            </div>            <!-- <div                            class="px-4 py-2 mb-4 bg-classes-white br-10 d-flex justify-content-between align-items-center">                            <div class="">                                <p class="mb-0">JSS3</p>                                <p class="fw-6 mb-0">English Language</p>                                <div class="d-flex">                                    <p class="mb-0">09:00 - 10:00 </p>                                    <img src="assets/images/svg/class-period2.svg" alt="new client" class="ml-4">                                </div>                            </div>                            <div class="d-flex">                                <p class="mb-0">2nd Period</p>                                <img src="assets/images/svg/period-2.svg" alt="new client" class="ml-4">                            </div>                        </div> -->            <!-- <div class="px-4 py-2 mb-4 bg-classes-white br-10 d-flex justify-content-between align-items-center pop-card"                            (click)="showPop()">                            <div class="">                                <p class="mb-0">JSS3</p>                                <p class="fw-6 mb-0">English Language</p>                                <div class="d-flex">                                    <p class="mb-0">09:00 - 10:00 </p>                                    <img src="assets/images/svg/class-period.svg" alt="new client" class="ml-4">                                </div>                            </div>                            <div class="d-flex">                                <p class="mb-0">6th Period</p>                                <img src="assets/images/svg/period-2.svg" alt="new client" class="ml-4">                            </div>                                <div class="pop-card-holder  p-3">                                <div class="d-flex justify-content-between align-items-center mb-4">                                    <div class="d-flex">                                        <img src="assets/images/svg/pop-house.svg" alt="" class="mr-3">                                        <p class="mb-0 fw-6">Class 101</p>                                    </div>                                    <p class="mb-0 fw-6"> English Langauage</p>                                </div>                                <div class="d-flex align-items-center mb-4">                                    <p class="mb-0">Students:</p>                                    <div class="d-flex ml-3 images mx-3">                                        <img src="assets/images/svg/student.svg" alt="" class="student-img">                                        <img src="assets/images/svg/student2.svg" alt="" class="student-img2">                                        <img src="assets/images/svg/student3.svg" alt="" class="student-img3">                                        <img src="assets/images/svg/student4.svg" alt="" class="student-img4">                                    </div>                                    <p class="mb-0">+20 others</p>                                    </div>                                <div class="d-flex align-items-center mt-3                                ">                                    <div class="d-flex mr-4">                                        <img src="assets/images/svg/calendar.svg" alt="" class="mr-3">                                        <div class="d-flex flex-column">                                            <h6 class="fw-6 mb-0">28th June, 2020</h6>                                            <p class="caption mb-0">Date</p>                                        </div>                                    </div>                                    <div class="d-flex mr-5">                                        <img src="assets/images/svg/time.svg" alt="" class="mr-3">                                        <div class="d-flex flex-column">                                            <h6 class="fw-6 mb-0">9 am</h6>                                            <p class="caption mb-0">Time</p>                                        </div>                                    </div>                                    <div class="d-flex">                                        <img src="assets/images/svg/duration.svg" alt="new client" class="mr-3">                                        <div class="d-flex flex-column">                                            <h6 class="fw-6 mb-0">1 hr</h6>                                            <p class="caption mb-0">Duration</p>                                        </div>                                    </div>                                </div>                            </div>                        </div> -->          </div>          <div class="pop br-10">          </div>        </div>        <div class="classes__notification p-4 pt-4">          <div class="d-flex justify-content-between mb-3">            <h6 class="fw-6">Notification</h6>            <img src="assets/images/svg/notifications_24px.svg" alt="new client" class="">          </div>          <!-- <div class="d-flex align-items-start notification-card mb-3 ">            <img src="assets/images/svg/class-user.svg" alt="new client" class="mr-3">            <div class="pb-3">              <p class="mb-0">Samuel made as submission of Assignment</p>              <div class="d-flex justify-content-between align-items-center">                <div class="d-flex assignment-file px-3 py-2 mt-2">                  <img src="assets/images/svg/pdf-file.svg" alt="new client" class="mr-3">                  <p class="mb-0">Assignment.pdf</p>                </div>                <p class="mb-0">07:45</p>              </div>            </div>          </div> -->          <!-- <div class="d-flex align-items-start notification-card mb-3 ">            <img src="assets/images/svg/class-user.svg" alt="new client" class="mr-3">            <div class="pb-3">              <p class="mb-0">Samuel made as submission of Assignment</p>              <div class="d-flex justify-content-between align-items-center">                <div class="d-flex assignment-file px-3 py-2 mt-2">                  <img src="assets/images/svg/pdf-file.svg" alt="new client" class="mr-3">                  <p class="mb-0">Assignment.pdf</p>                </div>                <p class="mb-0">07:45</p>              </div>            </div>          </div> -->        </div>      </div>    </div>    <div class="col-md-3 bg-white notice-board " id="announcement">      <h5 class="fc-lblue mt-4 pb-1 ">         <span *ngIf="sessionList?.name">{{sessionList?.name + \' \' + currentTerm}}</span>        <span *ngIf="sessionList?.name === null">Session not found </span>       </h5>      <div class="mb-5">        <!-- <ejs-calendar></ejs-calendar> -->      </div>      <div class="notice-board-card ml-2 mr-3 mt-5 p-3 br-10">        <div class="d-flex mb-4">          <img src="assets/images/svg/notice-board.svg" alt="new client" class="mr-4">          <p class="fw-6 mb-0">Announcement</p>        </div>        <!-- <div class="d-flex mb-3 announcement-card py-4 pl-3">          <p class="fw-6 mb-0 fs-14">Countdown to CA Test</p>        </div> -->        <div class="d-flex mb-3 announcement-card py-4 pl-3">          <p class="fw-6 mb-0 fs-14">No announcement yet</p>        </div>       </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AccountMappingComponent', 'selector': 'app-account-mapping'},{'name': 'AccountPanelComponent', 'selector': 'app-account-panel'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AdminAlumniCreateEventComponent', 'selector': 'app-admin-alumni-create-event'},{'name': 'AdminAlumniEventsComponent', 'selector': 'app-admin-alumni-events'},{'name': 'AdminAlumniListComponent', 'selector': 'app-admin-alumni-list'},{'name': 'AdminLoginComponent', 'selector': 'app-admin-login'},{'name': 'AlumniAlumniComponent', 'selector': 'app-alumni-alumni'},{'name': 'AlumniComponent', 'selector': 'app-alumni'},{'name': 'AlumniEventDetailComponent', 'selector': 'app-alumni-event-detail'},{'name': 'AlumniEventsComponent', 'selector': 'app-alumni-events'},{'name': 'AlumniHomeComponent', 'selector': 'app-alumni-home'},{'name': 'AlumniProfileComponent', 'selector': 'app-alumni-profile'},{'name': 'AlumniRecordsComponent', 'selector': 'app-alumni-records'},{'name': 'AlumniTranscriptComponent', 'selector': 'app-alumni-transcript'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentsComponent', 'selector': 'app-assignments'},{'name': 'AttachTeacherComponent', 'selector': 'app-attach-teacher'},{'name': 'AttendanceComponent', 'selector': 'app-attendance'},{'name': 'BankAccountsComponent', 'selector': 'app-bank-accounts'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BranchContactPersonComponent', 'selector': 'app-branch-contact-person'},{'name': 'BranchDetailComponent', 'selector': 'app-branch-detail'},{'name': 'BranchInformationComponent', 'selector': 'app-branch-information'},{'name': 'BranchLocationComponent', 'selector': 'app-branch-location'},{'name': 'BroadSheetComponent', 'selector': 'app-broad-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ChartOfAccountComponent', 'selector': 'app-chart-of-account'},{'name': 'ChildAssignmentComponent', 'selector': 'app-child-assignment'},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ClassAttendanceComponent', 'selector': 'app-class-attendance'},{'name': 'ClassPoolComponent', 'selector': 'app-class-pool'},{'name': 'ClassRepeatComponent', 'selector': 'app-class-repeat'},{'name': 'ClassScheduleComponent', 'selector': 'app-class-schedule'},{'name': 'ClientDetailComponent', 'selector': 'app-client-detail'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'ContactDetailComponent', 'selector': 'app-contact-detail'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactPersonComponent', 'selector': 'app-contact-person'},{'name': 'CreateAssignmentComponent', 'selector': 'app-create-assignment'},{'name': 'CreateBranchComponent', 'selector': 'app-create-branch'},{'name': 'CreateClientComponent', 'selector': 'app-create-client'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoComponent', 'selector': 'app-demo'},{'name': 'DiscountsComponent', 'selector': 'app-discounts'},{'name': 'EditUserComponent', 'selector': 'app-edit-user'},{'name': 'EducationComponent', 'selector': 'app-education'},{'name': 'EmailVerifiedComponent', 'selector': 'app-email-verified'},{'name': 'EmployeeComponent', 'selector': 'app-employee'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeListComponent', 'selector': 'app-employee-list'},{'name': 'FacilitySettingsComponent', 'selector': 'app-facility-settings'},{'name': 'FaqsComponent', 'selector': 'app-faqs'},{'name': 'FeeComponent', 'selector': 'app-fee'},{'name': 'FeeComponentComponent', 'selector': 'app-fee-component'},{'name': 'FeeTypeComponent', 'selector': 'app-fee-type'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FilesComponent', 'selector': 'app-files'},{'name': 'FileStorageComponent', 'selector': 'app-file-storage'},{'name': 'FinanceSettingsComponent', 'selector': 'app-finance-settings'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAdminComponent', 'selector': 'app-global-admin'},{'name': 'GradebookComponent', 'selector': 'app-gradebook'},{'name': 'GradingComponent', 'selector': 'app-grading'},{'name': 'GroupedSchoolsComponent', 'selector': 'app-grouped-schools'},{'name': 'HomenavbarComponent', 'selector': 'app-homenavbar'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LandingScreenComponent', 'selector': 'app-landing-screen'},{'name': 'LaterThingsComponent', 'selector': 'app-later-things'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'MailReportCardComponent', 'selector': 'app-mail-report-card'},{'name': 'MarkAttendanceComponent', 'selector': 'app-mark-attendance'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MedicalDetailsComponent', 'selector': 'app-medical-details'},{'name': 'NewAccountChartComponent', 'selector': 'app-new-account-chart'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewFeeComponent', 'selector': 'app-new-fee'},{'name': 'NewroleComponent', 'selector': 'app-newrole'},{'name': 'NewRoleRecordComponent', 'selector': 'app-new-role-record'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NewVendorsComponent', 'selector': 'app-new-vendors'},{'name': 'NextOfKinComponent', 'selector': 'app-next-of-kin'},{'name': 'NoRecordComponent', 'selector': 'app-no-record'},{'name': 'NotificationPageComponent', 'selector': 'app-notification-page'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ParentComponent', 'selector': 'app-parent'},{'name': 'ParentDetailsComponent', 'selector': 'app-parent-details'},{'name': 'ParentListComponent', 'selector': 'app-parent-list'},{'name': 'ParentLoginComponent', 'selector': 'app-parent-login'},{'name': 'ParentPortalComponent', 'selector': 'app-parent-portal'},{'name': 'PayrollAccountsComponent', 'selector': 'app-payroll-accounts'},{'name': 'PayrollSetttingsComponent', 'selector': 'app-payroll-setttings'},{'name': 'PeriodComponent', 'selector': 'app-period'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'PersonalSettingsComponent', 'selector': 'app-personal-settings'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileInformationComponent', 'selector': 'app-profile-information'},{'name': 'PromotionDashboardComponent', 'selector': 'app-promotion-dashboard'},{'name': 'PromotionSettingsComponent', 'selector': 'app-promotion-settings'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResultSettingsComponent', 'selector': 'app-result-settings'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'SchoolAdminComponent', 'selector': 'app-school-admin'},{'name': 'SchoolBranchManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolComponent', 'selector': 'app-school'},{'name': 'SchoolContactPersonComponent', 'selector': 'app-school-contact-person'},{'name': 'SchoolGradeBookComponent', 'selector': 'app-school-grade-book'},{'name': 'SchoolInformationComponent', 'selector': 'app-school-information'},{'name': 'SchoolLoginComponent', 'selector': 'app-school-login'},{'name': 'SchoolManagerBranchComponent', 'selector': 'app-school-manager-branch'},{'name': 'SchoolManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolManagerDashboardComponent', 'selector': 'app-school-manager-dashboard'},{'name': 'SchoolManagerSettingsComponent', 'selector': 'app-school-manager-settings'},{'name': 'SchoolMediaComponent', 'selector': 'app-school-media'},{'name': 'SchoolSettingsComponent', 'selector': 'app-school-settings'},{'name': 'ScoreSheetComponent', 'selector': 'app-score-sheet'},{'name': 'ScoreSheetDetailsPageComponent', 'selector': 'app-score-sheet-details-page'},{'name': 'SessionComponent', 'selector': 'app-session'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'StudentAttendanceComponent', 'selector': 'app-student-attendance'},{'name': 'StudentComponent', 'selector': 'app-student'},{'name': 'StudentDetailComponent', 'selector': 'app-student-detail'},{'name': 'StudentListComponent', 'selector': 'app-student-list'},{'name': 'StudentLoginComponent', 'selector': 'app-student-login'},{'name': 'StudentProfileComponent', 'selector': 'app-student-profile'},{'name': 'StudentReportComponent', 'selector': 'app-student-report'},{'name': 'StudentResultSheetComponent', 'selector': 'app-student-result-sheet'},{'name': 'StudentScoreSheetComponent', 'selector': 'app-student-score-sheet'},{'name': 'StudentSettingsComponent', 'selector': 'app-student-settings'},{'name': 'StudentSheetComponent', 'selector': 'app-student-sheet'},{'name': 'SubjecAttendanceComponent', 'selector': 'app-subjec-attendance'},{'name': 'SubscriptionInvoiceArreasComponent', 'selector': 'app-subscription-invoice-arreas'},{'name': 'SubscriptionInvoiceComponent', 'selector': 'app-subscription-invoice'},{'name': 'SubscriptionListsComponent', 'selector': 'app-subscription-lists'},{'name': 'SubscriptionPageComponent', 'selector': 'app-subscription-page'},{'name': 'TaskPreviewComponent', 'selector': 'app-task-preview'},{'name': 'TeacherComponent', 'selector': 'app-teacher'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'},{'name': 'TeachersComponent', 'selector': 'app-teachers'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'UnpaidSubscriptionsComponent', 'selector': 'app-unpaid-subscriptions'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VendorsComponent', 'selector': 'app-vendors'},{'name': 'ViewAssignmentComponent', 'selector': 'app-view-assignment'},{'name': 'ViewBillingComponent', 'selector': 'app-view-billing'},{'name': 'ViewFileComponent', 'selector': 'app-view-file'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportSheetComponent', 'selector': 'app-view-report-sheet'},{'name': 'VirtualClassComponent', 'selector': 'app-virtual-class'},{'name': 'VirtualClassroomComponent', 'selector': 'app-virtual-classroom'},{'name': 'VirtualSessionComponent', 'selector': 'app-virtual-session'},{'name': 'WithdrawalListComponent', 'selector': 'app-withdrawal-list'},{'name': 'WorkExperienceComponent', 'selector': 'app-work-experience'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DashboardComponent-4'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DashboardComponent-4.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

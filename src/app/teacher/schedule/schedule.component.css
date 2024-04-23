@@ -1,0 +1,74 @@
+.banner {
+    width: 100%;
+    background: url("../../../assets/images/svg/assignment-bg.svg") top left no-repeat, url("../../../assets/images/svg/assignment-bg2.svg") top left no-repeat;
+    background-repeat: no-repeat;
+
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1.5rem;
+    color: #ffffff;
+    position: relative;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    backdrop-filter: opacity(.4);
+}
+
+
+
+.banner__text-primary {
+    font-size: 36px;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #FB882C;
+    font-weight: 600;
+    background: #E9D8C8;
+border: 1px solid #EB6B04;
+border-radius: 10px;
+    padding: 5px 12px;
+}
+
+.nav-pills .nav-link,
+.nav-pills .show>.nav-link {
+    background: #FB7B04;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 5px 12px;
+}
+
+select {
+    background: #FAFAFA;
+border: 1px solid #92B5DD;
+font-size: 14px;
+}
+
+.cells {
+    border: 1px dashed #5A8BC5;
+}
+
+.cell-time {
+    position: relative;
+}
+
+.start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #000000;
+    font-weight: 900;
+    font-size: 12px;
+}
+
+.end {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 900;
+}

@@ -1,0 +1,193 @@
+<div class="container px-5">
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" (click)="back()">
+            <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+            <li class="breadcrumb-item a1 " aria-current="page">
+                <a>Back</a>
+            </li>
+        </ol>
+
+
+    </nav>
+
+    <div class="row">
+        <div class="col-md-12 mb-3" *ngIf="newChart">
+            <p class="fw-6">Add New Account </p>
+        </div>
+        <div class="col-md-12 mb-3" *ngIf="editChart">
+            <p class="fw-6">Edit Account </p>
+        </div>
+
+        <div class="col-md-12 form-body">
+            <div class="basic-details" *ngIf="newChart">
+                <form [formGroup]="chartAccountForm" (ngSubmit)="createChartOfAccount()" >
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="title" class="fw-6">Account Name <span class="text-danger">*</span></label>
+                            <input type="text" placeholder="Account name" class="form-control form-control-lg " formControlName="name">
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="others" class="fw-6">Account class <span class="text-danger">*</span> </label>
+                            <select name="" id="" class="form-control form-control-lg" (change)="getAccountTypesfromClass($event.target.value)">
+                                <option value="" selected>Choose ...</option>
+                                <option [value]="class?.id" *ngFor="let class of accountClassList">{{class?.name + ' ' +  '(' +   class?.minNumberValue + '-' + class?.maxNumberValue + ')'  + '' }}</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                
+                    <div class="row mb-4">
+                        
+                        <div class="col-md-6">
+                            <label for="lname" class="fw-6">Account Type <span class="text-danger">*</span> <span
+                                    class="text-danger">*</span></label>
+                            <select name="" id="" class="form-control form-control-lg" formControlName="AccountTypeId" >
+                                <option value="" selected>Choose ...</option>
+                                <option [value]="type.id" *ngFor="let type of accountTypeList">{{type.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="fname" class="fw-6">Account Code <span
+                                    class="text-danger">*</span></label>
+                            <input type="number" class="form-control form-control-lg" placeholder="00000000000"
+                                id="fname" name="FirstName" formControlName="AccountNumber" minlength="1">
+                        </div>
+                        
+                    </div>
+                
+                
+                    <div class="row mb-4">
+                        <!-- <div class="col-md-6">
+                            <label for="sex" class="fw-6">Opening Balance <span class="text-danger">*</span> </label>
+                            <input type="number" class="form-control" formControlName="OpeningBalance">
+                        </div> -->
+                        <div class="col-md-6 ">
+                            <label for="occupation" class="fw-6">Description</label>
+                            <input type="text" class="form-control form-control-lg"
+                                placeholder="Enter description" id="occupation" name="Occupation" formControlName="description">
+                        </div>
+                    </div>
+                
+                
+                    <div class="row mb-4 ">
+                      
+                
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckTh" formControlName="cashPostable">
+                                    <label class="custom-control-label" for="customCheckTh"> Postable</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group my-3">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch9"
+                                        formControlName="isActive" (change)="getStatus($event.target.checked)">
+                                    <label class="custom-control-label" for="customSwitch9"
+                                        *ngIf="toggleState === false">Inactive</label>
+                                    <label class="custom-control-label" for="customSwitch9"
+                                        *ngIf="toggleState === true">Active</label>
+                                </div>
+                            </div>
+                        </div>
+            
+                       
+                    </div>
+                    <div class="  mt-5">
+                        <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="back()"> Cancel </button> -->
+                        <button class="btn btn-orange-two  px-5 mb-4 mt-3" [disabled]="chartAccountForm.invalid" > Add Account </button>
+                
+                    </div>
+                </form>
+            
+            </div>
+
+            <div class="basic-details" *ngIf="editChart">
+                <form [formGroup]="editChartAccountForm" (ngSubmit)="updateChartOfAccount()" >
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="title" class="fw-6">Account Name <span class="text-danger">*</span></label>
+                            <input type="text" placeholder="Account name" class="form-control form-control-lg " formControlName="name">
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="others" class="fw-6">Account class <span class="text-danger">*</span> </label>
+                            <select name="" id="" class="form-control form-control-lg" (change)="getAccountTypesfromClass($event.target.value)">
+                                <option value="" selected>Choose ...</option>
+                                <option [value]="class?.id" *ngFor="let class of accountClassList">{{class?.name + ' ' +  '(' +   class?.minNumberValue + '-' + class?.maxNumberValue + ')'  + '' }}</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                
+                    <div class="row mb-4">
+                        
+                        <div class="col-md-6">
+                            <label for="lname" class="fw-6">Account Type <span class="text-danger">*</span> <span
+                                    class="text-danger">*</span></label>
+                            <select name="" id="" class="form-control form-control-lg" formControlName="AccountTypeId" >
+                                <option value="" selected>Choose ...</option>
+                                <option [value]="type.id" *ngFor="let type of accountTypeList">{{type.name}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 ">
+                            <label for="fname" class="fw-6">Account Code <span
+                                    class="text-danger">*</span></label>
+                            <input type="number" class="form-control form-control-lg" placeholder="00000000000"
+                                id="fname" name="FirstName" formControlName="AccountNumber" minlength="1">
+                        </div>
+                        
+                    </div>
+                
+                
+                    <div class="row mb-4">
+                        <!-- <div class="col-md-6">
+                            <label for="sex" class="fw-6">Opening Balance <span class="text-danger">*</span> </label>
+                            <input type="number" class="form-control" formControlName="OpeningBalance">
+                        </div> -->
+                        <div class="col-md-6 ">
+                            <label for="occupation" class="fw-6">Description</label>
+                            <input type="text" class="form-control form-control-lg"
+                                placeholder="Enter description" id="occupation" name="Occupation" formControlName="description">
+                        </div>
+                    </div>
+                
+                
+                    <div class="row mb-4 ">
+                      
+                
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheckTh" formControlName="cashPostable">
+                                    <label class="custom-control-label" for="customCheckTh">Cash Postable</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group my-3">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="customSwitch9"
+                                        formControlName="isActive" (change)="getStatus($event.target.checked)">
+                                    <label class="custom-control-label" for="customSwitch9"
+                                        *ngIf="toggleState === false">Inactive</label>
+                                    <label class="custom-control-label" for="customSwitch9"
+                                        *ngIf="toggleState === true">Active</label>
+                                </div>
+                            </div>
+                        </div>
+            
+                       
+                    </div>
+                    <div class="  mt-5">
+                        <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="back()"> Cancel </button> -->
+                        <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="editChartAccountForm.invalid" > Update Account </button>
+                
+                    </div>
+                </form>
+            
+            </div>
+        </div>
+    </div>
+
+</div>

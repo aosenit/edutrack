@@ -1,0 +1,392 @@
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9 mt-3 p-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+                  <li class="breadcrumb-item a1 " aria-current="page" (click)="back()">
+                    <a class="fc-lblue">Back</a>
+                  </li>
+                </ol>
+        
+        
+              </nav>
+            
+              <section class="banner mb-4 d-flex justify-content-between">
+                <p class="banner__text-primary py-5 pl-5">School fee <br> <span> </span> </p>
+                <div class="justify-content-end">
+                  <!-- <p class="last-login pt-3 pr-5 fw-6">Last Login: </p> -->
+                </div>
+              </section>
+
+              <section class="list bg-white px-4 pt-3">
+                <div class="my-2 thead py-2">
+                  <div class="row  ">
+                    <div class="col-md-4">
+                      <p class="mb-0">Description</p>
+                    </div>
+                    <div class="col-md-4 text-right ">
+                      <div class="ml-5">
+                        <p class="mb-0">
+                          Rate
+                        </p>
+                      </div>
+                    </div>
+                    <div class="col-md-4 text-right ">
+                      <div class="ml-5">
+                        <p class="mb-0">
+                          Sub Total
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <table class="table table-borderless client-table">
+                  <thead>
+                    <tr>
+        
+                      <th scope="col">Desciption
+        
+                      </th>
+        
+                      <th scope="col">Rate
+        
+                      </th>
+                      <th scope="col"> Sub Total </th>
+        
+                    </tr>
+                  </thead>
+                  <tbody> -->
+        
+                    <!-- <tr class="pb-2 " *ngFor="let invoice of parentInvoice?.invoiceItems; let inv = index" >
+        
+                      <td class="border-bottom ">
+                        <div class="d-flex">
+                          <div class="custom-control custom-checkbox" >
+                            <input type="checkbox" class="custom-control-input" id="customCheck{{inv}}"
+                            value={{invoice?.isSelected}}
+                            (change)="checkInvoice($event, inv, invoice?.id)"
+                            [checked]="invoice?.isCompulsory === true"
+                            [disabled]="invoice?.isCompulsory === true">
+                            <label class="custom-control-label" for="customCheck{{inv}}"></label>
+                        </div>
+                        <p class="mb-0">{{invoice?.name}}</p>
+                        </div>
+                      </td>
+        
+                      <td class=" border-bottom ">{{invoice?.amount}} </td>
+                      <td class="  border-bottom  ">
+                        {{invoice?.amount}}
+
+                      </td>
+        
+                    </tr> -->
+                    <!-- <p>Optional</p>
+                    <hr>
+                    
+                    <tr class="pb-2 "  >
+        
+                      <td class="border-bottom ">
+                        <div class="d-flex">
+                          <div class="custom-control custom-checkbox" >
+                            <input type="checkbox" class="custom-control-input" id="customCheck1" [checked]="invoice?.isSelected">
+                            <label class="custom-control-label" for="customCheck1"></label>
+                        </div>
+                        <p class="mb-0">{{parentInvoice?.name}}</p>
+                        </div>
+                      </td>
+        
+                      <td class=" border-bottom ">{{parentInvoice?.amount}} </td>
+                      <td class="  border-bottom  ">
+                        {{parentInvoice?.amount}}
+
+                      </td>
+        
+                    </tr> -->
+        
+                  <!-- </tbody>
+                </table> -->
+
+                <div class="mb-2">
+                  <p>Compulsory</p>
+                  <!-- <hr> -->
+                  <div class="border-bottom" *ngFor="let invoice of parentInvoice?.invoiceItems; let inv = index">
+                  
+                      <div class="row" [hidden]="invoice?.isCompulsory === false">
+                        <div class="col-md-4">
+                          <div class="d-flex">
+                            <div class="custom-control custom-checkbox" >
+                              <input type="checkbox" class="custom-control-input" id="customCheck{{inv}}"
+                              value={{invoice?.isSelected}}
+                              (change)="checkInvoice($event, inv, invoice?.id)"
+                              [checked]="invoice?.isCompulsory === true"
+                              [disabled]="invoice?.isCompulsory === true">
+                              <label class="custom-control-label" for="customCheck{{inv}}"></label>
+                          </div>
+                          <p class="mb-0">{{invoice?.name}}</p>
+                          </div>
+                        </div>
+                        <div class="col-md-4 text-right ">
+                          <div class="ml-5">
+                            <p>
+                              {{invoice?.amount}}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-4 text-right ">
+                          <div class="ml-5">
+                            <p>
+                              {{invoice?.amount}}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                  
+                  </div>
+                </div>
+                <div class="mb-2" >
+                  <p>Optional</p>
+                  <!-- <hr> -->
+                  <div class="border-bottom" *ngFor="let invoice of parentInvoice?.invoiceItems; let inv2 = index">
+                  
+                      <div class="row" [hidden]="invoice?.isCompulsory === true">
+                        <div class="col-md-4">
+                          <div class="d-flex">
+                            <div class="custom-control custom-checkbox" >
+                              <input type="checkbox" class="custom-control-input" id="customCheck{{inv2}}gh"
+                              value={{invoice?.isSelected}}
+                              (change)="checkInvoice($event, inv2, invoice?.id)"
+                              [checked]="invoice?.isCompulsory === true"
+                              [disabled]="invoice?.isCompulsory === true">
+                              <label class="custom-control-label" for="customCheck{{inv2}}gh"></label>
+                          </div>
+                          <p class="mb-0">{{invoice?.name}}</p>
+                          </div>
+                        </div>
+                        <div class="col-md-4 text-right ">
+                          <div class="ml-5">
+                            <p>
+                              {{invoice?.amount}}
+                            </p>
+                          </div>
+                        </div>
+                        <div class="col-md-4 text-right ">
+                          <div class="ml-5">
+                            <p>
+                              {{invoice?.amount}}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                  
+                  </div>
+                </div>
+
+
+
+                <div class="d-flex flex-column  ">
+                    
+                  <div class="d-flex justify-content-end align-items-center">
+                    <p class="mb-0 pb-1  sub-title">Subtotal</p>
+                    <p class="mb-0 ml-4">{{subTotal}}</p>
+                  </div>
+                  <!-- <div class="d-flex justify-content-end align-items-center">
+                    <p class="mb-0  pb-1 sub-title" >VAT</p>
+                    <p class="mb-0 ml-4">#2000</p>
+                  </div> -->
+                  
+
+                </div>
+
+                
+        
+              </section>
+              <div class="d-flex pr-4 py-2  sub-total justify-content-end align-items-center">
+                <p class="mb-0">Total</p>
+                <p class="mb-0 ml-4">{{subTotal}}</p>
+              </div>
+        
+
+        </div>
+
+        <div class="col-md-3 bg-white p-3  notice-board d-flex flex-column " id="announcement">
+            <div class="d-flex justify-content-end mb-3">
+
+            </div>
+
+            <div class="d-flex">
+              <p>School Fees</p>
+            </div>
+            <div class="d-flex mb-2">
+              <p class="mb-0 pr-5">Description</p>
+              <p class="mb-0">{{parentInvoice?.feeGroup}}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <p class="mb-0 pr-5">Date Created</p>
+              <p class="mb-0">{{parentInvoice?.creationDate | date: 'mediumDate'}}</p>
+            </div>
+            <div class="d-flex mb-2">
+              <p class="mb-0 pr-5">Date Due</p>
+              <p class="mb-0">{{parentInvoice?.dueDate | date: 'mediumDate'}}</p>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-start mt-5" >
+                <button class="btn-payment bill-btn mr-3" data-toggle="modal" 
+                data-target="#exampleModalCenter3" (click)="prefilData()" *ngIf="parentInvoice?.componentSelected === false && parentInvoice?.totalPayable === parentInvoice?.outstanding">Make Payment  </button>
+                <!-- <button class="btn-payment bill-btn mr-3" data-toggle="modal" 
+                data-target="#exampleModalCenter3" (click)="prefilData()" [hidden]="parentInvoice?.outstanding !== parentInvoice?.totalPayable"  >Make Payment</button> -->
+                
+                <button class="btn-payment bill-btn mr-3" data-toggle="modal"  *ngIf="parentInvoice?.componentSelected === true && parentInvoice?.totalPayable > parentInvoice?.totalPaid"  
+                  data-target="#exampleModalCenter4" (click)="prefilData()">Balance Payment</button>
+
+                <button class="btn-payment bill-btn mr-3" data-toggle="modal" [disabled]="parentInvoice?.totalPayable === parentInvoice?.totalPaid" *ngIf="parentInvoice?.totalPaid === parentInvoice?.totalPayable" 
+                 >Payment Complete</button>
+
+                <button class="btn-payment bill-btn mr-3" data-toggle="modal" *ngIf=" parentInvoice?.componentSelected === true && parentInvoice?.totalPayable === parentInvoice?.outstanding" 
+                  data-target="#exampleModalCenter5" (click)="prefilData()">Make Payment</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+ 
+
+
+<!-- file manager Modal -->
+<div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter3Title"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length"  role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-2">
+        <div class=" mb-3"> 
+          <h6 class="modal-title">New Transaction</h6>
+
+        </div>
+        
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="createTransactionForm" (ngSubmit)="createTransaction()">
+
+         
+
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Description </label>
+            <input type="text" placeholder="Account name" class="form-control form-control-lg " formControlName="description">
+          </div>
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Total Amount Payable </label>
+            <input type="number" placeholder="Account name" class="form-control form-control-lg " formControlName="totalAmount">
+          </div>
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Amount Payable </label>
+            <input type="number" placeholder="Account name" class="form-control form-control-lg " formControlName="amount">
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn-blue  mb-3 " [disabled]="createTransactionForm.invalid" >Create transaction </button>
+            <button type="button" class=" btn-blue actions ml-3 " data-dismiss="modal" aria-label="Close" id="closeAssignmentModal">Cancel </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of file manager modal -->
+
+
+<!-- Make new payment for rejected transaction -->
+<div class="modal fade" id="exampleModalCenter5" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter3Title"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length"  role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-2">
+        <div class=" mb-3"> 
+          <h6 class="modal-title">New Transaction</h6>
+
+        </div>
+        
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="createTransactionForm" (ngSubmit)="createTransaction3()">
+
+         
+
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Description </label>
+            <input type="text" placeholder="Account name" class="form-control form-control-lg " formControlName="description">
+          </div>
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Total Amount Payable </label>
+            <input type="number" placeholder="Account name" class="form-control form-control-lg " formControlName="totalAmount">
+          </div>
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Amount Payable </label>
+            <input type="number" placeholder="Account name" class="form-control form-control-lg " formControlName="amount">
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn-blue  mb-3 " [disabled]="createTransactionForm.invalid" >Create transaction </button>
+            <button type="button" class=" btn-blue actions ml-3 " data-dismiss="modal" aria-label="Close" id="closeRejectedtrasactionModal">Cancel </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of file manager modal -->
+
+
+<!-- continue transaction Modal -->
+<div class="modal fade" id="exampleModalCenter4" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenter3Title"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length"  role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-2">
+        <div class=" mb-3"> 
+          <h6 class="modal-title">Continue Transaction</h6>
+
+        </div>
+        
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="balanceTransactionForm" (ngSubmit)="createTransaction2()">
+
+         
+
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Description </label>
+            <input type="text" placeholder="Account name" class="form-control form-control-lg " formControlName="description">
+          </div>
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Outstanding </label>
+            <input type="number" placeholder="Account name" class="form-control form-control-lg " formControlName="outstanding">
+          </div>
+          <div class="form-group b-3">
+            <label for="title" class="fw-6">Amount Payable </label>
+            <input type="number" placeholder="Account name" class="form-control form-control-lg " formControlName="amount">
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn-blue  mb-3 " [disabled]="balanceTransactionForm.invalid" >Make transaction </button>
+            <button type="button" class=" btn-blue actions ml-3 " data-dismiss="modal" aria-label="Close" id="closeOutstandingModal">Cancel </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of file manager modal -->

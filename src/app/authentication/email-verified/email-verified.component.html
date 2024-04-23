@@ -1,0 +1,56 @@
+<div class="">
+    <div class="kids">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 pt-lg-4 pt-2 mb-lg-5 mb-3">
+                    <img src="assets/images/svg/logo.svg" alt="">
+                </div>
+                <div class="col-lg-6 m-auto">
+                    <div class="whitediv p-lg-5 p-3 mt-lg-5 mt-3">
+                        <div class="row justify-content-md-center" *ngIf="initialMessage">
+                            <div class="col-lg-12 mb-3">
+                                <p class="fs-30 ff-n fw-6 text-center">Email verification System</p>
+                            </div>
+                            <div class="row justify-content-md-center">
+                                    <div class="col-lg-12  mb-5">
+                                        <button class="btn btn-orange w-100 align-items-center d-flex justify-content-center" >
+                                            Verifying your email <span class=" ml-3 spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            <span class="sr-only">Loading...</span> 
+                                        </button>
+        
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-md-center" *ngIf= "successMessage" >
+                           
+                            <div class="col-lg-12 mb-3">
+                                <p class="fs-30 ff-n fw-6 text-center">Email verification successful </p>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="col-lg-12 my-5 d-flex justify-content-center">
+                                    <small class="fs-12 emoji wheelUp ff-n fc-dark mb-3 text-center">
+                                        🎉 
+                                    </small>
+                                    
+                                </div>
+                                
+                               
+                        </div>
+                            <div class="col-12">
+                                <p class="text-center">
+                                    <!-- <a routerLink="/login" class="fc-lblue fs-14 fw-6 ff-n">Click here to Log In</a> -->
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot bg-dark py-3">
+        <p class="fc-grey ff-a fs-12 m-0 text-center">© 2020. <span class="fw-6 ls-7">SchoolTrack</span> - All rights
+            reserved </p>
+    </div>
+</div>

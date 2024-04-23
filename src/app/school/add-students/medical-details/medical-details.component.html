@@ -1,0 +1,126 @@
+<div class="medical-details">
+
+
+<form [formGroup]="medicalForm"  >
+    
+        <div class="row mb-4">
+            <div class="col-md-6 ">
+                <label for="blood" class="fw-6">Blood Group <span
+                        class="text-danger">*</span></label>
+                <select name="" id="blood" class="form-control form-control-lg" formControlName="BloodGroup">
+                    <option value="" selected="selected">Choose...</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+
+                </select>
+                <div *ngIf=" medicalForm.controls.BloodGroup.touched && medicalForm.controls.BloodGroup.errors" class="error">
+                    <small *ngIf="medicalForm.controls.BloodGroup.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
+    
+            </div>
+    
+            <div class="col-md-6">
+                <label for="genotype" class="fw-6">Genotype <span
+                        class="text-danger">*</span></label>
+                <select name="" id="genotype" class="form-control form-control-lg" formControlName="Genotype">
+                    <option value="" selected="selected">Choose...</option>
+                    <option value="AA">AA</option>
+                    <option value="AS">AS</option>
+                    <option value="SS">SS</option>
+                    <option value="SC">SC</option>
+                </select>
+                <div *ngIf=" medicalForm.controls.BloodGroup.touched && medicalForm.controls.BloodGroup.errors" class="error">
+                    <small *ngIf="medicalForm.controls.BloodGroup.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
+    
+    
+            </div>
+        </div>
+    
+        <div class="row mb-4">
+            <div class="col-md-6 ">
+                <label for="disability" class="fw-6">Disability <span
+                        class="text-danger">*</span></label>
+                <select name="" id="disability" class="form-control form-control-lg" formControlName="Disability">
+                    <option value="false" selected>No</option>
+                    <option value="true" selected>Yes</option>
+                </select>
+    
+            </div>
+    
+        </div>
+    
+        <div class="form-group mb-4">
+            <label for="allergies">Allergies</label>
+            <textarea name="" id="allergies" class="form-control form-control-lg" formControlName="Allergies"
+                placeholder="Allergies"></textarea>
+        </div>
+        <div class="form-group mb-4">
+            <label for="confidential">Confidential Notes</label>
+            <textarea name="" id="confidential" class="form-control form-control-lg"
+            formControlName="ConfidentialNotes"
+                placeholder="Enter a note"></textarea>
+        </div>
+    
+        <!-- <div class="row mb-5">
+            <div class="col-md-3">
+                <label for="">Immunization</label>
+                <input type="date" class="form-control form-control-lg" formControlName="date">
+            </div>
+            <div class="col-md-3 ">
+                <label for="">&nbsp;</label>
+    
+                <input type="number" class="form-control form-control-lg" placeholder="Age" formControlName="age">
+    
+            </div>
+            <div class="col-md-5 ">
+                <label for="">&nbsp;</label>
+    
+                <input type="text" class="form-control form-control-lg" placeholder="Vaccine" formControlName="vaccine">
+    
+            </div>
+    
+    
+        </div> -->
+        <div formArrayName="immunizationVms" *ngFor ="let item of medicalForm.get('immunizationVms')['controls']; let i = index;">
+            <div [formGroupName]="i"  >
+                <div class="row mb-5" >
+                    <div class="col-md-3">
+                        <label for="">Immunization {{i + 1}} <span class="text-danger">*</span> </label>
+                        <input type="date" (change)="getAge($event.target.value, i)" class="form-control form-control-lg"  formControlName="date">
+                    </div>
+                    <div class="col-md-3 ">
+                        <label for="">&nbsp;</label>
+            
+                        <input type="number"  class="form-control form-control-lg" placeholder="Age" formControlName="age">
+            
+                    </div>
+                    <div class="col-md-5 ">
+                        <label for="">&nbsp;</label>
+            
+                        <input type="text" class="form-control form-control-lg" placeholder="Vaccine" formControlName="vaccine">
+            
+                    </div>
+                </div>
+        
+        
+            </div>
+        </div>
+        <button class="btn btn-orange-two mx-2  px-5 mb-4 mt-3" (click)='addImmunization() ' > Add More </button>
+
+    </form>
+            <div class=" d-flex justify-content-center mt-5">
+                <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="prevStep()"> Back </button>
+                <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [disabled]="medicalForm.invalid" (click)="nextStep()" [disabled]="medicalForm.invalid" > Next
+                </button>
+        
+            </div>
+</div>

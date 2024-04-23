@@ -1,0 +1,1735 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  BankAccountsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-bank-accounts</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./bank-accounts.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./bank-accounts.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#accountCount" >accountCount</a>
+                            </li>
+                            <li>
+                                <a href="#bankAccountForm" >bankAccountForm</a>
+                            </li>
+                            <li>
+                                <a href="#bankAccountList" >bankAccountList</a>
+                            </li>
+                            <li>
+                                <a href="#editBankAccountForm" >editBankAccountForm</a>
+                            </li>
+                            <li>
+                                <a href="#itemsPerPage" >itemsPerPage</a>
+                            </li>
+                            <li>
+                                <a href="#p" >p</a>
+                            </li>
+                            <li>
+                                <a href="#searchString" >searchString</a>
+                            </li>
+                            <li>
+                                <a href="#selectedAccountId" >selectedAccountId</a>
+                            </li>
+                            <li>
+                                <a href="#toggleState" >toggleState</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#createBankAccount" >createBankAccount</a>
+                            </li>
+                            <li>
+                                <a href="#editBankAccount" >editBankAccount</a>
+                            </li>
+                            <li>
+                                <a href="#getAllBankAccounts" >getAllBankAccounts</a>
+                            </li>
+                            <li>
+                                <a href="#getPage" >getPage</a>
+                            </li>
+                            <li>
+                                <a href="#getStatus" >getStatus</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#populateBankAccountForm" >populateBankAccountForm</a>
+                            </li>
+                            <li>
+                                <a href="#populateEditBankAccountForm" >populateEditBankAccountForm</a>
+                            </li>
+                            <li>
+                                <a href="#updateBankAccount" >updateBankAccount</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, finance: <a href="../injectables/FinanceService.html" target="_self">FinanceService</a>, notifyService: <a href="../injectables/NotificationsService.html" target="_self">NotificationsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>finance</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FinanceService.html" target="_self" >FinanceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>notifyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NotificationsService.html" target="_self" >NotificationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createBankAccount"></a>
+                    <span class="name">
+                        <span ><b>createBankAccount</b></span>
+                        <a href="#createBankAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createBankAccount()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:64</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editBankAccount"></a>
+                    <span class="name">
+                        <span ><b>editBankAccount</b></span>
+                        <a href="#editBankAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editBankAccount(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="114"
+                            class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:114</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllBankAccounts"></a>
+                    <span class="name">
+                        <span ><b>getAllBankAccounts</b></span>
+                        <a href="#getAllBankAccounts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllBankAccounts()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="88"
+                            class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:88</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPage"></a>
+                    <span class="name">
+                        <span ><b>getPage</b></span>
+                        <a href="#getPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPage(page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="101"
+                            class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:101</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>page</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStatus"></a>
+                    <span class="name">
+                        <span ><b>getStatus</b></span>
+                        <a href="#getStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStatus(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="31"
+                            class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:31</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="populateBankAccountForm"></a>
+                    <span class="name">
+                        <span ><b>populateBankAccountForm</b></span>
+                        <a href="#populateBankAccountForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>populateBankAccountForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:37</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="populateEditBankAccountForm"></a>
+                    <span class="name">
+                        <span ><b>populateEditBankAccountForm</b></span>
+                        <a href="#populateEditBankAccountForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>populateEditBankAccountForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:45</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateBankAccount"></a>
+                    <span class="name">
+                        <span ><b>updateBankAccount</b></span>
+                        <a href="#updateBankAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateBankAccount()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="132"
+                            class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:132</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="accountCount"></a>
+                    <span class="name">
+                        <span ><b>accountCount</b></span>
+                        <a href="#accountCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bankAccountForm"></a>
+                    <span class="name">
+                        <span ><b>bankAccountForm</b></span>
+                        <a href="#bankAccountForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bankAccountList"></a>
+                    <span class="name">
+                        <span ><b>bankAccountList</b></span>
+                        <a href="#bankAccountList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editBankAccountForm"></a>
+                    <span class="name">
+                        <span ><b>editBankAccountForm</b></span>
+                        <a href="#editBankAccountForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="itemsPerPage"></a>
+                    <span class="name">
+                        <span ><b>itemsPerPage</b></span>
+                        <a href="#itemsPerPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>10</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="p"></a>
+                    <span class="name">
+                        <span ><b>p</b></span>
+                        <a href="#p"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchString"></a>
+                    <span class="name">
+                        <span ><b>searchString</b></span>
+                        <a href="#searchString"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedAccountId"></a>
+                    <span class="name">
+                        <span ><b>selectedAccountId</b></span>
+                        <a href="#selectedAccountId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleState"></a>
+                    <span class="name">
+                        <span ><b>toggleState</b></span>
+                        <a href="#toggleState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/school/finance-setting/bank-accounts/bank-accounts.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { NotificationsService } from &#x27;src/services/classes/notifications/notifications.service&#x27;;
+import { FinanceService } from &#x27;src/services/data/finance/finance.service&#x27;;
+
+
+@Component({
+  selector: &#x27;app-bank-accounts&#x27;,
+  templateUrl: &#x27;./bank-accounts.component.html&#x27;,
+  styleUrls: [&#x27;./bank-accounts.component.css&#x27;]
+})
+export class BankAccountsComponent implements OnInit {
+
+  searchString: string;
+  p &#x3D; 1;
+  itemsPerPage &#x3D; 10;
+  accountCount: number;
+  toggleState &#x3D; false;
+  bankAccountForm: FormGroup;
+  bankAccountList: any;
+  editBankAccountForm: FormGroup;
+  selectedAccountId: any;
+
+  constructor(
+    private fb: FormBuilder,
+    private finance: FinanceService,
+    private notifyService: NotificationsService
+
+  ) { }
+
+  ngOnInit() {
+    this.populateBankAccountForm();
+    this.getAllBankAccounts();
+    this.populateEditBankAccountForm();
+  }
+
+  populateBankAccountForm() {
+    this.bankAccountForm &#x3D; this.fb.group({
+      bank: [&#x27;&#x27;, Validators.required],
+      accountName: [&#x27;&#x27;, Validators.required],
+      accountNumber: [&#x27;&#x27;, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+      isActive: false
+    });
+  }
+  populateEditBankAccountForm() {
+    this.editBankAccountForm &#x3D; this.fb.group({
+      bank: [&#x27;&#x27;, Validators.required],
+      accountName: [&#x27;&#x27;, Validators.required],
+      accountNumber: [&#x27;&#x27;, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+      isActive: false
+    });
+  }
+
+  getStatus(event) {
+    if (event &#x3D;&#x3D;&#x3D; true) {
+      this.toggleState &#x3D; true;
+    } else {
+      this.toggleState &#x3D; false;
+
+    }
+
+  }
+
+  createBankAccount() {
+    const { bank, accountName, accountNumber, isActive } &#x3D; this.bankAccountForm.value;
+    const result &#x3D; {
+      bank,
+      accountName,
+      accountNumber,
+      isActive: this.toggleState
+    };
+
+    // // (&#x27;bank account&#x27;, result);
+    this.finance.createNewBankAccount(result).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        // (data.payload);
+        this.notifyService.publishMessages(&#x27;Account created successfully&#x27;, &#x27;success&#x27;, 1);
+        document.getElementById(&#x27;myAccountModal&#x27;).click();
+        this.getAllBankAccounts();
+      }
+      
+    }, error &#x3D;&gt; {
+      this.notifyService.publishMessages(&#x27;Bank Account creation failed&#x27;, &#x27;danger&#x27;, 1);
+
+    });
+  }
+
+  getAllBankAccounts() {
+    this.finance.getAllBankAccount(this.p, this.itemsPerPage).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.bankAccountList &#x3D; data.payload;
+        this.accountCount &#x3D; data.totalCount;
+      }
+    }, error &#x3D;&gt; {
+      this.notifyService.publishMessages(&#x27;Bank Account creation failed&#x27;, &#x27;danger&#x27;, 1);
+
+    });
+  }
+
+
+  getPage(page: number) {
+    // (page);
+    this.finance.getAllBankAccount(page, this.itemsPerPage).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.bankAccountList &#x3D; data.payload;
+        this.accountCount &#x3D; data.totalCount;
+      }
+    }, error &#x3D;&gt; {
+      this.notifyService.publishMessages(&#x27; Account creation failed&#x27;, &#x27;danger&#x27;, 1);
+
+    });
+  }
+
+  editBankAccount(id) {
+    this.selectedAccountId &#x3D; id;
+    this.finance.getBankAccountById(id).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+       // (data.payload);
+       this.editBankAccountForm.patchValue({
+         bank: data.payload.bank,
+         accountName: data.payload.accountName,
+         accountNumber: data.payload.accountNumber,
+         isActive: data.payload.isActive,
+       });
+      }
+    }, error &#x3D;&gt; {
+      this.notifyService.publishMessages(&#x27;Banc Account creation failed&#x27;, &#x27;danger&#x27;, 1);
+
+    });
+  }
+
+  updateBankAccount() {
+    const { bank, accountName, accountNumber, isActive } &#x3D; this.editBankAccountForm.value;
+    const result &#x3D; {
+      bank,
+      accountName,
+      accountNumber,
+      isActive: this.toggleState
+    };
+
+    // (&#x27;bank account&#x27;, result);
+    this.finance.updateBankAccountById(this.selectedAccountId, result).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        // (data.payload);
+        this.notifyService.publishMessages(&#x27;Account created successfully&#x27;, &#x27;success&#x27;, 1);
+        document.getElementById(&#x27;editAccountModal&#x27;).click();
+        this.getAllBankAccounts();
+      }
+    }, error &#x3D;&gt; {
+      this.notifyService.publishMessages(&#x27;Bank Account creation failed&#x27;, &#x27;danger&#x27;, 1);
+
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;banner mb-4 pb-3&quot;&gt;
+  &lt;div class&#x3D;&quot;pt-5 pl-3 content &quot;&gt;
+    &lt;h6 class&#x3D;&quot;banner__text-primary fw-6 &quot;&gt; Bank Account &lt;/h6&gt;
+    &lt;p class&#x3D;&quot;&quot;&gt; Manage all your school bank accounts &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+
+    &lt;button class&#x3D;&quot;btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3&quot; data-toggle&#x3D;&quot;modal&quot;
+      data-target&#x3D;&quot;#exampleModalCenterSubject&quot;&gt; Add New &lt;/button&gt;
+  &lt;/div&gt;
+
+&lt;/section&gt;
+
+&lt;section class&#x3D;&quot;d-flex align-items-center justify-content-between mb-4 mt-5&quot;&gt;
+  &lt;div class&#x3D;&quot;search__input has-search&quot;&gt;
+    &lt;span class&#x3D;&quot;fa fa-search form-control-feedback&quot;&gt;&lt;/span&gt;
+    &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Search&quot; [(ngModel)]&#x3D;&quot;searchString&quot;&gt;
+  &lt;/div&gt;
+  &lt;!-- &lt;button class&#x3D;&quot;btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3&quot;&gt; Bulk Actions &lt;/button&gt; --&gt;
+
+&lt;/section&gt;
+
+
+
+
+&lt;div&gt;
+
+  &lt;div class&#x3D;&quot;empty-state&quot; *ngIf&#x3D;&quot;bankAccountList?.length &#x3D;&#x3D; 0&quot;&gt;
+    &lt;p class&#x3D;&quot;text-center fs-24 ff-a&quot;&gt;
+      You have not added any record
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;section class&#x3D;&quot;list&quot; *ngIf&#x3D;&quot;bankAccountList?.length &gt; 0&quot;&gt;
+    &lt;table class&#x3D;&quot;table table-borderless client-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope&#x3D;&quot;col&quot; class&#x3D;&quot;head &quot;&gt;
+            &lt;div class&#x3D;&quot;custom-control custom-checkbox&quot;&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;customCheckTh&quot;&gt;
+              &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customCheckTh&quot;&gt;&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/th&gt;
+          &lt;th scope&#x3D;&quot;col&quot; class&#x3D;&quot;text-left w-25&quot;&gt; Account Name &lt;img src&#x3D;&quot;assets/images/svg/table-sort.svg&quot;
+              alt&#x3D;&quot;table sort icon&quot; class&#x3D;&quot;dropdown-toggle&quot; type&#x3D;&quot;button&quot; id&#x3D;&quot;dropdownMenuButton&quot; data-toggle&#x3D;&quot;dropdown&quot;
+              aria-haspopup&#x3D;&quot;true&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+            &lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; DROPDOWN &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
+            &lt;!-- &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;dropdownMenuButton&quot;&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item filter-title&quot; href&#x3D;&quot;#&quot;&gt;FILTER BY: CLIENT&lt;/a&gt;
+                          &lt;div class&#x3D;&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item fc-orange&quot; href&#x3D;&quot;#&quot;&gt;All &lt;/a&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;A - Z &lt;/a&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;Z - A &lt;/a&gt;
+                      &lt;/div&gt; --&gt;
+          &lt;/th&gt;
+          &lt;th&gt;Account Number &lt;/th&gt;
+          &lt;th scope&#x3D;&quot;col&quot;&gt;Bank &lt;img src&#x3D;&quot;assets/images/svg/table-sort.svg&quot; alt&#x3D;&quot;table sort icon&quot; class&#x3D;&quot;dropdown-toggle&quot;
+              type&#x3D;&quot;button&quot; id&#x3D;&quot;dropdownMenuButton3&quot; data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+            &lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; DROPDOWN &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
+            &lt;!-- &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;dropdownMenuButton3&quot;&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item filter-title&quot; href&#x3D;&quot;#&quot;&gt;FILTER BY: LOCATION&lt;/a&gt;
+                          &lt;div class&#x3D;&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item fc-orange&quot; href&#x3D;&quot;#&quot;&gt;All &lt;/a&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;Abuja &lt;/a&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;Lagos &lt;/a&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;Ogun &lt;/a&gt;
+                      &lt;/div&gt; --&gt;
+          &lt;/th&gt;
+  
+          &lt;th scope&#x3D;&quot;col&quot;&gt;Status &lt;img src&#x3D;&quot;assets/images/svg/table-sort.svg&quot; alt&#x3D;&quot;table sort icon&quot; class&#x3D;&quot;dropdown-toggle&quot;
+              type&#x3D;&quot;button&quot; id&#x3D;&quot;dropdownMenuButton4&quot; data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+            &lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; DROPDOWN &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
+            &lt;!-- &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;dropdownMenuButton4&quot;&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item filter-title&quot; href&#x3D;&quot;#&quot;&gt;FILTER BY: STATUS&lt;/a&gt;
+                          &lt;div class&#x3D;&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item fc-orange&quot; href&#x3D;&quot;#&quot;&gt;All &lt;/a&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;Active &lt;/a&gt;
+                          &lt;a class&#x3D;&quot;dropdown-item&quot; href&#x3D;&quot;#&quot;&gt;Inactive &lt;/a&gt;
+                      &lt;/div&gt; --&gt;
+          &lt;/th&gt;
+          &lt;th&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr class&#x3D;&quot;pb-1&quot;
+          *ngFor&#x3D;&quot;let account of bankAccountList | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: accountCount }; let b &#x3D; index&quot;&gt;
+          &lt;td scope&#x3D;&quot;row&quot; class&#x3D;&quot;check rounded-left&quot;&gt;
+            &lt;div class&#x3D;&quot;custom-control custom-checkbox&quot;&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;customCheck{{b}}&quot;&gt;
+              &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customCheck{{b}}&quot;&gt;&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/td&gt;
+          &lt;td class&#x3D;&quot;user&quot;&gt;
+  
+            &lt;div class&#x3D;&quot;d-flex align-items-center&quot;&gt;
+  
+              &lt;h6 class&#x3D;&quot;fw-6 mb-0&quot;&gt; {{account?.bank | uppercase}}&lt;/h6&gt;
+            &lt;/div&gt;
+          &lt;/td&gt;
+          &lt;td&gt;{{account?.accountNumber}} &lt;/td&gt;
+          &lt;td&gt;{{account?.accountName}} &lt;/td&gt;
+          &lt;td&gt;
+            &lt;span class&#x3D;&quot;status_active&quot; *ngIf&#x3D;&quot;account.isActive &#x3D;&#x3D;&#x3D; true&quot;&gt;Active&lt;/span&gt;
+            &lt;span class&#x3D;&quot;status_inactive&quot; *ngIf&#x3D;&quot;account.isActive &#x3D;&#x3D;&#x3D; false&quot;&gt;Inactive&lt;/span&gt;
+          &lt;/td&gt;
+          &lt;td class&#x3D;&quot;rounded-right &quot;&gt;&lt;img src&#x3D;&quot;assets/images/svg/more-action.svg&quot; alt&#x3D;&quot;schools log&quot; class&#x3D;&quot;mt-3&quot;
+              id&#x3D;&quot;dropdownMenuButton3&quot; data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot; aria-expanded&#x3D;&quot;false&quot;&gt;
+  
+            &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;dropdownMenuButton4&quot;&gt;
+  
+              &lt;a class&#x3D;&quot;dropdown-item fc-orange&quot; (click)&#x3D;&quot;editBankAccount(account.id)&quot; data-toggle&#x3D;&quot;modal&quot;
+                data-target&#x3D;&quot;#editBankAccountModal&quot;&gt;Edit &lt;/a&gt;
+  
+            &lt;/div&gt;
+  
+          &lt;/td&gt;
+  
+  
+        &lt;/tr&gt;
+  
+  
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  
+    &lt;div class&#x3D;&quot;d-flex justify-content-end&quot;&gt;
+      &lt;pagination-controls (pageChange)&#x3D;&quot;getPage(p &#x3D; $event)&quot; class&#x3D;&quot;text-center&quot;&gt;&lt;/pagination-controls&gt;
+    &lt;/div&gt;
+  
+  &lt;/section&gt;
+&lt;/div&gt;
+
+
+
+&lt;!-- Subject Modal --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;exampleModalCenterSubject&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot;
+  aria-labelledby&#x3D;&quot;exampleModalCenterSubjectTitle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog modal-dialog-centered modal-length&quot; role&#x3D;&quot;document&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+
+      &lt;div class&#x3D;&quot;modal-head mb-4&quot;&gt;
+        &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center &quot;&gt;
+          &lt;h6 class&#x3D;&quot;modal-title fc-lblue&quot;&gt;Add New Bank Account&lt;/h6&gt;
+          &lt;img src&#x3D;&quot;assets/images/svg/close-modal.svg&quot; alt&#x3D;&quot;modal close button&quot; id&#x3D;&quot;myAccountModal&quot; data-dismiss&#x3D;&quot;modal&quot;
+            aria-label&#x3D;&quot;Close&quot; class&#x3D;&quot;close&quot;&gt;
+
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body client-modal&quot;&gt;
+        &lt;form [formGroup]&#x3D;&quot;bankAccountForm&quot; (ngSubmit)&#x3D;&quot;createBankAccount()&quot;&gt;
+
+
+          &lt;div class&#x3D;&quot;form-group mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;class&quot; class&#x3D;&quot;&quot;&gt;Bank &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt; &lt;/label&gt;
+            &lt;select name&#x3D;&quot;&quot; id&#x3D;&quot;&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;bank&quot;&gt;
+              &lt;option value&#x3D;&quot;&quot; selected&gt;Select...&lt;/option&gt;
+              &lt;option value&#x3D;&quot;UBA&quot;&gt;UBA&lt;/option&gt;
+              &lt;option value&#x3D;&quot;diamond&quot;&gt;Diamond Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;ecobank&quot;&gt;Ecobank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;fidelity&quot;&gt;Fidelity Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;firstbank&quot;&gt;First Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;fcmb&quot;&gt;First City Monument Bank (FCMB)&lt;/option&gt;
+              &lt;option value&#x3D;&quot;gtb&quot;&gt;Guaranty Trust Bank (GTB)&lt;/option&gt;
+              &lt;option value&#x3D;&quot;heritage&quot;&gt;Heritage Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;keystone&quot;&gt;Keystone Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;polaris&quot;&gt;Polaris Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;providus&quot;&gt;Providus Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;stanbic&quot;&gt;Stanbic IBTC Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;standard&quot;&gt;Standard Chartered Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;sterling&quot;&gt;Sterling Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;suntrust&quot;&gt;Suntrust Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;union&quot;&gt;Union Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;uba&quot;&gt;United Bank for Africa (UBA)&lt;/option&gt;
+              &lt;option value&#x3D;&quot;unity&quot;&gt;Unity Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;wema&quot;&gt;Wema Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;zenith&quot;&gt;Zenith Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;Access Bank&quot;&gt;UBA&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+
+
+          &lt;div class&#x3D;&quot;form-group mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;class&quot; class&#x3D;&quot;&quot;&gt;Account Name&lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt; &lt;/label&gt;
+            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;class&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;accountName&quot;
+              placeholder&#x3D;&quot;Enter account name&quot;&gt;
+
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-group mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;class&quot; class&#x3D;&quot;&quot;&gt;Account Number&lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt; &lt;/label&gt;
+            &lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;Enter Account number&quot; formControlName&#x3D;&quot;accountNumber&quot; class&#x3D;&quot;form-control&quot;
+              maxlength&#x3D;&quot;11&quot;&gt;
+          &lt;/div&gt;
+
+
+          &lt;div class&#x3D;&quot;form-group custom mb-5&quot;&gt;
+            &lt;div class&#x3D;&quot;custom-control custom-switch&quot;&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;customSwitch4&quot; formControlName&#x3D;&quot;isActive&quot;
+                (change)&#x3D;&quot;getStatus($event.target.checked)&quot;&gt;
+              &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customSwitch4&quot; *ngIf&#x3D;&quot;toggleState &#x3D;&#x3D;&#x3D; false&quot;&gt;Inactive&lt;/label&gt;
+              &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customSwitch4&quot; *ngIf&#x3D;&quot;toggleState &#x3D;&#x3D;&#x3D; true&quot;&gt;Active&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+
+          &lt;div class&#x3D;&quot;d-flex justify-content-center mb-3&quot;&gt;
+            &lt;button type&#x3D;&quot;button &quot; class&#x3D;&quot;btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 &quot;
+              data-dismiss&#x3D;&quot;modal&quot;&gt;Cancel
+            &lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-orange-two px-5 mb-4 mt-3&quot; [disabled]&#x3D;&quot;bankAccountForm.invalid&quot;&gt; Add Account&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- end of Subject modal --&gt;
+
+
+
+&lt;!-- Subject Modal --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;editBankAccountModal&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot;
+  aria-labelledby&#x3D;&quot;editBankAccountModalTitle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog modal-dialog-centered modal-length&quot; role&#x3D;&quot;document&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+
+      &lt;div class&#x3D;&quot;modal-head mb-4&quot;&gt;
+        &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center &quot;&gt;
+          &lt;h6 class&#x3D;&quot;modal-title fc-lblue&quot;&gt;Edit Bank Account&lt;/h6&gt;
+          &lt;img src&#x3D;&quot;assets/images/svg/close-modal.svg&quot; alt&#x3D;&quot;modal close button&quot; id&#x3D;&quot;editAccountModal&quot;
+            data-dismiss&#x3D;&quot;modal&quot; aria-label&#x3D;&quot;Close&quot; class&#x3D;&quot;close&quot;&gt;
+
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body client-modal&quot;&gt;
+        &lt;form [formGroup]&#x3D;&quot;editBankAccountForm&quot; (ngSubmit)&#x3D;&quot;updateBankAccount()&quot;&gt;
+
+
+          &lt;div class&#x3D;&quot;form-group mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;class&quot; class&#x3D;&quot;&quot;&gt;Bank &lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt; &lt;/label&gt;
+            &lt;select name&#x3D;&quot;&quot; id&#x3D;&quot;&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;bank&quot;&gt;
+              &lt;option value&#x3D;&quot;&quot; selected&gt;Select...&lt;/option&gt;
+              &lt;option value&#x3D;&quot;citibank&quot;&gt;Citibank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;diamond&quot;&gt;Diamond Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;ecobank&quot;&gt;Ecobank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;fidelity&quot;&gt;Fidelity Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;firstbank&quot;&gt;First Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;fcmb&quot;&gt;First City Monument Bank (FCMB)&lt;/option&gt;
+              &lt;option value&#x3D;&quot;gtb&quot;&gt;Guaranty Trust Bank (GTB)&lt;/option&gt;
+              &lt;option value&#x3D;&quot;heritage&quot;&gt;Heritage Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;keystone&quot;&gt;Keystone Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;polaris&quot;&gt;Polaris Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;providus&quot;&gt;Providus Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;stanbic&quot;&gt;Stanbic IBTC Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;standard&quot;&gt;Standard Chartered Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;sterling&quot;&gt;Sterling Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;suntrust&quot;&gt;Suntrust Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;union&quot;&gt;Union Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;uba&quot;&gt;United Bank for Africa (UBA)&lt;/option&gt;
+              &lt;option value&#x3D;&quot;unity&quot;&gt;Unity Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;wema&quot;&gt;Wema Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;zenith&quot;&gt;Zenith Bank&lt;/option&gt;
+              &lt;option value&#x3D;&quot;UBA&quot;&gt;UBA&lt;/option&gt;
+              &lt;option value&#x3D;&quot;Access Bank&quot;&gt;UBA&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+
+
+          &lt;div class&#x3D;&quot;form-group mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;class&quot; class&#x3D;&quot;&quot;&gt;Account Name&lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt; &lt;/label&gt;
+            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;class&quot; class&#x3D;&quot;form-control&quot; formControlName&#x3D;&quot;accountName&quot;
+              placeholder&#x3D;&quot;Enter account name&quot;&gt;
+
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;form-group mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;class&quot; class&#x3D;&quot;&quot;&gt;Account Number&lt;span class&#x3D;&quot;text-danger&quot;&gt;*&lt;/span&gt; &lt;/label&gt;
+            &lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;Enter Account number&quot; formControlName&#x3D;&quot;accountNumber&quot; class&#x3D;&quot;form-control&quot;
+              maxlength&#x3D;&quot;11&quot;&gt;
+          &lt;/div&gt;
+
+
+          &lt;div class&#x3D;&quot;form-group custom mb-5&quot;&gt;
+            &lt;div class&#x3D;&quot;custom-control custom-switch&quot;&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;customSwitchE&quot; formControlName&#x3D;&quot;isActive&quot;
+                (change)&#x3D;&quot;getStatus($event.target.checked)&quot;&gt;
+              &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customSwitchE&quot; *ngIf&#x3D;&quot;toggleState &#x3D;&#x3D;&#x3D; false&quot;&gt;Inactive&lt;/label&gt;
+              &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customSwitchE&quot; *ngIf&#x3D;&quot;toggleState &#x3D;&#x3D;&#x3D; true&quot;&gt;Active&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+
+
+          &lt;div class&#x3D;&quot;d-flex justify-content-center mb-3&quot;&gt;
+            &lt;button type&#x3D;&quot;button &quot; class&#x3D;&quot;btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 &quot;
+              data-dismiss&#x3D;&quot;modal&quot;&gt;Cancel
+            &lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-orange-two px-5 mb-4 mt-3&quot; [disabled]&#x3D;&quot;editBankAccountForm.invalid&quot;&gt; Update
+              Account&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- end of Subject modal --&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./bank-accounts.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.banner {
+    width: 100%;
+    background-image: url(&quot;../../../../assets/images/svg/bank-acc.png&quot;);
+    background-repeat: no-repeat;
+    background-color: #1d4e4d;
+
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1.5rem;
+    color: #ffffff;
+    position: relative;
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    backdrop-filter: opacity(.4);
+}
+
+
+
+.banner__text-primary {
+    font-size: 36px;
+}
+
+
+.btn-orange-two {
+    background: #fb882c;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #ffffff;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.has-search  input[type&#x3D;&quot;text&quot;] {
+    width: 125%;
+}
+
+
+
+
+
+
+/* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; table &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+table.client-table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+.list .table thead {
+    color: #4c75bd;
+}
+
+.list .table thead tr th {
+    font-weight: 600;
+    padding-bottom: 0;
+}
+
+table tr,
+td {
+    padding: 15px;
+}
+.list .table thead .head {
+    /* display: flex;
+      align-items: center;
+      color: #0a1128;
+      font-weight: 600; */
+    padding-left: 3.5rem;
+}
+
+.list .table tbody .check {
+    padding-left: 1.5rem;
+    padding-left: 3.5rem;
+}
+
+.list .table tbody .user span {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+}
+
+
+
+.list .table tbody .user div h6 {
+    color: #355691;
+    font-size: 14px;
+    /* opacity: none; */
+}
+
+
+
+.list .table tbody tr {
+    background: #ffffff;
+    box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
+    border-radius: 5px;
+}
+
+.list .table tbody td:not(:first-child) {
+    color: #0a1128;
+    /* opacity: 0.6; */
+}
+
+.list .table tbody .status_active {
+    background: #ebfffa;
+    border-radius: 10px;
+    color: #09b78a;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+.list .table tbody .status_inactive {
+    background: #fae5e7;
+    border-radius: 10px;
+    color: #d72638;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+
+.modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+
+}
+
+
+.modal-head {
+    padding: 20px 40px;
+    background: #EBF0F5;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
+
+.client-modal {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 40px;
+
+}
+
+form {
+    width: 100%;
+}
+
+
+
+.close {
+    cursor: pointer;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="banner mb-4 pb-3">  <div class="pt-5 pl-3 content ">    <h6 class="banner__text-primary fw-6 "> Bank Account </h6>    <p class=""> Manage all your school bank accounts </p>  </div>  <div class="d-flex">    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"      data-target="#exampleModalCenterSubject"> Add New </button>  </div></section><section class="d-flex align-items-center justify-content-between mb-4 mt-5">  <div class="search__input has-search">    <span class="fa fa-search form-control-feedback"></span>    <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">  </div>  <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> --></section><div>  <div class="empty-state" *ngIf="bankAccountList?.length == 0">    <p class="text-center fs-24 ff-a">      You have not added any record    </p>  </div>  <section class="list" *ngIf="bankAccountList?.length > 0">    <table class="table table-borderless client-table">      <thead>        <tr>          <th scope="col" class="head ">            <div class="custom-control custom-checkbox">              <input type="checkbox" class="custom-control-input" id="customCheckTh">              <label class="custom-control-label" for="customCheckTh"></label>            </div>          </th>          <th scope="col" class="text-left w-25"> Account Name <img src="assets/images/svg/table-sort.svg"              alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"              aria-haspopup="true" aria-expanded="false">            <!-- ================ DROPDOWN ==================== -->            <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">                          <a class="dropdown-item filter-title" href="#">FILTER BY: CLIENT</a>                          <div class="dropdown-divider"></div>                          <a class="dropdown-item fc-orange" href="#">All </a>                          <a class="dropdown-item" href="#">A - Z </a>                          <a class="dropdown-item" href="#">Z - A </a>                      </div> -->          </th>          <th>Account Number </th>          <th scope="col">Bank <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle"              type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">            <!-- ================ DROPDOWN ==================== -->            <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">                          <a class="dropdown-item filter-title" href="#">FILTER BY: LOCATION</a>                          <div class="dropdown-divider"></div>                          <a class="dropdown-item fc-orange" href="#">All </a>                          <a class="dropdown-item" href="#">Abuja </a>                          <a class="dropdown-item" href="#">Lagos </a>                          <a class="dropdown-item" href="#">Ogun </a>                      </div> -->          </th>            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle"              type="button" id="dropdownMenuButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">            <!-- ================ DROPDOWN ==================== -->            <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">                          <a class="dropdown-item filter-title" href="#">FILTER BY: STATUS</a>                          <div class="dropdown-divider"></div>                          <a class="dropdown-item fc-orange" href="#">All </a>                          <a class="dropdown-item" href="#">Active </a>                          <a class="dropdown-item" href="#">Inactive </a>                      </div> -->          </th>          <th></th>        </tr>      </thead>      <tbody>        <tr class="pb-1"          *ngFor="let account of bankAccountList | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: accountCount }; let b = index">          <td scope="row" class="check rounded-left">            <div class="custom-control custom-checkbox">              <input type="checkbox" class="custom-control-input" id="customCheck{{b}}">              <label class="custom-control-label" for="customCheck{{b}}"></label>            </div>          </td>          <td class="user">              <div class="d-flex align-items-center">                <h6 class="fw-6 mb-0"> {{account?.bank | uppercase}}</h6>            </div>          </td>          <td>{{account?.accountNumber}} </td>          <td>{{account?.accountName}} </td>          <td>            <span class="status_active" *ngIf="account.isActive === true">Active</span>            <span class="status_inactive" *ngIf="account.isActive === false">Inactive</span>          </td>          <td class="rounded-right "><img src="assets/images/svg/more-action.svg" alt="schools log" class="mt-3"              id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">                <a class="dropdown-item fc-orange" (click)="editBankAccount(account.id)" data-toggle="modal"                data-target="#editBankAccountModal">Edit </a>              </div>            </td>            </tr>          </tbody>    </table>      <div class="d-flex justify-content-end">      <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>    </div>    </section></div><!-- Subject Modal --><div class="modal fade" id="exampleModalCenterSubject" tabindex="-1" role="dialog"  aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">  <div class="modal-dialog modal-dialog-centered modal-length" role="document">    <div class="modal-content">      <div class="modal-head mb-4">        <div class="d-flex justify-content-between align-items-center ">          <h6 class="modal-title fc-lblue">Add New Bank Account</h6>          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myAccountModal" data-dismiss="modal"            aria-label="Close" class="close">        </div>      </div>      <div class="modal-body client-modal">        <form [formGroup]="bankAccountForm" (ngSubmit)="createBankAccount()">          <div class="form-group mb-4">            <label for="class" class="">Bank <span class="text-danger">*</span> </label>            <select name="" id="" class="form-control" formControlName="bank">              <option value="" selected>Select...</option>              <option value="UBA">UBA</option>              <option value="diamond">Diamond Bank</option>              <option value="ecobank">Ecobank</option>              <option value="fidelity">Fidelity Bank</option>              <option value="firstbank">First Bank</option>              <option value="fcmb">First City Monument Bank (FCMB)</option>              <option value="gtb">Guaranty Trust Bank (GTB)</option>              <option value="heritage">Heritage Bank</option>              <option value="keystone">Keystone Bank</option>              <option value="polaris">Polaris Bank</option>              <option value="providus">Providus Bank</option>              <option value="stanbic">Stanbic IBTC Bank</option>              <option value="standard">Standard Chartered Bank</option>              <option value="sterling">Sterling Bank</option>              <option value="suntrust">Suntrust Bank</option>              <option value="union">Union Bank</option>              <option value="uba">United Bank for Africa (UBA)</option>              <option value="unity">Unity Bank</option>              <option value="wema">Wema Bank</option>              <option value="zenith">Zenith Bank</option>              <option value="Access Bank">UBA</option>            </select>          </div>          <div class="form-group mb-4">            <label for="class" class="">Account Name<span class="text-danger">*</span> </label>            <input type="text" id="class" class="form-control" formControlName="accountName"              placeholder="Enter account name">          </div>          <div class="form-group mb-4">            <label for="class" class="">Account Number<span class="text-danger">*</span> </label>            <input type="text" placeholder="Enter Account number" formControlName="accountNumber" class="form-control"              maxlength="11">          </div>          <div class="form-group custom mb-5">            <div class="custom-control custom-switch">              <input type="checkbox" class="custom-control-input" id="customSwitch4" formControlName="isActive"                (change)="getStatus($event.target.checked)">              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === false">Inactive</label>              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === true">Active</label>            </div>          </div>          <div class="d-flex justify-content-center mb-3">            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "              data-dismiss="modal">Cancel            </button>            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="bankAccountForm.invalid"> Add Account</button>          </div>        </form>      </div>    </div>  </div></div><!-- end of Subject modal --><!-- Subject Modal --><div class="modal fade" id="editBankAccountModal" tabindex="-1" role="dialog"  aria-labelledby="editBankAccountModalTitle" aria-hidden="true">  <div class="modal-dialog modal-dialog-centered modal-length" role="document">    <div class="modal-content">      <div class="modal-head mb-4">        <div class="d-flex justify-content-between align-items-center ">          <h6 class="modal-title fc-lblue">Edit Bank Account</h6>          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="editAccountModal"            data-dismiss="modal" aria-label="Close" class="close">        </div>      </div>      <div class="modal-body client-modal">        <form [formGroup]="editBankAccountForm" (ngSubmit)="updateBankAccount()">          <div class="form-group mb-4">            <label for="class" class="">Bank <span class="text-danger">*</span> </label>            <select name="" id="" class="form-control" formControlName="bank">              <option value="" selected>Select...</option>              <option value="citibank">Citibank</option>              <option value="diamond">Diamond Bank</option>              <option value="ecobank">Ecobank</option>              <option value="fidelity">Fidelity Bank</option>              <option value="firstbank">First Bank</option>              <option value="fcmb">First City Monument Bank (FCMB)</option>              <option value="gtb">Guaranty Trust Bank (GTB)</option>              <option value="heritage">Heritage Bank</option>              <option value="keystone">Keystone Bank</option>              <option value="polaris">Polaris Bank</option>              <option value="providus">Providus Bank</option>              <option value="stanbic">Stanbic IBTC Bank</option>              <option value="standard">Standard Chartered Bank</option>              <option value="sterling">Sterling Bank</option>              <option value="suntrust">Suntrust Bank</option>              <option value="union">Union Bank</option>              <option value="uba">United Bank for Africa (UBA)</option>              <option value="unity">Unity Bank</option>              <option value="wema">Wema Bank</option>              <option value="zenith">Zenith Bank</option>              <option value="UBA">UBA</option>              <option value="Access Bank">UBA</option>            </select>          </div>          <div class="form-group mb-4">            <label for="class" class="">Account Name<span class="text-danger">*</span> </label>            <input type="text" id="class" class="form-control" formControlName="accountName"              placeholder="Enter account name">          </div>          <div class="form-group mb-4">            <label for="class" class="">Account Number<span class="text-danger">*</span> </label>            <input type="text" placeholder="Enter Account number" formControlName="accountNumber" class="form-control"              maxlength="11">          </div>          <div class="form-group custom mb-5">            <div class="custom-control custom-switch">              <input type="checkbox" class="custom-control-input" id="customSwitchE" formControlName="isActive"                (change)="getStatus($event.target.checked)">              <label class="custom-control-label" for="customSwitchE" *ngIf="toggleState === false">Inactive</label>              <label class="custom-control-label" for="customSwitchE" *ngIf="toggleState === true">Active</label>            </div>          </div>          <div class="d-flex justify-content-center mb-3">            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "              data-dismiss="modal">Cancel            </button>            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="editBankAccountForm.invalid"> Update              Account</button>          </div>        </form>      </div>    </div>  </div></div><!-- end of Subject modal --></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AccountMappingComponent', 'selector': 'app-account-mapping'},{'name': 'AccountPanelComponent', 'selector': 'app-account-panel'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AdminAlumniCreateEventComponent', 'selector': 'app-admin-alumni-create-event'},{'name': 'AdminAlumniEventsComponent', 'selector': 'app-admin-alumni-events'},{'name': 'AdminAlumniListComponent', 'selector': 'app-admin-alumni-list'},{'name': 'AdminLoginComponent', 'selector': 'app-admin-login'},{'name': 'AlumniAlumniComponent', 'selector': 'app-alumni-alumni'},{'name': 'AlumniComponent', 'selector': 'app-alumni'},{'name': 'AlumniEventDetailComponent', 'selector': 'app-alumni-event-detail'},{'name': 'AlumniEventsComponent', 'selector': 'app-alumni-events'},{'name': 'AlumniHomeComponent', 'selector': 'app-alumni-home'},{'name': 'AlumniProfileComponent', 'selector': 'app-alumni-profile'},{'name': 'AlumniRecordsComponent', 'selector': 'app-alumni-records'},{'name': 'AlumniTranscriptComponent', 'selector': 'app-alumni-transcript'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentsComponent', 'selector': 'app-assignments'},{'name': 'AttachTeacherComponent', 'selector': 'app-attach-teacher'},{'name': 'AttendanceComponent', 'selector': 'app-attendance'},{'name': 'BankAccountsComponent', 'selector': 'app-bank-accounts'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BranchContactPersonComponent', 'selector': 'app-branch-contact-person'},{'name': 'BranchDetailComponent', 'selector': 'app-branch-detail'},{'name': 'BranchInformationComponent', 'selector': 'app-branch-information'},{'name': 'BranchLocationComponent', 'selector': 'app-branch-location'},{'name': 'BroadSheetComponent', 'selector': 'app-broad-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ChartOfAccountComponent', 'selector': 'app-chart-of-account'},{'name': 'ChildAssignmentComponent', 'selector': 'app-child-assignment'},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ClassAttendanceComponent', 'selector': 'app-class-attendance'},{'name': 'ClassPoolComponent', 'selector': 'app-class-pool'},{'name': 'ClassRepeatComponent', 'selector': 'app-class-repeat'},{'name': 'ClassScheduleComponent', 'selector': 'app-class-schedule'},{'name': 'ClientDetailComponent', 'selector': 'app-client-detail'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'ContactDetailComponent', 'selector': 'app-contact-detail'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactPersonComponent', 'selector': 'app-contact-person'},{'name': 'CreateAssignmentComponent', 'selector': 'app-create-assignment'},{'name': 'CreateBranchComponent', 'selector': 'app-create-branch'},{'name': 'CreateClientComponent', 'selector': 'app-create-client'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoComponent', 'selector': 'app-demo'},{'name': 'DiscountsComponent', 'selector': 'app-discounts'},{'name': 'EditUserComponent', 'selector': 'app-edit-user'},{'name': 'EducationComponent', 'selector': 'app-education'},{'name': 'EmailVerifiedComponent', 'selector': 'app-email-verified'},{'name': 'EmployeeComponent', 'selector': 'app-employee'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeListComponent', 'selector': 'app-employee-list'},{'name': 'FacilitySettingsComponent', 'selector': 'app-facility-settings'},{'name': 'FaqsComponent', 'selector': 'app-faqs'},{'name': 'FeeComponent', 'selector': 'app-fee'},{'name': 'FeeComponentComponent', 'selector': 'app-fee-component'},{'name': 'FeeTypeComponent', 'selector': 'app-fee-type'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FilesComponent', 'selector': 'app-files'},{'name': 'FileStorageComponent', 'selector': 'app-file-storage'},{'name': 'FinanceSettingsComponent', 'selector': 'app-finance-settings'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAdminComponent', 'selector': 'app-global-admin'},{'name': 'GradebookComponent', 'selector': 'app-gradebook'},{'name': 'GradingComponent', 'selector': 'app-grading'},{'name': 'GroupedSchoolsComponent', 'selector': 'app-grouped-schools'},{'name': 'HomenavbarComponent', 'selector': 'app-homenavbar'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LandingScreenComponent', 'selector': 'app-landing-screen'},{'name': 'LaterThingsComponent', 'selector': 'app-later-things'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'MailReportCardComponent', 'selector': 'app-mail-report-card'},{'name': 'MarkAttendanceComponent', 'selector': 'app-mark-attendance'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MedicalDetailsComponent', 'selector': 'app-medical-details'},{'name': 'NewAccountChartComponent', 'selector': 'app-new-account-chart'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewFeeComponent', 'selector': 'app-new-fee'},{'name': 'NewroleComponent', 'selector': 'app-newrole'},{'name': 'NewRoleRecordComponent', 'selector': 'app-new-role-record'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NewVendorsComponent', 'selector': 'app-new-vendors'},{'name': 'NextOfKinComponent', 'selector': 'app-next-of-kin'},{'name': 'NoRecordComponent', 'selector': 'app-no-record'},{'name': 'NotificationPageComponent', 'selector': 'app-notification-page'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ParentComponent', 'selector': 'app-parent'},{'name': 'ParentDetailsComponent', 'selector': 'app-parent-details'},{'name': 'ParentListComponent', 'selector': 'app-parent-list'},{'name': 'ParentLoginComponent', 'selector': 'app-parent-login'},{'name': 'ParentPortalComponent', 'selector': 'app-parent-portal'},{'name': 'PayrollAccountsComponent', 'selector': 'app-payroll-accounts'},{'name': 'PayrollSetttingsComponent', 'selector': 'app-payroll-setttings'},{'name': 'PeriodComponent', 'selector': 'app-period'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'PersonalSettingsComponent', 'selector': 'app-personal-settings'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileInformationComponent', 'selector': 'app-profile-information'},{'name': 'PromotionDashboardComponent', 'selector': 'app-promotion-dashboard'},{'name': 'PromotionSettingsComponent', 'selector': 'app-promotion-settings'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResultSettingsComponent', 'selector': 'app-result-settings'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'SchoolAdminComponent', 'selector': 'app-school-admin'},{'name': 'SchoolBranchManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolComponent', 'selector': 'app-school'},{'name': 'SchoolContactPersonComponent', 'selector': 'app-school-contact-person'},{'name': 'SchoolGradeBookComponent', 'selector': 'app-school-grade-book'},{'name': 'SchoolInformationComponent', 'selector': 'app-school-information'},{'name': 'SchoolLoginComponent', 'selector': 'app-school-login'},{'name': 'SchoolManagerBranchComponent', 'selector': 'app-school-manager-branch'},{'name': 'SchoolManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolManagerDashboardComponent', 'selector': 'app-school-manager-dashboard'},{'name': 'SchoolManagerSettingsComponent', 'selector': 'app-school-manager-settings'},{'name': 'SchoolMediaComponent', 'selector': 'app-school-media'},{'name': 'SchoolSettingsComponent', 'selector': 'app-school-settings'},{'name': 'ScoreSheetComponent', 'selector': 'app-score-sheet'},{'name': 'ScoreSheetDetailsPageComponent', 'selector': 'app-score-sheet-details-page'},{'name': 'SessionComponent', 'selector': 'app-session'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'StudentAttendanceComponent', 'selector': 'app-student-attendance'},{'name': 'StudentComponent', 'selector': 'app-student'},{'name': 'StudentDetailComponent', 'selector': 'app-student-detail'},{'name': 'StudentListComponent', 'selector': 'app-student-list'},{'name': 'StudentLoginComponent', 'selector': 'app-student-login'},{'name': 'StudentProfileComponent', 'selector': 'app-student-profile'},{'name': 'StudentReportComponent', 'selector': 'app-student-report'},{'name': 'StudentResultSheetComponent', 'selector': 'app-student-result-sheet'},{'name': 'StudentScoreSheetComponent', 'selector': 'app-student-score-sheet'},{'name': 'StudentSettingsComponent', 'selector': 'app-student-settings'},{'name': 'StudentSheetComponent', 'selector': 'app-student-sheet'},{'name': 'SubjecAttendanceComponent', 'selector': 'app-subjec-attendance'},{'name': 'SubscriptionInvoiceArreasComponent', 'selector': 'app-subscription-invoice-arreas'},{'name': 'SubscriptionInvoiceComponent', 'selector': 'app-subscription-invoice'},{'name': 'SubscriptionListsComponent', 'selector': 'app-subscription-lists'},{'name': 'SubscriptionPageComponent', 'selector': 'app-subscription-page'},{'name': 'TaskPreviewComponent', 'selector': 'app-task-preview'},{'name': 'TeacherComponent', 'selector': 'app-teacher'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'},{'name': 'TeachersComponent', 'selector': 'app-teachers'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'UnpaidSubscriptionsComponent', 'selector': 'app-unpaid-subscriptions'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VendorsComponent', 'selector': 'app-vendors'},{'name': 'ViewAssignmentComponent', 'selector': 'app-view-assignment'},{'name': 'ViewBillingComponent', 'selector': 'app-view-billing'},{'name': 'ViewFileComponent', 'selector': 'app-view-file'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportSheetComponent', 'selector': 'app-view-report-sheet'},{'name': 'VirtualClassComponent', 'selector': 'app-virtual-class'},{'name': 'VirtualClassroomComponent', 'selector': 'app-virtual-classroom'},{'name': 'VirtualSessionComponent', 'selector': 'app-virtual-session'},{'name': 'WithdrawalListComponent', 'selector': 'app-withdrawal-list'},{'name': 'WorkExperienceComponent', 'selector': 'app-work-experience'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'BankAccountsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BankAccountsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

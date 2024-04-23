@@ -1,0 +1,145 @@
+<div class="container-fluid mt-4">
+    <section class="banner mb-4 pb-3">
+        <div class="pt-5 pl-3 content">
+        <h6 class="banner__text-primary fw-6">Mail Report Card</h6>
+        <p class="">&nbsp;</p>
+        </div>
+        <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/teacher/assignment/new']">
+            Create </button> -->
+    </section>
+
+    <div class="d-flex mb-3 justify-content-between align-items-center">
+        <form class="d-flex align-items-center">
+        <div class="row">
+            <!-- <div class="col options">
+            <select name="" id="section" class="form-control" (change)="getSubjects($event.target.value)">
+                <option value="" selected>Select Class</option>
+                <option [value]="class.classId" *ngFor="let class of classList; let i = index">{{class.class}}</option>
+              </select>
+            </div> -->
+
+            <div class="col options">
+              <select name="" id="" class="form-control" (change)="selectedTerm($event.target.value)" >
+                <option value="">Term</option>
+                <option [value]= "t" *ngFor="let term of terms; let t = index"> {{term?.name}}</option>
+              </select>
+            </div>
+        </div>
+        </form>
+        <button class="btn btn-orange-two px-5 mb-4 mt-3" data-toggle="modal" data-target="#exampleModalCenterEndClass" [disabled]="boxChecked === false">
+        <svg
+            width="22"
+            height="18"
+            viewBox="0 0 22 18"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+            d="M20.8156 6.29076C19.8619 7.05628 18.6594 7.9919 14.4299 11.139C13.6006 11.7769 12.0664 13.1804 10.6151 13.1804C9.12236 13.1804 7.62961 11.7769 6.75884 11.139C2.52938 7.9919 1.32689 7.05628 0.373187 6.29076C0.207326 6.16318 0 6.29076 0 6.50341V15.1792C0 16.3275 0.87077 17.2206 1.99033 17.2206H19.2399C20.318 17.2206 21.2302 16.3275 21.2302 15.1792V6.50341C21.2302 6.29076 20.9814 6.16318 20.8156 6.29076ZM10.6151 11.7769C11.5688 11.8195 12.9372 10.5436 13.6421 10.0333C19.1569 5.95054 19.5716 5.56778 20.8156 4.5471C21.0643 4.37698 21.2302 4.07928 21.2302 3.73906V2.93101C21.2302 1.82527 20.318 0.889648 19.2399 0.889648H1.99033C0.87077 0.889648 0 1.82527 0 2.93101V3.73906C0 4.07928 0.124396 4.37698 0.373187 4.5471C1.61714 5.56778 2.0318 5.95054 7.54668 10.0333C8.25159 10.5436 9.61994 11.8195 10.6151 11.7769Z"
+            fill="white"
+            />
+        </svg>
+
+        <span class="ml-2">Mail</span>
+        </button>
+    </div>
+
+    <section class="list" *ngIf="displayData">
+        <table class="table table-borderless client-table">
+          <thead>
+            <tr>
+              <th scope="col " class="head">
+                <div class="custom-control custom-checkbox" (click)="selectAllBoxes($event)">
+                  <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                  <label class="custom-control-label" for="customCheckTh"></label>
+                </div>
+              </th>
+              <th scope="col">Student Name 
+                <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
+
+              </th>
+              <th scope="col">Student Number 
+                <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
+
+              </th>
+             
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="pb-2" *ngFor="let student of studentList; let i = index"  >
+              <td scope="row" class="school-logo rounded-left" id="customtable{{i}}">
+                <!-- <div class="custom-control custom-checkbox" > -->
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input boxes" id="customCheck{{i}}"
+                    [value]="student?.id" (change)="checked($event, i)" name="boxes" >
+                  <label class="custom-control-label" for="customCheck{{i}}"></label>
+                </div>
+              </td>
+              <td class="">
+                  <div class="d-flex align-items-center">
+                      <div>
+                        <img class=""  src="assets/images/svg/companyalt.svg" alt="schools log"
+                        class="mr-3 image-rounded" id="">
+                      </div>
+                      <div>
+                         {{student?.name}}
+                        
+                      </div>
+                  </div>
+                </td>
+              <td>{{student?.regNumber}}</td>
+              
+
+            </tr>
+            
+
+
+          </tbody>
+        </table>
+        <!-- <div class="d-flex justify-content-end">
+          <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+        </div> -->
+
+    </section>
+
+    <div class="bg-white py-5 px-4 d-flex justify-content-center align-items-center" *ngIf="noData">
+      <div class="d-flex flex-column text-center">
+        <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
+        <p class="fw-6 fs-24" style="color:#BAB9C1;">Select term to display <br> information</p>
+      </div>
+    </div>
+
+
+
+
+
+      
+<!-- =============================== end class for all Modal  ================================== -->
+
+<div class="modal fade modal2" id="exampleModalCenterEndClass" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered"  role="document">
+    <div class="modal-content">
+
+        <div class="modal-body  justify-content-center p-3">
+            <div class="d-flex justify-content-center my-5">
+                <img src="assets/images/svg/end-class-modal.svg" alt="" class="mr-3">
+            </div>
+            <div class="d-flex flex-column justify-content-center">
+                <!-- <p class="text-center mb-0 fw-6">25 Students</p> -->
+                <p class="text-center fw-6 email-text">You have marked <span class="text-danger">({{StudentIds?.length}})</span> student's to schedule mail to</p>
+            </div>
+            <div class="d-flex justify-content-center my-4">
+                <button class="class-btn btn-blue" type="button" (click)="postMaiToParent()">Submit</button>
+            </div>
+        </div>
+        <!-- <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  </div> -->
+    </div>
+</div>
+</div>
+
+<!-- =============================== Start class Modal  ================================== -->
+</div>

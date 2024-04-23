@@ -1,0 +1,364 @@
+<div class="container-fluid pl-4">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb" (click)="back()">
+      <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+      <li class="breadcrumb-item a1 " aria-current="page">
+        <a>Back</a>
+      </li>
+
+
+    </ol>
+
+
+  </nav>
+
+  <div class=" mt-5">
+
+    <div class="searchpills-bar">
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+
+        <!-- <li class="nav-item mr-5">
+          <a class="nav-link active" id="pills-basic-tab" data-toggle="pill" href="#pills-basic" role="tab"
+            aria-controls="pills-basic" aria-selected="false">Basic Information</a>
+        </li>
+        <li class="nav-item mr-5">
+          <a class="nav-link" id="pills-address-tab" data-toggle="pill" href="#pills-address" role="tab"
+            aria-controls="pills-address" aria-selected="false">Address </a>
+        </li> -->
+        <li class="nav-item mr-5">
+          <a class="nav-link active" id="pills-property-tab" data-toggle="pill" href="#pills-property" role="tab"
+            aria-controls="pills-property" aria-selected="false">School Property </a>
+        </li>
+        <!-- <li class="nav-item mr-5">
+          <a class="nav-link" id="pills-exam-tab" data-toggle="pill" href="#pills-exam" role="tab"
+            aria-controls="pills-exam" aria-selected="false">Exam Property </a>
+        </li> -->
+        <li class="nav-item mr-5">
+          <a class="nav-link" id="pills-session-tab" data-toggle="pill" href="#pills-session" role="tab"
+            aria-controls="pills-session" aria-selected="false">Session & Term </a>
+        </li>
+        <!-- <li class="nav-item mr-5">
+          <a class="nav-link" id="pills-sms-tab" data-toggle="pill" href="#pills-sms" role="tab"
+            aria-controls="pills-sms" aria-selected="false">SMS </a>
+        </li> -->
+
+
+      </ul>
+
+    </div>
+    <div class="tab-content bg-white" id="pills-tabContent">
+      <!-- <div class="tab-pane fade " id="pills-basic" role="tabpanel" aria-labelledby="pills-basic-tab">
+
+        
+
+
+      </div>
+
+      <div class="tab-pane fade  px-5 " id="pills-address" role="tabpanel" aria-labelledby="pills-address-tab">
+        xzxz
+      </div> -->
+      <div class="tab-pane fade show active  px-5 mh-100 " id="pills-property" role="tabpanel" aria-labelledby="pills-property-tab">
+        <form class="pt-5" [formGroup]="schoolPropertyForm" (ngSubmit)="createProperty()">
+
+
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-4 ">
+                    <label for="properties" class="fw-6 prefix"> ID Properties <span class="text-danger">*</span> </label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Prefix" id="properties" formControlName="prefix" >
+                  </div>
+                  <div class="col-md-8 ">
+                    <label for="domain" class="fw-6">&nbsp;</label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Seperator" id="domain" formControlName = "seperator" >
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="website" class="fw-6">Enrollment Amount </label>
+                <input type="url" class="form-control form-control-lg" placeholder="Enter amount" id="website" formControlName="EnrollmentAmount">
+              </div>
+            </div>
+            <div class="row mb-4">
+              
+              <div class="col-md-6 ">
+                <label for="number" class="fw-6"> Number of Terms <span class="text-danger">*</span></label>
+                <input type="number" class="form-control form-control-lg" placeholder="Enter number of terms"
+                  id="number" formControlName="numberOfTerms" >
+              </div> 
+              
+              <div class="col-md-6">
+                <label for="primary" class="fw-6">Class Days <span class="text-danger">*</span></label>
+                <select name="" id="" class="form-control" formControlName="ClassDays" >
+                  <option value="" selected> Select</option>
+                  <option [value]="1" selected> Weekdays only</option>
+                  <option [value]="2" selected> Weekend only</option>
+                  <option [value]="3" selected> Weekdays and Weekends only</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="row mb-4">
+
+             
+            </div>
+
+
+            <div class=" d-flex justify-content-center mt-5">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.invalid"> Save </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.valid"> Update </button> -->
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [disabled]="schoolPropertyForm.invalid"> {{schoolPropertyButton}} </button>
+
+            </div>
+        </form>
+        <!-- <form class="pt-5" [formGroup]="schoolPropertyForm" (ngSubmit)="createProperty()">
+
+
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-4 ">
+                    <label for="properties" class="fw-6 prefix"> ID Properties <span class="text-danger">*</span> </label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Prefix" id="properties" formControlName="prefix" readonly="schoolPropertyForm.valid">
+                  </div>
+                  <div class="col-md-8 ">
+                    <label for="domain" class="fw-6">&nbsp;</label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Seperator" id="domain" formControlName = "seperator" readonly="schoolPropertyForm.valid">
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="website" class="fw-6">Enrollment Amount </label>
+                <input type="url" class="form-control form-control-lg" placeholder="Enter amount" id="website" formControlName="EnrollmentAmount">
+              </div>
+            </div>
+            <div class="row mb-4">
+              
+              <div class="col-md-6 ">
+                <label for="number" class="fw-6"> Number of Terms <span class="text-danger">*</span></label>
+                <input type="number" class="form-control form-control-lg" placeholder="Enter number of terms"
+                  id="number" formControlName="numberOfTerms" readonly="schoolPropertyForm.valid">
+              </div> 
+              
+              <div class="col-md-6">
+                <label for="primary" class="fw-6">Class Days <span class="text-danger">*</span></label>
+                <select name="" id="" class="form-control" formControlName="ClassDays" >
+                  <option value="" selected> Select</option>
+                  <option [value]="1" selected> Weekdays only</option>
+                  <option [value]="2" selected> Weekend only</option>
+                  <option [value]="3" selected> Weekdays and Weekends only</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="row mb-4">
+
+             
+            </div>
+
+
+            <div class=" d-flex justify-content-center mt-5">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.invalid"> Save </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" *ngIf="schoolPropertyForm.valid"> Update </button>
+
+            </div>
+        </form> -->
+
+
+      </div>
+
+      <!-- <div class="tab-pane fade  px-5 mh-100 " id="pills-exam" role="tabpanel" aria-labelledby="pills-exam-tab"> -->
+        <!-- <form class="pt-5" >
+          <div class="basic-details">
+
+
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-4 ">
+                    <label for="properties" class="fw-6 prefix"> ID Properties <span class="text-danger">*</span> </label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Prefix" id="properties" formControlName="prefix">
+                  </div>
+                  <div class="col-md-8 ">
+                    <label for="domain" class="fw-6">&nbsp;</label>
+                    <input type="text" class="form-control form-control-lg" placeholder="Seperator" id="domain" formControlName = "seperator">
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="website" class="fw-6">Enrollment Amount </label>
+                <input type="url" class="form-control form-control-lg" placeholder="Enter amount" id="website" formControlName="enrollmentAmount">
+              </div>
+            </div>
+            <div class="row mb-4">
+              
+              <div class="col-md-6 ">
+                <label for="number" class="fw-6"> Number of Terms <span class="text-danger">*</span></label>
+                <input type="number" class="form-control form-control-lg" placeholder="Enter number of terms"
+                  id="number" formControlName="numberOfTerms">
+              </div> 
+              
+              <div class="col-md-6">
+                <label for="primary" class="fw-6">Class Days <span class="text-danger">*</span></label>
+                <select name="" id="" class="form-control" formControlName="classDays">
+                  <option value="" selected> Select</option>
+                  <option [value]="1" selected> Weekdays only</option>
+                  <option [value]="2" selected> Weekend only</option>
+                  <option [value]="3" selected> Weekdays and Weekends only</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="row mb-4">
+
+             
+            </div>
+
+
+            <div class=" d-flex justify-content-center mt-5">
+              <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Save </button>
+
+            </div>
+          </div>
+        </form> -->
+      <!-- </div> -->
+
+      <div class="tab-pane fade  px-5 mh-100 " id="pills-session" role="tabpanel" aria-labelledby="pills-session-tab">
+        
+
+        <section class="d-flex flex-column justify-content-center align-items-center py-5" *ngIf="sessionList?.length === 0">
+          <img src="assets/images/svg/add-student.svg" alt="new employee" class="">
+          <p class="text-center fw-6 pt-5">You currently don’t have any session and terms setup, <br> please click the
+            button below to add to this school.
+            below.</p>
+          <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+            data-target="#exampleModalCenterUpload">
+            Add New </button>
+
+        </section>
+
+        <div>
+            <div class="d-flex justify-content-between align-items-center">
+              <p class="fw-6">Session & term</p>
+              <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+              data-target="#exampleModalCenterUpload">
+              Add New </button>
+            </div>
+            
+            <div class="mt-4 w-75 table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Session</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col"> Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let session of sessionList; let i = index">
+                    <td > {{session?.name}} </td>
+                    <td > {{session?.terms[0].startDate | date : 'mediumDate'}} </td>
+                    <td > {{session?.terms[2].endDate | date : 'mediumDate'}} </td>
+                    <td> 
+                      <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+                      data-toggle="modal" data-target="#exampleModalCenterUpload"
+                          (click)="getTermDetails(i, session?.id)"> Edit Term</button>  
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+        </div>
+
+
+      </div>
+
+      <div class="tab-pane fade  px-5 " id="pills-sms" role="tabpanel" aria-labelledby="pills-sms-tab">
+        <p class="fw-6 d-flex justify-content-center align-items-center py-5 mh-100">Coming soon</p>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+</div>
+
+<!-- Arm Modal -->
+<div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">{{modalTitle}} </h6>
+            <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal"
+              aria-label="Close" class="close" id="mySessionModal">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="sessionForm" (ngSubmit)="createSession()">
+
+
+          <div class="form-group mb-3">
+            <label for="name" class="">Session<span class="text-danger">*</span></label>
+            <input type="text" id="name" class="form-control" placeholder="Enter session name" formControlName="sessionName">
+            <div class="custom-control custom-checkbox mt-1">
+              <input type="checkbox" class="custom-control-input" id="customCheckTh" formControlName="isCurrent" (change)="getCurrent($event.target.checked)">
+              <label class="custom-control-label" for="customCheckTh">Set as current</label>
+            </div>
+          </div>
+
+          <div formArrayName="terms" *ngFor ="let item of sessionForm.get('terms')['controls']; let i = index;">
+            <div [formGroupName]="i" >
+              <div class="form-group" >
+                <div>
+                  <label for="arm" class="">Term name<span class="text-danger">*</span></label>
+                  <input type="text" id="arm" class="form-control" placeholder="Enter term name" formControlName="name">
+                </div>
+                <div class="row search__input">
+                  <div class="col-sm-6 seperator mt-1 ">
+                    <input type="date" class="form-control" formControlName="startDate" (change)="validateStartDate($event.target.value)">
+                  </div>
+                  <span class="divider mt-4 ">&nbsp;</span>
+                  <div class="col-sm-6  mt-1">
+                    <input type="date" class="form-control" formControlName="endDate" (change)="validateEndDate($event.target.value)">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button *ngIf="hide" class="btn btn-orange-two mx-2  px-5 mb-4 mt-3" (click)='addTerm() ' > Add More </button>
+
+
+          <div class="d-flex justify-content-center mb-3 mt-5">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="sessionForm.invalid"> {{createTermButton}}</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of arm modal -->

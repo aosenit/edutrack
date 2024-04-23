@@ -1,0 +1,73 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb" (click)="back()">
+        <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+        <li class="breadcrumb-item a1 " aria-current="page" >
+            <a>Back</a>
+        </li>
+
+
+        <!-- <li class="breadcrumb-item a1 active ml-auto" aria-current="page">
+            <a><img src="assets/images/svg/new-user.svg" class="mr-1" alt="..." /> Users & Roles / Edit Role</a>
+        </li> -->
+    </ol>
+
+
+</nav>
+
+<div class="user mt-2" >
+
+    
+    <div class="user__permission">
+        <div class="user__intro mb-4">
+            <h6 class="fw-6">Add Role</h6>
+    
+        </div>
+    
+        <div class="user__select mb-3">
+            <form>
+                <label for="roleTitle">Role Title</label>
+                <input type="text" class="form-control" placeholder="Admin" [(ngModel)]="roleData.name" name="name">
+            </form>
+            <div>
+    
+            </div>
+        </div>
+        <table class="table table-borderless client-table">
+            <thead>
+                <tr>
+                    <th scope="col" class="head ">Permission
+                    </th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    <th scope="col"> </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pb-2" *ngFor = "let role of newList; let i = index">
+                    <td scope="row" class="user rounded-left">
+                        {{role[0]}}
+                    </td>
+                    <td class="" *ngFor="let permission of role[1]; let i = index">
+                        <div class="custom-control custom-checkbox" >
+                            <input type="checkbox" class="custom-control-input" id="customCheck{{permission.id}}" [value]="permission.id" (change)="getID($event.target.value)" >
+                            <label class="custom-control-label " for="customCheck{{permission.id}}">{{permission.name}}</label>
+                        </div>
+                    </td>
+                  
+
+
+
+
+
+            </tbody>
+        </table>
+
+        <div class="user__btn">
+            <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="createRoles()"
+                > Create </button>
+
+        </div>
+    </div>
+</div>

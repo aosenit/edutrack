@@ -1,0 +1,336 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+}
+
+#sidebar {
+    width: 280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: #014D94;
+    color: #EDF7F6;
+    z-index: 9;
+    overflow-x: auto;
+}
+
+#sidebar::-webkit-scrollbar {
+    width: 2px;
+    height: 5px;
+    background: transparent;
+}
+
+.sidebar {
+    width: 0 !important;
+    display: none;
+}
+
+#sidebar.active {
+    min-width: 80px;
+    max-width: 80px;
+    background: #014D94;
+    transition: width 1s ease-in-out !important;
+    text-align: center;
+}
+
+#content {
+    margin-left: +280px;
+    width: 100%;
+    transition: margin-left .3s !important;
+    background: #EBF0F5;
+    min-height: 100vh;
+}
+
+.content {
+    margin-left: 0 !important;
+    width: 100%;
+}
+
+#content header {
+    background: #FFFFFF;
+    box-shadow: 0px 1px 16px rgba(27, 39, 51, 0.08);
+}
+
+#content.active {
+    margin-left: +80px !important;
+    transition: margin-left .3s !important;
+}
+
+#sidebar ul {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#sidebar ul li a.nav-link {
+    font-family: Avenir;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    
+    letter-spacing: 0.01em;
+    
+    color: #011160;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    /* padding-left: 47px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: .3s ease-in-out;
+}
+#sidebar ul li a.nav-link.active {
+    
+    color: #ffffff;
+    background: #013F7A;
+    width: 100%;
+    transition: .3s ease-in-out;
+}
+
+
+
+
+#sidebar ul li ul#record-submenu, #sidebar ul li ul#setting-submenu,
+#sidebar ul li ul#academics-submenu, #sidebar ul li ul#human-submenu,
+#sidebar ul li ul#schedule-submenu, #sidebar ul li ul#finance-settings-submenu,
+#sidebar ul li ul#finance-submenu, #sidebar ul li ul#promotion-submenu,
+#sidebar ul li ul#alumni-submenu {
+    background: #013F7A;
+    width: 100%;
+    /* padding-left: 47px; */
+    transition: .3s ease-in-out;
+    border-radius: 0px 0px 10px 10px;
+
+}
+
+
+#sidebar ul li ul#record-submenu a, #sidebar ul li ul#setting-submenu a,
+#sidebar ul li ul#academics-submenu a, #sidebar ul li ul#human-submenu a,
+#sidebar ul li ul#schedule-submenu a, #sidebar ul li ul#finance-settings-submenu a,
+#sidebar ul li ul#finance-submenu a, #sidebar ul li ul#promotion-submenu a,
+#sidebar ul li ul#alumni-submenu a  {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    /* display: flex; */
+    align-items: center;
+    color: rgba(148, 179, 209, 0.4);
+    width: 100%;
+    /* padding-left: 47px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    transition: .3s ease-in-out;
+    text-decoration: none;
+}
+
+#sidebar ul li ul#record-submenu a.active, #sidebar ul li ul#setting-submenu a.active,
+#sidebar ul li ul#academics-submenu a.active, #sidebar ul li ul#human-submenu a.active,
+#sidebar ul li ul#schedule-submenu a.active, #sidebar ul li ul#finance-settings-submenu a.active,
+#sidebar ul li ul#finance-submenu a.active, #sidebar ul li ul#promotion-submenu a.active,
+#sidebar ul li ul#alumni-submenu a.active  {
+    
+    color: #ffffff;
+    
+}
+
+#sidebar ul li a.nav-link .ico {
+    margin-right: 20px;
+    width: 24px;
+}
+
+
+#sidebar ul li a.nav-link:hover {
+    background: #013F7A;
+    border-radius: 10px 10px 10px 10px;
+    color: #FFFFFF;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#sidebar ul li.active {
+    background: red;
+    border-radius: 10px 10px 10px 10px;
+    color: #FFFFFF;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#sidebar ul li a.nav-link.active {
+    background: #013F7A;
+    border-radius: 10px 10px 10px 10px;
+
+}
+
+#sidebar ul li a.nav-link svg path#Vector,
+#sidebar ul li a.nav-link svg g#icon {
+    fill: #fff;
+    /* opacity: .3; */
+    transition: .3s ease-in-out;
+}
+
+#sidebar ul li a.nav-link:hover svg path#Vector {
+    /* opacity: .7; */
+    fill: #ffffff;
+}
+
+svg path , svg g path {
+    fill: #ffffff;
+    fill-opacity: 1;
+}
+
+
+svg #icons , svg g #icons {
+    fill-opacity: inherit;
+    fill: hsl(354deg 70% 50%);;
+}
+
+.ellipse {
+    width: 11px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.main-head {
+    background: #FEFEFF;
+    align-items: center;
+}
+
+.hamburger {
+    padding-left: 1.5rem;
+}
+
+.lang {
+    padding-right: 4rem;
+
+}
+
+.notification {
+    position: relative;
+
+}
+
+.count {
+    position: absolute;
+    width: 19px;
+    height: 19px;
+    color: #ffffff;
+    border-radius: 3px;
+    top: 6px;
+    left: 24px;
+    border: 1.1px solid #fff;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    background: #FF6663;
+    border: 1px solid #FEFEFF;
+
+}
+
+.profile {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+
+}
+
+.profile::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: -25px;
+    height: 41px;
+    opacity: 0.4;
+    border-left: 1.5px solid #000000;
+}
+
+.profile-intials {
+    background: rgba(68, 123, 255, 0.11);
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    text-align: center;
+    color: #00529B;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 10px 15px; */
+    align-self: center;
+
+}
+
+.profile-intials p {
+    margin-bottom: 0;
+}
+
+.main {
+    width: 100%;
+}
+
+.row-sizing {
+    padding: 1.5rem 4rem 1rem 2rem;
+}
+
+
+.school-logo {
+    /* width: 100%; */
+    height: 65px;
+    /* width: fit-content; */
+
+}
+
+
+@media screen and (max-width: 600px) {
+   
+    .row-sizing {
+        padding: 1.5rem 2rem;
+    }
+
+    #sidebar {
+        display: none;
+
+    }
+
+    #content {
+        margin-left: 0px;
+       
+    }
+
+    #sidebar ul li a.nav-link {
+        font-family: Avenir;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        
+        letter-spacing: 0.01em;
+        
+        color: #011160;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+    
+        width: 10%;
+        /* padding-left: 47px; */
+        padding-top: 10px;
+        padding-bottom: 10px;
+        transition: .3s ease-in-out;
+    }
+}

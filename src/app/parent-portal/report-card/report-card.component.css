@@ -1,0 +1,166 @@
+.main .banner {
+    width: 100%;
+    background-image: url("../../../assets/images/svg/banner.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+mix-blend-mode: normal;
+border-radius: 5px;
+  }
+  
+  .banner .banner__text-primary {
+    color: #fb882c;
+    font-size: 32px;
+    font-family: Nunito;
+    font-weight: 200;
+  
+  }
+  .banner .banner__text-primary span {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 400;
+  }
+
+
+
+  .options select {
+    background: #FEFEFF;
+    border: 1px solid #D1D9DF;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 14px;
+line-height: 19px;
+/* identical to box height */
+
+
+color: #0A1128;
+}
+
+.options select {
+  background: #fafafa;
+  border: 1px solid #92b5dd;
+  font-size: 12px;
+}
+
+
+
+thead th {
+  background: #EBF0F5;
+border: 1px solid #B4CDE9;
+font-size: 14px;
+color: #355691;
+font-weight: 600;
+
+/* font-weight: 600; */
+}
+
+tbody  td {
+  background-color: #ffffff;
+  border: 1px solid #E0E0E0;
+  font-style: 14px;
+  /* font-weight: 400; */
+  font-family: Nunito;
+  /* text-align: center; */
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-40 {
+  width: 40%;
+}
+.w-60 {
+  width: 60%;
+}
+
+
+.student-id p:first-child  {
+  color: #355691;
+  font-size: 18px;
+  
+  
+}   
+.subject-info  {
+  color: #355691;
+  font-weight: 600;
+  
+}   
+
+.interpretation {
+  
+  font-weight: 600;
+  width: 100px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 17px 40px; */
+}
+.excellent {
+  background: #ebfffa;
+  color: #09b78a;
+}
+
+
+.fail {
+  background :#F1DFE2;
+  color: #D80027;
+ 
+}
+
+.very-good {
+background :#E5F4D3;
+  color: #7EC02E;
+}
+.good {
+background :#F1EFDF;
+  color: #C1AC00;
+}
+.fair {
+background :#D9CE98;
+  color: #665500;
+}
+
+.head-teacher::placeholder {
+  font-size: 16px;
+  line-height: 16px;
+  /* identical to box height, or 100% */
+  
+  
+  color: #D1D9DF;
+}
+
+.breaks {
+  border-bottom: 2px dotted black;
+}
+
+.report-title {
+  font-weight: 600;
+font-size: 28px;
+line-height: 20px;
+font-family: Nunito;
+display: flex;
+align-items: center;
+
+color: #000000;
+}
+
+.report-address p:first-child {
+  font-size: 19px;
+line-height: 20px;
+color: #000000;
+}
+
+.report-address p {
+  font-size: 14px;
+line-height: 19px;
+display: flex;
+align-items: center;
+
+color: #000000;
+}
+
+.signature,  .school-image {
+  max-height: 45px;
+  max-width: 70px;
+}

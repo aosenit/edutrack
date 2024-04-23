@@ -1,0 +1,73 @@
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+a {
+    color: #1b5bac;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #1b5bac;
+    content: ">";
+    font-size: 10px;
+    display: none;
+}
+
+
+form {
+    padding: 0 3rem;
+}
+
+
+
+.attach-file  {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: 110px 75px;
+    background-color: rgba(148, 177, 209, 0.31);
+    border: 2px dashed #ABC3DF;
+    border-radius: 5px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.attach-file label {
+    /* position: absolute;
+    top:110px;
+    right: 65px;
+    text-align: center; */
+    
+}
+
+.file-upload {
+    position: absolute;
+    /* left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%; */
+    cursor: pointer;
+    opacity: 0;
+}
+
+
+.imgPreview{
+    max-width: 250px;
+    max-height: 250px;
+    object-fit: cover;
+}

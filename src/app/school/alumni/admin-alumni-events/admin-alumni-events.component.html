@@ -1,0 +1,106 @@
+<section class="add-employee" *ngIf="eventLists?.length === 0" >
+    <img src="assets/images/svg/add-student.svg" alt="new employee" class="">
+    <p class="text-center fw-6 pt-5">It looks like you are yet to create any event. You can do <br> that by clicking any of the buttons below.
+        below.</p>
+        <!-- <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
+            data-target="#exampleModalCenterUpload">Bulk
+            Upload</button> -->
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/create-event">
+        Add New </button>
+</section>
+
+
+<div *ngIf="eventLists?.length !== 0">
+    <section class="banner mb-4 pb-3">
+        <div class="pt-5 pl-3 content ">
+            <h6 class="banner__text-primary fw-6 "> Events </h6>
+            <p class="text-white"> Create and Manage events for alumnis </p>
+        </div>
+        <div class="d-flex">
+            <!-- <button class="btn btn-outline-orange  mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+                data-target="#exampleModalCenterUpload">Bulk
+                Upload</button> -->
+            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/create-event" > Add New </button>
+        </div>
+    
+    </section>
+    
+    <section class="d-flex align-items-center justify-content-between mb-4 mt-5">
+        <div class="search__input has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
+        </div>
+        <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
+    
+    </section>
+    
+    
+    <section class="list table-responsive mb-4">
+        <table class="table table-borderless client-table">
+            <thead>
+                <tr>
+                    <th scope="col" >
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                            <label class="custom-control-label" for="customCheckTh"></label>
+                        </div>
+                    </th>
+                    <th scope="col" class="" >Event Name
+    
+                    </th>
+                    <th scope="col">Event Type </th>
+    
+                    <th scope="col">Start Date</th>
+    
+                    <th scope="col" class="w-25">Description
+    
+                    </th>
+                    <th scope="col">Status
+    
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pb-1" *ngFor="let event of eventLists" >
+                    <td scope="row" class=" rounded-left">
+                        <div class="custom-control custom-checkbox" >
+                            <input type="checkbox" class="custom-control-input" id="{{event.id}}">
+                            <label class="custom-control-label" for="{{event.id}}"></label>
+                        </div>
+                    </td>
+                    <td class="user" >
+    
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3  image-rounded">
+                            <h6 class="fw-6 mb-0"> {{event.name}}  </h6>
+                        </div>
+                    </td>
+                    <td> {{event.type ? event.type : 'N/A'}} </td>
+                    <td> {{event.startDate | date : 'MMM d, y'}}  </td>
+                    <td class=""> {{event.description | slice:0:25}} </td>
+    
+                    <td>
+                        <span class="status_active" *ngIf="event.status === true"> Ongoing </span>
+                        <span class="status_inctive" *ngIf="event.status === false">Completed</span>
+                    </td>
+                    <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
+                            alt="schools log" class="dropdown-toggle mt-3       " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#" [routerLink]="['/school', 'edit-event', event.id]">Edit</a>
+                                <!-- <a class="dropdown-item" (click)="editStudent(student.id)" >Edit</a> -->
+    
+                              </div>
+                        </td>
+                </tr>
+               
+    
+    
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-end">
+            <!-- <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls> -->
+          </div>
+    
+    </section>
+</div>

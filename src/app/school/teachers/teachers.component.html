@@ -1,0 +1,160 @@
+<section class="add-employee" *ngIf="teachersList?.length === 0" >
+    <img src="assets/images/svg/add-student.svg" alt="new employee" class="">
+    <p class="text-center fw-6 pt-5">It looks like you are yet to create a teacher. You can do <br> that by clicking any of the buttons below.
+        </p>
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+        data-target="#exampleModalCenterUpload"> Bulk Upload </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-employee']">
+        Add New </button>
+</section>
+
+
+<section class="banner mb-4 pb-3 " *ngIf="teachersList?.length !== 0" >
+    <div class="pt-5 pl-3 content ">
+        <h6 class="banner__text-primary fw-6 "> Teachers </h6>
+        <p class=""> Directory of all registered teachers </p>
+    </div>
+    
+    <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student"> Add New </button> -->
+    <div class="d-flex">
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+data-target="#exampleModalCenterUpload"> Bulk Upload </button>
+<button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-employee" (click)="clearData()"> Add New </button>
+</div>
+
+</section>
+<div *ngIf="teachersList?.length !== 0" >
+    
+    <section class="d-flex align-items-center justify-content-between mb-4 mt-5">
+        <div class="search__input has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
+        </div>
+        <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Bulk Actions </button> -->
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Delete All</a>
+            <!-- <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+    
+    </section>
+    
+    
+    
+    
+    <section class="list table-responsive mb-4">
+        <table class="table table-borderless client-table">
+            <thead>
+                <tr>
+                   
+                    <th scope="col" class="head" >Full Name 
+                        <!-- <img src="assets/images/svg/table-sort.svg"
+                            alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+                        <!-- ================ DROPDOWN ==================== -->
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            
+                            <a class="dropdown-item fc-orange" href="#">All </a>
+                            <a class="dropdown-item" href="#">A - Z </a>
+                            <a class="dropdown-item" href="#">Z - A </a>
+                        </div> -->
+                    </th>
+                    <th scope="col">Staff Number </th>
+                   
+                    <!-- <th scope="col">Designation 
+                    </th> -->
+                    
+    
+                    <th scope="col">Status 
+                        <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                            class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"> -->
+                        <!-- ================ DROPDOWN ==================== -->
+                        <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                            
+                            <a class="dropdown-item fc-orange" href="#">All </a>
+                            <a class="dropdown-item" href="#">Active </a>
+                            <a class="dropdown-item" href="#">Inactive </a>
+                        </div> -->
+                    </th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="pb-1" *ngFor = "let teacher of teachersList | tableSearch : 'firstName' : searchString">
+                    
+                    <td class="user check rounded-left" >
+                        
+                        <div class="d-flex align-items-center">
+                            <img src="assets/images/svg/dummy_user.png" alt="schools log" class="mr-3  image-rounded" >
+                            <h6 class="fw-6 mb-0" >{{teacher?.firstName + ' ' + teacher?.lastName | titlecase}} </h6>
+                        </div>
+                    </td>
+                    <td>{{teacher?.staffNumber}}</td>
+                    <!-- <td> N/A </td> -->
+                    
+                    <td><span class="status_active">Active</span></td>
+                    <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
+                            alt="schools log" class="dropdown-toggle cursor-pointer mt-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" routerLink ="/school/attach-teacher/{{teacher?.id}}">Assign</a>
+                                <a class="dropdown-item" (click)="editTeacher(teacher?.id)" >Edit</a>
+                                <a class="dropdown-item" (click)="deleteTeacher(teacher?.id)" >Delete</a>
+                              </div>
+                         </td>
+                </tr>
+    
+                
+    
+    
+    
+            </tbody>
+        </table>
+    
+    </section>
+</div>
+
+
+ <!-- Bulk uplaod Modal -->
+ <div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
+ aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+     <div class="modal-content">
+
+         <div class="modal-head ">
+             <div class="d-flex justify-content-between mb-3">
+                 <h6 class="modal-title mr-auto">Upload Files</h6>
+                 <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+
+             </div>
+             
+         </div>
+         <div class="modal-body client-modal">
+             <form [formGroup]="teacherBulkUpload" (ngSubmit)="createTeacherBulkUpload()">
+                 <div class="form-group file-upload mt-4 mb-3">
+                    <label for="fileupload" class="mt-3 fw-6" *ngIf="filename !== null">{{filename}}</label>
+                     <label for="fileupload" *ngIf="filename === null">Drag files to upload or click</label>
+                     <input type="file" class="file-input" id="fileupload"
+                           accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                           (change)="handleBulkUpload($event)">
+                     <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
+                     <p class="caption">You can import up to 5000 records through an .xls, .xlsx, .vcf, or .csv
+                         file. To import
+                         more than 5000 records at a time, use a .csv file.</p>
+                 </div>
+
+                 <p class="mb-5 download" (click)="downloadAdminSampleFile()"  >Click <span class="fc-lblue">here</span> to download sample file</p>
+
+                 <div class="modal-btn d-flex justify-content-end mb-5">
+                     <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
+                     <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Upload File </button>
+                 </div>
+
+             </form>
+         </div>
+
+     </div>
+ </div>
+</div>
+
+<!-- end of Bulk uplaod modal -->

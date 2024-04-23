@@ -1,0 +1,94 @@
+<!-- <section class="add-student" >
+    <img src="assets/images/svg/add-student.svg" alt="new student" class="">
+    <p class="text-center fw-6 pt-5">It looks like you are yet to create a student.You can do <br> that by clicking any of the buttons below.
+        below.</p>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" [routerLink]="['/school/add-student']" >
+        Add New </button>
+   
+</section> -->
+
+
+
+
+
+
+<div >
+    
+    <section class="banner mb-4 pb-3">
+        <div class="pt-5 pl-3 content ">
+            <h6 class="banner__text-primary fw-6 "> Promotion Dashboard </h6>
+            <p class="text-white"> View Analysis of promotions in your school </p>
+        </div>
+        <!-- <div class="d-flex">
+            <button class="btn btn-outline-orange  mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+                data-target="#exampleModalCenterUpload">Bulk
+                Upload</button>
+            <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student" > Add New </button>
+        </div> -->
+    
+    </section>
+    
+    
+    <div class="d-flex justify-content-between align-items-center bg-white p-3  mb-2">
+        <div>
+          <form>
+            <div class="row">
+              
+              <div class="col ">
+                <label for="class" class="fs-12 fw-6">Level</label>
+                <select name="" id="" class="form-control " (change)="getClassBySectionId($event.target.value )" >
+                  <option value="">Select level</option>
+                  <option [value]="level?.id" *ngFor="let level of levels; let u = index " >{{level?.name}}</option>
+    
+    
+                </select>
+              </div>
+              <div class="col ">
+                <label for="class" class="fs-12 fw-6">Class</label>
+                <select name="" id="" class="form-control " (change)="getPromotionHightlights( currentSesion, $event.target.value)">
+                  <option value="">Select class</option>
+                  <option [value]="class?.id" *ngFor="let class of classList; let u = index"> {{class.name}}{{class?.classGroup}}  </option>
+    
+                </select>
+              </div>
+              
+              <!-- <button class="btn btn-outline-orange">Search</button> -->
+            </div>
+          </form>
+        </div>
+    
+    
+      </div>
+    
+    
+    
+    <section class="charts">
+
+        <div class="my-3 bg-white px-3 py-3">
+            <p class="fw-6">Distribution of class mark</p>
+            <div class="col-md-12 mt-4" >
+              <canvas role="img" #distributionChart style="height: 300px; width: 100%; " >
+                {{ distributionChart }}
+              </canvas>
+            </div>
+          </div>
+
+        <div class="my-3 bg-white px-3 py-3">
+            <p class="fw-6">Standard Deviation of class mark</p>
+            <div class="col-md-12 mt-4" >
+              <canvas role="img" #deviationChart style="height: 300px; width: 100%;" >
+                {{ deviationChart }}
+              </canvas>
+            </div>
+          </div>
+        
+
+       
+
+    </section>
+</div>
+
+
+
+    
+

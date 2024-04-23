@@ -1,0 +1,939 @@
+<section class="banner mb-4 pb-3">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary fw-6 "> School Settings </h6>
+    <p class=""> Adjust school settings </p>
+  </div>
+  <div class="d-flex">
+    <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
+    <button  *ngIf="arm" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterArm"> Add New </button>
+
+      <button *ngIf="level" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterLevel"> Add New </button>
+
+      <button *ngIf="class" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterClass"> Add New </button>
+
+      <button *ngIf="subject" class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterSubject"> Add New </button>
+  </div>
+
+
+</section>
+
+<!-- <section class="banner mb-4 pb-3" *ngIf="level">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary fw-6 "> School Settings </h6>
+    <p class=""> Adjust school settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterLevel"> Add New </button>
+  </div>
+
+
+</section> -->
+
+<!-- <section class="banner mb-4 pb-3" *ngIf="class">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary fw-6 "> School Settings </h6>
+    <p class=""> Adjust school settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterClass"> Add New </button>
+  </div>
+
+
+</section>
+
+
+
+<section class="banner mb-4 pb-3" *ngIf="subject">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary fw-6 "> School Settings </h6>
+    <p class=""> Adjust school settings </p>
+  </div>
+  <div class="d-flex">
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
+      data-target="#exampleModalCenterSubject"> Add New </button>
+  </div>
+
+
+</section> -->
+
+<!-- <section class="banner mb-4 pb-3" *ngIf="mail">
+  <div class="pt-5 pl-3 text-content ">
+    <h6 class="banner__text-primary fw-6 "> School Settings </h6>
+    <p class=""> Adjust school settings </p>
+  </div>
+  <div class="d-flex">
+   
+  </div>
+
+
+</section> -->
+
+<div class="d-flex mt-5 mb-3">
+
+  <div class="searchpills-bar">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item mr-5" (click)="showStatus('arm')">
+        <a class="nav-link active" id="pills-arm-tab" data-toggle="pill" href="#pills-arm" role="tab" aria-controls="pills-arm"
+          aria-selected="false">Class Arm</a>
+      </li>
+      <li class="nav-item mr-5" (click)="showStatus('level')">
+        <a class="nav-link " id="pills-level-tab" data-toggle="pill" href="#pills-level" role="tab"
+          aria-controls="pills-level" aria-selected="true">Level</a>
+      </li>
+      <li class="nav-item mr-5" (click)="showStatus('class')">
+        <a class="nav-link" id="pills-class-tab" data-toggle="pill" href="#pills-class" role="tab"
+          aria-controls="pills-class" aria-selected="false">Class</a>
+      </li>
+      
+      <li class="nav-item mr-5" (click)="showStatus('subject')">
+        <a class="nav-link" id="pills-subject-tab" data-toggle="pill" href="#pills-subject" role="tab"
+          aria-controls="pills-subject" aria-selected="false">Subjects</a>
+      </li>
+      <!-- <li class="nav-item mr-5" (click)="showStatus('mail')">
+        <a class="nav-link" id="pills-mail-tab" data-toggle="pill" href="#pills-mail" role="tab"
+          aria-controls="pills-mail" aria-selected="false">Mail Settings</a>
+      </li> -->
+
+    </ul>
+
+  </div>
+
+  <!-- <div class="search__input has-search ml-auto">
+    <span class="fa fa-search form-control-feedback"></span>
+    <input type="text" class="form-control" placeholder="Search">
+  </div> -->
+</div>
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active " id="pills-arm" role="tabpanel" aria-labelledby="pills-arm-tab">
+    <div class="empty-state" *ngIf="classArms?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any Class Arm
+      </p>
+    </div>
+    <section class="list table-responsive  mb-4" *ngIf="classArms?.length > 0">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <!-- <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th> -->
+            <th scope="col" class="w-60">Class Arm  </th>
+            <th scope="col">Status  </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1" *ngFor="let arm of classArms">
+            <!-- <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td> -->
+            <td class="user">
+              <h6 class="fw-6 mb-0">{{arm.name}}</h6>
+            </td>
+            <td><span *ngIf="arm.status == true" class="status_active">Active</span>
+              <span *ngIf="arm.status == false" class="status_inactive">Inactive</span></td>
+            <td class="rounded-right ">
+              <!-- <img src="assets/images/svg/more-action.svg" alt="schools log" class="dropdown-toggle" type="button"
+                id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+              <!-- ================ DROPDOWN ==================== -->
+              <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalEditArm"
+                  (click)="getArmById(arm.id)">Edit Arm </a>
+                <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete Arm</a>
+              </div> -->
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+              data-toggle="modal" data-target="#exampleModalEditArm"
+                  (click)="getArmById(arm.id)"> Edit Arm</button>
+                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                (click)="deleteArm(arm.id)"> Delete Arm </button>
+            </td>
+          </tr>
+
+
+
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+  
+  <div class="tab-pane fade " id="pills-level" role="tabpanel" aria-labelledby="pills-level-tab">
+    <div class="empty-state" *ngIf="levels?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any Level
+      </p>
+    </div>
+    <section class="list table-responsive  mb-4" *ngIf="levels?.length > 0">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+          
+            <th scope="col" class="w-50">Level 
+              
+            </th>
+            <th scope="col">Sequence </th>
+
+            <th scope="col">Status 
+              <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
+                class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false"> -->
+              <!-- ================ DROPDOWN ==================== -->
+              <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                <a class="dropdown-item filter-title" href="#">FILTER BY: STATUS</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item fc-orange" href="#">All </a>
+                <a class="dropdown-item" href="#">Active </a>
+                <a class="dropdown-item" href="#">Inactive </a>
+              </div> -->
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+
+          <tr class="pb-1" *ngFor="let level of levels">
+           
+            <td class="user">
+              <h6 class="fw-6 mb-0">{{level.name}} </h6>
+            </td>
+            <td class="">1</td>
+            <td><span class="status_active">Active</span></td>
+            <td class="rounded-right ">
+              <div class="">
+                <!-- <img src="assets/images/svg/more-action.svg" class="dropdown-toggle" data-toggle="dropdown"
+                  alt="schools log">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterEditLevel"
+                    (click)="getSection(level.id)">Edit Level</a>
+                  <a class="dropdown-item" (click)="deleteSection(level.id)">Delete Level</a>
+
+                </div> -->
+                <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+                (click)="getSection(level.id)"
+                data-toggle="modal" data-target="#exampleModalCenterEditLevel"> Edit Level</button>
+                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                (click)="deleteSection(level.id)"> Delete Level </button>
+              </div>
+            </td>
+          </tr>
+
+
+
+        </tbody>
+      </table>
+
+    </section>
+  </div>
+
+  <!-- class table -->
+  <div class="tab-pane fade " id="pills-class" role="tabpanel" aria-labelledby="pills-class-tab">
+    <div class="empty-state" *ngIf="classes?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any class
+      </p>
+    </div>
+    <section class="list table-responsive  mb-4" *ngIf="classes?.length > 0">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <!-- <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th> -->
+            <th scope="col">Class  </th>
+            <th scope="col">Class Arm </th>
+            <th scope="col" class="">Section  </th>
+            <th scope="col">Sequence  </th>
+            <!-- <th scope="col" class="text-center">Arm <img src="assets/images/svg/table-sort.svg"> </th> -->
+
+            <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1" *ngFor="let class of classes | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: classCount }">
+            <!-- <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1"></label>
+              </div>
+            </td> -->
+            <td class="user">
+              <h6 class="fw-6 mb-0">{{class?.name}}</h6>
+            </td>
+            <td class="user">
+              <h6 class="fw-6 mb-0">{{class?.classGroup}}</h6>
+            </td>
+            <td class="">
+              <span *ngIf="class.classSection">{{class?.classSection}}</span>
+              <span *ngIf="class.classSection == null">NA</span>
+            </td>
+            <td class="">
+              <span *ngIf="class.classGroup">{{class?.sequence}}</span>
+              <span *ngIf="class.classGroup == null">NA</span>
+            </td>
+            <td>
+              <span class="status_active" *ngIf="class?.status == true">Active</span>
+              <span class="status_active" *ngIf="class?.status == false">Inactive</span>
+            </td>
+            <td class="rounded-right ">
+              <!-- <div class="dropdown show"> -->
+                <!-- <img src="assets/images/svg/more-action.svg" class="dropdown-toggle" data-toggle="dropdown"
+                  alt="schools log">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModalCenterEditClass"
+                    (click)="getClassById(class.id)">Edit Class</a>
+                  <a class="dropdown-item" (click)="deleteClass(class.id)">Delete Class</a>
+
+                </div> -->
+              <!-- </div> -->
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3"
+              data-toggle="modal" data-target="#exampleModalCenterAddMoreClassSubjectEdit" 
+              (click)="getSubjectForClassById(class.id)"
+                  > Link Subject</button>
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+              data-toggle="modal" data-target="#exampleModalCenterEditClass"
+              (click)="getClassById(class.id)"> Edit Class</button>
+                <!-- <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                disabled> Delete Class </button> -->
+                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                (click)="deleteClass(class.id)" > Delete Class </button>
+            </td>
+          </tr>
+
+
+
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-end">
+        <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+      </div>
+
+    </section>
+  </div>
+
+ 
+
+
+  <div class="tab-pane fade " id="pills-subject" role="tabpanel" aria-labelledby="pills-subject-tab">
+    <div class="empty-state" *ngIf="subjectList?.length == 0">
+      <p class="text-center fs-24 ff-a">
+        You have not added any Subject
+      </p>
+    </div>
+    <section class="list table-responsive  mb-4" *ngIf="subjectList?.length > 0">
+      <table class="table table-borderless client-table">
+        <thead>
+          <tr>
+            <th scope="col" class="head ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheckTh">
+                <label class="custom-control-label" for="customCheckTh"></label>
+              </div>
+            </th>
+            <th scope="col" class="w-50">Subject  </th>
+            <th scope="col">Status  </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="pb-1" *ngFor="let subject of subjectList | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: subjectCount }; let s = index">
+            <td scope="row" class="check rounded-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck{{s}}">
+                <label class="custom-control-label" for="customCheck{{s}}"></label>
+              </div>
+            </td>
+            <td class="user">
+              <h6 class="fw-6 mb-0">{{subject.name | titlecase}} </h6>
+            </td>
+            <td>
+              <span class="status_active" *ngIf="subject.isActive == true">Active</span>
+              <span class="status_active" *ngIf="subject.isActive == false">Inactive</span>
+            </td>
+            <td class="rounded-right ">
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3"
+              data-toggle="modal" data-target="#exampleModalCenterSubjectEdit" 
+              (click)="getSubjectById(s)"
+                  > Edit Subject</button>
+              
+                <button type="button" (click)="deleteSubject(subject.id)" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                > Delete Subject </button>
+            </td>
+          </tr>
+
+
+
+
+
+
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-end">
+        <pagination-controls (pageChange)="getSubjectPages(p = $event)" class="text-center"></pagination-controls>
+      </div>
+
+    </section>
+  </div>
+
+  <div class="tab-pane fade " id="pills-mail" role="tabpanel" aria-labelledby="pills-mail-tab">
+    <div class="mail pt-5  justify-content-center">
+
+      <form class="">
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="email" class="fw-6">Email <span class="text-danger">*</span></label>
+            <input type="email" class="form-control" placeholder="Enter email" id="email">
+          </div>
+          <div class="col-md-6 ">
+            <label for="smtp" class="fw-6">SMTP Client <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" placeholder="Enter SMTP Client" id="smtp">
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="password" class="fw-6">Password <span class="text-danger">*</span> </label>
+            <input type="password" class="form-control" placeholder="Enter password" id="password">
+          </div>
+
+        </div>
+
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <label for="sex" class="fw-6">Gender <span class="text-danger">*</span> </label>
+            <select name="" id="sex" class="form-control">
+              <option value="sex" selected>Gender</option>
+            </select>
+          </div>
+          <div class="col-md-6 ">
+            <label for="date" class="fw-6">Date of Birth</label>
+            <input type="date" class="form-control" placeholder="Dojah" id="maiden">
+          </div>
+        </div>
+
+
+        <div class="form-check mb-2 mr-sm-2">
+          <input class="form-check-input" type="checkbox" id="inlineFormCheck">
+          <label class="form-check-label" for="inlineFormCheck">
+            Do you want to edit?
+          </label>
+        </div>
+
+
+
+        <div class=" d-flex justify-content-center mt-5">
+          <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"> Save </button>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- level Modal -->
+<div class="modal fade" id="exampleModalCenterLevel" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterLevelTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Level</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close" id="closeCreateLevelModal">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="levelform" (ngSubmit)="createSection()">
+          <div class="form-group mb-4">
+            <label for="level" class="">Level</label>
+            <input type="text" id="level" class="form-control" placeholder="Enter level" formControlName="section">
+          </div>
+          <!-- <div class="form-group mb-5">
+            <label for="sequence" class="">Sequence</label>
+            <select name="" id="sequence" class="form-control">
+              <option value="">Select</option>
+            </select>
+          </div> -->
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch111" 
+                (change)="getStatus($event.target.checked)" formControlName="status">
+                <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === false">Inactive</label>
+                <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === true">Active</label>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="levelform.invalid" > Add
+              Level</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of level modal -->
+
+
+<!-- edit level Modal -->
+<div class="modal fade" id="exampleModalCenterEditLevel" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterEditLevelTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content" *ngIf="theLevel">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Edit Level</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close" id="editSectionModal">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <div class="form-group mb-4">
+          <label for="level" class="">Level</label>
+          <input type="text" id="level" class="form-control" [(ngModel)]="theLevel.name">
+        </div>
+        
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editSection()" [disabled]="theLevel.name == '' "> Update Level</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of edit level modal -->
+
+<!-- edit class Modal -->
+<div class="modal fade" id="exampleModalCenterEditClass" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterEditClassTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content" *ngIf="theClass">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Edit Class</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+          id="closeEditClassForm"  
+          class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="editClassForm" (ngSubmit)="editClass()">
+          <div class="form-group mb-4">
+            <label for="level" class="">Class Name</label>
+            <input type="text" id="level" class="form-control" formControlName="name">
+          </div>
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="editClassForm.invalid" > Update
+              Class</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of edit class modal -->
+
+<!-- Class Modal -->
+<div class="modal fade" id="exampleModalCenterClass" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterClassTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Class</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="addNewClassForm" (ngSubmit)="createNewClass()">
+
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Class <span class="text-danger">*</span> </label>
+            <input type="text" id="class" class="form-control" placeholder="Enter class" formControlName="name"
+              required>
+          </div>
+          <div class="form-group mb-4">
+            <label for="level" class="">Level <span class="text-danger">*</span></label>
+            <select name="" id="level" class="form-control" formControlName="sectionid" required>
+              <option value="" selected>Select</option>
+              <option *ngFor="let level of levels" [value]="level.id">{{level.name}}</option>
+            </select>
+          </div>
+          <div class="form-group mb-4">
+            <label for="arm" class="">Arm <span class="text-danger">*</span></label>
+            <!-- <select name="" id="level" class="form-control" [(ngModel)]="classArm" required>
+              <option *ngFor="let arm of classArms" value="{{arm.id}}">{{arm.name}}</option>
+            </select> -->
+            <!-- <div *ngFor="let arm of classArms">
+              <label for="b" class="class-label w-25">{{arm?.name}}</label>
+              <input type="checkbox" id="b" name="class" value="arm.name" formControlName="classArm" (change)="getClickedArm($event.target.value)" required>
+            </div> -->
+
+            <ng-multiselect-dropdown [placeholder]="'Select Arm '" [data]="dropdownList" formControlName="classArm"
+              [settings]="dropdownSettings" required>
+            </ng-multiselect-dropdown>
+          </div>
+          <div class="form-group mb-5">
+            <label for="sequence" class="">Sequence</label>
+            <select name="" id="sequence" class="form-control" formControlName="sequenceid">
+              <option value="" selected>Select</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+          <div class="form-group custom mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch2" formControlName="status" (change)="getStatus($event.target.checked)">
+              <label class="custom-control-label" for="customSwitch2" *ngIf="toggleState === false">Inactive</label>
+              <label class="custom-control-label" for="customSwitch2" *ngIf="toggleState === true">Active</label>
+            </div>
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="addNewClassForm.invalid"> Add Class</button>
+          </div>
+        </form>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+<!-- end of Class modal -->
+
+
+<!-- Arm Modal -->
+<div class="modal fade" id="exampleModalCenterArm" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterArmTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Class Arm</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close" id="myClassArmModal">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="classArmform" (ngSubmit)="createClassArm()">
+
+
+          <div class="form-group mb-5">
+            <label for="arm" class="">Class Arm <span class="text-danger">*</span></label>
+            <input type="text" id="arm" class="form-control" placeholder="Enter class arm" formControlName="Name">
+          </div>
+
+          <div class="form-group mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch3"
+                (change)="getStatus($event.target.checked)" formControlName="status">
+              <label class="custom-control-label" for="customSwitch3"
+                *ngIf="toggleState === false; then inactive; else active;"> {{toggleState}} </label>
+              <ng-template #active>
+                <label class="custom-control-label" for="customSwitch3">Active </label>
+              </ng-template>
+              <ng-template #inactive>
+                <label class="custom-control-label" for="customSwitch3"> Inactive </label>
+              </ng-template>
+            </div>
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="classArmform.invalid"> Add Class Arm</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of arm modal -->
+
+<!-- Arm Modal -->
+<div class="modal fade" id="exampleModalEditArm" tabindex="-1" role="dialog" aria-labelledby="exampleModalEditArmTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content" *ngIf="theArm">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Update Class Arm</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
+            class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <div class="form-group mb-5">
+          <label for="arm" class="">Class Arm <span class="text-danger">*</span></label>
+          <input type="text" id="arm" class="form-control" placeholder="Enter class arm" [(ngModel)]="theArm.name">
+        </div>
+
+        <div class="form-group mb-5">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitch3"
+              (change)="getStatus($event.target.checked)" [(ngModel)]="theArm.status">
+            <label class="custom-control-label" for="customSwitch3"
+              *ngIf="toggleState === false; then inactive; else active;"> {{toggleState}} </label>
+            <ng-template #active>
+              <label class="custom-control-label" for="customSwitch3">Active </label>
+            </ng-template>
+            <ng-template #inactive>
+              <label class="custom-control-label" for="customSwitch3"> Inactive </label>
+            </ng-template>
+          </div>
+        </div>
+
+
+        <div class="d-flex justify-content-center mb-3">
+          <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
+          </button>
+          <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="editArm(theArm.id)" data-dismiss="modal"> Update
+            Class Arm</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of arm modal -->
+
+<!-- Subject Modal -->
+<div class="modal fade" id="exampleModalCenterSubject" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Add New Subject</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="mySubjectModal" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="newsubjectForm" (ngSubmit)="createSubject()">
+
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Subject <span class="text-danger">*</span> </label>
+            <input type="text" id="class" class="form-control" placeholder="Enter subject" formControlName="Name">
+          </div>
+
+          <div class="form-group mb-4">
+            <div *ngFor="let level of levels">
+              <div class="w-100 bg-info py-2 mb-1 px-2 mb-3 d-flex justify-content-between">
+                <p class="mb-0">{{level.name}}</p>
+                <a href="#{{level?.name}}" class="ml-auto" data-toggle="collapse"
+                 role="button" aria-expanded="false" aria-controls="collapseExample">
+                  <img src="assets/images/svg/subject-drop.svg" height="18px" alt="" 
+                    (click)="getClassBySectionId(level.id)">
+                </a>
+              </div>
+              <div class="collapse mb-2" id="{{level?.name}}" >
+                <!-- <div formArrayName="ClassIds" *ngFor="let class of classBySectionList; let i = index;">
+                  <div [formGroupName]="i">
+                    <label for="a" class="class-label w-25"> {{class.name}}</label>
+                    <input type="checkbox" id="a" name="class" [value]="class.id" formControlName="classSectionIds" (change)="getState($event.target.value)" >
+                  </div>
+                  
+                </div> -->
+                <ng-multiselect-dropdown [placeholder]="'Select Subject'" [data]="classBySectionDropdownList" 
+                (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)"
+                (onDeSelect)="onItemDeSelect($event)"
+                
+                  formControlName="classSectionIds" [settings]="dropdownSettings2" required>
+                </ng-multiselect-dropdown>
+
+              </div>
+            </div>
+
+
+          </div>
+
+
+          <div class="form-group custom mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch4" formControlName="IsActive" (change)="getStatus($event.target.checked)">
+              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === false">Inactive</label>
+              <label class="custom-control-label" for="customSwitch4" *ngIf="toggleState === true">Active</label>
+            </div>
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="newsubjectForm.invalid"> Add Subject</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Subject modal -->
+
+
+
+
+<!-- edit Subject Modal -->
+<div class="modal fade" id="exampleModalCenterSubjectEdit" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterSubjectEditTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Edit Subject</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="editSubjectModalClose" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="editsubjectForm" (ngSubmit)="updateSubject()">
+
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Subject <span class="text-danger">*</span> </label>
+            <input type="text" id="class" class="form-control" placeholder="Update Subject" formControlName="name">
+          </div>
+
+        
+
+          <div class="form-group custom mb-5">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch4g" formControlName="IsActive" 
+              [value]="subjectStatus"
+              [checked]="subjectStatus === true"  (change)="toggleSubjectUpdate($event.target.checked)">
+              <label class="custom-control-label" for="customSwitch4g" *ngIf="subjectStatus === false ">Inactive</label>
+              <label class="custom-control-label" for="customSwitch4g" *ngIf="subjectStatus === true">Active</label>
+            </div>
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="editsubjectForm.invalid"> Update Subject</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Subject modal -->
+
+
+<!-- More Subject Modal -->
+<div class="modal fade" id="exampleModalCenterAddMoreClassSubjectEdit" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterSubjectTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-length" role="document">
+    <div class="modal-content">
+
+      <div class="modal-head mb-4">
+        <div class="d-flex justify-content-between align-items-center ">
+          <h6 class="modal-title fc-lblue">Link Subject to Class</h6>
+          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="moreSubjectModal" data-dismiss="modal"
+            aria-label="Close" class="close">
+
+        </div>
+
+      </div>
+      <div class="modal-body client-modal">
+        <form [formGroup]="newsubjectToClassForm" (ngSubmit)="createNewSubjectClass()">
+
+
+          <div class="form-group mb-4">
+            <label for="class" class="">Class <span class="text-danger">*</span> </label>
+            <input type="text" id="class" class="form-control" placeholder="Enter subject" formControlName="Name" readonly>
+          </div>
+
+          <div class="form-group mb-4">
+            <ng-multiselect-dropdown [placeholder]="'Select '" [data]="subjectsForClassDropDownList" 
+            (onSelect)="onItemSelectSubject($event)"
+              formControlName="subjectIds" [settings]="dropdownSettingsSubject" required>
+            </ng-multiselect-dropdown>
+          </div>
+
+
+          <div class="d-flex justify-content-center mb-3">
+            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "
+              data-dismiss="modal">Cancel
+            </button>
+            <button class="btn btn-orange-two px-5 mb-4 mt-3" [disabled]="newsubjectToClassForm.invalid"> Link Subject</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end of Subject modal -->
+

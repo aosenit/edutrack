@@ -1,0 +1,21 @@
+<div class="landing">
+    <div class="schools">
+        <h5 class="text-center">Select School</h5>
+        <div class="row mt-3 school-cards ">
+            <div class="col-md-4 school" *ngFor="let school of schoolList">
+                <div class="school-card br-5 d-flex bg-white cursor-pointer " (click)="getTenantId(school?.id)"  routerLink="/parent/parent-portal/dashboard">
+                    <div class="">
+                       <img class="" *ngIf="school.image" src="data:image/png;base64,{{school.image}}" alt="schools log"
+                       class="mr-3 school-image " id="">
+                     <img class="" *ngIf="school.image == null" src="assets/images/svg/companyalt.svg" alt="schools log"
+                       class="mr-3 school-image" id="">
+                    </div>
+                    <div class="ml-2 ">
+                        <p class="py-4">{{school?.name}}</p>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>

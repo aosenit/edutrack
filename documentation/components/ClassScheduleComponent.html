@@ -1,0 +1,860 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  ClassScheduleComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/student/class-schedule/class-schedule.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-class-schedule</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./class-schedule.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./class-schedule.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#daysInWeek" >daysInWeek</a>
+                            </li>
+                            <li>
+                                <a href="#periods" >periods</a>
+                            </li>
+                            <li>
+                                <a href="#timeTable" >timeTable</a>
+                            </li>
+                            <li>
+                                <a href="#timeTableCells" >timeTableCells</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#daysofWeek" >daysofWeek</a>
+                            </li>
+                            <li>
+                                <a href="#getAllPeriods" >getAllPeriods</a>
+                            </li>
+                            <li>
+                                <a href="#getTimeTableByClass" >getTimeTableByClass</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(timeTableService: <a href="../injectables/TimeTableService.html" target="_self">TimeTableService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/student/class-schedule/class-schedule.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>timeTableService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TimeTableService.html" target="_self" >TimeTableService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="daysofWeek"></a>
+                    <span class="name">
+                        <span ><b>daysofWeek</b></span>
+                        <a href="#daysofWeek"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>daysofWeek()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/student/class-schedule/class-schedule.component.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllPeriods"></a>
+                    <span class="name">
+                        <span ><b>getAllPeriods</b></span>
+                        <a href="#getAllPeriods"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllPeriods()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/student/class-schedule/class-schedule.component.ts:40</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTimeTableByClass"></a>
+                    <span class="name">
+                        <span ><b>getTimeTableByClass</b></span>
+                        <a href="#getTimeTableByClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTimeTableByClass()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/student/class-schedule/class-schedule.component.ts:49</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/student/class-schedule/class-schedule.component.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="daysInWeek"></a>
+                    <span class="name">
+                        <span ><b>daysInWeek</b></span>
+                        <a href="#daysInWeek"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/student/class-schedule/class-schedule.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="periods"></a>
+                    <span class="name">
+                        <span ><b>periods</b></span>
+                        <a href="#periods"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/student/class-schedule/class-schedule.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="timeTable"></a>
+                    <span class="name">
+                        <span ><b>timeTable</b></span>
+                        <a href="#timeTable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/student/class-schedule/class-schedule.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="timeTableCells"></a>
+                    <span class="name">
+                        <span ><b>timeTableCells</b></span>
+                        <a href="#timeTableCells"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/student/class-schedule/class-schedule.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { from, zip, of } from &#x27;rxjs&#x27;;
+import { groupBy, mergeMap, toArray } from &#x27;rxjs/operators&#x27;;
+import { TimeTableService } from &#x27;src/services/data/time-table/time-table.service&#x27;;
+
+
+@Component({
+  selector: &#x27;app-class-schedule&#x27;,
+  templateUrl: &#x27;./class-schedule.component.html&#x27;,
+  styleUrls: [&#x27;./class-schedule.component.css&#x27;]
+})
+export class ClassScheduleComponent implements OnInit {
+  timeTableCells: any;
+  timeTable: any;
+  daysInWeek: any;
+  periods: any;
+
+
+  constructor(
+    private timeTableService: TimeTableService
+  ) { }
+
+  ngOnInit() {
+    this.getTimeTableByClass();
+    this.daysofWeek();
+    this.getAllPeriods();
+  }
+
+  daysofWeek() {
+    this.daysInWeek &#x3D; [
+    { id: 0, day: &#x27;Monday&#x27; },
+    { id: 1, day: &#x27;Tuesday&#x27; },
+    { id: 2, day: &#x27;Wednesday&#x27; },
+    { id: 3, day: &#x27;Thursday&#x27; },
+    { id: 4, day: &#x27;Friday&#x27; },
+    ];
+    // (this.daysInWeek);
+  }
+
+  getAllPeriods() {
+    this.timeTableService.getPeriods().subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.periods &#x3D; data.payload;
+      }
+    });
+  }
+
+
+  getTimeTableByClass() {
+    // const classId &#x3D; 22;
+    this.timeTableService.getTimeTableForClass().subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false ) {
+        this.timeTableCells &#x3D; data.payload;
+        // (this.timeTableCells);
+        const tables &#x3D; [];
+
+        from(this.timeTableCells)
+         .pipe(
+           groupBy(
+             (result: any) &#x3D;&gt; result.periodName.split(&#x27;_&#x27;)[0]
+           ),
+           mergeMap(group &#x3D;&gt; zip(of(group.key), group.pipe(toArray())))
+         )
+         .subscribe(xy &#x3D;&gt; {
+           // (&#x27;Periods&#x27;, ...xy);
+           tables.push(xy);
+          });
+        this.timeTable &#x3D; tables;
+        // (&#x27;time table&#x27;, this.timeTable);
+      }
+    });
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-12 pt-5 pl-5 pr-5&quot;&gt;
+            &lt;div class&#x3D;&quot;d-flex  mb-3&quot;&gt;
+
+                  &lt;ul class&#x3D;&quot;nav nav-pills mb-3&quot; id&#x3D;&quot;pills-tab&quot; role&#x3D;&quot;tablist&quot;&gt;
+                    &lt;li class&#x3D;&quot;nav-item mr-3 &quot; &gt;
+                      &lt;a class&#x3D;&quot;nav-link active&quot; id&#x3D;&quot;pills-table-tab&quot; data-toggle&#x3D;&quot;pill&quot; href&#x3D;&quot;#pills-table&quot; role&#x3D;&quot;tab&quot;
+                        aria-controls&#x3D;&quot;pills-table&quot; aria-selected&#x3D;&quot;true&quot;&gt;Time Table&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class&#x3D;&quot;nav-item mr-3 &quot;&gt;
+                      &lt;a class&#x3D;&quot;nav-link&quot; id&#x3D;&quot;pills-calendar-tab&quot; data-toggle&#x3D;&quot;pill&quot; href&#x3D;&quot;#pills-calendar&quot; role&#x3D;&quot;tab&quot;
+                        aria-controls&#x3D;&quot;pills-calendar&quot; aria-selected&#x3D;&quot;false&quot;&gt;School Calendar&lt;/a&gt;
+                    &lt;/li&gt;
+                    
+                  &lt;/ul&gt;
+              
+              
+             
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;content-holder bg-white  mt-3 mb-3 br-10 py-5 px-4&quot;&gt;
+                &lt;div class&#x3D;&quot;tab-content&quot; id&#x3D;&quot;pills-tabContent&quot;&gt;
+                  &lt;div class&#x3D;&quot;tab-pane fade show active &quot; id&#x3D;&quot;pills-table&quot; role&#x3D;&quot;tabpanel&quot; aria-labelledby&#x3D;&quot;pills-table-tab&quot;&gt;
+                    &lt;!-- &lt;div class&#x3D;&quot;mt-5&quot;&gt;
+                      &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+                        &lt;div class&#x3D;&quot;row mb-2 text-center&quot;&gt;
+                          &lt;div class&#x3D;&quot;col-md-2&quot;&gt;
+            
+                          &lt;/div&gt;
+                          &lt;div class&#x3D;&quot;col-md-2&quot; *ngFor&#x3D;&quot;let day of days; let i &#x3D; index&quot;&gt;
+                            {{day?.day}} 
+                          &lt;/div&gt;
+            
+            
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;row &quot; *ngFor &#x3D; &quot;let period of timeTable; let i &#x3D; index&quot;&gt;
+                          &lt;div class&#x3D;&quot;col-md-2  d-flex justify-content-between align-items-center&quot;&gt;
+                            &lt;b&gt;{{period[0]}} &lt;/b&gt;
+                          &lt;/div&gt;
+                          &lt;div class&#x3D;&quot;col-md-2 border d-flex justify-content-center&quot; *ngFor&#x3D;&quot;let cell of period[1]; let i &#x3D; index&quot;&gt;
+                            &lt;p&gt; 
+                              {{cell.subjectName | titlecase}}
+                              {{cell.day }}
+                            &lt;/p&gt;
+                           
+                          &lt;/div&gt;
+            
+                        &lt;/div&gt;
+                       
+                      &lt;/div&gt;
+                    &lt;/div&gt; --&gt;
+
+                    &lt;div class&#x3D;&quot;mt-5&quot;&gt;
+                      &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+                        &lt;div class&#x3D;&quot;row mb-2 text-center&quot;&gt;
+                          &lt;div class&#x3D;&quot;col-md-2&quot;&gt;
+            
+                          &lt;/div&gt;
+                          &lt;div class&#x3D;&quot;col-md-2&quot; *ngFor &#x3D; &quot;let day of daysInWeek; let i &#x3D; index&quot;&gt;
+                            &lt;p class&#x3D;&quot;fw-6 fc-lblue&quot;&gt;
+                              {{day?.day}}
+                            &lt;/p&gt;
+                         &lt;/div&gt;
+            
+            
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;row &quot; *ngFor &#x3D; &quot;let period of periods; let i &#x3D; index&quot;&gt;
+                          &lt;div class&#x3D;&quot;col-md-2 cells cell-time d-flex justify-content-between align-items-center&quot;&gt;
+                            &lt;span class&#x3D;&quot;start&quot;&gt;  {{period?.timeFromS}} &lt;/span&gt;
+                            &lt;b class&#x3D;&quot;py-3&quot;&gt;{{period?.name}}&lt;/b&gt;
+                            &lt;span class&#x3D;&quot;end&quot;&gt;  {{period?.timeToS}} &lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;col-md-2 py-2 px-1 cells d-flex flex-column  justify-content-center&quot; *ngFor &#x3D; &quot;let day of daysInWeek; let i &#x3D; index&quot; &gt;
+                           
+                          &lt;div class&#x3D;&quot;d-flex flex-column bg-lblue  bg-lblue px-2  &quot; *ngFor &#x3D; &quot;let time of timeTableCells; let z &#x3D; index&quot;&gt; 
+                          
+                            &lt;p class&#x3D;&quot;mb-0 fw-4 pt-2&quot; *ngIf&#x3D;&quot; period?.name &#x3D;&#x3D;&#x3D; time.periodName &amp;&amp; day?.id &#x3D;&#x3D;&#x3D; time?.day&quot; &gt;  {{time?.subjectName | titlecase}} &lt;/p&gt; 
+                            &lt;div class&#x3D;&quot;d-flex justify-content-between &quot;&gt;
+                              &lt;p class&#x3D;&quot;mb-0 fw-4 pb-2&quot; *ngIf&#x3D;&quot; period?.name &#x3D;&#x3D;&#x3D; time.periodName &amp;&amp; day?.id &#x3D;&#x3D;&#x3D; time?.day&quot; &gt;  {{time?.className | titlecase}} &lt;/p&gt; 
+                              &lt;img src&#x3D;&quot;assets/images/svg/class-period3.svg&quot; style&#x3D;&quot;height: 15px;&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;ml-4&quot;
+                                  *ngIf&#x3D;&quot;period?.name &#x3D;&#x3D;&#x3D; time.periodName &amp;&amp; day?.id &#x3D;&#x3D;&#x3D; time?.day &amp;&amp; time?.hasVirtual &#x3D;&#x3D; true&quot;&gt;
+                                &lt;img src&#x3D;&quot;assets/images/svg/physical-class.svg&quot; style&#x3D;&quot;height: 15px;&quot; alt&#x3D;&quot;new client&quot; class&#x3D;&quot;ml-4&quot;
+                                  *ngIf&#x3D;&quot;period?.name &#x3D;&#x3D;&#x3D; time.periodName &amp;&amp; day?.id &#x3D;&#x3D;&#x3D; time?.day &amp;&amp; time?.hasVirtual &#x3D;&#x3D; false&quot;&gt;
+                            &lt;/div&gt;
+                          &lt;/div&gt;
+                          &lt;!-- &lt;div class&#x3D;&quot;d-flex align-items-center&quot;&gt;
+                            &lt;img src&#x3D;&quot;assets/images/svg/table-time.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                            &lt;p class&#x3D;&quot;mb-0&quot;&gt;{{period?.timeFromS}} - {{period?.timeToS}} &lt;/p&gt;
+                              
+                          &lt;/div&gt; --&gt;
+                          
+                      &lt;/div&gt;
+            
+                        &lt;/div&gt;
+                       
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    
+                   
+                  &lt;/div&gt;
+                  &lt;div class&#x3D;&quot;tab-pane fade&quot; id&#x3D;&quot;pills-calendar&quot; role&#x3D;&quot;tabpanel&quot; aria-labelledby&#x3D;&quot;pills-calendar-tab&quot;&gt;
+                    &lt;!-- &lt;full-calendar [options]&#x3D;&quot;calendarOptions&quot;&gt;&lt;/full-calendar&gt; --&gt;
+        
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+             
+        &lt;/div&gt;
+       
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./class-schedule.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">
+.nav-pills .nav-link.active,
+.nav-pills .show&gt;.nav-link {
+    color: #0052B4;
+    font-weight: 600;
+    background: #C5DEFC;
+border: 1px solid #0052B4;
+border-radius: 10px;
+    padding: 5px 12px;
+}
+
+.nav-pills .nav-link,
+.nav-pills .show&gt;.nav-link {
+    background: #0052B4;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 5px 12px;
+}
+
+.content-holder {
+    height: 100vh;
+}
+
+.cells {
+    border: 1px dashed #5A8BC5;
+}
+
+/* .cell-color {
+    background: #C5DEFC;
+} */
+
+.cell-time {
+    position: relative;
+}
+
+.start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #000000;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.end {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #000000;
+    font-weight: bold;
+    font-size: 12px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid">    <div class="row">        <div class="col-md-12 pt-5 pl-5 pr-5">            <div class="d-flex  mb-3">                  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">                    <li class="nav-item mr-3 " >                      <a class="nav-link active" id="pills-table-tab" data-toggle="pill" href="#pills-table" role="tab"                        aria-controls="pills-table" aria-selected="true">Time Table</a>                    </li>                    <li class="nav-item mr-3 ">                      <a class="nav-link" id="pills-calendar-tab" data-toggle="pill" href="#pills-calendar" role="tab"                        aria-controls="pills-calendar" aria-selected="false">School Calendar</a>                    </li>                                      </ul>                                                       </div>              <div class="content-holder bg-white  mt-3 mb-3 br-10 py-5 px-4">                <div class="tab-content" id="pills-tabContent">                  <div class="tab-pane fade show active " id="pills-table" role="tabpanel" aria-labelledby="pills-table-tab">                    <!-- <div class="mt-5">                      <div class="container-fluid">                        <div class="row mb-2 text-center">                          <div class="col-md-2">                                      </div>                          <div class="col-md-2" *ngFor="let day of days; let i = index">                            {{day?.day}}                           </div>                                                </div>                        <div class="row " *ngFor = "let period of timeTable; let i = index">                          <div class="col-md-2  d-flex justify-content-between align-items-center">                            <b>{{period[0]}} </b>                          </div>                          <div class="col-md-2 border d-flex justify-content-center" *ngFor="let cell of period[1]; let i = index">                            <p>                               {{cell.subjectName | titlecase}}                              {{cell.day }}                            </p>                                                     </div>                                    </div>                                             </div>                    </div> -->                    <div class="mt-5">                      <div class="container-fluid">                        <div class="row mb-2 text-center">                          <div class="col-md-2">                                      </div>                          <div class="col-md-2" *ngFor = "let day of daysInWeek; let i = index">                            <p class="fw-6 fc-lblue">                              {{day?.day}}                            </p>                         </div>                                                </div>                        <div class="row " *ngFor = "let period of periods; let i = index">                          <div class="col-md-2 cells cell-time d-flex justify-content-between align-items-center">                            <span class="start">  {{period?.timeFromS}} </span>                            <b class="py-3">{{period?.name}}</b>                            <span class="end">  {{period?.timeToS}} </span>                        </div>                        <div class="col-md-2 py-2 px-1 cells d-flex flex-column  justify-content-center" *ngFor = "let day of daysInWeek; let i = index" >                                                     <div class="d-flex flex-column bg-lblue  bg-lblue px-2  " *ngFor = "let time of timeTableCells; let z = index">                                                       <p class="mb-0 fw-4 pt-2" *ngIf=" period?.name === time.periodName && day?.id === time?.day" >  {{time?.subjectName | titlecase}} </p>                             <div class="d-flex justify-content-between ">                              <p class="mb-0 fw-4 pb-2" *ngIf=" period?.name === time.periodName && day?.id === time?.day" >  {{time?.className | titlecase}} </p>                               <img src="assets/images/svg/class-period3.svg" style="height: 15px;" alt="new client" class="ml-4"                                  *ngIf="period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual == true">                                <img src="assets/images/svg/physical-class.svg" style="height: 15px;" alt="new client" class="ml-4"                                  *ngIf="period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual == false">                            </div>                          </div>                          <!-- <div class="d-flex align-items-center">                            <img src="assets/images/svg/table-time.svg" alt="" class="mr-3">                            <p class="mb-0">{{period?.timeFromS}} - {{period?.timeToS}} </p>                                                        </div> -->                                                </div>                                    </div>                                             </div>                    </div>                                                         </div>                  <div class="tab-pane fade" id="pills-calendar" role="tabpanel" aria-labelledby="pills-calendar-tab">                    <!-- <full-calendar [options]="calendarOptions"></full-calendar> -->                          </div>                </div>              </div>                     </div>           </div></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AccountMappingComponent', 'selector': 'app-account-mapping'},{'name': 'AccountPanelComponent', 'selector': 'app-account-panel'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AdminAlumniCreateEventComponent', 'selector': 'app-admin-alumni-create-event'},{'name': 'AdminAlumniEventsComponent', 'selector': 'app-admin-alumni-events'},{'name': 'AdminAlumniListComponent', 'selector': 'app-admin-alumni-list'},{'name': 'AdminLoginComponent', 'selector': 'app-admin-login'},{'name': 'AlumniAlumniComponent', 'selector': 'app-alumni-alumni'},{'name': 'AlumniComponent', 'selector': 'app-alumni'},{'name': 'AlumniEventDetailComponent', 'selector': 'app-alumni-event-detail'},{'name': 'AlumniEventsComponent', 'selector': 'app-alumni-events'},{'name': 'AlumniHomeComponent', 'selector': 'app-alumni-home'},{'name': 'AlumniProfileComponent', 'selector': 'app-alumni-profile'},{'name': 'AlumniRecordsComponent', 'selector': 'app-alumni-records'},{'name': 'AlumniTranscriptComponent', 'selector': 'app-alumni-transcript'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentsComponent', 'selector': 'app-assignments'},{'name': 'AttachTeacherComponent', 'selector': 'app-attach-teacher'},{'name': 'AttendanceComponent', 'selector': 'app-attendance'},{'name': 'BankAccountsComponent', 'selector': 'app-bank-accounts'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BranchContactPersonComponent', 'selector': 'app-branch-contact-person'},{'name': 'BranchDetailComponent', 'selector': 'app-branch-detail'},{'name': 'BranchInformationComponent', 'selector': 'app-branch-information'},{'name': 'BranchLocationComponent', 'selector': 'app-branch-location'},{'name': 'BroadSheetComponent', 'selector': 'app-broad-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ChartOfAccountComponent', 'selector': 'app-chart-of-account'},{'name': 'ChildAssignmentComponent', 'selector': 'app-child-assignment'},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ClassAttendanceComponent', 'selector': 'app-class-attendance'},{'name': 'ClassPoolComponent', 'selector': 'app-class-pool'},{'name': 'ClassRepeatComponent', 'selector': 'app-class-repeat'},{'name': 'ClassScheduleComponent', 'selector': 'app-class-schedule'},{'name': 'ClientDetailComponent', 'selector': 'app-client-detail'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'ContactDetailComponent', 'selector': 'app-contact-detail'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactPersonComponent', 'selector': 'app-contact-person'},{'name': 'CreateAssignmentComponent', 'selector': 'app-create-assignment'},{'name': 'CreateBranchComponent', 'selector': 'app-create-branch'},{'name': 'CreateClientComponent', 'selector': 'app-create-client'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoComponent', 'selector': 'app-demo'},{'name': 'DiscountsComponent', 'selector': 'app-discounts'},{'name': 'EditUserComponent', 'selector': 'app-edit-user'},{'name': 'EducationComponent', 'selector': 'app-education'},{'name': 'EmailVerifiedComponent', 'selector': 'app-email-verified'},{'name': 'EmployeeComponent', 'selector': 'app-employee'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeListComponent', 'selector': 'app-employee-list'},{'name': 'FacilitySettingsComponent', 'selector': 'app-facility-settings'},{'name': 'FaqsComponent', 'selector': 'app-faqs'},{'name': 'FeeComponent', 'selector': 'app-fee'},{'name': 'FeeComponentComponent', 'selector': 'app-fee-component'},{'name': 'FeeTypeComponent', 'selector': 'app-fee-type'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FilesComponent', 'selector': 'app-files'},{'name': 'FileStorageComponent', 'selector': 'app-file-storage'},{'name': 'FinanceSettingsComponent', 'selector': 'app-finance-settings'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAdminComponent', 'selector': 'app-global-admin'},{'name': 'GradebookComponent', 'selector': 'app-gradebook'},{'name': 'GradingComponent', 'selector': 'app-grading'},{'name': 'GroupedSchoolsComponent', 'selector': 'app-grouped-schools'},{'name': 'HomenavbarComponent', 'selector': 'app-homenavbar'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LandingScreenComponent', 'selector': 'app-landing-screen'},{'name': 'LaterThingsComponent', 'selector': 'app-later-things'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'MailReportCardComponent', 'selector': 'app-mail-report-card'},{'name': 'MarkAttendanceComponent', 'selector': 'app-mark-attendance'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MedicalDetailsComponent', 'selector': 'app-medical-details'},{'name': 'NewAccountChartComponent', 'selector': 'app-new-account-chart'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewFeeComponent', 'selector': 'app-new-fee'},{'name': 'NewroleComponent', 'selector': 'app-newrole'},{'name': 'NewRoleRecordComponent', 'selector': 'app-new-role-record'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NewVendorsComponent', 'selector': 'app-new-vendors'},{'name': 'NextOfKinComponent', 'selector': 'app-next-of-kin'},{'name': 'NoRecordComponent', 'selector': 'app-no-record'},{'name': 'NotificationPageComponent', 'selector': 'app-notification-page'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ParentComponent', 'selector': 'app-parent'},{'name': 'ParentDetailsComponent', 'selector': 'app-parent-details'},{'name': 'ParentListComponent', 'selector': 'app-parent-list'},{'name': 'ParentLoginComponent', 'selector': 'app-parent-login'},{'name': 'ParentPortalComponent', 'selector': 'app-parent-portal'},{'name': 'PayrollAccountsComponent', 'selector': 'app-payroll-accounts'},{'name': 'PayrollSetttingsComponent', 'selector': 'app-payroll-setttings'},{'name': 'PeriodComponent', 'selector': 'app-period'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'PersonalSettingsComponent', 'selector': 'app-personal-settings'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileInformationComponent', 'selector': 'app-profile-information'},{'name': 'PromotionDashboardComponent', 'selector': 'app-promotion-dashboard'},{'name': 'PromotionSettingsComponent', 'selector': 'app-promotion-settings'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResultSettingsComponent', 'selector': 'app-result-settings'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'SchoolAdminComponent', 'selector': 'app-school-admin'},{'name': 'SchoolBranchManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolComponent', 'selector': 'app-school'},{'name': 'SchoolContactPersonComponent', 'selector': 'app-school-contact-person'},{'name': 'SchoolGradeBookComponent', 'selector': 'app-school-grade-book'},{'name': 'SchoolInformationComponent', 'selector': 'app-school-information'},{'name': 'SchoolLoginComponent', 'selector': 'app-school-login'},{'name': 'SchoolManagerBranchComponent', 'selector': 'app-school-manager-branch'},{'name': 'SchoolManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolManagerDashboardComponent', 'selector': 'app-school-manager-dashboard'},{'name': 'SchoolManagerSettingsComponent', 'selector': 'app-school-manager-settings'},{'name': 'SchoolMediaComponent', 'selector': 'app-school-media'},{'name': 'SchoolSettingsComponent', 'selector': 'app-school-settings'},{'name': 'ScoreSheetComponent', 'selector': 'app-score-sheet'},{'name': 'ScoreSheetDetailsPageComponent', 'selector': 'app-score-sheet-details-page'},{'name': 'SessionComponent', 'selector': 'app-session'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'StudentAttendanceComponent', 'selector': 'app-student-attendance'},{'name': 'StudentComponent', 'selector': 'app-student'},{'name': 'StudentDetailComponent', 'selector': 'app-student-detail'},{'name': 'StudentListComponent', 'selector': 'app-student-list'},{'name': 'StudentLoginComponent', 'selector': 'app-student-login'},{'name': 'StudentProfileComponent', 'selector': 'app-student-profile'},{'name': 'StudentReportComponent', 'selector': 'app-student-report'},{'name': 'StudentResultSheetComponent', 'selector': 'app-student-result-sheet'},{'name': 'StudentScoreSheetComponent', 'selector': 'app-student-score-sheet'},{'name': 'StudentSettingsComponent', 'selector': 'app-student-settings'},{'name': 'StudentSheetComponent', 'selector': 'app-student-sheet'},{'name': 'SubjecAttendanceComponent', 'selector': 'app-subjec-attendance'},{'name': 'SubscriptionInvoiceArreasComponent', 'selector': 'app-subscription-invoice-arreas'},{'name': 'SubscriptionInvoiceComponent', 'selector': 'app-subscription-invoice'},{'name': 'SubscriptionListsComponent', 'selector': 'app-subscription-lists'},{'name': 'SubscriptionPageComponent', 'selector': 'app-subscription-page'},{'name': 'TaskPreviewComponent', 'selector': 'app-task-preview'},{'name': 'TeacherComponent', 'selector': 'app-teacher'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'},{'name': 'TeachersComponent', 'selector': 'app-teachers'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'UnpaidSubscriptionsComponent', 'selector': 'app-unpaid-subscriptions'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VendorsComponent', 'selector': 'app-vendors'},{'name': 'ViewAssignmentComponent', 'selector': 'app-view-assignment'},{'name': 'ViewBillingComponent', 'selector': 'app-view-billing'},{'name': 'ViewFileComponent', 'selector': 'app-view-file'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportSheetComponent', 'selector': 'app-view-report-sheet'},{'name': 'VirtualClassComponent', 'selector': 'app-virtual-class'},{'name': 'VirtualClassroomComponent', 'selector': 'app-virtual-classroom'},{'name': 'VirtualSessionComponent', 'selector': 'app-virtual-session'},{'name': 'WithdrawalListComponent', 'selector': 'app-withdrawal-list'},{'name': 'WorkExperienceComponent', 'selector': 'app-work-experience'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ClassScheduleComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ClassScheduleComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

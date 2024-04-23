@@ -1,0 +1,152 @@
+.banner {
+    width: 100%;
+    background-image: url("../../../assets/images/svg/grade-banner.png");
+    background-color: #517762;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 1.5rem;
+    color: #ffffff;
+
+    background-blend-mode: multiply;
+    mix-blend-mode: multiply;
+    backdrop-filter: opacity(.4);
+}
+
+.banner__text-primary {
+    font-size: 36px;
+}
+
+select {
+    background: #FAFAFA;
+border: 1px solid #92B5DD;
+font-size: 14px;
+}
+
+
+
+thead th {
+    background: #EBF0F5;
+border: 1px solid #B4CDE9;
+font-size: 16px;
+color: #355691;
+font-weight: normal;
+text-orientation: sideways-right;
+height: 250px;
+
+/* font-weight: 600; */
+}
+
+.vertical-header span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: left;
+    max-height: 150px;
+    height: 200px;
+  }
+
+tbody  td {
+    background-color: #ffffff;
+    border: 1px solid #E0E0E0;
+    text-align: center;
+}
+
+
+
+.modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+
+}
+
+
+.modal-head {
+    padding: 20px 40px;
+    background: #EBF0F5;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
+
+.client-modal {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 20px;
+
+}
+
+form {
+    width: 100%;
+}
+
+
+
+input[type="text"] {
+    background: #FFFFFF;
+    /* Color/Neutral/4 - Grey 25% */
+    
+    border: 1px solid #ECEBED;
+    box-sizing: border-box;
+    /* Dropshadow 1 */
+    
+    box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
+    border-radius: 6px;
+}
+
+input::placeholder {
+    color: #D0C9D6;
+    font-size: 15px;
+}
+
+.close {
+    cursor: pointer;
+}
+
+h6 {
+    font-weight: bold;
+    font-weight: 600;
+}
+
+.class__grade {
+    background-color: #ffffff;
+    border-radius: 8px;
+}
+
+.class__grade--date {
+    color: #a4a5a8;
+    font-size: 13px;
+}
+
+.class__grade--status {
+    font-size: 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 35px;
+}
+
+.class__grade .pending {
+    background: #fff9e6;
+    color: #513f01;
+}
+
+.class__grade .approved {
+    background: #ebfffa;
+    color: #09b78a;
+}
+
+.class__grade .rejected {
+    color: #611013;
+    background: #fae0e1;
+}

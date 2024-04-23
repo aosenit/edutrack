@@ -1,0 +1,82 @@
+<div class="school-details">
+
+<form [formGroup]="socialDetailsForm" >
+    
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label for="entry" class="fw-6">Entry Type <span class="text-danger">*</span>
+                </label>
+                <select name="" id="entry" class="form-control form-control-lg" formControlName="EntryType">
+                    <option value="" selected>Select .....</option>
+                    <option value="new" >New</option>
+                    <option value="old" >Old</option>
+                </select>
+                <div *ngIf="socialDetailsForm.controls.EntryType.touched && socialDetailsForm.controls.EntryType.errors" class="error">
+                    <small *ngIf="socialDetailsForm.controls.EntryType.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
+            </div>
+            <div class="col-md-6 ">
+                <label for="date" class="fw-6">Admission Date <span
+                        class="text-danger">*</span></label>
+                <input type="date" class="form-control form-control-lg" placeholder="Dojah"
+                    id="maiden" formControlName="AdmissionDate">
+                    <div *ngIf="socialDetailsForm.controls.AdmissionDate.touched && socialDetailsForm.controls.AdmissionDate.errors" class="error">
+                        <small *ngIf="socialDetailsForm.controls.AdmissionDate.errors.required" class="text-danger">Field is required</small>
+                        <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                      </div>
+            </div>
+        </div>
+    
+    
+        <div class="row mb-4">
+            <div class="col-md-6 ">
+                <label for="date" class="fw-6">Level <span class="text-danger">*</span></label>
+                <select name="" id="level" class="form-control form-control-lg" formControlName="sectionId" (change)="getClassesUnderSection($event.target.value)" >
+                    <option value="" selected> Select Section</option>
+                    <option *ngFor="let section of sections" [value]="section.id">{{section.name}}</option>
+                </select>
+                <div *ngIf="socialDetailsForm.controls.sectionId.touched && socialDetailsForm.controls.sectionId.errors" class="error">
+                    <small *ngIf="socialDetailsForm.controls.sectionId.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
+            </div>
+    
+            <div class="col-md-6">
+                <label for="state" class="fw-6">Class <span class="text-danger">*</span>
+                </label>
+                <select name="" id="state" class="form-control form-control-lg" formControlName="classId">
+                    <option *ngFor="let class of classes" [value]="class.id">{{class.name}}{{class?.classGroup}}</option>
+                </select>
+                <div *ngIf="socialDetailsForm.controls.classId.touched && socialDetailsForm.controls.classId.errors" class="error">
+                    <small *ngIf="socialDetailsForm.controls.classId.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
+            </div>
+        </div>
+    
+        <div class="row mb-5">
+            <div class="col-md-6 ">
+                <label for="date" class="fw-6">Student Type <span
+                        class="text-danger">*</span></label>
+                <select name="" id="level" class="form-control form-control-lg" formControlName="studentType">
+                    <option value="" selected>Select .....</option>
+                    <option value="1" >Day Student</option>
+                    <option value="2" >Boarding Student</option>
+                </select>
+                <div *ngIf="socialDetailsForm.controls.studentType.touched && socialDetailsForm.controls.studentType.errors" class="error">
+                    <small *ngIf="socialDetailsForm.controls.studentType.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
+            </div>
+    
+    
+        </div>
+</form>
+
+    <div class=" d-flex justify-content-center">
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="prevStep()"> Back </button>
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' [disabled]="socialDetailsForm.invalid"> Next </button>
+
+    </div>
+</div>

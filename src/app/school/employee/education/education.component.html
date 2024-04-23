@@ -1,0 +1,97 @@
+<div class="basic-details mt-2">
+
+    <form [formGroup]="EmployeeEducationForm" >
+      <!-- <div class="form-row mb-5 ">
+        <div class=" ">
+          <label for="school" class="fw-6">School Name</label>
+          <input type="text" id="school" class="form-control form-control-lg" placeholder="Enter school name" formControlName="educationSchoolName">
+        </div>
+        <div class=" "> 
+          <label for="type" class="fw-6">Type </label>
+          <select name="" id="type" class="form-control form-control-lg" formControlName="educationSchoolQualification">
+              <option value="" selected> Select </option>
+              <option value="university">University</option>
+              <option value="polytechnic">Polytechnic</option>
+          </select>
+
+        </div>
+
+      </div>
+
+      <div class="form-row mb-5 ">
+        
+        <div class="  ">
+          <label for="email" class="fw-6">Start Date </label>
+          <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="startDate">
+
+
+         
+        </div>
+        <div class="  ">
+          <label for="email" class="fw-6">End Date </label>
+          <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="endDate">
+
+
+         
+        </div>
+
+        
+
+      </div> -->
+
+
+      <div formArrayName="EducationExperienceVMs" *ngFor ="let item of EmployeeEducationForm.get('EducationExperienceVMs')['controls']; let i = index;" >
+        <div [formGroupName]="i">
+          <div class="form-row mb-5 ">
+            <div class=" ">
+              <label for="school" class="fw-6">School Name</label>
+              <input type="text" id="school" class="form-control form-control-lg" placeholder="Enter school name" formControlName="educationSchoolName">
+            </div>
+            <div class=" "> 
+              <label for="type" class="fw-6">Type </label>
+              <select name="" id="type" class="form-control form-control-lg" formControlName="educationSchoolQualification">
+                  <option value="" selected> Select </option>
+                  <option value="university">University</option>
+                  <option value="polytechnic">Polytechnic</option>
+                  <option value="others">Others</option>
+              </select>
+    
+            </div>
+    
+          </div>
+    
+          <div class="form-row mb-5 ">
+            
+            <div class="  ">
+              <label for="email" class="fw-6">Start Date </label>
+              <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="startDate" (input)="getStartDate($event.target.value)">
+    
+    
+             
+            </div>
+            <div class="  ">
+              <label for="email" class="fw-6">End Date </label>
+              <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="endDate" [min]="minDate">
+    
+    
+             
+            </div>
+    
+            
+    
+          </div>
+        </div>
+
+      </div>
+      
+      <button class="btn btn-orange-two mx-2  px-5 mb-4 mt-3" (click)='addEducation() ' > Add More </button>
+
+    </form>
+
+
+    <div class=" d-flex justify-content-center mt-5 mb-5">
+      <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="prevStep()"> Back </button>
+      <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' [disabled]="EmployeeEducationForm.invalid" > Next </button>
+
+    </div>
+  </div>

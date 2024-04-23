@@ -1,0 +1,91 @@
+.top-bar {
+    background: #F3F3F3;
+    border-bottom: 2px solid rgba(24, 39, 75, 0.12);
+
+
+    /* box-shadow: 0px 6px 8px -6px rgba(24, 39, 75, 0.12), 0px 8px 16px -6px rgba(24, 39, 75, 0.08); */
+}
+
+.document-viewer {
+    background: #F3F3F3;
+
+}
+
+.document-viewer .document-pages {
+    background: #FFFFFF;
+    height: 100vh;
+}
+
+.actions {
+    background: #FFFFFF;
+    border-left: 1px solid #94B3D1;
+    height: 100vh;
+}
+
+.actions .comment:hover {
+    background: #fb882c;
+}
+
+.actions .comment,
+.download {
+    border-bottom: 1px solid #94B3D1;
+    cursor: pointer;
+}
+
+.notice-board, .regrade {
+    background: #0052B4;
+}
+
+.regrade {
+    color: #ffffff;
+}
+
+.notice-board .btn-orange-two {
+    background: #fb882c;
+    border-radius: 5px;
+    height: 44px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #ffffff;
+}
+
+.notice-board .assignment-info {
+    color: #FFFFFF;
+    font-family: nunito;
+}
+
+.assignment-info .date {
+    color: #E6E6E6;
+}
+
+
+.dropdown-menu.show {
+    display: block;
+
+    color: #000000;
+    font-family: nunito;
+    transform: translate3d(-350px, 36px, 0px) !important;
+    width: 350px;
+}
+
+.dropdown-menu.show .pop-left {
+    padding: 10px 24px;
+    border-radius: 2.5px;
+    color: #fff;
+    /* font-weight: 600; */
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.dropdown-menu.show .btn-blue {
+    background: #0052B4;
+
+}
+
+.dropdown-menu.show .btn-clear {
+    background: #C4C4C4;
+}

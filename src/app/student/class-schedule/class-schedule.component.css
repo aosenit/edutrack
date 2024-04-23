@@ -1,0 +1,52 @@
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #0052B4;
+    font-weight: 600;
+    background: #C5DEFC;
+border: 1px solid #0052B4;
+border-radius: 10px;
+    padding: 5px 12px;
+}
+
+.nav-pills .nav-link,
+.nav-pills .show>.nav-link {
+    background: #0052B4;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 5px 12px;
+}
+
+.content-holder {
+    height: 100vh;
+}
+
+.cells {
+    border: 1px dashed #5A8BC5;
+}
+
+/* .cell-color {
+    background: #C5DEFC;
+} */
+
+.cell-time {
+    position: relative;
+}
+
+.start {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #000000;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.end {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #000000;
+    font-weight: bold;
+    font-size: 12px;
+}

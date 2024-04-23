@@ -1,0 +1,2063 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  TimeTableComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/school/time-table/time-table.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-time-table</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./time-table.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./time-table.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addCell" >addCell</a>
+                            </li>
+                            <li>
+                                <a href="#checkPushlishStatus" >checkPushlishStatus</a>
+                            </li>
+                            <li>
+                                <a href="#classes" >classes</a>
+                            </li>
+                            <li>
+                                <a href="#days" >days</a>
+                            </li>
+                            <li>
+                                <a href="#hideImg" >hideImg</a>
+                            </li>
+                            <li>
+                                <a href="#mirrowTableCells" >mirrowTableCells</a>
+                            </li>
+                            <li>
+                                <a href="#periods" >periods</a>
+                            </li>
+                            <li>
+                                <a href="#sections" >sections</a>
+                            </li>
+                            <li>
+                                <a href="#selectedTeacher" >selectedTeacher</a>
+                            </li>
+                            <li>
+                                <a href="#subjectList" >subjectList</a>
+                            </li>
+                            <li>
+                                <a href="#tableCells" >tableCells</a>
+                            </li>
+                            <li>
+                                <a href="#teachersList" >teachersList</a>
+                            </li>
+                            <li>
+                                <a href="#timeTable" >timeTable</a>
+                            </li>
+                            <li>
+                                <a href="#timetable2" >timetable2</a>
+                            </li>
+                            <li>
+                                <a href="#timetableCellForm" >timetableCellForm</a>
+                            </li>
+                            <li>
+                                <a href="#timeTableCells" >timeTableCells</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addCellToTimeTable" >addCellToTimeTable</a>
+                            </li>
+                            <li>
+                                <a href="#checkVirtual" >checkVirtual</a>
+                            </li>
+                            <li>
+                                <a href="#createTimeTableCell" >createTimeTableCell</a>
+                            </li>
+                            <li>
+                                <a href="#daysofWeek" >daysofWeek</a>
+                            </li>
+                            <li>
+                                <a href="#getAllPeriods" >getAllPeriods</a>
+                            </li>
+                            <li>
+                                <a href="#getClassBySectionId" >getClassBySectionId</a>
+                            </li>
+                            <li>
+                                <a href="#getDay" >getDay</a>
+                            </li>
+                            <li>
+                                <a href="#getSchoolSection" >getSchoolSection</a>
+                            </li>
+                            <li>
+                                <a href="#getSubjectsByClassId" >getSubjectsByClassId</a>
+                            </li>
+                            <li>
+                                <a href="#getTeacherBySubjectId" >getTeacherBySubjectId</a>
+                            </li>
+                            <li>
+                                <a href="#initTimeTableCellForm" >initTimeTableCellForm</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#setTeacherData" >setTeacherData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(schoolSectionService: <a href="../injectables/SchoolSectionService.html" target="_self">SchoolSectionService</a>, classService: <a href="../injectables/ClassService.html" target="_self">ClassService</a>, timeTableService: <a href="../injectables/TimeTableService.html" target="_self">TimeTableService</a>, notifyService: <a href="../injectables/NotificationsService.html" target="_self">NotificationsService</a>, fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/school/time-table/time-table.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>schoolSectionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SchoolSectionService.html" target="_self" >SchoolSectionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>classService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ClassService.html" target="_self" >ClassService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>timeTableService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TimeTableService.html" target="_self" >TimeTableService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>notifyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/NotificationsService.html" target="_self" >NotificationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addCellToTimeTable"></a>
+                    <span class="name">
+                        <span ><b>addCellToTimeTable</b></span>
+                        <a href="#addCellToTimeTable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addCellToTimeTable()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:189</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkVirtual"></a>
+                    <span class="name">
+                        <span ><b>checkVirtual</b></span>
+                        <a href="#checkVirtual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkVirtual(event)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="181"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:181</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createTimeTableCell"></a>
+                    <span class="name">
+                        <span ><b>createTimeTableCell</b></span>
+                        <a href="#createTimeTableCell"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createTimeTableCell()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="214"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:214</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="daysofWeek"></a>
+                    <span class="name">
+                        <span ><b>daysofWeek</b></span>
+                        <a href="#daysofWeek"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>daysofWeek()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="162"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:162</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllPeriods"></a>
+                    <span class="name">
+                        <span ><b>getAllPeriods</b></span>
+                        <a href="#getAllPeriods"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllPeriods()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:152</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClassBySectionId"></a>
+                    <span class="name">
+                        <span ><b>getClassBySectionId</b></span>
+                        <a href="#getClassBySectionId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getClassBySectionId(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="73"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:73</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDay"></a>
+                    <span class="name">
+                        <span ><b>getDay</b></span>
+                        <a href="#getDay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDay(id, periodid, name)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:172</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>periodid</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>name</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSchoolSection"></a>
+                    <span class="name">
+                        <span ><b>getSchoolSection</b></span>
+                        <a href="#getSchoolSection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSchoolSection()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="65"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:65</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubjectsByClassId"></a>
+                    <span class="name">
+                        <span ><b>getSubjectsByClassId</b></span>
+                        <a href="#getSubjectsByClassId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSubjectsByClassId(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="94"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:94</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTeacherBySubjectId"></a>
+                    <span class="name">
+                        <span ><b>getTeacherBySubjectId</b></span>
+                        <a href="#getTeacherBySubjectId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTeacherBySubjectId(e)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="130"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:130</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>e</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initTimeTableCellForm"></a>
+                    <span class="name">
+                        <span ><b>initTimeTableCellForm</b></span>
+                        <a href="#initTimeTableCellForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initTimeTableCellForm()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setTeacherData"></a>
+                    <span class="name">
+                        <span ><b>setTeacherData</b></span>
+                        <a href="#setTeacherData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setTeacherData(e)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="146"
+                            class="link-to-prism">src/app/school/time-table/time-table.component.ts:146</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>e</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addCell"></a>
+                    <span class="name">
+                        <span ><b>addCell</b></span>
+                        <a href="#addCell"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ periodId: &#x27;&#x27;, day: &#x27;&#x27;, teacherClassSubjectId: &#x27;&#x27;, HasVirtual: false }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/school/time-table/time-table.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkPushlishStatus"></a>
+                    <span class="name">
+                        <span ><b>checkPushlishStatus</b></span>
+                        <a href="#checkPushlishStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/school/time-table/time-table.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="classes"></a>
+                    <span class="name">
+                        <span ><b>classes</b></span>
+                        <a href="#classes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/school/time-table/time-table.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="days"></a>
+                    <span class="name">
+                        <span ><b>days</b></span>
+                        <a href="#days"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/school/time-table/time-table.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hideImg"></a>
+                    <span class="name">
+                        <span ><b>hideImg</b></span>
+                        <a href="#hideImg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/school/time-table/time-table.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mirrowTableCells"></a>
+                    <span class="name">
+                        <span ><b>mirrowTableCells</b></span>
+                        <a href="#mirrowTableCells"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/school/time-table/time-table.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="periods"></a>
+                    <span class="name">
+                        <span ><b>periods</b></span>
+                        <a href="#periods"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/school/time-table/time-table.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sections"></a>
+                    <span class="name">
+                        <span ><b>sections</b></span>
+                        <a href="#sections"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/school/time-table/time-table.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedTeacher"></a>
+                    <span class="name">
+                        <span ><b>selectedTeacher</b></span>
+                        <a href="#selectedTeacher"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/school/time-table/time-table.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subjectList"></a>
+                    <span class="name">
+                        <span ><b>subjectList</b></span>
+                        <a href="#subjectList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/school/time-table/time-table.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tableCells"></a>
+                    <span class="name">
+                        <span ><b>tableCells</b></span>
+                        <a href="#tableCells"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/school/time-table/time-table.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="teachersList"></a>
+                    <span class="name">
+                        <span ><b>teachersList</b></span>
+                        <a href="#teachersList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/school/time-table/time-table.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="timeTable"></a>
+                    <span class="name">
+                        <span ><b>timeTable</b></span>
+                        <a href="#timeTable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/school/time-table/time-table.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="timetable2"></a>
+                    <span class="name">
+                        <span ><b>timetable2</b></span>
+                        <a href="#timetable2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/school/time-table/time-table.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="timetableCellForm"></a>
+                    <span class="name">
+                        <span ><b>timetableCellForm</b></span>
+                        <a href="#timetableCellForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/school/time-table/time-table.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="timeTableCells"></a>
+                    <span class="name">
+                        <span ><b>timeTableCells</b></span>
+                        <a href="#timeTableCells"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/school/time-table/time-table.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { getLocaleFirstDayOfWeek, JsonPipe } from &#x27;@angular/common&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { from, zip, of } from &#x27;rxjs&#x27;;
+import { groupBy, mergeMap, toArray } from &#x27;rxjs/operators&#x27;;
+import { NotificationsService } from &#x27;src/services/classes/notifications/notifications.service&#x27;;
+import { ClassService } from &#x27;src/services/data/class/class.service&#x27;;
+import { SchoolSectionService } from &#x27;src/services/data/school-section/school-section.service&#x27;;
+import { TimeTableService } from &#x27;src/services/data/time-table/time-table.service&#x27;;
+
+
+@Component({
+  selector: &#x27;app-time-table&#x27;,
+  templateUrl: &#x27;./time-table.component.html&#x27;,
+  styleUrls: [&#x27;./time-table.component.css&#x27;]
+})
+export class TimeTableComponent implements OnInit {
+  sections: any;
+  classes: any;
+  periods: any;
+  subjectList: any;
+  teachersList: any;
+  days: any;
+  timeTableCells: any;
+  timeTable: any;
+  timetable2: any;
+  addCell &#x3D; { periodId: &#x27;&#x27;, day: &#x27;&#x27;, teacherClassSubjectId: &#x27;&#x27;, HasVirtual: false };
+  hideImg &#x3D; false;
+  checkPushlishStatus: any;
+  tableCells &#x3D; [];
+  mirrowTableCells &#x3D; [];
+  selectedTeacher: any;
+  timetableCellForm: FormGroup;
+  constructor(
+    private schoolSectionService: SchoolSectionService,
+    private classService: ClassService,
+    private timeTableService: TimeTableService,
+    private notifyService: NotificationsService,
+    private fb: FormBuilder
+  ) { }
+
+  ngOnInit() {
+    this.getSchoolSection();
+    // this.getClasses();
+    this.getAllPeriods();
+    this.daysofWeek();
+    console.log(this.checkPushlishStatus);
+    this.initTimeTableCellForm();
+    // this.deleteTableCell();
+
+  }
+
+  initTimeTableCellForm() {
+    this.timetableCellForm &#x3D; this.fb.group({
+      periodId: [&#x27;&#x27;, Validators.required],
+      day: [&#x27;&#x27;, Validators.required],
+      teacherClassSubjectId: [&#x27;&#x27;, Validators.required],
+      subjectName: [&#x27;&#x27;],
+      teacherName: [&#x27;&#x27;],
+      periodName: [&#x27;&#x27;],
+      hasVirtual: false
+    });
+  }
+
+  getSchoolSection() {
+    this.schoolSectionService.getSection().subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.sections &#x3D; data.payload;
+      }
+    });
+  }
+
+  getClassBySectionId(id) {
+    // (id);
+    this.classService.getClassBySection(id).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.classes &#x3D; data.payload;
+
+      }
+    });
+
+  }
+
+
+  // getClasses() {
+  //   this.classService.getAllClasses().subscribe((data: any) &#x3D;&gt; {
+  //     if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+  //       this.classes &#x3D; data.payload;
+  //       // (this.classes);
+  //     }
+  //   });
+  // }
+
+  getSubjectsByClassId(id) {
+    // (id);
+    this.classService.getAllSubjectsInAClassByClassID(id).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.subjectList &#x3D; data.payload;
+
+      }
+    }
+    );
+
+    this.timeTableService.getTimeTableForClassWithQuery(id).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.timeTableCells &#x3D; data.payload;
+        // // (this.timeTableCells);
+        // const tables &#x3D; [];
+
+        // from(this.timeTableCells)
+        //   .pipe(
+        //     groupBy(
+        //       (result: any) &#x3D;&gt; result.periodName.split(&#x27;_&#x27;)[0]
+        //     ),
+        //     mergeMap(group &#x3D;&gt; zip(of(group.key), group.pipe(toArray())))
+        //   )
+        //   .subscribe(xy &#x3D;&gt; {
+        //     tables.push(xy);
+        //   });
+        // this.timeTable &#x3D; tables;
+        // // (&#x27;time table&#x27;, this.timeTable[0]);  teacherClassSubjectId
+
+      }
+    });
+  }
+
+
+
+
+  getTeacherBySubjectId(e) {
+
+    this.timetableCellForm.controls.subjectName.setValue(this.subjectList[e].subject);
+    const id &#x3D; this.subjectList[e].id;
+    // (id);
+    this.classService.getTeacherTeachingSubject(id).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        this.teachersList &#x3D; data.payload;
+        // (data);
+      }
+    }
+    );
+
+  }
+
+
+  setTeacherData(e) {
+    this.timetableCellForm.controls.teacherClassSubjectId.setValue(this.teachersList[e].id);
+    this.timetableCellForm.controls.teacherName.setValue(this.teachersList[e].teacher);
+
+  }
+
+  getAllPeriods() {
+    this.timeTableService.getPeriods().subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        sessionStorage.setItem(&#x27;periods&#x27;, JSON.stringify(data.payload));
+        this.periods &#x3D; data.payload;
+        // (this.periods);
+      }
+    });
+  }
+
+  daysofWeek() {
+    this.days &#x3D; [
+      { id: 0, day: &#x27;Monday&#x27; },
+      { id: 1, day: &#x27;Tuesday&#x27; },
+      { id: 2, day: &#x27;Wednesday&#x27; },
+      { id: 3, day: &#x27;Thursday&#x27; },
+      { id: 4, day: &#x27;Friday&#x27; },
+    ];
+  }
+
+  getDay(id, periodid, name) {
+
+    this.timetableCellForm.controls.periodId.setValue(periodid);
+    this.timetableCellForm.controls.day.setValue(id);
+    this.timetableCellForm.controls.periodName.setValue(name);
+    this.addCell.day &#x3D; id;
+    this.addCell.periodId &#x3D; periodid;
+    // this.hideImg &#x3D; true;
+  }
+  checkVirtual(event) {
+
+  }
+
+  // getTeacherDetails(e) {
+  //   this.selectedTeacher &#x3D; this.teachersList[e].id;
+  // }
+
+  addCellToTimeTable() {
+    
+    const { periodId, day, teacherClassSubjectId, hasVirtual } &#x3D; this.timetableCellForm.value;
+    const result &#x3D; {
+      periodId,
+      day,
+      teacherClassSubjectId: parseInt(teacherClassSubjectId),
+      HasVirtual: hasVirtual
+    };
+    this.tableCells.push(result);
+    console.log(this.tableCells)
+    this.timetableCellForm.controls.teacherClassSubjectId.setValue(&#x27;&#x27;);
+    this.timetableCellForm.controls.hasVirtual.setValue(false);
+    sessionStorage.setItem(&#x27;publish&#x27;, JSON.stringify(this.addCell));
+    sessionStorage.setItem(&#x27;saveTableCell&#x27;, JSON.stringify(this.timetableCellForm.value));
+    setTimeout(() &#x3D;&gt; {
+      this.checkPushlishStatus &#x3D; JSON.parse(sessionStorage.getItem(&#x27;publish&#x27;));
+
+      document.getElementById(&#x27;exampleModalCenterLevel&#x27;).click();
+    }, 1000);
+    const idontire &#x3D; JSON.parse(sessionStorage.getItem(&#x27;saveTableCell&#x27;))
+    this.timeTableCells.push(idontire);
+    // sessionStorage.removeItem(&#x27;publish&#x27;);
+  }
+
+  createTimeTableCell() {
+    // const { periodId, day, teacherClassSubjectId, HasVirtual } &#x3D; this.addCell;
+    // const TeacherClassSubjectId &#x3D; parseInt(teacherClassSubjectId);
+    // const PeriodId &#x3D; parseInt(periodId);
+    // const Day &#x3D; parseInt(day);
+    // const result &#x3D; {
+    //   PeriodId,
+    //   Day,
+    //   TeacherClassSubjectId,
+    //   HasVirtual,
+    //   // NoOfPeriod: 1
+    // };
+    this.timeTableService.AddTimeTableCellBulk(this.tableCells).subscribe((data: any) &#x3D;&gt; {
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        // (data);
+        sessionStorage.setItem(&#x27;table&#x27;, JSON.stringify(data.payload));
+        this.notifyService.publishMessages(&#x27;Upload successfull&#x27;, &#x27;success&#x27;, 1);
+        sessionStorage.removeItem(&#x27;publish&#x27;);
+        location.reload();
+
+        this.addCell &#x3D; { periodId: &#x27;&#x27;, day: &#x27;&#x27;, teacherClassSubjectId: &#x27;&#x27;, HasVirtual: false };
+
+
+      } else if (data.hasErrors &#x3D;&#x3D;&#x3D; true) {
+        this.notifyService.publishMessages(data.errors, &#x27;danger&#x27;, 1);
+      }
+    }, error &#x3D;&gt; {
+      this.notifyService.publishMessages(error.errors, &#x27;danger&#x27;, 1);
+
+    });
+  }
+
+  // deleteTableCell() {
+  //   this.timeTableService.deleteTimeTableCell().subscribe((data: any) &#x3D;&gt; {
+  //     // (data);
+  //   });
+  // }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;d-flex justify-content-between align-items-end mb-3&quot;&gt;
+    &lt;h6 class&#x3D;&quot;fs-24 fw-6&quot;&gt;Timetable &lt;/h6&gt;
+    
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center  mb-3&quot;&gt;
+    &lt;div&gt;
+        &lt;form &gt;
+            &lt;div class&#x3D;&quot;row&quot;&gt;
+                &lt;div class&#x3D;&quot;col &quot;&gt;
+                    &lt;label for&#x3D;&quot;level&quot; class&#x3D;&quot;fs-12 fw-6&quot;&gt;Level&lt;/label&gt;
+                    &lt;select name&#x3D;&quot;&quot; id&#x3D;&quot;&quot; class&#x3D;&quot;form-control form-control-lg&quot; (change)&#x3D;&quot;getClassBySectionId($event.target.value)&quot;&gt;
+                        &lt;option value&#x3D;&quot;&quot;&gt;Select Level&lt;/option&gt;
+
+                        &lt;option [value]&#x3D;&quot;section?.id&quot; *ngFor&#x3D;&quot;let section of sections&quot;&gt;{{section?.name}} &lt;/option&gt;
+                    &lt;/select&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col &quot;&gt;
+                    &lt;label for&#x3D;&quot;class&quot; class&#x3D;&quot;fs-12 fw-6&quot;&gt;Class&lt;/label&gt;
+                    &lt;select name&#x3D;&quot;&quot; id&#x3D;&quot;&quot; class&#x3D;&quot;form-control form-control-lg&quot; (change)&#x3D;&quot;getSubjectsByClassId($event.target.value)&quot;&gt;
+                        &lt;option value&#x3D;&quot;&quot;&gt;Select class&lt;/option&gt;
+                        &lt;option [value]&#x3D;&quot;class?.id&quot; *ngFor&#x3D;&quot;let class of classes&quot;&gt;{{class?.name}}{{class?.classGroup}} &lt;/option&gt;
+
+                    &lt;/select&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;button class&#x3D;&quot;btn btn-orange-two  px-5 &quot; (click)&#x3D;&quot;createTimeTableCell()&quot; [disabled]&#x3D;&quot;tableCells?.length &#x3D;&#x3D;&#x3D; 0&quot;&gt; Publish &lt;/button&gt;
+    
+    
+&lt;/div&gt;
+        &lt;div class&#x3D;&quot;my-5&quot;&gt;
+            &lt;div class&#x3D;&quot;row mb-2 text-center&quot; &gt;
+                &lt;div class&#x3D;&quot;col-md-2&quot;&gt;
+                    
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;col-md-2&quot; *ngFor &#x3D; &quot;let dayy of days; let d &#x3D; index&quot;&gt;
+                   &lt;p class&#x3D;&quot;fw-6 fc-lblue&quot;&gt;
+                     {{dayy?.day}}
+                   &lt;/p&gt;
+                &lt;/div&gt;
+                
+                
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+                &lt;div class&#x3D;&quot;row  &quot; *ngFor &#x3D; &quot;let period of periods; let p &#x3D; index&quot; &gt;
+                    &lt;div class&#x3D;&quot;col-md-2  d-flex justify-content-between align-items-center&quot;&gt;
+                        &lt;b&gt;{{period?.name}}&lt;/b&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;col-md-2 pb-2 border d-flex flex-column justify-content-center&quot; *ngFor &#x3D; &quot;let day of days; let i &#x3D; index&quot; &gt;
+                      &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                        &lt;img class&#x3D;&quot;my-5&quot; src&#x3D;&quot;assets/images/svg/time-table.svg&quot; alt&#x3D;&quot;time table button&quot; id&#x3D;&quot;addCellButton&quot; data-toggle&#x3D;&quot;modal&quot;
+                        data-target&#x3D;&quot;#exampleModalCenterLevel&quot; (click)&#x3D;&quot;getDay(day.id, period.id, period.name)&quot;   &gt; 
+                      &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;d-flex flex-column&quot; *ngFor &#x3D; &quot;let time of timeTableCells; let z &#x3D; index&quot;&gt; 
+                          &lt;p class&#x3D;&quot;mb-0 fw-6 fc-lblue&quot; *ngIf &#x3D; &quot;period?.name &#x3D;&#x3D;&#x3D; time.periodName &amp;&amp; day?.id &#x3D;&#x3D;&#x3D; time?.day&quot;&gt;  {{time?.subjectName | titlecase}} &lt;/p&gt;
+                          &lt;p *ngIf&#x3D;&quot; period?.name &#x3D;&#x3D;&#x3D; time.periodName &amp;&amp; day?.id &#x3D;&#x3D;&#x3D; time?.day &amp;&amp; time?.hasVirtual &#x3D;&#x3D;&#x3D; true&quot;&gt; Virtual Class &lt;/p&gt;
+                          &lt;p *ngIf&#x3D;&quot; period?.name &#x3D;&#x3D;&#x3D; time.periodName &amp;&amp; day?.id &#x3D;&#x3D;&#x3D; time?.day &amp;&amp; time?.hasVirtual &#x3D;&#x3D;&#x3D; false&quot;&gt; Physical Class &lt;/p&gt;
+                          &lt;p *ngIf&#x3D;&quot; period?.name &#x3D;&#x3D;&#x3D; time.periodName &amp;&amp; day?.id &#x3D;&#x3D;&#x3D; time?.day&quot; class&#x3D;&quot;fw-6&quot;&gt;  {{time?.teacherName | titlecase}} &lt;/p&gt;
+                          &lt;!-- &lt;img class&#x3D;&quot;my-5&quot; src&#x3D;&quot;assets/images/svg/time-table.svg&quot; alt&#x3D;&quot;time table button&quot; id&#x3D;&quot;addCellButton&quot; data-toggle&#x3D;&quot;modal&quot;
+                        data-target&#x3D;&quot;#exampleModalCenterLevel&quot; (click)&#x3D;&quot;getDay(day.id, period.id)&quot;  &gt;  --&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;d-flex align-items-center&quot;&gt;
+                          &lt;img src&#x3D;&quot;assets/images/svg/table-time.svg&quot; alt&#x3D;&quot;&quot; class&#x3D;&quot;mr-3&quot;&gt;
+                          &lt;p class&#x3D;&quot;mb-0&quot;&gt;{{period?.timeFromS}} - {{period?.timeToS}} &lt;/p&gt;
+                            
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;d-flex&quot;&gt;
+                           
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    
+                &lt;/div&gt;
+               
+            &lt;/div&gt;
+
+           
+        &lt;/div&gt;
+
+&lt;!-- time table Modal --&gt;
+&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;exampleModalCenterLevel&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot;
+  aria-labelledby&#x3D;&quot;exampleModalCenterLevelTitle&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+  &lt;div class&#x3D;&quot;modal-dialog modal-dialog-centered modal-length&quot; role&#x3D;&quot;document&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-content&quot;&gt;
+
+      &lt;div class&#x3D;&quot;modal-head mb-4&quot;&gt;
+        &lt;div class&#x3D;&quot;d-flex justify-content-between align-items-center &quot;&gt;
+          &lt;h6 class&#x3D;&quot;modal-title fc-lblue&quot;&gt;&lt;/h6&gt;
+          &lt;img src&#x3D;&quot;assets/images/svg/close-modal.svg&quot; alt&#x3D;&quot;modal close button&quot; id&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot;
+            aria-label&#x3D;&quot;Close&quot; class&#x3D;&quot;close&quot;&gt;
+
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;modal-body client-modal&quot;&gt;
+        &lt;form  [formGroup]&#x3D;&quot;timetableCellForm&quot;&gt;
+
+
+          
+         
+          &lt;div class&#x3D;&quot;form-group mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;level&quot; class&#x3D;&quot;&quot;&gt;Subject &lt;/label&gt;
+            &lt;select name&#x3D;&quot;&quot; id&#x3D;&quot;level&quot; class&#x3D;&quot;form-control&quot; (change)&#x3D;&quot;getTeacherBySubjectId($event.target.value)&quot;  required&gt;
+              &lt;option value&#x3D;&quot;&quot;&gt; Select&lt;/option&gt;
+              &lt;option [value]&#x3D;&quot;s&quot; *ngFor&#x3D;&quot;let subject of subjectList; let s &#x3D; index&quot;&gt;{{subject.subject}}&lt;/option&gt;
+
+            &lt;/select&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;form-group mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;level&quot; class&#x3D;&quot;&quot;&gt;Teacher &lt;/label&gt;
+            &lt;select name&#x3D;&quot;&quot; id&#x3D;&quot;level&quot; class&#x3D;&quot;form-control&quot; (change)&#x3D;&quot;setTeacherData($event.target.value)&quot;    required&gt;
+              &lt;option value&#x3D;&quot;&quot;&gt; Select&lt;/option&gt;
+              &lt;option [value]&#x3D;&quot;t&quot; *ngFor&#x3D;&quot;let teacher of teachersList; let t &#x3D; index&quot;&gt;{{teacher?.teacher}}&lt;/option&gt;
+
+            &lt;/select&gt;
+          &lt;/div&gt;
+          
+          &lt;div class&#x3D;&quot;custom-control custom-checkbox&quot; (change)&#x3D;&quot;checkVirtual($event.target.checked)&quot;&gt;
+            &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;customCheckTh&quot;  formControlName&#x3D;&quot;hasVirtual&quot; &gt;
+            &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customCheckTh&quot;&gt;Virtual Classroom&lt;/label&gt;
+          &lt;/div&gt;
+         
+          
+
+
+          &lt;div class&#x3D;&quot;d-flex justify-content-center mb-3&quot;&gt;
+            &lt;button type&#x3D;&quot;button &quot; class&#x3D;&quot;btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 &quot;
+              data-dismiss&#x3D;&quot;modal&quot;&gt;Cancel
+            &lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-orange-two px-5 mb-4 mt-3&quot; (click)&#x3D;&quot;addCellToTimeTable()&quot; [disabled]&#x3D;&quot;timetableCellForm.invalid &quot;&gt; Add Class&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+
+        &lt;!-- &lt;form &gt;
+
+
+          
+         
+          &lt;div class&#x3D;&quot;form-group mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;level&quot; class&#x3D;&quot;&quot;&gt;Subject &lt;/label&gt;
+            &lt;select name&#x3D;&quot;&quot; id&#x3D;&quot;level&quot; class&#x3D;&quot;form-control&quot; (change)&#x3D;&quot;getTeacherBySubjectId($event.target.value)&quot; required&gt;
+              &lt;option value&#x3D;&quot;&quot;&gt; Select&lt;/option&gt;
+              &lt;option [value]&#x3D;&quot;subject.id&quot; *ngFor&#x3D;&quot;let subject of subjectList&quot;&gt;{{subject.subject}}&lt;/option&gt;
+
+            &lt;/select&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;form-group mb-4&quot;&gt;
+            &lt;label for&#x3D;&quot;level&quot; class&#x3D;&quot;&quot;&gt;Teacher &lt;/label&gt;
+            &lt;select name&#x3D;&quot;&quot; id&#x3D;&quot;level&quot; class&#x3D;&quot;form-control&quot; (change)&#x3D;&quot;getTeacherDetails($event.target.value)&quot;  required&gt;
+              &lt;option value&#x3D;&quot;&quot;&gt; Select&lt;/option&gt;
+              &lt;option [value]&#x3D;&quot;t&quot; *ngFor&#x3D;&quot;let teacher of teachersList; let t &#x3D; index&quot;&gt;{{teacher?.teacher}}&lt;/option&gt;
+
+            &lt;/select&gt;
+          &lt;/div&gt;
+         
+          &lt;div class&#x3D;&quot;custom-control custom-checkbox&quot; (change)&#x3D;&quot;checkVirtual($event.target.checked)&quot;&gt;
+            &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;customCheckTh&quot;  [(ngModel)]&#x3D; &quot;addCell.HasVirtual&quot; name &#x3D; &quot;HasVirtual&quot;&gt;
+            &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customCheckTh&quot;&gt;Virtual Classroom&lt;/label&gt;
+          &lt;/div&gt;
+         
+          
+
+
+          &lt;div class&#x3D;&quot;d-flex justify-content-center mb-3&quot;&gt;
+            &lt;button type&#x3D;&quot;button &quot; class&#x3D;&quot;btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 &quot;
+              data-dismiss&#x3D;&quot;modal&quot;&gt;Cancel
+            &lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn btn-orange-two px-5 mb-4 mt-3&quot; (click)&#x3D;&quot;addCellToTimeTable()&quot; [disabled]&#x3D;&quot;addCell.teacherClassSubjectId &#x3D;&#x3D; &#x27;&#x27; &quot;&gt; Add Class&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt; --&gt;
+      &lt;/div&gt;
+
+
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- end of time table modal --&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./time-table.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">select {
+    background: #FAFAFA;
+border: 1px solid #92B5DD;
+font-size: 14px;
+}
+
+.modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+
+}
+
+
+.modal-head {
+    padding: 20px 40px;
+    background: #EBF0F5;
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+
+
+.client-modal {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0px 40px;
+
+}
+
+form {
+    width: 100%;
+}
+
+
+
+textarea {
+    height: 150px;
+}
+
+.close {
+    cursor: pointer;
+}
+
+h6 {
+    font-weight: bold;
+    font-weight: 600;
+}
+
+.hide-addImg{
+    display: none;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="d-flex justify-content-between align-items-end mb-3">    <h6 class="fs-24 fw-6">Timetable </h6>    </div><div class="d-flex justify-content-between align-items-center  mb-3">    <div>        <form >            <div class="row">                <div class="col ">                    <label for="level" class="fs-12 fw-6">Level</label>                    <select name="" id="" class="form-control form-control-lg" (change)="getClassBySectionId($event.target.value)">                        <option value="">Select Level</option>                        <option [value]="section?.id" *ngFor="let section of sections">{{section?.name}} </option>                    </select>                </div>                <div class="col ">                    <label for="class" class="fs-12 fw-6">Class</label>                    <select name="" id="" class="form-control form-control-lg" (change)="getSubjectsByClassId($event.target.value)">                        <option value="">Select class</option>                        <option [value]="class?.id" *ngFor="let class of classes">{{class?.name}}{{class?.classGroup}} </option>                    </select>                </div>            </div>        </form>      </div>    <button class="btn btn-orange-two  px-5 " (click)="createTimeTableCell()" [disabled]="tableCells?.length === 0"> Publish </button>        </div>        <div class="my-5">            <div class="row mb-2 text-center" >                <div class="col-md-2">                                    </div>                <div class="col-md-2" *ngFor = "let dayy of days; let d = index">                   <p class="fw-6 fc-lblue">                     {{dayy?.day}}                   </p>                </div>                                            </div>            <div class="container-fluid">                <div class="row  " *ngFor = "let period of periods; let p = index" >                    <div class="col-md-2  d-flex justify-content-between align-items-center">                        <b>{{period?.name}}</b>                    </div>                    <div class="col-md-2 pb-2 border d-flex flex-column justify-content-center" *ngFor = "let day of days; let i = index" >                      <div class="d-flex">                        <img class="my-5" src="assets/images/svg/time-table.svg" alt="time table button" id="addCellButton" data-toggle="modal"                        data-target="#exampleModalCenterLevel" (click)="getDay(day.id, period.id, period.name)"   >                       </div>                        <div class="d-flex flex-column" *ngFor = "let time of timeTableCells; let z = index">                           <p class="mb-0 fw-6 fc-lblue" *ngIf = "period?.name === time.periodName && day?.id === time?.day">  {{time?.subjectName | titlecase}} </p>                          <p *ngIf=" period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual === true"> Virtual Class </p>                          <p *ngIf=" period?.name === time.periodName && day?.id === time?.day && time?.hasVirtual === false"> Physical Class </p>                          <p *ngIf=" period?.name === time.periodName && day?.id === time?.day" class="fw-6">  {{time?.teacherName | titlecase}} </p>                          <!-- <img class="my-5" src="assets/images/svg/time-table.svg" alt="time table button" id="addCellButton" data-toggle="modal"                        data-target="#exampleModalCenterLevel" (click)="getDay(day.id, period.id)"  >  -->                        </div>                        <div class="d-flex align-items-center">                          <img src="assets/images/svg/table-time.svg" alt="" class="mr-3">                          <p class="mb-0">{{period?.timeFromS}} - {{period?.timeToS}} </p>                                                    </div>                        <div class="d-flex">                                                   </div>                    </div>                                    </div>                           </div>                   </div><!-- time table Modal --><div class="modal fade" id="exampleModalCenterLevel" tabindex="-1" role="dialog"  aria-labelledby="exampleModalCenterLevelTitle" aria-hidden="true">  <div class="modal-dialog modal-dialog-centered modal-length" role="document">    <div class="modal-content">      <div class="modal-head mb-4">        <div class="d-flex justify-content-between align-items-center ">          <h6 class="modal-title fc-lblue"></h6>          <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="close" data-dismiss="modal"            aria-label="Close" class="close">        </div>      </div>      <div class="modal-body client-modal">        <form  [formGroup]="timetableCellForm">                             <div class="form-group mb-4">            <label for="level" class="">Subject </label>            <select name="" id="level" class="form-control" (change)="getTeacherBySubjectId($event.target.value)"  required>              <option value=""> Select</option>              <option [value]="s" *ngFor="let subject of subjectList; let s = index">{{subject.subject}}</option>            </select>          </div>          <div class="form-group mb-4">            <label for="level" class="">Teacher </label>            <select name="" id="level" class="form-control" (change)="setTeacherData($event.target.value)"    required>              <option value=""> Select</option>              <option [value]="t" *ngFor="let teacher of teachersList; let t = index">{{teacher?.teacher}}</option>            </select>          </div>                    <div class="custom-control custom-checkbox" (change)="checkVirtual($event.target.checked)">            <input type="checkbox" class="custom-control-input" id="customCheckTh"  formControlName="hasVirtual" >            <label class="custom-control-label" for="customCheckTh">Virtual Classroom</label>          </div>                             <div class="d-flex justify-content-center mb-3">            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "              data-dismiss="modal">Cancel            </button>            <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="addCellToTimeTable()" [disabled]="timetableCellForm.invalid "> Add Class</button>          </div>        </form>        <!-- <form >                             <div class="form-group mb-4">            <label for="level" class="">Subject </label>            <select name="" id="level" class="form-control" (change)="getTeacherBySubjectId($event.target.value)" required>              <option value=""> Select</option>              <option [value]="subject.id" *ngFor="let subject of subjectList">{{subject.subject}}</option>            </select>          </div>          <div class="form-group mb-4">            <label for="level" class="">Teacher </label>            <select name="" id="level" class="form-control" (change)="getTeacherDetails($event.target.value)"  required>              <option value=""> Select</option>              <option [value]="t" *ngFor="let teacher of teachersList; let t = index">{{teacher?.teacher}}</option>            </select>          </div>                   <div class="custom-control custom-checkbox" (change)="checkVirtual($event.target.checked)">            <input type="checkbox" class="custom-control-input" id="customCheckTh"  [(ngModel)]= "addCell.HasVirtual" name = "HasVirtual">            <label class="custom-control-label" for="customCheckTh">Virtual Classroom</label>          </div>                             <div class="d-flex justify-content-center mb-3">            <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 "              data-dismiss="modal">Cancel            </button>            <button class="btn btn-orange-two px-5 mb-4 mt-3" (click)="addCellToTimeTable()" [disabled]="addCell.teacherClassSubjectId == \'\' "> Add Class</button>          </div>        </form> -->      </div>    </div>  </div></div><!-- end of time table modal --></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AccountMappingComponent', 'selector': 'app-account-mapping'},{'name': 'AccountPanelComponent', 'selector': 'app-account-panel'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AdminAlumniCreateEventComponent', 'selector': 'app-admin-alumni-create-event'},{'name': 'AdminAlumniEventsComponent', 'selector': 'app-admin-alumni-events'},{'name': 'AdminAlumniListComponent', 'selector': 'app-admin-alumni-list'},{'name': 'AdminLoginComponent', 'selector': 'app-admin-login'},{'name': 'AlumniAlumniComponent', 'selector': 'app-alumni-alumni'},{'name': 'AlumniComponent', 'selector': 'app-alumni'},{'name': 'AlumniEventDetailComponent', 'selector': 'app-alumni-event-detail'},{'name': 'AlumniEventsComponent', 'selector': 'app-alumni-events'},{'name': 'AlumniHomeComponent', 'selector': 'app-alumni-home'},{'name': 'AlumniProfileComponent', 'selector': 'app-alumni-profile'},{'name': 'AlumniRecordsComponent', 'selector': 'app-alumni-records'},{'name': 'AlumniTranscriptComponent', 'selector': 'app-alumni-transcript'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentsComponent', 'selector': 'app-assignments'},{'name': 'AttachTeacherComponent', 'selector': 'app-attach-teacher'},{'name': 'AttendanceComponent', 'selector': 'app-attendance'},{'name': 'BankAccountsComponent', 'selector': 'app-bank-accounts'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BranchContactPersonComponent', 'selector': 'app-branch-contact-person'},{'name': 'BranchDetailComponent', 'selector': 'app-branch-detail'},{'name': 'BranchInformationComponent', 'selector': 'app-branch-information'},{'name': 'BranchLocationComponent', 'selector': 'app-branch-location'},{'name': 'BroadSheetComponent', 'selector': 'app-broad-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ChartOfAccountComponent', 'selector': 'app-chart-of-account'},{'name': 'ChildAssignmentComponent', 'selector': 'app-child-assignment'},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ClassAttendanceComponent', 'selector': 'app-class-attendance'},{'name': 'ClassPoolComponent', 'selector': 'app-class-pool'},{'name': 'ClassRepeatComponent', 'selector': 'app-class-repeat'},{'name': 'ClassScheduleComponent', 'selector': 'app-class-schedule'},{'name': 'ClientDetailComponent', 'selector': 'app-client-detail'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'ContactDetailComponent', 'selector': 'app-contact-detail'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactPersonComponent', 'selector': 'app-contact-person'},{'name': 'CreateAssignmentComponent', 'selector': 'app-create-assignment'},{'name': 'CreateBranchComponent', 'selector': 'app-create-branch'},{'name': 'CreateClientComponent', 'selector': 'app-create-client'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoComponent', 'selector': 'app-demo'},{'name': 'DiscountsComponent', 'selector': 'app-discounts'},{'name': 'EditUserComponent', 'selector': 'app-edit-user'},{'name': 'EducationComponent', 'selector': 'app-education'},{'name': 'EmailVerifiedComponent', 'selector': 'app-email-verified'},{'name': 'EmployeeComponent', 'selector': 'app-employee'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeListComponent', 'selector': 'app-employee-list'},{'name': 'FacilitySettingsComponent', 'selector': 'app-facility-settings'},{'name': 'FaqsComponent', 'selector': 'app-faqs'},{'name': 'FeeComponent', 'selector': 'app-fee'},{'name': 'FeeComponentComponent', 'selector': 'app-fee-component'},{'name': 'FeeTypeComponent', 'selector': 'app-fee-type'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FilesComponent', 'selector': 'app-files'},{'name': 'FileStorageComponent', 'selector': 'app-file-storage'},{'name': 'FinanceSettingsComponent', 'selector': 'app-finance-settings'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAdminComponent', 'selector': 'app-global-admin'},{'name': 'GradebookComponent', 'selector': 'app-gradebook'},{'name': 'GradingComponent', 'selector': 'app-grading'},{'name': 'GroupedSchoolsComponent', 'selector': 'app-grouped-schools'},{'name': 'HomenavbarComponent', 'selector': 'app-homenavbar'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LandingScreenComponent', 'selector': 'app-landing-screen'},{'name': 'LaterThingsComponent', 'selector': 'app-later-things'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'MailReportCardComponent', 'selector': 'app-mail-report-card'},{'name': 'MarkAttendanceComponent', 'selector': 'app-mark-attendance'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MedicalDetailsComponent', 'selector': 'app-medical-details'},{'name': 'NewAccountChartComponent', 'selector': 'app-new-account-chart'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewFeeComponent', 'selector': 'app-new-fee'},{'name': 'NewroleComponent', 'selector': 'app-newrole'},{'name': 'NewRoleRecordComponent', 'selector': 'app-new-role-record'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NewVendorsComponent', 'selector': 'app-new-vendors'},{'name': 'NextOfKinComponent', 'selector': 'app-next-of-kin'},{'name': 'NoRecordComponent', 'selector': 'app-no-record'},{'name': 'NotificationPageComponent', 'selector': 'app-notification-page'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ParentComponent', 'selector': 'app-parent'},{'name': 'ParentDetailsComponent', 'selector': 'app-parent-details'},{'name': 'ParentListComponent', 'selector': 'app-parent-list'},{'name': 'ParentLoginComponent', 'selector': 'app-parent-login'},{'name': 'ParentPortalComponent', 'selector': 'app-parent-portal'},{'name': 'PayrollAccountsComponent', 'selector': 'app-payroll-accounts'},{'name': 'PayrollSetttingsComponent', 'selector': 'app-payroll-setttings'},{'name': 'PeriodComponent', 'selector': 'app-period'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'PersonalSettingsComponent', 'selector': 'app-personal-settings'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileInformationComponent', 'selector': 'app-profile-information'},{'name': 'PromotionDashboardComponent', 'selector': 'app-promotion-dashboard'},{'name': 'PromotionSettingsComponent', 'selector': 'app-promotion-settings'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResultSettingsComponent', 'selector': 'app-result-settings'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'SchoolAdminComponent', 'selector': 'app-school-admin'},{'name': 'SchoolBranchManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolComponent', 'selector': 'app-school'},{'name': 'SchoolContactPersonComponent', 'selector': 'app-school-contact-person'},{'name': 'SchoolGradeBookComponent', 'selector': 'app-school-grade-book'},{'name': 'SchoolInformationComponent', 'selector': 'app-school-information'},{'name': 'SchoolLoginComponent', 'selector': 'app-school-login'},{'name': 'SchoolManagerBranchComponent', 'selector': 'app-school-manager-branch'},{'name': 'SchoolManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolManagerDashboardComponent', 'selector': 'app-school-manager-dashboard'},{'name': 'SchoolManagerSettingsComponent', 'selector': 'app-school-manager-settings'},{'name': 'SchoolMediaComponent', 'selector': 'app-school-media'},{'name': 'SchoolSettingsComponent', 'selector': 'app-school-settings'},{'name': 'ScoreSheetComponent', 'selector': 'app-score-sheet'},{'name': 'ScoreSheetDetailsPageComponent', 'selector': 'app-score-sheet-details-page'},{'name': 'SessionComponent', 'selector': 'app-session'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'StudentAttendanceComponent', 'selector': 'app-student-attendance'},{'name': 'StudentComponent', 'selector': 'app-student'},{'name': 'StudentDetailComponent', 'selector': 'app-student-detail'},{'name': 'StudentListComponent', 'selector': 'app-student-list'},{'name': 'StudentLoginComponent', 'selector': 'app-student-login'},{'name': 'StudentProfileComponent', 'selector': 'app-student-profile'},{'name': 'StudentReportComponent', 'selector': 'app-student-report'},{'name': 'StudentResultSheetComponent', 'selector': 'app-student-result-sheet'},{'name': 'StudentScoreSheetComponent', 'selector': 'app-student-score-sheet'},{'name': 'StudentSettingsComponent', 'selector': 'app-student-settings'},{'name': 'StudentSheetComponent', 'selector': 'app-student-sheet'},{'name': 'SubjecAttendanceComponent', 'selector': 'app-subjec-attendance'},{'name': 'SubscriptionInvoiceArreasComponent', 'selector': 'app-subscription-invoice-arreas'},{'name': 'SubscriptionInvoiceComponent', 'selector': 'app-subscription-invoice'},{'name': 'SubscriptionListsComponent', 'selector': 'app-subscription-lists'},{'name': 'SubscriptionPageComponent', 'selector': 'app-subscription-page'},{'name': 'TaskPreviewComponent', 'selector': 'app-task-preview'},{'name': 'TeacherComponent', 'selector': 'app-teacher'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'},{'name': 'TeachersComponent', 'selector': 'app-teachers'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'UnpaidSubscriptionsComponent', 'selector': 'app-unpaid-subscriptions'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VendorsComponent', 'selector': 'app-vendors'},{'name': 'ViewAssignmentComponent', 'selector': 'app-view-assignment'},{'name': 'ViewBillingComponent', 'selector': 'app-view-billing'},{'name': 'ViewFileComponent', 'selector': 'app-view-file'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportSheetComponent', 'selector': 'app-view-report-sheet'},{'name': 'VirtualClassComponent', 'selector': 'app-virtual-class'},{'name': 'VirtualClassroomComponent', 'selector': 'app-virtual-classroom'},{'name': 'VirtualSessionComponent', 'selector': 'app-virtual-session'},{'name': 'WithdrawalListComponent', 'selector': 'app-withdrawal-list'},{'name': 'WorkExperienceComponent', 'selector': 'app-work-experience'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'TimeTableComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TimeTableComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

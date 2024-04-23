@@ -1,0 +1,58 @@
+<div class="work-details mt-2">
+
+  <form [formGroup]="employeeWorkExperienceForm" >
+
+    <div formArrayName="WorkExperienceVMs" *ngFor ="let item of employeeWorkExperienceForm.get('WorkExperienceVMs')['controls']; let i = index;">
+      <div [formGroupName]="i">
+        <div class="form-row mb-5 ">
+          <div class=" ">
+            <label for="role" class="fw-6">Role <span class="text-danger">*</span> </label>
+            <input type="text" id="role" class="form-control form-control-lg" placeholder="Enter role" formControlName="workRole">
+          </div>
+          <div class=" "> 
+            <label for="company" class="fw-6">Company Name <span class="text-danger">*</span> </label>
+            <input type="text" id="company" class="form-control form-control-lg" placeholder="Enter company name" formControlName="workCompanyName">
+    
+    
+          </div>
+    
+        </div>
+    
+        <div class="form-row mb-5 ">
+          
+          <div class="  ">
+            <label for="from" class="fw-6">From <span class="text-danger">*</span></label>
+            <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="startTime" (input)="getStartDate($event.target.value)">
+    
+    
+           
+          </div>
+    
+          <div class="  ">
+            <label for="from" class="fw-6">To <span class="text-danger">*</span></label>
+            <input type="date" id="from" class="form-control form-control-lg" placeholder="" formControlName="endTime" [min]="minDate">
+    
+    
+           
+          </div>
+    
+          
+    
+        </div>
+      </div>
+    </div>
+
+        <button class="btn btn-orange-two mx-2  px-5 mb-4 mt-3" (click)='addExperience() ' > Add More </button>
+
+   
+
+
+  </form>
+
+
+  <div class=" d-flex justify-content-center mt-5 mb-5">
+    <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="prevStep()"> Back </button>
+    <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)='nextStep() ' [disabled]="employeeWorkExperienceForm.invalid" > Next </button>
+
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container px-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" (click)="back()">
+            <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+            <li class="breadcrumb-item a1 " aria-current="page">
+                <a>Back to List</a>
+            </li>
+        </ol>
+
+
+    </nav>
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            <p class="fw-6">Add New Employee</p>
+        </div>
+
+        <div class="col-md-12">
+
+            <div class="steps d-flex justify-content-between align-items-center py-3 px-4 ">
+                <div class="d-flex align-items-center justify-content-center  active" id="step-1" >
+                    <div class="mr-2">
+                        <span class="bg-orange">{{stage}}</span>
+                    </div>
+                    <div class="stage-name"> {{message}} </div>
+                </div>
+                
+
+                <div class="step-counter py-2 px-3">
+                    <p class="mb-0">Step {{stage}} of 7</p>
+                </div>
+
+            </div>
+            <div class="progress-line ml-3" id="progress">&nbsp;</div>
+
+            <div class="step-content justify-content-center  pb-3">
+               
+                
+                <app-personal-information *ngIf="stage === 1"  ></app-personal-information>
+                <app-employee-details *ngIf="stage === 2"  ></app-employee-details>
+                <app-contact-details *ngIf="stage === 3" ></app-contact-details>
+                <app-next-of-kin *ngIf="stage === 4" ></app-next-of-kin>
+                <app-education *ngIf="stage === 5" ></app-education>
+                <app-work-experience *ngIf="stage === 6" ></app-work-experience>
+                <app-media *ngIf="stage === 7" ></app-media>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

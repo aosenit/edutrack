@@ -1,0 +1,223 @@
+<div class="container-fluid pl-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" (click) = "back()">
+            <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+            <li class="breadcrumb-item a1 " aria-current="page">
+                <a>Back</a>
+            </li>
+    
+    
+        </ol>
+    
+    
+    </nav>
+    
+    <div class="student mt-2">
+    
+        <section class="activated mb-4">
+            <div class="activated__image ">
+                <!-- <img class="" *ngIf="parentDetails" src="data:image/png;base64,{{parentDetails?.image }}" alt="schools log"
+                class="mr-3 school-logo" id="">  -->
+    
+                <img  src="assets/images/svg/dummy_user.png" class="mr-3 avatar school-logo" alt="..." />
+    
+                <div>
+                    <p class="activated__title fw-6 fc-lblue">{{ parentDetails?.title + ' ' + parentDetails?.firstName}} {{parentDetails?.lastName}}   </p>
+                    <p class="activated__code">{{parentDetails?.identificationNumber}}</p>
+                </div>
+            </div>
+            <div class="activated__date mr-5 text-right">
+                <p class="active">Created on 17/03/20 </p>
+                <div class="activated__date-switch">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <label class="custom-control-label" for="customSwitch1"></label>
+                    </div>
+                    <p class="activated__date-title">Active</p>
+                </div>
+            </div>
+        </section>
+    
+        <section class="cards mb-4 ">
+            <div class="cards__profile p-4">
+                <div class="cards__profile-info">
+                    <div class="line">
+                          <h6>  Basic Details </h6>
+                    </div>
+                    <!-- <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." /> -->
+                </div>
+                <div class="card__profile-link mt-5 mr-5">
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Title</p>
+                            <p class="fw-6">{{parentDetails?.title}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>First Name</p>
+                            <p class="fw-6">{{parentDetails?.firstName}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Last Name</p>
+                            <p class="fw-6">{{parentDetails?.lastName}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Gender</p>
+                            <p class="fw-6 text-capitalize">{{parentDetails?.sex}}</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Occupation</p>
+                            <p class="fw-6">{{parentDetails?.occupation}}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Mode of Identification</p>
+                            <p class="fw-6">{{parentDetails?.modeOfIdentification }} 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Identification Number</p>
+                            <p class="fw-6">{{parentDetails?.identificationNumber }} </p>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+    
+            </div>
+    
+            <div class="cards__plan">
+                <div class="cards__profile-info d-flex justify-content-between align-items-center">
+                    <div class="line">
+                          <h6>  Contact Person Details </h6>
+                    </div>
+                    <!-- <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." /> -->
+                </div>
+
+                <div class="card__profile-link mt-5 mr-5">
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Phone Number</p>
+                            <p class="fw-6">{{parentDetails?.contactNumber }} </p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Email</p>
+                            <p class="fw-6">{{parentDetails?.contactEmail }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div class="link">
+                            <p>Home Address</p>
+                            <p class="fw-6">{{parentDetails?.contactHomeAddress }}</p>
+                        </div>
+                        <div class="link mr-5 ml-4">
+                            <p>Office Address</p>
+                            <p class="fw-6">{{parentDetails?.officeHomeAddress }}
+                            </p>
+                        </div>
+                    </div>
+                    
+                </div>
+    
+                
+    
+            </div>
+            <div class="cards__plan" *ngIf="parentDetails?.children">
+                <div class="cards__profile-info d-flex justify-content-between align-items-center">
+                    <div class="line">
+                          <h6>  Children Details </h6>
+                    </div>
+                    <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." />
+                </div>
+
+                <div class="card__profile-link mt-5 mr-5 d-flex flex-wrap">
+                    <div class="" *ngFor="let children of parentDetails.children">
+                        <div class="mr-4 mt-3 d-flex align-items-center flex-column">
+                            <img class="" *ngIf="children?.image" src="data:image/png;base64,{{children?.image}}" alt="schools log"
+                            class="mr-3 image-rounded" id="">
+                            <p class="fw-6">{{children?.name }}</p>
+                        </div>
+                       
+                    </div>
+                    
+                    
+                </div>
+    
+                
+    
+            </div>
+        </section>
+    
+        <!-- <section class="contact mb-3 ">
+            <div class="cards__profile">
+                <div class="cards__profile-info">
+                    <div class="line">
+                        <h6> <img src="assets/images/svg/contact.svg" class="mr-3" alt="..." />
+                            Contact Details</h6>
+                    </div>
+                    <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." />
+                </div>
+                <div class="card__profile-link mt-5 mr-5">
+                    <div class="link">
+                        <p>Address</p>
+                        <p class="fw-6">No. 1 Federal Estates</p>
+                    </div>
+                    <div class="link mr-5 ml-4">
+                        <p>City</p>
+                        <p class="fw-6">Victory Island </p>
+                    </div>
+                </div>
+    
+                <div class="card__profile-link mt-4 mb-5 mr-5">
+                    <div class="link">
+                        <p>State</p>
+                        <p class="fw-6">Lagos State </p>
+                    </div>
+                    <div class="link mr-5 ml-4">
+                        <p>Country</p>
+                        <p class="fw-6">Nigeria </p>
+    
+                    </div>
+                </div>
+            </div>
+    
+            <div class="cards__profile">
+                <div class="cards__profile-info">
+                    <div class="line">
+                        <h6> <img src="assets/images/svg/contact-person.svg" class="mr-3" alt="..." />
+                            Contact Person</h6>
+                    </div>
+                    <img src="assets/images/svg/edit.svg" class="mr-3" alt="..." />
+                </div>
+                <div class="card__profile-link mt-5 mr-5">
+                    <div class="link">
+                        <p>First Name</p>
+                        <p class="fw-6">Gbenga</p>
+                    </div>
+                    <div class="link mr-5 ml-4">
+                        <p>Last Name</p>
+                        <p class="fw-6">Adepoju </p>
+                    </div>
+                </div>
+    
+                <div class="card__profile-link mt-4 mb-5 mr-5">
+                    <div class="link">
+                        <p>Phone no: </p>
+                        <p class="fw-6">0809 200 5681 </p>
+                    </div>
+                    <div class="link mr-5 ml-4">
+                        <p>Email</p>
+                        <p class="fw-6">gbenga@aislagos.org </p>
+    
+                    </div>
+                </div>
+            </div>
+        </section> -->
+    </div>
+</div>

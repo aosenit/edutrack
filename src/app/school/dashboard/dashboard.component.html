@@ -1,0 +1,151 @@
+<div class=" main  ">
+    <section class="banner mb-4 d-flex justify-content-between">
+        <p class="banner__text-primary py-4 pl-5"> {{greet}} <br> <span> {{adminDetails.given_name}} </span></p>
+        <div class="justify-content-end">
+            <p class="last-login pt-3 pr-5 fw-6">Last Login: {{loginDate | date: 'medium'}}</p>
+        </div>
+    </section>
+
+    <section class="cards mb-4" [hidden]="adminDetails?.UserType !== 'SchoolAdmin' ">
+        <div class="revenue">
+            <img src="assets/images/svg/school-amount.png" alt="card revenue icon" class="justify-items-end">
+            <div class="revenue__text pt-4">
+                <h6 class=" pr-4">{{addCommas(allFee)}}</h6>
+                <p class="pt-1">NGN</p> 
+            </div>
+            <p>Total Money Paid</p>
+        </div>
+        <div class="schools">
+            <img src="assets/images/svg/school-students.png" alt="card school icon">
+            <div class="revenue__text ">
+                <h6 class="pt-3 pr-4"> {{studentCount}} </h6>
+            </div>
+            <p>Registered Student</p>
+        </div>
+        <div class="students">
+            <img src="assets/images/svg/school-staff.png" alt="number of students icon">
+            <div class="revenue__text ">
+                <!-- <h6 class="pt-3 pr-4"></h6> -->
+                <h6 class="pt-3 pr-4">{{staffCount + staffCount2}}</h6>
+            </div>
+            <p>No. of Employee</p>
+        </div>
+        <div class="sms">
+            <img src="assets/images/svg/school-sms.png" alt="total sms used icon">
+            <div class="revenue__text ">
+                <h6 class="pt-3 pr-4">0</h6>
+            </div>
+            <p>SMS Units Sold</p>
+        </div>
+    </section>
+
+    <section class="info">
+        <div class="info__school">
+            <div class="info__school-info">
+                <div class="line">
+                    <h6> School Attendance</h6>
+                    <p>See up to date student attendance on the application</p>
+                </div>
+                <select class=" btn-see-all" (change)="getClassAttendance($event.target.value)" >
+                    <option value="" >Select</option>
+                    <option [value]="class?.id" *ngFor="let class of classes">{{class?.name | titlecase }}</option>
+                </select>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12 mt-4" style="position: relative; height:45vh">
+                  <canvas role="img" #barChart>
+                    {{ barChart }}
+                  </canvas>
+                </div>
+              </div>
+            
+           
+        </div>
+        <div class="info__chart">
+            <div class="info__chart-info">
+                <div class="line2">
+                    <h6> Revenue </h6>
+                    <p>See school revenue in graphical format</p>
+                    <div> &nbsp;</div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12 mt-4" style="position: relative; height:45vh">
+                  <canvas role="img" #lineChart>
+                    {{ chart }}
+                  </canvas>
+                </div>
+              </div>
+        </div>
+    </section>
+
+    <section class="info">
+        <div class="info__school">
+            <div class="info__school-info">
+                <div class="line">
+                    <h6> School Calander</h6>
+                    <p>See up to data events on the application</p>
+                </div>
+                <!-- <button class=" btn-see-all" >See all</button> -->
+            </div>
+
+            <!-- <ejs-calendar></ejs-calendar> -->
+            
+           
+        </div>
+        <div class="info__chart">
+            <div class="info__chart-info">
+                <div class="line2">
+                    <h6> Revenue </h6>
+                    <p>See school revenue in graphical format</p>
+                    <div> &nbsp;</div>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-12 mt-4" style="position: relative; height:45vh">
+                  <canvas role="img" #lineChart>
+                    {{ chart }}
+                  </canvas>
+                </div>
+              </div>
+        </div>
+    </section>
+
+    <button
+    id="popupBtn"
+    data-target="#advertModal"
+    data-toggle="modal"
+    style="display: none;"
+    
+  ></button>
+
+    <!-- time table Modal -->
+<div class="modal fade" id="advertModal" tabindex="-1" role="dialog"
+aria-labelledby="advertModalTitle" aria-hidden="true" data-backdrop="static">
+<div class="modal-dialog modal-dialog-centered modal-length" role="document">
+  <div class="modal-content">
+
+    <div class="modal-head mb-4">
+      <div class="d-flex justify-content-between align-items-center ">
+        <h6 class="modal-title fc-lblue"></h6>
+        <img src="assets/images/svg/close-modal.svg" alt="modal close button" id="myModal" data-dismiss="modal"
+          aria-label="Close" class="close mr-4 mt-4">
+
+      </div>
+
+    </div>
+    <div class="modal-body h-50 d-flex justify-content-between align-items-center client-modal">
+      <h1   class="text-danger text-center mb-5" > {{subscriptionStatus}} </h1>
+
+    </div>
+
+
+
+  </div>
+</div>
+</div>
+<!-- end of time table modal -->
+</div>

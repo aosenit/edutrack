@@ -1,0 +1,125 @@
+<div class="basic-details">
+    <form [formGroup]="basicDetailsForm" >
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label for="title" class="fw-6">Title <span class="text-danger">*</span></label>
+                <select name="" id="title" class="form-control form-control-lg" formControlName="Title">
+                    <option value="Mr">Mr</option>
+                    <option value="Mrs">Mrs</option>
+                    <option value="Miss">Miss</option>
+                    <option value="Prof">Prof</option>
+                    <option value="Dr">Dr</option>
+                </select>
+                <div *ngIf=" basicDetailsForm.controls.Title.touched && basicDetailsForm.controls.Title.errors" class="error">
+                    <small *ngIf="basicDetailsForm.controls.Title.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
+            </div>
+            <div class="col-md-6 ">
+                <label for="fname" class="fw-6">First Name <span
+                        class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-lg" placeholder="Last name"
+                    id="fname" formControlName="FirstName">
+                    <div *ngIf=" basicDetailsForm.controls.FirstName.touched && basicDetailsForm.controls.FirstName.errors" class="error">
+                        <small *ngIf="basicDetailsForm.controls.FirstName.errors.required" class="text-danger">Field is required</small>
+                        <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                      </div>
+            </div>
+        </div>
+    
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label for="lname" class="fw-6">Last Name <span
+                        class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-lg" placeholder="Last name"
+                    id="lname" formControlName="LastName">
+                    <div *ngIf=" basicDetailsForm.controls.LastName.touched && basicDetailsForm.controls.LastName.errors" class="error">
+                        <small *ngIf="basicDetailsForm.controls.LastName.errors.required" class="text-danger">Field is required</small>
+                        <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                      </div>
+            </div>
+            <div class="col-md-6 ">
+                <label for="others" class="fw-6">Other Name </label>
+                <input type="text" class="form-control form-control-lg"
+                    placeholder="Enter other name" id="others" formControlName="OtherName">
+            </div>
+        </div>
+    
+    
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label for="sex" class="fw-6">Sex <span class="text-danger">*</span> </label>
+                <select name="" id="sex" class="form-control form-control-lg" formControlName="Sex">
+                    <!-- <option value="sex" selected>Sex</option> -->
+                    <option value="male" selected>Male</option>
+                    <option value="female" selected>Female</option>
+                </select>
+                <div *ngIf=" basicDetailsForm.controls.Sex.touched && basicDetailsForm.controls.Sex.errors" class="error">
+                    <small *ngIf="basicDetailsForm.controls.Sex.errors.required" class="text-danger">Field is required</small>
+                    <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                  </div>
+            </div>
+            <div class="col-md-6 ">
+                <label for="occupation" class="fw-6">Occupation</label>
+                <input type="text" class="form-control form-control-lg"
+                    placeholder="Civil Servant" id="occupation" formControlName="Occupation">
+                    <div *ngIf=" basicDetailsForm.controls.Occupation.touched && basicDetailsForm.controls.Occupation.errors" class="error">
+                        <small *ngIf="basicDetailsForm.controls.Occupation.errors.required" class="text-danger">Field is required</small>
+                        <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                      </div>
+            </div>
+        </div>
+    
+    
+        <div class="row mb-4">
+          
+    
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="religion" class="fw-6">Mode of Identification <span
+                            class="text-danger">*</span> </label>
+                    <select name="" id="religion" class="form-control form-control-lg" formControlName="ModeOfIdentification">
+                        <option value="nimc" selected>National ID card</option>
+                        <option value="passport" >Intenational Passport</option>
+                        <option value="voters_card" >Voters card</option>
+                        <option value="driver" >Drivers License</option>
+                    </select>
+                    <div *ngIf=" basicDetailsForm.controls.ModeOfIdentification.touched && basicDetailsForm.controls.ModeOfIdentification.errors" class="error">
+                        <small *ngIf="basicDetailsForm.controls.ModeOfIdentification.errors.required" class="text-danger">Field is required</small>
+                        <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                      </div>
+                </div>
+                
+                <div class="form-group my-3">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="getStatus($event.target.checked)" formControlName="Status">
+                        <label class="custom-control-label" for="customSwitch1" *ngIf = "toggleState === false; then inactive; else active;" >{{toggleState}} </label>
+                        <ng-template #active>
+                            <label class="custom-control-label" for="customSwitch1" >Active </label>
+                          </ng-template>
+                          <ng-template #inactive>
+                            <label class="custom-control-label" for="customSwitch1" > Inactive </label>
+                          </ng-template>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                    <label for="identity" class="fw-6">Identification Number <span
+                            class="text-danger">*</span> </label>
+                    <input type="text" class="form-control form-control-lg"
+                        placeholder="SE71627383836HGK" id="identity" formControlName="IdentificationNumber">
+                        <div *ngIf=" basicDetailsForm.controls.IdentificationNumber.touched && basicDetailsForm.controls.IdentificationNumber.errors" class="error">
+                            <small *ngIf="basicDetailsForm.controls.IdentificationNumber.errors.required" class="text-danger">Field is required</small>
+                            <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
+                          </div>
+            </div>
+        </div>
+    </form>
+
+    <div class=" d-flex justify-content-center mt-5">
+        <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Cancel </button>
+        <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" (click)="nextStep()" [disabled]="basicDetailsForm.invalid"> Next </button>
+
+    </div>
+</div>

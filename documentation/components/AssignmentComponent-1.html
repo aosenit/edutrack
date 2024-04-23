@@ -1,0 +1,1162 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>schooltrack documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">schooltrack documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  AssignmentComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/teacher/assignment/assignment.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-assignment</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./assignment.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./assignment.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#classList" >classList</a>
+                            </li>
+                            <li>
+                                <a href="#createAssignmentmentForm" >createAssignmentmentForm</a>
+                            </li>
+                            <li>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                <a href="#studentAssignmentList" >studentAssignmentList</a>
+                            </li>
+                            <li>
+                                <a href="#subjectList" >subjectList</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#back" >back</a>
+                            </li>
+                            <li>
+                                <a href="#getAssignmentSubmission" >getAssignmentSubmission</a>
+                            </li>
+                            <li>
+                                <a href="#gradeAssignment" >gradeAssignment</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#previewAssignment" >previewAssignment</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(assignmentService: <a href="../injectables/AssignmentService.html" target="_self">AssignmentService</a>, teacherService: <a href="../injectables/TeacherService.html" target="_self">TeacherService</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/teacher/assignment/assignment.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>assignmentService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AssignmentService.html" target="_self" >AssignmentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>teacherService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TeacherService.html" target="_self" >TeacherService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="back"></a>
+                    <span class="name">
+                        <span ><b>back</b></span>
+                        <a href="#back"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>back()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="60"
+                            class="link-to-prism">src/app/teacher/assignment/assignment.component.ts:60</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAssignmentSubmission"></a>
+                    <span class="name">
+                        <span ><b>getAssignmentSubmission</b></span>
+                        <a href="#getAssignmentSubmission"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAssignmentSubmission()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="35"
+                            class="link-to-prism">src/app/teacher/assignment/assignment.component.ts:35</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gradeAssignment"></a>
+                    <span class="name">
+                        <span ><b>gradeAssignment</b></span>
+                        <a href="#gradeAssignment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>gradeAssignment(i)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/teacher/assignment/assignment.component.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>i</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/teacher/assignment/assignment.component.ts:28</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="previewAssignment"></a>
+                    <span class="name">
+                        <span ><b>previewAssignment</b></span>
+                        <a href="#previewAssignment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>previewAssignment(i)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="53"
+                            class="link-to-prism">src/app/teacher/assignment/assignment.component.ts:53</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>i</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="classList"></a>
+                    <span class="name">
+                        <span ><b>classList</b></span>
+                        <a href="#classList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/teacher/assignment/assignment.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createAssignmentmentForm"></a>
+                    <span class="name">
+                        <span ><b>createAssignmentmentForm</b></span>
+                        <a href="#createAssignmentmentForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.io/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/teacher/assignment/assignment.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/teacher/assignment/assignment.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="studentAssignmentList"></a>
+                    <span class="name">
+                        <span ><b>studentAssignmentList</b></span>
+                        <a href="#studentAssignmentList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/teacher/assignment/assignment.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subjectList"></a>
+                    <span class="name">
+                        <span ><b>subjectList</b></span>
+                        <a href="#subjectList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/teacher/assignment/assignment.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormGroup, FormBuilder, Validators } from &#x27;@angular/forms&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { AssignmentService } from &#x27;src/services/data/assignment/assignment.service&#x27;;
+import { ClassService } from &#x27;src/services/data/class/class.service&#x27;;
+import { SubjectService } from &#x27;src/services/data/subject/subject.service&#x27;;
+import { TeacherService } from &#x27;src/services/data/teacher/teacher.service&#x27;;
+
+@Component({
+  selector: &#x27;app-assignment&#x27;,
+  templateUrl: &#x27;./assignment.component.html&#x27;,
+  styleUrls: [&#x27;./assignment.component.css&#x27;]
+})
+export class AssignmentComponent implements OnInit {
+
+  createAssignmentmentForm: FormGroup;
+  classList: any;
+  subjectList: any;
+  studentAssignmentList: any;
+  id: any;
+  constructor(
+    private assignmentService: AssignmentService,
+    private teacherService: TeacherService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.id &#x3D; this.route.snapshot.params.id;
+    // (this.id);
+    this.getAssignmentSubmission();
+  }
+
+
+  getAssignmentSubmission() {
+    this.teacherService.getAllAssignmentSubmissionForASubject(this.id).subscribe((data: any) &#x3D;&gt; {
+      // (data);
+      if (data.hasErrors &#x3D;&#x3D;&#x3D; false) {
+        // (&#x27;asasasa&#x27;, data);
+        this.studentAssignmentList &#x3D; data.payload;
+      }
+    }, error &#x3D;&gt; {
+      // (error);
+    });
+  }
+
+
+  gradeAssignment(i) {
+    sessionStorage.setItem(&#x27;preview-assignment&#x27;, JSON.stringify(this.studentAssignmentList[i]));
+
+  }
+
+  previewAssignment(i) {
+    // // (this.route.snapshot);
+    // routerLink &#x3D; &quot;&quot;
+    sessionStorage.setItem(&#x27;preview-assignment&#x27;, JSON.stringify(this.studentAssignmentList[i]));
+    this.router.navigateByUrl(&#x27;/teacher/preview-assignment/&#x27; + this.id);
+  }
+
+  back() {
+    window.history.back();
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-fluid&quot;&gt;
+  &lt;nav aria-label&#x3D;&quot;breadcrumb&quot;&gt;
+    &lt;ol class&#x3D;&quot;breadcrumb&quot; (click)&#x3D;&quot;back()&quot;&gt;
+      &lt;img src&#x3D;&quot;assets/images/svg/breadcrumb.svg&quot; class&#x3D;&quot;mr-3&quot; alt&#x3D;&quot;...&quot; /&gt;
+      &lt;li class&#x3D;&quot;breadcrumb-item a1 &quot; aria-current&#x3D;&quot;page&quot; &gt;
+        &lt;a class&#x3D;&quot;fc-lblue&quot;&gt;Back&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;!-- &lt;li class&#x3D;&quot;pl-3 fw-6&quot;&gt;Descriptive Essay&lt;/li&gt; --&gt;
+    &lt;/ol&gt;
+
+
+  &lt;/nav&gt;
+
+
+  &lt;section class&#x3D;&quot;search mt-5 mb-3&quot;&gt;
+    &lt;div class&#x3D;&quot;search__input has-search&quot;&gt;
+      &lt;span class&#x3D;&quot;fa fa-search form-control-feedback&quot;&gt;&lt;/span&gt;
+      &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; placeholder&#x3D;&quot;Search&quot;&gt;
+    &lt;/div&gt;
+
+  &lt;/section&gt;
+
+  &lt;div *ngIf&#x3D;&quot;studentAssignmentList?.length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot; mh-100 bg-white d-flex flex-column justify-content-center align-items-center&quot; style&#x3D;&quot;height: 78vh&quot;&gt; 
+    &lt;img src&#x3D;&quot;assets/images/svg/sad-face.svg&quot; alt&#x3D;&quot;table sort icon&quot; class&#x3D;&quot;mb-3&quot;&gt;
+    &lt;p class&#x3D;&quot;fw-6 cursor-pointer&quot; (click)&#x3D;&quot;back()&quot;&gt;
+    No assignment Submitted, click to go back
+  &lt;/p&gt;&lt;/div&gt;
+
+  &lt;section class&#x3D;&quot;list&quot; *ngIf&#x3D;&quot;studentAssignmentList?.length &gt;&#x3D; 1&quot;&gt;
+    &lt;table class&#x3D;&quot;table table-borderless client-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope&#x3D;&quot;col &quot; class&#x3D;&quot;head&quot;&gt;
+            &lt;div class&#x3D;&quot;custom-control custom-checkbox&quot;&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;customCheck1&quot;&gt;
+              &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customCheck1&quot;&gt;&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/th&gt;
+          &lt;th scope&#x3D;&quot;col&quot;&gt;Student Name &lt;img src&#x3D;&quot;assets/images/svg/table-sort.svg&quot; alt&#x3D;&quot;table sort icon&quot;
+              class&#x3D;&quot;dropdown-toggle&quot; type&#x3D;&quot;button&quot; id&#x3D;&quot;dropdownMenuButton&quot; data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot;
+              aria-expanded&#x3D;&quot;false&quot;&gt;
+
+
+          &lt;/th&gt;
+          &lt;th scope&#x3D;&quot;col&quot;&gt;Student Number &lt;img src&#x3D;&quot;assets/images/svg/table-sort.svg&quot; alt&#x3D;&quot;table sort icon&quot;&gt;
+
+          &lt;/th&gt;
+          &lt;th scope&#x3D;&quot;col&quot;&gt;Class &lt;img src&#x3D;&quot;assets/images/svg/table-sort.svg&quot; alt&#x3D;&quot;table sort icon&quot;&gt;
+
+          &lt;/th&gt;
+          &lt;th scope&#x3D;&quot;col&quot;&gt;Date &lt;img src&#x3D;&quot;assets/images/svg/table-sort.svg&quot; alt&#x3D;&quot;table sort icon&quot;&gt;
+
+          &lt;/th&gt;
+          &lt;th scope&#x3D;&quot;col&quot;&gt; Time &lt;img src&#x3D;&quot;assets/images/svg/table-sort.svg&quot; alt&#x3D;&quot;table sort icon&quot;&gt; &lt;/th&gt;
+          &lt;th scope&#x3D;&quot;col&quot;&gt; Status &lt;img src&#x3D;&quot;assets/images/svg/table-sort.svg&quot; alt&#x3D;&quot;table sort icon&quot;
+              class&#x3D;&quot;dropdown-toggle&quot; type&#x3D;&quot;button&quot; id&#x3D;&quot;dropdownMenuButton&quot; data-toggle&#x3D;&quot;dropdown&quot; aria-haspopup&#x3D;&quot;true&quot;
+              aria-expanded&#x3D;&quot;false&quot;&gt;
+            &lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; DROPDOWN &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
+            &lt;div class&#x3D;&quot;dropdown-menu&quot; aria-labelledby&#x3D;&quot;dropdownMenuButton&quot;&gt;
+              &lt;a class&#x3D;&quot;dropdown-item filter-title&quot; href&#x3D;&quot;#&quot;&gt;FILTER BY: STATUS&lt;/a&gt;
+              &lt;div class&#x3D;&quot;dropdown-divider&quot;&gt;&lt;/div&gt;
+              &lt;a class&#x3D;&quot;dropdown-item text-black &quot; href&#x3D;&quot;#&quot;&gt;Submitted &lt;/a&gt;
+              &lt;a class&#x3D;&quot;dropdown-item text-black &quot; href&#x3D;&quot;#&quot;&gt;Pending &lt;/a&gt;
+              &lt;a class&#x3D;&quot;dropdown-item text-black &quot; href&#x3D;&quot;#&quot;&gt;Graded &lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/th&gt;
+
+          &lt;th scope&#x3D;&quot;col&quot;&gt; &lt;/th&gt;
+          &lt;th scope&#x3D;&quot;col&quot;&gt; &lt;/th&gt;
+
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        
+        
+        &lt;tr class&#x3D;&quot;pb-2&quot; *ngFor&#x3D;&quot;let assignment of studentAssignmentList; let i &#x3D; index&quot;&gt;
+          &lt;td scope&#x3D;&quot;row&quot; class&#x3D;&quot;school-logo rounded-left&quot;&gt;
+            &lt;div class&#x3D;&quot;custom-control custom-checkbox&quot;&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;customCheck1&quot;&gt;
+              &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customCheck1&quot;&gt;&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/td&gt;
+          &lt;td class&#x3D;&quot;&quot;&gt;
+            &lt;div class&#x3D;&quot;d-flex  align-items-center justify-content-start&quot;&gt;
+              &lt;img src&#x3D;&quot;assets/images/svg/companyalt.svg&quot; alt&#x3D;&quot;schools log&quot; class&#x3D;&quot;mr-3 image-rounded&quot;&gt;
+              &lt;!-- &lt;img class&#x3D;&quot;&quot; *ngIf&#x3D;&quot;assignment.file&quot; src&#x3D;&quot;data:image/png;base64,{{assignment.file}}&quot; alt&#x3D;&quot;schools log&quot;
+              class&#x3D;&quot;mr-3 image-rounded&quot; id&#x3D;&quot;&quot;&gt;
+            &lt;img class&#x3D;&quot;&quot; *ngIf&#x3D;&quot;assignment.file &#x3D;&#x3D; null&quot; src&#x3D;&quot;assets/images/svg/companyalt.svg&quot; alt&#x3D;&quot;schools log&quot;
+              class&#x3D;&quot;mr-3 image-rounded&quot; id&#x3D;&quot;&quot;&gt; --&gt;
+              &lt;p class&#x3D;&quot;mb-0&quot;&gt;
+                {{assignment?.studentName}}
+              &lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/td&gt;
+          &lt;td&gt; {{assignment?.studentNumber}} &lt;/td&gt;
+          &lt;td&gt; {{assignment?.className}} &lt;/td&gt;
+          &lt;td&gt;{{assignment?.date | date : &#x27;d/M/yyyy&#x27; }}&lt;/td&gt;
+          &lt;td&gt; {{assignment?.date | date : &quot;shortTime&quot;}} &lt;/td&gt;
+          &lt;!-- &lt;td&gt;&lt;span class&#x3D;&quot;status_pending&quot;&gt;Pending&lt;/span&gt;&lt;/td&gt; --&gt;
+          &lt;td&gt;&lt;span class&#x3D;&quot;status_graded&quot; *ngIf&#x3D;&quot;assignment?.score &gt; -1&quot;&gt;Graded&lt;/span&gt;&lt;/td&gt;
+          &lt;td&gt;
+            &lt;button class&#x3D;&quot;btn grade&quot; routerLink &#x3D; &quot;/teacher/grade-assignment/{{assignment?.id}}&quot; (click)&#x3D;&quot;gradeAssignment(i)&quot; *ngIf&#x3D;&quot;assignment?.score &lt; 0&quot;&gt;Grade&lt;/button&gt;
+            &lt;button class&#x3D;&quot;btn grade&quot; routerLink &#x3D; &quot;/teacher/grade-assignment/{{assignment?.id}}&quot; *ngIf&#x3D;&quot;assignment?.score &gt;&#x3D; 0&quot;&gt;Regrade&lt;/button&gt;
+          &lt;/td&gt;
+          &lt;td&gt;
+            &lt;button class&#x3D;&quot;btn grade&quot; (click)&#x3D;&quot;previewAssignment(i)&quot; [hidden]&#x3D;&quot;!assignment?.score&quot; &gt;Preview&lt;/button&gt;
+            &lt;/td&gt;
+
+        &lt;/tr&gt;
+
+        &lt;!-- &lt;tr class&#x3D;&quot;pb-2&quot; &gt;
+          &lt;td scope&#x3D;&quot;row&quot; class&#x3D;&quot;school-logo rounded-left&quot;&gt;
+            &lt;div class&#x3D;&quot;custom-control custom-checkbox&quot;&gt;
+              &lt;input type&#x3D;&quot;checkbox&quot; class&#x3D;&quot;custom-control-input&quot; id&#x3D;&quot;customCheck2&quot;&gt;
+              &lt;label class&#x3D;&quot;custom-control-label&quot; for&#x3D;&quot;customCheck2&quot;&gt;&lt;/label&gt;
+            &lt;/div&gt;
+          &lt;/td&gt;
+          &lt;td class&#x3D;&quot;&quot;&gt;
+            &lt;div class&#x3D;&quot;d-flex align-items-center justify-content-start&quot;&gt;
+              &lt;img src&#x3D;&quot;assets/images/svg/assignment-owner.svg&quot; alt&#x3D;&quot;schools log&quot; class&#x3D;&quot;mr-3&quot;&gt;
+              &lt;p class&#x3D;&quot;mb-0&quot;&gt;
+                Miss Cynthia Godbless
+              &lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/td&gt;
+          &lt;td&gt;AMI/ST/2020/002&lt;/td&gt;
+          &lt;td&gt;Jss 3A&lt;/td&gt;
+          &lt;td&gt;17/03/2020&lt;/td&gt;
+          &lt;td&gt;08:12 AM&lt;/td&gt;
+          &lt;td&gt;&lt;span class&#x3D;&quot;status_submitted&quot;&gt;Submitted&lt;/span&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;span class&#x3D;&quot;grade&quot; routerLink &#x3D; &quot;/teacher/grade-assignment&quot;&gt;Grade&lt;/span&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;img src&#x3D;&quot;assets/images/svg/more-action.svg&quot; alt&#x3D;&quot;schools log&quot;&gt;&lt;/td&gt;
+
+        &lt;/tr&gt; --&gt;
+
+
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+  &lt;/section&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./assignment.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+a {
+    color: #1b5bac;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #1b5bac;
+    content: &quot;&gt;&quot;;
+    font-size: 10px;
+    display: none;
+}
+
+.search {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+input[type&#x3D;&quot;text&quot;] {
+    width: 125%;
+}
+
+
+
+/* &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; table &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; */
+table.client-table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+
+.list .table thead {
+    color: #4c75bd;
+
+}
+
+.list .table thead tr th {
+    font-weight: 600;
+}
+
+.list .table thead .head {
+    /* display: flex;
+  align-items: center;
+  color: #0a1128;
+  font-weight: 600; */
+    padding-left: 3.5rem;
+}
+
+.list .table tbody .school-logo {
+    /* display: flex;
+    align-items: center; */
+    color: #0a1128;
+    font-weight: 600;
+    padding-left: 1.5rem;
+    padding-left: 3.5rem;
+    position: relative;
+    opacity: none;
+}
+
+.list .table tbody .school-logo span {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+}
+
+.list .table th,
+td {
+    padding: 15px;
+}
+
+.list .table tbody tr {
+    background: #ffffff;
+    box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
+    border-radius: 5px;
+}
+
+.list .table tbody td:not(:first-child) {
+    color: #0a1128;
+    /* opacity: 0.6; */
+}
+
+.list .table tbody .grade {
+    background: #219653;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 16px;
+    outline: none;
+    border: none;
+}
+
+.list .table tbody .status_graded {
+    background: #e0fff7;
+    border-radius: 10px;
+    color: #09b78a;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+.list .table tbody .status_pending {
+    background: #f8dcc2;
+    border-radius: 10px;
+    color: #fb7b04;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+.list .table tbody .status_submitted {
+    background: #eaf0ff;
+    border-radius: 10px;
+    color: #0052B4;
+    font-weight: 600;
+    width: 110px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 40px;
+}
+
+.image-rounded {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container-fluid">  <nav aria-label="breadcrumb">    <ol class="breadcrumb" (click)="back()">      <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />      <li class="breadcrumb-item a1 " aria-current="page" >        <a class="fc-lblue">Back</a>      </li>      <!-- <li class="pl-3 fw-6">Descriptive Essay</li> -->    </ol>  </nav>  <section class="search mt-5 mb-3">    <div class="search__input has-search">      <span class="fa fa-search form-control-feedback"></span>      <input type="text" class="form-control" placeholder="Search">    </div>  </section>  <div *ngIf="studentAssignmentList?.length === 0" class=" mh-100 bg-white d-flex flex-column justify-content-center align-items-center" style="height: 78vh">     <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">    <p class="fw-6 cursor-pointer" (click)="back()">    No assignment Submitted, click to go back  </p></div>  <section class="list" *ngIf="studentAssignmentList?.length >= 1">    <table class="table table-borderless client-table">      <thead>        <tr>          <th scope="col " class="head">            <div class="custom-control custom-checkbox">              <input type="checkbox" class="custom-control-input" id="customCheck1">              <label class="custom-control-label" for="customCheck1"></label>            </div>          </th>          <th scope="col">Student Name <img src="assets/images/svg/table-sort.svg" alt="table sort icon"              class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"              aria-expanded="false">          </th>          <th scope="col">Student Number <img src="assets/images/svg/table-sort.svg" alt="table sort icon">          </th>          <th scope="col">Class <img src="assets/images/svg/table-sort.svg" alt="table sort icon">          </th>          <th scope="col">Date <img src="assets/images/svg/table-sort.svg" alt="table sort icon">          </th>          <th scope="col"> Time <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> </th>          <th scope="col"> Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"              class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"              aria-expanded="false">            <!-- ================ DROPDOWN ==================== -->            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">              <a class="dropdown-item filter-title" href="#">FILTER BY: STATUS</a>              <div class="dropdown-divider"></div>              <a class="dropdown-item text-black " href="#">Submitted </a>              <a class="dropdown-item text-black " href="#">Pending </a>              <a class="dropdown-item text-black " href="#">Graded </a>            </div>          </th>          <th scope="col"> </th>          <th scope="col"> </th>        </tr>      </thead>      <tbody>                        <tr class="pb-2" *ngFor="let assignment of studentAssignmentList; let i = index">          <td scope="row" class="school-logo rounded-left">            <div class="custom-control custom-checkbox">              <input type="checkbox" class="custom-control-input" id="customCheck1">              <label class="custom-control-label" for="customCheck1"></label>            </div>          </td>          <td class="">            <div class="d-flex  align-items-center justify-content-start">              <img src="assets/images/svg/companyalt.svg" alt="schools log" class="mr-3 image-rounded">              <!-- <img class="" *ngIf="assignment.file" src="data:image/png;base64,{{assignment.file}}" alt="schools log"              class="mr-3 image-rounded" id="">            <img class="" *ngIf="assignment.file == null" src="assets/images/svg/companyalt.svg" alt="schools log"              class="mr-3 image-rounded" id=""> -->              <p class="mb-0">                {{assignment?.studentName}}              </p>            </div>          </td>          <td> {{assignment?.studentNumber}} </td>          <td> {{assignment?.className}} </td>          <td>{{assignment?.date | date : \'d/M/yyyy\' }}</td>          <td> {{assignment?.date | date : "shortTime"}} </td>          <!-- <td><span class="status_pending">Pending</span></td> -->          <td><span class="status_graded" *ngIf="assignment?.score > -1">Graded</span></td>          <td>            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" (click)="gradeAssignment(i)" *ngIf="assignment?.score < 0">Grade</button>            <button class="btn grade" routerLink = "/teacher/grade-assignment/{{assignment?.id}}" *ngIf="assignment?.score >= 0">Regrade</button>          </td>          <td>            <button class="btn grade" (click)="previewAssignment(i)" [hidden]="!assignment?.score" >Preview</button>            </td>        </tr>        <!-- <tr class="pb-2" >          <td scope="row" class="school-logo rounded-left">            <div class="custom-control custom-checkbox">              <input type="checkbox" class="custom-control-input" id="customCheck2">              <label class="custom-control-label" for="customCheck2"></label>            </div>          </td>          <td class="">            <div class="d-flex align-items-center justify-content-start">              <img src="assets/images/svg/assignment-owner.svg" alt="schools log" class="mr-3">              <p class="mb-0">                Miss Cynthia Godbless              </p>            </div>          </td>          <td>AMI/ST/2020/002</td>          <td>Jss 3A</td>          <td>17/03/2020</td>          <td>08:12 AM</td>          <td><span class="status_submitted">Submitted</span></td>          <td><span class="grade" routerLink = "/teacher/grade-assignment">Grade</span></td>          <td><img src="assets/images/svg/more-action.svg" alt="schools log"></td>        </tr> -->      </tbody>    </table>  </section></div></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AccountMappingComponent', 'selector': 'app-account-mapping'},{'name': 'AccountPanelComponent', 'selector': 'app-account-panel'},{'name': 'AccountSettingsComponent', 'selector': 'app-account-settings'},{'name': 'AddStudentsComponent', 'selector': 'app-add-students'},{'name': 'AdminAlumniCreateEventComponent', 'selector': 'app-admin-alumni-create-event'},{'name': 'AdminAlumniEventsComponent', 'selector': 'app-admin-alumni-events'},{'name': 'AdminAlumniListComponent', 'selector': 'app-admin-alumni-list'},{'name': 'AdminLoginComponent', 'selector': 'app-admin-login'},{'name': 'AlumniAlumniComponent', 'selector': 'app-alumni-alumni'},{'name': 'AlumniComponent', 'selector': 'app-alumni'},{'name': 'AlumniEventDetailComponent', 'selector': 'app-alumni-event-detail'},{'name': 'AlumniEventsComponent', 'selector': 'app-alumni-events'},{'name': 'AlumniHomeComponent', 'selector': 'app-alumni-home'},{'name': 'AlumniProfileComponent', 'selector': 'app-alumni-profile'},{'name': 'AlumniRecordsComponent', 'selector': 'app-alumni-records'},{'name': 'AlumniTranscriptComponent', 'selector': 'app-alumni-transcript'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentComponent', 'selector': 'app-assignment'},{'name': 'AssignmentsComponent', 'selector': 'app-assignments'},{'name': 'AttachTeacherComponent', 'selector': 'app-attach-teacher'},{'name': 'AttendanceComponent', 'selector': 'app-attendance'},{'name': 'BankAccountsComponent', 'selector': 'app-bank-accounts'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BasicDetailsComponent', 'selector': 'app-basic-details'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BillingComponent', 'selector': 'app-billing'},{'name': 'BranchContactPersonComponent', 'selector': 'app-branch-contact-person'},{'name': 'BranchDetailComponent', 'selector': 'app-branch-detail'},{'name': 'BranchInformationComponent', 'selector': 'app-branch-information'},{'name': 'BranchLocationComponent', 'selector': 'app-branch-location'},{'name': 'BroadSheetComponent', 'selector': 'app-broad-sheet'},{'name': 'CalendarComponent', 'selector': 'app-calendar'},{'name': 'ChartOfAccountComponent', 'selector': 'app-chart-of-account'},{'name': 'ChildAssignmentComponent', 'selector': 'app-child-assignment'},{'name': 'ChildAttendanceComponent', 'selector': 'app-child-attendance'},{'name': 'ClassAttendanceComponent', 'selector': 'app-class-attendance'},{'name': 'ClassPoolComponent', 'selector': 'app-class-pool'},{'name': 'ClassRepeatComponent', 'selector': 'app-class-repeat'},{'name': 'ClassScheduleComponent', 'selector': 'app-class-schedule'},{'name': 'ClientDetailComponent', 'selector': 'app-client-detail'},{'name': 'ClientsComponent', 'selector': 'app-clients'},{'name': 'ComingSoonComponent', 'selector': 'app-coming-soon'},{'name': 'ContactDetailComponent', 'selector': 'app-contact-detail'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactDetailsComponent', 'selector': 'app-contact-details'},{'name': 'ContactPersonComponent', 'selector': 'app-contact-person'},{'name': 'CreateAssignmentComponent', 'selector': 'app-create-assignment'},{'name': 'CreateBranchComponent', 'selector': 'app-create-branch'},{'name': 'CreateClientComponent', 'selector': 'app-create-client'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DemoComponent', 'selector': 'app-demo'},{'name': 'DiscountsComponent', 'selector': 'app-discounts'},{'name': 'EditUserComponent', 'selector': 'app-edit-user'},{'name': 'EducationComponent', 'selector': 'app-education'},{'name': 'EmailVerifiedComponent', 'selector': 'app-email-verified'},{'name': 'EmployeeComponent', 'selector': 'app-employee'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeDetailsComponent', 'selector': 'app-employee-details'},{'name': 'EmployeeListComponent', 'selector': 'app-employee-list'},{'name': 'FacilitySettingsComponent', 'selector': 'app-facility-settings'},{'name': 'FaqsComponent', 'selector': 'app-faqs'},{'name': 'FeeComponent', 'selector': 'app-fee'},{'name': 'FeeComponentComponent', 'selector': 'app-fee-component'},{'name': 'FeeTypeComponent', 'selector': 'app-fee-type'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FileManagerComponent', 'selector': 'app-file-manager'},{'name': 'FilesComponent', 'selector': 'app-files'},{'name': 'FileStorageComponent', 'selector': 'app-file-storage'},{'name': 'FinanceSettingsComponent', 'selector': 'app-finance-settings'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-forgot-password'},{'name': 'GlobalAdminComponent', 'selector': 'app-global-admin'},{'name': 'GradebookComponent', 'selector': 'app-gradebook'},{'name': 'GradingComponent', 'selector': 'app-grading'},{'name': 'GroupedSchoolsComponent', 'selector': 'app-grouped-schools'},{'name': 'HomenavbarComponent', 'selector': 'app-homenavbar'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'ImagesComponent', 'selector': 'app-images'},{'name': 'LandingpageComponent', 'selector': 'app-landingpage'},{'name': 'LandingScreenComponent', 'selector': 'app-landing-screen'},{'name': 'LaterThingsComponent', 'selector': 'app-later-things'},{'name': 'LoaderComponent', 'selector': 'app-loader'},{'name': 'MailReportCardComponent', 'selector': 'app-mail-report-card'},{'name': 'MarkAttendanceComponent', 'selector': 'app-mark-attendance'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MediaComponent', 'selector': 'app-media'},{'name': 'MedicalDetailsComponent', 'selector': 'app-medical-details'},{'name': 'NewAccountChartComponent', 'selector': 'app-new-account-chart'},{'name': 'NewClientComponent', 'selector': 'app-new-client'},{'name': 'NewFeeComponent', 'selector': 'app-new-fee'},{'name': 'NewroleComponent', 'selector': 'app-newrole'},{'name': 'NewRoleRecordComponent', 'selector': 'app-new-role-record'},{'name': 'NewUserComponent', 'selector': 'app-new-user'},{'name': 'NewVendorsComponent', 'selector': 'app-new-vendors'},{'name': 'NextOfKinComponent', 'selector': 'app-next-of-kin'},{'name': 'NoRecordComponent', 'selector': 'app-no-record'},{'name': 'NotificationPageComponent', 'selector': 'app-notification-page'},{'name': 'NotificationsComponent', 'selector': 'app-notifications'},{'name': 'ParentComponent', 'selector': 'app-parent'},{'name': 'ParentDetailsComponent', 'selector': 'app-parent-details'},{'name': 'ParentListComponent', 'selector': 'app-parent-list'},{'name': 'ParentLoginComponent', 'selector': 'app-parent-login'},{'name': 'ParentPortalComponent', 'selector': 'app-parent-portal'},{'name': 'PayrollAccountsComponent', 'selector': 'app-payroll-accounts'},{'name': 'PayrollSetttingsComponent', 'selector': 'app-payroll-setttings'},{'name': 'PeriodComponent', 'selector': 'app-period'},{'name': 'PersonalInformationComponent', 'selector': 'app-personal-information'},{'name': 'PersonalSettingsComponent', 'selector': 'app-personal-settings'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProfileInformationComponent', 'selector': 'app-profile-information'},{'name': 'PromotionDashboardComponent', 'selector': 'app-promotion-dashboard'},{'name': 'PromotionSettingsComponent', 'selector': 'app-promotion-settings'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ReportCardComponent', 'selector': 'app-report-card'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ResultSettingsComponent', 'selector': 'app-result-settings'},{'name': 'ScheduleComponent', 'selector': 'app-schedule'},{'name': 'SchoolAdminComponent', 'selector': 'app-school-admin'},{'name': 'SchoolBranchManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolComponent', 'selector': 'app-school'},{'name': 'SchoolContactPersonComponent', 'selector': 'app-school-contact-person'},{'name': 'SchoolGradeBookComponent', 'selector': 'app-school-grade-book'},{'name': 'SchoolInformationComponent', 'selector': 'app-school-information'},{'name': 'SchoolLoginComponent', 'selector': 'app-school-login'},{'name': 'SchoolManagerBranchComponent', 'selector': 'app-school-manager-branch'},{'name': 'SchoolManagerComponent', 'selector': 'app-school-manager'},{'name': 'SchoolManagerDashboardComponent', 'selector': 'app-school-manager-dashboard'},{'name': 'SchoolManagerSettingsComponent', 'selector': 'app-school-manager-settings'},{'name': 'SchoolMediaComponent', 'selector': 'app-school-media'},{'name': 'SchoolSettingsComponent', 'selector': 'app-school-settings'},{'name': 'ScoreSheetComponent', 'selector': 'app-score-sheet'},{'name': 'ScoreSheetDetailsPageComponent', 'selector': 'app-score-sheet-details-page'},{'name': 'SessionComponent', 'selector': 'app-session'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'SocialDetailsComponent', 'selector': 'app-social-details'},{'name': 'StudentAttendanceComponent', 'selector': 'app-student-attendance'},{'name': 'StudentComponent', 'selector': 'app-student'},{'name': 'StudentDetailComponent', 'selector': 'app-student-detail'},{'name': 'StudentListComponent', 'selector': 'app-student-list'},{'name': 'StudentLoginComponent', 'selector': 'app-student-login'},{'name': 'StudentProfileComponent', 'selector': 'app-student-profile'},{'name': 'StudentReportComponent', 'selector': 'app-student-report'},{'name': 'StudentResultSheetComponent', 'selector': 'app-student-result-sheet'},{'name': 'StudentScoreSheetComponent', 'selector': 'app-student-score-sheet'},{'name': 'StudentSettingsComponent', 'selector': 'app-student-settings'},{'name': 'StudentSheetComponent', 'selector': 'app-student-sheet'},{'name': 'SubjecAttendanceComponent', 'selector': 'app-subjec-attendance'},{'name': 'SubscriptionInvoiceArreasComponent', 'selector': 'app-subscription-invoice-arreas'},{'name': 'SubscriptionInvoiceComponent', 'selector': 'app-subscription-invoice'},{'name': 'SubscriptionListsComponent', 'selector': 'app-subscription-lists'},{'name': 'SubscriptionPageComponent', 'selector': 'app-subscription-page'},{'name': 'TaskPreviewComponent', 'selector': 'app-task-preview'},{'name': 'TeacherComponent', 'selector': 'app-teacher'},{'name': 'TeacherLoginComponent', 'selector': 'app-teacher-login'},{'name': 'TeachersComponent', 'selector': 'app-teachers'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'TimeTableComponent', 'selector': 'app-time-table'},{'name': 'UnpaidSubscriptionsComponent', 'selector': 'app-unpaid-subscriptions'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'UsersComponent', 'selector': 'app-users'},{'name': 'VendorsComponent', 'selector': 'app-vendors'},{'name': 'ViewAssignmentComponent', 'selector': 'app-view-assignment'},{'name': 'ViewBillingComponent', 'selector': 'app-view-billing'},{'name': 'ViewFileComponent', 'selector': 'app-view-file'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportCardComponent', 'selector': 'app-view-report-card'},{'name': 'ViewReportSheetComponent', 'selector': 'app-view-report-sheet'},{'name': 'VirtualClassComponent', 'selector': 'app-virtual-class'},{'name': 'VirtualClassroomComponent', 'selector': 'app-virtual-classroom'},{'name': 'VirtualSessionComponent', 'selector': 'app-virtual-session'},{'name': 'WithdrawalListComponent', 'selector': 'app-withdrawal-list'},{'name': 'WorkExperienceComponent', 'selector': 'app-work-experience'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AssignmentComponent-1'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AssignmentComponent-1.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

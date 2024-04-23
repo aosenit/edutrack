@@ -1,0 +1,86 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
+    <li class="breadcrumb-item a1 " aria-current="page" (click)="back()">
+      <a class="fc-lblue">Back</a>
+    </li>
+  </ol>
+
+
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="my-3 d-flex align-items-center">
+        <img src="assets/images/svg/create.svg" class="mr-3" alt="..." />
+        <h6 class="mb-0">Create Assignment</h6>
+      </div>
+    </div>
+    <div class="w-100" [formGroup]="createAssignmentmentForm">
+      <div class="col-md-12 mb-3">
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="title">Title</label>
+            <input type="text" id="title" class="form-control" formControlName="Title">
+          </div>
+          <div class="form-group col-md-1">
+            <label for="subject">Class</label>
+            <select id="class" class="form-control"  (change)="getSubjects($event.target.value)">
+              <option selected>Select Class</option>
+              <option value={{class}} *ngFor="let class of classList">{{class | uppercase}}</option>
+  
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="subject">Subject</label>
+            <select id="subject" class="form-control" formControlName="subjectId">
+              <option selected>Select</option>
+              <option [value]="subject.classSubjectId" *ngFor="let subject of subjectList">{{subject.subject | uppercase}}</option>
+  
+            </select>
+          </div>
+          
+          <div class="form-group col-md-2">
+            <label for="date">Due Date</label>
+            <input type="date" name="" id="date" class="form-control" formControlName="assDate">
+          </div>
+          <div class="form-group col-md-2">
+            <label for="time">Time</label>
+            <input type="time" name="" id="time" class="form-control" formControlName="assTime" >
+          </div>
+          <div class="form-group col-md-1">
+            <label for="time">Grade Score</label>
+            <input type="number" name="" id="time" class="form-control" formControlName="TotalScore">
+          </div>
+  
+        </div>
+    </div>
+      <div class="col-12 ">
+          <div class="row no-gutters bg-white text-editor">
+              <div class="col-md-9">
+  
+                  <ckeditor [innerHTML]  (change)="onChange($event)" name="text"  [editor]="Editor" formControlName="Document" data="<p>Hello, world!</p>"></ckeditor>
+              </div>
+              <div class="col-md-3 attach-file pl-3 pr-4 pb-4">
+                  <p class="pt-3 pb-4  fw-6">Attach File</p>
+  
+                  <form>
+                      <div class="form-group file-upload mb-5">
+                          <label for="fileupload" class="fs-12"*ngIf="assignmentFile === null" >Drag files to upload or click</label>
+                          <label for="fileupload" class="fs-12"*ngIf="assignmentFile !== null" >{{assignmentFile}}</label>
+                          <input type="file" class="file-input" id="fileupload" (change)="handleFileUpload($event)">
+                          <!-- <button type="button " class="btn-upload  mb-3 ">Upload Files </button> -->
+                      </div>
+                  </form>
+              </div>
+              <div class="col-md-12 pl-3 py-2 text-editor-bottom">
+                  <button class="btn-upload-top bg-lblue mr-3" (click)="convertFile('assignment')">Convert File</button>
+                  <button class="btn-upload-top bg-lblue" (click)="submitAssignment()" [disabled]="createAssignmentmentForm.invalid">Create</button>
+              </div>
+          </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
