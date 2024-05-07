@@ -7,6 +7,9 @@ import { ResultService } from 'src/services/data/result/result.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { StaffService } from 'src/services/data/staff/staff.service';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
+
 @Component({
   selector: 'app-report-card',
   templateUrl: './report-card.component.html',
@@ -330,6 +333,23 @@ printPage() {
   // window.print();
 }
 
+
+exportReport() {
+  const data = document.getElementById('app-results-print');
+  html2canvas(data).then(canvas => {
+
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imageWidth = canvas.width;
+      const imageHeight = canvas.height;
+      const ratio = imageWidth / imageHeight >= pageWidth / pageHeight ? pageWidth / imageWidth : pageHeight / imageHeight;
+      const position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, 1800 * ratio, imageHeight * ratio);
+      pdf.save(`Report Card For ${this.reportSheetDetails.studentName}.pdf`); // Generated PDF
+    });
+}
 
 
 }
