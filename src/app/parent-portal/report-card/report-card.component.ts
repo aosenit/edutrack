@@ -337,7 +337,7 @@ exportReport() {
       const imageHeight = canvas.height;
       const ratio = imageWidth / imageHeight >= pageWidth / pageHeight ? pageWidth / imageWidth : pageHeight / imageHeight;
       const position = 0;
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imageWidth * ratio, imageHeight * ratio);
+      pdf.addImage(contentDataURL, 'PNG', 0, position, 1800 * ratio, imageHeight * ratio);
       pdf.save(`Report Card For ${this.reportSheetDetails.studentName}.pdf`); // Generated PDF
     });
 }
