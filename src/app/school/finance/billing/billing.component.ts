@@ -320,15 +320,24 @@ export class BillingComponent implements OnInit, OnDestroy {
         // // (data.payload);
         this.studentInvoicePreview = data.payload;
         this.invData = this.studentInvoicePreview.invoiceItems;
+        let subTotal = 0;
         // tslint:disable-next-line:prefer-for-of
         for (let i = 0; i < this.invData.length; i++) {
           this.invoiceAmount.push(this.invData[i].amount);
-          this.subTotal = this.invoiceAmount.reduce((a, b) => a + b, 0);
+          subTotal = this.invoiceAmount.reduce((a, b) => a + b, 0);
+          // console.log(this.subTotal)
         }
+        this.invoiceAmount = [];
+        this.subTotal = subTotal;
       }
     }, error => {
       this.notifyService.publishMessages(error.message, 'danger', 1);
     });
+  }
+
+  subTotalReset() {
+    console.log(this.subTotal);
+    this.subTotal = 0;
   }
 
   getAllPaymentInvoices() {
