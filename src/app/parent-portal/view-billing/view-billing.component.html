@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-md-9 mt-3 p-4">
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
+                <ol class="breadcrumb" (click)="back()">
                   <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
-                  <li class="breadcrumb-item a1 " aria-current="page" (click)="back()">
+                  <li class="breadcrumb-item a1 " aria-current="page" >
                     <a class="fc-lblue">Back</a>
                   </li>
                 </ol>
@@ -238,7 +238,7 @@
                 <!-- <button class="btn-payment bill-btn mr-3" data-toggle="modal" 
                 data-target="#exampleModalCenter3" (click)="prefilData()" [hidden]="parentInvoice?.outstanding !== parentInvoice?.totalPayable"  >Make Payment</button> -->
                 
-                <button class="btn-payment bill-btn mr-3" data-toggle="modal"  *ngIf="parentInvoice?.componentSelected === true && parentInvoice?.totalPayable > parentInvoice?.totalPaid"  
+                <button class="btn-payment bill-btn mr-3" data-toggle="modal"  *ngIf="parentInvoice?.componentSelected === true && parentInvoice?.totalPayable > parentInvoice?.totalPaid && parentInvoice?.totalPayable !== parentInvoice?.outstanding"  
                   data-target="#exampleModalCenter4" (click)="prefilData()">Balance Payment</button>
 
                 <button class="btn-payment bill-btn mr-3" data-toggle="modal" [disabled]="parentInvoice?.totalPayable === parentInvoice?.totalPaid" *ngIf="parentInvoice?.totalPaid === parentInvoice?.totalPayable" 
