@@ -6,6 +6,8 @@ import { ResultService } from 'src/services/data/result/result.service';
 import { SchoolSectionService } from 'src/services/data/school-section/school-section.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 import { PromotionService } from 'src/services/data/promotion/promotion.service';
 // import * as $ from 'jquery';
 declare var $: any;
@@ -41,6 +43,7 @@ export class SchoolGradeBookComponent implements OnInit {
   curSessionId: any;
   allApproved = false;
 
+  loggedInUser: any;
 
 
   constructor(
@@ -61,6 +64,9 @@ export class SchoolGradeBookComponent implements OnInit {
 
   ngOnInit() {
 
+    const helper = new JwtHelperService();
+    this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
+    // tslint:disable-next-line:only-arrow-functions
 
 
     this.getCurrentSesion();
@@ -189,7 +195,9 @@ export class SchoolGradeBookComponent implements OnInit {
       termSequence: 0,
       classTeacherApprovalStatus: 1,
       adminApprovalStatus: 1,
-      headTeacherApprovalStatus: 1
+      headTeacherApprovalStatus: 1,
+      HeadTeacherId : parseInt(this.loggedInUser.sub),
+
     };
 
     // (result);
