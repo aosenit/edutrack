@@ -10,11 +10,13 @@ import { AttendanceService } from 'src/services/data/attendance/attendance.servi
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { AlumniService } from 'src/services/data/alumni/alumni.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  providers: [DatePipe]
 })
 export class DashboardComponent implements OnInit {
   greet: string;
@@ -55,7 +57,8 @@ export class DashboardComponent implements OnInit {
     private attendance: AttendanceService,
     private notifyService: NotificationsService,
     private school: SchoolService,
-    private alumni: AlumniService
+    private alumni: AlumniService,
+    private pipe: DatePipe
 
   ) { }
 
@@ -92,7 +95,7 @@ export class DashboardComponent implements OnInit {
     }
     }
 
-    console.log(this.allowFinanceModule)
+    console.log(this.allowFinanceModule);
   }
 
   greeting() {
@@ -165,18 +168,45 @@ export class DashboardComponent implements OnInit {
         // console.log(data.payload[0]);
         this.attendance.getClassAttendanceForTeacher(data.payload[0].id).subscribe((res: any) => {
           if (res.hasErrors === false) {
-            this.attendanceList = data.payload;
-            const newData = {};
-            // tslint:disable-next-line:prefer-for-of
-            for (let i = 0; i < this.attendanceList.length; i++) {
-              const {attendanceDate, attendanceStatus } = this.attendanceList[i];
-              // // (attendanceDate, attendanceStatus);
-              newData[attendanceStatus] = attendanceStatus;
-              // // ('new Data', newData);
-              this.barDashboardDatas = Object.values(newData);
-              this.barDashboardDataKeys = Object.keys(newData);
-              this.createBarChart(this.barDashboardDatas);
-            }
+            this.attendanceList = res.payload.map((x: any) => {
+              return {
+                ...x.attendanceClassVms.map((el: any) => {
+                  return {
+                    date: this.pipe.transform(el.attendanceDate, 'EEE'),
+                    student: x.studentId,
+                    attendanceStatus: el.attendanceStatus === 1 ? 'Present' : 'Absent'
+                  };
+                })
+              };
+            }).flat(Infinity);
+            const flattenedArray = this.attendanceList.flatMap((item: any) => {
+              return Object.values(item).map((entry: any) => ({
+                date: entry.date,
+                student: entry.student,
+                attendanceStatus: entry.attendanceStatus
+              }));
+            });
+            const groupedByDate = flattenedArray.reduce((acc, curr) => {
+              const date = curr.date;
+              acc[date] = acc[date] || {
+                students: [],
+                count: 0,
+                present: 0,
+                absent: 0
+              };
+              acc[date].students.push(curr);
+              acc[date].count++;
+              if (curr.attendanceStatus === 'Present') {
+                acc[date].present++;
+              } else {
+                acc[date].absent++;
+              }
+              return acc;
+            }, {});
+
+
+            this.createBarChart(groupedByDate);
+            // }
           }
         });
       }
@@ -185,21 +215,47 @@ export class DashboardComponent implements OnInit {
 
   getClassAttendance(e) {
     // // (e);
-    this.attendance.getClassAttendanceForTeacher(e).subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.attendanceList = data.payload;
-        const newData = {};
-        // tslint:disable-next-line:prefer-for-of
-        for (let i = 0; i < this.attendanceList.length; i++) {
-          // // (this.attendanceList);
-          const {attendanceDate, attendanceStatus } = this.attendanceList[i];
-          // // (attendanceDate, attendanceStatus);
-          newData[attendanceStatus] = attendanceStatus;
-          // // ('new Data', newData);
-          this.barDashboardDatas = Object.values(newData);
-          this.barDashboardDataKeys = Object.keys(newData);
-          this.createBarChart(this.barDashboardDatas);
-        }
+    this.attendance.getClassAttendanceForTeacher(e).subscribe((res: any) => {
+      if (res.hasErrors === false) {
+        this.attendanceList = res.payload.map((x: any) => {
+          return {
+            ...x.attendanceClassVms.map((el: any) => {
+              return {
+                date: this.pipe.transform(el.attendanceDate, 'EEE'),
+                student: x.studentId,
+                attendanceStatus: el.attendanceStatus === 1 ? 'Present' : 'Absent'
+              };
+            })
+          };
+        }).flat(Infinity);
+        const flattenedArray = this.attendanceList.flatMap((item: any) => {
+          return Object.values(item).map((entry: any) => ({
+            date: entry.date,
+            student: entry.student,
+            attendanceStatus: entry.attendanceStatus
+          }));
+        });
+        const groupedByDate = flattenedArray.reduce((acc, curr) => {
+          const date = curr.date;
+          acc[date] = acc[date] || {
+            students: [],
+            count: 0,
+            present: 0,
+            absent: 0
+          };
+          acc[date].students.push(curr);
+          acc[date].count++;
+          if (curr.attendanceStatus === 'Present') {
+            acc[date].present++;
+          } else {
+            acc[date].absent++;
+          }
+          return acc;
+        }, {});
+
+
+        this.createBarChart(groupedByDate);
+        // }
       }
     });
   }
@@ -287,8 +343,9 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  createBarChart(dashboardData: any) {
-
+  createBarChart(data: any) {
+    const dates = Object.keys(data);
+    const counts = dates.map(date => data[date].count);
     const classTopics = [
       'Monday',
       'Tuesday',
@@ -299,11 +356,11 @@ export class DashboardComponent implements OnInit {
     this.chart = new Chart(this.barChartRef.nativeElement, {
       type: 'bar',
       data: {
-        labels: classTopics,
+        labels: dates,
         datasets: [
           {
             label: 'Attendance',
-            data: dashboardData,
+            data: counts,
             // borderColor: ['#EA2604'],
             backgroundColor: ['#4288DC'],
             // backgroundColor: ['#e76f51', '#ffb638'],
@@ -380,7 +437,7 @@ export class DashboardComponent implements OnInit {
     this.school.getSchoolSubscriptionStatusById(this.adminDetails.TenantId).subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.subscriptionStatus = res.payload;
-        this.notify()
+        this.notify();
       }
     });
   }

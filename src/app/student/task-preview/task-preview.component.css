@@ -21,7 +21,7 @@
     cursor: pointer;
 }
 
-a {
+a, .download {
     color: #1b5bac;
     font-weight: normal;
     cursor: pointer;

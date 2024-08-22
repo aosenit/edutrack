@@ -49,7 +49,7 @@
                 </div>
                 <select class=" btn-see-all" (change)="getClassAttendance($event.target.value)" >
                     <option value="" >Select</option>
-                    <option [value]="class?.id" *ngFor="let class of classes">{{class?.name | titlecase }}</option>
+                    <option [value]="class?.id" *ngFor="let class of classes">{{class?.name + ' ' + class?.classGroup  }}</option>
                 </select>
             </div>
 
