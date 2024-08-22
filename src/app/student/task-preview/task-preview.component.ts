@@ -88,6 +88,23 @@ savedDetails: any;
     );
   }
 
+  downloadFile() {
+    if (this.fileDetails.fileType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' ) {
+
+      const link = document.createElement('a');
+      link.download = `${this.fileDetails.fileName}.docx`;
+      link.href = 'data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,' + this.fileDetails.file;
+      link.click();
+    } else {
+
+      const link = document.createElement('a');
+      link.download = `${this.fileDetails.fileName}.docx`;
+      link.href = 'data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,' + this.fileDetails.file;
+      link.click();
+    }
+
+  }
+
   back() {
     window.history.back();
   }
