@@ -30,12 +30,12 @@
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
                   d="M10.0429 9.43396H10.7204L15 13.7221L13.7221 15L9.43396 10.7204V10.0429L9.2024 9.80274C8.2247 10.6432 6.9554 11.1492 5.57461 11.1492C2.49571 11.1492 0 8.65352 0 5.57461C0 2.49571 2.49571 0 5.57461 0C8.65352 0 11.1492 2.49571 11.1492 5.57461C11.1492 6.9554 10.6432 8.2247 9.80274 9.2024L10.0429 9.43396ZM1.71556 5.57444C1.71556 7.70995 3.4394 9.43379 5.57491 9.43379C7.71042 9.43379 9.43426 7.70995 9.43426 5.57444C9.43426 3.43894 7.71042 1.7151 5.57491 1.7151C3.4394 1.7151 1.71556 3.43894 1.71556 5.57444Z"
-                  fill="#0052B4" />
+                  fill="#155b75" />
               </svg>
       
               Search
             </div> -->
-      
+
       <div class="mr-4 cursor-pointer align-items-center" (click)="printpage()">
         <svg
           width="52"
@@ -46,7 +46,7 @@
         >
           <path
             d="M14.3776 6.66667H4.46094C3.2851 6.66667 2.33594 7.61583 2.33594 8.79167V13.0417H5.16927V15.875H13.6693V13.0417H16.5026V8.79167C16.5026 7.61583 15.5534 6.66667 14.3776 6.66667ZM12.2526 14.4583H6.58594V10.9167H12.2526V14.4583ZM14.3776 9.5C13.988 9.5 13.6693 9.18125 13.6693 8.79167C13.6693 8.40208 13.988 8.08333 14.3776 8.08333C14.7672 8.08333 15.0859 8.40208 15.0859 8.79167C15.0859 9.18125 14.7672 9.5 14.3776 9.5ZM13.6693 3.125H5.16927V5.95833H13.6693V3.125Z"
-            fill="#0052B4"
+            fill="#155b75"
           />
           <path
             d="M22.0679 14V4.13H26.1559C27.2199 4.13 28.0413 4.396 28.6199 4.928C29.1986 5.45067 29.4879 6.188 29.4879 7.14C29.4879 8.10133 29.1986 8.848 28.6199 9.38C28.0413 9.90267 27.2199 10.164 26.1559 10.164H23.5239V14H22.0679ZM23.5239 9.002H25.9459C27.3646 9.002 28.0739 8.38133 28.0739 7.14C28.0739 5.908 27.3646 5.292 25.9459 5.292H23.5239V9.002ZM30.7596 14V7.168H32.1316V8.386C32.4863 7.574 33.2236 7.12133 34.3436 7.028L34.8056 7L34.9036 8.204L34.0496 8.288C32.8083 8.40933 32.1876 9.04867 32.1876 10.206V14H30.7596ZM35.8563 5.586V4.116H37.5083V5.586H35.8563ZM35.9823 14V7.168H37.3963V14H35.9823ZM39.3866 14V7.168H40.7586V8.302C40.9919 7.89133 41.3092 7.57867 41.7106 7.364C42.1212 7.14933 42.5786 7.042 43.0826 7.042C44.6972 7.042 45.5046 7.95667 45.5046 9.786V14H44.0906V9.87C44.0906 9.282 43.9739 8.85267 43.7406 8.582C43.5166 8.31133 43.1619 8.176 42.6766 8.176C42.1072 8.176 41.6499 8.358 41.3046 8.722C40.9686 9.07667 40.8006 9.548 40.8006 10.136V14H39.3866ZM50.365 14.126C49.5063 14.126 48.867 13.9067 48.447 13.468C48.027 13.0293 47.817 12.3947 47.817 11.564V8.26H46.487V7.168H47.817V5.11H49.231V7.168H51.345V8.26H49.231V11.452C49.231 11.9467 49.3337 12.32 49.539 12.572C49.7537 12.824 50.099 12.95 50.575 12.95C50.7243 12.95 50.869 12.936 51.009 12.908C51.149 12.8707 51.289 12.8287 51.429 12.782L51.653 13.846C51.513 13.93 51.317 13.9953 51.065 14.042C50.8223 14.098 50.589 14.126 50.365 14.126Z"
@@ -61,8 +61,17 @@
     <div class="row mb-2">
       <div class="col-md-4">
         <div class="d-flex">
-          <img *ngIf="schoolProp?.logo == null" src="assets/images/svg/logo.svg" alt=""> 
-          <img class="" *ngIf="schoolProp?.logo" src="data:image/png;base64,{{schoolProp?.logo}}" alt="schools log">
+          <img
+            *ngIf="schoolProp?.logo == null"
+            src="assets/images/svg/logo.svg"
+            alt=""
+          />
+          <img
+            class=""
+            *ngIf="schoolProp?.logo"
+            src="data:image/png;base64,{{ schoolProp?.logo }}"
+            alt="schools log"
+          />
         </div>
       </div>
       <div class="col-md-4">
@@ -72,11 +81,13 @@
       </div>
       <div class="col-md-4">
         <div class="d-flex flex-column ml-5 report-address">
-          <p class="mb-0">{{schoolDetail?.name}}</p>
-                    <p class="mb-0">{{schoolDetail?.city + ',' + schoolDetail?.state}}</p>
-                    <p class="mb-0">Phone Number: {{schoolDetail?.contactPhone}}</p>
-                    <p class="mb-0">Email: {{schoolDetail?.contactEmail}}</p>
-                    <p class="mb-0">Website: {{schoolDetail?.websiteAddress}}</p>
+          <p class="mb-0">{{ schoolDetail?.name }}</p>
+          <p class="mb-0">
+            {{ schoolDetail?.city + "," + schoolDetail?.state }}
+          </p>
+          <p class="mb-0">Phone Number: {{ schoolDetail?.contactPhone }}</p>
+          <p class="mb-0">Email: {{ schoolDetail?.contactEmail }}</p>
+          <p class="mb-0">Website: {{ schoolDetail?.websiteAddress }}</p>
         </div>
       </div>
     </div>
@@ -95,9 +106,7 @@
           <tbody>
             <tr>
               <td>
-                {{
-                  reportSheetDetails?.studentName
-                }}
+                {{ reportSheetDetails?.studentName }}
               </td>
               <td>{{ reportSheetDetails?.regNumber }}</td>
               <td>
@@ -187,10 +196,7 @@
                   <td>{{ subject?.cummulativeScore }}</td>
                   <td>{{ subject?.grade }}</td>
                   <td>
-                    <span
-                      class="fs-14 interpretation"
-                      
-                    >
+                    <span class="fs-14 interpretation">
                       {{ subject?.interpretation }}
                     </span>
                     <!-- <span
@@ -260,9 +266,9 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>{{totalCAScoreObtained}}</td>
-                      <td>{{totalExamScoreObtained}}</td>
-                      <td>{{totalScoreObtained}}</td>
+                  <td>{{ totalCAScoreObtained }}</td>
+                  <td>{{ totalExamScoreObtained }}</td>
+                  <td>{{ totalScoreObtained }}</td>
                 </tr>
               </tbody>
             </table>
@@ -286,16 +292,25 @@
                   <td>{{ averageScore }}</td>
                   <td>{{ performanceRate }}</td>
                   <td>
-                    <span class="fs-14" *ngIf="classPercentage >= 75 ">
+                    <span class="fs-14" *ngIf="classPercentage >= 75">
                       Excellent
                     </span>
-                    <span class="fs-14" *ngIf="classPercentage >= 60 && classPercentage <= 74">
+                    <span
+                      class="fs-14"
+                      *ngIf="classPercentage >= 60 && classPercentage <= 74"
+                    >
                       Very Good
                     </span>
-                    <span class="fs-14" *ngIf="classPercentage >= 55 && classPercentage <= 59">
+                    <span
+                      class="fs-14"
+                      *ngIf="classPercentage >= 55 && classPercentage <= 59"
+                    >
                       Good
                     </span>
-                    <span class="fs-14" *ngIf="classPercentage >= 50 && classPercentage <= 54">
+                    <span
+                      class="fs-14"
+                      *ngIf="classPercentage >= 50 && classPercentage <= 54"
+                    >
                       Fair
                     </span>
                     <span class="fs-14" *ngIf="classPercentage < 49">

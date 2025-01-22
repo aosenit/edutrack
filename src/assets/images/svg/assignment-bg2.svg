@@ -2,7 +2,7 @@
 <rect width="827" height="152" rx="10" transform="matrix(-1 0 0 1 827 0)" fill="url(#paint0_linear)"/>
 <defs>
 <linearGradient id="paint0_linear" x1="822.388" y1="92.1913" x2="232.247" y2="172.701" gradientUnits="userSpaceOnUse">
-<stop stop-color="#0052B4"/>
+<stop stop-color="#155b75"/>
 <stop offset="0.371066" stop-color="#02479A"/>
 <stop offset="0.445467" stop-color="#034697" stop-opacity="0.98"/>
 <stop offset="0.650406" stop-color="#06366E" stop-opacity="0.578125"/>

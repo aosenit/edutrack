@@ -1,38 +1,34 @@
 .main .banner {
-    width: 100%;
-    background-image: url("../../../assets/images/svg/banner.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-mix-blend-mode: normal;
-border-radius: 5px;
-  }
-  
-  .banner .banner__text-primary {
-    color: #fb882c;
-    font-size: 32px;
-    font-family: Nunito;
-    font-weight: 200;
-  
-  }
-  .banner .banner__text-primary span {
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: 400;
-  }
+  width: 100%;
+  background-image: url("../../../assets/images/svg/banner.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: normal;
+  border-radius: 5px;
+}
 
+.banner .banner__text-primary {
+  color: #04aed4;
+  font-size: 32px;
+  font-family: Nunito;
+  font-weight: 200;
+}
+.banner .banner__text-primary span {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 400;
+}
 
+.options select {
+  background: #fefeff;
+  border: 1px solid #d1d9df;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 19px;
+  /* identical to box height */
 
-  .options select {
-    background: #FEFEFF;
-    border: 1px solid #D1D9DF;
-    box-sizing: border-box;
-    border-radius: 5px;
-    font-size: 14px;
-line-height: 19px;
-/* identical to box height */
-
-
-color: #0A1128;
+  color: #0a1128;
 }
 
 .options select {
@@ -41,21 +37,19 @@ color: #0A1128;
   font-size: 12px;
 }
 
-
-
 thead th {
-  background: #EBF0F5;
-border: 1px solid #B4CDE9;
-font-size: 14px;
-color: #355691;
-font-weight: 600;
+  background: #ebf0f5;
+  border: 1px solid #b4cde9;
+  font-size: 14px;
+  color: #355691;
+  font-weight: 600;
 
-/* font-weight: 600; */
+  /* font-weight: 600; */
 }
 
-tbody  td {
+tbody td {
   background-color: #ffffff;
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
   font-style: 14px;
   /* font-weight: 400; */
   font-family: Nunito;
@@ -73,21 +67,16 @@ tbody  td {
   width: 60%;
 }
 
-
-.student-id p:first-child  {
+.student-id p:first-child {
   color: #355691;
   font-size: 18px;
-  
-  
-}   
-.subject-info  {
+}
+.subject-info {
   color: #355691;
   font-weight: 600;
-  
-}   
+}
 
 .interpretation {
-  
   font-weight: 600;
   width: 100px;
   height: 26px;
@@ -101,23 +90,21 @@ tbody  td {
   color: #09b78a;
 }
 
-
 .fail {
-  background :#F1DFE2;
-  color: #D80027;
- 
+  background: #f1dfe2;
+  color: #d80027;
 }
 
 .very-good {
-background :#E5F4D3;
-  color: #7EC02E;
+  background: #e5f4d3;
+  color: #7ec02e;
 }
 .good {
-background :#F1EFDF;
-  color: #C1AC00;
+  background: #f1efdf;
+  color: #c1ac00;
 }
 .fair {
-background :#D9CE98;
+  background: #d9ce98;
   color: #665500;
 }
 
@@ -125,9 +112,8 @@ background :#D9CE98;
   font-size: 16px;
   line-height: 16px;
   /* identical to box height, or 100% */
-  
-  
-  color: #D1D9DF;
+
+  color: #d1d9df;
 }
 
 .breaks {
@@ -136,31 +122,32 @@ background :#D9CE98;
 
 .report-title {
   font-weight: 600;
-font-size: 28px;
-line-height: 20px;
-font-family: Nunito;
-display: flex;
-align-items: center;
+  font-size: 28px;
+  line-height: 20px;
+  font-family: Nunito;
+  display: flex;
+  align-items: center;
 
-color: #000000;
+  color: #000000;
 }
 
 .report-address p:first-child {
   font-size: 19px;
-line-height: 20px;
-color: #000000;
+  line-height: 20px;
+  color: #000000;
 }
 
 .report-address p {
   font-size: 14px;
-line-height: 19px;
-display: flex;
-align-items: center;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
 
-color: #000000;
+  color: #000000;
 }
 
-.signature,  .school-image {
+.signature,
+.school-image {
   max-height: 45px;
   max-width: 70px;
 }

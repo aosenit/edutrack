@@ -34,7 +34,6 @@
   border-radius: 8px;
   width: 23%;
   position: relative;
-
 }
 
 .files .last {
@@ -50,7 +49,7 @@
   position: absolute;
   right: -10px;
   top: -15px;
-  background: #EB6B04;
+  background: #04aed4;
   width: 28px;
   height: 28px;
   border-radius: 50%;

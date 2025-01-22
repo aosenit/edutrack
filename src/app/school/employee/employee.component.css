@@ -1,85 +1,85 @@
 .breadcrumb {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    padding: 0.75rem 0;
-    margin-bottom: 1rem;
-    list-style: none;
-    background-color: transparent;
-    border-radius: 0.25rem;
-    cursor: pointer;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0.75rem 0;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
 a {
-    color: #1b5bac;
-    font-weight: normal;
-    cursor: pointer;
+  color: #1b5bac;
+  font-weight: normal;
+  cursor: pointer;
 }
 
-.breadcrumb-item+.breadcrumb-item::before {
-    display: inline-block;
-    padding-right: 0.5rem;
-    color: #1b5bac;
-    content: ">";
-    font-size: 10px;
-    display: none;
+.breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  color: #1b5bac;
+  content: ">";
+  font-size: 10px;
+  display: none;
 }
 
 .steps {
-    background: #FAFDFF;
-border-radius: 10px;
+  background: #fafdff;
+  border-radius: 10px;
 }
 
 .steps span {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
 }
 .steps .active span {
-    background: #FB882C;
-    font-weight: 600;
+  background: #04aed4;
+  font-weight: 600;
 }
 
 .steps .active p {
-    color: #000000;
-    font-weight: 600;
-    line-height: 1;
+  color: #000000;
+  font-weight: 600;
+  line-height: 1;
 }
 
 .step-counter {
-    background: #ECF7FF;
-border-radius: 99px;
+  background: #ecf7ff;
+  border-radius: 99px;
 }
 
 .step-counter p {
-    color: #0A1128;
+  color: #0a1128;
 }
 
 .progress-line {
-    background: #0A1128;
-    width: 150px;
-    height: 1.8px;
+  background: #0a1128;
+  width: 150px;
+  height: 1.8px;
 }
 
 .step-content {
-    background: #FDFEFF;
-    padding:  2rem 6rem;
+  background: #fdfeff;
+  padding: 2rem 6rem;
 }
 
 @media screen and (max-width: 820px) {
-    .form-row {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: 2.5rem;
-    }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2.5rem;
+  }
 
-    .step-content {
-        background: #FDFEFF;
-        padding:  2rem 2rem;
-    }
+  .step-content {
+    background: #fdfeff;
+    padding: 2rem 2rem;
+  }
 }

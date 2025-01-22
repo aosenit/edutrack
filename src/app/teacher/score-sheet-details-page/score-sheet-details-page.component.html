@@ -1,39 +1,48 @@
 <div class="col-md-12 mt-5 mr-3">
- 
-
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb" (click)="back()">
       <img src="assets/images/svg/breadcrumb.svg" class="mr-3" alt="..." />
-      <li class="breadcrumb-item a1 " aria-current="page" >
+      <li class="breadcrumb-item a1" aria-current="page">
         <a class="fc-lblue">Back</a>
       </li>
     </ol>
-
-
   </nav>
 
-  <div class="d-flex justify-content-between  align-items-center mb-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
     <div class="student-id">
-        <p class="mb-0 "> {{studentNameAndReg?.studentName}}</p>
-        <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
-      </div>
+      <p class="mb-0">{{ studentNameAndReg?.studentName }}</p>
+      <p class="mb-0 fs-12">HIS/ST/2016/0005</p>
+    </div>
 
     <div class="d-flex justify-content-between">
-      
       <div class="mr-5">
-        <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="20"
+          height="13"
+          viewBox="0 0 20 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M16.125 4.9075C15.8451 3.5244 15.0813 2.27895 13.9642 1.38389C12.8471 0.488827 11.4459 -0.000318697 10 1.55786e-07C7.59167 1.55786e-07 5.5 1.3325 4.45833 3.2825C3.23353 3.41155 2.10084 3.97736 1.27791 4.8712C0.454976 5.76504 -0.000143085 6.92386 3.3744e-08 8.125C3.3744e-08 10.8144 2.24167 13 5 13H15.8333C18.1333 13 20 11.18 20 8.9375C20 6.7925 18.2917 5.05375 16.125 4.9075ZM14.1667 7.3125L10 11.375L5.83333 7.3125H8.33333V4.0625H11.6667V7.3125H14.1667Z"
-            fill="#0052B4" />
+            fill="#155b75"
+          />
         </svg>
 
         Export
       </div>
       <div class="">
-        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 17 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M13.4577 5.66667H3.54102C2.36518 5.66667 1.41602 6.61583 1.41602 7.79167V12.0417H4.24935V14.875H12.7493V12.0417H15.5827V7.79167C15.5827 6.61583 14.6335 5.66667 13.4577 5.66667ZM11.3327 13.4583H5.66602V9.91667H11.3327V13.4583ZM13.4577 8.5C13.0681 8.5 12.7493 8.18125 12.7493 7.79167C12.7493 7.40208 13.0681 7.08333 13.4577 7.08333C13.8473 7.08333 14.166 7.40208 14.166 7.79167C14.166 8.18125 13.8473 8.5 13.4577 8.5ZM12.7493 2.125H4.24935V4.95833H12.7493V2.125Z"
-            fill="#0052B4" />
+            fill="#155b75"
+          />
         </svg>
 
         Print
@@ -45,107 +54,116 @@
           
         </div> -->
 
- 
-
   <div class="bg-white mb-3">
-       <table class="table">
-    <thead>
-      <tr>
-        <th class="w-40 pl-5">Subjects</th>
-        <th *ngFor="let assessment of assessments" >  {{assessment?.assessmentName}} </th>
-        <th>Cummulative Score</th>
-        <th>Grade</th>
-        <th>Interpretation</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor = "let subject of studentRecord; let i = index">
-        <td class=" pl-5 text-left student-info ">
-         {{subject?.subjectName | titlecase}} 
-        
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="w-40 pl-5">Subjects</th>
+          <th *ngFor="let assessment of assessments">
+            {{ assessment?.assessmentName }}
+          </th>
+          <th>Cummulative Score</th>
+          <th>Grade</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let subject of studentRecord; let i = index">
+          <td class="pl-5 text-left student-info">
+            {{ subject?.subjectName | titlecase }}
+          </td>
 
-
-        </td>
-
-        <td *ngFor = "let assessment of studentRecord[i].assesmentAndScores"> {{assessment?.studentScore}} </td>
-        <td> {{subject?.cummulativeScore}} </td>
-        <td> {{subject?.grade}} </td>
-        <td>
-          <span class="fs-14 interpretation " >  {{subject?.interpretation}} </span>
-          <!-- <span class="fs-14 interpretation excellent" *ngIf="subject?.interpretation == 'Excellent '">  {{subject?.interpretation}} </span>
+          <td *ngFor="let assessment of studentRecord[i].assesmentAndScores">
+            {{ assessment?.studentScore }}
+          </td>
+          <td>{{ subject?.cummulativeScore }}</td>
+          <td>{{ subject?.grade }}</td>
+          <td>
+            <span class="fs-14 interpretation">
+              {{ subject?.interpretation }}
+            </span>
+            <!-- <span class="fs-14 interpretation excellent" *ngIf="subject?.interpretation == 'Excellent '">  {{subject?.interpretation}} </span>
           <span class="fs-14 interpretation very-good" *ngIf="subject?.interpretation == 'Very Good'">  {{subject?.interpretation}} </span>
           <span class="fs-14 interpretation good" *ngIf="subject?.interpretation == 'Good'">  {{subject?.interpretation}} </span>
           <span class="fs-14 interpretation fail" *ngIf="subject?.interpretation == 'Fail'">  {{subject?.interpretation}} </span>
           <span class="fs-14 interpretation fair" *ngIf="subject?.interpretation == 'Fair'">  {{subject?.interpretation}} </span> -->
-        </td>
-      </tr>
-    
-
-
-
-
-
-
-    </tbody>
-  </table>
-
-  <div class="mt-5 ml-5 col-md-10 mb-5">
-    <table class="table">
-      <thead>
-        <tr>
-          <th *ngFor="let assessment of assessments" >  Total {{assessment?.assessmentName}}</th>
-          <th>Total Score</th>
-          <th>Total Score Obtained</th>
-          <th class="border-0 bg-transparent"></th>
-          <th>Average</th>
+          </td>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td *ngFor="let assessment of assessments">299</td>
-          <td>1074</td>
-          <td></td>
-          <td class="border-0"></td>
-          <td>90%</td>
-        </tr>
-
       </tbody>
     </table>
-  </div>
 
-  <!-- <div class="divider w-100 mx-5 border">&nbsp;</div> -->
-  <div class="col-md-6 ml-5 mb-5">
-    <div class="form-group mb-4">
-      <label for="" class="fw-6 fs-16">Class Teacher's Comment</label>
-      <input type="text " class="form-control class-teacher" placeholder="Enter comment" [(ngModel)]="teacherComment.comment" name="comment" >
+    <div class="mt-5 ml-5 col-md-10 mb-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th *ngFor="let assessment of assessments">
+              Total {{ assessment?.assessmentName }}
+            </th>
+            <th>Total Score</th>
+            <th>Total Score Obtained</th>
+            <th class="border-0 bg-transparent"></th>
+            <th>Average</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td *ngFor="let assessment of assessments">299</td>
+            <td>1074</td>
+            <td></td>
+            <td class="border-0"></td>
+            <td>90%</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="form-group mb-4">
-      <label for="" class="fw-6 fs-16">Head Teacher's Comment</label>
-      <input type="text " class="form-control head-teacher" placeholder="enter comment" readonly>
-    </div>
-    <div class="d-flex">
-      <div>
 
+    <!-- <div class="divider w-100 mx-5 border">&nbsp;</div> -->
+    <div class="col-md-6 ml-5 mb-5">
+      <div class="form-group mb-4">
+        <label for="" class="fw-6 fs-16">Class Teacher's Comment</label>
+        <input
+          type="text "
+          class="form-control class-teacher"
+          placeholder="Enter comment"
+          [(ngModel)]="teacherComment.comment"
+          name="comment"
+        />
+      </div>
+      <div class="form-group mb-4">
+        <label for="" class="fw-6 fs-16">Head Teacher's Comment</label>
+        <input
+          type="text "
+          class="form-control head-teacher"
+          placeholder="enter comment"
+          readonly
+        />
+      </div>
+      <div class="d-flex">
+        <div></div>
       </div>
     </div>
-  </div>
 
-  <div class=" col-md-6 ml-5 d-flex justify-content-between">
+    <div class="col-md-6 ml-5 d-flex justify-content-between">
       <div>
-          <p class="fw-6 mb-3">Signature</p>
-          <div class="breaks mb-1">&nbsp;</div>
-          <p>(Head Teacher)</p>
+        <p class="fw-6 mb-3">Signature</p>
+        <div class="breaks mb-1">&nbsp;</div>
+        <p>(Head Teacher)</p>
       </div>
       <div>
-          <p class="fw-6 mb-3">Signature</p>
-          <div class="breaks mb-1">&nbsp;</div>
-          <p>(Class Teacher)</p>
+        <p class="fw-6 mb-3">Signature</p>
+        <div class="breaks mb-1">&nbsp;</div>
+        <p>(Class Teacher)</p>
       </div>
-  </div>
-
+    </div>
   </div>
 
   <div class="d-flex justify-content-center my-5">
-    <button class="btn-upload-top bg-lblue w-40" type="button" (click)="submitStudentResult()"> Submit </button>
+    <button
+      class="btn-upload-top bg-lblue w-40"
+      type="button"
+      (click)="submitStudentResult()"
+    >
+      Submit
+    </button>
   </div>
 </div>

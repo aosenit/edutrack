@@ -1,65 +1,60 @@
 .main-head {
-    background: #FEFEFF;
-    align-items: center;
-    box-shadow: 0px 1px 21px rgba(119, 119, 119, 0.21);
-
+  background: #fefeff;
+  align-items: center;
+  box-shadow: 0px 1px 21px rgba(119, 119, 119, 0.21);
 }
 
 .hamburger {
-    padding-left: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 .lang {
-    padding-right: 4rem;
-
+  padding-right: 4rem;
 }
 
-
 .attendee {
-    background: #0052B4;
+  background: #155b75;
 }
 
 .attendee .attendee-image {
-    /* width: 120px; */
-    position: relative;
+  /* width: 120px; */
+  position: relative;
 }
 
 .attendee-image-holder {
-    position: relative;
+  position: relative;
 }
 
 .attendee-image-holder span {
-    position: absolute;
-    font-size: 13px;
-    color: #FFFFFF;
-    background: rgba(0, 0, 0, 0.74);
-    border-radius: 0px 0px 5px 5px;
-    bottom: 7px;
-    left: 6px;
-    padding: 3px;
-
+  position: absolute;
+  font-size: 13px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.74);
+  border-radius: 0px 0px 5px 5px;
+  bottom: 7px;
+  left: 6px;
+  padding: 3px;
 }
 
-
 .screen {
-    background: #1B2D3E;
-    height: 80vh;
+  background: #1b2d3e;
+  height: 80vh;
 }
 
 .screen .info {
-    background: rgba(0, 0, 0, 0.28);
-    border-radius: 5px;
-    width: 22%;
-    margin: 15% auto 10%;
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 5px;
+  width: 22%;
+  margin: 15% auto 10%;
 }
 
 .screen .info .class-btn {
-    padding: 11px 50px;
-    border-radius: 2.5px;
-    background: #0052B4;
-    color: #fff;
-    /* font-weight: 600; */
-    border-radius: 10px;
-    border: none;
-    outline: none;
+  padding: 11px 50px;
+  border-radius: 2.5px;
+  background: #155b75;
+  color: #fff;
+  /* font-weight: 600; */
+  border-radius: 10px;
+  border: none;
+  outline: none;
 }

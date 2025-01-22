@@ -1159,7 +1159,7 @@ export class MailReportCardComponent implements OnInit {
     if (event.target.checked &#x3D;&#x3D;&#x3D; true) {
       this.StudentIds.push(event.target.value);
 
-      document.getElementById(&#x27;customtable&#x27; + &#x60;${i}&#x60;).style.borderLeft &#x3D; &#x27;5px solid #FB7B04&#x27;;
+      document.getElementById(&#x27;customtable&#x27; + &#x60;${i}&#x60;).style.borderLeft &#x3D; &#x27;5px solid #04aed4&#x27;;
       this.boxChecked &#x3D; true;
     } else {
       const index &#x3D; this.StudentIds.indexOf(event.target.value);
@@ -1181,7 +1181,7 @@ export class MailReportCardComponent implements OnInit {
       for (let index &#x3D; 0; index &lt; allBoxes.length; index++) {
         if (allBoxes[index].type &#x3D;&#x3D;&#x3D; &#x27;checkbox&#x27;) {
           allBoxes[index].checked &#x3D; true;
-          document.getElementById(&#x27;customtable&#x27; + &#x60;${index}&#x60;).style.borderLeft &#x3D; &#x27;5px solid #FB7B04&#x27;;
+          document.getElementById(&#x27;customtable&#x27; + &#x60;${index}&#x60;).style.borderLeft &#x3D; &#x27;5px solid #04aed4&#x27;;
           this.boxChecked &#x3D; true;
           this.StudentIds.push(allBoxes[index].value);
         }
@@ -1432,7 +1432,7 @@ aria-labelledby&#x3D;&quot;exampleModalCenterTitle&quot; aria-hidden&#x3D;&quot;
 
 
 .btn-orange-two {
-    background: #fb882c;
+    background: #04aed4;
     border-radius: 5px;
     height: 44px;
     font-family: Nunito;
@@ -1462,7 +1462,7 @@ table.client-table {
 
 
 .list .table thead {
-    color: #0052B4;
+    color: #155b75;
     
 
 }
@@ -1545,7 +1545,7 @@ td {
 .modal-body .class-btn {
     padding: 11px 50px;
     border-radius: 2.5px;
-    background: #0052B4;
+    background: #155b75;
     color: #fff;
     /* font-weight: 600; */
     border-radius: 10px;

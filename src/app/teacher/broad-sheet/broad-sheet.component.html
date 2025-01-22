@@ -1,117 +1,191 @@
 <div class="col-md-12 mt-5 mr-3">
-    <section class="banner d-flex justify-content-between align-items-center mb-4 pb-3">
-        <div class="pt-5 pl-3 content ">
-          <h6 class="banner__text-primary fw-6 "> Grade Book </h6>
-          <p class=""> Broad sheet </p>
-        </div>
-        <button class="btn-upload-top btn-orange-two " type="button"> <img src="assets/images/svg/upload.svg"
-            alt="new client" class="mr-2"> Import </button>
-    
-      </section>
+  <section
+    class="banner d-flex justify-content-between align-items-center mb-4 pb-3"
+  >
+    <div class="pt-5 pl-3 content">
+      <h6 class="banner__text-primary fw-6">Grade Book</h6>
+      <p class="">Broad sheet</p>
+    </div>
+    <button class="btn-upload-top btn-orange-two" type="button">
+      <img src="assets/images/svg/upload.svg" alt="new client" class="mr-2" />
+      Import
+    </button>
+  </section>
 
-      <div class="d-flex justify-content-end  align-items-center mb-4">
-        
-    
-        <div class="d-flex justify-content-between">
-          <div class="mr-5 cursor-pointer">
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0429 9.43396H10.7204L15 13.7221L13.7221 15L9.43396 10.7204V10.0429L9.2024 9.80274C8.2247 10.6432 6.9554 11.1492 5.57461 11.1492C2.49571 11.1492 0 8.65352 0 5.57461C0 2.49571 2.49571 0 5.57461 0C8.65352 0 11.1492 2.49571 11.1492 5.57461C11.1492 6.9554 10.6432 8.2247 9.80274 9.2024L10.0429 9.43396ZM1.71556 5.57444C1.71556 7.70995 3.4394 9.43379 5.57491 9.43379C7.71042 9.43379 9.43426 7.70995 9.43426 5.57444C9.43426 3.43894 7.71042 1.7151 5.57491 1.7151C3.4394 1.7151 1.71556 3.43894 1.71556 5.57444Z" fill="#0052B4"/>
-                </svg>
-                
-            Search
-          </div>
-          <div class="mr-5 cursor-pointer" (click)="downloadBroadsheetInExcel()">
-            <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.125 4.9075C15.8451 3.5244 15.0813 2.27895 13.9642 1.38389C12.8471 0.488827 11.4459 -0.000318697 10 1.55786e-07C7.59167 1.55786e-07 5.5 1.3325 4.45833 3.2825C3.23353 3.41155 2.10084 3.97736 1.27791 4.8712C0.454976 5.76504 -0.000143085 6.92386 3.3744e-08 8.125C3.3744e-08 10.8144 2.24167 13 5 13H15.8333C18.1333 13 20 11.18 20 8.9375C20 6.7925 18.2917 5.05375 16.125 4.9075ZM14.1667 7.3125L10 11.375L5.83333 7.3125H8.33333V4.0625H11.6667V7.3125H14.1667Z" fill="#0052B4"/>
-                </svg>
-                
-            Export In Excel
-          </div>
-          <div class="mr-5 cursor-pointer" (click)="downloadBroadsheetInPdf()">
-            <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16.125 4.9075C15.8451 3.5244 15.0813 2.27895 13.9642 1.38389C12.8471 0.488827 11.4459 -0.000318697 10 1.55786e-07C7.59167 1.55786e-07 5.5 1.3325 4.45833 3.2825C3.23353 3.41155 2.10084 3.97736 1.27791 4.8712C0.454976 5.76504 -0.000143085 6.92386 3.3744e-08 8.125C3.3744e-08 10.8144 2.24167 13 5 13H15.8333C18.1333 13 20 11.18 20 8.9375C20 6.7925 18.2917 5.05375 16.125 4.9075ZM14.1667 7.3125L10 11.375L5.83333 7.3125H8.33333V4.0625H11.6667V7.3125H14.1667Z" fill="#0052B4"/>
-                </svg>
-                
-            Export In PDF
-          </div>
-          <div class="mr-5 cursor-pointer">
-            <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.4577 5.66667H3.54102C2.36518 5.66667 1.41602 6.61583 1.41602 7.79167V12.0417H4.24935V14.875H12.7493V12.0417H15.5827V7.79167C15.5827 6.61583 14.6335 5.66667 13.4577 5.66667ZM11.3327 13.4583H5.66602V9.91667H11.3327V13.4583ZM13.4577 8.5C13.0681 8.5 12.7493 8.18125 12.7493 7.79167C12.7493 7.40208 13.0681 7.08333 13.4577 7.08333C13.8473 7.08333 14.166 7.40208 14.166 7.79167C14.166 8.18125 13.8473 8.5 13.4577 8.5ZM12.7493 2.125H4.24935V4.95833H12.7493V2.125Z" fill="#0052B4"/>
-                </svg>
-                
-            Print
-          </div>
-        </div>
+  <div class="d-flex justify-content-end align-items-center mb-4">
+    <div class="d-flex justify-content-between">
+      <div class="mr-5 cursor-pointer">
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 15 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M10.0429 9.43396H10.7204L15 13.7221L13.7221 15L9.43396 10.7204V10.0429L9.2024 9.80274C8.2247 10.6432 6.9554 11.1492 5.57461 11.1492C2.49571 11.1492 0 8.65352 0 5.57461C0 2.49571 2.49571 0 5.57461 0C8.65352 0 11.1492 2.49571 11.1492 5.57461C11.1492 6.9554 10.6432 8.2247 9.80274 9.2024L10.0429 9.43396ZM1.71556 5.57444C1.71556 7.70995 3.4394 9.43379 5.57491 9.43379C7.71042 9.43379 9.43426 7.70995 9.43426 5.57444C9.43426 3.43894 7.71042 1.7151 5.57491 1.7151C3.4394 1.7151 1.71556 3.43894 1.71556 5.57444Z"
+            fill="#155b75"
+          />
+        </svg>
+
+        Search
       </div>
+      <div class="mr-5 cursor-pointer" (click)="downloadBroadsheetInExcel()">
+        <svg
+          width="20"
+          height="13"
+          viewBox="0 0 20 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16.125 4.9075C15.8451 3.5244 15.0813 2.27895 13.9642 1.38389C12.8471 0.488827 11.4459 -0.000318697 10 1.55786e-07C7.59167 1.55786e-07 5.5 1.3325 4.45833 3.2825C3.23353 3.41155 2.10084 3.97736 1.27791 4.8712C0.454976 5.76504 -0.000143085 6.92386 3.3744e-08 8.125C3.3744e-08 10.8144 2.24167 13 5 13H15.8333C18.1333 13 20 11.18 20 8.9375C20 6.7925 18.2917 5.05375 16.125 4.9075ZM14.1667 7.3125L10 11.375L5.83333 7.3125H8.33333V4.0625H11.6667V7.3125H14.1667Z"
+            fill="#155b75"
+          />
+        </svg>
 
-      <div class="bg-white  mt-3 mb-3 br-10 py-5 px-4">
-        <div class="d-flex justify-content-start  align-items-center mb-4">
-            <div>
-              <form>
-                <div class="row">
-                  <div class="col ">
-                    <label for="section">Section</label>
-                    <select name="" id="section" class="form-control" (change)="getClassBySectionId($event.target.value)" >
-                      <option value="" selected> Select Level </option>
-                      <option [value]="level?.id" *ngFor="let level of levels">{{level?.name}}</option>
-                    </select>
-                  </div>
-                  
-                  <div class="col ">
-                    <label for="class">Class</label>
+        Export In Excel
+      </div>
+      <div class="mr-5 cursor-pointer" (click)="downloadBroadsheetInPdf()">
+        <svg
+          width="20"
+          height="13"
+          viewBox="0 0 20 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16.125 4.9075C15.8451 3.5244 15.0813 2.27895 13.9642 1.38389C12.8471 0.488827 11.4459 -0.000318697 10 1.55786e-07C7.59167 1.55786e-07 5.5 1.3325 4.45833 3.2825C3.23353 3.41155 2.10084 3.97736 1.27791 4.8712C0.454976 5.76504 -0.000143085 6.92386 3.3744e-08 8.125C3.3744e-08 10.8144 2.24167 13 5 13H15.8333C18.1333 13 20 11.18 20 8.9375C20 6.7925 18.2917 5.05375 16.125 4.9075ZM14.1667 7.3125L10 11.375L5.83333 7.3125H8.33333V4.0625H11.6667V7.3125H14.1667Z"
+            fill="#155b75"
+          />
+        </svg>
 
-                    <select name="" id="" class="form-control" (change)="getSubjectsAndStudents($event.target.value)">
-                      <option value="" selected>Select Class</option>
-                      <option [value]="class?.id" *ngFor="let class of classList"> {{class.name}}{{class?.classGroup}}</option>
-                    </select>
-                  </div>
-                  
-                </div>
-              </form>
-            </div>
-        
-            
-          </div>
+        Export In PDF
+      </div>
+      <div class="mr-5 cursor-pointer">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 17 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M13.4577 5.66667H3.54102C2.36518 5.66667 1.41602 6.61583 1.41602 7.79167V12.0417H4.24935V14.875H12.7493V12.0417H15.5827V7.79167C15.5827 6.61583 14.6335 5.66667 13.4577 5.66667ZM11.3327 13.4583H5.66602V9.91667H11.3327V13.4583ZM13.4577 8.5C13.0681 8.5 12.7493 8.18125 12.7493 7.79167C12.7493 7.40208 13.0681 7.08333 13.4577 7.08333C13.8473 7.08333 14.166 7.40208 14.166 7.79167C14.166 8.18125 13.8473 8.5 13.4577 8.5ZM12.7493 2.125H4.24935V4.95833H12.7493V2.125Z"
+            fill="#155b75"
+          />
+        </svg>
 
-          <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "
-          style="height: 85vh; width: 100%;" *ngIf="noData">
-          <div class="d-flex flex-column text-center">
-            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
-            <p class="fw-6 fs-24" style="color:#BAB9C1;">Select level and class to display <br> information</p>
-          </div>
+        Print
+      </div>
+    </div>
   </div>
 
-          <div *ngIf="displayData">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class="w-25"></th>
-                  <th class="vertical-header" *ngFor = "let subject of subject; let u = index"><span>  {{subject?.subjectName | titlecase}}  </span></th>
-                 
-                  <th class="vertical-header"><span>Average Score</span></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr  *ngFor = "let student of studentData ; let i = index">
-                  <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
-                    <div class="d-flex text-left">
-                      <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
-                      <div class="student-info">
-                        <!-- <p class="mb-0 cursor-pointer" (click)="saveStudentDetails(i)" routerLink="/teacher/score-sheet-student/{{student.studentId}}" >{{student?.studentName | titlecase}}</p> -->
-                        <p class="mb-0 cursor-pointer" (click)="saveStudentDetails(i)"  >{{student?.studentName | titlecase}}</p>
-                      </div>
-                    </div>
-                   
-          
-          
-                  </td>
-          
-                  <td  *ngFor = "let assessment of studentData[i].assessmentAndScores"> {{assessment?.score}} </td>
-                  <td> {{student?.averageScore}} </td>
-                  
-                </tr>
-              
-                <!-- <tr>
+  <div class="bg-white mt-3 mb-3 br-10 py-5 px-4">
+    <div class="d-flex justify-content-start align-items-center mb-4">
+      <div>
+        <form>
+          <div class="row">
+            <div class="col">
+              <label for="section">Section</label>
+              <select
+                name=""
+                id="section"
+                class="form-control"
+                (change)="getClassBySectionId($event.target.value)"
+              >
+                <option value="" selected>Select Level</option>
+                <option [value]="level?.id" *ngFor="let level of levels">
+                  {{ level?.name }}
+                </option>
+              </select>
+            </div>
+
+            <div class="col">
+              <label for="class">Class</label>
+
+              <select
+                name=""
+                id=""
+                class="form-control"
+                (change)="getSubjectsAndStudents($event.target.value)"
+              >
+                <option value="" selected>Select Class</option>
+                <option [value]="class?.id" *ngFor="let class of classList">
+                  {{ class.name }}{{ class?.classGroup }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100"
+      style="height: 85vh; width: 100%"
+      *ngIf="noData"
+    >
+      <div class="d-flex flex-column text-center">
+        <img
+          src="assets/images/svg/sad-face.svg"
+          alt="table sort icon"
+          class="mb-3"
+        />
+        <p class="fw-6 fs-24" style="color: #bab9c1">
+          Select level and class to display <br />
+          information
+        </p>
+      </div>
+    </div>
+
+    <div *ngIf="displayData">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="w-25"></th>
+            <th
+              class="vertical-header"
+              *ngFor="let subject of subject; let u = index"
+            >
+              <span> {{ subject?.subjectName | titlecase }} </span>
+            </th>
+
+            <th class="vertical-header"><span>Average Score</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of studentData; let i = index">
+            <td
+              class="d-flex justify-content-between dropright align-items-center border-bottom border-top"
+            >
+              <div class="d-flex text-left">
+                <img
+                  src="assets/images/svg/teacher-grade.svg"
+                  alt="new client"
+                  class="mr-3"
+                />
+                <div class="student-info">
+                  <!-- <p class="mb-0 cursor-pointer" (click)="saveStudentDetails(i)" routerLink="/teacher/score-sheet-student/{{student.studentId}}" >{{student?.studentName | titlecase}}</p> -->
+                  <p
+                    class="mb-0 cursor-pointer"
+                    (click)="saveStudentDetails(i)"
+                  >
+                    {{ student?.studentName | titlecase }}
+                  </p>
+                </div>
+              </div>
+            </td>
+
+            <td *ngFor="let assessment of studentData[i].assessmentAndScores">
+              {{ assessment?.score }}
+            </td>
+            <td>{{ student?.averageScore }}</td>
+          </tr>
+
+          <!-- <tr>
                   <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top">
                     <div class="d-flex text-left">
                       <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
@@ -139,19 +213,11 @@
                   <td> </td>
                   <td> </td>
                 </tr> -->
-               
-          
-          
-               
-          
-          
-          
-              </tbody>
-            </table>
-            <div class="d-flex justify-content-center my-5">
-              <!-- <button class="btn-upload-top bg-lblue w-50" type="button" > Submit </button> -->
-            </div>
-          </div>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-center my-5">
+        <!-- <button class="btn-upload-top bg-lblue w-50" type="button" > Submit </button> -->
       </div>
-    
+    </div>
+  </div>
 </div>

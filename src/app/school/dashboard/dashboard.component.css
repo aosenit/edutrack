@@ -10,11 +10,10 @@
 }
 
 .banner .banner__text-primary {
-  color: #fb882c;
+  color: #04aed4;
   font-size: 32px;
   font-family: Nunito;
   font-weight: 200;
-
 }
 .banner .banner__text-primary span {
   color: #ffffff;
@@ -26,7 +25,6 @@
   color: #ffffff;
   font-size: 14px;
   font-family: Nunito;
-
 }
 
 .cards {
@@ -35,123 +33,112 @@
   grid-gap: 1.5rem;
   justify-content: space-between;
   margin-top: 2.2rem;
-
 }
 
 .cards > div {
-    padding: 1.9rem 1.5rem 1rem;
-    font-family: Nunito;
-
+  padding: 1.9rem 1.5rem 1rem;
+  font-family: Nunito;
 }
 
 .cards .revenue {
   background: #0b8e88;
   box-shadow: 0px 10px 20px rgba(11, 142, 136, 0.2);
   border-radius: 10px;
-  color: #D9FCFA;
+  color: #d9fcfa;
 }
 .revenue__text {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .revenue__text h6 {
-    font-weight: bold;
-font-size: 32px;
-line-height: 44px;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 44px;
 }
 
 .cards .schools {
   background: #018fcb;
   box-shadow: 0px 10px 20px rgba(1, 143, 203, 0.2);
   border-radius: 10px;
-  color: #D6F3FF;
+  color: #d6f3ff;
 }
-
 
 .cards .students {
   background: #e78413;
   box-shadow: 0px 10px 20px rgba(1, 143, 203, 0.2);
   border-radius: 10px;
-  color: #FDF5ED;
+  color: #fdf5ed;
 }
 
 .cards .sms {
-    background: #F05F5C;
+  background: #f05f5c;
   box-shadow: 0px 10px 20px rgba(1, 143, 203, 0.2);
   border-radius: 10px;
-  color: #FDE8E8;
-
+  color: #fde8e8;
 }
 
 .info {
-    display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    grid-gap: 1.4rem;
-    justify-content: space-between;
-    margin-top: 2.2rem;
-    
-
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  grid-gap: 1.4rem;
+  justify-content: space-between;
+  margin-top: 2.2rem;
 }
 
 .info > div {
-    background: #FFFFFF;
-box-shadow: 0px 20px 40px rgba(211, 220, 231, 0.4);
-border-radius: 10px;
-font-family: Nunito;
-
+  background: #ffffff;
+  box-shadow: 0px 20px 40px rgba(211, 220, 231, 0.4);
+  border-radius: 10px;
+  font-family: Nunito;
 }
 
-.info__school .info__school-info, .info__chart .info__chart-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 1.5rem 1rem;
-
+.info__school .info__school-info,
+.info__chart .info__chart-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1.5rem 1rem;
 }
 
-.info__school .info__school-info h6, .info__chart .info__chart-info h6 {
-  color: #0A1128;
+.info__school .info__school-info h6,
+.info__chart .info__chart-info h6 {
+  color: #0a1128;
   font-weight: 600;
   font-size: 18px;
-
 }
-.info__school .info__school-info p, .info__chart .info__chart-info p {
-  
-  color: #0A1128;
+.info__school .info__school-info p,
+.info__chart .info__chart-info p {
+  color: #0a1128;
   font-weight: normal;
   font-size: 14px;
-
 }
 
 .info__school-info .btn-see-all {
-    background: #F0F1F4;
-border-radius: 100px;
-border: none;
-outline: none;
-padding: 2px 25px;
-color: #243C67;
-
+  background: #f0f1f4;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+  padding: 2px 25px;
+  color: #243c67;
 }
-
 
 .info__school .info__school-info .line {
   position: relative;
   width: 80%;
 }
 
-
 .info__school .info__school-info .line::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 80%;
   height: 2px;
-  background: #FB882C;
+  background: #04aed4;
   left: 0;
   bottom: 0;
 }
 
-.info__school .info__school-info .line::after{
-  content: '';
+.info__school .info__school-info .line::after {
+  content: "";
   position: absolute;
   width: 100%;
   height: 2px;
@@ -160,38 +147,35 @@ color: #243C67;
   bottom: 0;
 }
 
-
 .info__school table tbody .logo {
   display: flex;
   align-items: center;
-  color: #0A1128;
+  color: #0a1128;
   font-weight: 600;
   padding-left: 1.5rem;
 }
- table tbody p {
+table tbody p {
   display: flex;
   align-items: center;
-  color: #0A1128;
+  color: #0a1128;
   margin-bottom: 0;
   font-weight: 600;
 }
 
- table thead {
-  border-bottom: 1px solid #E1E3EA;
+table thead {
+  border-bottom: 1px solid #e1e3ea;
   color: #133960;
   opacity: 0.6;
   font-weight: normal;
   display: none;
 }
- table thead .head {
+table thead .head {
   padding-left: 1.5rem;
   font-weight: normal;
 }
 
- table tbody 
-  tr:nth-child(even) {
-    background: #F6F7F9;
-  
+table tbody tr:nth-child(even) {
+  background: #f6f7f9;
 }
 
 .info__chart .info__chart-info .line2 {
@@ -200,11 +184,11 @@ color: #243C67;
 }
 
 .info__chart .info__chart-info .line2::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 80%;
   height: 2px;
-  background: #FB882C;
+  background: #04aed4;
   left: 0;
   bottom: 0;
 }
@@ -227,10 +211,10 @@ color: #243C67;
   height: 30px;
   border-radius: 50%;
   object-fit: cover;
-
 }
 
-.e-calendar, .e-bigger.e-small .e-calendar {
+.e-calendar,
+.e-bigger.e-small .e-calendar {
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: none;
@@ -238,40 +222,34 @@ color: #243C67;
   /* width: 100%; */
 }
 
-.e-calendar, .e-bigger.e-small .e-calendar {
+.e-calendar,
+.e-bigger.e-small .e-calendar {
   max-width: 648px;
   min-width: 240px;
   padding: 0;
 }
 
-
 @media screen and (max-width: 600px) {
-   
-.cards, .info {
-  display: grid;
-  grid-template-columns: 1fr;
-}
+  .cards,
+  .info {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 
-
-
-.modal-head {
-  padding: 20px 40px;
-  background: #EBF0F5;
-  /* display: flex;
+  .modal-head {
+    padding: 20px 40px;
+    background: #ebf0f5;
+    /* display: flex;
   justify-content: space-between; */
-}
+  }
 
+  .modal-content {
+    border-radius: 0 !important;
+    border: none;
+    position: relative;
+  }
 
-
-.modal-content {
-  border-radius: 0 !important;
-  border: none;
-  position: relative;
-
-}
-
-.close {
-  cursor: pointer;
-}
-
+  .close {
+    cursor: pointer;
+  }
 }

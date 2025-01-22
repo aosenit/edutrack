@@ -24,7 +24,7 @@
 }
 
 .btn-orange-two {
-  background: #fb882c;
+  background: #04aed4;
   border-radius: 5px;
   height: 44px;
   font-family: Nunito;
@@ -42,7 +42,7 @@
 }
 
 .attendance__student_name {
-    font-family: Nunito;
+  font-family: Nunito;
   font-weight: 600;
   font-size: 14px;
   line-height: 19px;
@@ -53,21 +53,19 @@
   color: #355691;
 }
 .attendance__student_reg {
-    font-size: 12px;
-    line-height: 16px;
-    display: flex;
-    align-items: center;
-    color: #767676;
-
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: #767676;
 }
 .attendance__student_percentage {
-    font-weight: 600;
-font-size: 14px;
-line-height: 19px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
 
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 
-color: #09B78A;
-
+  color: #09b78a;
 }

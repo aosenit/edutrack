@@ -1,111 +1,109 @@
-#top{
-    margin-top: -73px;
-    background: url('../../../assets/images/banner1.png');
-    height: 59vh;
-    padding-bottom: 10vh;
-    background-size: cover;
-    background-position: top center;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    flex-flow: column;
+#top {
+  margin-top: -73px;
+  background: url("../../../assets/images/banner1.png");
+  height: 59vh;
+  padding-bottom: 10vh;
+  background-size: cover;
+  background-position: top center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-flow: column;
 }
-.form{
-    background: #FFFFFF;
-    box-shadow: 0px 20px 40px rgba(239, 241, 243, 0.72);
-    border-radius: 10px;
+.form {
+  background: #ffffff;
+  box-shadow: 0px 20px 40px rgba(239, 241, 243, 0.72);
+  border-radius: 10px;
 }
-.check{
+.check {
   height: 15px;
   width: 15px;
-  border: 1px solid #0D47A1;
+  border: 1px solid #0d47a1;
   border-radius: 100%;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
-#checkboxes input[type=checkbox]{ 
+#checkboxes input[type="checkbox"] {
   display: none;
 }
-#checkboxes input[type=checkbox]:checked + .atype .check{
+#checkboxes input[type="checkbox"]:checked + .atype .check {
   width: 14.5px;
   height: 14.5px;
-  box-shadow: 0 0 0 1px #0D47A1;
+  box-shadow: 0 0 0 1px #0d47a1;
   margin-top: +3px;
   border: solid 2px #fff;
   -webkit-outline-radius: 100%;
   -moz-outline-radius: 100%;
-  background-color: #0D47A1;
+  background-color: #0d47a1;
 }
-
 
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
+  position: absolute;
+  left: -9999px;
 }
 [type="radio"]:checked + label,
-[type="radio"]:not(:checked) + label
-{
-    position: relative;
-    padding-left: 28px;
-    cursor: pointer;
-    /* line-height: 20px; */
-    display: inline-block;
-    /* color: #666; */
+[type="radio"]:not(:checked) + label {
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  /* line-height: 20px; */
+  display: inline-block;
+  /* color: #666; */
 }
 [type="radio"]:checked + label:before,
 [type="radio"]:not(:checked) + label:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 24px;
-    height: 24px;
-    border: 1px solid #FB882C;
-    border-radius: 100%;
-    background: #fff;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #04aed4;
+  border-radius: 100%;
+  background: #fff;
 }
 [type="radio"]:checked + label.disabled:before,
 [type="radio"]:not(:checked) + label.disabled:before,
 [type="radio"]:checked + label.disabled,
-[type="radio"]:not(:checked) + label.disabled{
-    opacity: .5;
+[type="radio"]:not(:checked) + label.disabled {
+  opacity: 0.5;
 }
 [type="radio"]:checked + label:after,
 [type="radio"]:not(:checked) + label:after {
-    content: '';
-    width: 14px;
-    height: 14px;
-    background: #FB882C;
-    position: absolute;
-    top: 5px;
-    left: 5.4px;
-    border-radius: 100%;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: #04aed4;
+  position: absolute;
+  top: 5px;
+  left: 5.4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 [type="radio"]:not(:checked) + label:after {
-    opacity: 0;
-    -webkit-transform: scale(0);
-    transform: scale(0);
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
 }
 [type="radio"]:checked + label:after {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }
 
-.btn-submit{
-    background: #FB882C;
-    box-shadow: 0px 10px 20px rgba(255, 55, 51, 0.17);
-    border-radius: 1px;
-    height: 44px;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 20px;
-    text-align: center;
-    color: #FFFFFF;
-}.btn-submit:focus{
-
+.btn-submit {
+  background: #04aed4;
+  box-shadow: 0px 10px 20px rgba(255, 55, 51, 0.17);
+  border-radius: 1px;
+  height: 44px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+.btn-submit:focus {
 }

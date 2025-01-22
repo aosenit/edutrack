@@ -1,140 +1,135 @@
 .breadcrumb {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    padding: 0.75rem 0;
-    margin-bottom: 1rem;
-    list-style: none;
-    background-color: transparent;
-    border-radius: 0.25rem;
-    cursor: pointer;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: 0.75rem 0;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 0.25rem;
+  cursor: pointer;
 }
 
 a {
-    color: #1b5bac;
-    font-weight: normal;
-    cursor: pointer;
+  color: #1b5bac;
+  font-weight: normal;
+  cursor: pointer;
 }
 
-.breadcrumb-item+.breadcrumb-item::before {
-    display: inline-block;
-    padding-right: 0.5rem;
-    color: #1b5bac;
-    content: ">";
-    font-size: 10px;
-    display: none;
+.breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  color: #1b5bac;
+  content: ">";
+  font-size: 10px;
+  display: none;
 }
 
 .steps {
-    
-background: rgba(245, 245, 245, 0.66);
+  background: rgba(245, 245, 245, 0.66);
 }
 .steps div:not(:last-child) {
-    /* margin-right: 7rem; */
+  /* margin-right: 7rem; */
 }
 
 .steps span {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
 }
 .steps .active span {
-    background: #FB882C;
-    font-weight: 600;
+  background: #04aed4;
+  font-weight: 600;
 }
 
 .steps .active p {
-    color: #000000;
-    font-weight: 600;
-    line-height: 1;
+  color: #000000;
+  font-weight: 600;
+  line-height: 1;
 }
-.steps  p {
-    color: #707070;
-    line-height: 1;
+.steps p {
+  color: #707070;
+  line-height: 1;
 }
 
 .steps span:not(.active) {
-    background: #B7C0CD;
-    color: #ffffff;
+  background: #b7c0cd;
+  color: #ffffff;
 }
 
-
 .step-content {
-    background: rgba(255, 255, 255, 0.5);
-border: transparent solid #D7DFE8;
-    padding: 6rem;
-/* opacity: 0.5; */
+  background: rgba(255, 255, 255, 0.5);
+  border: transparent solid #d7dfe8;
+  padding: 6rem;
+  /* opacity: 0.5; */
 }
 
 form textarea {
-    height: 100px;
+  height: 100px;
 }
 
 form .form-control {
-    /* padding: 1.37rem .75rem; */
-    color: #000000;
-    font-size: 16px;
-    border: 1px solid #D1D9DF;
+  /* padding: 1.37rem .75rem; */
+  color: #000000;
+  font-size: 16px;
+  border: 1px solid #d1d9df;
 }
 
 .btn-orange-two {
-    background: #fb882c;
-    border-radius: 5px;
-    height: 44px;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 20px;
-    color: #ffffff;
+  background: #04aed4;
+  border-radius: 5px;
+  height: 44px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  color: #ffffff;
 }
 
 .btn-outline-orange {
-    border: 1px solid #FB882C;
-    box-sizing: border-box;
-    border-radius: 5px;
-    height: 44px;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 19px;
-    color: #FB882C;
+  border: 1px solid #04aed4;
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 44px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #04aed4;
 }
 
-
 .add-image {
-    position: relative;
-    /* background-image: url('../../../assets/images/svg/student-add-upload.svg'); */
-    background-repeat: no-repeat;
-    background-position: 270px 35px;
-    background: #FFFFFF;
-    border: 1px dashed #DDE0E9;
-    height: 25px;
-    
+  position: relative;
+  /* background-image: url('../../../assets/images/svg/student-add-upload.svg'); */
+  background-repeat: no-repeat;
+  background-position: 270px 35px;
+  background: #ffffff;
+  border: 1px dashed #dde0e9;
+  height: 25px;
 }
 
 .add-image label {
-    position: absolute;
-    top: 0px;
-    right: 40px;
-    text-align: center;
-    font-size: 14px;
-    color: #0A1128;
+  position: absolute;
+  top: 0px;
+  right: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #0a1128;
 }
 
 .file-input {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
 }
-

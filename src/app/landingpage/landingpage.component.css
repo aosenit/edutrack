@@ -1,178 +1,179 @@
 #landingpage {
-    margin-top: -73px;
-    background: url('../../assets/images/baner.png');
-    height: 99vh;
-    background-size: cover;
-    background-position: top center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: column;
+  margin-top: -73px;
+  background: url("../../assets/images/baner.png");
+  height: 99vh;
+  background-size: cover;
+  background-position: top center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
 }
 
 .btn-outline-orange {
-    border: 1px solid #FB882C;
-    box-sizing: border-box;
-    border-radius: 1px;
-    height: 44px;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 19px;
-    color: #FB882C;
+  border: 1px solid #04aed4;
+  box-sizing: border-box;
+  border-radius: 1px;
+  height: 44px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #04aed4;
 }
 
 .btn-orange-two {
-    background: #FB882C;
-    box-shadow: 0px 10px 20px rgba(255, 55, 51, 0.17);
-    border-radius: 1px;
-    height: 44px;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 20px;
-    color: #FFFFFF;
+  background: #04aed4;
+  box-shadow: 0px 10px 20px rgba(255, 55, 51, 0.17);
+  border-radius: 1px;
+  height: 44px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  color: #ffffff;
 }
 
 .features {
-    background: #FFF4EB;
-    height: 73px;
-    width: 67px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: #fff4eb;
+  height: 73px;
+  width: 67px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #products {
-    margin-top: -23px;
-    background: url('../../assets/images/bg-kid.png');
-    background-repeat: no-repeat;
-    background-position: top right;
-    background-size: 20%;
+  margin-top: -23px;
+  background: url("../../assets/images/bg-kid.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 20%;
 }
 
 #products .inn {
-    background: url('../../assets/images/svg/bg-green.svg');
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    background-size: 40%;
+  background: url("../../assets/images/svg/bg-green.svg");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 40%;
 }
 #faq {
-    /* margin-top: -23px; */
-    background: url('../../assets/images/bg-faq.png');
-    background-repeat: no-repeat;
-    background-position: bottom left;
-    background-size: 32%;
+  /* margin-top: -23px; */
+  background: url("../../assets/images/bg-faq.png");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 32%;
 }
 
 #faq .inn {
-    background: url('../../assets/images/svg/bg-pink.svg');
-    background-repeat: no-repeat;
-    background-position: top left;
-    background-size: 42%;
+  background: url("../../assets/images/svg/bg-pink.svg");
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 42%;
 }
 
 .card {
-    background: #FFFFFF;
-    box-shadow: 0px 7px 15px rgba(204, 204, 204, 0.17);
-    border: none;
-    margin-bottom: 5px;
+  background: #ffffff;
+  box-shadow: 0px 7px 15px rgba(204, 204, 204, 0.17);
+  border: none;
+  margin-bottom: 5px;
 }
 
 .card-header {
-    background: #FFFFFF;
-    border: none;
+  background: #ffffff;
+  border: none;
 }
 
 .card-header:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .card-body {
-    border-top: 1px solid #FB882C;
+  border-top: 1px solid #04aed4;
 }
 
 .card-header[data-toggle="collapse"]:before {
-    font-family: FontAwesome;
-    content: '\f107';
-    position: absolute;
-    color: #014D94;
-    transition: .3s ease-in-out;
+  font-family: FontAwesome;
+  content: "\f107";
+  position: absolute;
+  color: #014d94;
+  transition: 0.3s ease-in-out;
 }
 
 .card-header[data-toggle="collapse"].collapsed:before {
-    -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 #testimonial {
-    background:  #FDD2AF;
+  background: #fdd2af;
 }
-.testimonialtext{
-    margin-bottom: -10px;
+.testimonialtext {
+  margin-bottom: -10px;
 }
-.test-box{
-    background: #014D94;
+.test-box {
+  background: #014d94;
 }
-.carousel-control-next, .carousel-control-prev {
-    position: unset;
-    width: unset;   
-    border: 2px solid #014D94;
-    color: #014D94;
-    height: 40px;
-    width: 40px;
-    border-radius: 100%;
+.carousel-control-next,
+.carousel-control-prev {
+  position: unset;
+  width: unset;
+  border: 2px solid #014d94;
+  color: #014d94;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
 }
-#thewhy{
-    margin-top: -20 px;
+#thewhy {
+  margin-top: -20 px;
 }
-.why{
-    background: #014D94;
-    min-height: 80vh;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
+.why {
+  background: #014d94;
+  min-height: 80vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
-.why2{
-    background: #FDF4ED;
-    min-height: 80vh;
+.why2 {
+  background: #fdf4ed;
+  min-height: 80vh;
 }
-.topgirl2{
-    background: url('../../assets/images/girl2.png');
-    width: 50vw;  
-    margin-left: -100px;
-    height: 40vh;
-    background-size: contain;
-    background-repeat: no-repeat;
+.topgirl2 {
+  background: url("../../assets/images/girl2.png");
+  width: 50vw;
+  margin-left: -100px;
+  height: 40vh;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-.bullets{
-    margin-left: -50px;
+.bullets {
+  margin-left: -50px;
 }
 
+@media screen and (max-width: 360px) {
+  #landingpage {
+    margin-top: 0;
+  }
+  #products,
+  #faq {
+    background: unset;
+  }
 
-@media screen and (max-width: 360px){
-    #landingpage {
-        margin-top: 0;
-    }
-    #products, #faq{
-        background: unset;
-    }
+  .hero-text {
+    margin-top: 8rem;
+  }
 
-    .hero-text {
-        margin-top: 8rem;
-    }
+  .hero-text p {
+    font-size: 32px;
+    line-height: 46px;
+  }
 
-    .hero-text p {
-        font-size: 32px;
-        line-height: 46px;
-    }
-
-    .w-m-100 {
-        width: 100% !important;
-    }
+  .w-m-100 {
+    width: 100% !important;
+  }
 }

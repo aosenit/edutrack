@@ -1,18 +1,23 @@
 <div class="col-md-12 mt-5 mr-3">
-  <section class="banner d-flex justify-content-between align-items-center mb-4 pb-3">
-    <div class="mt-5 pl-3 content ">
-      <h6 class="banner__text-primary fw-6 "> Grade book </h6>
-      <p class=""> Time table and schedule </p>
+  <section
+    class="banner d-flex justify-content-between align-items-center mb-4 pb-3"
+  >
+    <div class="mt-5 pl-3 content">
+      <h6 class="banner__text-primary fw-6">Grade book</h6>
+      <p class="">Time table and schedule</p>
     </div>
-    <button class="btn-upload-top btn-orange-two " type="button" data-toggle="modal"
-      data-target="#exampleModalCenterUpload"> <img src="assets/images/svg/upload.svg" alt="new client" class="mr-2">
-      Import </button>
-
+    <button
+      class="btn-upload-top btn-orange-two"
+      type="button"
+      data-toggle="modal"
+      data-target="#exampleModalCenterUpload"
+    >
+      <img src="assets/images/svg/upload.svg" alt="new client" class="mr-2" />
+      Import
+    </button>
   </section>
 
-
-
-  <div class="d-flex justify-content-between  align-items-center mb-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
       <form>
         <div class="row">
@@ -27,27 +32,53 @@
             </select>
           </div> -->
           <div class="col options">
-            <select name="" id="" class="form-control" (change)="getSubjects($event.target.value)">
+            <select
+              name=""
+              id=""
+              class="form-control"
+              (change)="getSubjects($event.target.value)"
+            >
               <option value="" selected>Select Class</option>
-              <option [value]="class" *ngFor="let class of classList"> {{class | uppercase}}</option>
+              <option [value]="class" *ngFor="let class of classList">
+                {{ class | uppercase }}
+              </option>
             </select>
           </div>
           <div class="col options">
-            <select name="" id="" class="form-control" (change)="getSubjectsId($event.target.value)">
+            <select
+              name=""
+              id=""
+              class="form-control"
+              (change)="getSubjectsId($event.target.value)"
+            >
               <option value="">Select Subject</option>
-              <option [value]="subject.subjectId" *ngFor="let subject of subjectList ">{{subject.subject | uppercase}}</option>
+              <option
+                [value]="subject.subjectId"
+                *ngFor="let subject of subjectList"
+              >
+                {{ subject.subject | uppercase }}
+              </option>
             </select>
           </div>
         </div>
       </form>
     </div>
 
-    <div class="d-flex justify-content-between"  *ngIf="displayClass">
+    <div class="d-flex justify-content-between" *ngIf="displayClass">
       <div class="mr-4 cursor-pointer" (click)="generate()">
-        <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd"
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 15 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
             d="M10.0429 9.43396H10.7204L15 13.7221L13.7221 15L9.43396 10.7204V10.0429L9.2024 9.80274C8.2247 10.6432 6.9554 11.1492 5.57461 11.1492C2.49571 11.1492 0 8.65352 0 5.57461C0 2.49571 2.49571 0 5.57461 0C8.65352 0 11.1492 2.49571 11.1492 5.57461C11.1492 6.9554 10.6432 8.2247 9.80274 9.2024L10.0429 9.43396ZM1.71556 5.57444C1.71556 7.70995 3.4394 9.43379 5.57491 9.43379C7.71042 9.43379 9.43426 7.70995 9.43426 5.57444C9.43426 3.43894 7.71042 1.7151 5.57491 1.7151C3.4394 1.7151 1.71556 3.43894 1.71556 5.57444Z"
-            fill="#0052B4" />
+            fill="#155b75"
+          />
         </svg>
 
         Generate
@@ -56,25 +87,39 @@
         <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M10.0429 9.43396H10.7204L15 13.7221L13.7221 15L9.43396 10.7204V10.0429L9.2024 9.80274C8.2247 10.6432 6.9554 11.1492 5.57461 11.1492C2.49571 11.1492 0 8.65352 0 5.57461C0 2.49571 2.49571 0 5.57461 0C8.65352 0 11.1492 2.49571 11.1492 5.57461C11.1492 6.9554 10.6432 8.2247 9.80274 9.2024L10.0429 9.43396ZM1.71556 5.57444C1.71556 7.70995 3.4394 9.43379 5.57491 9.43379C7.71042 9.43379 9.43426 7.70995 9.43426 5.57444C9.43426 3.43894 7.71042 1.7151 5.57491 1.7151C3.4394 1.7151 1.71556 3.43894 1.71556 5.57444Z"
-            fill="#0052B4" />
+            fill="#155b75" />
         </svg>
 
         Search
       </div> -->
       <div class="mr-4 cursor-pointer" (click)="generateExcel()">
-        <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="20"
+          height="13"
+          viewBox="0 0 20 13"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M16.125 4.9075C15.8451 3.5244 15.0813 2.27895 13.9642 1.38389C12.8471 0.488827 11.4459 -0.000318697 10 1.55786e-07C7.59167 1.55786e-07 5.5 1.3325 4.45833 3.2825C3.23353 3.41155 2.10084 3.97736 1.27791 4.8712C0.454976 5.76504 -0.000143085 6.92386 3.3744e-08 8.125C3.3744e-08 10.8144 2.24167 13 5 13H15.8333C18.1333 13 20 11.18 20 8.9375C20 6.7925 18.2917 5.05375 16.125 4.9075ZM14.1667 7.3125L10 11.375L5.83333 7.3125H8.33333V4.0625H11.6667V7.3125H14.1667Z"
-            fill="#0052B4" />
+            fill="#155b75"
+          />
         </svg>
 
         Export
       </div>
       <div class="mr-4 cursor-pointer">
-        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 17 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M13.4577 5.66667H3.54102C2.36518 5.66667 1.41602 6.61583 1.41602 7.79167V12.0417H4.24935V14.875H12.7493V12.0417H15.5827V7.79167C15.5827 6.61583 14.6335 5.66667 13.4577 5.66667ZM11.3327 13.4583H5.66602V9.91667H11.3327V13.4583ZM13.4577 8.5C13.0681 8.5 12.7493 8.18125 12.7493 7.79167C12.7493 7.40208 13.0681 7.08333 13.4577 7.08333C13.8473 7.08333 14.166 7.40208 14.166 7.79167C14.166 8.18125 13.8473 8.5 13.4577 8.5ZM12.7493 2.125H4.24935V4.95833H12.7493V2.125Z"
-            fill="#0052B4" />
+            fill="#155b75"
+          />
         </svg>
 
         Print
@@ -82,25 +127,34 @@
     </div>
   </div>
 
- 
-
-  <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "
-          style="height: 85vh; width: 100%;" *ngIf="noClass">
-          <div class="d-flex flex-column text-center">
-            <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
-            <p class="fw-6 fs-24" style="color:#BAB9C1;">Select class and subject to display <br> information</p>
-          </div>
+  <div
+    class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100"
+    style="height: 85vh; width: 100%"
+    *ngIf="noClass"
+  >
+    <div class="d-flex flex-column text-center">
+      <img
+        src="assets/images/svg/sad-face.svg"
+        alt="table sort icon"
+        class="mb-3"
+      />
+      <p class="fw-6 fs-24" style="color: #bab9c1">
+        Select class and subject to display <br />
+        information
+      </p>
+    </div>
   </div>
   <!-- <div class="grade-container bg-white mt-5 mb-3 py-5 px-4  br-10">
         
       </div> -->
-<div *ngIf="displayClass">
-  
-    <table class="table" id="gradeTable"  >
+  <div *ngIf="displayClass">
+    <table class="table" id="gradeTable">
       <thead>
         <tr>
           <th class="w-40">Student Name</th>
-          <th *ngFor="let assessment of assessmentList; let y = index"> {{assessment?.name }} ({{assessment?.maxScore}}) </th>
+          <th *ngFor="let assessment of assessmentList; let y = index">
+            {{ assessment?.name }} ({{ assessment?.maxScore }})
+          </th>
           <!-- <th>Second CA Score</th>
           <th>Exam Score</th> -->
           <th>Cummulative Score</th>
@@ -111,113 +165,168 @@
       </thead>
       <tbody>
         <tr id="gradeRow" *ngFor="let student of newList; let u = index">
-          <td class="d-flex justify-content-between dropright align-items-center border-bottom border-top student">
+          <td
+            class="d-flex justify-content-between dropright align-items-center border-bottom border-top student"
+          >
             <div class="d-flex text-left">
-              <img src="assets/images/svg/teacher-grade.svg" alt="new client" class="mr-3">
+              <img
+                src="assets/images/svg/teacher-grade.svg"
+                alt="new client"
+                class="mr-3"
+              />
               <div class="student-info">
-                <p class="mb-0 cursor-pointer"  (click)="saveStudentDetails(u)">{{student.name}}</p>
-                <p class="mb-0 fs-12">{{student?.regNumber}}</p>
+                <p class="mb-0 cursor-pointer" (click)="saveStudentDetails(u)">
+                  {{ student.name }}
+                </p>
+                <p class="mb-0 fs-12">{{ student?.regNumber }}</p>
               </div>
             </div>
-            <a href="#" class="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              id="dropdownMenuLink">
-              <img src="assets/images/svg/add-grades.svg" alt="" class="mr-2  cursor-pointer ">
+            <a
+              href="#"
+              class="dropdown"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              id="dropdownMenuLink"
+            >
+              <img
+                src="assets/images/svg/add-grades.svg"
+                alt=""
+                class="mr-2 cursor-pointer"
+              />
             </a>
-            <div class="dropdown-menu omo p-3  " id="dropdownMenuLink{{u}}">
-              <form [formGroup]="addGradeForm" (ngSubmit)="submitGrade(student?.id, u)"> 
+            <div class="dropdown-menu omo p-3" id="dropdownMenuLink{{ u }}">
+              <form
+                [formGroup]="addGradeForm"
+                (ngSubmit)="submitGrade(student?.id, u)"
+              >
                 <div class="form-group">
                   <label for="cont">Type</label>
-                  <select id="cont" class="form-control" formControlName="assessmentId"
-                    (change)="getAssessmentName($event.target.value, u)" (click)="holdDropDown(u)">
+                  <select
+                    id="cont"
+                    class="form-control"
+                    formControlName="assessmentId"
+                    (change)="getAssessmentName($event.target.value, u)"
+                    (click)="holdDropDown(u)"
+                  >
                     <option value="">Select</option>
-                    <option [value]="j" *ngFor="let assessment of assessmentList; let j = index">
-                      {{assessment?.name}} </option>
-  
+                    <option
+                      [value]="j"
+                      *ngFor="let assessment of assessmentList; let j = index"
+                    >
+                      {{ assessment?.name }}
+                    </option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="type">Score</label>
-                  <input type="number" class="form-control" formControlName="score">
+                  <input
+                    type="number"
+                    class="form-control"
+                    formControlName="score"
+                  />
                 </div>
               </form>
             </div>
-  
-  
           </td>
-  
+
           <!-- <td *ngFor = "let assessment of newList[0].assessments" > <span *ngIf="student?.id == scoreObject?.studentid && assessment?.sequenceNumber == scoreObject.AssessmentId"> {{scoreObject?.Score}} </span>  </td> -->
-          <td class="scores" *ngFor="let assessment of newList[0].assessments"> <span 
-              *ngIf="scoreObject[student.id] ? scoreObject[student.id][assessment?.name]  : false">
-              {{scoreObject[student?.id][assessment?.name].Score }} </span>  </td>
-  
-  
-          <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false" > {{scoreObject[student?.id].cummulative}} </td>
+          <td class="scores" *ngFor="let assessment of newList[0].assessments">
+            <span
+              *ngIf="
+                scoreObject[student.id]
+                  ? scoreObject[student.id][assessment?.name]
+                  : false
+              "
+            >
+              {{ scoreObject[student?.id][assessment?.name].Score }}
+            </span>
+          </td>
+
+          <td *ngIf="scoreObject[student.id] ? scoreObject[student.id] : false">
+            {{ scoreObject[student?.id].cummulative }}
+          </td>
           <!-- <td> </td>  -->
-          <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false" > {{scoreResult[student?.id].studentGrade}} </td>
-          <td *ngIf="scoreObject[student.id] ? scoreObject[student.id]  : false">
-            <span class="fs-14 interpretation" >  {{ scoreResult[student?.id].gradeIntepretation}} </span>
+          <td *ngIf="scoreObject[student.id] ? scoreObject[student.id] : false">
+            {{ scoreResult[student?.id].studentGrade }}
+          </td>
+          <td *ngIf="scoreObject[student.id] ? scoreObject[student.id] : false">
+            <span class="fs-14 interpretation">
+              {{ scoreResult[student?.id].gradeIntepretation }}
+            </span>
             <!-- <span class="fs-14 interpretation excellent" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Excellent ' ">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
             <span class="fs-14 interpretation very-good" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Very Good'"> {{ scoreResult[student?.id].gradeIntepretation}} </span>
           <span class="fs-14 interpretation good" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Good'">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
           <span class="fs-14 interpretation fail" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Fail'">  {{ scoreResult[student?.id].gradeIntepretation}} </span>
           <span class="fs-14 interpretation fair" *ngIf=" scoreResult[student?.id].gradeIntepretation == 'Fair'">  {{ scoreResult[student?.id].gradeIntepretation}} </span> -->
-            
           </td>
         </tr>
-  
-  
-  
-  
-  
-  
-  
-  
       </tbody>
     </table>
-  
+
     <div class="d-flex justify-content-center my-5">
-      <button class="btn-upload-top btn bg-lblue-2 w-50" type="button" (click)="submitResults()" [disabled]="hideBtn"> Submit </button>
+      <button
+        class="btn-upload-top btn bg-lblue-2 w-50"
+        type="button"
+        (click)="submitResults()"
+        [disabled]="hideBtn"
+      >
+        Submit
+      </button>
     </div>
+  </div>
 </div>
-</div>
-
-
-
-
-
-
 
 <!-- Bulk uplaod Modal -->
-<div class="modal fade" id="exampleModalCenterUpload" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalCenterUploadTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-length" style="max-width: 45%;" role="document">
+<div
+  class="modal fade"
+  id="exampleModalCenterUpload"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterUploadTitle"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-centered modal-length"
+    style="max-width: 45%"
+    role="document"
+  >
     <div class="modal-content">
-
-      <div class="modal-head ">
+      <div class="modal-head">
         <div class="d-flex justify-content-between align-items-center mb-3">
           <h6 class="modal-title">Upload Files</h6>
-          <button type="button" class="close" id="myModelClose" data-dismiss="modal" aria-label="Close">
+          <button
+            type="button"
+            class="close"
+            id="myModelClose"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-
       </div>
       <div class="modal-body client-modal">
         <form [formGroup]="bulkUpload" (ngSubmit)="UploadBulkFile()">
           <div class="form-group file-upload mt-4 mb-3">
-            <label for="fileupload" *ngIf="filename === null; else bulkFile">Drag files to upload or click</label>
+            <label for="fileupload" *ngIf="filename === null; else bulkFile"
+              >Drag files to upload or click</label
+            >
             <p class="text-center">
               <!-- <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add Files </button> -->
             </p>
             <ng-template #bulkFile class="mt-5">
-              <label for="fileupload"> {{filename}} </label>
+              <label for="fileupload"> {{ filename }} </label>
             </ng-template>
-            <input type="file" class="file-input" id="fileupload"
+            <input
+              type="file"
+              class="file-input"
+              id="fileupload"
               accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-              (change)="handleBulkUpload($event)">
+              (change)="handleBulkUpload($event)"
+            />
 
             <!-- <button typ  e="button " class="btn-orange-two btn-upload  mb-3 " *ngIf="filename" >{{filename}} </button> -->
-
           </div>
 
           <!-- <a class="mb-5 download fc-dark" href="assets/SchoolTrackBulkUpload.xlsx"
@@ -225,13 +334,21 @@
             <span class="download fc-lblue">here</span> to download sample file</a> -->
 
           <div class="modal-btn d-flex justify-content-end mb-5">
-            <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
-            <button class="btn btn-orange-two  px-5 mb-4 mt-3" [disabled]="bulkUpload.invalid"> Upload </button>
+            <button
+              class="btn btn-outline-orange px-5 mb-4 mt-3 mr-3"
+              data-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              class="btn btn-orange-two px-5 mb-4 mt-3"
+              [disabled]="bulkUpload.invalid"
+            >
+              Upload
+            </button>
           </div>
-
         </form>
       </div>
-
     </div>
   </div>
 </div>

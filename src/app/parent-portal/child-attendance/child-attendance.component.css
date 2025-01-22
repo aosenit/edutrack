@@ -1,179 +1,165 @@
-
 .main .banner {
-    width: 100%;
-    background-image: url("../../../assets/images/svg/banner.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-mix-blend-mode: normal;
-border-radius: 5px;
-  }
-  
-  .banner .banner__text-primary {
-    color: #fb882c;
-    font-size: 32px;
-    font-family: Nunito;
-    font-weight: 200;
-  
-  }
-  .banner .banner__text-primary span {
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: 400;
-  }
-  
+  width: 100%;
+  background-image: url("../../../assets/images/svg/banner.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: normal;
+  border-radius: 5px;
+}
+
+.banner .banner__text-primary {
+  color: #04aed4;
+  font-size: 32px;
+  font-family: Nunito;
+  font-weight: 200;
+}
+.banner .banner__text-primary span {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 400;
+}
 
 .media-inner .nav-link {
-    padding: 0.5rem 0.5rem;
-  }
-  .media-inner .nav-pills .nav-link.active,
-  .nav-pills .show > .nav-link {
-    font-size: 18px;
-line-height: 25px;
-/* identical to box height */
+  padding: 0.5rem 0.5rem;
+}
+.media-inner .nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  font-size: 18px;
+  line-height: 25px;
+  /* identical to box height */
 
+  color: #003e88;
+  font-weight: 600;
+  border-bottom: 3px solid #04aed4;
+  background: transparent;
+  border-radius: 0;
+  padding: 7px 5px;
+  /* font-size: 13px; */
+  font-family: nunito;
+  z-index: 22;
+}
+.media-inner .nav-pills .nav-link,
+.nav-pills .show > .nav-link {
+  color: #a4a5a8;
+  font-size: 18px;
+  background: transparent;
+  /* font-size: 13px; */
+}
 
-color: #003E88;
-    font-weight: 600;
-    border-bottom: 3px solid #eb6b04;
-    background: transparent;
-    border-radius: 0;
-    padding: 7px 5px;
-    /* font-size: 13px; */
-    font-family: nunito;
-    z-index: 22;
-  }
-  .media-inner .nav-pills .nav-link,
-  .nav-pills .show > .nav-link {
-    color: #a4a5a8;
-    font-size: 18px;
-    background: transparent;
-    /* font-size: 13px; */
-  }
-  
-  /* end of tabs */
+/* end of tabs */
 
-
-  
 /* ================= table ====================== */
 table.client-table {
-    border-collapse: separate;
-    border-spacing: 0 1em;
-  }
-  
-  .list .table thead {
-    color: #767676;
-    font-weight: 600;
-    background: #E7E7E7;
-/* shadow */
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}
 
-/* box-shadow: 0px 15px 35px rgba(73, 87, 94, 0.05); */
-  }
-  
-  .list .table thead tr th {
-    font-weight: 600;
-    padding-bottom: 0;
-  }
-  
-  .list .table thead .head {
-    /* display: flex;
+.list .table thead {
+  color: #767676;
+  font-weight: 600;
+  background: #e7e7e7;
+  /* shadow */
+
+  /* box-shadow: 0px 15px 35px rgba(73, 87, 94, 0.05); */
+}
+
+.list .table thead tr th {
+  font-weight: 600;
+  padding-bottom: 0;
+}
+
+.list .table thead .head {
+  /* display: flex;
     align-items: center;
     color: #0a1128;
     font-weight: 600; */
-    padding-left: 1rem;
-  }
-  
-  
-  
-  
-  .list .table th, td {
-    /* padding: 22px 15px; */
-  }
-  
-  .list .table tbody tr {
-    /* border: 1px solid #bed0e4; */
-    box-sizing: border-box;
-    /* guy */
-  
-    font-weight: 600;
-font-size: 14px;
-line-height: 19px;
-/* identical to box height */
-
-
-color: #383F51;
-
-  }
-  
-  .list .table tbody td:not(:first-child) {
-    /* color: #0a1128; */
-    /* opacity: 0.6; */
-  }
-  
-  .list .table tbody .status_active {
-    color: #09b78a;
-    background: #ebfffa;
-    border-radius:2px;
-    font-weight: 600;
-    width: 80px;
-    height: 26px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 17px 30px;
-  }
-  .list .table tbody .view {
-  
-    background: #1B998B;
-    border-radius: 5px;
-    font-weight: 600;
-    width: 18px;
-    height: 26px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 17px 40px;
-    color: #FFFFFF;
-    cursor: pointer;
-  }
-  
-  .list .table tbody .status_inactive {
-    background: #fae5e7;
-    border-radius: 2px;
-    color: #FF3C3C;
-    font-weight: 600;
-    width: 80px;
-    height: 26px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 17px 30px;
-  }
-
-  .upload {
-    background: #0052B4;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    color: #ffffff;
-    box-sizing: border-box;
-border-radius: 10px;
-width: 160px;
-height: 26px;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 17px 30px;
-    
+  padding-left: 1rem;
 }
 
+.list .table th,
+td {
+  /* padding: 22px 15px; */
+}
+
+.list .table tbody tr {
+  /* border: 1px solid #bed0e4; */
+  box-sizing: border-box;
+  /* guy */
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  /* identical to box height */
+
+  color: #383f51;
+}
+
+.list .table tbody td:not(:first-child) {
+  /* color: #0a1128; */
+  /* opacity: 0.6; */
+}
+
+.list .table tbody .status_active {
+  color: #09b78a;
+  background: #ebfffa;
+  border-radius: 2px;
+  font-weight: 600;
+  width: 80px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 30px;
+}
+.list .table tbody .view {
+  background: #1b998b;
+  border-radius: 5px;
+  font-weight: 600;
+  width: 18px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 40px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.list .table tbody .status_inactive {
+  background: #fae5e7;
+  border-radius: 2px;
+  color: #ff3c3c;
+  font-weight: 600;
+  width: 80px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 30px;
+}
+
+.upload {
+  background: #155b75;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 160px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 17px 30px;
+}
 
 .br-10 {
   border-radius: 10px;
 }
 
-
 .cells {
-  border: 1px dashed #5A8BC5;
+  border: 1px dashed #5a8bc5;
 }
 
 /* .cell-color {

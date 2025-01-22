@@ -1,117 +1,181 @@
 <div class="wrapper">
-    <div id="sidebar">
-        <div class="p-3">
-            <p class="text-center">
-                <img src="assets/images/svg/logo.svg" alt="">
-            </p>
-        </div>
-        <p class="px-3 ff-s fc-grey1 fs-14">MAIN MENU</p>
-        <ul class="list-unstyled components">
-
-            <li class="nav-item mb-2">
-                <a href="#" class="nav-link" [routerLink]="['/school-manager']" [routerLinkActive]="['active']">
-                    <span class="ico">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="Group d">
-                                <path id="Vector"
-                                    d="M0 8.88889H7.11111V0H0V8.88889ZM0 16H7.11111V10.6667H0V16ZM8.88889 16H16V7.11111H8.88889V16ZM8.88889 0V5.33333H16V0H8.88889Z" />
-                            </g>
-                        </svg>
-                    </span>
-                    Dashboard
-                </a>
-            </li>
-            <li class="nav-item mb-2">
-                <a href="#" class="nav-link" [routerLink]="['/school-manager/branches']"
-                    [routerLinkActive]="['active']">
-                    <span class="ico">
-                        <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path id="Vector"
-                                d="M0 0V18H6V14.5H8V18H14V0H0ZM2 2H4V4H2V2ZM6 2H8V4H6V2ZM10 2H12V4H10V2ZM2 6H4V8H2V6ZM6 6H8V8H6V6ZM10 6H12V8H10V6ZM2 10H4V12H2V10ZM6 10H8V12H6V10ZM10 10H12V12H10V10ZM2 14H4V16H2V14ZM10 14H12V16H10V14Z" />
-                        </svg>
-
-                    </span>
-                    Branches
-                </a>
-            </li>
-            
-        </ul>
-
-        <ul class="list-unstyled components">
-
-           
-            <li class="nav-item mb-2 mt-5" (click)="logOut()">
-                <a href="#" class="nav-link" >
-                    <span class="ico">
-                        <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="signout">
-                                <path id="Vector"
-                                    d="M19.4108 8.16354L12.8494 14.7249C12.2636 15.3108 11.2481 14.9007 11.2481 14.061V10.3116H5.93651C5.41707 10.3116 4.99917 9.89372 4.99917 9.37427V5.6249C4.99917 5.10545 5.41707 4.68755 5.93651 4.68755H11.2481V0.938175C11.2481 0.102376 12.2597 -0.311617 12.8494 0.274223L19.4108 6.83563C19.7741 7.20276 19.7741 7.79641 19.4108 8.16354ZM7.49875 14.5297V12.9674C7.49875 12.7097 7.28785 12.4988 7.03008 12.4988H3.74938C3.05809 12.4988 2.49958 11.9403 2.49958 11.249V3.75021C2.49958 3.05892 3.05809 2.50042 3.74938 2.50042H7.03008C7.28785 2.50042 7.49875 2.28951 7.49875 2.03174V0.469503C7.49875 0.211733 7.28785 0.000830666 7.03008 0.000830666H3.74938C1.67941 0.000830666 0 1.68024 0 3.75021V11.249C0 13.3189 1.67941 14.9983 3.74938 14.9983H7.03008C7.28785 14.9983 7.49875 14.7874 7.49875 14.5297Z" />
-                            </g>
-                        </svg>
-
-                    </span>
-                    Sign out
-                </a>
-            </li>
-
-        </ul>
+  <div id="sidebar">
+    <div class="p-3">
+      <p class="text-center">
+        <img
+          src="assets/images/newLogo.png"
+          alt=""
+          style="width: 100px; object-fit: contain"
+        />
+      </p>
     </div>
-    <div id="content">
-        <header class="main-head sticky-top py-lg-2">
-            <div class="container-fluid">
-                <div class="row lang">
-                    <div class="col-lg-8 hamburger" (click)="toggleSideBar()">
-                        <img src="assets/images/svg/hamburger.svg" alt="new client" class="">
+    <p class="px-3 ff-s fc-grey1 fs-14">MAIN MENU</p>
+    <ul class="list-unstyled components">
+      <li class="nav-item mb-2">
+        <a
+          href="#"
+          class="nav-link"
+          [routerLink]="['/school-manager']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <span class="ico">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="Group d">
+                <path
+                  id="Vector"
+                  d="M0 8.88889H7.11111V0H0V8.88889ZM0 16H7.11111V10.6667H0V16ZM8.88889 16H16V7.11111H8.88889V16ZM8.88889 0V5.33333H16V0H8.88889Z"
+                />
+              </g>
+            </svg>
+          </span>
+          Dashboard
+        </a>
+      </li>
+      <li class="nav-item mb-2">
+        <a
+          href="#"
+          class="nav-link"
+          [routerLink]="['/school-manager/branches']"
+          [routerLinkActive]="['active']"
+        >
+          <span class="ico">
+            <svg
+              width="14"
+              height="18"
+              viewBox="0 0 14 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                id="Vector"
+                d="M0 0V18H6V14.5H8V18H14V0H0ZM2 2H4V4H2V2ZM6 2H8V4H6V2ZM10 2H12V4H10V2ZM2 6H4V8H2V6ZM6 6H8V8H6V6ZM10 6H12V8H10V6ZM2 10H4V12H2V10ZM6 10H8V12H6V10ZM10 10H12V12H10V10ZM2 14H4V16H2V14ZM10 14H12V16H10V14Z"
+              />
+            </svg>
+          </span>
+          Branches
+        </a>
+      </li>
+    </ul>
 
-                    </div>
-                    <div class="col-lg-8 mobile-hamburger" (click)="toggleMobileSideBar()">
-                        <img src="assets/images/svg/hamburger.svg" alt="new client" class="">
+    <ul class="list-unstyled components">
+      <li class="nav-item mb-2 mt-5" (click)="logOut()">
+        <a href="#" class="nav-link">
+          <span class="ico">
+            <svg
+              width="20"
+              height="15"
+              viewBox="0 0 20 15"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="signout">
+                <path
+                  id="Vector"
+                  d="M19.4108 8.16354L12.8494 14.7249C12.2636 15.3108 11.2481 14.9007 11.2481 14.061V10.3116H5.93651C5.41707 10.3116 4.99917 9.89372 4.99917 9.37427V5.6249C4.99917 5.10545 5.41707 4.68755 5.93651 4.68755H11.2481V0.938175C11.2481 0.102376 12.2597 -0.311617 12.8494 0.274223L19.4108 6.83563C19.7741 7.20276 19.7741 7.79641 19.4108 8.16354ZM7.49875 14.5297V12.9674C7.49875 12.7097 7.28785 12.4988 7.03008 12.4988H3.74938C3.05809 12.4988 2.49958 11.9403 2.49958 11.249V3.75021C2.49958 3.05892 3.05809 2.50042 3.74938 2.50042H7.03008C7.28785 2.50042 7.49875 2.28951 7.49875 2.03174V0.469503C7.49875 0.211733 7.28785 0.000830666 7.03008 0.000830666H3.74938C1.67941 0.000830666 0 1.68024 0 3.75021V11.249C0 13.3189 1.67941 14.9983 3.74938 14.9983H7.03008C7.28785 14.9983 7.49875 14.7874 7.49875 14.5297Z"
+                />
+              </g>
+            </svg>
+          </span>
+          Sign out
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div id="content">
+    <header class="main-head sticky-top py-lg-2">
+      <div class="container-fluid">
+        <div class="row lang">
+          <div class="col-lg-8 hamburger" (click)="toggleSideBar()">
+            <img
+              src="assets/images/svg/hamburger.svg"
+              alt="new client"
+              class=""
+            />
+          </div>
+          <div
+            class="col-lg-8 mobile-hamburger"
+            (click)="toggleMobileSideBar()"
+          >
+            <img
+              src="assets/images/svg/hamburger.svg"
+              alt="new client"
+              class=""
+            />
+          </div>
+          <div class="col-lg-4">
+            <div class="d-flex row align-center justify-content-center">
+              <img
+                src="assets/images/svg/bell.svg"
+                alt="new client"
+                class="mr-5 notification"
+              />
+              <span class="count">2</span>
 
-                    </div>
-                    <div class="col-lg-4  ">
-                        <div class="d-flex row align-center justify-content-center ">
-                            <img src="assets/images/svg/bell.svg" alt="new client" class="mr-5 notification">
-                            <span class="count">2</span>
-
-                            <div class="profile mr-5">
-                                <div class="profile-intials">
-                                    <p> TO </p>
-                                </div>
-                                <div class="pl-3">
-                                    <p class="mb-0">{{adminDetails.given_name}} {{adminDetails.family_name}} </p>
-                                    <small>School Manager</small>
-                                </div>
-                            </div>
-
-                            
-                            <img src="assets/images/svg/caret.svg" alt="country flag" class="ml-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-
-                            <!-- ================ DROPDOWN ==================== -->
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="" (click)="logOut()">
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path id="icons" d="M6.82741 12.59L8.18519 14L13 9L8.18519 4L6.82741 5.41L9.31185 8H0V10H9.31185L6.82741 12.59Z" fill="#D72638"/>
-                                        <path id="icons" d="M16 0H2C0.89 0 0 0.9 0 2V6H2V2H16V16H2V12H0V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V2C18 0.9 17.1 0 16 0Z" fill="#D72638"/>
-                                        </svg>
-                                         Logout </a>
-                            <!-- <div class="dropdown-divider"></div> -->
-                            <!-- <a class="dropdown-item" href="#"><img src="assets/images/svg/uk.svg" alt="new client" class="pr-2 mb-2"> English </a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/svg/french.svg" alt="new client" class="pr-2 mb-2"> French </a>
-                            <a class="dropdown-item" href="#"><img src="assets/images/svg/spain.svg" alt="new client" class="pr-2 mb-2"> Spanish     </a> --> 
-                          </div>
-
-                        </div>
-                    </div>
+              <div class="profile mr-5">
+                <div class="profile-intials">
+                  <p>TO</p>
                 </div>
+                <div class="pl-3">
+                  <p class="mb-0">
+                    {{ adminDetails.given_name }} {{ adminDetails.family_name }}
+                  </p>
+                  <small>School Manager</small>
+                </div>
+              </div>
+
+              <img
+                src="assets/images/svg/caret.svg"
+                alt="country flag"
+                class="ml-2 dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              />
+
+              <!-- ================ DROPDOWN ==================== -->
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="" (click)="logOut()">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      id="icons"
+                      d="M6.82741 12.59L8.18519 14L13 9L8.18519 4L6.82741 5.41L9.31185 8H0V10H9.31185L6.82741 12.59Z"
+                      fill="#D72638"
+                    />
+                    <path
+                      id="icons"
+                      d="M16 0H2C0.89 0 0 0.9 0 2V6H2V2H16V16H2V12H0V16C0 17.1 0.89 18 2 18H16C17.1 18 18 17.1 18 16V2C18 0.9 17.1 0 16 0Z"
+                      fill="#D72638"
+                    />
+                  </svg>
+                  Logout
+                </a>
+                <!-- <div class="dropdown-divider"></div> -->
+                <!-- <a class="dropdown-item" href="#"><img src="assets/images/svg/uk.svg" alt="new client" class="pr-2 mb-2"> English </a>
+                            <a class="dropdown-item" href="#"><img src="assets/images/svg/french.svg" alt="new client" class="pr-2 mb-2"> French </a>
+                            <a class="dropdown-item" href="#"><img src="assets/images/svg/spain.svg" alt="new client" class="pr-2 mb-2"> Spanish     </a> -->
+              </div>
             </div>
-        </header>
-        <main class="main row-sizing">
-
-            <router-outlet></router-outlet>
-
-        </main>
-    </div>
-
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main row-sizing">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>

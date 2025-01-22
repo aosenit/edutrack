@@ -1,16 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
-import { AssessmentService } from 'src/services/data/assessment/assessment.service';
-import { ClassService } from 'src/services/data/class/class.service';
-import { ResultService } from 'src/services/data/result/result.service';
-import { JwtHelperService } from '@auth0/angular-jwt';
-
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { NotificationsService } from "src/services/classes/notifications/notifications.service";
+import { AssessmentService } from "src/services/data/assessment/assessment.service";
+import { ClassService } from "src/services/data/class/class.service";
+import { ResultService } from "src/services/data/result/result.service";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Component({
-  selector: 'app-mail-report-card',
-  templateUrl: './mail-report-card.component.html',
-  styleUrls: ['./mail-report-card.component.css']
+  selector: "app-mail-report-card",
+  templateUrl: "./mail-report-card.component.html",
+  styleUrls: ["./mail-report-card.component.css"],
 })
 export class MailReportCardComponent implements OnInit {
   boxChecked = false;
@@ -31,33 +30,30 @@ export class MailReportCardComponent implements OnInit {
     private resultService: ResultService,
     private notifyService: NotificationsService,
     private route: ActivatedRoute
-
-
-
-
-  ) { }
+  ) {}
 
   ngOnInit() {
     const helper = new JwtHelperService();
-    this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
+    this.loggedInUser = helper.decodeToken(
+      localStorage.getItem("access_token")
+    );
     this.getClassAndSubjectForTeacher();
     this.getCurrentSesion();
-
   }
 
   getClassAndSubjectForTeacher() {
-    this.classService.getClassAndSubjectForTeacherByTeacherId().subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        // // (data.payload);
-        this.classList = data.payload;
-      }
-    }
-    );
+    this.classService
+      .getClassAndSubjectForTeacherByTeacherId()
+      .subscribe((data: any) => {
+        if (data.hasErrors === false) {
+          // // (data.payload);
+          this.classList = data.payload;
+        }
+      });
   }
 
   getSubjects(id) {
     this.classId = id;
-
   }
 
   getCurrentSesion() {
@@ -72,15 +68,14 @@ export class MailReportCardComponent implements OnInit {
   selectedTerm(event) {
     this.selectedTermId = this.terms[event].sequenceNumber;
     this.getApprovedStudentResults();
-
   }
-
 
   checked(event, i) {
     if (event.target.checked === true) {
       this.StudentIds.push(event.target.value);
 
-      document.getElementById('customtable' + `${i}`).style.borderLeft = '5px solid #FB7B04';
+      document.getElementById("customtable" + `${i}`).style.borderLeft =
+        "5px solid #04aed4";
       this.boxChecked = true;
     } else {
       const index = this.StudentIds.indexOf(event.target.value);
@@ -88,7 +83,7 @@ export class MailReportCardComponent implements OnInit {
         this.StudentIds.splice(index, 1);
       }
       this.StudentIds.filter((item) => item !== i);
-      document.getElementById('customtable' + `${i}`).style.borderLeft = 'none';
+      document.getElementById("customtable" + `${i}`).style.borderLeft = "none";
     }
     if (this.StudentIds.length === 0) {
       this.boxChecked = false;
@@ -96,13 +91,14 @@ export class MailReportCardComponent implements OnInit {
   }
 
   selectAllBoxes(e) {
-    const allBoxes: any = document.getElementsByName('boxes');
+    const allBoxes: any = document.getElementsByName("boxes");
     if (e.target.checked === true) {
       // tslint:disable-next-line:prefer-for-of
       for (let index = 0; index < allBoxes.length; index++) {
-        if (allBoxes[index].type === 'checkbox') {
+        if (allBoxes[index].type === "checkbox") {
           allBoxes[index].checked = true;
-          document.getElementById('customtable' + `${index}`).style.borderLeft = '5px solid #FB7B04';
+          document.getElementById("customtable" + `${index}`).style.borderLeft =
+            "5px solid #04aed4";
           this.boxChecked = true;
           this.StudentIds.push(allBoxes[index].value);
         }
@@ -110,63 +106,70 @@ export class MailReportCardComponent implements OnInit {
     } else {
       // tslint:disable-next-line:prefer-for-of
       for (let index = 0; index < allBoxes.length; index++) {
-        if (allBoxes[index].type === 'checkbox') {
-
+        if (allBoxes[index].type === "checkbox") {
           allBoxes[index].checked = false;
-          document.getElementById('customtable' + `${index}`).style.borderLeft = '0px';
+          document.getElementById("customtable" + `${index}`).style.borderLeft =
+            "0px";
           this.boxChecked = false;
           this.StudentIds = [];
         }
       }
-
     }
   }
 
   getApprovedStudentResults() {
     // tslint:disable-next-line:max-line-length
-    this.resultService.getStudentApprovedResults(this.loggedInUser.TeacherClassId, this.sessions.id, this.selectedTermId).subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.studentList = data.payload;
-        this.noData = false;
-        this.displayData = true;
-    
-      } else {
-        this.notifyService.publishMessages(data.errors, 'danger', 1);
-        this.noData = true;
-        this.displayData = false;
-      }
-    }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
-
-    });
+    this.resultService
+      .getStudentApprovedResults(
+        this.loggedInUser.TeacherClassId,
+        this.sessions.id,
+        this.selectedTermId
+      )
+      .subscribe(
+        (data: any) => {
+          if (data.hasErrors === false) {
+            this.studentList = data.payload;
+            this.noData = false;
+            this.displayData = true;
+          } else {
+            this.notifyService.publishMessages(data.errors, "danger", 1);
+            this.noData = true;
+            this.displayData = false;
+          }
+        },
+        (error) => {
+          this.notifyService.publishMessages(error.errors, "danger", 1);
+        }
+      );
   }
 
-
-
   postMaiToParent() {
-    document.getElementById('exampleModalCenterEndClass').click();
+    document.getElementById("exampleModalCenterEndClass").click();
     const studentId = this.StudentIds.map((ids: any) => {
       return parseInt(ids);
     });
     const result = {
       studentIds: studentId,
-      resultPageURL: 'http://school-track-1.vercel.app/#/parent/parent-portal/view-report-card',
+      resultPageURL:
+        "http://school-track-1.vercel.app/#/parent/parent-portal/view-report-card",
       classId: parseInt(this.loggedInUser.TeacherClassId),
       curSessionId: this.sessions.id,
-      termSequenceNumber: this.selectedTermId
+      termSequenceNumber: this.selectedTermId,
     };
     // (result);
-    this.resultService.mailReportSheetToParent(result).subscribe((data: any) => {
-      if (data.hasErrors === false) {
-        this.notifyService.publishMessages('Email sent out', 'success', 1);
-        document.getElementById('closeMailModal').click();
-        location.reload();
-      } else {
-        this.notifyService.publishMessages(data.errors, 'danger', 1);
-
+    this.resultService.mailReportSheetToParent(result).subscribe(
+      (data: any) => {
+        if (data.hasErrors === false) {
+          this.notifyService.publishMessages("Email sent out", "success", 1);
+          document.getElementById("closeMailModal").click();
+          location.reload();
+        } else {
+          this.notifyService.publishMessages(data.errors, "danger", 1);
+        }
+      },
+      (error) => {
+        this.notifyService.publishMessages(error.errors, "danger", 1);
       }
-    }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
-    });
+    );
   }
 }

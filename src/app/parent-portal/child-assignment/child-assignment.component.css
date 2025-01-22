@@ -1,70 +1,66 @@
 .main .banner {
-    width: 100%;
-    background-image: url("../../../assets/images/svg/banner.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-mix-blend-mode: normal;
-border-radius: 5px;
-  }
-  
-  .banner .banner__text-primary {
-    color: #fb882c;
-    font-size: 32px;
-    font-family: Nunito;
-    font-weight: 200;
-  
-  }
-  .banner .banner__text-primary span {
-    color: #ffffff;
-    font-size: 32px;
-    font-weight: 400;
-  }
-  
-  .last-login {
-    color: #ffffff;
-    font-size: 14px;
-    font-family: Nunito;
-  
-  }
-  
+  width: 100%;
+  background-image: url("../../../assets/images/svg/banner.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  mix-blend-mode: normal;
+  border-radius: 5px;
+}
 
-  .file-cards {
-    display: flex;
-    /* justify-content: space-between; */
-    flex-wrap: wrap;
-  }
-  
-  .file-cards > * {
-    margin: 1em 1em;
-  }
-  
-  .files {
-    background-image: url("../../../assets/images/svg/assignment-pattern.svg");
-    background-color: #ffffff;
-    /* background-size: cover; */
-    background-repeat: no-repeat;
-    background-position: 33% 23%;
-    box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    width: 22%;
-    position: relative;
-  }
-  
-  .files .last {
-    color: #747474;
-    font-size: 12px;
-  }
-  
-  .notice-pane {
-    position: absolute;
-    right: -10px;
-    top: -15px;
-    background: #EB6B04;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    color: #ffffff;
-    text-align: center;
-    font-size: 18px;
-  }
-  
+.banner .banner__text-primary {
+  color: #04aed4;
+  font-size: 32px;
+  font-family: Nunito;
+  font-weight: 200;
+}
+.banner .banner__text-primary span {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.last-login {
+  color: #ffffff;
+  font-size: 14px;
+  font-family: Nunito;
+}
+
+.file-cards {
+  display: flex;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+}
+
+.file-cards > * {
+  margin: 1em 1em;
+}
+
+.files {
+  background-image: url("../../../assets/images/svg/assignment-pattern.svg");
+  background-color: #ffffff;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-position: 33% 23%;
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  width: 22%;
+  position: relative;
+}
+
+.files .last {
+  color: #747474;
+  font-size: 12px;
+}
+
+.notice-pane {
+  position: absolute;
+  right: -10px;
+  top: -15px;
+  background: #04aed4;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #ffffff;
+  text-align: center;
+  font-size: 18px;
+}

@@ -1,128 +1,121 @@
 .banner {
-    width: 100%;
-    background: url("../../../assets/images/svg/assignment-bg.svg") top left no-repeat, url("../../../assets/images/svg/assignment-bg2.svg") top left no-repeat;
-    background-repeat: no-repeat;
+  width: 100%;
+  background: url("../../../assets/images/svg/assignment-bg.svg") top left
+      no-repeat,
+    url("../../../assets/images/svg/assignment-bg2.svg") top left no-repeat;
+  background-repeat: no-repeat;
 
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: 0 1.5rem;
-    color: #ffffff;
-    position: relative;
-    background-blend-mode: multiply;
-    mix-blend-mode: multiply;
-    backdrop-filter: opacity(.4);
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 1.5rem;
+  color: #ffffff;
+  position: relative;
+  background-blend-mode: multiply;
+  mix-blend-mode: multiply;
+  backdrop-filter: opacity(0.4);
 }
-
-
 
 .banner__text-primary {
-    font-size: 36px;
+  font-size: 36px;
 }
-
 
 .btn-orange-two {
-    background: #fb882c;
-    border-radius: 5px;
-    height: 44px;
-    font-family: Nunito;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 20px;
-    color: #ffffff;
+  background: #04aed4;
+  border-radius: 5px;
+  height: 44px;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  color: #ffffff;
 }
 
-
 input[type="text"] {
-    width: 125%;
+  width: 125%;
 }
 
 .options select {
-    background: #FAFAFA;
-border: 1px solid #92B5DD;
-font-size: 12px;
+  background: #fafafa;
+  border: 1px solid #92b5dd;
+  font-size: 12px;
 }
 
 /* ================= table ====================== */
 table.client-table {
-    border-collapse: separate;
-    border-spacing: 0 1em;
+  border-collapse: separate;
+  border-spacing: 0 1em;
 }
 
-
 .list .table thead {
-    color: #0052B4;
-    
-
+  color: #155b75;
 }
 
 .list .table thead tr th {
-    font-weight: 600;
-    padding-bottom: 0;
+  font-weight: 600;
+  padding-bottom: 0;
 }
 
 .list .table thead .head {
-    /* display: flex;
+  /* display: flex;
   align-items: center;
   color: #0a1128;
   font-weight: 600; */
-    /* padding-left: 3.5rem; */
+  /* padding-left: 3.5rem; */
 }
 
 .list .table tbody .school-logo {
-    /* display: flex;
+  /* display: flex;
     align-items: center; */
-    color: #0a1128;
-    font-weight: 600;
-    padding-left: 1.5rem;
-    /* padding-left: 3.5rem; */
-    position: relative;
-    opacity: none;
+  color: #0a1128;
+  font-weight: 600;
+  padding-left: 1.5rem;
+  /* padding-left: 3.5rem; */
+  position: relative;
+  opacity: none;
 }
 
 .list .table tbody .school-logo span {
-    position: absolute;
-    bottom: 20px;
-    left: 15px;
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
 }
 
 .list .table th,
 td {
-    padding: 15px 15px;
+  padding: 15px 15px;
 }
 
 .list .table tbody tr {
-    background: #ffffff;
-    box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
-    border-radius: 5px;
+  background: #ffffff;
+  box-shadow: 10px 10px 30px rgba(211, 220, 231, 0.4);
+  border-radius: 5px;
 }
 
 .image-rounded {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    object-fit: cover;
-
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* modals */
 .modal-content {
-    border-radius: 5px !important;
-    border: none;
-    position: relative;
-    background: #000000;
-    color: #fff;
-    background: #ffffff;
-    padding: 0rem 2rem;
-
+  border-radius: 5px !important;
+  border: none;
+  position: relative;
+  background: #000000;
+  color: #fff;
+  background: #ffffff;
+  padding: 0rem 2rem;
 }
 
 .modal2 {
-    /* background: #000000; */
+  /* background: #000000; */
 }
 
 /* .modal-content2 {
@@ -133,29 +126,24 @@ td {
     padding: 0rem 2rem;
 } */
 
-
-
 .modal-body .class-btn {
-    padding: 11px 50px;
-    border-radius: 2.5px;
-    background: #0052B4;
-    color: #fff;
-    /* font-weight: 600; */
-    border-radius: 10px;
-    border: none;
-    outline: none;
+  padding: 11px 50px;
+  border-radius: 2.5px;
+  background: #155b75;
+  color: #fff;
+  /* font-weight: 600; */
+  border-radius: 10px;
+  border: none;
+  outline: none;
 }
 
 .email-text {
-    color: #000000;
+  color: #000000;
 }
 
 .client-modal {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    padding: 0px 40px;
-
+  padding: 0px 40px;
 }
-
-

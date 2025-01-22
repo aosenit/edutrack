@@ -1,260 +1,292 @@
 <div class="main">
-    <div class="d-flex justify-content-end align-items-center mb-3">
-        <button class="parent-act-btn px-4 ">Send Message</button>
+  <div class="d-flex justify-content-end align-items-center mb-3">
+    <button class="parent-act-btn px-4">Send Message</button>
+  </div>
+  <section class="banner mb-4 d-flex justify-content-between">
+    <p class="banner__text-primary py-5 pl-5">
+      Report card <br />
+      <span> </span>
+    </p>
+    <div class="justify-content-end">
+      <!-- <p class="last-login pt-3 pr-5 fw-6">Last Login: </p> -->
     </div>
-    <section class="banner mb-4 d-flex justify-content-between">
-        <p class="banner__text-primary py-5 pl-5">Report card <br> <span> </span> </p>
-        <div class="justify-content-end"> 
-            <!-- <p class="last-login pt-3 pr-5 fw-6">Last Login: </p> -->
-        </div>
-    </section>
+  </section>
 
-    <div class="d-flex justify-content-between  align-items-center mb-4" > 
-        <div class="row">
-            <div class="col options">
-                <select name="" id="" class="form-control" (change)="getTerms($event.target.value)">
-                  <option value="" selected>Select Session</option>
-                  <option [value]="s" *ngFor = "let session of sessionList; let s = index" > {{session.name }}</option>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="row">
+      <div class="col options">
+        <select
+          name=""
+          id=""
+          class="form-control"
+          (change)="getTerms($event.target.value)"
+        >
+          <option value="" selected>Select Session</option>
+          <option
+            [value]="s"
+            *ngFor="let session of sessionList; let s = index"
+          >
+            {{ session.name }}
+          </option>
+        </select>
+      </div>
+      <div class="col options">
+        <select
+          name=""
+          id=""
+          class="form-control"
+          (change)="getWardReportCard($event.target.value)"
+        >
+          <option value="">Select Term</option>
+          <option
+            [value]="term.sequenceNumber"
+            *ngFor="let term of termList; let t = index"
+          >
+            {{ term.name }}
+          </option>
+        </select>
+      </div>
+    </div>
 
-                </select>
-              </div>
-              <div class="col options">
-                <select name="" id="" class="form-control" (change)="getWardReportCard($event.target.value)" >
-                  <option value="">Select Term</option>
-                  <option [value]="term.sequenceNumber " *ngFor="let term of termList; let t = index" > {{term.name}}</option>
-
-                </select>
-              </div>
-        </div>
-
-        <div class="d-flex justify-content-between">
-          <!-- <div class="mr-4 cursor-pointer">
+    <div class="d-flex justify-content-between">
+      <!-- <div class="mr-4 cursor-pointer">
                   <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M10.0429 9.43396H10.7204L15 13.7221L13.7221 15L9.43396 10.7204V10.0429L9.2024 9.80274C8.2247 10.6432 6.9554 11.1492 5.57461 11.1492C2.49571 11.1492 0 8.65352 0 5.57461C0 2.49571 2.49571 0 5.57461 0C8.65352 0 11.1492 2.49571 11.1492 5.57461C11.1492 6.9554 10.6432 8.2247 9.80274 9.2024L10.0429 9.43396ZM1.71556 5.57444C1.71556 7.70995 3.4394 9.43379 5.57491 9.43379C7.71042 9.43379 9.43426 7.70995 9.43426 5.57444C9.43426 3.43894 7.71042 1.7151 5.57491 1.7151C3.4394 1.7151 1.71556 3.43894 1.71556 5.57444Z"
-                      fill="#0052B4" />
+                      fill="#155b75" />
                   </svg>
           
                   Search
                 </div> -->
-          <div class="mr-4 cursor-pointer" (click)="exportReport()">
-            <svg
-              width="68"
-              height="25"
-              viewBox="0 0 68 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M26.0679 17V7.13H32.4799V8.292H27.4819V11.4H32.1999V12.576H27.4819V15.838H32.4799V17H26.0679ZM37.6034 13.486L40.4594 17H38.7654L36.7774 14.508L34.8034 17H33.1094L35.9654 13.486L33.2634 10.168H34.9714L36.7774 12.478L38.5974 10.168H40.2914L37.6034 13.486ZM45.1128 10C45.7008 10 46.2235 10.1493 46.6808 10.448C47.1475 10.7467 47.5068 11.1667 47.7588 11.708C48.0202 12.2493 48.1508 12.8747 48.1508 13.584C48.1508 14.284 48.0248 14.9 47.7728 15.432C47.5208 15.964 47.1615 16.3747 46.6948 16.664C46.2375 16.9533 45.7102 17.098 45.1128 17.098C44.5995 17.098 44.1468 16.9907 43.7548 16.776C43.3628 16.552 43.0642 16.2347 42.8588 15.824V19.52H41.4448V10.168H42.8588V11.288C43.0642 10.8773 43.3628 10.56 43.7548 10.336C44.1468 10.112 44.5995 10 45.1128 10ZM44.7768 15.978C45.3928 15.978 45.8688 15.7727 46.2048 15.362C46.5408 14.942 46.7088 14.3493 46.7088 13.584C46.7088 12.8093 46.5362 12.2073 46.1908 11.778C45.8548 11.3487 45.3835 11.134 44.7768 11.134C44.1608 11.134 43.6848 11.344 43.3488 11.764C43.0222 12.184 42.8588 12.7813 42.8588 13.556C42.8588 14.3307 43.0222 14.928 43.3488 15.348C43.6848 15.768 44.1608 15.978 44.7768 15.978ZM52.6843 17.098C52.0123 17.098 51.4197 16.9533 50.9063 16.664C50.4023 16.3747 50.0103 15.964 49.7303 15.432C49.4597 14.8907 49.3243 14.2653 49.3243 13.556C49.3243 12.8373 49.4597 12.212 49.7303 11.68C50.0103 11.1387 50.4023 10.7233 50.9063 10.434C51.4197 10.1447 52.0123 10 52.6843 10C53.3563 10 53.9443 10.1447 54.4483 10.434C54.9617 10.7233 55.3537 11.1387 55.6243 11.68C55.9043 12.212 56.0443 12.8373 56.0443 13.556C56.0443 14.2653 55.9043 14.8907 55.6243 15.432C55.3537 15.964 54.9617 16.3747 54.4483 16.664C53.9443 16.9533 53.3563 17.098 52.6843 17.098ZM52.6843 15.978C53.3097 15.978 53.7857 15.7727 54.1123 15.362C54.4483 14.9513 54.6163 14.3493 54.6163 13.556C54.6163 12.772 54.4483 12.1747 54.1123 11.764C53.7763 11.344 53.3003 11.134 52.6843 11.134C52.0683 11.134 51.5923 11.344 51.2563 11.764C50.9203 12.1747 50.7523 12.772 50.7523 13.556C50.7523 14.3493 50.9157 14.9513 51.2423 15.362C51.5783 15.7727 52.059 15.978 52.6843 15.978ZM61.7767 11.19L60.9227 11.274C60.2507 11.3393 59.7653 11.5447 59.4667 11.89C59.1773 12.2353 59.0327 12.674 59.0327 13.206V17H57.6187V10.168H58.9907V11.358C59.3547 10.5553 60.0967 10.112 61.2167 10.028L61.6787 10L61.7767 11.19ZM66.5675 16.006C66.7822 16.006 66.9922 15.992 67.1975 15.964L67.1275 17.042C66.8942 17.0793 66.6515 17.098 66.3995 17.098C65.5128 17.098 64.8502 16.8833 64.4115 16.454C63.9822 16.0153 63.7675 15.3853 63.7675 14.564V11.26H62.4375V10.168H63.7675V8.11H65.1815V10.168H67.0575V11.26H65.1815V14.508C65.1815 15.5067 65.6435 16.006 66.5675 16.006Z"
-                fill="#0A1128"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M15.9199 17V11H19.9199L12.9199 4L5.91992 11H9.91992V17H15.9199ZM12.9199 6.83L15.0899 9H13.9199V15H11.9199V9H10.7499L12.9199 6.83ZM19.9199 21V19H5.91992V21H19.9199Z"
-                fill="#0052B4"
-              />
-            </svg>
-          </div>
-          <div class="mr-4 cursor-pointer align-items-center" (click)="printCard()">
-            <svg
-              width="52"
-              height="19"
-              viewBox="0 0 52 19"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M14.3776 6.66667H4.46094C3.2851 6.66667 2.33594 7.61583 2.33594 8.79167V13.0417H5.16927V15.875H13.6693V13.0417H16.5026V8.79167C16.5026 7.61583 15.5534 6.66667 14.3776 6.66667ZM12.2526 14.4583H6.58594V10.9167H12.2526V14.4583ZM14.3776 9.5C13.988 9.5 13.6693 9.18125 13.6693 8.79167C13.6693 8.40208 13.988 8.08333 14.3776 8.08333C14.7672 8.08333 15.0859 8.40208 15.0859 8.79167C15.0859 9.18125 14.7672 9.5 14.3776 9.5ZM13.6693 3.125H5.16927V5.95833H13.6693V3.125Z"
-                fill="#0052B4"
-              />
-              <path
-                d="M22.0679 14V4.13H26.1559C27.2199 4.13 28.0413 4.396 28.6199 4.928C29.1986 5.45067 29.4879 6.188 29.4879 7.14C29.4879 8.10133 29.1986 8.848 28.6199 9.38C28.0413 9.90267 27.2199 10.164 26.1559 10.164H23.5239V14H22.0679ZM23.5239 9.002H25.9459C27.3646 9.002 28.0739 8.38133 28.0739 7.14C28.0739 5.908 27.3646 5.292 25.9459 5.292H23.5239V9.002ZM30.7596 14V7.168H32.1316V8.386C32.4863 7.574 33.2236 7.12133 34.3436 7.028L34.8056 7L34.9036 8.204L34.0496 8.288C32.8083 8.40933 32.1876 9.04867 32.1876 10.206V14H30.7596ZM35.8563 5.586V4.116H37.5083V5.586H35.8563ZM35.9823 14V7.168H37.3963V14H35.9823ZM39.3866 14V7.168H40.7586V8.302C40.9919 7.89133 41.3092 7.57867 41.7106 7.364C42.1212 7.14933 42.5786 7.042 43.0826 7.042C44.6972 7.042 45.5046 7.95667 45.5046 9.786V14H44.0906V9.87C44.0906 9.282 43.9739 8.85267 43.7406 8.582C43.5166 8.31133 43.1619 8.176 42.6766 8.176C42.1072 8.176 41.6499 8.358 41.3046 8.722C40.9686 9.07667 40.8006 9.548 40.8006 10.136V14H39.3866ZM50.365 14.126C49.5063 14.126 48.867 13.9067 48.447 13.468C48.027 13.0293 47.817 12.3947 47.817 11.564V8.26H46.487V7.168H47.817V5.11H49.231V7.168H51.345V8.26H49.231V11.452C49.231 11.9467 49.3337 12.32 49.539 12.572C49.7537 12.824 50.099 12.95 50.575 12.95C50.7243 12.95 50.869 12.936 51.009 12.908C51.149 12.8707 51.289 12.8287 51.429 12.782L51.653 13.846C51.513 13.93 51.317 13.9953 51.065 14.042C50.8223 14.098 50.589 14.126 50.365 14.126Z"
-                fill="#0A1128"
-              />
-            </svg>
-          </div>
-        </div>
-
+      <div class="mr-4 cursor-pointer" (click)="exportReport()">
+        <svg
+          width="68"
+          height="25"
+          viewBox="0 0 68 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M26.0679 17V7.13H32.4799V8.292H27.4819V11.4H32.1999V12.576H27.4819V15.838H32.4799V17H26.0679ZM37.6034 13.486L40.4594 17H38.7654L36.7774 14.508L34.8034 17H33.1094L35.9654 13.486L33.2634 10.168H34.9714L36.7774 12.478L38.5974 10.168H40.2914L37.6034 13.486ZM45.1128 10C45.7008 10 46.2235 10.1493 46.6808 10.448C47.1475 10.7467 47.5068 11.1667 47.7588 11.708C48.0202 12.2493 48.1508 12.8747 48.1508 13.584C48.1508 14.284 48.0248 14.9 47.7728 15.432C47.5208 15.964 47.1615 16.3747 46.6948 16.664C46.2375 16.9533 45.7102 17.098 45.1128 17.098C44.5995 17.098 44.1468 16.9907 43.7548 16.776C43.3628 16.552 43.0642 16.2347 42.8588 15.824V19.52H41.4448V10.168H42.8588V11.288C43.0642 10.8773 43.3628 10.56 43.7548 10.336C44.1468 10.112 44.5995 10 45.1128 10ZM44.7768 15.978C45.3928 15.978 45.8688 15.7727 46.2048 15.362C46.5408 14.942 46.7088 14.3493 46.7088 13.584C46.7088 12.8093 46.5362 12.2073 46.1908 11.778C45.8548 11.3487 45.3835 11.134 44.7768 11.134C44.1608 11.134 43.6848 11.344 43.3488 11.764C43.0222 12.184 42.8588 12.7813 42.8588 13.556C42.8588 14.3307 43.0222 14.928 43.3488 15.348C43.6848 15.768 44.1608 15.978 44.7768 15.978ZM52.6843 17.098C52.0123 17.098 51.4197 16.9533 50.9063 16.664C50.4023 16.3747 50.0103 15.964 49.7303 15.432C49.4597 14.8907 49.3243 14.2653 49.3243 13.556C49.3243 12.8373 49.4597 12.212 49.7303 11.68C50.0103 11.1387 50.4023 10.7233 50.9063 10.434C51.4197 10.1447 52.0123 10 52.6843 10C53.3563 10 53.9443 10.1447 54.4483 10.434C54.9617 10.7233 55.3537 11.1387 55.6243 11.68C55.9043 12.212 56.0443 12.8373 56.0443 13.556C56.0443 14.2653 55.9043 14.8907 55.6243 15.432C55.3537 15.964 54.9617 16.3747 54.4483 16.664C53.9443 16.9533 53.3563 17.098 52.6843 17.098ZM52.6843 15.978C53.3097 15.978 53.7857 15.7727 54.1123 15.362C54.4483 14.9513 54.6163 14.3493 54.6163 13.556C54.6163 12.772 54.4483 12.1747 54.1123 11.764C53.7763 11.344 53.3003 11.134 52.6843 11.134C52.0683 11.134 51.5923 11.344 51.2563 11.764C50.9203 12.1747 50.7523 12.772 50.7523 13.556C50.7523 14.3493 50.9157 14.9513 51.2423 15.362C51.5783 15.7727 52.059 15.978 52.6843 15.978ZM61.7767 11.19L60.9227 11.274C60.2507 11.3393 59.7653 11.5447 59.4667 11.89C59.1773 12.2353 59.0327 12.674 59.0327 13.206V17H57.6187V10.168H58.9907V11.358C59.3547 10.5553 60.0967 10.112 61.2167 10.028L61.6787 10L61.7767 11.19ZM66.5675 16.006C66.7822 16.006 66.9922 15.992 67.1975 15.964L67.1275 17.042C66.8942 17.0793 66.6515 17.098 66.3995 17.098C65.5128 17.098 64.8502 16.8833 64.4115 16.454C63.9822 16.0153 63.7675 15.3853 63.7675 14.564V11.26H62.4375V10.168H63.7675V8.11H65.1815V10.168H67.0575V11.26H65.1815V14.508C65.1815 15.5067 65.6435 16.006 66.5675 16.006Z"
+            fill="#0A1128"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M15.9199 17V11H19.9199L12.9199 4L5.91992 11H9.91992V17H15.9199ZM12.9199 6.83L15.0899 9H13.9199V15H11.9199V9H10.7499L12.9199 6.83ZM19.9199 21V19H5.91992V21H19.9199Z"
+            fill="#155b75"
+          />
+        </svg>
+      </div>
+      <div class="mr-4 cursor-pointer align-items-center" (click)="printCard()">
+        <svg
+          width="52"
+          height="19"
+          viewBox="0 0 52 19"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.3776 6.66667H4.46094C3.2851 6.66667 2.33594 7.61583 2.33594 8.79167V13.0417H5.16927V15.875H13.6693V13.0417H16.5026V8.79167C16.5026 7.61583 15.5534 6.66667 14.3776 6.66667ZM12.2526 14.4583H6.58594V10.9167H12.2526V14.4583ZM14.3776 9.5C13.988 9.5 13.6693 9.18125 13.6693 8.79167C13.6693 8.40208 13.988 8.08333 14.3776 8.08333C14.7672 8.08333 15.0859 8.40208 15.0859 8.79167C15.0859 9.18125 14.7672 9.5 14.3776 9.5ZM13.6693 3.125H5.16927V5.95833H13.6693V3.125Z"
+            fill="#155b75"
+          />
+          <path
+            d="M22.0679 14V4.13H26.1559C27.2199 4.13 28.0413 4.396 28.6199 4.928C29.1986 5.45067 29.4879 6.188 29.4879 7.14C29.4879 8.10133 29.1986 8.848 28.6199 9.38C28.0413 9.90267 27.2199 10.164 26.1559 10.164H23.5239V14H22.0679ZM23.5239 9.002H25.9459C27.3646 9.002 28.0739 8.38133 28.0739 7.14C28.0739 5.908 27.3646 5.292 25.9459 5.292H23.5239V9.002ZM30.7596 14V7.168H32.1316V8.386C32.4863 7.574 33.2236 7.12133 34.3436 7.028L34.8056 7L34.9036 8.204L34.0496 8.288C32.8083 8.40933 32.1876 9.04867 32.1876 10.206V14H30.7596ZM35.8563 5.586V4.116H37.5083V5.586H35.8563ZM35.9823 14V7.168H37.3963V14H35.9823ZM39.3866 14V7.168H40.7586V8.302C40.9919 7.89133 41.3092 7.57867 41.7106 7.364C42.1212 7.14933 42.5786 7.042 43.0826 7.042C44.6972 7.042 45.5046 7.95667 45.5046 9.786V14H44.0906V9.87C44.0906 9.282 43.9739 8.85267 43.7406 8.582C43.5166 8.31133 43.1619 8.176 42.6766 8.176C42.1072 8.176 41.6499 8.358 41.3046 8.722C40.9686 9.07667 40.8006 9.548 40.8006 10.136V14H39.3866ZM50.365 14.126C49.5063 14.126 48.867 13.9067 48.447 13.468C48.027 13.0293 47.817 12.3947 47.817 11.564V8.26H46.487V7.168H47.817V5.11H49.231V7.168H51.345V8.26H49.231V11.452C49.231 11.9467 49.3337 12.32 49.539 12.572C49.7537 12.824 50.099 12.95 50.575 12.95C50.7243 12.95 50.869 12.936 51.009 12.908C51.149 12.8707 51.289 12.8287 51.429 12.782L51.653 13.846C51.513 13.93 51.317 13.9953 51.065 14.042C50.8223 14.098 50.589 14.126 50.365 14.126Z"
+            fill="#0A1128"
+          />
+        </svg>
+      </div>
     </div>
-    <div class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100 "
-    style="height: 85vh; width: 100%;" *ngIf="noData"  >
+  </div>
+  <div
+    class="file-viewer d-flex justify-content-center align-items-center p-3 bg-white w-100"
+    style="height: 85vh; width: 100%"
+    *ngIf="noData"
+  >
     <div class="d-flex flex-column text-center">
-      <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
-      <p class="fw-6 fs-24" style="color:#BAB9C1;">Select session and term to display <br> information</p>
+      <img
+        src="assets/images/svg/sad-face.svg"
+        alt="table sort icon"
+        class="mb-3"
+      />
+      <p class="fw-6 fs-24" style="color: #bab9c1">
+        Select session and term to display <br />
+        information
+      </p>
     </div>
+  </div>
 
-    </div>
-
-
-    <div *ngIf="wardRecord" id="reportHolder">
-      
-    
-      <div class="bg-white py-5 px-4" id="reportCard">
-        <div class="row mb-2">
-          <div class="col-md-4">
-            <div class="d-flex">
-              <img *ngIf="schoolProp?.logo == null" src="assets/images/svg/logo.svg" alt=""> 
-              <img class="" *ngIf="schoolProp?.logo" src="data:image/png;base64,{{schoolProp?.logo}}" alt="schools log" class="mr-3 school-image " id="">
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="d-flex">
-              <p class="report-title align-self-end">Report Card</p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="d-flex flex-column ml-5 report-address">
-              <p class="mb-0">{{schoolProp?.schoolName}}</p>
-              <p class="mb-0">{{schoolDetail?.city + ',' + schoolDetail?.state}}</p>
-              <p class="mb-0">Phone Number: {{schoolDetail?.contactPhone}}</p>
-              <p class="mb-0">Email: {{schoolDetail?.contactEmail}}</p>
-              <p class="mb-0">Website: {{schoolDetail?.websiteAddress}}</p>
-            </div>
+  <div *ngIf="wardRecord" id="reportHolder">
+    <div class="bg-white py-5 px-4" id="reportCard">
+      <div class="row mb-2">
+        <div class="col-md-4">
+          <div class="d-flex">
+            <img
+              *ngIf="schoolProp?.logo == null"
+              src="assets/images/svg/logo.svg"
+              alt=""
+            />
+            <img
+              class=""
+              *ngIf="schoolProp?.logo"
+              src="data:image/png;base64,{{ schoolProp?.logo }}"
+              alt="schools log"
+              class="mr-3 school-image"
+              id=""
+            />
           </div>
         </div>
-    
-        <div class="row mb-1">
-          <div class="col-md-6">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Student Name</th>
-                  <th>Registration</th>
-                  <th>Gender</th>
-                  <th>Age</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    {{
-                      reportSheetDetails?.studentName | titlecase
-                    }}
-                  </td>
-                  <td>{{ reportSheetDetails?.regNumber }}</td>
-                  <td>
-                    <span *ngIf="reportSheetDetails?.sex === 'male'">M</span>
-                    <span *ngIf="reportSheetDetails?.sex === 'female'">F</span>
-                    <span *ngIf="reportSheetDetails?.sex === null ">N/A</span>
-                  </td>
-                  <td>{{ reportSheetDetails?.age }} Years Old</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="col-md-4">
+          <div class="d-flex">
+            <p class="report-title align-self-end">Report Card</p>
           </div>
         </div>
-    
-        <div class="row mb-1">
-          <div class="col-md-8">
+        <div class="col-md-4">
+          <div class="d-flex flex-column ml-5 report-address">
+            <p class="mb-0">{{ schoolProp?.schoolName }}</p>
+            <p class="mb-0">
+              {{ schoolDetail?.city + "," + schoolDetail?.state }}
+            </p>
+            <p class="mb-0">Phone Number: {{ schoolDetail?.contactPhone }}</p>
+            <p class="mb-0">Email: {{ schoolDetail?.contactEmail }}</p>
+            <p class="mb-0">Website: {{ schoolDetail?.websiteAddress }}</p>
+          </div>
+        </div>
+      </div>
 
-            <div class="row mb-1">
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-5">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th> No of Days School Opened </th>
-                          <th>No of Times Present</th>
-                          <th>No of Time Absent</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>{{reportSheetDetails?.totalNoOfSchoolDays}}</td>
-                          <td>{{reportSheetDetails?.noOfTimesPresent}}</td>
-                          <td>{{reportSheetDetails?.noOfTimesAbsent}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+      <div class="row mb-1">
+        <div class="col-md-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Student Name</th>
+                <th>Registration</th>
+                <th>Gender</th>
+                <th>Age</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  {{ reportSheetDetails?.studentName | titlecase }}
+                </td>
+                <td>{{ reportSheetDetails?.regNumber }}</td>
+                <td>
+                  <span *ngIf="reportSheetDetails?.sex === 'male'">M</span>
+                  <span *ngIf="reportSheetDetails?.sex === 'female'">F</span>
+                  <span *ngIf="reportSheetDetails?.sex === null">N/A</span>
+                </td>
+                <td>{{ reportSheetDetails?.age }} Years Old</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row mb-1">
+        <div class="col-md-8">
+          <div class="row mb-1">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-5">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>No of Days School Opened</th>
+                        <th>No of Times Present</th>
+                        <th>No of Time Absent</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{ reportSheetDetails?.totalNoOfSchoolDays }}</td>
+                        <td>{{ reportSheetDetails?.noOfTimesPresent }}</td>
+                        <td>{{ reportSheetDetails?.noOfTimesAbsent }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
-            
             </div>
+          </div>
 
-            <div class="row mb-1">
-              <div class="col-md-5">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Class</th>
-                      <th>Session</th>
-                      <th>Term</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{{ reportSheetDetails?.class }}</td>
-                      <td>{{ reportSheetDetails?.session }}</td>
-                      <td>{{ reportSheetDetails?.term }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="col-md-7">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Total Subjects</th>
-                      <th>Subjects Offered</th>
-                      <th>Total in Class</th>
-                      <th>Position</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{{ classSubjectCount }}</td>
-                      <td>{{ reportSheetDetails?.subjectOffered }}</td>
-                      <td>{{ reportSheetDetails?.totalInClass }}</td>
-                      <td>{{ reportSheetDetails?.position }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+          <div class="row mb-1">
+            <div class="col-md-5">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Class</th>
+                    <th>Session</th>
+                    <th>Term</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ reportSheetDetails?.class }}</td>
+                    <td>{{ reportSheetDetails?.session }}</td>
+                    <td>{{ reportSheetDetails?.term }}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-    
-            <div class="row mb-1">
-              <div class="col-md-12">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th class="w-50">Subject</th>
-                      <th *ngFor="let assessment of assessments">
-                        {{ assessment?.assessmentName }}
-                      </th>
-                      <th>
-                        Cummulative<br />
-                        Score
-                      </th>
-                      <th>Grade</th>
-                      <th>Interpretation</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let subject of studentRecord; let i = index">
-                      <td class="subject-info">
-                        {{ subject?.subjectName | titlecase }}
-                      </td>
-                      <td
-                        *ngFor="
-                          let assessment of studentRecord[i].assesmentAndScores
-                        "
-                      >
-                        {{ assessment?.studentScore }}
-                      </td>
-                      <td>{{ subject?.cummulativeScore }}</td>
-                      <td>{{ subject?.grade }}</td>
-                      <td>
-                        <span
-                          class="fs-14 interpretation"
-                         
-                        >
-                          {{ subject?.interpretation }}
-                        </span>
-                        <!-- <span
+            <div class="col-md-7">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Total Subjects</th>
+                    <th>Subjects Offered</th>
+                    <th>Total in Class</th>
+                    <th>Position</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ classSubjectCount }}</td>
+                    <td>{{ reportSheetDetails?.subjectOffered }}</td>
+                    <td>{{ reportSheetDetails?.totalInClass }}</td>
+                    <td>{{ reportSheetDetails?.position }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row mb-1">
+            <div class="col-md-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="w-50">Subject</th>
+                    <th *ngFor="let assessment of assessments">
+                      {{ assessment?.assessmentName }}
+                    </th>
+                    <th>
+                      Cummulative<br />
+                      Score
+                    </th>
+                    <th>Grade</th>
+                    <th>Interpretation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let subject of studentRecord; let i = index">
+                    <td class="subject-info">
+                      {{ subject?.subjectName | titlecase }}
+                    </td>
+                    <td
+                      *ngFor="
+                        let assessment of studentRecord[i].assesmentAndScores
+                      "
+                    >
+                      {{ assessment?.studentScore }}
+                    </td>
+                    <td>{{ subject?.cummulativeScore }}</td>
+                    <td>{{ subject?.grade }}</td>
+                    <td>
+                      <span class="fs-14 interpretation">
+                        {{ subject?.interpretation }}
+                      </span>
+                      <!-- <span
                           class="fs-14 interpretation excellent"
                           *ngIf="subject?.interpretation == 'Excellent '"
                         >
@@ -284,217 +316,249 @@
                         >
                           {{ subject?.interpretation }}
                         </span> -->
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-    
-            <div class="row mb-1">
-              <div class="col-md-5">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Total Scores</th>
-                      <th>Total CA</th>
-                      <th>Total Exam</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{{ totalSchoolScore }}</td>
-                      <td>{{ totalCA }}</td>
-                      <td>{{ totalExam }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="col-md-7">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Total CA Scores</th>
-                      <th>Total Exam Score</th>
-                      <th>Total Score Obtained</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{{totalCAScoreObtained}}</td>
-                      <td>{{totalExamScoreObtained}}</td>
-                      <td>{{totalScoreObtained}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-    
-            <div class="row mb-1">
-              <div class="col-md-12">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Percentage</th>
-                      <th>Average</th>
-                      <th>Rate</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{{ classPercentage }}</td>
-                      <td>{{ averageScore }}</td>
-                      <td>{{ performanceRate }}</td>
-                      <td>
-                        <span class="fs-14" *ngIf="classPercentage >= 75 ">
-                          Excellent
-                        </span>
-                        <span class="fs-14" *ngIf="classPercentage >= 60 && classPercentage <= 74">
-                          Very Good
-                        </span>
-                        <span class="fs-14" *ngIf="classPercentage >= 55 && classPercentage <= 59">
-                          Good
-                        </span>
-                        <span class="fs-14" *ngIf="classPercentage >= 50 && classPercentage <= 54">
-                          Fair
-                        </span>
-                        <span class="fs-14" *ngIf="classPercentage < 49">
-                          Fail
-                        </span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-    
-            <div class="row mb-1">
-              <div class="col-md-12">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Class Teacher</th>
-                      <th>Comment</th>
-                      <th>Signature</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{{classTeacherDetials?.firstName + ' ' + classTeacherDetials?.lastName | titlecase}} </td>
-                      <td>{{reportSheetDetails?.classTeacherComment}}</td>
-                      <td>
-                        <img class="signature" *ngIf="classTeacherDetials" src="data:image/png;base64,{{classTeacherDetials?.signature}}" alt="schools log" >
-    
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-    
-            <div class="row mb-1">
-              <div class="col-md-12">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Head Teacher</th>
-                      <th>Comment</th>
-                      <th>Signature</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td> {{HeadTeacherDetails?.firstName + ' ' + HeadTeacherDetails?.lastName | titlecase}} </td>
-                      <td>{{reportSheetDetails?.headTeacherComment}}</td>
-                      <td>
-                        <img class="signature" *ngIf="HeadTeacherDetails" src="data:image/png;base64,{{HeadTeacherDetails?.signature}}" alt="schools log" >
-    
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-12 mb-2">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Grade Scale</th>
-                      <th></th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let grade of gradeSetup; let g = index">
-                      <td class="text-left">
-                        {{ grade?.lowerBound + " - " + grade?.upperBound }}
-                      </td>
-                      <td>{{ grade?.grade }}</td>
-                      <td>{{ grade?.interpretation }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="col-md-12 mb-2">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th class="w-30">Cognitive</th>
-                      <th class="text-left"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let cognitve of studentBehaviour?.Cognitive">
-                      <td class="text-left">{{ cognitve?.behaviourName }}</td>
-                      <td>
-                        {{ cognitve?.grade }}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-    
-              <div class="col-md-12 mb-2">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th class="w-50">Affective or feeling</th>
-                      <th class="text-left"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let feeling of studentBehaviour?.Feeling">
-                      <td class="text-left">{{ feeling?.behaviourName }}</td>
-                      <td>{{ feeling?.grade }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-    
-              <div class="col-md-12 mb-2">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th class="w-60">Psycomotor or Kinisthetic</th>
-                      <th class="text-left"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let kinetics of studentBehaviour?.psychomotor">
-                      <td class="text-left">{{ kinetics?.behaviourName }}</td>
-                      <td>{{ kinetics?.grade }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+
+          <div class="row mb-1">
+            <div class="col-md-5">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Total Scores</th>
+                    <th>Total CA</th>
+                    <th>Total Exam</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ totalSchoolScore }}</td>
+                    <td>{{ totalCA }}</td>
+                    <td>{{ totalExam }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-7">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Total CA Scores</th>
+                    <th>Total Exam Score</th>
+                    <th>Total Score Obtained</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ totalCAScoreObtained }}</td>
+                    <td>{{ totalExamScoreObtained }}</td>
+                    <td>{{ totalScoreObtained }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row mb-1">
+            <div class="col-md-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Percentage</th>
+                    <th>Average</th>
+                    <th>Rate</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ classPercentage }}</td>
+                    <td>{{ averageScore }}</td>
+                    <td>{{ performanceRate }}</td>
+                    <td>
+                      <span class="fs-14" *ngIf="classPercentage >= 75">
+                        Excellent
+                      </span>
+                      <span
+                        class="fs-14"
+                        *ngIf="classPercentage >= 60 && classPercentage <= 74"
+                      >
+                        Very Good
+                      </span>
+                      <span
+                        class="fs-14"
+                        *ngIf="classPercentage >= 55 && classPercentage <= 59"
+                      >
+                        Good
+                      </span>
+                      <span
+                        class="fs-14"
+                        *ngIf="classPercentage >= 50 && classPercentage <= 54"
+                      >
+                        Fair
+                      </span>
+                      <span class="fs-14" *ngIf="classPercentage < 49">
+                        Fail
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row mb-1">
+            <div class="col-md-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Class Teacher</th>
+                    <th>Comment</th>
+                    <th>Signature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      {{
+                        classTeacherDetials?.firstName +
+                          " " +
+                          classTeacherDetials?.lastName | titlecase
+                      }}
+                    </td>
+                    <td>{{ reportSheetDetails?.classTeacherComment }}</td>
+                    <td>
+                      <img
+                        class="signature"
+                        *ngIf="classTeacherDetials"
+                        src="data:image/png;base64,{{
+                          classTeacherDetials?.signature
+                        }}"
+                        alt="schools log"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="row mb-1">
+            <div class="col-md-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Head Teacher</th>
+                    <th>Comment</th>
+                    <th>Signature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      {{
+                        HeadTeacherDetails?.firstName +
+                          " " +
+                          HeadTeacherDetails?.lastName | titlecase
+                      }}
+                    </td>
+                    <td>{{ reportSheetDetails?.headTeacherComment }}</td>
+                    <td>
+                      <img
+                        class="signature"
+                        *ngIf="HeadTeacherDetails"
+                        src="data:image/png;base64,{{
+                          HeadTeacherDetails?.signature
+                        }}"
+                        alt="schools log"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12 mb-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Grade Scale</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let grade of gradeSetup; let g = index">
+                    <td class="text-left">
+                      {{ grade?.lowerBound + " - " + grade?.upperBound }}
+                    </td>
+                    <td>{{ grade?.grade }}</td>
+                    <td>{{ grade?.interpretation }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-md-12 mb-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="w-30">Cognitive</th>
+                    <th class="text-left"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cognitve of studentBehaviour?.Cognitive">
+                    <td class="text-left">{{ cognitve?.behaviourName }}</td>
+                    <td>
+                      {{ cognitve?.grade }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-md-12 mb-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="w-50">Affective or feeling</th>
+                    <th class="text-left"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let feeling of studentBehaviour?.Feeling">
+                    <td class="text-left">{{ feeling?.behaviourName }}</td>
+                    <td>{{ feeling?.grade }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col-md-12 mb-2">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="w-60">Psycomotor or Kinisthetic</th>
+                    <th class="text-left"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let kinetics of studentBehaviour?.psychomotor">
+                    <td class="text-left">{{ kinetics?.behaviourName }}</td>
+                    <td>{{ kinetics?.grade }}</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
     </div>
-
+  </div>
 </div>
