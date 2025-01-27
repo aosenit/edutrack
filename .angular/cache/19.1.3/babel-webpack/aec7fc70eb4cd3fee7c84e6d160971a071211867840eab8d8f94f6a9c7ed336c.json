@@ -1,1 +1,0 @@
-{"ast":null,"code":"export class NoSpaceValidator {\n  static cannotContainSpace(control) {\n    if (control.value.indexOf(' ') >= 0) {\n      return {\n        cannotContainSpace: true\n      };\n    }\n    return null;\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
