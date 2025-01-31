@@ -1,1 +1,1 @@
-# SchoolTrack
+# EduTrack

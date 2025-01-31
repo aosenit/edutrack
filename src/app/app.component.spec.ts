@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'schooltrack'`, () => {
+  it(`should have as title 'EduTrack'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('schooltrack');
+    expect(app.title).toEqual('EduTrack');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('schooltrack app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('EduTrack app is running!');
   });
 });

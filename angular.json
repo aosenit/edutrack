@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "schooltrack": {
+    "EduTrack": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -98,18 +98,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "schooltrack:build"
+            "browserTarget": "EduTrack:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "schooltrack:build:production"
+              "browserTarget": "EduTrack:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "schooltrack:build"
+            "browserTarget": "EduTrack:build"
           }
         },
         "test": {
@@ -139,16 +139,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "schooltrack:serve"
+            "devServerTarget": "EduTrack:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "schooltrack:serve:production"
+              "devServerTarget": "EduTrack:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "schooltrack"
+  "defaultProject": "EduTrack"
 }

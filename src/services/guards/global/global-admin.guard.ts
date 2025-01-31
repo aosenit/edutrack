@@ -37,7 +37,7 @@ export class GlobalAdminGuard implements CanActivateChild {
     // tslint:disable-next-line:max-line-length
     if (
       (localStorage.getItem("access_token") &&
-        this.loggedInUser.email === "root@myschooltrack.com") ||
+        this.loggedInUser.email === "root@myEduTrack.com") ||
       this.loggedInUser.email === "tester@gmail.com"
     ) {
       return true;

@@ -45,7 +45,7 @@ export class AdminLoginComponent implements OnInit {
           const helper = new JwtHelperService();
           this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
 
-          if (this.loggedInUser.email === 'root@myschooltrack.com' || this.loggedInUser.email === 'tester@gmail.com') {
+          if (this.loggedInUser.email === 'root@myEduTrack.com' || this.loggedInUser.email === 'tester@gmail.com') {
             this.router.navigateByUrl('/admin');
           } else if (this.loggedInUser.UserType === 'SchoolGroupManager') {
             this.router.navigateByUrl('/school-manager');
