@@ -476,7 +476,7 @@ export class AdminLoginComponent implements OnInit {
           const helper &#x3D; new JwtHelperService();
           this.loggedInUser &#x3D; helper.decodeToken(localStorage.getItem(&#x27;access_token&#x27;));
 
-          if (this.loggedInUser.email &#x3D;&#x3D;&#x3D; &#x27;root@myEduTrack.com&#x27; || this.loggedInUser.email &#x3D;&#x3D;&#x3D; &#x27;tester@gmail.com&#x27;) {
+          if (this.loggedInUser.email &#x3D;&#x3D;&#x3D; &#x27;root@myschooltrack.com&#x27; || this.loggedInUser.email &#x3D;&#x3D;&#x3D; &#x27;tester@gmail.com&#x27;) {
             this.router.navigateByUrl(&#x27;/admin&#x27;);
           } else if (this.loggedInUser.UserType &#x3D;&#x3D;&#x3D; &#x27;SchoolGroupManager&#x27;) {
             this.router.navigateByUrl(&#x27;/school-manager&#x27;);

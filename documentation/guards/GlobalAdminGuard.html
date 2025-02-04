@@ -284,7 +284,7 @@ export class GlobalAdminGuard implements CanActivateChild {
     this.loggedInUser &#x3D; helper.decodeToken(localStorage.getItem(&#x27;access_token&#x27;));
 
     // tslint:disable-next-line:max-line-length
-    if (localStorage.getItem(&#x27;access_token&#x27;) &amp;&amp; this.loggedInUser.email &#x3D;&#x3D;&#x3D; &#x27;root@myEduTrack.com&#x27; || this.loggedInUser.email &#x3D;&#x3D;&#x3D; &#x27;tester@gmail.com&#x27;) {
+    if (localStorage.getItem(&#x27;access_token&#x27;) &amp;&amp; this.loggedInUser.email &#x3D;&#x3D;&#x3D; &#x27;root@myschooltrack.com&#x27; || this.loggedInUser.email &#x3D;&#x3D;&#x3D; &#x27;tester@gmail.com&#x27;) {
       return true;
     } else {
       this.notifyService.publishMessages(&#x27;You are not authorized to access this route.&#x27;, &#x27;danger&#x27;, 1);

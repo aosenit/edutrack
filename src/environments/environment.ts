@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   productLogoLarge: "assets/gif/loading.gif",
+  // serverUrl: "https://backend.myschooltrack.com/",
+  serverUrl: "http://98.82.47.139:58100/",
   // serverUrl: 'http://13.88.13.159:58100/',
-  serverUrl: "https://backend.myEduTrack.com/",
   // serverUrl: 'http://65.21.111.173:58100/',
   // serverUrl: 'http://13.88.13.159:58100/',
-  // serverUrl: 'https://backend.myEduTrack.com/',
-  demourl: "http://533db88f5fb7.ngrok.io/",
+  // serverUrl: 'https://backend.myschooltrack.com/',
+  demourl: "http://533db88f5fb7.ngrok.io/" 
 };
 
 /*
