@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   productLogoLarge: "assets/gif/loading.gif",
   // serverUrl: "https://backend.myschooltrack.com/",
-  serverUrl: "http://98.82.47.139:58100/",
+  serverUrl: "https://api.edutrackportal.com/",
   // serverUrl: 'http://13.88.13.159:58100/',
   // serverUrl: 'http://65.21.111.173:58100/',
   // serverUrl: 'http://13.88.13.159:58100/',
