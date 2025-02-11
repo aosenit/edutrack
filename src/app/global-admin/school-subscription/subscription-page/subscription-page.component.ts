@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { parse } from 'querystring';
+// import { parse } from 'querystring';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { SubscriptionsService } from 'src/services/data/subscriptions/subscriptions.service';
