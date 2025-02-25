@@ -6,8 +6,8 @@
                 <label for="parent" class="fw-6">Photo <span
                         class="text-danger">*</span></label>
                 <div class="flex-column">
-                    <img [src]="imageSrc" class=" student-img" alt="..." />
-                    <img src="assets/images/svg/student-upload.svg" *ngIf="imageSrc == null" class="ml-3" alt="..." />
+                    <img [src]="imageSrc" *ngIf="imageSrc" class=" student-img" alt="..." />
+                    <img src="assets/images/svg/student-upload.svg" *ngIf="!imageSrc" class="ml-3" alt="..." />
                     <div class="add-image w-50 mt-2" >
                         <label for="addImage" > <img
                                 src="assets/images/svg/student-add-upload.svg" class="ml-3"
