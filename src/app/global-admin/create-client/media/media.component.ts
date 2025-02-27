@@ -93,8 +93,8 @@ export class MediaComponent implements OnInit {
     // const formData = new FormData();
     // this.DocumentTypes.forEach((item: any) => formData.append('DocumentTypes', item));
 
-    const result = {...profile, ...details, ...contactperson, isActive, GroupId: null, ...finalstep, DocumentTypes: this.DocumentTypes};
-
+    const result = {...profile, ...details, ...contactperson, isActive, GroupId: null, ...finalstep, DocumentTypes: [...(this.mediaForm.get('logo').value ? [0] : []), ...(this.mediaForm.get('icon').value ? [1] : [])]};
+    
     if (this.formBtn.type === 'create') {
       this.schoolServies.addSchool(result).subscribe( (data: any) => {
         if ( data.hasErrors === false ) {
@@ -157,7 +157,7 @@ handleImgUpload(event: any) {
     } else {
       this.logoname = file.name;
       this.mediaForm.get('logo').setValue(file);
-      this.DocumentTypes.push(0);
+      // this.DocumentTypes.push(0);
 
     }
   }
@@ -173,7 +173,7 @@ handleIconUpload(event: any) {
       } else {
         this.iconname = file.name;
         this.mediaForm.get('icon').setValue(file);
-        this.DocumentTypes.push(1);
+        // this.DocumentTypes.push(1);
 
       }
       // this.iconname = this.icon.name;
