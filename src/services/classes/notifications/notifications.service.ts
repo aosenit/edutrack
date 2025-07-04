@@ -12,7 +12,9 @@ export class NotificationsService {
 
   alertStatus: BehaviorSubject<{content:string, style:string, type:number, show:boolean}> = new BehaviorSubject<{content:string, style:string, type:number, show:boolean}>({content:'testing', style:'info', type:0, show:false})
 
-  publishMessages(content: string, style: string, type:number) {
+  publishMessages(content: string | string[], style: string, type:number) {
+    content = Array.isArray(content) ? content[0] : content;
+
     this.alertStatus.next({ content: content, style: style, type: 0, show: true });
     setTimeout(() => {
       this.dismissMessage()

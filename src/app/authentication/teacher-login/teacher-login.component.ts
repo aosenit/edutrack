@@ -88,4 +88,8 @@ export class TeacherLoginComponent implements OnInit {
       // location.reload();
     }
   }
+
+  getYear() {
+    return (new Date()).getFullYear();
+  }
 }

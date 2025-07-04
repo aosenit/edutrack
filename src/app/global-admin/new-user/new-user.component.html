@@ -53,9 +53,9 @@
                     <label for="fname" class="fw-6">First Name <span class="text-danger">*</span></label>
                     <input type="text" class="form-control form-control-lg" id="fname" formControlName="firstName"
                       placeholder="Enter first Name">
-                    <div *ngIf="submitted && userForm.controls.firstName.errors" class="error">
-                      <div *ngIf="userForm.controls.firstName.errors.required" class="text-danger">First Name is required
-                      </div>
+                    <div *ngIf="userForm.controls.firstName.touched && userForm.controls.firstName.errors" class="error">
+                      <small *ngIf="userForm.controls.firstName.errors.required" class="text-danger">First Name is required
+                      </small>
                     </div>
                   </div>
                   <div class="  ">
@@ -63,9 +63,9 @@
 
                     <input type="text" class="form-control form-control-lg" id="lname" placeholder="Enter last name"
                       formControlName="lastName">
-                      <div *ngIf="submitted && userForm.controls.lastName.errors" class="error">
-                        <div *ngIf="userForm.controls.lastName.errors.required" class="text-danger">Last Name is required
-                        </div>
+                      <div *ngIf="userForm.controls.lastName.touched && userForm.controls.lastName.errors" class="error">
+                        <small *ngIf="userForm.controls.lastName.errors.required" class="text-danger">Last Name is required
+                        </small>
                       </div>
                   </div>
 
@@ -76,9 +76,9 @@
                     <label for="domain" class="fw-6">Username <span class="text-danger">*</span></label>
                     <input type="text" class="form-control form-control-lg" id="domain" placeholder="Enter username"
                       formControlName="userName">
-                      <div *ngIf="submitted && userForm.controls.userName.errors" class="error">
-                        <div *ngIf="userForm.controls.userName.errors.required" class="text-danger">Username is required
-                        </div>
+                      <div *ngIf="userForm.controls.userName.touched && userForm.controls.userName.errors" class="error">
+                        <small *ngIf="userForm.controls.userName.errors.required" class="text-danger">Username is required
+                        </small>
                       </div>
                   </div>
                   <div class="  ">
@@ -86,9 +86,9 @@
 
                     <input type="email" class="form-control form-control-lg" id="email"
                       placeholder="Enter user email address" formControlName="email">
-                    <div *ngIf="submitted && userForm.controls.email.errors" class="error">
-                      <div *ngIf="userForm.controls.email.errors.required" class="text-danger">Email is required</div>
-                      <div *ngIf="userForm.controls.email.errors.email" class="text-danger">Invalid email pattern</div>
+                    <div *ngIf="userForm.controls.email.touched && userForm.controls.email.errors" class="error">
+                      <small *ngIf="userForm.controls.email.errors.required" class="text-danger">Email is required</small>
+                      <small *ngIf="userForm.controls.email.errors.email" class="text-danger">Invalid email pattern</small>
                     </div>
                   </div>
 
@@ -106,8 +106,13 @@
                     </div>
                   </div>
                   <div class=" ">
-                    <label for="logo" class="fw-6">Password</label>
-                    <input type="password" class="form-control form-control-lg" formControlName="phoneNumber">
+                    <label for="logo" class="fw-6">Phone Number</label>
+                    <input type="tel" class="form-control form-control-lg" formControlName="phoneNumber">
+                    <div *ngIf="userForm.controls.phoneNumber.touched && userForm.controls.phoneNumber.errors" class="error">
+                        <small *ngIf="userForm.controls.phoneNumber.errors.required" class="text-danger">Phone number is required</small>
+                        <small *ngIf="userForm.controls.phoneNumber.errors.minlength" class="text-danger">Invalid Phone number length (must be 11 digit)</small>
+                        <small *ngIf="userForm.controls.phoneNumber.errors.pattern" class="text-danger">Invalid Phone number pattern</small>
+                    </div>
                   </div>
                    <!-- <div class="  ">
                     <label for="role" class="fw-6">Role <span class="text-danger">*</span></label>
@@ -190,14 +195,22 @@
                     <label for="fname" class="fw-6">First Name <span class="text-danger">*</span></label>
                     <input type="text" class="form-control form-control-lg" id="fname" formControlName="firstName"
                       placeholder="Enter first Name">
-                   
+                    <div *ngIf="edituserForm.controls.firstName.touched && edituserForm.controls.firstName.errors" class="error">
+                      <small *ngIf="edituserForm.controls.firstName.errors.required" class="text-danger">First Name is required
+                      </small>
+                    </div>
+
                   </div>
                   <div class="  ">
                     <label for="lname" class="fw-6">Last Name <span class="text-danger">*</span></label>
 
                     <input type="text" class="form-control form-control-lg" id="lname" placeholder="Enter last name"
                       formControlName="lastName">
-                      
+                      <div *ngIf="edituserForm.controls.lastName.touched && edituserForm.controls.lastName.errors" class="error">
+                        <small *ngIf="edituserForm.controls.lastName.errors.required" class="text-danger">Last Name is required
+                        </small>
+                      </div>
+
                   </div>
 
                 </div>
@@ -207,14 +220,22 @@
                     <label for="domain" class="fw-6">Userame <span class="text-danger">*</span></label>
                     <input type="text" class="form-control form-control-lg" id="domain" placeholder="Enter username"
                       formControlName="userName">
-                     
+                      <div *ngIf="edituserForm.controls.userName.touched && edituserForm.controls.userName.errors" class="error">
+                        <small *ngIf="edituserForm.controls.userName.errors.required" class="text-danger">Username is required
+                        </small>
+                      </div>
+
                   </div>
                   <div class="  ">
                     <label for="email" class="fw-6">Email <span class="text-danger">*</span></label>
 
                     <input type="email" class="form-control form-control-lg" id="email"
                       placeholder="Enter user email address" formControlName="email">
-                   
+                    <div *ngIf="edituserForm.controls.email.touched && edituserForm.controls.email.errors" class="error">
+                      <small *ngIf="edituserForm.controls.email.errors.required" class="text-danger">Email is required</small>
+                      <small *ngIf="edituserForm.controls.email.errors.email" class="text-danger">Invalid email pattern</small>
+                    </div>
+
                   </div>
 
                 </div>
@@ -231,8 +252,13 @@
                     </div>
                   </div>
                   <div class=" ">
-                    <label for="logo" class="fw-6">Password</label>
-                    <input type="password" class="form-control form-control-lg" formControlName="phoneNumber">
+                    <label for="logo" class="fw-6">Phone Number</label>
+                    <input type="tel" class="form-control form-control-lg" formControlName="phoneNumber">
+                    <div *ngIf="edituserForm.controls.phoneNumber.touched && edituserForm.controls.phoneNumber.errors" class="error">
+                        <small *ngIf="edituserForm.controls.phoneNumber.errors.required" class="text-danger">Phone number is required</small>
+                        <small *ngIf="edituserForm.controls.phoneNumber.errors.minlength" class="text-danger">Invalid Phone number length (must be 11 digit)</small>
+                        <small *ngIf="edituserForm.controls.phoneNumber.errors.pattern" class="text-danger">Invalid Phone number pattern</small>
+                    </div>
                   </div>
                    <!-- <div class="  ">
                     <label for="role" class="fw-6">Role <span class="text-danger">*</span></label>

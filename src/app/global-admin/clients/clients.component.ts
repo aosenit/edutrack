@@ -36,10 +36,19 @@ export class ClientsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.initBulkUpload();
+    this.initSchoolsForm();
+    this.getAllSchools();
+  }
+
+  initBulkUpload() {
+    this.filename = null;
     this.bulkUpload = this.fb.group({
       bulkFile: []
     });
-    this.getAllSchools();
+  }
+
+  initSchoolsForm() {
     this.schoolSelection = this.fb.group({
       school: ['', Validators.required]
     });
@@ -107,9 +116,9 @@ export class ClientsComponent implements OnInit {
         document.getElementById('closeModal').click();
         this.getAllSchools();
       }
+      else this.notifyService.publishMessages(data.errors, 'danger', 1);
     }, error => {
       this.notifyService.publishMessages(error.errors, 'danger', 1);
-
     });
 
 

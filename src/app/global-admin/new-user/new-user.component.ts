@@ -38,7 +38,7 @@ export class NewUserComponent implements OnInit {
       userName: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
       image: [null],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, Validators.minLength(11), Validators.pattern('(0[7-9][0-1][0-9]{8})|(0[1-4][0-9]{7})+$')]],
     });
 
     this.edituserForm = this.fb.group({
@@ -47,7 +47,7 @@ export class NewUserComponent implements OnInit {
       userName: ['', Validators.required],
       email: ['', [Validators.email, Validators.required]],
       image: [null],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, Validators.minLength(11), Validators.pattern('(0[7-9][0-1][0-9]{8})|(0[1-4][0-9]{7})+$')]],
     });
 
     this.pageId = this.route.snapshot.params.id;
@@ -65,6 +65,8 @@ export class NewUserComponent implements OnInit {
   }
 
   createUser() {
+    console.log('create user called');
+
     if (this.userForm.invalid) {
       this.submitted = true;
       return;
@@ -72,18 +74,19 @@ export class NewUserComponent implements OnInit {
       // // (this.userForm.value);
       const finalstep = this.userForm.value;
       const result = { ...finalstep, DocumentTypes: this.DocumentTypes};
-      this.adminService.AddNewAdmin(result).subscribe( (data: any) => {
-        if (data.hasErrors === false) {
-          // ('created admin data', data);
-          this.notifyService.publishMessages(data.description, 'info', 1);
-          this.router.navigateByUrl('/admin/users');
-        } else {
-          this.notifyService.publishMessages(data.errors, 'danger', 1);
-
+      this.adminService.AddNewAdmin(result).subscribe({
+        next: (data: any) => {
+          if (data.hasErrors === false) {
+            // ('created admin data', data);
+            this.notifyService.publishMessages(data.description, 'info', 1);
+            this.router.navigateByUrl('/admin/users');
+          } else {
+            this.notifyService.publishMessages(data.errors, 'danger', 1);
+          }
+        },
+        error: err => {
+          this.notifyService.publishMessages(err, 'danger', 1);
         }
-      }, err => {
-        this.notifyService.publishMessages(err, 'danger', 1);
-
       });
     }
   }
@@ -117,7 +120,7 @@ export class NewUserComponent implements OnInit {
 
   editCreateuser() {
 
-   
+
       // // (this.userForm.value);
       const finalstep = this.userForm.value;
       const result = { ...finalstep, DocumentTypes: this.DocumentTypes};
@@ -131,7 +134,7 @@ export class NewUserComponent implements OnInit {
         this.notifyService.publishMessages(err.errors, 'danger', 1);
 
       });
-    
+
   }
 
   back() {

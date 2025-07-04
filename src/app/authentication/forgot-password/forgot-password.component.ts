@@ -48,4 +48,7 @@ export class ForgotPasswordComponent implements OnInit {
     }
 }
 
+  getYear() {
+    return (new Date()).getFullYear();
+  }
 }

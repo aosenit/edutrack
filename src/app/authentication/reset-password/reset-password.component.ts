@@ -66,4 +66,8 @@ export class ResetPasswordComponent implements OnInit {
     });
 }
 
+
+  getYear() {
+    return (new Date()).getFullYear();
+  }
 }

@@ -57,4 +57,8 @@ export class EmailVerifiedComponent implements OnInit {
     });
   }
 
+  getYear() {
+    return (new Date()).getFullYear();
+  }
+
 }

@@ -60,4 +60,8 @@ export class ParentLoginComponent implements OnInit {
     }
   }
 
+  getYear() {
+    return (new Date()).getFullYear();
+  }
+
 }

@@ -52,7 +52,7 @@
     <table class="table table-borderless client-table">
 
       <thead>
-        <th scope="col" class="head">Clients 
+        <th scope="col" class="head">Clients
           <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
             class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
@@ -65,7 +65,7 @@
             <a class="dropdown-item" href="#">Z - A </a>
           </div> -->
         </th>
-        <th scope="col">Client Code </th>
+        <!-- <th scope="col">Client Code </th> -->
         <th scope="col">Users <img src="assets/images/svg/table-sort.svg" alt="table sort icon" class="dropdown-toggle"
             type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <!-- ================ DROPDOWN ==================== -->
@@ -140,8 +140,8 @@
 
 
           </td>
-          <td><span *ngIf="client?.clientCode">{{client?.clientCode}}</span><span
-              *ngIf="client?.clientCode == null">NA</span></td>
+          <!-- <td><span *ngIf="client?.clientCode">{{client?.clientCode}}</span><span
+              *ngIf="client?.clientCode == null">NA</span></td> -->
           <td>{{client?.usersCount}}</td>
           <td>{{client?.state}}</td>
           <td>{{client?.schoolGroupId === null ? 'Single' : 'Group'}}</td>
@@ -198,7 +198,14 @@
       </tbody>
     </table>
     <div class="d-flex justify-content-end">
-      <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+      <pagination-controls (pageChange)="getPage(p = $event)" class="text-center" maxSize="9"
+                      directionLinks="true"
+                      responsive="true"
+                      previousLabel="Previous"
+                      nextLabel="Next"
+                      screenReaderPaginationLabel="Pagination"
+                      screenReaderPageLabel="page"
+                      screenReaderCurrentLabel="You're on page"></pagination-controls>
     </div>
 
     <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">
@@ -236,7 +243,7 @@
             <p class="text-center">
               <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add Files </button>
             </p>
-            
+
             <input type="file" class="file-input" id="fileupload"
               accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
               (change)="handleBulkUpload($event)">
@@ -250,7 +257,7 @@
             <span class="download fc-lblue">here</span> to download sample file</a>
 
           <div class="modal-btn d-flex justify-content-end mb-5">
-            <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
+            <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal" (click)="initBulkUpload()"> Cancel </button>
             <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Add New </button>
           </div>
 
@@ -293,9 +300,9 @@
             <input type="radio" class="custom-control-input" id="group" name="school" formControlName="school" [value]="2" >
             <label class="custom-control-label" for="group">Group of Schools</label>
           </div>
-         
-         
-          
+
+
+
 
 
           <div class="d-flex justify-content-center mb-3">

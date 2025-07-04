@@ -90,4 +90,7 @@ export class SchoolLoginComponent implements OnInit {
     }
   }
 
+  getYear() {
+    return (new Date()).getFullYear();
+  }
 }

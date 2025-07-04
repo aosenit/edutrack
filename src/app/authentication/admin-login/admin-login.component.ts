@@ -45,7 +45,7 @@ export class AdminLoginComponent implements OnInit {
           const helper = new JwtHelperService();
           this.loggedInUser = helper.decodeToken(localStorage.getItem('access_token'));
           console.log(this.loggedInUser);
-          
+
 
           if (this.loggedInUser.email === 'root@myschooltrack.com' || this.loggedInUser.email === 'tester@gmail.com') {
             this.router.navigateByUrl('/admin');
@@ -67,6 +67,11 @@ export class AdminLoginComponent implements OnInit {
           this.notifyService.publishMessages(error.message, 'danger', 1);
         });
     }
+  }
+
+
+  getYear() {
+    return (new Date()).getFullYear();
   }
 
 }

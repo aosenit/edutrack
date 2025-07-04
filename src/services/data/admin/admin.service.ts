@@ -43,7 +43,7 @@ export class AdminService {
     userForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     body.append('phoneNumber', userForm.phoneNumber);
     const url = `${this.baseUrl + routes.newAdmin}`;
-    return this.http.put(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
+    return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
   getAdminByID(id) {
