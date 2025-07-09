@@ -214,19 +214,20 @@ export class MediaComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       // console.log('file', file);
-      this.profilephotoname = file.name;
-      this.DocumentTypes[0] = 2;
 
-      this.mediaForm.get('profile').setValue(file);
-      // this.iconname = this.icon.name;
-      const size = event.target.files[0].size;
-      if (size >= 1048576) {
+      if (file.size >= 1048576) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
-        this.DocumentTypes[0] = 0;
+        this.DocumentTypes[1] = 0;
+        this.profilephotoname = null;
+        this.mediaForm.get('profile').setValue(null);
       } else  {
-        this.DocumentTypes[0] = 2;
+        this.profilephotoname = file.name;
+        this.DocumentTypes[1] = 8;
+
+        this.mediaForm.get('profile').setValue(file);
         // console.log(this.DocumentTypes);
       }
+      // this.iconname = this.icon.name;
     }
   }
 
@@ -234,16 +235,17 @@ export class MediaComponent implements OnInit {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       // console.log('file', file);
-      this.signaturename = file.name;
-      this.DocumentTypes[1] = 8;
 
-      this.mediaForm.get('signature').setValue(file);
-      const size = event.target.files[0].size;
-      if (size >= 1048576) {
+      if (file.size >= 1048576) {
         this.notifyService.publishMessages('File size too large', 'danger', 1);
         this.DocumentTypes[1] = 0;
+        this.signaturename = null;
+        this.mediaForm.get('signature').setValue(null);
       } else  {
+        this.signaturename = file.name;
         this.DocumentTypes[1] = 8;
+
+        this.mediaForm.get('signature').setValue(file);
         // console.log(this.DocumentTypes);
       }
       // this.iconname = this.icon.name;

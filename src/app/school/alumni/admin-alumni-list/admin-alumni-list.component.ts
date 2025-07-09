@@ -8,7 +8,7 @@ import { AssessmentService } from 'src/services/data/assessment/assessment.servi
   styleUrls: ['./admin-alumni-list.component.css']
 })
 export class AdminAlumniListComponent implements OnInit {
-  searchString: string;
+  searchString = '';
   alumniList: any;
   currentSesion: any;
   sessionName: any;
@@ -29,12 +29,8 @@ export class AdminAlumniListComponent implements OnInit {
         this.currentSesion = res.payload;
         this.sessionName = res.payload.name;
         // tslint:disable-next-line:prefer-for-of
-        for (let index = 0; index < this.currentSesion.terms.length; index++) {
-
-          this.termName = this.currentSesion.terms[2].name;
-
-        }
-        this.getAllSchoolAlumnis(this.sessionName, this.termName);
+        this.termName = this.currentSesion.terms[this.currentSesion.terms.length - 1].name;
+        this.getAllSchoolAlumnis();
 
       }
     });
@@ -44,8 +40,8 @@ export class AdminAlumniListComponent implements OnInit {
 
   }
 
-  getAllSchoolAlumnis(session, term) {
-    this.alumni.getAllAlumnis(session, term).subscribe((res: any) => {
+  getAllSchoolAlumnis() {
+    this.alumni.getAllAlumnis(this.sessionName, this.termName, this.searchString).subscribe((res: any) => {
       if (res.hasErrors === false ) {
         this.alumniList = res.payload;
         console.log(res.payload);

@@ -94,17 +94,18 @@ export class ParentListComponent implements OnInit {
   }
 
   deleteParent(id) {
-    this.notifyService.publishMessages('Service currently down', 'danger', 1);
-    // this.parentService.deleteParentById(id).subscribe((data: any) => {
-    //   if (data.hasErrors === false) {
-    //     // (data.payload);
-    //     this.notifyService.publishMessages('Parent deleted successfully', 'success', 1);
+    // this.notifyService.publishMessages('Service currently down', 'danger', 1);
+    this.parentService.deleteParentById(id).subscribe((data: any) => {
+      if (data.hasErrors === false) {
+        // (data.payload);
+        this.notifyService.publishMessages('Parent deleted successfully', 'success', 1);
+        this.searchParent(this.searchField.value);
 
-    //   }
-    // }, error => {
-    //   this.notifyService.publishMessages(error.message, 'danger', 1);
+      }
+    }, error => {
+      this.notifyService.publishMessages(error.message, 'danger', 1);
 
-    // });
+    });
   }
 
   searchParent(event: string) {

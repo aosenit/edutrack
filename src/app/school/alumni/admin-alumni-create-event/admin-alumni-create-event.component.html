@@ -75,7 +75,7 @@
       <div class="col-md-6">
         <label for="amount" class="fw-6">Tags  </label>
         <input type="text" class="form-control" placeholder="Enter tags" id="amount" formControlName="tags">
-        <small class="text-danger"> separate tags with comma</small>
+        <small class="text-danger" *ngIf="newAlumniform.get('tags')?.errors?.commaSeparated"> separate tags with comma</small>
       </div>
     </div>
 

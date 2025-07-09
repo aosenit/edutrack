@@ -437,7 +437,7 @@ export class DashboardComponent implements OnInit {
     this.school.getSchoolSubscriptionStatusById(this.adminDetails.TenantId).subscribe((res: any) => {
       if (res.hasErrors === false) {
         this.subscriptionStatus = res.payload;
-        this.notify();
+        if (this.subscriptionStatus) this.notify();
       }
     });
   }

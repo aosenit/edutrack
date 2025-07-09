@@ -15,6 +15,7 @@ export class AdminLoginComponent implements OnInit {
   submitted = false;
   LoginForm: FormGroup;
   loggedInUser: any;
+  showPassword = false;
   constructor(
     private fb: FormBuilder,
     private router: Router,

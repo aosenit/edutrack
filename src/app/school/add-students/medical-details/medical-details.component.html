@@ -20,7 +20,7 @@
 
                 </select>
                 <div *ngIf=" medicalForm.controls.BloodGroup.touched && medicalForm.controls.BloodGroup.errors" class="error">
-                    <small *ngIf="medicalForm.controls.BloodGroup.errors.required" class="text-danger">Field is required</small>
+                    <small *ngIf="medicalForm.controls.BloodGroup.errors.required" class="text-danger">Blood Group is required</small>
                     <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
                   </div>
     
@@ -36,8 +36,8 @@
                     <option value="SS">SS</option>
                     <option value="SC">SC</option>
                 </select>
-                <div *ngIf=" medicalForm.controls.BloodGroup.touched && medicalForm.controls.BloodGroup.errors" class="error">
-                    <small *ngIf="medicalForm.controls.BloodGroup.errors.required" class="text-danger">Field is required</small>
+                <div *ngIf=" medicalForm.controls.Genotype.touched && medicalForm.controls.Genotype.errors" class="error">
+                    <small *ngIf="medicalForm.controls.Genotype.errors.required" class="text-danger">Genotype is required</small>
                     <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
                   </div>
     
@@ -95,7 +95,7 @@
                 <div class="row mb-5" >
                     <div class="col-md-3">
                         <label for="">Immunization {{i + 1}} <span class="text-danger">*</span> </label>
-                        <input type="date" (change)="getAge($event.target.value, i)" class="form-control form-control-lg"  formControlName="date">
+                        <input type="date" class="form-control form-control-lg"  formControlName="dateImmunized">
                     </div>
                     <div class="col-md-3 ">
                         <label for="">&nbsp;</label>

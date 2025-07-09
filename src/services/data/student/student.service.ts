@@ -61,7 +61,7 @@ export class StudentService {
     studentForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     for (let i = 0; i < immunizationVms.length; i++) {
       body.append('immunizationVms[' + i + '].age', immunizationVms[i].age);
-      body.append('immunizationVms[' + i + '].date', immunizationVms[i].date);
+      body.append('immunizationVms[' + i + '].dateImmunized', immunizationVms[i].dateImmunized);
       body.append('immunizationVms[' + i + '].vaccine', immunizationVms[i].vaccine);
     }
     const url = `${this.baseUrl + routes.addstudent}`;
@@ -124,7 +124,7 @@ export class StudentService {
       updateStudentForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
       for (let i = 0; i < immunizationVms.length; i++) {
       body.append('immunizationVms[' + i + '].age', immunizationVms[i].age);
-      body.append('immunizationVms[' + i + '].date', immunizationVms[i].date);
+      body.append('immunizationVms[' + i + '].dateImmunized', immunizationVms[i].dateImmunized);
       body.append('immunizationVms[' + i + '].vaccine', immunizationVms[i].vaccine);
     }
       const url = `${this.baseUrl + routes.updatestudentbyid}/${id}`;
@@ -163,7 +163,7 @@ export class StudentService {
       body.append('ConfidentialNotes', updateStudentForm.ConfidentialNotes);
       for (let i = 0; i < immunizationVms.length; i++) {
       body.append('immunizationVms[' + i + '].age', immunizationVms[i].age);
-      body.append('immunizationVms[' + i + '].date', immunizationVms[i].date);
+      body.append('immunizationVms[' + i + '].dateImmunized', immunizationVms[i].dateImmunized);
       body.append('immunizationVms[' + i + '].vaccine', immunizationVms[i].vaccine);
     }
       const url = `${this.baseUrl + routes.updatestudentbyid}/${id}`;

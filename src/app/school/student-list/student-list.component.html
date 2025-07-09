@@ -1,4 +1,4 @@
-<section class="add-student" *ngIf="studentList?.length == 0">
+<section class="add-student" *ngIf="studentList?.length == 0 && !searchField.value">
     <img src="assets/images/svg/add-student.svg" alt="new student" class="">
     <p class="text-center fw-6 pt-5">It looks like you are yet to create a student.You can do <br> that by clicking any of the buttons below.
         </p>
@@ -14,7 +14,7 @@
 
 
 
-<div *ngIf="studentList?.length !== 0">
+<div *ngIf="studentList?.length !== 0 || searchField.value">
     
     <section class="banner mb-4 pb-3">
         <div class="pt-5 pl-3 content ">

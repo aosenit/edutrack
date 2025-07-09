@@ -48,7 +48,7 @@ export class StudentListComponent implements OnInit {
     this.searchField = new FormControl();
     this.searchField.valueChanges
     .pipe(
-      debounceTime(400),
+      debounceTime(700),
       distinctUntilChanged()
     )
     .subscribe(term => {

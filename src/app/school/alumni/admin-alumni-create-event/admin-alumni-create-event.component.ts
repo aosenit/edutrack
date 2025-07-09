@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import * as moment from 'moment';
+import { commaSeparatedValidator } from 'src/app/shared/util/validators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AlumniService } from 'src/services/data/alumni/alumni.service';
 
@@ -42,7 +43,7 @@ editEvent = false;
       status: true,
       endDate: ['', Validators.required],
       description: ['', Validators.required],
-      tags: ['', Validators.required],
+      tags: ['', [Validators.required, commaSeparatedValidator]],
       eventImg: null
     });
 

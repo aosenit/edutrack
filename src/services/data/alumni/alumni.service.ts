@@ -25,8 +25,8 @@ export class AlumniService {
   constructor(private http: HttpClient) { }
 
 
-  getAllAlumnis(SessionName, TermName) {
-    const url = `${this.baseUrl + routes.getAlumnis}?SessionName=${SessionName}&TermName=${TermName}`;
+  getAllAlumnis(SessionName, TermName, keyword='') {
+    const url = `${this.baseUrl + routes.getAlumnis}?SessionName=${SessionName}&TermName=${TermName}&keyword=${keyword}`;
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
@@ -56,9 +56,9 @@ export class AlumniService {
     return this.http.post(url, body, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
-  getAllEvents() {
+  getAllEvents(keyword = '') {
     const url = `${this.baseUrl + routes.getAlumnisEvent}`;
-    return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+    return this.http.get(`${url}?keyword=${keyword}`, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getAllAlumniEventId(id) {

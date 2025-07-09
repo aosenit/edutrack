@@ -4,6 +4,7 @@ import { FilesService } from 'src/services/data/files/files.service';
 import { SchoolService } from 'src/services/data/school/school.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PageEvent } from '@angular/material';
 
 @Component({
   selector: 'app-clients',
@@ -24,7 +25,7 @@ export class ClientsComponent implements OnInit {
   profileInfo: any;
   searchString: string;
   p = 1;
-  itemsPerPage = 10;
+  itemsPerPage = 5;
   // DocumentTypes: number[] = [];
 
   constructor(
@@ -67,18 +68,10 @@ export class ClientsComponent implements OnInit {
     });
   }
 
-  getPage(page: number) {
-    this.schoolServices.getAllSchools(page, this.itemsPerPage).subscribe((data: any) => {
-      if (data) {
-        // // ('all schools', data);
-        this.clientList = data.payload;
-        this.clientCount = data.totalCount;
-        // this.clientList.reverse();
-      }
-    }, error => {
-      this.notifyService.publishMessages(error.errors, 'danger', 1);
-
-    });
+  getPage(event: PageEvent) {
+    let { pageIndex } = { ...event };
+    this.p = pageIndex + 1;
+    this.getAllSchools();
   }
 
   getImageID(id) {

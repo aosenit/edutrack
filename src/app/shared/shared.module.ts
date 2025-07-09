@@ -9,6 +9,7 @@ import { TableSearchPipe } from './pipes/table-search.pipe';
 import { TrustedUrlPipe } from './pipes/trusted-url.pipe';
 import { NoRecordComponent } from './no-record/no-record.component';
 import { TrustedHtmlPipe } from './pipes/trusted-html.pipe';
+import { MatPaginatorModule } from '@angular/material';
 
 
 
@@ -25,9 +26,13 @@ import { TrustedHtmlPipe } from './pipes/trusted-html.pipe';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatPaginatorModule,
   ],
   exports: [
+    CommonModule,
+    RouterModule,
+    MatPaginatorModule,
     HomenavbarComponent,
     FooterComponent,
     NotificationsComponent,

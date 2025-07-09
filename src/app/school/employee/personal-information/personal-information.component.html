@@ -4,28 +4,28 @@
       <div class="form-row mb-5 ">
         <div class="col-sm-12 ">
           <label for="fname" class="fw-6">First Name <span class="text-danger">*</span></label>
-          <input 
-          type="text" 
-          class="form-control form-control-lg" 
-          id="fname" 
+          <input
+          type="text"
+          class="form-control form-control-lg"
+          id="fname"
           placeholder="Enter first Name"
           formControlName="FirstName" required>
           <div *ngIf="personalDetailsForm.controls.FirstName.touched && personalDetailsForm.controls.FirstName.errors" class="error">
-            <small *ngIf="personalDetailsForm.controls.FirstName.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="personalDetailsForm.controls.FirstName.errors.required" class="text-danger">First Name is required</small>
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
         </div>
 
         <div class="col-sm-12 ">
           <label for="lname" class="fw-6">Last Name <span class="text-danger">*</span></label>
-          <input 
-          type="text" 
-          class="form-control form-control-lg" 
-          id="lname" 
+          <input
+          type="text"
+          class="form-control form-control-lg"
+          id="lname"
           placeholder="Enter Last Name"
           formControlName="LastName" required>
           <div *ngIf="personalDetailsForm.controls.LastName.touched && personalDetailsForm.controls.LastName.errors" class="error">
-            <small *ngIf="personalDetailsForm.controls.LastName.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="personalDetailsForm.controls.LastName.errors.required" class="text-danger">Last Name is required</small>
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
         </div>
@@ -33,12 +33,12 @@
       </div>
 
       <div class="form-row mb-5 ">
-        
+
         <div class=" col-sm-12 ">
           <label for="others" class="fw-6">Other Names </label>
 
-          <input type="text" class="form-control form-control-lg" 
-          id="others" 
+          <input type="text" class="form-control form-control-lg"
+          id="others"
           placeholder="Enter other names" formControlName="OtherNames" >
 
         </div>
@@ -52,22 +52,22 @@
                <option value="female">Female</option>
            </select>
            <div *ngIf="personalDetailsForm.controls.Sex.touched && personalDetailsForm.controls.Sex.errors" class="error">
-            <small *ngIf="personalDetailsForm.controls.Sex.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="personalDetailsForm.controls.Sex.errors.required" class="text-danger">Gender is required</small>
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
         </div>
       </div>
 
       <div class="form-row mb-5 ">
-        
+
         <div class="  ">
           <label for="dob" class="fw-6">Date of Birth <span class="text-danger">*</span></label>
 
-          <input type="date" class="form-control form-control-lg" 
+          <input type="date" class="form-control form-control-lg"
           id="dob" formControlName="DateOfBirth"
           placeholder="Enter other names"  required>
            <div *ngIf="personalDetailsForm.controls.DateOfBirth.touched && personalDetailsForm.controls.DateOfBirth.errors" class="error">
-            <small *ngIf="personalDetailsForm.controls.DateOfBirth.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="personalDetailsForm.controls.DateOfBirth.errors.required" class="text-danger">Date of Birth is required</small>
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
         </div>
@@ -83,13 +83,13 @@
                <option value="divorced" > Divorced </option>
            </select>
             <div *ngIf="personalDetailsForm.controls.MaritalStatus.touched && personalDetailsForm.controls.MaritalStatus.errors" class="error">
-            <small *ngIf="personalDetailsForm.controls.MaritalStatus.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="personalDetailsForm.controls.MaritalStatus.errors.required" class="text-danger">Marital Status is required</small>
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
         </div>
       </div>
 
-      
+
       <div class="form-row mb-5">
         <div class=" ">
             <label for="blood" class="fw-6">Blood Group <span class="text-danger">*</span></label>
@@ -106,12 +106,12 @@
                <option value="AB-">AB-</option>
            </select>
            <div *ngIf="personalDetailsForm.controls.BloodGroup.touched && personalDetailsForm.controls.BloodGroup.errors" class="error">
-            <small *ngIf="personalDetailsForm.controls.BloodGroup.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="personalDetailsForm.controls.BloodGroup.errors.required" class="text-danger">Blood Group is required</small>
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
         </div>
 
-      
+
         <div class=" ">
             <label for="religion" class="fw-6">Religion <span class="text-danger">*</span></label>
 
@@ -123,7 +123,7 @@
                <option value="Judaism">Judaism</option>
            </select>
            <div *ngIf="personalDetailsForm.controls.Religion.touched && personalDetailsForm.controls.Religion.errors" class="error">
-            <small *ngIf="personalDetailsForm.controls.Religion.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="personalDetailsForm.controls.Religion.errors.required" class="text-danger">Religion is required</small>
             <!-- <small *ngIf="personalDetailsForm.controls.Religion.errors.required" class="text-danger">Field is required</small>  -->
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
@@ -143,7 +143,7 @@
 
            </select>
            <div *ngIf=" personalDetailsForm.controls.Nationality.touched && personalDetailsForm.controls.Nationality.errors" class="error">
-            <small *ngIf="personalDetailsForm.controls.Nationality.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="personalDetailsForm.controls.Nationality.errors.required" class="text-danger">Nationality is required</small>
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
           </div>
@@ -157,12 +157,12 @@
 
            </select>
            <div *ngIf="personalDetailsForm.controls.StateOfOrigin.touched && personalDetailsForm.controls.StateOfOrigin.errors" class="error">
-            <small *ngIf="personalDetailsForm.controls.StateOfOrigin.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="personalDetailsForm.controls.StateOfOrigin.errors.required" class="text-danger">State of origin is required</small>
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
         </div>
 
-       
+
 
       </div>
 
@@ -189,10 +189,10 @@
         </div>
         </div>
 
-       
+
 
       </div>
-      
+
 
 
     </form>

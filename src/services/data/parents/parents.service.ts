@@ -165,8 +165,8 @@ export class ParentsService {
   }
 
   deleteParentById(id) {
-    const url = `${this.baseUrl + routes.deleteparent}/${id}`;
-    return this.http.delete(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
+    const url = `${this.baseUrl + routes.deleteparent}`;
+    return this.http.delete(`${url}?Id=${id}`, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
 
   }
 

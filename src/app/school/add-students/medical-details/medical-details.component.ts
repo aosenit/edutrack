@@ -67,7 +67,7 @@ export class MedicalDetailsComponent implements OnInit {
   createItem(): FormGroup {
     return this.fb.group({
       age: ['', Validators.required],
-      date: ['', Validators.required],
+      dateImmunized: ['', Validators.required],
       vaccine: ['', Validators.required]
     });
   }
@@ -139,7 +139,7 @@ export class MedicalDetailsComponent implements OnInit {
       // console.log(x);
       formArray.push(this.fb.group({
        age: x.age,
-       date: moment(x.date).format('YYYY-MM-DD'),
+       dateImmunized: moment(x.date).format('YYYY-MM-DD'),
        vaccine: x.vaccine,
      }));
    }

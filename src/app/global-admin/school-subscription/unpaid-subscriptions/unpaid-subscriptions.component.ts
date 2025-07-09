@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { SubscriptionsService } from 'src/services/data/subscriptions/subscriptions.service';
@@ -15,12 +15,15 @@ export class UnpaidSubscriptionsComponent implements OnInit {
   unpaidInvoice: any;
   selectedInvoice: any;
   selectMarkedInvoice: any;
+  selectedIndex: number | null = null;
+  previousCheckedState: boolean = false;
 
   constructor(
     private subscriptionService: SubscriptionsService,
     private notifyService: NotificationsService,
+    private cdr: ChangeDetectorRef,
     private route: ActivatedRoute
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.schoolId = this.route.snapshot.params.id;
@@ -37,43 +40,48 @@ export class UnpaidSubscriptionsComponent implements OnInit {
     });
   }
 
-  confirmToPay(e, i) {
-    this.selectMarkedInvoice = this.unpaidInvoice[i];
-    if (e === true) {
-      document.getElementById('popupBtn').click();
-      console.log( document.getElementById('selectionModal'))
-    }
-  }
+confirmToPay(checked: boolean, index: number): void {
+  this.selectMarkedInvoice = this.unpaidInvoice[index];
+  this.selectedInvoice = this.unpaidInvoice[index];
+  this.selectedIndex = index;
+  this.previousCheckedState = !checked; // this is what it was *before* toggle
 
-  previewInvoice(i) {
+  if (checked === true) {
+    document.getElementById('popupBtn').click();
+  }
+}
+
+  previewInvoice(i: number) {
     this.selectedInvoice = this.unpaidInvoice[i];
   }
 
   markPaid() {
     const payload = {
-      // tslint:disable-next-line:radix
       invoiceId: parseInt(this.selectMarkedInvoice.invoiceId),
       expiryDate: this.selectMarkedInvoice.dueDate
     };
+
     this.subscriptionService.markInvoiceAsPaid(payload).subscribe((res: any) => {
       if (res.hasErrors === false) {
         document.getElementById('close').click();
         this.getAllSubscriptionCreated();
-        // console.log(res.payload);
         this.notifyService.publishMessages(res.description, 'success', 1);
       } else {
         this.notifyService.publishMessages(res.errors, 'danger', 1);
-
       }
     });
+  }
+
+  onCancel(): void {
+    if (this.selectedIndex !== null) {
+      this.unpaidInvoice[this.selectedIndex].paid = this.previousCheckedState;
+      this.selectedIndex = null;
+      this.previousCheckedState = false;
+    }
   }
 
   back() {
     window.history.back();
   }
-
-
-
-
 
 }

@@ -8,7 +8,7 @@
         <input type="tel" placeholder="814 567 6749" maxlength="11" class="form-control form-control-lg"
           formControlName="PhoneNumber" (keypress)="allowNumbersOnly($event)">
           <div *ngIf=" socialDetailsForm.controls.PhoneNumber.touched && socialDetailsForm.controls.PhoneNumber.errors" class="error">
-            <small *ngIf="socialDetailsForm.controls.PhoneNumber.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="socialDetailsForm.controls.PhoneNumber.errors.required" class="text-danger">Phone Number is required</small>
             <small *ngIf="socialDetailsForm.controls.PhoneNumber.errors.maxlength" class="text-danger">Invalid number length</small>
             <small *ngIf="socialDetailsForm.controls.PhoneNumber.errors.pattern" class="text-danger">Invalid number format</small>
           </div>
@@ -31,7 +31,7 @@
         <input type="email" placeholder="Enter email address" class="form-control form-control-lg"
           formControlName="EmailAddress">
         <div *ngIf="socialDetailsForm.controls.EmailAddress.errors" class="error">
-          <small *ngIf="socialDetailsForm.controls.EmailAddress.errors.required" class="text-danger">Field is required</small>
+          <small *ngIf="socialDetailsForm.controls.EmailAddress.touched && socialDetailsForm.controls.EmailAddress.errors.required" class="text-danger">Email Address is required</small>
 
             <div *ngIf="socialDetailsForm.controls.EmailAddress.errors.email" class="text-danger">Invalid email format</div>
           </div>
@@ -54,7 +54,7 @@
         <input type="text" placeholder="Enter Home address" class="form-control form-control-lg"
           formControlName="HomeAddress">
           <div *ngIf=" socialDetailsForm.controls.HomeAddress.touched && socialDetailsForm.controls.HomeAddress.errors" class="error">
-            <small *ngIf="socialDetailsForm.controls.HomeAddress.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="socialDetailsForm.controls.HomeAddress.errors.required" class="text-danger">Home Address is required</small>
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
 
@@ -65,7 +65,7 @@
         <input type="text" placeholder="Enter office address" class="form-control form-control-lg"
           formControlName="OfficeAddress">
           <div *ngIf=" socialDetailsForm.controls.OfficeAddress.touched && socialDetailsForm.controls.OfficeAddress.errors" class="error">
-            <small *ngIf="socialDetailsForm.controls.OfficeAddress.errors.required" class="text-danger">Field is required</small>
+            <small *ngIf="socialDetailsForm.controls.OfficeAddress.errors.required" class="text-danger">Office Address is required</small>
             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
           </div>
 

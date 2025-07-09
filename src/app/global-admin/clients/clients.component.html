@@ -198,14 +198,17 @@
       </tbody>
     </table>
     <div class="d-flex justify-content-end">
-      <pagination-controls (pageChange)="getPage(p = $event)" class="text-center" maxSize="9"
+      <mat-paginator [length]="clientCount" [pageSize]="itemsPerPage" [pageIndex]="p - 1"
+        (page)="getPage($event)" aria-label="Select page of clients">
+      </mat-paginator>
+      <!-- <pagination-controls (pageChange)="getPage(p = $event)" class="text-center" maxSize="9"
                       directionLinks="true"
                       responsive="true"
                       previousLabel="Previous"
                       nextLabel="Next"
                       screenReaderPaginationLabel="Pagination"
                       screenReaderPageLabel="page"
-                      screenReaderCurrentLabel="You're on page"></pagination-controls>
+                      screenReaderCurrentLabel="You're on page"></pagination-controls> -->
     </div>
 
     <!-- <div class="d-flex justify-content-center align-items-center" *ngIf=" !searchString ">

@@ -67,8 +67,9 @@
                     type="checkbox"
                     class="custom-control-input"
                     id="{{ i }}"
-                    (change)="confirmToPay($event.target.checked, i)"
-                    [checked]="client?.paid === true"
+                    [(ngModel)]="client.paid"
+                    (change)="confirmToPay(client.paid, i)"
+                    name="paid{{ i }}"
                   />
                   <label class="custom-control-label" for="{{ i }}"></label>
                 </div>
@@ -149,6 +150,7 @@
             type="button "
             class="btn btn-outline-orange px-5 mb-4 mt-3 mb-3 mr-3"
             data-dismiss="modal"
+            (click)="onCancel()"
           >
             Cancel
           </button>

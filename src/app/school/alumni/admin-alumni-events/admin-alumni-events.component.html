@@ -1,7 +1,6 @@
-<section class="add-employee" *ngIf="eventLists?.length === 0" >
+<section class="add-employee" *ngIf="!eventLists?.length && !isSearch" >
     <img src="assets/images/svg/add-student.svg" alt="new employee" class="">
-    <p class="text-center fw-6 pt-5">It looks like you are yet to create any event. You can do <br> that by clicking any of the buttons below.
-        below.</p>
+    <p class="text-center fw-6 pt-5">It looks like you are yet to create any event. You can do <br> that by clicking any of the buttons below.</p>
         <!-- <button class="btn btn-outline-orange  mx-2 mx-lg-3" data-toggle="modal"
             data-target="#exampleModalCenterUpload">Bulk
             Upload</button> -->
@@ -10,11 +9,11 @@
 </section>
 
 
-<div *ngIf="eventLists?.length !== 0">
+<div *ngIf="eventLists?.length !== 0 || isSearch">
     <section class="banner mb-4 pb-3">
         <div class="pt-5 pl-3 content ">
             <h6 class="banner__text-primary fw-6 "> Events </h6>
-            <p class="text-white"> Create and Manage events for alumnis </p>
+            <p class="text-white"> Create and Manage events for Alumni </p>
         </div>
         <div class="d-flex">
             <!-- <button class="btn btn-outline-orange  mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
@@ -28,7 +27,7 @@
     <section class="d-flex align-items-center justify-content-between mb-4 mt-5">
         <div class="search__input has-search">
             <span class="fa fa-search form-control-feedback"></span>
-            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
+            <input type="text" class="form-control" placeholder="Search" (keyup.enter)="getAllAlumiEvents()" [(ngModel)]="searchString">
         </div>
         <!-- <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3"> Bulk Actions </button> -->
     

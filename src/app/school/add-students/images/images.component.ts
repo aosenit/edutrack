@@ -77,11 +77,11 @@ DocumentTypes: number[] = [];
         if ( data.hasErrors === false) {
           // console.log(data);
           this.notifyService.publishMessages( data.description, 'success', 1);
+          this.router.navigateByUrl('/school/students');
           sessionStorage.removeItem('student-basic-details');
           sessionStorage.removeItem('student-social-details');
           sessionStorage.removeItem('Student-contact-details');
           sessionStorage.removeItem('student-medical-details');
-          this.router.navigateByUrl('/school/students');
 
         } else {
           this.notifyService.publishMessages( data.errors, 'danger', 1);
@@ -115,12 +115,11 @@ DocumentTypes: number[] = [];
         if ( data.hasErrors === false) {
           // console.log(data);
           this.notifyService.publishMessages( data.description, 'success', 1);
+          this.router.navigateByUrl('/school/students');
           sessionStorage.removeItem('student-basic-details');
           sessionStorage.removeItem('student-social-details');
           sessionStorage.removeItem('Student-contact-details');
           sessionStorage.removeItem('student-medical-details');
-          this.router.navigateByUrl('/school/students');
-          this.router.navigateByUrl('/school/students');
 
 
         } else {

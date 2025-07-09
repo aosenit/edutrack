@@ -11,7 +11,7 @@
                     <option value="Dr">Dr</option>
                 </select>
                 <div *ngIf=" basicDetailsForm.controls.Title.touched && basicDetailsForm.controls.Title.errors" class="error">
-                    <small *ngIf="basicDetailsForm.controls.Title.errors.required" class="text-danger">Field is required</small>
+                    <small *ngIf="basicDetailsForm.controls.Title.errors.required" class="text-danger">Title is required</small>
                     <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
                   </div>
             </div>
@@ -21,7 +21,7 @@
                 <input type="text" class="form-control form-control-lg" placeholder="Last name"
                     id="fname" formControlName="FirstName">
                     <div *ngIf=" basicDetailsForm.controls.FirstName.touched && basicDetailsForm.controls.FirstName.errors" class="error">
-                        <small *ngIf="basicDetailsForm.controls.FirstName.errors.required" class="text-danger">Field is required</small>
+                        <small *ngIf="basicDetailsForm.controls.FirstName.errors.required" class="text-danger">First Name is required</small>
                         <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
                       </div>
             </div>
@@ -34,7 +34,7 @@
                 <input type="text" class="form-control form-control-lg" placeholder="Last name"
                     id="lname" formControlName="LastName">
                     <div *ngIf=" basicDetailsForm.controls.LastName.touched && basicDetailsForm.controls.LastName.errors" class="error">
-                        <small *ngIf="basicDetailsForm.controls.LastName.errors.required" class="text-danger">Field is required</small>
+                        <small *ngIf="basicDetailsForm.controls.LastName.errors.required" class="text-danger">Last Name is required</small>
                         <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
                       </div>
             </div>
@@ -55,7 +55,7 @@
                     <option value="female" selected>Female</option>
                 </select>
                 <div *ngIf=" basicDetailsForm.controls.Sex.touched && basicDetailsForm.controls.Sex.errors" class="error">
-                    <small *ngIf="basicDetailsForm.controls.Sex.errors.required" class="text-danger">Field is required</small>
+                    <small *ngIf="basicDetailsForm.controls.Sex.errors.required" class="text-danger">Sex is required</small>
                     <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
                   </div>
             </div>
@@ -64,7 +64,7 @@
                 <input type="text" class="form-control form-control-lg"
                     placeholder="Civil Servant" id="occupation" formControlName="Occupation">
                     <div *ngIf=" basicDetailsForm.controls.Occupation.touched && basicDetailsForm.controls.Occupation.errors" class="error">
-                        <small *ngIf="basicDetailsForm.controls.Occupation.errors.required" class="text-danger">Field is required</small>
+                        <small *ngIf="basicDetailsForm.controls.Occupation.errors.required" class="text-danger">Occupation is required</small>
                         <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
                       </div>
             </div>
@@ -85,7 +85,7 @@
                         <option value="driver" >Drivers License</option>
                     </select>
                     <div *ngIf=" basicDetailsForm.controls.ModeOfIdentification.touched && basicDetailsForm.controls.ModeOfIdentification.errors" class="error">
-                        <small *ngIf="basicDetailsForm.controls.ModeOfIdentification.errors.required" class="text-danger">Field is required</small>
+                        <small *ngIf="basicDetailsForm.controls.ModeOfIdentification.errors.required" class="text-danger">Mode of Identification is required</small>
                         <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
                       </div>
                 </div>
@@ -110,7 +110,7 @@
                     <input type="text" class="form-control form-control-lg"
                         placeholder="SE71627383836HGK" id="identity" formControlName="IdentificationNumber">
                         <div *ngIf=" basicDetailsForm.controls.IdentificationNumber.touched && basicDetailsForm.controls.IdentificationNumber.errors" class="error">
-                            <small *ngIf="basicDetailsForm.controls.IdentificationNumber.errors.required" class="text-danger">Field is required</small>
+                            <small *ngIf="basicDetailsForm.controls.IdentificationNumber.errors.required" class="text-danger">Identification Number is required</small>
                             <!-- <small *ngIf="basicInfoForm.controls.countryOfOrigin.errors.email" class="text-danger">Invalid email pattern</small> -->
                           </div>
             </div>

@@ -43,7 +43,7 @@ export class SchoolComponent implements OnInit {
     for (let index = 0; index < finance.length; index++) {
       const element = finance[index];
 
-      if (this.adminDetails.Permission.includes(element) && this.adminDetails.UserType === 'NonTeachingStaff') {
+      if (this.adminDetails.Permission && this.adminDetails.Permission.includes(element) && this.adminDetails.UserType === 'NonTeachingStaff') {
         this.allowFinanceModule = true;
       }
     }

@@ -72,7 +72,9 @@ subscriptionInvoiceForm: FormGroup;
       if (res.hasErrors === false ) {
         console.log(res.payload);
         this.notifyService.publishMessages(res.description, 'success', 1);
-        this.router.navigateByUrl('/admin/subscription');
+        this.router.navigateByUrl(`/admin/subscription/unpaid-invoice/${schoolId}`, {
+          replaceUrl: true
+        });
       } else {
         this.notifyService.publishMessages(res.errors, 'danger', 1);
 
