@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { DepartmentService } from 'src/services/data/department/department.service';
 @Component({
@@ -18,12 +19,23 @@ export class PersonalSettingsComponent implements OnInit {
   occupation = false;
   departmentForm: FormGroup;
   departmentList: any;
+  searchField: FormControl;
 
   constructor(
           private fb: FormBuilder,
           private departmentService: DepartmentService,
           private notification: NotificationsService
-  ) { }
+  ) {
+      this.searchField = new FormControl('');
+      this.searchField.valueChanges
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged()
+      )
+      .subscribe(term => {
+        this.getAllDepartments();
+      });
+  }
 
   ngOnInit() {
     this.populateDepartmentForm();
@@ -112,7 +124,7 @@ export class PersonalSettingsComponent implements OnInit {
   }
 
   getAllDepartments() {
-    this.departmentService.getAllDepartment().subscribe( (data: any) => {
+    this.departmentService.getAllDepartment(this.searchField.value).subscribe( (data: any) => {
       if (data.hasErrors === false) {
         // (data);
         this.departmentList = data.payload;

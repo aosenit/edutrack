@@ -32,10 +32,12 @@ export class DepartmentService {
     return this.http.post(url, departmentForm,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
-  getAllDepartment() {
+  getAllDepartment(keyword='') {
     const tenantId = '1';
-
-    const url = `${this.baseUrl + routes.getalldepartments}`;
+    let url = `${this.baseUrl + routes.getalldepartments}`;
+    if (keyword) {
+      url += `?keyword=${encodeURIComponent(keyword)}`;
+    }
     return this.http.get(url,  {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 

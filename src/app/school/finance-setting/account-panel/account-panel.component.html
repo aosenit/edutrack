@@ -43,17 +43,17 @@
 
   <div class="search__input has-search ml-auto">
     <span class="fa fa-search form-control-feedback"></span>
-    <input type="text" class="form-control" placeholder="Search">
+    <input type="text" class="form-control" [(ngModel)]="searchParam" placeholder="Search">
   </div>
 </div>
 
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-class" role="tabpanel" aria-labelledby="pills-class-tab">
-    
+
     <div class="empty-state" *ngIf="accountClassList?.length == 0">
       <p class="text-center fs-24 ff-a">
-        You have not added any record 
+        You have not added any record
       </p>
     </div>
 
@@ -61,12 +61,12 @@
       <table class="table table-borderless client-table">
         <thead>
           <tr>
-            <th scope="col" class="head ">
+            <!-- <th scope="col" class="head ">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheckTh">
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
-            </th>
+            </th> -->
             <th scope="col">Account Class </th>
             <th scope="col">Min Value </th>
             <th scope="col">Max Value </th>
@@ -78,13 +78,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="pb-1" *ngFor="let class of accountClassList; let a = index">
-            <td scope="row" class="check rounded-left">
+          <tr class="pb-1" *ngFor="let class of filteredAccountClassList; let a = index">
+            <!-- <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck{{a}}">
                 <label class="custom-control-label" for="customCheck{{a}}"></label>
               </div>
-            </td>
+            </td> -->
             <td class="user">
               <p class=" mb-0">{{class.name}} </p>
             </td>
@@ -122,19 +122,19 @@
   <div class="tab-pane fade " id="pills-type" role="tabpanel" aria-labelledby="pills-type-tab">
     <div class="empty-state" *ngIf="accountTypeList?.length == 0">
       <p class="text-center fs-24 ff-a">
-        You have not added any record 
+        You have not added any record
       </p>
     </div>
     <section class="list"  *ngIf="accountTypeList?.length > 0">
       <table class="table table-borderless client-table">
         <thead>
           <tr>
-            <th scope="col" class="head ">
+            <!-- <th scope="col" class="head ">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheckTh">
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
-            </th>
+            </th> -->
             <th scope="col">Account Type </th>
             <th scope="col">Class </th>
 
@@ -145,13 +145,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="pb-1" *ngFor="let type of accountTypeList; let t1 = index">
-            <td scope="row" class="check rounded-left">
+          <tr class="pb-1" *ngFor="let type of filteredAccountTypeList; let t1 = index">
+            <!-- <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck{{t1}}">
                 <label class="custom-control-label" for="customCheck{{t1}}"></label>
               </div>
-            </td>
+            </td> -->
             <td class="user">
               <p class=" mb-0">{{type.name}} </p>
             </td>

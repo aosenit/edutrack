@@ -19,6 +19,7 @@ export class SchoolLoginComponent implements OnInit {
   loggedInUser: any;
   subdomain: string;
   matchedSchoolDetail: any;
+  showPassword = false;
 
   constructor(
               private fb: FormBuilder,

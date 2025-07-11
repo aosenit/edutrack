@@ -71,3 +71,7 @@ h6 {
     font-weight: bold;
     font-weight: 600;
 }
+
+.gap-sm {
+    gap: .5rem;
+}

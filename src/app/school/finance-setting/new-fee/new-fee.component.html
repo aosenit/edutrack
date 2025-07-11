@@ -161,8 +161,8 @@
                   formControlName="amount"
                 />
               </div>
-              <div class="col-md-4">
-                <div class="mb-3">
+              <div class="col-md-4 d-flex align-items-center justify-content-between">
+                <div>
                   <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
@@ -176,6 +176,8 @@
                     ></label>
                   </div>
                 </div>
+                <img (click)="removeComponent(y)" src="assets/images/svg/delete-role.svg" alt="schools log"
+                    class="ml-3 cursor-pointer">
               </div>
             </div>
           </div>
@@ -254,6 +256,7 @@
         Cancel
       </button>
       <button
+        [disabled]="feeForm?.valid"
         class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
         (click)="createNewFee()"
       >
@@ -384,7 +387,7 @@
     <div
       formArrayName="feeComponents"
       *ngFor="
-        let item of feeForm.get('feeComponents')['controls'];
+        let item of editFeeForm.get('feeComponents')['controls'];
         let y = index
       "
     >
@@ -416,8 +419,8 @@
                   formControlName="amount"
                 />
               </div>
-              <div class="col-md-4">
-                <div class="mb-3">
+              <div class="col-md-4 d-flex align-items-center justify-content-between">
+                <div>
                   <div class="custom-control custom-checkbox">
                     <input
                       type="checkbox"
@@ -431,6 +434,8 @@
                     ></label>
                   </div>
                 </div>
+                <img (click)="removeComponent(y)" src="assets/images/svg/delete-role.svg" alt="schools log"
+                    class="ml-3 cursor-pointer">
               </div>
             </div>
           </div>
@@ -509,6 +514,7 @@
         Cancel
       </button>
       <button
+        [disabled]="editFeeForm?.valid"
         class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3"
         (click)="editCreatedFee()"
       >

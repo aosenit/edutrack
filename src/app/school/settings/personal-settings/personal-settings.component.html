@@ -93,7 +93,7 @@
 
   <div class="search__input has-search ml-auto">
     <span class="fa fa-search form-control-feedback"></span>
-    <input type="text" class="form-control" placeholder="Search">
+    <input type="text" [formControl]="searchField" class="form-control" placeholder="Search">
   </div>
 </div>
 
@@ -109,12 +109,12 @@
       <table class="table table-borderless client-table">
         <thead>
           <tr>
-            <th scope="col" class="head ">
+            <!-- <th scope="col" class="head ">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheckTh">
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
-            </th>
+            </th> -->
             <th scope="col" class="w-60">Department <img src="assets/images/svg/table-sort.svg"></th>
 
             <th scope="col">Status <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
@@ -132,12 +132,12 @@
         </thead>
         <tbody>
           <tr class="pb-1" *ngFor = "let department of departmentList">
-            <td scope="row" class="check rounded-left">
+            <!-- <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1"></label>
               </div>
-            </td>
+            </td> -->
             <td class="user">
               <p class=" mb-0">{{department.name}} </p>
             </td>
@@ -669,7 +669,7 @@
             <label for="dept" class="">Department <span class="text-danger">*</span></label>
             <input type="text" id="dept" class="form-control" placeholder="Enter department" formControlName = "name">
           </div>
-          
+
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="customSwitch1" (change)="getStatus($event.target.checked)" formControlName = "isActive">
@@ -731,7 +731,7 @@
             <label for="description" class="">Job Description <span class="text-danger">*</span></label>
             <textarea  id="description" class="form-control" placeholder="Enter description"></textarea>
           </div>
-          
+
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -778,7 +778,7 @@
                 <option value="">Select</option>
               </select>
           </div>
-          
+
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -824,7 +824,7 @@
             <input type="text" id="qualification" class="form-control" placeholder="Enter qualification">
 
           </div>
-          
+
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="customSwitch1">
@@ -869,7 +869,7 @@
             <label for="status" class="">Occupation  <span class="text-danger">*</span></label>
             <input type="text" id="occupation" class="form-control" placeholder="Enter occupation">
           </div>
-          
+
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="customSwitch1">

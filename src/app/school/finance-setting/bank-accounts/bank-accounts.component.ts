@@ -38,7 +38,7 @@ export class BankAccountsComponent implements OnInit {
     this.bankAccountForm = this.fb.group({
       bank: ['', Validators.required],
       accountName: ['', Validators.required],
-      accountNumber: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+      accountNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
       isActive: false
     });
   }
@@ -78,7 +78,7 @@ export class BankAccountsComponent implements OnInit {
         document.getElementById('myAccountModal').click();
         this.getAllBankAccounts();
       }
-      
+
     }, error => {
       this.notifyService.publishMessages('Bank Account creation failed', 'danger', 1);
 

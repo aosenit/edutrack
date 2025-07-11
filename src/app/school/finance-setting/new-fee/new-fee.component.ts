@@ -19,11 +19,10 @@ export class NewFeeComponent implements OnInit {
   components: any;
   classes: any;
   sections: any;
-  termList: any;
+  termList: any[] = [];
   terms = [];
   sequenceCount = 0;
   toggleState = false;
-  newComponent = [];
   newFee = true;
   editFee = false;
   editFeeForm: FormGroup;
@@ -149,15 +148,23 @@ export class NewFeeComponent implements OnInit {
   }
 
   addComponent() {
-    this.items = this.feeForm.get('feeComponents') as FormArray;
-    this.items.push(this.createItem());
+    let items: FormArray;
+    if (this.newFee) items = this.feeForm.get('feeComponents') as FormArray;
+    else items = this.editFeeForm.get('feeComponents') as FormArray;
+    items.push(this.createItem());
+  }
 
+  removeComponent(index) {
+    let items: FormArray;
+    if (this.newFee) items = this.feeForm.get('feeComponents') as FormArray;
+    else items = this.editFeeForm.get('feeComponents') as FormArray;
+    items.removeAt(index);
   }
 
   createItem(): FormGroup {
     return this.fb.group({
-      ComponentId: '',
-      amount: '',
+      ComponentId: ['', Validators.required],
+      amount: ['', Validators.required],
       isCompulsory: false,
     });
   }
@@ -241,6 +248,7 @@ export class NewFeeComponent implements OnInit {
 
   createNewFee() {
     // console.log(this.feeForm.value);
+    let newComponent = [];
     const { name, SchoolClassId, FeeGroupId, terms, feeComponents } = this.feeForm.value;
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < feeComponents.length; i++) {
@@ -251,7 +259,7 @@ export class NewFeeComponent implements OnInit {
         componentId: parseInt(ComponentId),
         isCompulsory
       };
-      this.newComponent.push(result2);
+      newComponent.push(result2);
     }
     const sequenceNumber = this.sequenceCount++;
 
@@ -267,7 +275,7 @@ export class NewFeeComponent implements OnInit {
       terms: term,
       sequenceNumber,
       isActive: this.toggleState,
-      feeComponents: this.newComponent
+      feeComponents: newComponent
 
 
     };
@@ -290,6 +298,7 @@ export class NewFeeComponent implements OnInit {
 
   editCreatedFee() {
     // console.log(this.feeForm.value);
+    let newComponent = [];
     const { name, SchoolClassId, FeeGroupId, terms, feeComponents } = this.editFeeForm.value;
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < feeComponents.length; i++) {
@@ -300,7 +309,7 @@ export class NewFeeComponent implements OnInit {
         componentId: parseInt(ComponentId),
         isCompulsory
       };
-      this.newComponent.push(result2);
+      newComponent.push(result2);
     }
     const sequenceNumber = this.sequenceCount++;
 
@@ -316,7 +325,7 @@ export class NewFeeComponent implements OnInit {
       terms: term,
       sequenceNumber,
       isActive: this.toggleState,
-      feeComponents: this.newComponent
+      feeComponents: newComponent
 
 
     };

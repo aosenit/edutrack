@@ -68,7 +68,7 @@
     <p class=""> Adjust school settings </p>
   </div>
   <div class="d-flex">
-   
+
   </div>
 
 
@@ -90,7 +90,7 @@
         <a class="nav-link" id="pills-class-tab" data-toggle="pill" href="#pills-class" role="tab"
           aria-controls="pills-class" aria-selected="false">Class</a>
       </li>
-      
+
       <li class="nav-item mr-5" (click)="showStatus('subject')">
         <a class="nav-link" id="pills-subject-tab" data-toggle="pill" href="#pills-subject" role="tab"
           aria-controls="pills-subject" aria-selected="false">Subjects</a>
@@ -154,10 +154,10 @@
                   (click)="getArmById(arm.id)">Edit Arm </a>
                 <a class="dropdown-item" (click)="deleteArm(arm.id)">Delete Arm</a>
               </div> -->
-              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3"
               data-toggle="modal" data-target="#exampleModalEditArm"
                   (click)="getArmById(arm.id)"> Edit Arm</button>
-                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3"
                 (click)="deleteArm(arm.id)"> Delete Arm </button>
             </td>
           </tr>
@@ -172,7 +172,7 @@
 
     </section>
   </div>
-  
+
   <div class="tab-pane fade " id="pills-level" role="tabpanel" aria-labelledby="pills-level-tab">
     <div class="empty-state" *ngIf="levels?.length == 0">
       <p class="text-center fs-24 ff-a">
@@ -183,13 +183,13 @@
       <table class="table table-borderless client-table">
         <thead>
           <tr>
-          
-            <th scope="col" class="w-50">Level 
-              
+
+            <th scope="col" class="w-50">Level
+
             </th>
             <th scope="col">Sequence </th>
 
-            <th scope="col">Status 
+            <th scope="col">Status
               <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
                 class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false"> -->
@@ -209,7 +209,7 @@
 
 
           <tr class="pb-1" *ngFor="let level of levels">
-           
+
             <td class="user">
               <h6 class="fw-6 mb-0">{{level.name}} </h6>
             </td>
@@ -225,10 +225,10 @@
                   <a class="dropdown-item" (click)="deleteSection(level.id)">Delete Level</a>
 
                 </div> -->
-                <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+                <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3"
                 (click)="getSection(level.id)"
                 data-toggle="modal" data-target="#exampleModalCenterEditLevel"> Edit Level</button>
-                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3"
                 (click)="deleteSection(level.id)"> Delete Level </button>
               </div>
             </td>
@@ -307,15 +307,15 @@
                 </div> -->
               <!-- </div> -->
               <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3"
-              data-toggle="modal" data-target="#exampleModalCenterAddMoreClassSubjectEdit" 
+              data-toggle="modal" data-target="#exampleModalCenterAddMoreClassSubjectEdit"
               (click)="getSubjectForClassById(class.id)"
                   > Link Subject</button>
-              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+              <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3"
               data-toggle="modal" data-target="#exampleModalCenterEditClass"
               (click)="getClassById(class.id)"> Edit Class</button>
-                <!-- <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                <!-- <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3"
                 disabled> Delete Class </button> -->
-                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+                <button type="button" class="btn btn-danger btn-sm far fa-trash-alt pr-3"
                 (click)="deleteClass(class.id)" > Delete Class </button>
             </td>
           </tr>
@@ -331,7 +331,7 @@
     </section>
   </div>
 
- 
+
 
 
   <div class="tab-pane fade " id="pills-subject" role="tabpanel" aria-labelledby="pills-subject-tab">
@@ -344,12 +344,12 @@
       <table class="table table-borderless client-table">
         <thead>
           <tr>
-            <th scope="col" class="head ">
+            <!-- <th scope="col" class="head ">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheckTh">
                 <label class="custom-control-label" for="customCheckTh"></label>
               </div>
-            </th>
+            </th> -->
             <th scope="col" class="w-50">Subject  </th>
             <th scope="col">Status  </th>
             <th scope="col"></th>
@@ -357,12 +357,12 @@
         </thead>
         <tbody>
           <tr class="pb-1" *ngFor="let subject of subjectList | paginate: { itemsPerPage: itemsPerPage, currentPage: p, totalItems: subjectCount }; let s = index">
-            <td scope="row" class="check rounded-left">
+            <!-- <td scope="row" class="check rounded-left">
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck{{s}}">
                 <label class="custom-control-label" for="customCheck{{s}}"></label>
               </div>
-            </td>
+            </td> -->
             <td class="user">
               <h6 class="fw-6 mb-0">{{subject.name | titlecase}} </h6>
             </td>
@@ -372,11 +372,11 @@
             </td>
             <td class="rounded-right ">
               <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3"
-              data-toggle="modal" data-target="#exampleModalCenterSubjectEdit" 
+              data-toggle="modal" data-target="#exampleModalCenterSubjectEdit"
               (click)="getSubjectById(s)"
                   > Edit Subject</button>
-              
-                <button type="button" (click)="deleteSubject(subject.id)" class="btn btn-danger btn-sm far fa-trash-alt pr-3" 
+
+                <button type="button" (click)="deleteSubject(subject.id)" class="btn btn-danger btn-sm far fa-trash-alt pr-3"
                 > Delete Subject </button>
             </td>
           </tr>
@@ -483,7 +483,7 @@
           </div> -->
           <div class="form-group mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch111" 
+              <input type="checkbox" class="custom-control-input" id="customSwitch111"
                 (change)="getStatus($event.target.checked)" formControlName="status">
                 <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === false">Inactive</label>
                 <label class="custom-control-label" for="customSwitch111" *ngIf="toggleState === true">Active</label>
@@ -524,7 +524,7 @@
           <label for="level" class="">Level</label>
           <input type="text" id="level" class="form-control" [(ngModel)]="theLevel.name">
         </div>
-        
+
         <div class="d-flex justify-content-center mb-3">
           <button type="button " class="btn btn-outline-orange  px-5 mb-4 mt-3  mb-3 mr-3 " data-dismiss="modal">Cancel
           </button>
@@ -547,7 +547,7 @@
         <div class="d-flex justify-content-between align-items-center ">
           <h6 class="modal-title fc-lblue">Edit Class</h6>
           <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close"
-          id="closeEditClassForm"  
+          id="closeEditClassForm"
           class="close">
 
         </div>
@@ -786,7 +786,7 @@
                 <p class="mb-0">{{level.name}}</p>
                 <a href="#{{level?.name}}" class="ml-auto" data-toggle="collapse"
                  role="button" aria-expanded="false" aria-controls="collapseExample">
-                  <img src="assets/images/svg/subject-drop.svg" height="18px" alt="" 
+                  <img src="assets/images/svg/subject-drop.svg" height="18px" alt=""
                     (click)="getClassBySectionId(level.id)">
                 </a>
               </div>
@@ -796,13 +796,13 @@
                     <label for="a" class="class-label w-25"> {{class.name}}</label>
                     <input type="checkbox" id="a" name="class" [value]="class.id" formControlName="classSectionIds" (change)="getState($event.target.value)" >
                   </div>
-                  
+
                 </div> -->
-                <ng-multiselect-dropdown [placeholder]="'Select Subject'" [data]="classBySectionDropdownList" 
+                <ng-multiselect-dropdown [placeholder]="'Select Subject'" [data]="classBySectionDropdownList"
                 (onSelect)="onItemSelect($event)"
                 (onSelectAll)="onSelectAll($event)"
                 (onDeSelect)="onItemDeSelect($event)"
-                
+
                   formControlName="classSectionIds" [settings]="dropdownSettings2" required>
                 </ng-multiselect-dropdown>
 
@@ -863,11 +863,11 @@
             <input type="text" id="class" class="form-control" placeholder="Update Subject" formControlName="name">
           </div>
 
-        
+
 
           <div class="form-group custom mb-5">
             <div class="custom-control custom-switch">
-              <input type="checkbox" class="custom-control-input" id="customSwitch4g" formControlName="IsActive" 
+              <input type="checkbox" class="custom-control-input" id="customSwitch4g" formControlName="IsActive"
               [value]="subjectStatus"
               [checked]="subjectStatus === true"  (change)="toggleSubjectUpdate($event.target.checked)">
               <label class="custom-control-label" for="customSwitch4g" *ngIf="subjectStatus === false ">Inactive</label>
@@ -916,7 +916,7 @@
           </div>
 
           <div class="form-group mb-4">
-            <ng-multiselect-dropdown [placeholder]="'Select '" [data]="subjectsForClassDropDownList" 
+            <ng-multiselect-dropdown [placeholder]="'Select '" [data]="subjectsForClassDropDownList"
             (onSelect)="onItemSelectSubject($event)"
               formControlName="subjectIds" [settings]="dropdownSettingsSubject" required>
             </ng-multiselect-dropdown>

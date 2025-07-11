@@ -25,6 +25,7 @@ export class AccountPanelComponent implements OnInit {
   editAccountTypeForm: FormGroup;
   selectedAccountType: any;
   selectedAccountClass: any;
+  searchParam = '';
 
   constructor(
     private fb: FormBuilder,
@@ -39,6 +40,29 @@ export class AccountPanelComponent implements OnInit {
     // this.getAccountTypes();
     this.populateEditAccountForm();
     this.populateEditAccountTypeForm();
+  }
+
+  get filteredAccountClassList() {
+    if (!this.searchParam || this.searchParam.trim() === '') {
+      return this.accountClassList;
+    }
+    const param = this.searchParam.toLowerCase();
+    return this.accountClassList.filter(g =>
+      (g.name && g.name.toLowerCase().includes(param)) ||
+      (g.minNumberValue && String(g.minNumberValue).toLowerCase().includes(param)) ||
+      (g.maxNumberValue && String(g.maxNumberValue).toLowerCase().includes(param))
+    );
+  }
+
+  get filteredAccountTypeList() {
+    if (!this.searchParam || this.searchParam.trim() === '') {
+      return this.accountTypeList;
+    }
+    const param = this.searchParam.toLowerCase();
+    return this.accountTypeList.filter(g =>
+      (g.name && g.name.toLowerCase().includes(param)) ||
+      (g.accountClass && String(g.accountClass).toLowerCase().includes(param))
+    );
   }
 
   populatekAccountForm() {
@@ -77,6 +101,7 @@ export class AccountPanelComponent implements OnInit {
   }
 
   showStatus(status: string) {
+    this.searchParam = '';
     const newStatus = status;
     switch (newStatus) {
 

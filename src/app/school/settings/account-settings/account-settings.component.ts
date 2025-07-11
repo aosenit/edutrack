@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { from, zip, of, forkJoin } from 'rxjs';
-import { groupBy, mergeMap, toArray } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, groupBy, mergeMap, toArray } from 'rxjs/operators';
 import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AdminService } from 'src/services/data/admin/admin.service';
 import { StaffService } from 'src/services/data/staff/staff.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { TeacherService } from 'src/services/data/teacher/teacher.service';
 
 
@@ -25,6 +25,7 @@ export class AccountSettingsComponent implements OnInit {
   dropStaffList = [];
   assignRoleForm: FormGroup;
   allUsers = [];
+  searchField: FormControl;
 
   constructor(
     private adminService: AdminService,
@@ -34,11 +35,21 @@ export class AccountSettingsComponent implements OnInit {
     private fb: FormBuilder
 
 
-  ) { }
+  ) {
+    this.searchField = new FormControl('');
+    this.searchField.valueChanges
+    .pipe(
+      debounceTime(400),
+      distinctUntilChanged()
+    )
+    .subscribe(term => {
+      this.getRoles();
+    });
+  }
 
   ngOnInit() {
     this.populateAssignRoleForm();
-    this.getRolesPermissions();
+    // this.getRolesPermissions();
     this.getRoles();
     // this.getStaffs();
 
@@ -107,7 +118,7 @@ export class AccountSettingsComponent implements OnInit {
   }
 
   getRoles() {
-    this.adminService.getRoles().subscribe((data: any) => {
+    this.adminService.getRoles(this.searchField.value).subscribe((data: any) => {
       if (data.hasErrors === false) {
         this.allRoles = data.payload;
         // // (this.allRoles);

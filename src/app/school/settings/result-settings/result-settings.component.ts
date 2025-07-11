@@ -26,6 +26,7 @@ toggleState = false;
   selectedSequence: any;
   selectedAssessmentIndex: any;
   isEditingAssessment = false;
+  searchParam = '';
 
   constructor(
     private fb: FormBuilder,
@@ -46,6 +47,28 @@ toggleState = false;
     this.getAllGrade();
   }
 
+  get filteredGrades() {
+    if (!this.searchParam || this.searchParam.trim() === '') {
+      return this.grades;
+    }
+    const param = this.searchParam.toLowerCase();
+    return this.grades.filter(g =>
+      (g.interpretation && g.interpretation.toLowerCase().includes(param)) ||
+      (g.grade && g.grade.toLowerCase().includes(param))
+    );
+  }
+
+  get filteredAssessments() {
+    if (!this.searchParam || this.searchParam.trim() === '') {
+      return this.allAssessment;
+    }
+    const param = this.searchParam.toLowerCase();
+    return this.allAssessment.filter(g =>
+      g.name && g.name.toLowerCase().includes(param)
+    );
+  }
+
+
   populateGradeForm() {
     this.gradeForm = this.fb.group({
       grade: ['', Validators.required],
@@ -57,6 +80,7 @@ toggleState = false;
   }
 
   showStatus(status: string) {
+    this.searchParam = '';
     const newStatus = status;
     switch (newStatus) {
         case 'grade':

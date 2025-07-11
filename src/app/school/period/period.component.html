@@ -7,7 +7,7 @@
   data-target="#advertModal"
   data-toggle="modal"
   style="display: none;"
-  
+
 ></button>
   </div>
 
@@ -38,14 +38,14 @@
         </form> -->
       </div>
     <button class="btn btn-orange-two  px-5 " (click)="publishPeriods()" [disabled]="periodName?.length == 0"> Publish </button>
-    
-    
+
+
 </div>
 
 <div class="my-5">
     <div class="row">
         <div class="col-md-2 text-center">
-            
+
         </div>
         <div class="col-md-2 text-center">
             Monday
@@ -72,7 +72,7 @@
                 <img src="assets/images/svg/time-table.svg" alt="time table button" >
             </div>
             <div class="col-md-2 border py-3">
-                
+
                 <img src="assets/images/svg/time-table.svg" alt="time table button">
             </div>
             <div class="col-md-2 border d-flex justify-content-center">
@@ -85,11 +85,11 @@
                 <img src="assets/images/svg/time-table.svg" alt="time table button">
             </div>
         </div>
-        
-        <div class=""  data-toggle="modal"
+
+        <div class="d-inline-flex gap-sm align-items-center cursor-pointer" (click)="addPeriod()" data-toggle="modal"
         data-target="#exampleModalCenterLevel">
             <img src="assets/images/svg/add-period.svg" alt="time table button">
-            <p class="fc-orange"(click)="addPeriod()">Add period</p>
+            <p class="fc-orange mb-0">Add period</p>
         </div>
     </div>
 </div>
@@ -116,7 +116,7 @@
         <form [formGroup]="addPeriodForm" (ngSubmit)="createPeriod()">
 
 
-          
+
           <div class="form-group mb-4">
             <label for="name" class="">Period Name <span class="text-danger">*</span> </label>
            <input type="text" class="form-control" placeholder="Enter period name" formControlName="name">
@@ -134,7 +134,7 @@
             <input type="checkbox" class="custom-control-input" id="customCheckTh" formControlName="isBreak">
             <label class="custom-control-label" for="customCheckTh">Allow break</label>
           </div>
-          
+
 
 
           <div class="d-flex justify-content-center mb-3">
@@ -172,8 +172,8 @@
 
       </div>
       <div class="modal-body h-50 d-flex justify-content-between align-items-center client-modal">
-        <p   class="text-danger text-center mb-5" *ngIf="periodName?.length > 1"> You have created periods before. Please note, publishing another period after creating it initially will clear the previous one</p>
-        <p   class="text-danger text-center mb-5" *ngIf="periodName?.length == 0"> You are yet to set up period. Please note, publishing another period after creating it now will clear the previous one</p>
+        <p   class="text-danger text-center mb-5" *ngIf="periodName?.length"> You have created periods before. Please note, publishing another period after creating it initially will clear the previous one</p>
+        <p   class="text-danger text-center mb-5" *ngIf="!periodName?.length"> You are yet to set up period. Please note, publishing another period after creating it now will clear the previous one</p>
 
       </div>
 
@@ -185,7 +185,7 @@
 <!-- end of time table modal -->
 
 
- 
+
 
 
 

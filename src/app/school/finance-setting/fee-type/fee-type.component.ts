@@ -8,13 +8,14 @@ import { FinanceService } from 'src/services/data/finance/finance.service';
   styleUrls: ['./fee-type.component.css']
 })
 export class FeeTypeComponent implements OnInit {
-  searchString: string;
   p = 1;
   toggleState = false;
   feeGroupForm: FormGroup;
-  feeGroupList: any;
+  feeGroupList: any[] = [];
   EditfeeGroupForm: FormGroup;
   selectedFeeID: any;
+  searchString = '';
+
   constructor(
     private fb: FormBuilder,
     private finance: FinanceService,
@@ -35,6 +36,17 @@ export class FeeTypeComponent implements OnInit {
       isActive: false
     });
   }
+
+  get filteredFeeGroupList() {
+    if (!this.searchString || this.searchString.trim() === '') {
+      return this.feeGroupList;
+    }
+    const param = this.searchString.toLowerCase();
+    return this.feeGroupList.filter(g =>
+      (g.name && g.name.toLowerCase().includes(param))
+    );
+  }
+
   populateEditFeeGroupForm() {
     this.EditfeeGroupForm = this.fb.group({
       name: ['', Validators.required],

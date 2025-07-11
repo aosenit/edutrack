@@ -95,10 +95,13 @@ export class AdminService {
 
   }
 
-  getRoles() {
+  getRoles(keyword='') {
     // const tenantId = '1'; // just a temporary header till email services is ready
 
-    const url = `${this.baseUrl + routes.getRoles}`;
+    let url = `${this.baseUrl + routes.getRoles}`;
+    if (keyword) {
+      url += `?keyword=${encodeURIComponent(keyword)}`;
+    }
     return this.http.get(url, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 

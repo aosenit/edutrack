@@ -3,6 +3,7 @@ import { SchoolService } from 'src/services/data/school/school.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AssessmentService } from 'src/services/data/assessment/assessment.service';
 import * as moment from 'moment';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class SchoolManagerComponent implements OnInit {
   currentTerm: any;
   constructor(
     private school: SchoolService,
-    private assessmentService: AssessmentService
+    private assessmentService: AssessmentService,
+    private notifyService: NotificationsService,
 
   ) { }
 
@@ -35,7 +37,12 @@ export class SchoolManagerComponent implements OnInit {
       if (data.hasErrors === false) {
         // (data.paylaod);
         this.schoolDetails = data.payload;
+      } else {
+        this.notifyService.publishMessages(data.errors, 'danger', 1);
       }
+    }, error => {
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
     });
   }
 
