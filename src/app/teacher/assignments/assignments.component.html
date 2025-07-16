@@ -15,12 +15,12 @@
       <section class="search mt-5 mb-3">
         <div class="search__input has-search">
           <span class="fa fa-search form-control-feedback"></span>
-          <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString">
+          <input type="text" class="form-control" placeholder="Search" [formControl]="searchField">
         </div>
 
       </section>
 
-      <div *ngIf="assignmentLists?.length === 0" class=" mh-100 bg-white d-flex flex-column justify-content-center align-items-center" style="height: 78vh"> 
+      <div *ngIf="assignmentLists?.length === 0" class=" mh-100 bg-white d-flex flex-column justify-content-center align-items-center" style="height: 78vh">
         <img src="assets/images/svg/sad-face.svg" alt="table sort icon" class="mb-3">
         <p class="fw-6 cursor-pointer" >
         No assignment Submitted yet
@@ -36,19 +36,19 @@
                   <label class="custom-control-label" for="customCheckTh"></label>
                 </div>
               </th>
-              <th scope="col">Title 
+              <th scope="col">Title
                 <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
 
               </th>
-              <th scope="col">Subject 
+              <th scope="col">Subject
                 <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
 
               </th>
-              <th scope="col">Class 
+              <th scope="col">Class
                 <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
 
               </th>
-              <th scope="col">Date Created 
+              <th scope="col">Date Created
                 <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"> -->
 
               </th>
@@ -72,10 +72,10 @@
               <td>{{assignment?.className}}</td>
               <td>{{assignment?.creationDate | date: 'dd/MM/y'}}</td>
               <td >
-                <span class="status" 
+                <span class="status"
                 [ngStyle]="{cursor: 'pointer'}"
-                 (mouseover)="changeText(i)" 
-                 (mouseleave)="reverseText(assignment?.status, i)"  
+                 (mouseover)="changeText(i)"
+                 (mouseleave)="reverseText(assignment?.status, i)"
                  routerLink="/teacher/assignment-submission/{{assignment?.id}}" >{{assignment?.status}}</span>
                 <!-- <span class="status" [ngStyle]="{cursor: 'pointer'}" *ngIf="!changetext"
                   routerLink="/teacher/assignment-submission/{{assignment?.id}}">Open</span> -->
@@ -89,7 +89,9 @@
           </tbody>
         </table>
         <div class="d-flex justify-content-end">
-          <pagination-controls (pageChange)="getPage(p = $event)" class="text-center"></pagination-controls>
+          <mat-paginator [length]="assignmentCount" [pageSize]="itemsPerPage" [pageIndex]="p - 1"
+            (page)="getPage($event)" aria-label="Select page of clients">
+          </mat-paginator>
         </div>
 
       </section>

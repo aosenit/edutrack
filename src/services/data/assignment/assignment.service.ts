@@ -36,8 +36,11 @@ export class AssignmentService {
     return this.http.post(url, body,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
-  getAssignmentByTeacher(p, perpage) {
-    const url = `${this.baseUrl + routes.getAssignmentByTeacher}?PageIndex=${p}&PageSize=${perpage}`;
+  getAssignmentByTeacher(p, perpage, keyword='') {
+    let url = `${this.baseUrl + routes.getAssignmentByTeacher}?PageIndex=${p}&PageSize=${perpage}`;
+    if (keyword) {
+      url += `&keyword=${encodeURIComponent(keyword)}`;
+    }
     // (url)
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
@@ -46,7 +49,7 @@ export class AssignmentService {
   getAssignmentByClass() {
 
     const url = `${this.baseUrl + routes.getAssignmentByClass}`;
-    
+
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
@@ -54,7 +57,7 @@ export class AssignmentService {
   getAssignmentDetails(id: any) {
 
     const url = `${this.baseUrl + routes.getAssignmentDetails}?id=${id}`;
-    
+
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
@@ -62,7 +65,7 @@ export class AssignmentService {
   getAssignmentsByClassSubject(classSubjectId: number) {
 
     const url = `${this.baseUrl + routes.getAssignmentByClassSubject}?classSubjectId=${classSubjectId}`;
-    
+
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
@@ -84,20 +87,20 @@ export class AssignmentService {
 
   updateScore(result) {
     const url = `${this.baseUrl + routes.updatescore}`;
-    
+
     return this.http.put(url, result, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
   getAssignmentFiles(id: any) {
     const url = `${this.baseUrl + routes.getAssignmentFiles}/?classSubjectId=${id}`;
-    
+
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
   }
 
 
   getStudentAssignmentSubmission() {
     const url = `${this.baseUrl + routes.getstudentsubmissions}`;
-    
+
     return this.http.get(url, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 }

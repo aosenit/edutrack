@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { flatMap } from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { PageEvent } from '@angular/material';
+import { debounceTime, distinctUntilChanged, flatMap } from 'rxjs/operators';
+import { NotificationsService } from 'src/services/classes/notifications/notifications.service';
 import { AssignmentService } from 'src/services/data/assignment/assignment.service';
 
 @Component({
@@ -11,7 +14,7 @@ export class AssignmentsComponent implements OnInit {
   view = false;
   clipnote = true;
   assignmentLists: any;
-  searchString: string;
+  searchField!: FormControl;
   p = 1;
   itemsPerPage = 5;
   assignmentCount: number;
@@ -23,8 +26,21 @@ export class AssignmentsComponent implements OnInit {
 
   constructor(
     private assignmentService: AssignmentService,
+    private notifyService: NotificationsService,
 
-  ) { }
+  ) {
+      this.searchField = new FormControl();
+      this.searchField.valueChanges
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged()
+      )
+      .subscribe(term => {
+        this.p = 1;
+        this.getAssignmentByTeacher();
+      });
+  }
+
 
   ngOnInit() {
     this.getAssignmentByTeacher();
@@ -41,31 +57,22 @@ export class AssignmentsComponent implements OnInit {
 
   }
 
-
-  getAssignmentByTeacher() {
-    this.assignmentService.getAssignmentByTeacher(this.p, this.itemsPerPage).subscribe((data: any) => {
-      // (data);
-      if (data.hasErrors === false) {
-        // ('asasasa', data);
-        this.assignmentLists = data.payload;
-        this.assignmentCount = data.totalCount;
-      }
-    }, error => {
-      // (error);
-    });
+  getPage(event: PageEvent) {
+    let { pageIndex } = { ...event };
+    this.p = pageIndex + 1;
+    this.getAssignmentByTeacher();
   }
 
-  getPage(page: number) {
-    // (page);
-    this.assignmentService.getAssignmentByTeacher(page, this.itemsPerPage).subscribe((data: any) => {
-      // (data);
-      if (data.hasErrors === false) {
-        // ('asasasa', data);
+  getAssignmentByTeacher() {
+    this.assignmentService.getAssignmentByTeacher(this.p, this.itemsPerPage, this.searchField.value).subscribe((data: any) => {
+      if (data) {
         this.assignmentLists = data.payload;
         this.assignmentCount = data.totalCount;
+        // this.clientList.reverse();
       }
     }, error => {
-      // (error);
+      this.notifyService.publishMessages(error.errors, 'danger', 1);
+
     });
   }
 
