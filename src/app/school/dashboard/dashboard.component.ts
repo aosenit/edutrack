@@ -84,7 +84,7 @@ export class DashboardComponent implements OnInit {
       'FINANCE_UPDATE',
       'FINANCE_DELETE'
   ];
-    if (this.adminDetails.Permission !== null || this.adminDetails.Permission !== undefined) {
+    if (this.adminDetails.Permission ) {
       // tslint:disable-next-line:prefer-for-of
     for (let index = 0; index < finance.length; index++) {
       const element = finance[index];

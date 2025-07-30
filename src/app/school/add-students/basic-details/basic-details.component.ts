@@ -81,7 +81,7 @@ export class BasicDetailsComponent implements OnInit {
       Religion: ['', Validators.required],
       Nationality: ['', Validators.required],
       parentId: ['', Validators.required],
-      StateOfOrigin: ['', Validators.required],
+      StateOfOrigin: [''],
       LocalGovt: [''],
       TransportRoute: ['']
     });
