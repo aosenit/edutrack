@@ -51,7 +51,7 @@
     <div class="tab-content bg-white" id="pills-tabContent">
       <!-- <div class="tab-pane fade " id="pills-basic" role="tabpanel" aria-labelledby="pills-basic-tab">
 
-        
+
 
 
       </div>
@@ -83,13 +83,13 @@
               </div>
             </div>
             <div class="row mb-4">
-              
+
               <div class="col-md-6 ">
                 <label for="number" class="fw-6"> Number of Terms <span class="text-danger">*</span></label>
                 <input type="number" class="form-control form-control-lg" placeholder="Enter number of terms"
                   id="number" formControlName="numberOfTerms" >
-              </div> 
-              
+              </div>
+
               <div class="col-md-6">
                 <label for="primary" class="fw-6">Class Days <span class="text-danger">*</span></label>
                 <select name="" id="" class="form-control" formControlName="ClassDays" >
@@ -104,7 +104,7 @@
 
             <div class="row mb-4">
 
-             
+
             </div>
 
 
@@ -139,13 +139,13 @@
               </div>
             </div>
             <div class="row mb-4">
-              
+
               <div class="col-md-6 ">
                 <label for="number" class="fw-6"> Number of Terms <span class="text-danger">*</span></label>
                 <input type="number" class="form-control form-control-lg" placeholder="Enter number of terms"
                   id="number" formControlName="numberOfTerms" readonly="schoolPropertyForm.valid">
-              </div> 
-              
+              </div>
+
               <div class="col-md-6">
                 <label for="primary" class="fw-6">Class Days <span class="text-danger">*</span></label>
                 <select name="" id="" class="form-control" formControlName="ClassDays" >
@@ -160,7 +160,7 @@
 
             <div class="row mb-4">
 
-             
+
             </div>
 
 
@@ -200,13 +200,13 @@
               </div>
             </div>
             <div class="row mb-4">
-              
+
               <div class="col-md-6 ">
                 <label for="number" class="fw-6"> Number of Terms <span class="text-danger">*</span></label>
                 <input type="number" class="form-control form-control-lg" placeholder="Enter number of terms"
                   id="number" formControlName="numberOfTerms">
-              </div> 
-              
+              </div>
+
               <div class="col-md-6">
                 <label for="primary" class="fw-6">Class Days <span class="text-danger">*</span></label>
                 <select name="" id="" class="form-control" formControlName="classDays">
@@ -221,7 +221,7 @@
 
             <div class="row mb-4">
 
-             
+
             </div>
 
 
@@ -235,7 +235,7 @@
       <!-- </div> -->
 
       <div class="tab-pane fade  px-5 mh-100 " id="pills-session" role="tabpanel" aria-labelledby="pills-session-tab">
-        
+
 
         <section class="d-flex flex-column justify-content-center align-items-center py-5" *ngIf="sessionList?.length === 0">
           <img src="assets/images/svg/add-student.svg" alt="new employee" class="">
@@ -255,7 +255,7 @@
               data-target="#exampleModalCenterUpload">
               Add New </button>
             </div>
-            
+
             <div class="mt-4 w-75 table-responsive">
               <table class="table">
                 <thead>
@@ -269,15 +269,15 @@
                 <tbody>
                   <tr *ngFor="let session of sessionList; let i = index">
                     <td > {{session?.name}} </td>
-                    <td > {{session?.terms[0].startDate | date : 'mediumDate'}} </td>
-                    <td > {{session?.terms[2].endDate | date : 'mediumDate'}} </td>
-                    <td> 
-                      <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3" 
+                    <td > {{session?.terms[0]?.startDate | date : 'mediumDate'}} </td>
+                    <td > {{session?.terms[2]?.endDate | date : 'mediumDate'}} </td>
+                    <td>
+                      <button class="btn btn-info btn-sm far fa-edit mr-3 pr-3"
                       data-toggle="modal" data-target="#exampleModalCenterUpload"
-                          (click)="getTermDetails(i, session?.id)"> Edit Term</button>  
+                          (click)="getTermDetails(i, session?.id)"> Edit Term</button>
                     </td>
                   </tr>
-                  
+
                 </tbody>
               </table>
             </div>
