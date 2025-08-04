@@ -160,6 +160,7 @@ export class ParentListComponent implements OnInit {
         console.log('file successfully uplaoded', data.payload);
         this.notifyService.publishMessages(data.description, 'success', 1);
         document.getElementById('close').click();
+        this.clearFile();
         this.router.navigateByUrl('/admin/students');
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -181,6 +182,11 @@ export class ParentListComponent implements OnInit {
       this.studentBulkUploadForm.get('Document').setValue(file);
       // this.DocumentTypes.push(0);
     }
+  }
+
+  clearFile() {
+      this.filename = null;
+      this.studentBulkUploadForm.get('Document').setValue('');
   }
 
   downloadStudentSampleFile() {

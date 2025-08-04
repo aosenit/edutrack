@@ -14,7 +14,7 @@
         <h6 class="banner__text-primary fw-6 "> Teachers </h6>
         <p class=""> Directory of all registered teachers </p>
     </div>
-    
+
     <!-- <button class="btn btn-orange-two mx-2 mx-lg-3 px-5 mb-4 mt-3" routerLink="/school/add-student"> Add New </button> -->
     <div class="d-flex">
         <button class="btn btn-outline-orange mx-2 mx-lg-3 px-5 mb-4 mt-3" data-toggle="modal"
@@ -24,7 +24,7 @@ data-target="#exampleModalCenterUpload"> Bulk Upload </button>
 
 </section>
 <div *ngIf="teachersList?.length !== 0" >
-    
+
     <section class="d-flex align-items-center justify-content-between mb-4 mt-5">
         <div class="search__input has-search">
             <span class="fa fa-search form-control-feedback"></span>
@@ -36,42 +36,42 @@ data-target="#exampleModalCenterUpload"> Bulk Upload </button>
             <!-- <a class="dropdown-item" href="#">Another action</a>
             <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
-    
+
     </section>
-    
-    
-    
-    
+
+
+
+
     <section class="list table-responsive mb-4">
         <table class="table table-borderless client-table">
             <thead>
                 <tr>
-                   
-                    <th scope="col" class="head" >Full Name 
+
+                    <th scope="col" class="head" >Full Name
                         <!-- <img src="assets/images/svg/table-sort.svg"
                             alt="table sort icon" class="dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
                         <!-- ================ DROPDOWN ==================== -->
                         <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            
+
                             <a class="dropdown-item fc-orange" href="#">All </a>
                             <a class="dropdown-item" href="#">A - Z </a>
                             <a class="dropdown-item" href="#">Z - A </a>
                         </div> -->
                     </th>
                     <th scope="col">Staff Number </th>
-                   
-                    <!-- <th scope="col">Designation 
+
+                    <!-- <th scope="col">Designation
                     </th> -->
-                    
-    
-                    <th scope="col">Status 
+
+
+                    <th scope="col">Status
                         <!-- <img src="assets/images/svg/table-sort.svg" alt="table sort icon"
                             class="dropdown-toggle" type="button" id="dropdownMenuButton4" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false"> -->
                         <!-- ================ DROPDOWN ==================== -->
                         <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                            
+
                             <a class="dropdown-item fc-orange" href="#">All </a>
                             <a class="dropdown-item" href="#">Active </a>
                             <a class="dropdown-item" href="#">Inactive </a>
@@ -82,9 +82,9 @@ data-target="#exampleModalCenterUpload"> Bulk Upload </button>
             </thead>
             <tbody>
                 <tr class="pb-1" *ngFor = "let teacher of teachersList | tableSearch : 'firstName' : searchString">
-                    
+
                     <td class="user check rounded-left" >
-                        
+
                         <div class="d-flex align-items-center">
                             <img src="assets/images/svg/dummy_user.png" alt="schools log" class="mr-3  image-rounded" >
                             <h6 class="fw-6 mb-0" >{{teacher?.firstName + ' ' + teacher?.lastName | titlecase}} </h6>
@@ -92,7 +92,7 @@ data-target="#exampleModalCenterUpload"> Bulk Upload </button>
                     </td>
                     <td>{{teacher?.staffNumber}}</td>
                     <!-- <td> N/A </td> -->
-                    
+
                     <td><span class="status_active">Active</span></td>
                     <td class="rounded-right "><img src="assets/images/svg/more-action.svg"
                             alt="schools log" class="dropdown-toggle cursor-pointer mt-3" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -103,14 +103,14 @@ data-target="#exampleModalCenterUpload"> Bulk Upload </button>
                               </div>
                          </td>
                 </tr>
-    
-                
-    
-    
-    
+
+
+
+
+
             </tbody>
         </table>
-    
+
     </section>
 </div>
 
@@ -124,10 +124,10 @@ data-target="#exampleModalCenterUpload"> Bulk Upload </button>
          <div class="modal-head ">
              <div class="d-flex justify-content-between mb-3">
                  <h6 class="modal-title mr-auto">Upload Files</h6>
-                 <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" aria-label="Close" class="close">
+                 <img src="assets/images/svg/close-modal.svg" alt="modal close button" data-dismiss="modal" (click)="clearFile()" aria-label="Close" class="close">
 
              </div>
-             
+
          </div>
          <div class="modal-body client-modal">
              <form [formGroup]="teacherBulkUpload" (ngSubmit)="createTeacherBulkUpload()">
@@ -146,8 +146,8 @@ data-target="#exampleModalCenterUpload"> Bulk Upload </button>
                  <p class="mb-5 download" (click)="downloadAdminSampleFile()"  >Click <span class="fc-lblue">here</span> to download sample file</p>
 
                  <div class="modal-btn d-flex justify-content-end mb-5">
-                     <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal"> Cancel </button>
-                     <button class="btn btn-orange-two  px-5 mb-4 mt-3"> Upload File </button>
+                     <button class="btn btn-outline-orange  px-5 mb-4 mt-3 mr-3" data-dismiss="modal" (click)="clearFile()"> Cancel </button>
+                     <button class="btn btn-orange-two  px-5 mb-4 mt-3" [disabled]="!teacherBulkUpload?.get('Document')?.value"> Upload File </button>
                  </div>
 
              </form>

@@ -124,6 +124,7 @@ fileString: any;
       if (data.hasErrors === false) {
         this.notifyService.publishMessages(data.description, 'success', 1);
         document.getElementById('close').click();
+        this.clearFile();
         this.router.navigateByUrl('/admin/teacher');
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -137,8 +138,13 @@ fileString: any;
 
   }
 
+  clearFile() {
+      this.filename = null;
+      this.teacherBulkUpload.get('Document').setValue('');
+  }
+
   clearData() {
-    
+
   }
 
 }

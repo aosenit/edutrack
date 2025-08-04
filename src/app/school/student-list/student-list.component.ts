@@ -107,6 +107,7 @@ export class StudentListComponent implements OnInit {
       if (data.hasErrors === false) {
         this.notifyService.publishMessages(data.description, 'success', 1);
         document.getElementById('close').click();
+        this.clearFile();
         this.router.navigateByUrl('/admin/students');
       } else {
         this.notifyService.publishMessages(data.errors, 'danger', 1);
@@ -118,6 +119,11 @@ export class StudentListComponent implements OnInit {
     });
 
 
+  }
+
+  clearFile() {
+      this.filename = null;
+      this.studentBulkUploadForm.get('Document').setValue('');
   }
 
   handleBulkUpload(event: any) {
