@@ -26,6 +26,21 @@ const routes = {
   downloadEmployeesDataInPdf:'schtrack-auth/api/v1/Teacher/GetTeachersDataInPDF'
 
 };
+
+export enum UploadDocumentType {
+  Logo = '0',
+  Icon = '1',
+  ProfilePhoto = '2',
+  Assignment = '3',
+  AssignmentAnswer = '4',
+  ClassWork = '5',
+  LessonNote = '6',
+  Media  = '7',
+  Signature = '8',
+  Transaction_Receipt = '9',
+  AlumniEvent ='10'
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -54,7 +69,6 @@ export class TeacherService {
     body.append('LocalGovernment', form.LocalGovernment);
     body.append('Religion', form.Religion);
     body.append('IsActive', form.IsActive);
-    form.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     body.append('EmploymentDetails.StaffType', form.StaffType);
     body.append('EmploymentDetails.EmployementStatus', form.EmployementStatus);
     body.append('EmploymentDetails.HighestQualification', form.HighestQualification);
@@ -82,8 +96,14 @@ export class TeacherService {
     body.append('NextOfKin.NextKinPhone', form.NextKinPhone);
     body.append('NextOfKin.NextKinRelationship', form.NextKinRelationship);
     body.append('NextOfKin.NextKinState', form.NextKinState);
-    body.append('Files', form.profile);
-    body.append('Files', form.signature);
+    if (form.profile) {
+      body.append('Files', form.profile);
+      body.append('DocumentTypes', UploadDocumentType.ProfilePhoto)
+    }
+    if (form.signature) {
+      body.append('Files', form.signature);
+      body.append('DocumentTypes', UploadDocumentType.Signature)
+    }
     for (let i = 0; i < WorkExperienceVMs.length; i++) {
       body.append('WorkExperienceVMs[' + i + '].workRole', WorkExperienceVMs[i].workRole);
       body.append('WorkExperienceVMs[' + i + '].workCompanyName', WorkExperienceVMs[i].workCompanyName);
@@ -98,7 +118,7 @@ export class TeacherService {
       body.append('EducationExperienceVMs[' + i + '].endDate', EducationExperienceVMs[i].endDate);
     }
     const url = `${this.baseUrl + routes.addteacher}`;
-    
+
     return this.http.post(url, body, {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
   }
 
@@ -133,7 +153,6 @@ export class TeacherService {
     body.append('LocalGovernment', form.LocalGovernment);
     body.append('Religion', form.Religion);
     body.append('IsActive', form.IsActive);
-    form.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     body.append('EmploymentDetails.StaffType', form.StaffType);
     body.append('EmploymentDetails.EmployementStatus', form.EmployementStatus);
     body.append('EmploymentDetails.HighestQualification', form.HighestQualification);
@@ -161,8 +180,14 @@ export class TeacherService {
     body.append('NextOfKin.NextKinPhone', form.NextKinPhone);
     body.append('NextOfKin.NextKinRelationship', form.NextKinRelationship);
     body.append('NextOfKin.NextKinState', form.NextKinState);
-    body.append('Files', form.profile);
-    body.append('Files', form.signature);
+    if (form.profile) {
+      body.append('Files', form.profile);
+      body.append('DocumentTypes', UploadDocumentType.ProfilePhoto)
+    }
+    if (form.signature) {
+      body.append('Files', form.signature);
+      body.append('DocumentTypes', UploadDocumentType.Signature)
+    }
     for (let i = 0; i < WorkExperienceVMs.length; i++) {
      body.append('WorkExperienceVMs[' + i + '].workRole', WorkExperienceVMs[i].workRole);
      body.append('WorkExperienceVMs[' + i + '].workCompanyName', WorkExperienceVMs[i].workCompanyName);
@@ -239,7 +264,7 @@ export class TeacherService {
     }
     const url = `${this.baseUrl + routes.updateteacherbyid}/${userid}`;
     return this.http.put(url, body , {headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') }});
- 
+
    }
 
   }
@@ -290,7 +315,7 @@ export class TeacherService {
   getAllAssignmentSubmissionForASubject(id) {
     // const tenantId = '1'; // just a temporary header till email services is ready
     const url = `${this.baseUrl + routes.getAllassignmentSubmission}?assignmentId=${id}`;
-    
+
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
@@ -346,6 +371,6 @@ export class TeacherService {
     return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
-  
+
 
 }

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { environment } from 'src/environments/environment';
 import { FormBuilder } from '@angular/forms';
+import { UploadDocumentType } from '../teacher/teacher.service';
 
 const routes = {
   newAdmin: 'schtrack-auth/api/v1/Admin',
@@ -40,7 +41,7 @@ export class AdminService {
     body.append('userName', userForm.userName);
     body.append('email', userForm.email);
     body.append('Files', userForm.image);
-    userForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
+    body.append('DocumentTypes', UploadDocumentType.ProfilePhoto)
     body.append('phoneNumber', userForm.phoneNumber);
     const url = `${this.baseUrl + routes.newAdmin}`;
     return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { UploadDocumentType } from '../teacher/teacher.service';
 
 const routes = {
   addstaff: 'schtrack-auth/api/v1/Staff/AddStaff',
@@ -40,7 +41,6 @@ export class StaffService {
     body.append('LocalGovernment', form.LocalGovernment);
     body.append('Religion', form.Religion);
     body.append('IsActive', form.IsActive);
-    form.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
     body.append('EmploymentDetails.StaffType', form.StaffType);
     body.append('EmploymentDetails.EmployementStatus', form.EmployementStatus);
     body.append('EmploymentDetails.HighestQualification', form.HighestQualification);
@@ -68,8 +68,14 @@ export class StaffService {
     body.append('NextOfKin.NextKinPhone', form.NextKinPhone);
     body.append('NextOfKin.NextKinRelationship', form.NextKinRelationship);
     body.append('NextOfKin.NextKinState', form.NextKinState);
-    body.append('Files', form.profile);
-    body.append('Files', form.signature);
+    if (form.profile) {
+      body.append('Files', form.profile);
+      body.append('DocumentTypes', UploadDocumentType.ProfilePhoto)
+    }
+    if (form.signature) {
+      body.append('Files', form.signature);
+      body.append('DocumentTypes', UploadDocumentType.Signature)
+    }
     for (let i = 0; i < WorkExperienceVMs.length; i++) {
       body.append('WorkExperienceVMs[' + i + '].workRole', WorkExperienceVMs[i].workRole);
       body.append('WorkExperienceVMs[' + i + '].workCompanyName', WorkExperienceVMs[i].workCompanyName);
@@ -264,6 +270,6 @@ pe
     return this.http.post(url, body, { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
 
   }
-  
+
 
 }

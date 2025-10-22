@@ -1,6 +1,7 @@
   import { Injectable } from '@angular/core';
   import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
   import { environment } from 'src/environments/environment';
+import { UploadDocumentType } from '../teacher/teacher.service';
   const routes = {
   addstudent: 'schtrack-auth/api/v1/Student/AddStudent',
   getallstudent: 'schtrack-auth/api/v1/Student/GetAllStudent',
@@ -58,7 +59,7 @@ export class StudentService {
     body.append('Allergies', studentForm.Allergies);
     body.append('ConfidentialNotes', studentForm.ConfidentialNotes);
     body.append('Files', studentForm.profilePhoto);
-    studentForm.DocumentTypes.forEach((item) => body.append('DocumentTypes', item));
+    body.append('DocumentTypes', UploadDocumentType.ProfilePhoto)
     for (let i = 0; i < immunizationVms.length; i++) {
       body.append('immunizationVms[' + i + '].age', immunizationVms[i].age);
       body.append('immunizationVms[' + i + '].dateImmunized', immunizationVms[i].dateImmunized);
@@ -210,12 +211,12 @@ export class StudentService {
     exportStudentExcelFile(classId) {
       const url = `${this.baseUrl + routes.downloadStudentsReport}?classId=${classId}`;
       return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
-  
+
     }
     exportStudentPdf(classId) {
       const url = `${this.baseUrl + routes.downloadStudentsReportInPdf}?classId=${classId}`;
       return this.http.get(url,  { headers: { Authorization: 'Bearer ' + localStorage.getItem('access_token') } });
-  
+
     }
     getStudentInAClass(classId){
       const url = `${this.baseUrl + routes.getStudentInAClass}?classId=${classId}`;
